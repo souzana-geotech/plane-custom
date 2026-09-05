@@ -51,6 +51,7 @@
     }
   },
   "workspace_dashboard": {
+    "overdue_by_assignee": "按负责人划分的逾期事项",
     "empty_state": {
       "general": {
         "title": "项目、活动和指标概览",

@@ -51,6 +51,7 @@
     }
   },
   "workspace_dashboard": {
+    "overdue_by_assignee": "Просроченные по назначенным",
     "empty_state": {
       "general": {
         "title": "Обзор проектов, активности и метрик",

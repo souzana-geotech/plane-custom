@@ -51,6 +51,7 @@
     }
   },
   "workspace_dashboard": {
+    "overdue_by_assignee": "Atanana göre gecikenler",
     "empty_state": {
       "general": {
         "title": "Projelerinizin, aktivitenizin ve metriklerinizin genel görünümü",

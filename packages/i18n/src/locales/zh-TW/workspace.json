@@ -51,6 +51,7 @@
     }
   },
   "workspace_dashboard": {
+    "overdue_by_assignee": "依指派對象劃分的逾期事項",
     "empty_state": {
       "general": {
         "title": "您的專案、活動和指標概覽",

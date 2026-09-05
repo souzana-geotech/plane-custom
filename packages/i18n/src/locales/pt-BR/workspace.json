@@ -51,6 +51,7 @@
     }
   },
   "workspace_dashboard": {
+    "overdue_by_assignee": "Atrasados por responsável",
     "empty_state": {
       "general": {
         "title": "Visão geral dos seus projetos, atividades e métricas",

@@ -51,6 +51,7 @@
     }
   },
   "workspace_dashboard": {
+    "overdue_by_assignee": "Terlambat menurut penugas",
     "empty_state": {
       "general": {
         "title": "Ikhtisar proyek, aktivitas, dan metrik Anda",

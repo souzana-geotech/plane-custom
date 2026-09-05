@@ -51,6 +51,7 @@
     }
   },
   "workspace_dashboard": {
+    "overdue_by_assignee": "Прострочені за призначеними",
     "empty_state": {
       "general": {
         "title": "Огляд проєктів, активностей і метрик",

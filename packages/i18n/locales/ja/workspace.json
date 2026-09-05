@@ -51,6 +51,7 @@
     }
   },
   "workspace_dashboard": {
+    "overdue_by_assignee": "担当者別の期限超過",
     "empty_state": {
       "general": {
         "title": "プロジェクト、アクティビティ、メトリクスの概要",

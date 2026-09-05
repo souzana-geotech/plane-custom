@@ -51,6 +51,7 @@
     }
   },
   "workspace_dashboard": {
+    "overdue_by_assignee": "Întârziate după responsabil",
     "empty_state": {
       "general": {
         "title": "Prezentare generală a proiectelor, activităților și statisticilor tale",

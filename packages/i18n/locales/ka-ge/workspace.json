@@ -51,6 +51,7 @@
     }
   },
   "workspace_dashboard": {
+    "overdue_by_assignee": "ვადაგადაცილებული მინიჭებულის მიხედვით",
     "empty_state": {
       "general": {
         "title": "თქვენი პროექტების, აქტივობის და მეტრიკების მიმოხილვა",

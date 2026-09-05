@@ -51,6 +51,7 @@
     }
   },
   "workspace_dashboard": {
+    "overdue_by_assignee": "담당자별 기한 초과",
     "empty_state": {
       "general": {
         "title": "프로젝트, 활동 및 메트릭 개요",

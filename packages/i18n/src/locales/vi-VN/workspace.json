@@ -51,6 +51,7 @@
     }
   },
   "workspace_dashboard": {
+    "overdue_by_assignee": "Quá hạn theo người phụ trách",
     "empty_state": {
       "general": {
         "title": "Tổng quan về dự án, hoạt động và chỉ số",

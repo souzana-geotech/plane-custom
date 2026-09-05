@@ -51,6 +51,7 @@
     }
   },
   "workspace_dashboard": {
+    "overdue_by_assignee": "Overdue by assignee",
     "empty_state": {
       "general": {
         "title": "Overview of your projects, activity, and metrics",

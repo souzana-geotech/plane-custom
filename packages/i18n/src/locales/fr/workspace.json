@@ -51,6 +51,7 @@
     }
   },
   "workspace_dashboard": {
+    "overdue_by_assignee": "En retard par acteur",
     "empty_state": {
       "general": {
         "title": "Aperçu de vos projets, activités et métriques",
