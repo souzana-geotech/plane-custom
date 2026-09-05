@@ -94,7 +94,7 @@ const InviteMemberInput = observer(function InviteMemberInput(props: InviteMembe
   } = props;
 
   const [referenceElement, setReferenceElement] = useState<HTMLButtonElement | null>(null);
-  const [popperElement, setPopperElement] = useState<HTMLDivElement | null>(null);
+  const [popperElement, setPopperElement] = useState<HTMLElement | null>(null);
 
   const { t } = useTranslation();
 
@@ -206,13 +206,19 @@ const InviteMemberInput = observer(function InviteMemberInput(props: InviteMembe
                   />
                 </Listbox.Button>
 
-                <Listbox.Options as="div">
-                  <div
-                    className="shadow-sm absolute z-10 mt-1 h-fit w-48 space-y-1 rounded-md border border-strong bg-surface-1 p-2 focus:outline-none sm:w-60"
-                    ref={setPopperElement}
-                    style={styles.popper}
-                    {...attributes.popper}
-                  >
+                <Listbox.Options
+                  as="div"
+                  // the popper ref has to live here: headlessui v2 wraps the single child of
+                  // Listbox.Options in <Frozen>, which clones it and drops any ref set on it
+                  ref={setPopperElement}
+                  className="z-10"
+                  style={styles.popper}
+                  {...attributes.popper}
+                  // v2 defaults modal to true, which marks everything outside the options
+                  // element inert - including the container holding the options
+                  modal={false}
+                >
+                  <div className="shadow-sm mt-1 h-fit w-48 space-y-1 rounded-md border border-strong bg-surface-1 p-2 focus:outline-none sm:w-60">
                     {Object.entries(ROLE_DETAILS).map(([key, value]) => (
                       <Listbox.Option
                         as="div"
