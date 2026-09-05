@@ -49,7 +49,7 @@ export function Dropdown(props: ISingleSelectDropdown) {
   // states
   const [isOpen, setIsOpen] = useState(false);
   const [query, setQuery] = useState("");
-  const [popperElement, setPopperElement] = useState<HTMLDivElement | null>(null);
+  const [popperElement, setPopperElement] = useState<HTMLElement | null>(null);
   // refs
   const dropdownRef = useRef<HTMLDivElement | null>(null);
   // popper-js refs
@@ -142,15 +142,24 @@ export function Dropdown(props: ISingleSelectDropdown) {
         disabled={disabled}
       />
       {isOpen && (
-        <Combobox.Options as="ul" className="fixed z-10" static>
+        <Combobox.Options
+          as="ul"
+          // the popper ref has to live here: headlessui v2 wraps the single child of
+          // Combobox.Options in <Frozen>, which clones it and drops any ref set on it
+          ref={setPopperElement}
+          className="z-10"
+          style={styles.popper}
+          {...attributes.popper}
+          // inert today, since the trigger is a plain button and headlessui's own state
+          // never opens - kept so the v2 modal default cannot bite if that changes
+          modal={false}
+          static
+        >
           <div
             className={cn(
               "my-1 w-48 rounded-sm border-[0.5px] border-strong bg-surface-1 px-2 py-2 text-11 shadow-raised-200 focus:outline-none",
               optionsContainerClassName
             )}
-            ref={setPopperElement}
-            style={styles.popper}
-            {...attributes.popper}
           >
             <DropdownOptions
               isOpen={isOpen}
