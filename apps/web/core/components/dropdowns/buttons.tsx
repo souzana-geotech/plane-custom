@@ -6,7 +6,9 @@
 
 import React from "react";
 // helpers
-import { Button } from "@plane/propel/button";
+// this renders inside the dropdown trigger's own <button>, so it must not be a
+// button itself — nested buttons are invalid HTML and break hydration
+import { getButtonStyling } from "@plane/propel/button";
 import { Tooltip } from "@makeplane/propel/components/tooltip";
 import { cn } from "@plane/utils";
 // types
@@ -76,10 +78,9 @@ function BorderButton(props: ButtonProps) {
       layout="stacked"
       disabled={!showTooltip || isMobile}
     >
-      <Button
-        variant="ghost"
-        size="sm"
+      <span
         className={cn(
+          getButtonStyling("ghost", "sm"),
           "flex h-full w-full items-center justify-start gap-1.5 border-[0.5px] border-strong",
           {
             "bg-layer-transparent-active": isActive,
@@ -88,7 +89,7 @@ function BorderButton(props: ButtonProps) {
         )}
       >
         {children}
-      </Button>
+      </span>
     </Tooltip>
   );
 }
@@ -102,16 +103,15 @@ function BackgroundButton(props: ButtonProps) {
       layout="stacked"
       disabled={!showTooltip || isMobile}
     >
-      <Button
-        variant="ghost"
-        size="sm"
+      <span
         className={cn(
+          getButtonStyling("ghost", "sm"),
           "flex h-full w-full items-center justify-between gap-1.5 bg-layer-3 hover:bg-layer-1-hover",
           className
         )}
       >
         {children}
-      </Button>
+      </span>
     </Tooltip>
   );
 }
@@ -125,10 +125,9 @@ function TransparentButton(props: ButtonProps) {
       layout="stacked"
       disabled={!showTooltip || isMobile}
     >
-      <Button
-        variant="ghost"
-        size="sm"
+      <span
         className={cn(
+          getButtonStyling("ghost", "sm"),
           "flex h-full w-full items-center justify-between gap-1.5",
           {
             "bg-layer-transparent-active": isActive,
@@ -137,7 +136,7 @@ function TransparentButton(props: ButtonProps) {
         )}
       >
         {children}
-      </Button>
+      </span>
     </Tooltip>
   );
 }
