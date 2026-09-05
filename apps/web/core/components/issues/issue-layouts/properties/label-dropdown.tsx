@@ -82,7 +82,7 @@ export function LabelDropdown(props: ILabelDropdownProps) {
 
   // popper-js refs
   const [referenceElement, setReferenceElement] = useState<HTMLButtonElement | null>(null);
-  const [popperElement, setPopperElement] = useState<HTMLDivElement | null>(null);
+  const [popperElement, setPopperElement] = useState<HTMLElement | null>(null);
 
   //hooks
   const { fetchProjectLabels, getProjectLabels, createLabel } = useLabel();
@@ -251,12 +251,19 @@ export function LabelDropdown(props: ILabelDropdownProps) {
         multiple
       >
         {isOpen && (
-          <Combobox.Options as="ul" className="fixed z-10" modal={false} static>
+          <Combobox.Options
+            as="ul"
+            // the popper ref has to live here: headlessui v2 wraps the single child of
+            // Combobox.Options in <Frozen>, which clones it and drops any ref set on it
+            ref={setPopperElement}
+            className="z-10"
+            style={styles.popper}
+            {...attributes.popper}
+            modal={false}
+            static
+          >
             <div
               className={`z-10 my-1 h-auto w-48 rounded-sm border border-strong bg-surface-1 px-2 py-2.5 text-caption-sm-regular whitespace-nowrap shadow-raised-200 focus:outline-none ${optionsClassName}`}
-              ref={setPopperElement}
-              style={styles.popper}
-              {...attributes.popper}
             >
               <div className="flex w-full items-center justify-start rounded-sm border border-subtle bg-surface-2 px-2">
                 <SearchOutline className="h-3.5 w-3.5 text-tertiary" />
