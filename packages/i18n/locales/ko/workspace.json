@@ -51,7 +51,131 @@
     }
   },
   "workspace_dashboard": {
-    "overdue_by_assignee": "담당자별 기한 초과",
+    "title": "운영 대시보드",
+    "subtitle": "고객 작업, 업무, 부서, 직원 전반에 대한 관리 가시성",
+    "coverage_note": "이 워크스페이스에 관련 데이터가 없어 산출물, 고객 검토, 장비, 영업은 표시되지 않습니다. 직원 일정 충돌 감지에는 시각 정보가 필요하지만 작업 항목에는 시각 정보가 없습니다.",
+    "error": {
+      "title": "대시보드를 불러올 수 없습니다",
+      "description": "하나 이상의 요청이 실패했습니다. 다시 시도하거나 페이지를 새로 고치세요.",
+      "retry": "다시 시도"
+    },
+    "empty": {
+      "title": "아직 운영 데이터가 없습니다",
+      "description": "고객 작업용 모듈과 실제 업무용 작업 항목을 만들면 이 대시보드가 채워집니다."
+    },
+    "filters": {
+      "project": "프로젝트",
+      "job": "작업",
+      "department": "부서",
+      "employee": "직원",
+      "all": "전체",
+      "clear": "필터 지우기"
+    },
+    "kpi": {
+      "active_jobs": "진행 중인 작업",
+      "active_jobs_hint": "완료 또는 취소되지 않은 모듈",
+      "jobs_at_risk": "주의가 필요한 작업",
+      "jobs_at_risk_hint": "위험, 지연 또는 차단 상태인 진행 중 작업",
+      "overdue_tasks": "기한 초과 업무",
+      "overdue_tasks_hint": "마감일이 지난 미완료 작업 항목",
+      "due_this_week": "이번 주 마감",
+      "due_this_week_hint": "앞으로 7일 이내에 마감되는 미완료 작업 항목",
+      "blocked_tasks": "차단된 업무",
+      "blocked_tasks_hint": "다른 미완료 업무에 의해 차단된 미완료 작업 항목",
+      "no_due_date": "마감일 없음",
+      "no_due_date_hint": "마감일이 없는 미완료 작업 항목"
+    },
+    "severity": {
+      "critical": "심각",
+      "warning": "경고",
+      "info": "정보",
+      "success": "정상"
+    },
+    "exceptions": {
+      "title": "관리 예외 사항",
+      "description": "지금 경영진의 주의가 필요한 사항",
+      "none": "예외 사항이 없습니다. 모두 정상 진행 중입니다.",
+      "delayed_jobs": "{count, plural, one {지연된 작업 #건} other {지연된 작업 #건}}",
+      "overdue_tasks": "{count, plural, one {기한 초과 업무 #건} other {기한 초과 업무 #건}}",
+      "blocked_jobs": "{count, plural, one {차단된 작업 #건} other {차단된 작업 #건}}",
+      "at_risk_jobs": "{count, plural, one {위험 작업 #건} other {위험 작업 #건}}",
+      "blocked_tasks": "{count, plural, one {차단된 업무 #건} other {차단된 업무 #건}}",
+      "due_this_week": "{count, plural, one {이번 주 마감 업무 #건} other {이번 주 마감 업무 #건}}",
+      "unassigned_tasks": "{count, plural, one {미배정 미완료 업무 #건} other {미배정 미완료 업무 #건}}",
+      "no_due_date_tasks": "{count, plural, one {마감일 없는 미완료 업무 #건} other {마감일 없는 미완료 업무 #건}}",
+      "jobs_without_due_date": "{count, plural, one {마감일 없는 진행 중 작업 #건} other {마감일 없는 진행 중 작업 #건}}"
+    },
+    "job_health": {
+      "title": "작업 상태",
+      "description": "모듈 마감일, 차단된 업무, 기한 초과 업무, 일정 진행률을 바탕으로 산출됩니다",
+      "total": "{count, plural, one {작업 #건} other {작업 #건}}",
+      "on_track": "정상",
+      "at_risk": "위험",
+      "delayed": "지연",
+      "blocked": "차단됨"
+    },
+    "jobs": {
+      "title": "진행 중인 작업",
+      "description": "고객 작업을 나타내는 모듈",
+      "empty": "진행 중인 작업이 없습니다",
+      "empty_description": "고객 작업마다 모듈을 만들면 여기에서 추적할 수 있습니다.",
+      "columns": {
+        "job": "작업",
+        "lead": "담당자",
+        "progress": "진행률",
+        "status": "상태",
+        "due": "마감",
+        "health": "상태 등급"
+      },
+      "no_lead": "담당자 없음",
+      "no_due": "마감일 없음",
+      "open_items": "{count, plural, one {미완료 #건} other {미완료 #건}}",
+      "overdue_items": "{count, plural, one {기한 초과 #건} other {기한 초과 #건}}",
+      "blocked_items": "{count, plural, one {차단 #건} other {차단 #건}}",
+      "days_late": "{count, plural, one {#일 지연} other {#일 지연}}",
+      "days_left": "{count, plural, one {#일 남음} other {#일 남음}}"
+    },
+    "employees": {
+      "title": "직원 업무량",
+      "description": "직원별 미완료 작업 항목 수입니다. 가용 역량은 관리되지 않으므로 활용률 대신 건수를 표시합니다.",
+      "empty": "배정된 미완료 업무가 없습니다",
+      "columns": {
+        "employee": "직원",
+        "active": "진행 중",
+        "due_soon": "마감 임박",
+        "overdue": "기한 초과",
+        "blocked": "차단됨"
+      }
+    },
+    "pipeline": {
+      "title": "업무 파이프라인",
+      "description": "워크플로 상태별 업무 분포",
+      "total": "{count, plural, one {작업 항목 #건} other {작업 항목 #건}}",
+      "empty": "아직 작업 항목이 없습니다"
+    },
+    "departments": {
+      "title": "부서 업무량",
+      "description": "부서는 라벨로 표현됩니다",
+      "empty": "아직 라벨이 지정된 업무가 없습니다",
+      "no_label": "부서 없음",
+      "columns": {
+        "department": "부서",
+        "active": "진행 중",
+        "overdue": "기한 초과",
+        "completed": "완료",
+        "blocked": "차단됨"
+      }
+    },
+    "attention": {
+      "title": "주의가 필요한 업무",
+      "description": "기한 초과, 차단, 마감 임박 작업 항목",
+      "empty": "주의가 필요한 항목이 없습니다",
+      "overdue_by": "{count, plural, one {#일 초과} other {#일 초과}}",
+      "blocked": "차단됨",
+      "due_today": "오늘 마감",
+      "due_in": "{count, plural, one {#일 후 마감} other {#일 후 마감}}",
+      "more": "{count, plural, one {#건 더 있음(표시되지 않음)} other {#건 더 있음(표시되지 않음)}}"
+    },
     "empty_state": {
       "general": {
         "title": "프로젝트, 활동 및 메트릭 개요",

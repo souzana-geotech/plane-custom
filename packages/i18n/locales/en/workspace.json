@@ -51,7 +51,131 @@
     }
   },
   "workspace_dashboard": {
-    "overdue_by_assignee": "Overdue by assignee",
+    "title": "Operations dashboard",
+    "subtitle": "Management visibility across client jobs, work, departments and employees",
+    "coverage_note": "Deliverables, client reviews, equipment and sales are not shown because this workspace has no data for them. Employee scheduling conflicts need time-of-day scheduling, which work items do not carry.",
+    "error": {
+      "title": "Could not load the dashboard",
+      "description": "One or more requests failed. Retry, or refresh the page.",
+      "retry": "Retry"
+    },
+    "empty": {
+      "title": "No operations data yet",
+      "description": "Create modules for client jobs and work items for the actual work, and this dashboard will fill in."
+    },
+    "filters": {
+      "project": "Project",
+      "job": "Job",
+      "department": "Department",
+      "employee": "Employee",
+      "all": "All",
+      "clear": "Clear filters"
+    },
+    "kpi": {
+      "active_jobs": "Active jobs",
+      "active_jobs_hint": "Modules that are not completed or cancelled",
+      "jobs_at_risk": "Jobs needing attention",
+      "jobs_at_risk_hint": "Active jobs that are at risk, delayed or blocked",
+      "overdue_tasks": "Overdue tasks",
+      "overdue_tasks_hint": "Open work items past their due date",
+      "due_this_week": "Due this week",
+      "due_this_week_hint": "Open work items due within the next 7 days",
+      "blocked_tasks": "Blocked tasks",
+      "blocked_tasks_hint": "Open work items blocked by other open work",
+      "no_due_date": "No due date",
+      "no_due_date_hint": "Open work items without a due date"
+    },
+    "severity": {
+      "critical": "Critical",
+      "warning": "Warning",
+      "info": "Informational",
+      "success": "On track"
+    },
+    "exceptions": {
+      "title": "Management exceptions",
+      "description": "What needs management attention right now",
+      "none": "No exceptions. Everything is on track.",
+      "delayed_jobs": "{count, plural, one {# delayed job} other {# delayed jobs}}",
+      "overdue_tasks": "{count, plural, one {# overdue task} other {# overdue tasks}}",
+      "blocked_jobs": "{count, plural, one {# blocked job} other {# blocked jobs}}",
+      "at_risk_jobs": "{count, plural, one {# job at risk} other {# jobs at risk}}",
+      "blocked_tasks": "{count, plural, one {# blocked task} other {# blocked tasks}}",
+      "due_this_week": "{count, plural, one {# task due this week} other {# tasks due this week}}",
+      "unassigned_tasks": "{count, plural, one {# unassigned open task} other {# unassigned open tasks}}",
+      "no_due_date_tasks": "{count, plural, one {# open task without a due date} other {# open tasks without a due date}}",
+      "jobs_without_due_date": "{count, plural, one {# active job without a due date} other {# active jobs without a due date}}"
+    },
+    "job_health": {
+      "title": "Job health",
+      "description": "Derived from module due dates, blocked work, overdue work and schedule progress",
+      "total": "{count, plural, one {# job} other {# jobs}}",
+      "on_track": "On track",
+      "at_risk": "At risk",
+      "delayed": "Delayed",
+      "blocked": "Blocked"
+    },
+    "jobs": {
+      "title": "Active jobs",
+      "description": "Modules that represent client jobs",
+      "empty": "No active jobs",
+      "empty_description": "Create a module for each client job to track it here.",
+      "columns": {
+        "job": "Job",
+        "lead": "Lead",
+        "progress": "Progress",
+        "status": "Status",
+        "due": "Due",
+        "health": "Health"
+      },
+      "no_lead": "No lead",
+      "no_due": "No due date",
+      "open_items": "{count, plural, one {# open} other {# open}}",
+      "overdue_items": "{count, plural, one {# overdue} other {# overdue}}",
+      "blocked_items": "{count, plural, one {# blocked} other {# blocked}}",
+      "days_late": "{count, plural, one {# day late} other {# days late}}",
+      "days_left": "{count, plural, one {# day left} other {# days left}}"
+    },
+    "employees": {
+      "title": "Employee workload",
+      "description": "Open work items per employee. Capacity is not tracked, so counts are shown instead of utilisation.",
+      "empty": "No open work is assigned",
+      "columns": {
+        "employee": "Employee",
+        "active": "Active",
+        "due_soon": "Due soon",
+        "overdue": "Overdue",
+        "blocked": "Blocked"
+      }
+    },
+    "pipeline": {
+      "title": "Work pipeline",
+      "description": "Where work sits across the workflow states",
+      "total": "{count, plural, one {# work item} other {# work items}}",
+      "empty": "No work items yet"
+    },
+    "departments": {
+      "title": "Department workload",
+      "description": "Departments are represented by labels",
+      "empty": "No labelled work yet",
+      "no_label": "No department",
+      "columns": {
+        "department": "Department",
+        "active": "Active",
+        "overdue": "Overdue",
+        "completed": "Completed",
+        "blocked": "Blocked"
+      }
+    },
+    "attention": {
+      "title": "Work needing attention",
+      "description": "Overdue, blocked and due-soon work items",
+      "empty": "Nothing needs attention",
+      "overdue_by": "{count, plural, one {Overdue by # day} other {Overdue by # days}}",
+      "blocked": "Blocked",
+      "due_today": "Due today",
+      "due_in": "{count, plural, one {Due in # day} other {Due in # days}}",
+      "more": "{count, plural, one {# more item not shown} other {# more items not shown}}"
+    },
     "empty_state": {
       "general": {
         "title": "Overview of your projects, activity, and metrics",

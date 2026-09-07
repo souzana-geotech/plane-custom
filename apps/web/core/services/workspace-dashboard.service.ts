@@ -6,25 +6,54 @@
 
 // plane imports
 import { API_BASE_URL } from "@plane/constants";
-import { renderFormattedPayloadDate } from "@plane/utils";
+import type { TIssueRelationTypes, TIssuesResponse } from "@plane/types";
 // services
 import { APIService } from "./api.service";
 
-export type TAnalyticsAssigneeDetail = {
-  assignees__avatar_url: string | null;
-  assignees__display_name: string;
-  assignees__first_name: string;
-  assignees__last_name: string;
-  assignees__id: string;
+/**
+ * Relation entry returned by the project work item list when `expand=issue_relation` is requested.
+ * `relation_type` describes how the listed work item relates to `id` (e.g. `blocked_by` = the listed
+ * work item is blocked by `id`).
+ */
+export type TWorkspaceDashboardRelation = {
+  id: string;
+  project_id: string;
+  sequence_id: number;
+  name: string;
+  relation_type: TIssueRelationTypes;
+  state_id: string | null;
+  priority: string | null;
 };
 
-export type TOverdueByAssigneeResponse = {
-  total: number;
-  distribution: Record<string, { dimension: string | null; count: number }[]>;
-  extras: {
-    assignee_details: TAnalyticsAssigneeDetail[];
-  };
+/**
+ * Work item shape consumed by the workspace dashboard. It mirrors the fields the existing
+ * project-level `issues-detail` endpoint already returns; nothing here is dashboard specific.
+ */
+export type TWorkspaceDashboardWorkItem = {
+  id: string;
+  name: string;
+  sequence_id: number;
+  project_id: string;
+  state_id: string | null;
+  priority: string | null;
+  start_date: string | null;
+  target_date: string | null;
+  completed_at: string | null;
+  assignee_ids: string[];
+  label_ids: string[];
+  module_ids: string[];
+  is_draft: boolean;
+  archived_at: string | null;
+  issue_relation?: TWorkspaceDashboardRelation[];
 };
+
+type TWorkItemsPage = Omit<TIssuesResponse, "results"> & {
+  results: TWorkspaceDashboardWorkItem[];
+};
+
+// hard cap so a runaway workspace can never keep the dashboard paging forever
+const MAX_PAGES_PER_PROJECT = 10;
+const PAGE_SIZE = 1000;
 
 export class WorkspaceDashboardService extends APIService {
   constructor() {
@@ -32,23 +61,32 @@ export class WorkspaceDashboardService extends APIService {
   }
 
   /**
-   * Overdue work items grouped by assignee: due date strictly before today,
-   * limited to states that are not completed or cancelled.
+   * Fetches every non-archived, non-draft work item of a project together with its relations,
+   * paging through the existing `issues-detail` endpoint until it reports no further pages.
    */
-  async getOverdueByAssignee(workspaceSlug: string): Promise<TOverdueByAssigneeResponse> {
-    const yesterday = new Date();
-    yesterday.setDate(yesterday.getDate() - 1);
-    return this.get(`/api/workspaces/${workspaceSlug}/analytics/`, {
-      params: {
-        x_axis: "assignees__id",
-        y_axis: "issue_count",
-        target_date: `${renderFormattedPayloadDate(yesterday)};before`,
-        state_group: "backlog,unstarted,started",
-      },
-    })
-      .then((res) => res?.data)
-      .catch((err) => {
-        throw err?.response?.data;
-      });
+  async getProjectWorkItems(workspaceSlug: string, projectId: string): Promise<TWorkspaceDashboardWorkItem[]> {
+    const workItems: TWorkspaceDashboardWorkItem[] = [];
+    let cursor = `${PAGE_SIZE}:0:0`;
+    for (let page = 0; page < MAX_PAGES_PER_PROJECT; page++) {
+      // oxlint-disable-next-line no-await-in-loop -- each page's cursor comes from the previous response
+      const response: TWorkItemsPage = await this.get(
+        `/api/workspaces/${workspaceSlug}/projects/${projectId}/issues-detail/`,
+        {
+          params: {
+            expand: "issue_relation",
+            per_page: PAGE_SIZE,
+            cursor,
+          },
+        }
+      )
+        .then((res) => res?.data)
+        .catch((err) => {
+          throw err?.response?.data;
+        });
+      workItems.push(...(response?.results ?? []));
+      if (!response?.next_page_results || !response?.next_cursor) break;
+      cursor = response.next_cursor;
+    }
+    return workItems;
   }
 }

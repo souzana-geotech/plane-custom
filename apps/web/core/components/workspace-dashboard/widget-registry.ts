@@ -5,21 +5,18 @@
  */
 
 import type React from "react";
+// local imports
+import type { TWorkspaceDashboardWidgetKey } from "./data/types";
+import { ActiveJobsWidget } from "./widgets/active-jobs";
+import { AttentionListWidget } from "./widgets/attention-list";
+import { DepartmentWorkloadWidget } from "./widgets/department-workload";
+import { EmployeeWorkloadWidget } from "./widgets/employee-workload";
+import { JobHealthWidget } from "./widgets/job-health";
+import { KpiCardsWidget } from "./widgets/kpi-cards";
+import { ManagementExceptionsWidget } from "./widgets/management-exceptions";
+import { WorkPipelineWidget } from "./widgets/work-pipeline";
 
-import { CreatedVsResolvedWidget } from "./widgets/created-vs-resolved";
-import { OverdueByAssigneeWidget } from "./widgets/overdue-by-assignee";
-import { OverviewStatsWidget } from "./widgets/overview-stats";
-import { PriorityBreakdownWidget } from "./widgets/priority-breakdown";
-import { ProjectBreakdownWidget } from "./widgets/project-breakdown";
-import { WorkItemStatsWidget } from "./widgets/work-item-stats";
-
-export type TWorkspaceDashboardWidgetKey =
-  | "overview_stats"
-  | "work_item_stats"
-  | "overdue_by_assignee"
-  | "created_vs_resolved"
-  | "priority_breakdown"
-  | "project_breakdown";
+export type { TWorkspaceDashboardWidgetKey };
 
 export type TWorkspaceDashboardWidgetProps = {
   workspaceSlug: string;
@@ -32,11 +29,30 @@ export type TWorkspaceDashboardWidget = {
   fullWidth: boolean;
 };
 
+/**
+ * Layout order of the operations dashboard:
+ *   KPI cards → management exceptions → job health | employee workload
+ *   → work pipeline | department workload → active jobs → work needing attention
+ */
 export const WORKSPACE_DASHBOARD_WIDGETS: TWorkspaceDashboardWidget[] = [
-  { key: "overview_stats", component: OverviewStatsWidget, fullWidth: true },
-  { key: "work_item_stats", component: WorkItemStatsWidget, fullWidth: true },
-  { key: "overdue_by_assignee", component: OverdueByAssigneeWidget, fullWidth: false },
-  { key: "priority_breakdown", component: PriorityBreakdownWidget, fullWidth: false },
-  { key: "created_vs_resolved", component: CreatedVsResolvedWidget, fullWidth: true },
-  { key: "project_breakdown", component: ProjectBreakdownWidget, fullWidth: true },
+  { key: "kpi_cards", component: KpiCardsWidget, fullWidth: true },
+  {
+    key: "management_exceptions",
+    component: ManagementExceptionsWidget,
+    fullWidth: true,
+  },
+  { key: "job_health", component: JobHealthWidget, fullWidth: false },
+  {
+    key: "employee_workload",
+    component: EmployeeWorkloadWidget,
+    fullWidth: false,
+  },
+  { key: "work_pipeline", component: WorkPipelineWidget, fullWidth: false },
+  {
+    key: "department_workload",
+    component: DepartmentWorkloadWidget,
+    fullWidth: false,
+  },
+  { key: "active_jobs", component: ActiveJobsWidget, fullWidth: true },
+  { key: "attention_list", component: AttentionListWidget, fullWidth: true },
 ];

@@ -51,7 +51,131 @@
     }
   },
   "workspace_dashboard": {
-    "overdue_by_assignee": "Atrasados por responsável",
+    "title": "Painel de operações",
+    "subtitle": "Visibilidade gerencial sobre trabalhos de clientes, tarefas, departamentos e funcionários",
+    "coverage_note": "Entregáveis, revisões de clientes, equipamentos e vendas não são exibidos porque este espaço de trabalho não possui dados sobre eles. Conflitos de agenda dos funcionários exigem horários, que os itens de trabalho não têm.",
+    "error": {
+      "title": "Não foi possível carregar o painel",
+      "description": "Uma ou mais solicitações falharam. Tente novamente ou atualize a página.",
+      "retry": "Tentar novamente"
+    },
+    "empty": {
+      "title": "Ainda não há dados de operações",
+      "description": "Crie Módulos para os trabalhos de clientes e itens de trabalho para o trabalho real, e este painel será preenchido."
+    },
+    "filters": {
+      "project": "Projeto",
+      "job": "Trabalho",
+      "department": "Departamento",
+      "employee": "Funcionário",
+      "all": "Todos",
+      "clear": "Limpar filtros"
+    },
+    "kpi": {
+      "active_jobs": "Trabalhos ativos",
+      "active_jobs_hint": "Módulos que não estão concluídos nem cancelados",
+      "jobs_at_risk": "Trabalhos que precisam de atenção",
+      "jobs_at_risk_hint": "Trabalhos ativos em risco, atrasados ou bloqueados",
+      "overdue_tasks": "Tarefas atrasadas",
+      "overdue_tasks_hint": "Itens de trabalho abertos com prazo vencido",
+      "due_this_week": "Vencem esta semana",
+      "due_this_week_hint": "Itens de trabalho abertos com vencimento nos próximos 7 dias",
+      "blocked_tasks": "Tarefas bloqueadas",
+      "blocked_tasks_hint": "Itens de trabalho abertos bloqueados por outro trabalho aberto",
+      "no_due_date": "Sem prazo",
+      "no_due_date_hint": "Itens de trabalho abertos sem data de vencimento"
+    },
+    "severity": {
+      "critical": "Crítico",
+      "warning": "Aviso",
+      "info": "Informativo",
+      "success": "No prazo"
+    },
+    "exceptions": {
+      "title": "Exceções de gestão",
+      "description": "O que exige a atenção da gestão agora",
+      "none": "Nenhuma exceção. Tudo dentro do previsto.",
+      "delayed_jobs": "{count, plural, one {# trabalho atrasado} many {# trabalhos atrasados} other {# trabalhos atrasados}}",
+      "overdue_tasks": "{count, plural, one {# tarefa atrasada} many {# tarefas atrasadas} other {# tarefas atrasadas}}",
+      "blocked_jobs": "{count, plural, one {# trabalho bloqueado} many {# trabalhos bloqueados} other {# trabalhos bloqueados}}",
+      "at_risk_jobs": "{count, plural, one {# trabalho em risco} many {# trabalhos em risco} other {# trabalhos em risco}}",
+      "blocked_tasks": "{count, plural, one {# tarefa bloqueada} many {# tarefas bloqueadas} other {# tarefas bloqueadas}}",
+      "due_this_week": "{count, plural, one {# tarefa vence esta semana} many {# tarefas vencem esta semana} other {# tarefas vencem esta semana}}",
+      "unassigned_tasks": "{count, plural, one {# tarefa aberta sem responsável} many {# tarefas abertas sem responsável} other {# tarefas abertas sem responsável}}",
+      "no_due_date_tasks": "{count, plural, one {# tarefa aberta sem prazo} many {# tarefas abertas sem prazo} other {# tarefas abertas sem prazo}}",
+      "jobs_without_due_date": "{count, plural, one {# trabalho ativo sem prazo} many {# trabalhos ativos sem prazo} other {# trabalhos ativos sem prazo}}"
+    },
+    "job_health": {
+      "title": "Saúde dos trabalhos",
+      "description": "Derivada dos prazos dos Módulos, do trabalho bloqueado, do trabalho atrasado e do progresso do cronograma",
+      "total": "{count, plural, one {# trabalho} many {# trabalhos} other {# trabalhos}}",
+      "on_track": "No prazo",
+      "at_risk": "Em risco",
+      "delayed": "Atrasado",
+      "blocked": "Bloqueado"
+    },
+    "jobs": {
+      "title": "Trabalhos ativos",
+      "description": "Módulos que representam trabalhos de clientes",
+      "empty": "Nenhum trabalho ativo",
+      "empty_description": "Crie um Módulo para cada trabalho de cliente para acompanhá-lo aqui.",
+      "columns": {
+        "job": "Trabalho",
+        "lead": "Responsável",
+        "progress": "Progresso",
+        "status": "Status",
+        "due": "Prazo",
+        "health": "Saúde"
+      },
+      "no_lead": "Sem responsável",
+      "no_due": "Sem prazo",
+      "open_items": "{count, plural, one {# aberto} many {# abertos} other {# abertos}}",
+      "overdue_items": "{count, plural, one {# atrasado} many {# atrasados} other {# atrasados}}",
+      "blocked_items": "{count, plural, one {# bloqueado} many {# bloqueados} other {# bloqueados}}",
+      "days_late": "{count, plural, one {# dia de atraso} many {# dias de atraso} other {# dias de atraso}}",
+      "days_left": "{count, plural, one {# dia restante} many {# dias restantes} other {# dias restantes}}"
+    },
+    "employees": {
+      "title": "Carga de trabalho por funcionário",
+      "description": "Itens de trabalho abertos por funcionário. A capacidade não é registrada, então são exibidas contagens em vez de utilização.",
+      "empty": "Nenhum trabalho aberto atribuído",
+      "columns": {
+        "employee": "Funcionário",
+        "active": "Ativos",
+        "due_soon": "Vencem em breve",
+        "overdue": "Atrasados",
+        "blocked": "Bloqueado"
+      }
+    },
+    "pipeline": {
+      "title": "Fluxo de trabalho",
+      "description": "Onde o trabalho está nos estados do fluxo",
+      "total": "{count, plural, one {# item de trabalho} many {# itens de trabalho} other {# itens de trabalho}}",
+      "empty": "Ainda não há itens de trabalho"
+    },
+    "departments": {
+      "title": "Carga de trabalho por departamento",
+      "description": "Os departamentos são representados por etiquetas",
+      "empty": "Ainda não há trabalho etiquetado",
+      "no_label": "Sem departamento",
+      "columns": {
+        "department": "Departamento",
+        "active": "Ativos",
+        "overdue": "Atrasados",
+        "completed": "Concluídos",
+        "blocked": "Bloqueado"
+      }
+    },
+    "attention": {
+      "title": "Trabalho que precisa de atenção",
+      "description": "Itens de trabalho atrasados, bloqueados ou que vencem em breve",
+      "empty": "Nada precisa de atenção",
+      "overdue_by": "{count, plural, one {Atrasado há # dia} many {Atrasado há # dias} other {Atrasado há # dias}}",
+      "blocked": "Bloqueado",
+      "due_today": "Vence hoje",
+      "due_in": "{count, plural, one {Vence em # dia} many {Vence em # dias} other {Vence em # dias}}",
+      "more": "{count, plural, one {mais # item não exibido} many {mais # itens não exibidos} other {mais # itens não exibidos}}"
+    },
     "empty_state": {
       "general": {
         "title": "Visão geral dos seus projetos, atividades e métricas",

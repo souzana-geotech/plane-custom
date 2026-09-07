@@ -51,7 +51,131 @@
     }
   },
   "workspace_dashboard": {
-    "overdue_by_assignee": "Terlambat menurut penugas",
+    "title": "Dasbor operasi",
+    "subtitle": "Visibilitas manajemen atas pekerjaan klien, tugas, departemen, dan karyawan",
+    "coverage_note": "Hasil kerja, tinjauan klien, peralatan, dan penjualan tidak ditampilkan karena ruang kerja ini tidak memiliki data untuk itu. Konflik jadwal karyawan memerlukan informasi jam, yang tidak dimiliki item pekerjaan.",
+    "error": {
+      "title": "Dasbor tidak dapat dimuat",
+      "description": "Satu atau beberapa permintaan gagal. Coba lagi atau muat ulang halaman.",
+      "retry": "Coba lagi"
+    },
+    "empty": {
+      "title": "Belum ada data operasi",
+      "description": "Buat Modul untuk pekerjaan klien dan item pekerjaan untuk pekerjaan sebenarnya, maka dasbor ini akan terisi."
+    },
+    "filters": {
+      "project": "Proyek",
+      "job": "Pekerjaan",
+      "department": "Departemen",
+      "employee": "Karyawan",
+      "all": "Semua",
+      "clear": "Hapus filter"
+    },
+    "kpi": {
+      "active_jobs": "Pekerjaan aktif",
+      "active_jobs_hint": "Modul yang belum selesai atau dibatalkan",
+      "jobs_at_risk": "Pekerjaan yang perlu perhatian",
+      "jobs_at_risk_hint": "Pekerjaan aktif yang berisiko, tertunda, atau terhambat",
+      "overdue_tasks": "Tugas terlambat",
+      "overdue_tasks_hint": "Item pekerjaan terbuka yang telah melewati tenggat",
+      "due_this_week": "Jatuh tempo minggu ini",
+      "due_this_week_hint": "Item pekerjaan terbuka yang jatuh tempo dalam 7 hari ke depan",
+      "blocked_tasks": "Tugas terhambat",
+      "blocked_tasks_hint": "Item pekerjaan terbuka yang terhambat oleh pekerjaan terbuka lain",
+      "no_due_date": "Tanpa tenggat",
+      "no_due_date_hint": "Item pekerjaan terbuka tanpa tanggal tenggat"
+    },
+    "severity": {
+      "critical": "Kritis",
+      "warning": "Peringatan",
+      "info": "Informasi",
+      "success": "Sesuai rencana"
+    },
+    "exceptions": {
+      "title": "Pengecualian manajemen",
+      "description": "Hal yang memerlukan perhatian manajemen saat ini",
+      "none": "Tidak ada pengecualian. Semua sesuai rencana.",
+      "delayed_jobs": "{count, plural, one {# pekerjaan tertunda} other {# pekerjaan tertunda}}",
+      "overdue_tasks": "{count, plural, one {# tugas terlambat} other {# tugas terlambat}}",
+      "blocked_jobs": "{count, plural, one {# pekerjaan terhambat} other {# pekerjaan terhambat}}",
+      "at_risk_jobs": "{count, plural, one {# pekerjaan berisiko} other {# pekerjaan berisiko}}",
+      "blocked_tasks": "{count, plural, one {# tugas terhambat} other {# tugas terhambat}}",
+      "due_this_week": "{count, plural, one {# tugas jatuh tempo minggu ini} other {# tugas jatuh tempo minggu ini}}",
+      "unassigned_tasks": "{count, plural, one {# tugas terbuka belum ditugaskan} other {# tugas terbuka belum ditugaskan}}",
+      "no_due_date_tasks": "{count, plural, one {# tugas terbuka tanpa tenggat} other {# tugas terbuka tanpa tenggat}}",
+      "jobs_without_due_date": "{count, plural, one {# pekerjaan aktif tanpa tenggat} other {# pekerjaan aktif tanpa tenggat}}"
+    },
+    "job_health": {
+      "title": "Kesehatan pekerjaan",
+      "description": "Diturunkan dari tenggat Modul, pekerjaan terhambat, pekerjaan terlambat, dan kemajuan jadwal",
+      "total": "{count, plural, one {# pekerjaan} other {# pekerjaan}}",
+      "on_track": "Sesuai rencana",
+      "at_risk": "Berisiko",
+      "delayed": "Tertunda",
+      "blocked": "Terhambat"
+    },
+    "jobs": {
+      "title": "Pekerjaan aktif",
+      "description": "Modul yang mewakili pekerjaan klien",
+      "empty": "Tidak ada pekerjaan aktif",
+      "empty_description": "Buat satu Modul untuk setiap pekerjaan klien agar dapat dilacak di sini.",
+      "columns": {
+        "job": "Pekerjaan",
+        "lead": "Penanggung jawab",
+        "progress": "Kemajuan",
+        "status": "Status",
+        "due": "Tenggat",
+        "health": "Kesehatan"
+      },
+      "no_lead": "Tanpa penanggung jawab",
+      "no_due": "Tanpa tenggat",
+      "open_items": "{count, plural, one {# terbuka} other {# terbuka}}",
+      "overdue_items": "{count, plural, one {# terlambat} other {# terlambat}}",
+      "blocked_items": "{count, plural, one {# terhambat} other {# terhambat}}",
+      "days_late": "{count, plural, one {Terlambat # hari} other {Terlambat # hari}}",
+      "days_left": "{count, plural, one {Tersisa # hari} other {Tersisa # hari}}"
+    },
+    "employees": {
+      "title": "Beban kerja karyawan",
+      "description": "Item pekerjaan terbuka per karyawan. Kapasitas tidak dilacak, sehingga yang ditampilkan adalah jumlah, bukan tingkat pemanfaatan.",
+      "empty": "Tidak ada pekerjaan terbuka yang ditugaskan",
+      "columns": {
+        "employee": "Karyawan",
+        "active": "Aktif",
+        "due_soon": "Segera",
+        "overdue": "Terlambat",
+        "blocked": "Terhambat"
+      }
+    },
+    "pipeline": {
+      "title": "Alur pekerjaan",
+      "description": "Posisi pekerjaan di seluruh status alur kerja",
+      "total": "{count, plural, one {# item pekerjaan} other {# item pekerjaan}}",
+      "empty": "Belum ada item pekerjaan"
+    },
+    "departments": {
+      "title": "Beban kerja departemen",
+      "description": "Departemen diwakili oleh label",
+      "empty": "Belum ada pekerjaan berlabel",
+      "no_label": "Tanpa departemen",
+      "columns": {
+        "department": "Departemen",
+        "active": "Aktif",
+        "overdue": "Terlambat",
+        "completed": "Selesai",
+        "blocked": "Terhambat"
+      }
+    },
+    "attention": {
+      "title": "Pekerjaan yang perlu perhatian",
+      "description": "Item pekerjaan yang terlambat, terhambat, dan segera jatuh tempo",
+      "empty": "Tidak ada yang perlu perhatian",
+      "overdue_by": "{count, plural, one {Terlambat # hari} other {Terlambat # hari}}",
+      "blocked": "Terhambat",
+      "due_today": "Jatuh tempo hari ini",
+      "due_in": "{count, plural, one {Jatuh tempo dalam # hari} other {Jatuh tempo dalam # hari}}",
+      "more": "{count, plural, one {# item lagi tidak ditampilkan} other {# item lagi tidak ditampilkan}}"
+    },
     "empty_state": {
       "general": {
         "title": "Ikhtisar proyek, aktivitas, dan metrik Anda",

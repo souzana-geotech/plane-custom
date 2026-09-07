@@ -51,7 +51,131 @@
     }
   },
   "workspace_dashboard": {
-    "overdue_by_assignee": "依指派對象劃分的逾期事項",
+    "title": "營運儀表板",
+    "subtitle": "面向管理層的客戶案件、工作、部門與員工全景檢視",
+    "coverage_note": "由於此工作區沒有相關資料，交付項目、客戶審閱、設備與銷售不會顯示。偵測員工排程衝突需要具體時刻資訊，而工作項目不包含時刻。",
+    "error": {
+      "title": "無法載入儀表板",
+      "description": "一個或多個請求失敗。請重試或重新整理頁面。",
+      "retry": "重試"
+    },
+    "empty": {
+      "title": "尚無營運資料",
+      "description": "為客戶案件建立模組，並為實際工作建立工作項目，此儀表板即會填入內容。"
+    },
+    "filters": {
+      "project": "專案",
+      "job": "客戶案件",
+      "department": "部門",
+      "employee": "員工",
+      "all": "全部",
+      "clear": "清除篩選"
+    },
+    "kpi": {
+      "active_jobs": "進行中的客戶案件",
+      "active_jobs_hint": "未完成且未取消的模組",
+      "jobs_at_risk": "需關注的客戶案件",
+      "jobs_at_risk_hint": "有風險、已延遲或被阻擋的進行中客戶案件",
+      "overdue_tasks": "逾期任務",
+      "overdue_tasks_hint": "已超過截止日期的未完成工作項目",
+      "due_this_week": "本週到期",
+      "due_this_week_hint": "未來 7 天內到期的未完成工作項目",
+      "blocked_tasks": "被阻擋的任務",
+      "blocked_tasks_hint": "被其他未完成工作阻擋的未完成工作項目",
+      "no_due_date": "無截止日期",
+      "no_due_date_hint": "沒有截止日期的未完成工作項目"
+    },
+    "severity": {
+      "critical": "嚴重",
+      "warning": "警告",
+      "info": "提示",
+      "success": "正常"
+    },
+    "exceptions": {
+      "title": "管理例外",
+      "description": "目前需要管理層關注的事項",
+      "none": "沒有例外，一切按計畫進行。",
+      "delayed_jobs": "{count, plural, one {# 個延遲的客戶案件} other {# 個延遲的客戶案件}}",
+      "overdue_tasks": "{count, plural, one {# 個逾期任務} other {# 個逾期任務}}",
+      "blocked_jobs": "{count, plural, one {# 個被阻擋的客戶案件} other {# 個被阻擋的客戶案件}}",
+      "at_risk_jobs": "{count, plural, one {# 個有風險的客戶案件} other {# 個有風險的客戶案件}}",
+      "blocked_tasks": "{count, plural, one {# 個被阻擋的任務} other {# 個被阻擋的任務}}",
+      "due_this_week": "{count, plural, one {# 個任務本週到期} other {# 個任務本週到期}}",
+      "unassigned_tasks": "{count, plural, one {# 個未指派的未完成任務} other {# 個未指派的未完成任務}}",
+      "no_due_date_tasks": "{count, plural, one {# 個無截止日期的未完成任務} other {# 個無截止日期的未完成任務}}",
+      "jobs_without_due_date": "{count, plural, one {# 個無截止日期的進行中客戶案件} other {# 個無截止日期的進行中客戶案件}}"
+    },
+    "job_health": {
+      "title": "客戶案件健康度",
+      "description": "依模組截止日期、被阻擋的工作、逾期工作與進度時程推算",
+      "total": "{count, plural, one {# 個客戶案件} other {# 個客戶案件}}",
+      "on_track": "正常",
+      "at_risk": "有風險",
+      "delayed": "已延遲",
+      "blocked": "被阻擋"
+    },
+    "jobs": {
+      "title": "進行中的客戶案件",
+      "description": "代表客戶案件的模組",
+      "empty": "沒有進行中的客戶案件",
+      "empty_description": "為每個客戶案件建立一個模組，即可在此追蹤。",
+      "columns": {
+        "job": "客戶案件",
+        "lead": "負責人",
+        "progress": "進度",
+        "status": "狀態",
+        "due": "截止",
+        "health": "健康度"
+      },
+      "no_lead": "無負責人",
+      "no_due": "無截止日期",
+      "open_items": "{count, plural, one {# 個未完成} other {# 個未完成}}",
+      "overdue_items": "{count, plural, one {# 個逾期} other {# 個逾期}}",
+      "blocked_items": "{count, plural, one {# 個被阻擋} other {# 個被阻擋}}",
+      "days_late": "{count, plural, one {逾期 # 天} other {逾期 # 天}}",
+      "days_left": "{count, plural, one {剩餘 # 天} other {剩餘 # 天}}"
+    },
+    "employees": {
+      "title": "員工工作量",
+      "description": "每位員工的未完成工作項目數。由於未追蹤產能，此處顯示數量而非使用率。",
+      "empty": "沒有已指派的未完成工作",
+      "columns": {
+        "employee": "員工",
+        "active": "進行中",
+        "due_soon": "即將到期",
+        "overdue": "逾期",
+        "blocked": "被阻擋"
+      }
+    },
+    "pipeline": {
+      "title": "工作流程管線",
+      "description": "工作在各工作流程狀態中的分布",
+      "total": "{count, plural, one {# 個工作項目} other {# 個工作項目}}",
+      "empty": "尚無工作項目"
+    },
+    "departments": {
+      "title": "部門工作量",
+      "description": "部門以標籤表示",
+      "empty": "尚無帶標籤的工作",
+      "no_label": "無部門",
+      "columns": {
+        "department": "部門",
+        "active": "進行中",
+        "overdue": "逾期",
+        "completed": "已完成",
+        "blocked": "被阻擋"
+      }
+    },
+    "attention": {
+      "title": "需要關注的工作",
+      "description": "逾期、被阻擋與即將到期的工作項目",
+      "empty": "沒有需要關注的事項",
+      "overdue_by": "{count, plural, one {逾期 # 天} other {逾期 # 天}}",
+      "blocked": "被阻擋",
+      "due_today": "今天到期",
+      "due_in": "{count, plural, one {# 天後到期} other {# 天後到期}}",
+      "more": "{count, plural, one {另有 # 項未顯示} other {另有 # 項未顯示}}"
+    },
     "empty_state": {
       "general": {
         "title": "您的專案、活動和指標概覽",

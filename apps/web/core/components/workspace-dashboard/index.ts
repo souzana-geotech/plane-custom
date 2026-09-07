@@ -7,3 +7,5 @@
 export * from "./root";
 export * from "./widget-card";
 export * from "./widget-registry";
+export * from "./data/context";
+export * from "./data/types";

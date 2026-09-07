@@ -147,3 +147,51 @@ class EmailNotificationLog(BaseModel):
         verbose_name_plural = "Email Notification Logs"
         db_table = "email_notification_logs"
         ordering = ("-created_at",)
+
+
+class IssueReminderLog(BaseModel):
+    """
+    Idempotency record for scheduled due-date reminders
+    (see ``plane.bgtasks.issue_reminder_task``).
+
+    One row is written per (issue, receiver, kind, target_date) before the matching
+    ``Notification`` is created. The unique constraint guarantees that repeated
+    Celery Beat runs never notify the same assignee twice for the same due date,
+    while a changed ``target_date`` naturally produces a new key.
+    """
+
+    class Kind(models.TextChoices):
+        DUE_REMINDER = "due_reminder", "Due reminder"
+        OVERDUE = "overdue", "Overdue"
+
+    workspace = models.ForeignKey("db.Workspace", related_name="issue_reminder_logs", on_delete=models.CASCADE)
+    project = models.ForeignKey("db.Project", related_name="issue_reminder_logs", on_delete=models.CASCADE)
+    issue = models.ForeignKey("db.Issue", related_name="reminder_logs", on_delete=models.CASCADE)
+    receiver = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        related_name="issue_reminder_logs",
+        on_delete=models.CASCADE,
+    )
+    kind = models.CharField(max_length=32, choices=Kind.choices)
+    target_date = models.DateField()
+    notification = models.ForeignKey(
+        "db.Notification",
+        related_name="reminder_logs",
+        on_delete=models.SET_NULL,
+        null=True,
+    )
+
+    class Meta:
+        verbose_name = "Issue Reminder Log"
+        verbose_name_plural = "Issue Reminder Logs"
+        db_table = "issue_reminder_logs"
+        ordering = ("-created_at",)
+        constraints = [
+            models.UniqueConstraint(
+                fields=["issue", "receiver", "kind", "target_date"],
+                name="issue_reminder_log_unique_issue_receiver_kind_date",
+            )
+        ]
+
+    def __str__(self):
+        return f"{self.kind} {self.issue_id} -> {self.receiver_id} ({self.target_date})"

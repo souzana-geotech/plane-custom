@@ -51,7 +51,131 @@
     }
   },
   "workspace_dashboard": {
-    "overdue_by_assignee": "Quá hạn theo người phụ trách",
+    "title": "Bảng điều khiển vận hành",
+    "subtitle": "Tầm nhìn quản lý về công việc của khách hàng, việc làm, phòng ban và nhân viên",
+    "coverage_note": "Sản phẩm bàn giao, đánh giá của khách hàng, thiết bị và bán hàng không được hiển thị vì không gian làm việc này không có dữ liệu về chúng. Xung đột lịch của nhân viên cần thông tin giờ trong ngày, mà các mục công việc không có.",
+    "error": {
+      "title": "Không thể tải bảng điều khiển",
+      "description": "Một hoặc nhiều yêu cầu đã thất bại. Hãy thử lại hoặc tải lại trang.",
+      "retry": "Thử lại"
+    },
+    "empty": {
+      "title": "Chưa có dữ liệu vận hành",
+      "description": "Hãy tạo Mô-đun cho các công việc của khách hàng và các mục công việc cho công việc thực tế, bảng điều khiển này sẽ được điền đầy."
+    },
+    "filters": {
+      "project": "Dự án",
+      "job": "Công việc",
+      "department": "Phòng ban",
+      "employee": "Nhân viên",
+      "all": "Tất cả",
+      "clear": "Xóa bộ lọc"
+    },
+    "kpi": {
+      "active_jobs": "Công việc đang hoạt động",
+      "active_jobs_hint": "Các Mô-đun chưa hoàn thành hoặc chưa bị hủy",
+      "jobs_at_risk": "Công việc cần chú ý",
+      "jobs_at_risk_hint": "Các công việc đang hoạt động có rủi ro, bị trễ hoặc bị chặn",
+      "overdue_tasks": "Nhiệm vụ quá hạn",
+      "overdue_tasks_hint": "Các mục công việc đang mở đã quá ngày đến hạn",
+      "due_this_week": "Đến hạn tuần này",
+      "due_this_week_hint": "Các mục công việc đang mở đến hạn trong 7 ngày tới",
+      "blocked_tasks": "Nhiệm vụ bị chặn",
+      "blocked_tasks_hint": "Các mục công việc đang mở bị chặn bởi công việc đang mở khác",
+      "no_due_date": "Không có ngày đến hạn",
+      "no_due_date_hint": "Các mục công việc đang mở không có ngày đến hạn"
+    },
+    "severity": {
+      "critical": "Nghiêm trọng",
+      "warning": "Cảnh báo",
+      "info": "Thông tin",
+      "success": "Đúng tiến độ"
+    },
+    "exceptions": {
+      "title": "Ngoại lệ cần quản lý",
+      "description": "Những gì ban quản lý cần chú ý ngay bây giờ",
+      "none": "Không có ngoại lệ. Mọi thứ đang đúng tiến độ.",
+      "delayed_jobs": "{count, plural, one {# công việc bị trễ} other {# công việc bị trễ}}",
+      "overdue_tasks": "{count, plural, one {# nhiệm vụ quá hạn} other {# nhiệm vụ quá hạn}}",
+      "blocked_jobs": "{count, plural, one {# công việc bị chặn} other {# công việc bị chặn}}",
+      "at_risk_jobs": "{count, plural, one {# công việc có rủi ro} other {# công việc có rủi ro}}",
+      "blocked_tasks": "{count, plural, one {# nhiệm vụ bị chặn} other {# nhiệm vụ bị chặn}}",
+      "due_this_week": "{count, plural, one {# nhiệm vụ đến hạn tuần này} other {# nhiệm vụ đến hạn tuần này}}",
+      "unassigned_tasks": "{count, plural, one {# nhiệm vụ đang mở chưa được giao} other {# nhiệm vụ đang mở chưa được giao}}",
+      "no_due_date_tasks": "{count, plural, one {# nhiệm vụ đang mở không có ngày đến hạn} other {# nhiệm vụ đang mở không có ngày đến hạn}}",
+      "jobs_without_due_date": "{count, plural, one {# công việc đang hoạt động không có ngày đến hạn} other {# công việc đang hoạt động không có ngày đến hạn}}"
+    },
+    "job_health": {
+      "title": "Tình trạng công việc",
+      "description": "Được suy ra từ ngày đến hạn của Mô-đun, công việc bị chặn, công việc quá hạn và tiến độ theo lịch",
+      "total": "{count, plural, one {# công việc} other {# công việc}}",
+      "on_track": "Đúng tiến độ",
+      "at_risk": "Có rủi ro",
+      "delayed": "Bị trễ",
+      "blocked": "Bị chặn"
+    },
+    "jobs": {
+      "title": "Công việc đang hoạt động",
+      "description": "Các Mô-đun đại diện cho công việc của khách hàng",
+      "empty": "Không có công việc đang hoạt động",
+      "empty_description": "Hãy tạo một Mô-đun cho mỗi công việc của khách hàng để theo dõi tại đây.",
+      "columns": {
+        "job": "Công việc",
+        "lead": "Phụ trách",
+        "progress": "Tiến độ",
+        "status": "Trạng thái",
+        "due": "Đến hạn",
+        "health": "Tình trạng"
+      },
+      "no_lead": "Không có người phụ trách",
+      "no_due": "Không có ngày đến hạn",
+      "open_items": "{count, plural, one {# đang mở} other {# đang mở}}",
+      "overdue_items": "{count, plural, one {# quá hạn} other {# quá hạn}}",
+      "blocked_items": "{count, plural, one {# bị chặn} other {# bị chặn}}",
+      "days_late": "{count, plural, one {Trễ # ngày} other {Trễ # ngày}}",
+      "days_left": "{count, plural, one {Còn # ngày} other {Còn # ngày}}"
+    },
+    "employees": {
+      "title": "Khối lượng công việc của nhân viên",
+      "description": "Số mục công việc đang mở của mỗi nhân viên. Năng lực không được theo dõi nên hiển thị số lượng thay vì mức sử dụng.",
+      "empty": "Không có công việc đang mở được giao",
+      "columns": {
+        "employee": "Nhân viên",
+        "active": "Đang mở",
+        "due_soon": "Sắp đến hạn",
+        "overdue": "Quá hạn",
+        "blocked": "Bị chặn"
+      }
+    },
+    "pipeline": {
+      "title": "Luồng công việc",
+      "description": "Công việc đang ở đâu trong các trạng thái của quy trình",
+      "total": "{count, plural, one {# mục công việc} other {# mục công việc}}",
+      "empty": "Chưa có mục công việc nào"
+    },
+    "departments": {
+      "title": "Khối lượng công việc theo phòng ban",
+      "description": "Phòng ban được thể hiện bằng nhãn",
+      "empty": "Chưa có công việc được gắn nhãn",
+      "no_label": "Không có phòng ban",
+      "columns": {
+        "department": "Phòng ban",
+        "active": "Đang mở",
+        "overdue": "Quá hạn",
+        "completed": "Hoàn thành",
+        "blocked": "Bị chặn"
+      }
+    },
+    "attention": {
+      "title": "Công việc cần chú ý",
+      "description": "Các mục công việc quá hạn, bị chặn và sắp đến hạn",
+      "empty": "Không có gì cần chú ý",
+      "overdue_by": "{count, plural, one {Quá hạn # ngày} other {Quá hạn # ngày}}",
+      "blocked": "Bị chặn",
+      "due_today": "Đến hạn hôm nay",
+      "due_in": "{count, plural, one {Đến hạn sau # ngày} other {Đến hạn sau # ngày}}",
+      "more": "{count, plural, one {Còn # mục chưa hiển thị} other {Còn # mục chưa hiển thị}}"
+    },
     "empty_state": {
       "general": {
         "title": "Tổng quan về dự án, hoạt động và chỉ số",

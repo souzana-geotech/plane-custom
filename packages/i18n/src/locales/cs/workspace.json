@@ -51,7 +51,131 @@
     }
   },
   "workspace_dashboard": {
-    "overdue_by_assignee": "Po termínu podle přiřazení",
+    "title": "Provozní panel",
+    "subtitle": "Manažerský přehled zakázek klientů, práce, oddělení a zaměstnanců",
+    "coverage_note": "Dodávky, kontroly klientů, vybavení a prodej se nezobrazují, protože tento pracovní prostor o nich nemá žádná data. Zjišťování konfliktů v rozvrhu zaměstnanců vyžaduje časy, které pracovní položky neobsahují.",
+    "error": {
+      "title": "Panel se nepodařilo načíst",
+      "description": "Jeden nebo více požadavků selhalo. Zkuste to znovu nebo obnovte stránku.",
+      "retry": "Zkusit znovu"
+    },
+    "empty": {
+      "title": "Zatím žádná provozní data",
+      "description": "Vytvořte Moduly pro zakázky klientů a pracovní položky pro skutečnou práci a tento panel se zaplní."
+    },
+    "filters": {
+      "project": "Projekt",
+      "job": "Zakázka",
+      "department": "Oddělení",
+      "employee": "Zaměstnanec",
+      "all": "Vše",
+      "clear": "Vymazat filtry"
+    },
+    "kpi": {
+      "active_jobs": "Aktivní zakázky",
+      "active_jobs_hint": "Moduly, které nejsou dokončené ani zrušené",
+      "jobs_at_risk": "Zakázky vyžadující pozornost",
+      "jobs_at_risk_hint": "Aktivní zakázky, které jsou ohrožené, zpožděné nebo blokované",
+      "overdue_tasks": "Úkoly po termínu",
+      "overdue_tasks_hint": "Otevřené pracovní položky po termínu dokončení",
+      "due_this_week": "Termín tento týden",
+      "due_this_week_hint": "Otevřené pracovní položky s termínem v příštích 7 dnech",
+      "blocked_tasks": "Blokované úkoly",
+      "blocked_tasks_hint": "Otevřené pracovní položky blokované jinou otevřenou prací",
+      "no_due_date": "Bez termínu",
+      "no_due_date_hint": "Otevřené pracovní položky bez termínu dokončení"
+    },
+    "severity": {
+      "critical": "Kritické",
+      "warning": "Varování",
+      "info": "Informace",
+      "success": "Podle plánu"
+    },
+    "exceptions": {
+      "title": "Manažerské výjimky",
+      "description": "Co právě teď vyžaduje pozornost vedení",
+      "none": "Žádné výjimky. Vše je podle plánu.",
+      "delayed_jobs": "{count, plural, one {# zpožděná zakázka} few {# zpožděné zakázky} many {# zpožděné zakázky} other {# zpožděných zakázek}}",
+      "overdue_tasks": "{count, plural, one {# úkol po termínu} few {# úkoly po termínu} many {# úkolu po termínu} other {# úkolů po termínu}}",
+      "blocked_jobs": "{count, plural, one {# blokovaná zakázka} few {# blokované zakázky} many {# blokované zakázky} other {# blokovaných zakázek}}",
+      "at_risk_jobs": "{count, plural, one {# ohrožená zakázka} few {# ohrožené zakázky} many {# ohrožené zakázky} other {# ohrožených zakázek}}",
+      "blocked_tasks": "{count, plural, one {# blokovaný úkol} few {# blokované úkoly} many {# blokovaného úkolu} other {# blokovaných úkolů}}",
+      "due_this_week": "{count, plural, one {# úkol s termínem tento týden} few {# úkoly s termínem tento týden} many {# úkolu s termínem tento týden} other {# úkolů s termínem tento týden}}",
+      "unassigned_tasks": "{count, plural, one {# nepřiřazený otevřený úkol} few {# nepřiřazené otevřené úkoly} many {# nepřiřazeného otevřeného úkolu} other {# nepřiřazených otevřených úkolů}}",
+      "no_due_date_tasks": "{count, plural, one {# otevřený úkol bez termínu} few {# otevřené úkoly bez termínu} many {# otevřeného úkolu bez termínu} other {# otevřených úkolů bez termínu}}",
+      "jobs_without_due_date": "{count, plural, one {# aktivní zakázka bez termínu} few {# aktivní zakázky bez termínu} many {# aktivní zakázky bez termínu} other {# aktivních zakázek bez termínu}}"
+    },
+    "job_health": {
+      "title": "Stav zakázek",
+      "description": "Odvozeno z termínů Modulů, blokované práce, práce po termínu a postupu podle harmonogramu",
+      "total": "{count, plural, one {# zakázka} few {# zakázky} many {# zakázky} other {# zakázek}}",
+      "on_track": "Podle plánu",
+      "at_risk": "Ohrožená",
+      "delayed": "Zpožděná",
+      "blocked": "Blokovaná"
+    },
+    "jobs": {
+      "title": "Aktivní zakázky",
+      "description": "Moduly představující zakázky klientů",
+      "empty": "Žádné aktivní zakázky",
+      "empty_description": "Vytvořte Modul pro každou zakázku klienta, abyste ji zde mohli sledovat.",
+      "columns": {
+        "job": "Zakázka",
+        "lead": "Vedoucí",
+        "progress": "Postup",
+        "status": "Stav",
+        "due": "Termín",
+        "health": "Zdraví"
+      },
+      "no_lead": "Bez vedoucího",
+      "no_due": "Bez termínu",
+      "open_items": "{count, plural, one {# otevřená} few {# otevřené} many {# otevřené} other {# otevřených}}",
+      "overdue_items": "{count, plural, one {# po termínu} few {# po termínu} many {# po termínu} other {# po termínu}}",
+      "blocked_items": "{count, plural, one {# blokovaná} few {# blokované} many {# blokované} other {# blokovaných}}",
+      "days_late": "{count, plural, one {# den zpoždění} few {# dny zpoždění} many {# dne zpoždění} other {# dní zpoždění}}",
+      "days_left": "{count, plural, one {zbývá # den} few {zbývají # dny} many {zbývá # dne} other {zbývá # dní}}"
+    },
+    "employees": {
+      "title": "Vytížení zaměstnanců",
+      "description": "Otevřené pracovní položky na zaměstnance. Kapacita se nesleduje, proto se místo využití zobrazují počty.",
+      "empty": "Není přiřazena žádná otevřená práce",
+      "columns": {
+        "employee": "Zaměstnanec",
+        "active": "Aktivní",
+        "due_soon": "Brzy",
+        "overdue": "Po termínu",
+        "blocked": "Blokovaná"
+      }
+    },
+    "pipeline": {
+      "title": "Tok práce",
+      "description": "Kde se práce nachází napříč stavy pracovního postupu",
+      "total": "{count, plural, one {# pracovní položka} few {# pracovní položky} many {# pracovní položky} other {# pracovních položek}}",
+      "empty": "Zatím žádné pracovní položky"
+    },
+    "departments": {
+      "title": "Vytížení oddělení",
+      "description": "Oddělení jsou reprezentována štítky",
+      "empty": "Zatím žádná práce se štítkem",
+      "no_label": "Bez oddělení",
+      "columns": {
+        "department": "Oddělení",
+        "active": "Aktivní",
+        "overdue": "Po termínu",
+        "completed": "Dokončené",
+        "blocked": "Blokovaná"
+      }
+    },
+    "attention": {
+      "title": "Práce vyžadující pozornost",
+      "description": "Pracovní položky po termínu, blokované a s blízkým termínem",
+      "empty": "Nic nevyžaduje pozornost",
+      "overdue_by": "{count, plural, one {Po termínu o # den} few {Po termínu o # dny} many {Po termínu o # dne} other {Po termínu o # dní}}",
+      "blocked": "Blokovaná",
+      "due_today": "Termín dnes",
+      "due_in": "{count, plural, one {Termín za # den} few {Termín za # dny} many {Termín za # dne} other {Termín za # dní}}",
+      "more": "{count, plural, one {# další položka není zobrazena} few {# další položky nejsou zobrazeny} many {# další položky není zobrazeno} other {# dalších položek není zobrazeno}}"
+    },
     "empty_state": {
       "general": {
         "title": "Přehled projektů, aktivit a metrik",

@@ -51,7 +51,131 @@
     }
   },
   "workspace_dashboard": {
-    "overdue_by_assignee": "In ritardo per assegnatario",
+    "title": "Dashboard operativa",
+    "subtitle": "Visibilità gestionale su commesse dei clienti, lavoro, reparti e dipendenti",
+    "coverage_note": "Consegne, revisioni dei clienti, attrezzature e vendite non vengono mostrate perché questo spazio di lavoro non contiene dati al riguardo. I conflitti di pianificazione dei dipendenti richiedono orari, che gli elementi di lavoro non includono.",
+    "error": {
+      "title": "Impossibile caricare la dashboard",
+      "description": "Una o più richieste non sono riuscite. Riprovare o aggiornare la pagina.",
+      "retry": "Riprova"
+    },
+    "empty": {
+      "title": "Ancora nessun dato operativo",
+      "description": "Creare Moduli per le commesse dei clienti ed elementi di lavoro per il lavoro effettivo: questa dashboard si popolerà."
+    },
+    "filters": {
+      "project": "Progetto",
+      "job": "Commessa",
+      "department": "Reparto",
+      "employee": "Dipendente",
+      "all": "Tutti",
+      "clear": "Cancella filtri"
+    },
+    "kpi": {
+      "active_jobs": "Commesse attive",
+      "active_jobs_hint": "Moduli non completati né annullati",
+      "jobs_at_risk": "Commesse da seguire",
+      "jobs_at_risk_hint": "Commesse attive a rischio, in ritardo o bloccate",
+      "overdue_tasks": "Attività scadute",
+      "overdue_tasks_hint": "Elementi di lavoro aperti oltre la data di scadenza",
+      "due_this_week": "In scadenza questa settimana",
+      "due_this_week_hint": "Elementi di lavoro aperti in scadenza nei prossimi 7 giorni",
+      "blocked_tasks": "Attività bloccate",
+      "blocked_tasks_hint": "Elementi di lavoro aperti bloccati da altro lavoro aperto",
+      "no_due_date": "Senza scadenza",
+      "no_due_date_hint": "Elementi di lavoro aperti senza data di scadenza"
+    },
+    "severity": {
+      "critical": "Critico",
+      "warning": "Avviso",
+      "info": "Informativo",
+      "success": "In linea"
+    },
+    "exceptions": {
+      "title": "Eccezioni gestionali",
+      "description": "Ciò che richiede subito l'attenzione della direzione",
+      "none": "Nessuna eccezione. Tutto procede come previsto.",
+      "delayed_jobs": "{count, plural, one {# commessa in ritardo} many {# commesse in ritardo} other {# commesse in ritardo}}",
+      "overdue_tasks": "{count, plural, one {# attività scaduta} many {# attività scadute} other {# attività scadute}}",
+      "blocked_jobs": "{count, plural, one {# commessa bloccata} many {# commesse bloccate} other {# commesse bloccate}}",
+      "at_risk_jobs": "{count, plural, one {# commessa a rischio} many {# commesse a rischio} other {# commesse a rischio}}",
+      "blocked_tasks": "{count, plural, one {# attività bloccata} many {# attività bloccate} other {# attività bloccate}}",
+      "due_this_week": "{count, plural, one {# attività in scadenza questa settimana} many {# attività in scadenza questa settimana} other {# attività in scadenza questa settimana}}",
+      "unassigned_tasks": "{count, plural, one {# attività aperta non assegnata} many {# attività aperte non assegnate} other {# attività aperte non assegnate}}",
+      "no_due_date_tasks": "{count, plural, one {# attività aperta senza scadenza} many {# attività aperte senza scadenza} other {# attività aperte senza scadenza}}",
+      "jobs_without_due_date": "{count, plural, one {# commessa attiva senza scadenza} many {# commesse attive senza scadenza} other {# commesse attive senza scadenza}}"
+    },
+    "job_health": {
+      "title": "Stato delle commesse",
+      "description": "Derivato dalle scadenze dei Moduli, dal lavoro bloccato, dal lavoro scaduto e dall'avanzamento rispetto al piano",
+      "total": "{count, plural, one {# commessa} many {# commesse} other {# commesse}}",
+      "on_track": "In linea",
+      "at_risk": "A rischio",
+      "delayed": "In ritardo",
+      "blocked": "Bloccata"
+    },
+    "jobs": {
+      "title": "Commesse attive",
+      "description": "Moduli che rappresentano le commesse dei clienti",
+      "empty": "Nessuna commessa attiva",
+      "empty_description": "Creare un Modulo per ogni commessa cliente per seguirla qui.",
+      "columns": {
+        "job": "Commessa",
+        "lead": "Responsabile",
+        "progress": "Avanzamento",
+        "status": "Stato",
+        "due": "Scadenza",
+        "health": "Salute"
+      },
+      "no_lead": "Nessun responsabile",
+      "no_due": "Senza scadenza",
+      "open_items": "{count, plural, one {# aperto} many {# aperti} other {# aperti}}",
+      "overdue_items": "{count, plural, one {# scaduto} many {# scaduti} other {# scaduti}}",
+      "blocked_items": "{count, plural, one {# bloccato} many {# bloccati} other {# bloccati}}",
+      "days_late": "{count, plural, one {# giorno di ritardo} many {# giorni di ritardo} other {# giorni di ritardo}}",
+      "days_left": "{count, plural, one {# giorno rimanente} many {# giorni rimanenti} other {# giorni rimanenti}}"
+    },
+    "employees": {
+      "title": "Carico di lavoro dei dipendenti",
+      "description": "Elementi di lavoro aperti per dipendente. La capacità non è tracciata, quindi vengono mostrati i conteggi anziché l'utilizzo.",
+      "empty": "Nessun lavoro aperto assegnato",
+      "columns": {
+        "employee": "Dipendente",
+        "active": "Attivi",
+        "due_soon": "In scadenza",
+        "overdue": "Scaduti",
+        "blocked": "Bloccata"
+      }
+    },
+    "pipeline": {
+      "title": "Pipeline del lavoro",
+      "description": "Dove si trova il lavoro tra gli stati del flusso",
+      "total": "{count, plural, one {# elemento di lavoro} many {# elementi di lavoro} other {# elementi di lavoro}}",
+      "empty": "Ancora nessun elemento di lavoro"
+    },
+    "departments": {
+      "title": "Carico di lavoro per reparto",
+      "description": "I reparti sono rappresentati dalle etichette",
+      "empty": "Ancora nessun lavoro etichettato",
+      "no_label": "Nessun reparto",
+      "columns": {
+        "department": "Reparto",
+        "active": "Attivi",
+        "overdue": "Scaduti",
+        "completed": "Completati",
+        "blocked": "Bloccata"
+      }
+    },
+    "attention": {
+      "title": "Lavoro da seguire",
+      "description": "Elementi di lavoro scaduti, bloccati o in scadenza",
+      "empty": "Nulla richiede attenzione",
+      "overdue_by": "{count, plural, one {Scaduto da # giorno} many {Scaduto da # giorni} other {Scaduto da # giorni}}",
+      "blocked": "Bloccata",
+      "due_today": "Scade oggi",
+      "due_in": "{count, plural, one {Scade tra # giorno} many {Scade tra # giorni} other {Scade tra # giorni}}",
+      "more": "{count, plural, one {# altro elemento non mostrato} many {# altri elementi non mostrati} other {# altri elementi non mostrati}}"
+    },
     "empty_state": {
       "general": {
         "title": "Panoramica dei tuoi progetti, attività e metriche",

@@ -7,23 +7,32 @@
 import { cn } from "@plane/utils";
 
 type Props = {
+  id?: string;
   title?: string;
+  description?: string;
   actions?: React.ReactNode;
   children: React.ReactNode;
   className?: string;
 };
 
 export function WorkspaceDashboardWidgetCard(props: Props) {
-  const { title, actions, children, className } = props;
+  const { id, title, description, actions, children, className } = props;
   return (
-    <div className={cn("flex h-full flex-col rounded-lg border border-subtle bg-surface-1 p-5", className)}>
+    <section
+      id={id}
+      aria-label={title}
+      className={cn("flex h-full scroll-mt-4 flex-col rounded-lg border border-subtle bg-surface-1 p-5", className)}
+    >
       {(title || actions) && (
-        <div className="mb-5 flex items-center justify-between gap-2">
-          {title && <h3 className="text-16 font-medium text-primary">{title}</h3>}
-          {actions}
+        <div className="mb-4 flex items-start justify-between gap-3">
+          <div className="min-w-0">
+            {title && <h3 className="text-16 font-medium text-primary">{title}</h3>}
+            {description && <p className="mt-0.5 text-12 text-tertiary">{description}</p>}
+          </div>
+          {actions && <div className="flex-shrink-0">{actions}</div>}
         </div>
       )}
       <div className="flex-1">{children}</div>
-    </div>
+    </section>
   );
 }
