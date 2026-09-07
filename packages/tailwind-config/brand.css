@@ -1,0 +1,120 @@
+/*
+ * Geotech3D brand tokens.
+ *
+ * This file is the entire colour identity of the app. It overrides two things
+ * from @makeplane/propel -- the --brand-* ramp and the font-family tokens --
+ * and nothing else. Every accent, link, focus ring, selected nav item, button
+ * fill and subtle-accent background in web/space/admin derives from --brand-*,
+ * so this is the whole job. Delete the @import in index.css to revert to stock
+ * Plane; no component, route, store or API touches this.
+ *
+ * Deliberately NOT overridden:
+ *   --neutral-*  surfaces, borders and body text. Retinting these is what makes
+ *                a reskin look broken rather than branded; propel's are already
+ *                near-neutral. The brand greys live in the logo lockup.
+ *   --red-* --orange-* --yellow-*  semantics (error/warning/pending) and the
+ *                priority + work-item state ramps. Those must stay conventional.
+ *
+ * How the ramp was built: each step keeps propel's original lightness and its
+ * chroma *shape*, re-expressed at the brand hue (135.43deg) with chroma scaled
+ * to peak near #73BE44's own chroma. Keeping the lightness curve means every
+ * derived token inherits the contrast relationship Plane already designed.
+ * Matching relative-to-gamut saturation instead reads neon -- green occupies far
+ * more of sRGB than blue does.
+ *
+ * Contrast measured in the running app, not on paper. Accent button against
+ * --txt-on-color: 6.21:1 light (#ffffff label) / 4.71:1 dark (#f5f5f5 label --
+ * it is off-white, which is why the dark fill is darker than it looks like it
+ * needs to be). Link on canvas: 5.56:1 light / 8.39:1 dark. Accent text on the
+ * subtle-accent background: 7.31:1 light / 5.41:1 dark. Accent borders and
+ * icons on canvas: 5.56:1 light / 5.80:1 dark. All >= WCAG AA;
+ * upstream Plane ships 3.42:1 for its dark accent button.
+ */
+
+@import "./fonts.css";
+
+:root,
+:host {
+  /* Brand ramp -- light. --brand-600 is literally #73BE44, the logo green. */
+  --brand-100: oklch(0.9847 0.0091 135.43); /* #f7fbf5 */
+  --brand-200: oklch(0.9715 0.0184 135.43); /* #f0f9ec */
+  --brand-300: oklch(0.9428 0.0375 135.43); /* #e1f2d9 */
+  --brand-400: oklch(0.9008 0.0646 135.43); /* #cce9be */
+  --brand-500: oklch(0.8414 0.1042 135.43); /* #addb96 */
+  --brand-600: oklch(0.7273 0.173 135.43); /* #73be44 */
+  --brand-700: oklch(0.6766 0.1832 135.43); /* #60af25 */
+  --brand-800: oklch(0.5557 0.1488 135.43); /* #48851c */
+  --brand-900: oklch(0.4347 0.1145 135.43); /* #325e13 */
+  --brand-1000: oklch(0.3399 0.0861 135.43); /* #22410e */
+  --brand-1100: oklch(0.2626 0.0636 135.43); /* #162b08 */
+  --brand-1200: oklch(0.2093 0.0482 135.43); /* #0e1d05 */
+  --brand-default: oklch(0.4799 0.1274 135.43); /* #3a6d16 */
+
+  @variant dark {
+    /* Brand ramp -- dark. --brand-700 is literally #73BE44. Every step keeps
+       propel's original lightness, including --brand-default. */
+    --brand-100: oklch(0.2029 0.033 135.43); /* #101a0a */
+    --brand-200: oklch(0.2513 0.046 135.43); /* #182710 */
+    --brand-300: oklch(0.3208 0.0639 135.43); /* #243a17 */
+    --brand-400: oklch(0.4088 0.0855 135.43); /* #345422 */
+    --brand-500: oklch(0.4511 0.0957 135.43); /* #3d6127 */
+    --brand-600: oklch(0.596 0.1031 135.43); /* #638d4d */
+    --brand-700: oklch(0.7273 0.173 135.43); /* #73be44 */
+    --brand-800: oklch(0.8318 0.0722 135.43); /* #b4d3a4 */
+    --brand-900: oklch(0.8969 0.0441 135.43); /* #d1e4c7 */
+    --brand-1000: oklch(0.9409 0.0252 135.43); /* #e4f0df */
+    --brand-1100: oklch(0.9704 0.0125 135.43); /* #f2f7ef */
+    --brand-1200: oklch(0.9856 0.0055 135.43); /* #f9fbf7 */
+    --brand-default: oklch(0.6311 0.1389 135.43); /* #629c40 */
+
+    /* --brand-default is BOTH the accent fill (--bg-accent-primary) and the
+       accent foreground (--txt-accent-primary, --txt-icon-accent-primary,
+       --border-accent-strong) in dark mode. One lightness cannot serve both:
+       dark enough for an off-white button label fails as text on a dark
+       surface, and vice versa. So the ramp above keeps the lightness that works
+       for foregrounds, and only the button fill is darkened, here. Upstream
+       resolves this the other way and ships a 3.42:1 button. */
+    --bg-accent-primary: oklch(0.525 0.1389 135.43); /* #437b1b -- 4.71:1 against --txt-on-color */
+  }
+}
+
+@theme {
+  /*
+   * Typography. Graphik is the brand face, self-hosted from the licensed desktop
+   * originals (see fonts.css for the conversion and the licensing caveat). Neo
+   * Sans Arabic follows it for Arabic, which Graphik does not cover; its
+   * unicode-range keeps it out of the way for Latin.
+   *
+   * Inter is deliberately NOT in these stacks. It stayed there at first, but
+   * font-display: swap paints the next family in the chain during the swap
+   * window, so the browser fetched ~100 KB of Inter on every cold load to render
+   * a flash. Graphik is preloaded in each app's root.tsx, so the system stack is
+   * a perfectly good fallback behind it.
+   *
+   * --font-code is deliberately untouched: Graphik has no monospace cut, and
+   * IBM Plex Mono is what the editor's code blocks are set in.
+   */
+  --font-heading:
+    Graphik, "Neo Sans Arabic", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol", "Noto Color Emoji";
+  --font-body:
+    Graphik, "Neo Sans Arabic", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+/*
+ * The rich-text editor sets its own --font-style and hardcodes Inter, so work
+ * item descriptions and pages -- the largest body of text in the product -- would
+ * otherwise have stayed on Inter while the rest of the chrome moved to Graphik.
+ *
+ * @plane/editor/styles is imported AFTER this file in each app's globals.css, so
+ * these need to out-specify it rather than merely follow it: .editor-container
+ * is (0,1,0) and .editor-container.sans-serif is (0,2,0), so prefixing :root
+ * lifts ours one class higher in each case. The .serif and .monospace reader
+ * options stay (0,2,0) from the editor and, landing later in the cascade, still
+ * beat the (0,2,0) rule below -- so the user's font choice keeps working.
+ */
+:root .editor-container,
+:root .editor-container.sans-serif {
+  --font-style: Graphik, "Neo Sans Arabic", ui-sans-serif, system-ui, sans-serif;
+}

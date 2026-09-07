@@ -1,0 +1,146 @@
+/*
+ * Geotech3D brand faces, self-hosted.
+ *
+ * Converted from the desktop OTF/TTF originals in the branding folder to WOFF2
+ * (2282 KB -> 715 KB). Only the weights Plane's --font-weight-* tokens actually
+ * reference are shipped; the unused Graphik cuts (Thin, Extralight, Super and
+ * most italics) are deliberately left out rather than bloating the bundle.
+ *
+ * Neo Sans Arabic carries a unicode-range covering Arabic and its presentation
+ * forms, so it is fetched only when Arabic text is rendered and never competes
+ * with Graphik for Latin. It has no 600 cut; CSS font matching resolves 600 up
+ * to 700, which is correct for this family.
+ *
+ * font-display: swap -- text paints immediately in the fallback and reflows when
+ * the brand face arrives, rather than blocking the first render.
+ *
+ * Licensing: these are Commercial Type (Graphik) and Monotype (Neo Sans Arabic)
+ * faces licensed to Geotech3D for internal business use. Serving them from a
+ * publicly reachable instance is a different grant to the one they ship under --
+ * check with the foundries before exposing this deployment to the internet.
+ */
+
+@font-face {
+  font-family: "Graphik";
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url("./fonts/graphik-300.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Graphik";
+  font-style: normal;
+  font-weight: 400 450;
+  font-display: swap;
+  src: url("./fonts/graphik-400.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Graphik";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("./fonts/graphik-500.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Graphik";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("./fonts/graphik-600.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Graphik";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("./fonts/graphik-700.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Graphik";
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("./fonts/graphik-800.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Graphik";
+  font-style: italic;
+  font-weight: 400 450;
+  font-display: swap;
+  src: url("./fonts/graphik-400-italic.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Graphik";
+  font-style: italic;
+  font-weight: 500;
+  font-display: swap;
+  src: url("./fonts/graphik-500-italic.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Graphik";
+  font-style: italic;
+  font-weight: 600;
+  font-display: swap;
+  src: url("./fonts/graphik-600-italic.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Graphik";
+  font-style: italic;
+  font-weight: 700;
+  font-display: swap;
+  src: url("./fonts/graphik-700-italic.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Neo Sans Arabic";
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url("./fonts/neo-sans-arabic-300.woff2") format("woff2");
+  unicode-range: U+0600-06FF, U+0750-077F, U+0870-088E, U+08A0-08FF, U+FB50-FDFF, U+FE70-FEFF;
+}
+
+@font-face {
+  font-family: "Neo Sans Arabic";
+  font-style: normal;
+  font-weight: 400 450;
+  font-display: swap;
+  src: url("./fonts/neo-sans-arabic-400.woff2") format("woff2");
+  unicode-range: U+0600-06FF, U+0750-077F, U+0870-088E, U+08A0-08FF, U+FB50-FDFF, U+FE70-FEFF;
+}
+
+@font-face {
+  font-family: "Neo Sans Arabic";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("./fonts/neo-sans-arabic-500.woff2") format("woff2");
+  unicode-range: U+0600-06FF, U+0750-077F, U+0870-088E, U+08A0-08FF, U+FB50-FDFF, U+FE70-FEFF;
+}
+
+@font-face {
+  font-family: "Neo Sans Arabic";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("./fonts/neo-sans-arabic-700.woff2") format("woff2");
+  unicode-range: U+0600-06FF, U+0750-077F, U+0870-088E, U+08A0-08FF, U+FB50-FDFF, U+FE70-FEFF;
+}
+
+@font-face {
+  font-family: "Neo Sans Arabic";
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("./fonts/neo-sans-arabic-800.woff2") format("woff2");
+  unicode-range: U+0600-06FF, U+0750-077F, U+0870-088E, U+08A0-08FF, U+FB50-FDFF, U+FE70-FEFF;
+}

@@ -14,6 +14,9 @@
  * utilities emit. propel's CSS does not import tailwindcss itself.
  */
 @import "@makeplane/propel/styles";
+/* Geotech3D identity: overrides propel's --brand-* ramp and font tokens.
+   Must stay after the propel import -- it wins on source order, not specificity. */
+@import "./brand.css";
 @source "../**/*.{ts,tsx}";
 
 * {
