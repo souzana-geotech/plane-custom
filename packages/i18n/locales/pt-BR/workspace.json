@@ -190,6 +190,96 @@
       }
     }
   },
+  "employee_gantt": {
+    "title": "Gantt de funcionários",
+    "subtitle": "Quem está trabalhando em quê, em todos os projetos",
+    "capacity": {
+      "overloaded": "Sobrecarregado · {count}",
+      "busy": "Ocupado · {count}",
+      "assigned": "Atribuído · {count}",
+      "available": "Disponível",
+      "tooltip": "{count, plural, one {# item de trabalho aberto agendado} many {# itens de trabalho abertos agendados} other {# itens de trabalho abertos agendados}} para hoje"
+    },
+    "summary": {
+      "employees": "Funcionários exibidos",
+      "overloaded": "Sobrecarregados hoje",
+      "with_overlaps": "Com sobreposições",
+      "available": "Livres hoje",
+      "scheduled": "Atribuições agendadas",
+      "undated": "Itens de trabalho sem data"
+    },
+    "filters": {
+      "all": "Todos",
+      "project": "Projeto",
+      "employee": "Funcionário",
+      "search_placeholder": "Buscar funcionários",
+      "only_overlaps": "Apenas sobreposições",
+      "today_only": "Somente hoje",
+      "today_only_tooltip": "Mostrar apenas o trabalho agendado para hoje",
+      "hide_empty": "Ocultar funcionários sem atribuições",
+      "include_completed": "Incluir concluídos",
+      "clear": "Limpar filtros"
+    },
+    "zoom": {
+      "label": "Zoom da linha do tempo",
+      "day": "Dia",
+      "week": "Semana",
+      "month": "Mês"
+    },
+    "chart": {
+      "employee_column": "Funcionário",
+      "today": "Hoje",
+      "today_tooltip": "Rolar a linha do tempo de volta para hoje"
+    },
+    "legend": {
+      "project_color": "Cor da barra = projeto",
+      "single_date": "Apenas uma data definida",
+      "overlap": "Trabalho sobreposto",
+      "overdue": "Atrasado",
+      "completed": "Concluído",
+      "today": "Hoje",
+      "hover_hint": "Passe o cursor sobre uma barra para ver os detalhes"
+    },
+    "row": {
+      "overlaps": "{count, plural, one {# sobreposição} many {# sobreposições} other {# sobreposições}}",
+      "overlap_tooltip": "{count, plural, one {# período} many {# períodos} other {# períodos}} com mais de uma atribuição ao mesmo tempo. Pico: {peak} simultâneas.",
+      "overdue": "{count, plural, one {# atrasado} many {# atrasados} other {# atrasados}}",
+      "undated": "{count, plural, one {# sem data} many {# sem data} other {# sem data}}",
+      "undated_tooltip": "Itens de trabalho abertos atribuídos a este funcionário que não têm data de início nem de vencimento e, por isso, não podem ser posicionados na linha do tempo.",
+      "next": "Próximo: {name} · {date}",
+      "nothing_next": "Nada agendado a seguir"
+    },
+    "bar": {
+      "duration": "{count, plural, one {# dia} many {# dias} other {# dias}}",
+      "no_start_date": "Sem data de início",
+      "no_target_date": "Sem data de vencimento",
+      "single_date": "Apenas uma data foi definida, por isso aparece como um único dia",
+      "completed": "Concluído",
+      "overlapping": "Sobrepõe outra atribuição",
+      "overdue": "Data de vencimento ultrapassada"
+    },
+    "error": {
+      "title": "Não foi possível carregar o Gantt de funcionários",
+      "description": "A solicitação de itens de trabalho falhou. Tente novamente ou atualize a página.",
+      "retry": "Tentar novamente"
+    },
+    "empty": {
+      "title": "Ainda não há trabalho agendado",
+      "description": "Defina uma data de início e uma data de vencimento para os itens de trabalho e atribua-os a pessoas, e esta visualização será preenchida."
+    },
+    "empty_today": {
+      "title": "Ninguém tem trabalho agendado para hoje",
+      "description": "Nada está em andamento hoje. Limpe os filtros para ver a programação completa."
+    },
+    "empty_filtered": {
+      "title": "Nenhum trabalho corresponde a estes filtros",
+      "description": "Todas as atribuições foram filtradas. Amplie ou limpe os filtros para ver a programação."
+    },
+    "no_matches": {
+      "title": "Nenhum funcionário corresponde a estes filtros",
+      "description": "Amplie ou limpe os filtros para ver mais da equipe."
+    }
+  },
   "workspace_analytics": {
     "label": "Análises",
     "page_label": "{workspace} - Análises",

@@ -4,6 +4,7 @@
  * See the LICENSE file for details.
  */
 
+import { useCallback } from "react";
 import { observer } from "mobx-react";
 // i18n
 import { useTranslation } from "@plane/i18n";
@@ -12,6 +13,7 @@ import {
   CyclesOutline,
   DueDateOutline,
   EstimateOutline,
+  HourglassOutline,
   LabelsOutline,
   MembersOutline,
   ModuleOutline,
@@ -21,7 +23,7 @@ import {
   StateOutline,
   UserOutline,
 } from "@makeplane/propel/icons";
-import { cn, getDate, renderFormattedPayloadDate, shouldHighlightIssueDueDate } from "@plane/utils";
+import { cn, getDate, shouldHighlightIssueDueDate } from "@plane/utils";
 // components
 import { DateDropdown } from "@/components/dropdowns/date";
 import { EstimateDropdown } from "@/components/dropdowns/estimate";
@@ -29,12 +31,15 @@ import { ButtonAvatars } from "@/components/dropdowns/member/avatar";
 import { MemberDropdown } from "@/components/dropdowns/member/dropdown";
 import { PriorityDropdown } from "@/components/dropdowns/priority";
 import { StateDropdown } from "@/components/dropdowns/state/dropdown";
+import { WorkingDaysInput } from "@/components/issues/working-days-input";
 import { SidebarPropertyListItem } from "@/components/common/layout/sidebar/property-list-item";
 // helpers
 import { useIssueDetail } from "@/hooks/store/use-issue-detail";
 import { useMember } from "@/hooks/store/use-member";
 import { useProject } from "@/hooks/store/use-project";
 import { useProjectState } from "@/hooks/store/use-project-state";
+import type { TWorkItemDatesUpdate } from "@/hooks/use-work-item-working-days";
+import { useWorkItemWorkingDays } from "@/hooks/use-work-item-working-days";
 // plane web components
 import { IssueParentSelectRoot } from "@/components/issues/parent-select-root";
 import type { TIssueOperations } from "../issue-detail";
@@ -62,6 +67,22 @@ export const PeekOverviewProperties = observer(function PeekOverviewProperties(p
   const { getUserDetails } = useMember();
   // derived values
   const issue = getIssueById(issueId);
+
+  const handleDatesChange = useCallback(
+    (update: TWorkItemDatesUpdate) => {
+      issueOperations.update(workspaceSlug, projectId, issueId, update);
+    },
+    [issueOperations, workspaceSlug, projectId, issueId]
+  );
+
+  const { workingDays, isDurationDriven, handleStartDateChange, handleTargetDateChange, handleWorkingDaysChange } =
+    useWorkItemWorkingDays({
+      startDate: issue?.start_date,
+      targetDate: issue?.target_date,
+      onDatesChange: handleDatesChange,
+      resetKey: issueId,
+    });
+
   if (!issue) return <></>;
   const createdByDetails = getUserDetails(issue?.created_by);
   const projectDetails = getProjectById(issue.project_id);
@@ -138,14 +159,10 @@ export const PeekOverviewProperties = observer(function PeekOverviewProperties(p
         <SidebarPropertyListItem icon={StartDateOutline} label={t("common.order_by.start_date")}>
           <DateDropdown
             value={issue.start_date}
-            onChange={(val) =>
-              issueOperations.update(workspaceSlug, projectId, issueId, {
-                start_date: val ? renderFormattedPayloadDate(val) : null,
-              })
-            }
+            onChange={handleStartDateChange}
             placeholder={t("issue.add.start_date")}
             buttonVariant="transparent-with-text"
-            maxDate={maxDate ?? undefined}
+            maxDate={isDurationDriven ? undefined : (maxDate ?? undefined)}
             disabled={disabled}
             className="group w-full grow"
             buttonContainerClassName="w-full text-left h-7.5"
@@ -159,11 +176,7 @@ export const PeekOverviewProperties = observer(function PeekOverviewProperties(p
           <div className="flex w-full items-center gap-2">
             <DateDropdown
               value={issue.target_date}
-              onChange={(val) =>
-                issueOperations.update(workspaceSlug, projectId, issueId, {
-                  target_date: val ? renderFormattedPayloadDate(val) : null,
-                })
-              }
+              onChange={handleTargetDateChange}
               placeholder={t("issue.add.due_date")}
               buttonVariant="transparent-with-text"
               minDate={minDate ?? undefined}
@@ -178,6 +191,18 @@ export const PeekOverviewProperties = observer(function PeekOverviewProperties(p
               clearIconClassName="h-3 w-3 hidden group-hover:inline text-primary"
             />
           </div>
+        </SidebarPropertyListItem>
+
+        <SidebarPropertyListItem icon={HourglassOutline} label={t("working_days")}>
+          <WorkingDaysInput
+            value={workingDays}
+            onChange={handleWorkingDaysChange}
+            placeholder={t("issue.add.working_days")}
+            buttonVariant="transparent-with-text"
+            disabled={disabled}
+            className="group h-7.5 w-full grow text-left"
+            inputClassName="text-body-xs-medium"
+          />
         </SidebarPropertyListItem>
 
         {isEstimateEnabled && (

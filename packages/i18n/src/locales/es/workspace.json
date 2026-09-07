@@ -190,6 +190,96 @@
       }
     }
   },
+  "employee_gantt": {
+    "title": "Gantt de empleados",
+    "subtitle": "Quién trabaja en qué, en todos los proyectos",
+    "capacity": {
+      "overloaded": "Sobrecargado · {count}",
+      "busy": "Ocupado · {count}",
+      "assigned": "Asignado · {count}",
+      "available": "Disponible",
+      "tooltip": "{count, plural, one {# elemento de trabajo abierto programado} other {# elementos de trabajo abiertos programados}} para hoy"
+    },
+    "summary": {
+      "employees": "Empleados mostrados",
+      "overloaded": "Sobrecargados hoy",
+      "with_overlaps": "Con solapamientos",
+      "available": "Libres hoy",
+      "scheduled": "Asignaciones programadas",
+      "undated": "Elementos de trabajo sin fecha"
+    },
+    "filters": {
+      "all": "Todos",
+      "project": "Proyecto",
+      "employee": "Empleado",
+      "search_placeholder": "Buscar empleados",
+      "only_overlaps": "Solo solapamientos",
+      "today_only": "Solo hoy",
+      "today_only_tooltip": "Mostrar solo el trabajo programado para hoy",
+      "hide_empty": "Ocultar empleados sin asignaciones",
+      "include_completed": "Incluir completados",
+      "clear": "Borrar filtros"
+    },
+    "zoom": {
+      "label": "Zoom de la línea de tiempo",
+      "day": "Día",
+      "week": "Semana",
+      "month": "Mes"
+    },
+    "chart": {
+      "employee_column": "Empleado",
+      "today": "Hoy",
+      "today_tooltip": "Desplazar la línea de tiempo hasta hoy"
+    },
+    "legend": {
+      "project_color": "Color de la barra = proyecto",
+      "single_date": "Solo una fecha establecida",
+      "overlap": "Trabajo solapado",
+      "overdue": "Vencido",
+      "completed": "Completado",
+      "today": "Hoy",
+      "hover_hint": "Pase el cursor sobre una barra para ver los detalles"
+    },
+    "row": {
+      "overlaps": "{count, plural, one {# solapamiento} other {# solapamientos}}",
+      "overlap_tooltip": "{count, plural, one {# periodo} other {# periodos}} con más de una asignación a la vez. Máximo: {peak} a la vez.",
+      "overdue": "{count, plural, one {# vencido} other {# vencidos}}",
+      "undated": "{count, plural, one {# sin fecha} other {# sin fecha}}",
+      "undated_tooltip": "Elementos de trabajo abiertos asignados a este empleado que no tienen fecha de inicio ni de vencimiento, por lo que no se pueden situar en la línea de tiempo.",
+      "next": "Siguiente: {name} · {date}",
+      "nothing_next": "Nada programado a continuación"
+    },
+    "bar": {
+      "duration": "{count, plural, one {# día} other {# días}}",
+      "no_start_date": "Sin fecha de inicio",
+      "no_target_date": "Sin fecha de vencimiento",
+      "single_date": "Solo hay una fecha establecida, por lo que se muestra como un único día",
+      "completed": "Completado",
+      "overlapping": "Se solapa con otra asignación",
+      "overdue": "Fecha de vencimiento superada"
+    },
+    "error": {
+      "title": "No se pudo cargar el Gantt de empleados",
+      "description": "La solicitud de elementos de trabajo falló. Reintente o actualice la página.",
+      "retry": "Reintentar"
+    },
+    "empty": {
+      "title": "Aún no hay trabajo programado",
+      "description": "Asigne a los elementos de trabajo una fecha de inicio y una de vencimiento, asígnelos a personas y esta vista se completará."
+    },
+    "empty_today": {
+      "title": "Nadie tiene trabajo programado para hoy",
+      "description": "Hoy no hay nada en curso. Borre los filtros para ver la programación completa."
+    },
+    "empty_filtered": {
+      "title": "Ningún trabajo coincide con estos filtros",
+      "description": "Se filtraron todas las asignaciones. Amplíe o borre los filtros para ver la programación."
+    },
+    "no_matches": {
+      "title": "Ningún empleado coincide con estos filtros",
+      "description": "Amplíe o borre los filtros para ver más del equipo."
+    }
+  },
   "workspace_analytics": {
     "label": "Análisis",
     "page_label": "{workspace} - Análisis",

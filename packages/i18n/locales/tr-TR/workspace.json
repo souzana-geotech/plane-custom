@@ -190,6 +190,96 @@
       }
     }
   },
+  "employee_gantt": {
+    "title": "Çalışan Gantt şeması",
+    "subtitle": "Tüm projelerde kimin ne üzerinde çalıştığı",
+    "capacity": {
+      "overloaded": "Aşırı yüklü · {count}",
+      "busy": "Yoğun · {count}",
+      "assigned": "Atanmış · {count}",
+      "available": "Müsait",
+      "tooltip": "Bugün için planlanmış {count, plural, one {# açık iş öğesi} other {# açık iş öğesi}}"
+    },
+    "summary": {
+      "employees": "Gösterilen çalışanlar",
+      "overloaded": "Bugün aşırı yüklü",
+      "with_overlaps": "Çakışmalı",
+      "available": "Bugün müsait",
+      "scheduled": "Planlanmış atamalar",
+      "undated": "Tarihsiz iş öğeleri"
+    },
+    "filters": {
+      "all": "Tümü",
+      "project": "Proje",
+      "employee": "Çalışan",
+      "search_placeholder": "Çalışan ara",
+      "only_overlaps": "Yalnızca çakışmalar",
+      "today_only": "Yalnızca bugün",
+      "today_only_tooltip": "Yalnızca bugün yürütülmesi planlanan işleri göster",
+      "hide_empty": "Ataması olmayan çalışanları gizle",
+      "include_completed": "Tamamlananları dahil et",
+      "clear": "Filtreleri temizle"
+    },
+    "zoom": {
+      "label": "Zaman çizelgesi yakınlaştırma",
+      "day": "Gün",
+      "week": "Hafta",
+      "month": "Ay"
+    },
+    "chart": {
+      "employee_column": "Çalışan",
+      "today": "Bugün",
+      "today_tooltip": "Zaman çizelgesini bugüne geri kaydır"
+    },
+    "legend": {
+      "project_color": "Çubuk rengi = proje",
+      "single_date": "Yalnızca bir tarih girilmiş",
+      "overlap": "Çakışan iş",
+      "overdue": "Gecikmiş",
+      "completed": "Tamamlandı",
+      "today": "Bugün",
+      "hover_hint": "Ayrıntılar için bir çubuğun üzerine gelin"
+    },
+    "row": {
+      "overlaps": "{count, plural, one {# çakışma} other {# çakışma}}",
+      "overlap_tooltip": "Aynı anda birden fazla atamanın bulunduğu {count, plural, one {# dönem} other {# dönem}} var. En yüksek: aynı anda {peak}.",
+      "overdue": "{count, plural, one {# gecikmiş} other {# gecikmiş}}",
+      "undated": "{count, plural, one {# tarihsiz} other {# tarihsiz}}",
+      "undated_tooltip": "Bu çalışana atanmış, başlangıç ve bitiş tarihi bulunmadığı için zaman çizelgesine yerleştirilemeyen açık iş öğeleri.",
+      "next": "Sıradaki: {name} · {date}",
+      "nothing_next": "Sırada planlanmış bir şey yok"
+    },
+    "bar": {
+      "duration": "{count, plural, one {# gün} other {# gün}}",
+      "no_start_date": "Başlangıç tarihi yok",
+      "no_target_date": "Bitiş tarihi yok",
+      "single_date": "Yalnızca bir tarih girildiği için tek gün olarak gösteriliyor",
+      "completed": "Tamamlandı",
+      "overlapping": "Başka bir atamayla çakışıyor",
+      "overdue": "Bitiş tarihi geçti"
+    },
+    "error": {
+      "title": "Çalışan Gantt şeması yüklenemedi",
+      "description": "İş öğesi isteği başarısız oldu. Yeniden deneyin veya sayfayı yenileyin.",
+      "retry": "Yeniden dene"
+    },
+    "empty": {
+      "title": "Henüz planlanmış iş yok",
+      "description": "İş öğelerine başlangıç ve bitiş tarihi verip kişilere atadığınızda bu görünüm dolacaktır."
+    },
+    "empty_today": {
+      "title": "Bugün için planlanmış işi olan çalışan yok",
+      "description": "Bugün yürütülen bir iş yok. Tüm programı görmek için filtreleri temizleyin."
+    },
+    "empty_filtered": {
+      "title": "Bu filtrelerle eşleşen iş yok",
+      "description": "Tüm atamalar filtrelendi. Programı görmek için filtreleri genişletin veya temizleyin."
+    },
+    "no_matches": {
+      "title": "Bu filtrelerle eşleşen çalışan yok",
+      "description": "Ekibin daha fazlasını görmek için filtreleri genişletin veya temizleyin."
+    }
+  },
   "workspace_analytics": {
     "label": "Analitik",
     "page_label": "{workspace} - Analitik",

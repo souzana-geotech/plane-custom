@@ -306,6 +306,7 @@
   "start_date": "시작 날짜",
   "end_date": "종료 날짜",
   "due_date": "마감일",
+  "working_days": "근무일수",
   "target_date": "목표일",
   "estimate": "추정",
   "change_parent_issue": "상위 작업 항목 변경",

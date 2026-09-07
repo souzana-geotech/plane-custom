@@ -190,6 +190,96 @@
       }
     }
   },
+  "employee_gantt": {
+    "title": "Gantt Karyawan",
+    "subtitle": "Siapa mengerjakan apa, di seluruh proyek",
+    "capacity": {
+      "overloaded": "Kelebihan beban · {count}",
+      "busy": "Sibuk · {count}",
+      "assigned": "Ditugaskan · {count}",
+      "available": "Tersedia",
+      "tooltip": "{count, plural, one {# item kerja terbuka} other {# item kerja terbuka}} dijadwalkan untuk hari ini"
+    },
+    "summary": {
+      "employees": "Karyawan ditampilkan",
+      "overloaded": "Kelebihan beban hari ini",
+      "with_overlaps": "Dengan tumpang tindih",
+      "available": "Luang hari ini",
+      "scheduled": "Penugasan terjadwal",
+      "undated": "Item kerja tanpa tanggal"
+    },
+    "filters": {
+      "all": "Semua",
+      "project": "Proyek",
+      "employee": "Karyawan",
+      "search_placeholder": "Cari karyawan",
+      "only_overlaps": "Hanya tumpang tindih",
+      "today_only": "Hanya hari ini",
+      "today_only_tooltip": "Hanya tampilkan pekerjaan yang dijadwalkan berjalan hari ini",
+      "hide_empty": "Sembunyikan karyawan tanpa penugasan",
+      "include_completed": "Sertakan yang selesai",
+      "clear": "Hapus filter"
+    },
+    "zoom": {
+      "label": "Zoom lini masa",
+      "day": "Hari",
+      "week": "Minggu",
+      "month": "Bulan"
+    },
+    "chart": {
+      "employee_column": "Karyawan",
+      "today": "Hari ini",
+      "today_tooltip": "Gulirkan lini masa kembali ke hari ini"
+    },
+    "legend": {
+      "project_color": "Warna batang = proyek",
+      "single_date": "Hanya satu tanggal diisi",
+      "overlap": "Pekerjaan tumpang tindih",
+      "overdue": "Terlambat",
+      "completed": "Selesai",
+      "today": "Hari ini",
+      "hover_hint": "Arahkan kursor ke batang untuk detail"
+    },
+    "row": {
+      "overlaps": "{count, plural, one {# tumpang tindih} other {# tumpang tindih}}",
+      "overlap_tooltip": "{count, plural, one {# periode} other {# periode}} dengan lebih dari satu penugasan sekaligus. Puncak: {peak} bersamaan.",
+      "overdue": "{count, plural, one {# terlambat} other {# terlambat}}",
+      "undated": "{count, plural, one {# tanpa tanggal} other {# tanpa tanggal}}",
+      "undated_tooltip": "Item kerja terbuka yang ditugaskan kepada karyawan ini tanpa tanggal mulai maupun tanggal jatuh tempo, sehingga tidak dapat ditempatkan pada lini masa.",
+      "next": "Berikutnya: {name} · {date}",
+      "nothing_next": "Tidak ada jadwal berikutnya"
+    },
+    "bar": {
+      "duration": "{count, plural, one {# hari} other {# hari}}",
+      "no_start_date": "Tanpa tanggal mulai",
+      "no_target_date": "Tanpa tanggal jatuh tempo",
+      "single_date": "Hanya satu tanggal yang diisi, sehingga ditampilkan sebagai satu hari",
+      "completed": "Selesai",
+      "overlapping": "Tumpang tindih dengan penugasan lain",
+      "overdue": "Melewati tanggal jatuh tempo"
+    },
+    "error": {
+      "title": "Tidak dapat memuat Gantt Karyawan",
+      "description": "Permintaan item kerja gagal. Coba lagi atau muat ulang halaman.",
+      "retry": "Coba lagi"
+    },
+    "empty": {
+      "title": "Belum ada pekerjaan terjadwal",
+      "description": "Beri item kerja tanggal mulai dan tanggal jatuh tempo, tugaskan kepada orang, dan tampilan ini akan terisi."
+    },
+    "empty_today": {
+      "title": "Tidak ada yang punya pekerjaan terjadwal hari ini",
+      "description": "Hari ini tidak ada yang berjalan. Hapus filter untuk melihat jadwal lengkap."
+    },
+    "empty_filtered": {
+      "title": "Tidak ada pekerjaan yang cocok dengan filter ini",
+      "description": "Semua penugasan tersaring keluar. Perluas atau hapus filter untuk melihat jadwal."
+    },
+    "no_matches": {
+      "title": "Tidak ada karyawan yang cocok dengan filter ini",
+      "description": "Perluas atau hapus filter untuk melihat lebih banyak anggota tim."
+    }
+  },
   "workspace_analytics": {
     "label": "Analitik",
     "page_label": "{workspace} - Analitik",

@@ -190,6 +190,96 @@
       }
     }
   },
+  "employee_gantt": {
+    "title": "직원 간트 차트",
+    "subtitle": "모든 프로젝트에 걸쳐 누가 무엇을 하고 있는지 보여줍니다",
+    "capacity": {
+      "overloaded": "과부하 · {count}",
+      "busy": "바쁨 · {count}",
+      "assigned": "할당됨 · {count}",
+      "available": "여유",
+      "tooltip": "오늘 예정된 미완료 작업 항목 {count, plural, one {#개} other {#개}}입니다"
+    },
+    "summary": {
+      "employees": "표시된 직원",
+      "overloaded": "오늘 과부하",
+      "with_overlaps": "중복 있음",
+      "available": "오늘 여유",
+      "scheduled": "예정된 할당",
+      "undated": "날짜 없는 작업 항목"
+    },
+    "filters": {
+      "all": "전체",
+      "project": "프로젝트",
+      "employee": "직원",
+      "search_placeholder": "직원 검색",
+      "only_overlaps": "중복만",
+      "today_only": "오늘만",
+      "today_only_tooltip": "오늘 진행 예정인 작업만 표시합니다",
+      "hide_empty": "할당 없는 직원 숨기기",
+      "include_completed": "완료 포함",
+      "clear": "필터 지우기"
+    },
+    "zoom": {
+      "label": "타임라인 확대",
+      "day": "일",
+      "week": "주",
+      "month": "월"
+    },
+    "chart": {
+      "employee_column": "직원",
+      "today": "오늘",
+      "today_tooltip": "타임라인을 오늘로 되돌립니다"
+    },
+    "legend": {
+      "project_color": "막대 색상 = 프로젝트",
+      "single_date": "날짜가 하나만 설정됨",
+      "overlap": "겹치는 작업",
+      "overdue": "기한 초과",
+      "completed": "완료됨",
+      "today": "오늘",
+      "hover_hint": "막대에 마우스를 올리면 세부 정보가 표시됩니다"
+    },
+    "row": {
+      "overlaps": "{count, plural, one {중복 #건} other {중복 #건}}",
+      "overlap_tooltip": "한 번에 두 개 이상의 할당이 있는 기간이 {count, plural, one {#개} other {#개}} 있습니다. 최대 동시 {peak}건입니다.",
+      "overdue": "{count, plural, one {기한 초과 #건} other {기한 초과 #건}}",
+      "undated": "{count, plural, one {날짜 없음 #건} other {날짜 없음 #건}}",
+      "undated_tooltip": "이 직원에게 할당된 미완료 작업 항목 중 시작일과 마감일이 모두 없어 타임라인에 배치할 수 없는 항목입니다.",
+      "next": "다음: {name} · {date}",
+      "nothing_next": "다음 일정 없음"
+    },
+    "bar": {
+      "duration": "{count, plural, one {#일} other {#일}}",
+      "no_start_date": "시작일 없음",
+      "no_target_date": "마감일 없음",
+      "single_date": "날짜가 하나만 설정되어 하루로 표시됩니다",
+      "completed": "완료됨",
+      "overlapping": "다른 할당과 겹칩니다",
+      "overdue": "마감일이 지났습니다"
+    },
+    "error": {
+      "title": "직원 간트 차트를 불러오지 못했습니다",
+      "description": "작업 항목 요청에 실패했습니다. 다시 시도하거나 페이지를 새로 고치십시오.",
+      "retry": "다시 시도"
+    },
+    "empty": {
+      "title": "아직 예정된 작업이 없습니다",
+      "description": "작업 항목에 시작일과 마감일을 지정하고 담당자를 할당하면 이 보기가 채워집니다."
+    },
+    "empty_today": {
+      "title": "오늘 예정된 작업이 있는 직원이 없습니다",
+      "description": "오늘 진행 중인 작업이 없습니다. 필터를 지우면 전체 일정이 표시됩니다."
+    },
+    "empty_filtered": {
+      "title": "이 필터와 일치하는 작업이 없습니다",
+      "description": "모든 할당이 제외되었습니다. 필터를 넓히거나 지우면 일정이 표시됩니다."
+    },
+    "no_matches": {
+      "title": "이 필터와 일치하는 직원이 없습니다",
+      "description": "필터를 넓히거나 지우면 더 많은 팀원을 볼 수 있습니다."
+    }
+  },
   "workspace_analytics": {
     "label": "분석",
     "page_label": "{workspace} - 분석",

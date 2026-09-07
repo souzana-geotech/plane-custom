@@ -190,6 +190,96 @@
       }
     }
   },
+  "employee_gantt": {
+    "title": "Gantt des employés",
+    "subtitle": "Qui travaille sur quoi, sur tous les projets",
+    "capacity": {
+      "overloaded": "Surchargé · {count}",
+      "busy": "Occupé · {count}",
+      "assigned": "Affecté · {count}",
+      "available": "Disponible",
+      "tooltip": "{count, plural, one {# élément de travail ouvert planifié} many {# éléments de travail ouverts planifiés} other {# éléments de travail ouverts planifiés}} pour aujourd’hui"
+    },
+    "summary": {
+      "employees": "Employés affichés",
+      "overloaded": "Surchargés aujourd’hui",
+      "with_overlaps": "Avec chevauchements",
+      "available": "Libres aujourd’hui",
+      "scheduled": "Affectations planifiées",
+      "undated": "Éléments de travail sans date"
+    },
+    "filters": {
+      "all": "Tous",
+      "project": "Projet",
+      "employee": "Employé",
+      "search_placeholder": "Rechercher des employés",
+      "only_overlaps": "Chevauchements uniquement",
+      "today_only": "Aujourd’hui seulement",
+      "today_only_tooltip": "Afficher uniquement le travail prévu aujourd’hui",
+      "hide_empty": "Masquer les employés sans affectation",
+      "include_completed": "Inclure les terminés",
+      "clear": "Effacer les filtres"
+    },
+    "zoom": {
+      "label": "Zoom de la chronologie",
+      "day": "Jour",
+      "week": "Semaine",
+      "month": "Mois"
+    },
+    "chart": {
+      "employee_column": "Employé",
+      "today": "Aujourd’hui",
+      "today_tooltip": "Ramener la chronologie à aujourd’hui"
+    },
+    "legend": {
+      "project_color": "Couleur de la barre = projet",
+      "single_date": "Une seule date définie",
+      "overlap": "Travail qui se chevauche",
+      "overdue": "En retard",
+      "completed": "Terminé",
+      "today": "Aujourd’hui",
+      "hover_hint": "Survolez une barre pour les détails"
+    },
+    "row": {
+      "overlaps": "{count, plural, one {# chevauchement} many {# chevauchements} other {# chevauchements}}",
+      "overlap_tooltip": "{count, plural, one {# période} many {# périodes} other {# périodes}} avec plus d’une affectation à la fois. Pic : {peak} simultanément.",
+      "overdue": "{count, plural, one {# en retard} many {# en retard} other {# en retard}}",
+      "undated": "{count, plural, one {# sans date} many {# sans date} other {# sans date}}",
+      "undated_tooltip": "Éléments de travail ouverts affectés à cet employé qui n’ont ni date de début ni date d’échéance, et ne peuvent donc pas être placés sur la chronologie.",
+      "next": "Suivant : {name} · {date}",
+      "nothing_next": "Rien de planifié ensuite"
+    },
+    "bar": {
+      "duration": "{count, plural, one {# jour} many {# jours} other {# jours}}",
+      "no_start_date": "Aucune date de début",
+      "no_target_date": "Aucune date d’échéance",
+      "single_date": "Une seule date est définie, l’élément s’affiche donc sur une seule journée",
+      "completed": "Terminé",
+      "overlapping": "Chevauche une autre affectation",
+      "overdue": "Date d’échéance dépassée"
+    },
+    "error": {
+      "title": "Impossible de charger le Gantt des employés",
+      "description": "La requête des éléments de travail a échoué. Réessayez ou actualisez la page.",
+      "retry": "Réessayer"
+    },
+    "empty": {
+      "title": "Aucun travail planifié pour l’instant",
+      "description": "Donnez aux éléments de travail une date de début et une date d’échéance, affectez-les à des personnes, et cette vue se remplira."
+    },
+    "empty_today": {
+      "title": "Personne n’a de travail prévu aujourd’hui",
+      "description": "Rien n’est en cours aujourd’hui. Effacez les filtres pour voir le planning complet."
+    },
+    "empty_filtered": {
+      "title": "Aucun travail ne correspond à ces filtres",
+      "description": "Toutes les affectations ont été filtrées. Élargissez ou effacez les filtres pour voir le planning."
+    },
+    "no_matches": {
+      "title": "Aucun employé ne correspond à ces filtres",
+      "description": "Élargissez ou effacez les filtres pour voir davantage de l’équipe."
+    }
+  },
   "workspace_analytics": {
     "label": "Analytique",
     "page_label": "{workspace} - Analytique",

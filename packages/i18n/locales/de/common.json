@@ -306,6 +306,7 @@
   "start_date": "Startdatum",
   "end_date": "Enddatum",
   "due_date": "Fälligkeitsdatum",
+  "working_days": "Arbeitstage",
   "target_date": "Zieldatum",
   "estimate": "Schätzung",
   "change_parent_issue": "Übergeordnetes Arbeitselement ändern",

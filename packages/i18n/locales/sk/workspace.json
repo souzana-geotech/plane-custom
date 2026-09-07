@@ -190,6 +190,96 @@
       }
     }
   },
+  "employee_gantt": {
+    "title": "Zamestnanecký Gantt",
+    "subtitle": "Kto na čom pracuje, naprieč všetkými projektmi",
+    "capacity": {
+      "overloaded": "Preťažený · {count}",
+      "busy": "Vyťažený · {count}",
+      "assigned": "Priradené · {count}",
+      "available": "Voľný",
+      "tooltip": "{count, plural, one {# otvorená pracovná položka} few {# otvorené pracovné položky} many {# otvorenej pracovnej položky} other {# otvorených pracovných položiek}} naplánovaná na dnes"
+    },
+    "summary": {
+      "employees": "Zobrazení zamestnanci",
+      "overloaded": "Dnes preťažení",
+      "with_overlaps": "S prekrytiami",
+      "available": "Dnes voľní",
+      "scheduled": "Naplánované priradenia",
+      "undated": "Pracovné položky bez dátumu"
+    },
+    "filters": {
+      "all": "Všetko",
+      "project": "Projekt",
+      "employee": "Zamestnanec",
+      "search_placeholder": "Hľadať zamestnancov",
+      "only_overlaps": "Iba prekrytia",
+      "today_only": "Len dnes",
+      "today_only_tooltip": "Zobraziť len prácu naplánovanú na dnes",
+      "hide_empty": "Skryť zamestnancov bez priradení",
+      "include_completed": "Vrátane dokončených",
+      "clear": "Vymazať filtre"
+    },
+    "zoom": {
+      "label": "Priblíženie časovej osi",
+      "day": "Deň",
+      "week": "Týždeň",
+      "month": "Mesiac"
+    },
+    "chart": {
+      "employee_column": "Zamestnanec",
+      "today": "Dnes",
+      "today_tooltip": "Posunúť časovú os späť na dnes"
+    },
+    "legend": {
+      "project_color": "Farba pruhu = projekt",
+      "single_date": "Nastavený len jeden dátum",
+      "overlap": "Prekrývajúca sa práca",
+      "overdue": "Po termíne",
+      "completed": "Dokončené",
+      "today": "Dnes",
+      "hover_hint": "Podržte ukazovateľ nad pruhom pre detaily"
+    },
+    "row": {
+      "overlaps": "{count, plural, one {# prekrytie} few {# prekrytia} many {# prekrytia} other {# prekrytí}}",
+      "overlap_tooltip": "{count, plural, one {# obdobie} few {# obdobia} many {# obdobia} other {# období}} s viac ako jedným priradením naraz. Maximum: {peak} súčasne.",
+      "overdue": "{count, plural, one {# po termíne} few {# po termíne} many {# po termíne} other {# po termíne}}",
+      "undated": "{count, plural, one {# bez dátumu} few {# bez dátumu} many {# bez dátumu} other {# bez dátumu}}",
+      "undated_tooltip": "Otvorené pracovné položky priradené tomuto zamestnancovi, ktoré nemajú dátum začiatku ani termín, a preto ich nemožno umiestniť na časovú os.",
+      "next": "Ďalšie: {name} · {date}",
+      "nothing_next": "Nič ďalšie naplánované"
+    },
+    "bar": {
+      "duration": "{count, plural, one {# deň} few {# dni} many {# dňa} other {# dní}}",
+      "no_start_date": "Bez dátumu začiatku",
+      "no_target_date": "Bez termínu",
+      "single_date": "Nastavený je len jeden dátum, preto sa zobrazuje ako jeden deň",
+      "completed": "Dokončené",
+      "overlapping": "Prekrýva sa s iným priradením",
+      "overdue": "Po termíne"
+    },
+    "error": {
+      "title": "Zamestnanecký Gantt sa nepodarilo načítať",
+      "description": "Požiadavka na pracovné položky zlyhala. Skúste to znova alebo obnovte stránku.",
+      "retry": "Skúsiť znova"
+    },
+    "empty": {
+      "title": "Zatiaľ žiadna naplánovaná práca",
+      "description": "Pridajte pracovným položkám dátum začiatku a termín a priraďte ich ľuďom, a toto zobrazenie sa naplní."
+    },
+    "empty_today": {
+      "title": "Na dnes nemá naplánovanú prácu nikto",
+      "description": "Dnes neprebieha nič. Vymazaním filtrov zobrazíte celý harmonogram."
+    },
+    "empty_filtered": {
+      "title": "Týmto filtrom nezodpovedá žiadna práca",
+      "description": "Všetky priradenia boli odfiltrované. Rozšírte alebo vymažte filtre, aby ste videli harmonogram."
+    },
+    "no_matches": {
+      "title": "Týmto filtrom nezodpovedá žiadny zamestnanec",
+      "description": "Rozšírte alebo vymažte filtre, aby ste videli viac členov tímu."
+    }
+  },
   "workspace_analytics": {
     "label": "Analytika",
     "page_label": "{workspace} - Analytika",

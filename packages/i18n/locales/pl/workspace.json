@@ -190,6 +190,96 @@
       }
     }
   },
+  "employee_gantt": {
+    "title": "Gantt pracowników",
+    "subtitle": "Kto nad czym pracuje, we wszystkich projektach",
+    "capacity": {
+      "overloaded": "Przeciążony · {count}",
+      "busy": "Zajęty · {count}",
+      "assigned": "Przypisany · {count}",
+      "available": "Dostępny",
+      "tooltip": "{count, plural, one {# otwarty element pracy zaplanowany} few {# otwarte elementy pracy zaplanowane} many {# otwartych elementów pracy zaplanowanych} other {# otwartego elementu pracy zaplanowanego}} na dziś"
+    },
+    "summary": {
+      "employees": "Wyświetleni pracownicy",
+      "overloaded": "Dziś przeciążeni",
+      "with_overlaps": "Z nakładaniem",
+      "available": "Dziś wolni",
+      "scheduled": "Zaplanowane przydziały",
+      "undated": "Elementy pracy bez daty"
+    },
+    "filters": {
+      "all": "Wszystkie",
+      "project": "Projekt",
+      "employee": "Pracownik",
+      "search_placeholder": "Szukaj pracowników",
+      "only_overlaps": "Tylko nakładanie",
+      "today_only": "Tylko dziś",
+      "today_only_tooltip": "Pokaż tylko pracę zaplanowaną na dziś",
+      "hide_empty": "Ukryj pracowników bez przydziałów",
+      "include_completed": "Uwzględnij ukończone",
+      "clear": "Wyczyść filtry"
+    },
+    "zoom": {
+      "label": "Powiększenie osi czasu",
+      "day": "Dzień",
+      "week": "Tydzień",
+      "month": "Miesiąc"
+    },
+    "chart": {
+      "employee_column": "Pracownik",
+      "today": "Dziś",
+      "today_tooltip": "Przewiń oś czasu z powrotem na dziś"
+    },
+    "legend": {
+      "project_color": "Kolor paska = projekt",
+      "single_date": "Ustawiona tylko jedna data",
+      "overlap": "Nakładająca się praca",
+      "overdue": "Po terminie",
+      "completed": "Ukończone",
+      "today": "Dziś",
+      "hover_hint": "Najedź na pasek, aby zobaczyć szczegóły"
+    },
+    "row": {
+      "overlaps": "{count, plural, one {# nakładanie} few {# nakładania} many {# nakładań} other {# nakładania}}",
+      "overlap_tooltip": "{count, plural, one {# okres} few {# okresy} many {# okresów} other {# okresu}} z więcej niż jednym przydziałem naraz. Maksimum: {peak} jednocześnie.",
+      "overdue": "{count, plural, one {# po terminie} few {# po terminie} many {# po terminie} other {# po terminie}}",
+      "undated": "{count, plural, one {# bez daty} few {# bez daty} many {# bez daty} other {# bez daty}}",
+      "undated_tooltip": "Otwarte elementy pracy przypisane temu pracownikowi, które nie mają daty rozpoczęcia ani terminu, więc nie można ich umieścić na osi czasu.",
+      "next": "Następne: {name} · {date}",
+      "nothing_next": "Nic nie zaplanowano dalej"
+    },
+    "bar": {
+      "duration": "{count, plural, one {# dzień} few {# dni} many {# dni} other {# dnia}}",
+      "no_start_date": "Brak daty rozpoczęcia",
+      "no_target_date": "Brak terminu",
+      "single_date": "Ustawiona jest tylko jedna data, więc element pokazano jako jeden dzień",
+      "completed": "Ukończone",
+      "overlapping": "Nakłada się na inny przydział",
+      "overdue": "Po terminie"
+    },
+    "error": {
+      "title": "Nie udało się wczytać Gantta pracowników",
+      "description": "Żądanie elementów pracy nie powiodło się. Proszę spróbować ponownie lub odświeżyć stronę.",
+      "retry": "Spróbuj ponownie"
+    },
+    "empty": {
+      "title": "Brak zaplanowanej pracy",
+      "description": "Proszę nadać elementom pracy datę rozpoczęcia i termin oraz przypisać je do osób, a ten widok się wypełni."
+    },
+    "empty_today": {
+      "title": "Nikt nie ma pracy zaplanowanej na dziś",
+      "description": "Dziś nic nie jest w toku. Proszę wyczyścić filtry, aby zobaczyć pełny harmonogram."
+    },
+    "empty_filtered": {
+      "title": "Żadna praca nie pasuje do tych filtrów",
+      "description": "Wszystkie przydziały zostały odfiltrowane. Proszę poszerzyć lub wyczyścić filtry."
+    },
+    "no_matches": {
+      "title": "Żaden pracownik nie pasuje do tych filtrów",
+      "description": "Proszę poszerzyć lub wyczyścić filtry, aby zobaczyć więcej osób z zespołu."
+    }
+  },
   "workspace_analytics": {
     "label": "Analizy",
     "page_label": "{workspace} - Analizy",

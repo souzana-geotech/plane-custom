@@ -306,6 +306,7 @@
   "start_date": "Data de início",
   "end_date": "Data de término",
   "due_date": "Data de vencimento",
+  "working_days": "Dias úteis",
   "target_date": "Data alvo",
   "estimate": "Estimativa",
   "change_parent_issue": "Alterar item de trabalho pai",

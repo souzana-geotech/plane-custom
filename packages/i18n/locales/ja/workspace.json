@@ -190,6 +190,96 @@
       }
     }
   },
+  "employee_gantt": {
+    "title": "従業員ガントチャート",
+    "subtitle": "すべてのプロジェクトを横断して、誰が何に取り組んでいるかを表示します。",
+    "capacity": {
+      "overloaded": "過負荷 · {count}",
+      "busy": "多忙 · {count}",
+      "assigned": "割り当て済み · {count}",
+      "available": "空き",
+      "tooltip": "本日予定されている未完了の作業項目は{count, plural, one {#件} other {#件}}です。"
+    },
+    "summary": {
+      "employees": "表示中の従業員",
+      "overloaded": "本日過負荷",
+      "with_overlaps": "重複あり",
+      "available": "本日空き",
+      "scheduled": "予定された割り当て",
+      "undated": "日付のない作業項目"
+    },
+    "filters": {
+      "all": "すべて",
+      "project": "プロジェクト",
+      "employee": "従業員",
+      "search_placeholder": "従業員を検索",
+      "only_overlaps": "重複のみ",
+      "today_only": "今日のみ",
+      "today_only_tooltip": "本日進行予定の作業のみを表示します",
+      "hide_empty": "割り当てのない従業員を非表示",
+      "include_completed": "完了済みを含める",
+      "clear": "フィルターをクリア"
+    },
+    "zoom": {
+      "label": "タイムラインの表示単位",
+      "day": "日",
+      "week": "週",
+      "month": "月"
+    },
+    "chart": {
+      "employee_column": "従業員",
+      "today": "今日",
+      "today_tooltip": "タイムラインを今日までスクロールします"
+    },
+    "legend": {
+      "project_color": "バーの色 = プロジェクト",
+      "single_date": "日付が片方のみ",
+      "overlap": "重複した作業",
+      "overdue": "期限超過",
+      "completed": "完了",
+      "today": "今日",
+      "hover_hint": "バーにカーソルを合わせると詳細が表示されます"
+    },
+    "row": {
+      "overlaps": "{count, plural, one {重複#件} other {重複#件}}",
+      "overlap_tooltip": "同時に複数の割り当てがある期間が{count, plural, one {#件} other {#件}}あります。最大{peak}件が同時進行です。",
+      "overdue": "{count, plural, one {期限超過#件} other {期限超過#件}}",
+      "undated": "{count, plural, one {日付なし#件} other {日付なし#件}}",
+      "undated_tooltip": "この従業員に割り当てられた未完了の作業項目のうち、開始日も期限も設定されていないため、タイムライン上に配置できないものです。",
+      "next": "次の予定: {name} · {date}",
+      "nothing_next": "次の予定はありません"
+    },
+    "bar": {
+      "duration": "{count, plural, one {#日間} other {#日間}}",
+      "no_start_date": "開始日なし",
+      "no_target_date": "期限なし",
+      "single_date": "日付が片方しか設定されていないため、1日として表示されます。",
+      "completed": "完了",
+      "overlapping": "他の割り当てと重複しています",
+      "overdue": "期限を過ぎています"
+    },
+    "error": {
+      "title": "従業員ガントチャートを読み込めませんでした",
+      "description": "作業項目の取得に失敗しました。再試行するか、ページを再読み込みしてください。",
+      "retry": "再試行"
+    },
+    "empty": {
+      "title": "予定された作業はまだありません",
+      "description": "作業項目に開始日と期限を設定し、担当者を割り当てると、このビューに表示されます。"
+    },
+    "empty_today": {
+      "title": "本日予定されている作業はありません",
+      "description": "本日進行中の作業はありません。フィルターをクリアすると全体のスケジュールが表示されます。"
+    },
+    "empty_filtered": {
+      "title": "この条件に一致する作業はありません",
+      "description": "すべての割り当てが除外されました。フィルターを広げるか、クリアしてください。"
+    },
+    "no_matches": {
+      "title": "この条件に一致する従業員はいません",
+      "description": "フィルターを広げるか、クリアするとチームの他のメンバーが表示されます。"
+    }
+  },
   "workspace_analytics": {
     "label": "アナリティクス",
     "page_label": "{workspace} - アナリティクス",

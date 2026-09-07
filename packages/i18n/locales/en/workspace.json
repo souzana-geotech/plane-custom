@@ -190,6 +190,96 @@
       }
     }
   },
+  "employee_gantt": {
+    "title": "Employee Gantt",
+    "subtitle": "Who is working on what, across every project",
+    "capacity": {
+      "overloaded": "Overloaded · {count}",
+      "busy": "Busy · {count}",
+      "assigned": "Assigned · {count}",
+      "available": "Available",
+      "tooltip": "{count, plural, one {# open work item} other {# open work items}} scheduled for today"
+    },
+    "summary": {
+      "employees": "Employees shown",
+      "overloaded": "Overloaded today",
+      "with_overlaps": "With overlaps",
+      "available": "Free today",
+      "scheduled": "Scheduled assignments",
+      "undated": "Undated work items"
+    },
+    "filters": {
+      "all": "All",
+      "project": "Project",
+      "employee": "Employee",
+      "search_placeholder": "Search employees",
+      "only_overlaps": "Only overlaps",
+      "today_only": "Today only",
+      "today_only_tooltip": "Show only work scheduled to be in progress today",
+      "hide_empty": "Hide unassigned employees",
+      "include_completed": "Include completed",
+      "clear": "Clear filters"
+    },
+    "zoom": {
+      "label": "Timeline zoom",
+      "day": "Day",
+      "week": "Week",
+      "month": "Month"
+    },
+    "chart": {
+      "employee_column": "Employee",
+      "today": "Today",
+      "today_tooltip": "Scroll the timeline back to today"
+    },
+    "legend": {
+      "project_color": "Bar color = project",
+      "single_date": "Only one date set",
+      "overlap": "Overlapping work",
+      "overdue": "Past due date",
+      "completed": "Completed",
+      "today": "Today",
+      "hover_hint": "Hover a bar for details"
+    },
+    "row": {
+      "overlaps": "{count, plural, one {# overlap} other {# overlaps}}",
+      "overlap_tooltip": "{count, plural, one {# period} other {# periods}} with more than one assignment at a time. Peak: {peak} at once.",
+      "overdue": "{count, plural, one {# overdue} other {# overdue}}",
+      "undated": "{count, plural, one {# undated} other {# undated}}",
+      "undated_tooltip": "Open work items assigned to this employee that have no start or due date, so they cannot be placed on the timeline.",
+      "next": "Next: {name} · {date}",
+      "nothing_next": "Nothing scheduled next"
+    },
+    "bar": {
+      "duration": "{count, plural, one {# day} other {# days}}",
+      "no_start_date": "No start date",
+      "no_target_date": "No due date",
+      "single_date": "Only one date set, so this shows as a single day",
+      "completed": "Completed",
+      "overlapping": "Overlaps another assignment",
+      "overdue": "Past its due date"
+    },
+    "error": {
+      "title": "Could not load the employee Gantt",
+      "description": "The work item request failed. Retry, or refresh the page.",
+      "retry": "Retry"
+    },
+    "empty": {
+      "title": "No scheduled work yet",
+      "description": "Give work items a start date and a due date, and assign them to people, and this view will fill in."
+    },
+    "empty_today": {
+      "title": "No one has work scheduled for today",
+      "description": "Nothing is in progress today. Clear the filters to see the full schedule."
+    },
+    "empty_filtered": {
+      "title": "No work matches these filters",
+      "description": "Every assignment was filtered out. Widen or clear the filters to see the schedule."
+    },
+    "no_matches": {
+      "title": "No employees match these filters",
+      "description": "Widen or clear the filters to see more of the team."
+    }
+  },
   "workspace_analytics": {
     "label": "Analytics",
     "page_label": "{workspace} - Analytics",

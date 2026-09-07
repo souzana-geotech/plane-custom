@@ -190,6 +190,96 @@
       }
     }
   },
+  "employee_gantt": {
+    "title": "Gantt pentru angajați",
+    "subtitle": "Cine la ce lucrează, în toate proiectele",
+    "capacity": {
+      "overloaded": "Supraîncărcat · {count}",
+      "busy": "Ocupat · {count}",
+      "assigned": "Alocat · {count}",
+      "available": "Disponibil",
+      "tooltip": "{count, plural, one {# activitate deschisă programată} few {# activități deschise programate} other {# de activități deschise programate}} pentru astăzi"
+    },
+    "summary": {
+      "employees": "Angajați afișați",
+      "overloaded": "Supraîncărcați astăzi",
+      "with_overlaps": "Cu suprapuneri",
+      "available": "Liberi astăzi",
+      "scheduled": "Alocări programate",
+      "undated": "Activități fără dată"
+    },
+    "filters": {
+      "all": "Toate",
+      "project": "Proiect",
+      "employee": "Angajat",
+      "search_placeholder": "Caută angajați",
+      "only_overlaps": "Doar suprapuneri",
+      "today_only": "Doar astăzi",
+      "today_only_tooltip": "Afișează doar activitățile programate pentru astăzi",
+      "hide_empty": "Ascunde angajații fără alocări",
+      "include_completed": "Include finalizate",
+      "clear": "Șterge filtrele"
+    },
+    "zoom": {
+      "label": "Zoom cronologie",
+      "day": "Zi",
+      "week": "Săptămână",
+      "month": "Lună"
+    },
+    "chart": {
+      "employee_column": "Angajat",
+      "today": "Astăzi",
+      "today_tooltip": "Derulează cronologia înapoi la astăzi"
+    },
+    "legend": {
+      "project_color": "Culoarea barei = proiect",
+      "single_date": "Este setată o singură dată",
+      "overlap": "Activități suprapuse",
+      "overdue": "Întârziat",
+      "completed": "Finalizat",
+      "today": "Astăzi",
+      "hover_hint": "Treceți cursorul peste o bară pentru detalii"
+    },
+    "row": {
+      "overlaps": "{count, plural, one {# suprapunere} few {# suprapuneri} other {# de suprapuneri}}",
+      "overlap_tooltip": "{count, plural, one {# perioadă} few {# perioade} other {# de perioade}} cu mai mult de o alocare simultan. Maxim: {peak} în același timp.",
+      "overdue": "{count, plural, one {# întârziat} few {# întârziate} other {# de întârziate}}",
+      "undated": "{count, plural, one {# fără dată} few {# fără dată} other {# fără dată}}",
+      "undated_tooltip": "Activități deschise alocate acestui angajat care nu au nici dată de început, nici termen și, prin urmare, nu pot fi plasate pe cronologie.",
+      "next": "Următorul: {name} · {date}",
+      "nothing_next": "Nimic programat în continuare"
+    },
+    "bar": {
+      "duration": "{count, plural, one {# zi} few {# zile} other {# de zile}}",
+      "no_start_date": "Fără dată de început",
+      "no_target_date": "Fără termen",
+      "single_date": "Este setată o singură dată, deci apare ca o singură zi",
+      "completed": "Finalizat",
+      "overlapping": "Se suprapune cu altă alocare",
+      "overdue": "Termenul a fost depășit"
+    },
+    "error": {
+      "title": "Gantt-ul pentru angajați nu a putut fi încărcat",
+      "description": "Solicitarea activităților a eșuat. Reîncercați sau reîmprospătați pagina.",
+      "retry": "Reîncearcă"
+    },
+    "empty": {
+      "title": "Încă nu există activități programate",
+      "description": "Adăugați activităților o dată de început și un termen și alocați-le unor persoane, iar această vizualizare se va completa."
+    },
+    "empty_today": {
+      "title": "Nimeni nu are activități programate astăzi",
+      "description": "Astăzi nu se desfășoară nimic. Ștergeți filtrele pentru a vedea programul complet."
+    },
+    "empty_filtered": {
+      "title": "Nicio activitate nu corespunde acestor filtre",
+      "description": "Toate alocările au fost filtrate. Extindeți sau ștergeți filtrele pentru a vedea programul."
+    },
+    "no_matches": {
+      "title": "Niciun angajat nu corespunde acestor filtre",
+      "description": "Extindeți sau ștergeți filtrele pentru a vedea mai mulți membri ai echipei."
+    }
+  },
   "workspace_analytics": {
     "label": "Statistici",
     "page_label": "{workspace} - Statistici",

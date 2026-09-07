@@ -190,6 +190,96 @@
       }
     }
   },
+  "employee_gantt": {
+    "title": "Gantt nhân viên",
+    "subtitle": "Ai đang làm gì, trên tất cả các dự án",
+    "capacity": {
+      "overloaded": "Quá tải · {count}",
+      "busy": "Bận · {count}",
+      "assigned": "Đã giao · {count}",
+      "available": "Rảnh",
+      "tooltip": "{count, plural, one {# mục công việc đang mở} other {# mục công việc đang mở}} được lên lịch cho hôm nay"
+    },
+    "summary": {
+      "employees": "Nhân viên hiển thị",
+      "overloaded": "Quá tải hôm nay",
+      "with_overlaps": "Có chồng lấn",
+      "available": "Rảnh hôm nay",
+      "scheduled": "Phân công đã lên lịch",
+      "undated": "Mục công việc không có ngày"
+    },
+    "filters": {
+      "all": "Tất cả",
+      "project": "Dự án",
+      "employee": "Nhân viên",
+      "search_placeholder": "Tìm nhân viên",
+      "only_overlaps": "Chỉ chồng lấn",
+      "today_only": "Chỉ hôm nay",
+      "today_only_tooltip": "Chỉ hiển thị công việc được lên lịch diễn ra hôm nay",
+      "hide_empty": "Ẩn nhân viên chưa được phân công",
+      "include_completed": "Bao gồm đã hoàn thành",
+      "clear": "Xóa bộ lọc"
+    },
+    "zoom": {
+      "label": "Thu phóng dòng thời gian",
+      "day": "Ngày",
+      "week": "Tuần",
+      "month": "Tháng"
+    },
+    "chart": {
+      "employee_column": "Nhân viên",
+      "today": "Hôm nay",
+      "today_tooltip": "Cuộn dòng thời gian về hôm nay"
+    },
+    "legend": {
+      "project_color": "Màu thanh = dự án",
+      "single_date": "Chỉ đặt một ngày",
+      "overlap": "Công việc chồng lấn",
+      "overdue": "Quá hạn",
+      "completed": "Đã hoàn thành",
+      "today": "Hôm nay",
+      "hover_hint": "Di chuột lên thanh để xem chi tiết"
+    },
+    "row": {
+      "overlaps": "{count, plural, one {# chồng lấn} other {# chồng lấn}}",
+      "overlap_tooltip": "Có {count, plural, one {# giai đoạn} other {# giai đoạn}} có nhiều hơn một phân công cùng lúc. Cao nhất: {peak} cùng lúc.",
+      "overdue": "{count, plural, one {# quá hạn} other {# quá hạn}}",
+      "undated": "{count, plural, one {# không có ngày} other {# không có ngày}}",
+      "undated_tooltip": "Các mục công việc đang mở được giao cho nhân viên này nhưng không có ngày bắt đầu và ngày đến hạn, nên không thể đặt lên dòng thời gian.",
+      "next": "Tiếp theo: {name} · {date}",
+      "nothing_next": "Chưa có lịch tiếp theo"
+    },
+    "bar": {
+      "duration": "{count, plural, one {# ngày} other {# ngày}}",
+      "no_start_date": "Không có ngày bắt đầu",
+      "no_target_date": "Không có ngày đến hạn",
+      "single_date": "Chỉ có một ngày được đặt, nên hiển thị dưới dạng một ngày duy nhất",
+      "completed": "Đã hoàn thành",
+      "overlapping": "Chồng lấn với một phân công khác",
+      "overdue": "Đã quá ngày đến hạn"
+    },
+    "error": {
+      "title": "Không thể tải Gantt nhân viên",
+      "description": "Yêu cầu mục công việc thất bại. Vui lòng thử lại hoặc tải lại trang.",
+      "retry": "Thử lại"
+    },
+    "empty": {
+      "title": "Chưa có công việc nào được lên lịch",
+      "description": "Hãy đặt ngày bắt đầu và ngày đến hạn cho các mục công việc và giao cho từng người, chế độ xem này sẽ được điền vào."
+    },
+    "empty_today": {
+      "title": "Không ai có công việc được lên lịch hôm nay",
+      "description": "Hôm nay không có gì đang diễn ra. Hãy xóa bộ lọc để xem toàn bộ lịch."
+    },
+    "empty_filtered": {
+      "title": "Không có công việc nào khớp với bộ lọc này",
+      "description": "Mọi phân công đều bị lọc bỏ. Hãy mở rộng hoặc xóa bộ lọc để xem lịch."
+    },
+    "no_matches": {
+      "title": "Không có nhân viên nào khớp với bộ lọc này",
+      "description": "Hãy mở rộng hoặc xóa bộ lọc để xem thêm thành viên nhóm."
+    }
+  },
   "workspace_analytics": {
     "label": "Phân tích",
     "page_label": "{workspace} - Phân tích",

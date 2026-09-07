@@ -190,6 +190,96 @@
       }
     }
   },
+  "employee_gantt": {
+    "title": "Mitarbeiter-Gantt",
+    "subtitle": "Wer woran arbeitet, über alle Projekte hinweg",
+    "capacity": {
+      "overloaded": "Überlastet · {count}",
+      "busy": "Ausgelastet · {count}",
+      "assigned": "Zugewiesen · {count}",
+      "available": "Verfügbar",
+      "tooltip": "{count, plural, one {# offenes Arbeitselement} other {# offene Arbeitselemente}} für heute geplant"
+    },
+    "summary": {
+      "employees": "Angezeigte Mitarbeiter",
+      "overloaded": "Heute überlastet",
+      "with_overlaps": "Mit Überschneidungen",
+      "available": "Heute frei",
+      "scheduled": "Geplante Zuweisungen",
+      "undated": "Arbeitselemente ohne Datum"
+    },
+    "filters": {
+      "all": "Alle",
+      "project": "Projekt",
+      "employee": "Mitarbeiter",
+      "search_placeholder": "Mitarbeiter suchen",
+      "only_overlaps": "Nur Überschneidungen",
+      "today_only": "Nur heute",
+      "today_only_tooltip": "Nur Arbeit anzeigen, die heute laufen soll",
+      "hide_empty": "Mitarbeiter ohne Zuweisung ausblenden",
+      "include_completed": "Abgeschlossene einbeziehen",
+      "clear": "Filter zurücksetzen"
+    },
+    "zoom": {
+      "label": "Zeitleisten-Zoom",
+      "day": "Tag",
+      "week": "Woche",
+      "month": "Monat"
+    },
+    "chart": {
+      "employee_column": "Mitarbeiter",
+      "today": "Heute",
+      "today_tooltip": "Die Zeitleiste zurück zu heute scrollen"
+    },
+    "legend": {
+      "project_color": "Balkenfarbe = Projekt",
+      "single_date": "Nur ein Datum gesetzt",
+      "overlap": "Überschneidende Arbeit",
+      "overdue": "Überfällig",
+      "completed": "Abgeschlossen",
+      "today": "Heute",
+      "hover_hint": "Für Details auf einen Balken zeigen"
+    },
+    "row": {
+      "overlaps": "{count, plural, one {# Überschneidung} other {# Überschneidungen}}",
+      "overlap_tooltip": "{count, plural, one {# Zeitraum} other {# Zeiträume}} mit mehr als einer Zuweisung gleichzeitig. Spitzenwert: {peak} gleichzeitig.",
+      "overdue": "{count, plural, one {# überfällig} other {# überfällig}}",
+      "undated": "{count, plural, one {# ohne Datum} other {# ohne Datum}}",
+      "undated_tooltip": "Offene Arbeitselemente dieses Mitarbeiters ohne Start- und Fälligkeitsdatum, die deshalb nicht auf der Zeitleiste platziert werden können.",
+      "next": "Als Nächstes: {name} · {date}",
+      "nothing_next": "Nichts als Nächstes geplant"
+    },
+    "bar": {
+      "duration": "{count, plural, one {# Tag} other {# Tage}}",
+      "no_start_date": "Kein Startdatum",
+      "no_target_date": "Kein Fälligkeitsdatum",
+      "single_date": "Nur ein Datum gesetzt, daher wird dies als einzelner Tag angezeigt",
+      "completed": "Abgeschlossen",
+      "overlapping": "Überschneidet sich mit einer anderen Zuweisung",
+      "overdue": "Fälligkeitsdatum überschritten"
+    },
+    "error": {
+      "title": "Mitarbeiter-Gantt konnte nicht geladen werden",
+      "description": "Die Anfrage nach Arbeitselementen ist fehlgeschlagen. Erneut versuchen oder die Seite neu laden.",
+      "retry": "Erneut versuchen"
+    },
+    "empty": {
+      "title": "Noch keine geplante Arbeit",
+      "description": "Arbeitselementen ein Start- und ein Fälligkeitsdatum geben und sie Personen zuweisen, dann füllt sich diese Ansicht."
+    },
+    "empty_today": {
+      "title": "Für heute ist niemandem Arbeit zugewiesen",
+      "description": "Heute läuft nichts. Die Filter zurücksetzen, um den vollständigen Plan zu sehen."
+    },
+    "empty_filtered": {
+      "title": "Keine Arbeit entspricht diesen Filtern",
+      "description": "Alle Zuweisungen wurden herausgefiltert. Die Filter erweitern oder zurücksetzen, um den Plan zu sehen."
+    },
+    "no_matches": {
+      "title": "Keine Mitarbeiter entsprechen diesen Filtern",
+      "description": "Die Filter erweitern oder zurücksetzen, um mehr vom Team zu sehen."
+    }
+  },
   "workspace_analytics": {
     "label": "Analysen",
     "page_label": "{workspace} - Analysen",

@@ -190,6 +190,96 @@
       }
     }
   },
+  "employee_gantt": {
+    "title": "員工甘特圖",
+    "subtitle": "跨所有專案查看誰在做什麼",
+    "capacity": {
+      "overloaded": "超載 · {count}",
+      "busy": "繁忙 · {count}",
+      "assigned": "已指派 · {count}",
+      "available": "有空",
+      "tooltip": "今天安排了 {count, plural, one {# 個未完成的工作事項} other {# 個未完成的工作事項}}"
+    },
+    "summary": {
+      "employees": "顯示的員工",
+      "overloaded": "今日超載",
+      "with_overlaps": "有重疊",
+      "available": "今日有空",
+      "scheduled": "已排程的指派",
+      "undated": "無日期的工作事項"
+    },
+    "filters": {
+      "all": "全部",
+      "project": "專案",
+      "employee": "員工",
+      "search_placeholder": "搜尋員工",
+      "only_overlaps": "僅重疊",
+      "today_only": "僅今天",
+      "today_only_tooltip": "僅顯示預計在今天進行的工作",
+      "hide_empty": "隱藏未指派的員工",
+      "include_completed": "包含已完成",
+      "clear": "清除篩選"
+    },
+    "zoom": {
+      "label": "時間軸縮放",
+      "day": "日",
+      "week": "週",
+      "month": "月"
+    },
+    "chart": {
+      "employee_column": "員工",
+      "today": "今天",
+      "today_tooltip": "將時間軸捲動回今天"
+    },
+    "legend": {
+      "project_color": "長條顏色 = 專案",
+      "single_date": "僅設定了一個日期",
+      "overlap": "重疊的工作",
+      "overdue": "已逾期",
+      "completed": "已完成",
+      "today": "今天",
+      "hover_hint": "將滑鼠移至長條上以查看詳細資料"
+    },
+    "row": {
+      "overlaps": "{count, plural, one {# 處重疊} other {# 處重疊}}",
+      "overlap_tooltip": "有 {count, plural, one {# 個時段} other {# 個時段}} 同時存在多項指派。尖峰：同時 {peak} 項。",
+      "overdue": "{count, plural, one {# 項逾期} other {# 項逾期}}",
+      "undated": "{count, plural, one {# 項無日期} other {# 項無日期}}",
+      "undated_tooltip": "指派給該員工的未完成工作事項，因缺少開始日期與到期日而無法放置在時間軸上。",
+      "next": "下一項：{name} · {date}",
+      "nothing_next": "接下來沒有安排"
+    },
+    "bar": {
+      "duration": "{count, plural, one {# 天} other {# 天}}",
+      "no_start_date": "無開始日期",
+      "no_target_date": "無到期日",
+      "single_date": "僅設定了一個日期，因此顯示為單獨一天。",
+      "completed": "已完成",
+      "overlapping": "與其他指派重疊",
+      "overdue": "已超過到期日"
+    },
+    "error": {
+      "title": "無法載入員工甘特圖",
+      "description": "工作事項請求失敗。請重試或重新整理頁面。",
+      "retry": "重試"
+    },
+    "empty": {
+      "title": "尚無已排程的工作",
+      "description": "為工作事項設定開始日期與到期日並指派給成員，此檢視即會填入內容。"
+    },
+    "empty_today": {
+      "title": "今天沒有人有排程的工作",
+      "description": "今天沒有進行中的工作。清除篩選條件即可查看完整排程。"
+    },
+    "empty_filtered": {
+      "title": "沒有工作符合這些篩選條件",
+      "description": "所有指派都被篩除了。請放寬或清除篩選條件以查看排程。"
+    },
+    "no_matches": {
+      "title": "沒有員工符合這些篩選條件",
+      "description": "請放寬或清除篩選條件以查看更多團隊成員。"
+    }
+  },
   "workspace_analytics": {
     "label": "分析",
     "page_label": "{workspace} - 分析",

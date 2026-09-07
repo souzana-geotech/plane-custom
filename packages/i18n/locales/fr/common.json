@@ -306,6 +306,7 @@
   "start_date": "Date de début",
   "end_date": "Date de fin",
   "due_date": "Date d’échéance",
+  "working_days": "Jours ouvrables",
   "target_date": "Date cible",
   "estimate": "Estimation",
   "change_parent_issue": "Changer l’élément de travail parent",
