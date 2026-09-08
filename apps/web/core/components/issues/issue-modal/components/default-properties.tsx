@@ -4,9 +4,9 @@
  * See the LICENSE file for details.
  */
 
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import { observer } from "mobx-react";
-import type { Control } from "react-hook-form";
+import type { Control, UseFormSetValue } from "react-hook-form";
 import { Controller } from "react-hook-form";
 import { ETabIndices, EUserPermissions, EUserPermissionsLevel } from "@plane/constants";
 import { useTranslation } from "@plane/i18n";
@@ -15,7 +15,7 @@ import { ParentOutline } from "@makeplane/propel/icons";
 import type { ISearchIssueResponse, TIssue } from "@plane/types";
 // ui
 import { CustomMenu } from "@plane/ui";
-import { getDate, renderFormattedPayloadDate, getTabIndex } from "@plane/utils";
+import { getDate, getTabIndex } from "@plane/utils";
 // components
 import { CycleDropdown } from "@/components/dropdowns/cycle";
 import { DateDropdown } from "@/components/dropdowns/date";
@@ -26,15 +26,19 @@ import { PriorityDropdown } from "@/components/dropdowns/priority";
 import { StateDropdown } from "@/components/dropdowns/state/dropdown";
 import { ParentIssuesListModal } from "@/components/issues/parent-issues-list-modal";
 import { IssueLabelSelect } from "@/components/issues/select";
+import { WorkingDaysInput } from "@/components/issues/working-days-input";
 import { IssueIdentifier } from "@/components/issues/issue-detail/issue-identifier";
 // hooks
 import { useProjectEstimates } from "@/hooks/store/estimates";
 import { useProject } from "@/hooks/store/use-project";
 import { useUserPermissions } from "@/hooks/store/user";
 import { usePlatformOS } from "@/hooks/use-platform-os";
+import type { TWorkItemDatesUpdate } from "@/hooks/use-work-item-working-days";
+import { useWorkItemWorkingDays } from "@/hooks/use-work-item-working-days";
 
 type TIssueDefaultPropertiesProps = {
   control: Control<TIssue>;
+  setValue: UseFormSetValue<TIssue>;
   id: string | undefined;
   projectId: string | null;
   workspaceSlug: string;
@@ -50,6 +54,7 @@ type TIssueDefaultPropertiesProps = {
 export const IssueDefaultProperties = observer(function IssueDefaultProperties(props: TIssueDefaultPropertiesProps) {
   const {
     control,
+    setValue,
     id,
     projectId,
     workspaceSlug,
@@ -76,6 +81,18 @@ export const IssueDefaultProperties = observer(function IssueDefaultProperties(p
 
   const canCreateLabel =
     projectId && allowPermissions([EUserPermissions.ADMIN], EUserPermissionsLevel.PROJECT, workspaceSlug, projectId);
+
+  const handleDatesChange = useCallback(
+    (update: TWorkItemDatesUpdate) => {
+      if (update.start_date !== undefined) setValue("start_date", update.start_date, { shouldDirty: true });
+      if (update.target_date !== undefined) setValue("target_date", update.target_date, { shouldDirty: true });
+      handleFormChange();
+    },
+    [setValue, handleFormChange]
+  );
+
+  const { workingDays, isDurationDriven, handleStartDateChange, handleTargetDateChange, handleWorkingDaysChange } =
+    useWorkItemWorkingDays({ startDate, targetDate, onDatesChange: handleDatesChange, resetKey: id });
 
   const minDate = getDate(startDate);
   minDate?.setDate(minDate.getDate());
@@ -163,16 +180,13 @@ export const IssueDefaultProperties = observer(function IssueDefaultProperties(p
       <Controller
         control={control}
         name="start_date"
-        render={({ field: { value, onChange } }) => (
+        render={({ field: { value } }) => (
           <div className="h-7">
             <DateDropdown
               value={value}
-              onChange={(date) => {
-                onChange(date ? renderFormattedPayloadDate(date) : null);
-                handleFormChange();
-              }}
+              onChange={handleStartDateChange}
               buttonVariant="border-with-text"
-              maxDate={maxDate ?? undefined}
+              maxDate={isDurationDriven ? undefined : (maxDate ?? undefined)}
               placeholder={t("start_date")}
               tabIndex={getIndex("start_date")}
             />
@@ -182,14 +196,11 @@ export const IssueDefaultProperties = observer(function IssueDefaultProperties(p
       <Controller
         control={control}
         name="target_date"
-        render={({ field: { value, onChange } }) => (
+        render={({ field: { value } }) => (
           <div className="h-7">
             <DateDropdown
               value={value}
-              onChange={(date) => {
-                onChange(date ? renderFormattedPayloadDate(date) : null);
-                handleFormChange();
-              }}
+              onChange={handleTargetDateChange}
               buttonVariant="border-with-text"
               minDate={minDate ?? undefined}
               placeholder={t("due_date")}
@@ -198,6 +209,15 @@ export const IssueDefaultProperties = observer(function IssueDefaultProperties(p
           </div>
         )}
       />
+      <div className="h-7 w-[7.5rem]">
+        <WorkingDaysInput
+          value={workingDays}
+          onChange={handleWorkingDaysChange}
+          buttonVariant="border-with-text"
+          placeholder={t("working_days")}
+          tabIndex={getIndex("working_days")}
+        />
+      </div>
       {projectDetails?.cycle_view && (
         <Controller
           control={control}

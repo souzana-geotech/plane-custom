@@ -51,6 +51,131 @@
     }
   },
   "workspace_dashboard": {
+    "title": "Tableau de bord des opérations",
+    "subtitle": "Visibilité de gestion sur les missions clients, le travail, les services et les employés",
+    "coverage_note": "Les livrables, les revues clients, le matériel et les ventes ne sont pas affichés car cet espace de travail ne contient aucune donnée à leur sujet. Les conflits de planning des employés nécessitent des horaires, que les éléments de travail ne portent pas.",
+    "error": {
+      "title": "Impossible de charger le tableau de bord",
+      "description": "Une ou plusieurs requêtes ont échoué. Réessayez ou actualisez la page.",
+      "retry": "Réessayer"
+    },
+    "empty": {
+      "title": "Aucune donnée d'exploitation pour le moment",
+      "description": "Créez des Modules pour les missions clients et des éléments de travail pour le travail réel : ce tableau de bord se remplira."
+    },
+    "filters": {
+      "project": "Projet",
+      "job": "Mission",
+      "department": "Service",
+      "employee": "Employé",
+      "all": "Tous",
+      "clear": "Effacer les filtres"
+    },
+    "kpi": {
+      "active_jobs": "Missions actives",
+      "active_jobs_hint": "Modules qui ne sont ni terminés ni annulés",
+      "jobs_at_risk": "Missions à surveiller",
+      "jobs_at_risk_hint": "Missions actives à risque, en retard ou bloquées",
+      "overdue_tasks": "Tâches en retard",
+      "overdue_tasks_hint": "Éléments de travail ouverts dont l'échéance est dépassée",
+      "due_this_week": "À rendre cette semaine",
+      "due_this_week_hint": "Éléments de travail ouverts à rendre dans les 7 prochains jours",
+      "blocked_tasks": "Tâches bloquées",
+      "blocked_tasks_hint": "Éléments de travail ouverts bloqués par d'autres travaux ouverts",
+      "no_due_date": "Sans échéance",
+      "no_due_date_hint": "Éléments de travail ouverts sans date d'échéance"
+    },
+    "severity": {
+      "critical": "Critique",
+      "warning": "Avertissement",
+      "info": "Information",
+      "success": "Dans les temps"
+    },
+    "exceptions": {
+      "title": "Exceptions de gestion",
+      "description": "Ce qui requiert l'attention de la direction maintenant",
+      "none": "Aucune exception. Tout est dans les temps.",
+      "delayed_jobs": "{count, plural, one {# mission en retard} many {# missions en retard} other {# missions en retard}}",
+      "overdue_tasks": "{count, plural, one {# tâche en retard} many {# tâches en retard} other {# tâches en retard}}",
+      "blocked_jobs": "{count, plural, one {# mission bloquée} many {# missions bloquées} other {# missions bloquées}}",
+      "at_risk_jobs": "{count, plural, one {# mission à risque} many {# missions à risque} other {# missions à risque}}",
+      "blocked_tasks": "{count, plural, one {# tâche bloquée} many {# tâches bloquées} other {# tâches bloquées}}",
+      "due_this_week": "{count, plural, one {# tâche à rendre cette semaine} many {# tâches à rendre cette semaine} other {# tâches à rendre cette semaine}}",
+      "unassigned_tasks": "{count, plural, one {# tâche ouverte non attribuée} many {# tâches ouvertes non attribuées} other {# tâches ouvertes non attribuées}}",
+      "no_due_date_tasks": "{count, plural, one {# tâche ouverte sans échéance} many {# tâches ouvertes sans échéance} other {# tâches ouvertes sans échéance}}",
+      "jobs_without_due_date": "{count, plural, one {# mission active sans échéance} many {# missions actives sans échéance} other {# missions actives sans échéance}}"
+    },
+    "job_health": {
+      "title": "État des missions",
+      "description": "Calculé à partir des échéances des Modules, du travail bloqué, du travail en retard et de l'avancement du planning",
+      "total": "{count, plural, one {# mission} many {# missions} other {# missions}}",
+      "on_track": "Dans les temps",
+      "at_risk": "À risque",
+      "delayed": "En retard",
+      "blocked": "Bloqué"
+    },
+    "jobs": {
+      "title": "Missions actives",
+      "description": "Modules représentant les missions clients",
+      "empty": "Aucune mission active",
+      "empty_description": "Créez un Module pour chaque mission client afin de la suivre ici.",
+      "columns": {
+        "job": "Mission",
+        "lead": "Responsable",
+        "progress": "Avancement",
+        "status": "Statut",
+        "due": "Échéance",
+        "health": "État"
+      },
+      "no_lead": "Aucun responsable",
+      "no_due": "Sans échéance",
+      "open_items": "{count, plural, one {# ouvert} many {# ouverts} other {# ouverts}}",
+      "overdue_items": "{count, plural, one {# en retard} many {# en retard} other {# en retard}}",
+      "blocked_items": "{count, plural, one {# bloqué} many {# bloqués} other {# bloqués}}",
+      "days_late": "{count, plural, one {# jour de retard} many {# jours de retard} other {# jours de retard}}",
+      "days_left": "{count, plural, one {# jour restant} many {# jours restants} other {# jours restants}}"
+    },
+    "employees": {
+      "title": "Charge de travail des employés",
+      "description": "Éléments de travail ouverts par employé. La capacité n'est pas suivie : des nombres sont affichés à la place d'un taux d'utilisation.",
+      "empty": "Aucun travail ouvert n'est attribué",
+      "columns": {
+        "employee": "Employé",
+        "active": "Actifs",
+        "due_soon": "Bientôt dus",
+        "overdue": "En retard",
+        "blocked": "Bloqué"
+      }
+    },
+    "pipeline": {
+      "title": "Flux de travail",
+      "description": "Répartition du travail entre les états du flux",
+      "total": "{count, plural, one {# élément de travail} many {# éléments de travail} other {# éléments de travail}}",
+      "empty": "Aucun élément de travail pour le moment"
+    },
+    "departments": {
+      "title": "Charge de travail par service",
+      "description": "Les services sont représentés par des étiquettes",
+      "empty": "Aucun travail étiqueté pour le moment",
+      "no_label": "Sans service",
+      "columns": {
+        "department": "Service",
+        "active": "Actifs",
+        "overdue": "En retard",
+        "completed": "Terminés",
+        "blocked": "Bloqué"
+      }
+    },
+    "attention": {
+      "title": "Travail à traiter",
+      "description": "Éléments de travail en retard, bloqués ou bientôt dus",
+      "empty": "Rien ne requiert d'attention",
+      "overdue_by": "{count, plural, one {En retard de # jour} many {En retard de # jours} other {En retard de # jours}}",
+      "blocked": "Bloqué",
+      "due_today": "À rendre aujourd'hui",
+      "due_in": "{count, plural, one {À rendre dans # jour} many {À rendre dans # jours} other {À rendre dans # jours}}",
+      "more": "{count, plural, one {# autre élément non affiché} many {# autres éléments non affichés} other {# autres éléments non affichés}}"
+    },
     "empty_state": {
       "general": {
         "title": "Aperçu de vos projets, activités et métriques",
@@ -63,6 +188,96 @@
           }
         }
       }
+    }
+  },
+  "employee_gantt": {
+    "title": "Gantt des employés",
+    "subtitle": "Qui travaille sur quoi, sur tous les projets",
+    "capacity": {
+      "overloaded": "Surchargé · {count}",
+      "busy": "Occupé · {count}",
+      "assigned": "Affecté · {count}",
+      "available": "Disponible",
+      "tooltip": "{count, plural, one {# élément de travail ouvert planifié} many {# éléments de travail ouverts planifiés} other {# éléments de travail ouverts planifiés}} pour aujourd’hui"
+    },
+    "summary": {
+      "employees": "Employés affichés",
+      "overloaded": "Surchargés aujourd’hui",
+      "with_overlaps": "Avec chevauchements",
+      "available": "Libres aujourd’hui",
+      "scheduled": "Affectations planifiées",
+      "undated": "Éléments de travail sans date"
+    },
+    "filters": {
+      "all": "Tous",
+      "project": "Projet",
+      "employee": "Employé",
+      "search_placeholder": "Rechercher des employés",
+      "only_overlaps": "Chevauchements uniquement",
+      "today_only": "Aujourd’hui seulement",
+      "today_only_tooltip": "Afficher uniquement le travail prévu aujourd’hui",
+      "hide_empty": "Masquer les employés sans affectation",
+      "include_completed": "Inclure les terminés",
+      "clear": "Effacer les filtres"
+    },
+    "zoom": {
+      "label": "Zoom de la chronologie",
+      "day": "Jour",
+      "week": "Semaine",
+      "month": "Mois"
+    },
+    "chart": {
+      "employee_column": "Employé",
+      "today": "Aujourd’hui",
+      "today_tooltip": "Ramener la chronologie à aujourd’hui"
+    },
+    "legend": {
+      "project_color": "Couleur de la barre = projet",
+      "single_date": "Une seule date définie",
+      "overlap": "Travail qui se chevauche",
+      "overdue": "En retard",
+      "completed": "Terminé",
+      "today": "Aujourd’hui",
+      "hover_hint": "Survolez une barre pour les détails"
+    },
+    "row": {
+      "overlaps": "{count, plural, one {# chevauchement} many {# chevauchements} other {# chevauchements}}",
+      "overlap_tooltip": "{count, plural, one {# période} many {# périodes} other {# périodes}} avec plus d’une affectation à la fois. Pic : {peak} simultanément.",
+      "overdue": "{count, plural, one {# en retard} many {# en retard} other {# en retard}}",
+      "undated": "{count, plural, one {# sans date} many {# sans date} other {# sans date}}",
+      "undated_tooltip": "Éléments de travail ouverts affectés à cet employé qui n’ont ni date de début ni date d’échéance, et ne peuvent donc pas être placés sur la chronologie.",
+      "next": "Suivant : {name} · {date}",
+      "nothing_next": "Rien de planifié ensuite"
+    },
+    "bar": {
+      "duration": "{count, plural, one {# jour} many {# jours} other {# jours}}",
+      "no_start_date": "Aucune date de début",
+      "no_target_date": "Aucune date d’échéance",
+      "single_date": "Une seule date est définie, l’élément s’affiche donc sur une seule journée",
+      "completed": "Terminé",
+      "overlapping": "Chevauche une autre affectation",
+      "overdue": "Date d’échéance dépassée"
+    },
+    "error": {
+      "title": "Impossible de charger le Gantt des employés",
+      "description": "La requête des éléments de travail a échoué. Réessayez ou actualisez la page.",
+      "retry": "Réessayer"
+    },
+    "empty": {
+      "title": "Aucun travail planifié pour l’instant",
+      "description": "Donnez aux éléments de travail une date de début et une date d’échéance, affectez-les à des personnes, et cette vue se remplira."
+    },
+    "empty_today": {
+      "title": "Personne n’a de travail prévu aujourd’hui",
+      "description": "Rien n’est en cours aujourd’hui. Effacez les filtres pour voir le planning complet."
+    },
+    "empty_filtered": {
+      "title": "Aucun travail ne correspond à ces filtres",
+      "description": "Toutes les affectations ont été filtrées. Élargissez ou effacez les filtres pour voir le planning."
+    },
+    "no_matches": {
+      "title": "Aucun employé ne correspond à ces filtres",
+      "description": "Élargissez ou effacez les filtres pour voir davantage de l’équipe."
     }
   },
   "workspace_analytics": {

@@ -51,6 +51,131 @@
     }
   },
   "workspace_dashboard": {
+    "title": "Prevádzkový panel",
+    "subtitle": "Manažérsky prehľad zákaziek klientov, práce, oddelení a zamestnancov",
+    "coverage_note": "Dodávky, kontroly klientov, vybavenie a predaj sa nezobrazujú, pretože tento pracovný priestor o nich nemá žiadne údaje. Zisťovanie konfliktov v rozvrhu zamestnancov vyžaduje časy, ktoré pracovné položky neobsahujú.",
+    "error": {
+      "title": "Panel sa nepodarilo načítať",
+      "description": "Jedna alebo viac požiadaviek zlyhalo. Skúste to znova alebo obnovte stránku.",
+      "retry": "Skúsiť znova"
+    },
+    "empty": {
+      "title": "Zatiaľ žiadne prevádzkové údaje",
+      "description": "Vytvorte Moduly pre zákazky klientov a pracovné položky pre skutočnú prácu a tento panel sa naplní."
+    },
+    "filters": {
+      "project": "Projekt",
+      "job": "Zákazka",
+      "department": "Oddelenie",
+      "employee": "Zamestnanec",
+      "all": "Všetko",
+      "clear": "Vymazať filtre"
+    },
+    "kpi": {
+      "active_jobs": "Aktívne zákazky",
+      "active_jobs_hint": "Moduly, ktoré nie sú dokončené ani zrušené",
+      "jobs_at_risk": "Zákazky vyžadujúce pozornosť",
+      "jobs_at_risk_hint": "Aktívne zákazky, ktoré sú ohrozené, oneskorené alebo blokované",
+      "overdue_tasks": "Úlohy po termíne",
+      "overdue_tasks_hint": "Otvorené pracovné položky po termíne dokončenia",
+      "due_this_week": "Termín tento týždeň",
+      "due_this_week_hint": "Otvorené pracovné položky s termínom v najbližších 7 dňoch",
+      "blocked_tasks": "Blokované úlohy",
+      "blocked_tasks_hint": "Otvorené pracovné položky blokované inou otvorenou prácou",
+      "no_due_date": "Bez termínu",
+      "no_due_date_hint": "Otvorené pracovné položky bez termínu dokončenia"
+    },
+    "severity": {
+      "critical": "Kritické",
+      "warning": "Upozornenie",
+      "info": "Informácia",
+      "success": "Podľa plánu"
+    },
+    "exceptions": {
+      "title": "Manažérske výnimky",
+      "description": "Čo práve teraz vyžaduje pozornosť vedenia",
+      "none": "Žiadne výnimky. Všetko je podľa plánu.",
+      "delayed_jobs": "{count, plural, one {# oneskorená zákazka} few {# oneskorené zákazky} many {# oneskorenej zákazky} other {# oneskorených zákaziek}}",
+      "overdue_tasks": "{count, plural, one {# úloha po termíne} few {# úlohy po termíne} many {# úlohy po termíne} other {# úloh po termíne}}",
+      "blocked_jobs": "{count, plural, one {# blokovaná zákazka} few {# blokované zákazky} many {# blokovanej zákazky} other {# blokovaných zákaziek}}",
+      "at_risk_jobs": "{count, plural, one {# ohrozená zákazka} few {# ohrozené zákazky} many {# ohrozenej zákazky} other {# ohrozených zákaziek}}",
+      "blocked_tasks": "{count, plural, one {# blokovaná úloha} few {# blokované úlohy} many {# blokovanej úlohy} other {# blokovaných úloh}}",
+      "due_this_week": "{count, plural, one {# úloha s termínom tento týždeň} few {# úlohy s termínom tento týždeň} many {# úlohy s termínom tento týždeň} other {# úloh s termínom tento týždeň}}",
+      "unassigned_tasks": "{count, plural, one {# nepriradená otvorená úloha} few {# nepriradené otvorené úlohy} many {# nepriradenej otvorenej úlohy} other {# nepriradených otvorených úloh}}",
+      "no_due_date_tasks": "{count, plural, one {# otvorená úloha bez termínu} few {# otvorené úlohy bez termínu} many {# otvorenej úlohy bez termínu} other {# otvorených úloh bez termínu}}",
+      "jobs_without_due_date": "{count, plural, one {# aktívna zákazka bez termínu} few {# aktívne zákazky bez termínu} many {# aktívnej zákazky bez termínu} other {# aktívnych zákaziek bez termínu}}"
+    },
+    "job_health": {
+      "title": "Stav zákaziek",
+      "description": "Odvodené z termínov Modulov, blokovanej práce, práce po termíne a postupu podľa harmonogramu",
+      "total": "{count, plural, one {# zákazka} few {# zákazky} many {# zákazky} other {# zákaziek}}",
+      "on_track": "Podľa plánu",
+      "at_risk": "Ohrozená",
+      "delayed": "Oneskorená",
+      "blocked": "Blokovaná"
+    },
+    "jobs": {
+      "title": "Aktívne zákazky",
+      "description": "Moduly predstavujúce zákazky klientov",
+      "empty": "Žiadne aktívne zákazky",
+      "empty_description": "Vytvorte Modul pre každú zákazku klienta, aby ste ju tu mohli sledovať.",
+      "columns": {
+        "job": "Zákazka",
+        "lead": "Vedúci",
+        "progress": "Postup",
+        "status": "Stav",
+        "due": "Termín",
+        "health": "Zdravie"
+      },
+      "no_lead": "Bez vedúceho",
+      "no_due": "Bez termínu",
+      "open_items": "{count, plural, one {# otvorená} few {# otvorené} many {# otvorenej} other {# otvorených}}",
+      "overdue_items": "{count, plural, one {# po termíne} few {# po termíne} many {# po termíne} other {# po termíne}}",
+      "blocked_items": "{count, plural, one {# blokovaná} few {# blokované} many {# blokovanej} other {# blokovaných}}",
+      "days_late": "{count, plural, one {# deň meškania} few {# dni meškania} many {# dňa meškania} other {# dní meškania}}",
+      "days_left": "{count, plural, one {zostáva # deň} few {zostávajú # dni} many {zostáva # dňa} other {zostáva # dní}}"
+    },
+    "employees": {
+      "title": "Vyťaženie zamestnancov",
+      "description": "Otvorené pracovné položky na zamestnanca. Kapacita sa nesleduje, preto sa namiesto využitia zobrazujú počty.",
+      "empty": "Nie je priradená žiadna otvorená práca",
+      "columns": {
+        "employee": "Zamestnanec",
+        "active": "Aktívne",
+        "due_soon": "Čoskoro",
+        "overdue": "Po termíne",
+        "blocked": "Blokovaná"
+      }
+    },
+    "pipeline": {
+      "title": "Tok práce",
+      "description": "Kde sa práca nachádza naprieč stavmi pracovného postupu",
+      "total": "{count, plural, one {# pracovná položka} few {# pracovné položky} many {# pracovnej položky} other {# pracovných položiek}}",
+      "empty": "Zatiaľ žiadne pracovné položky"
+    },
+    "departments": {
+      "title": "Vyťaženie oddelení",
+      "description": "Oddelenia sú reprezentované štítkami",
+      "empty": "Zatiaľ žiadna práca so štítkom",
+      "no_label": "Bez oddelenia",
+      "columns": {
+        "department": "Oddelenie",
+        "active": "Aktívne",
+        "overdue": "Po termíne",
+        "completed": "Dokončené",
+        "blocked": "Blokovaná"
+      }
+    },
+    "attention": {
+      "title": "Práca vyžadujúca pozornosť",
+      "description": "Pracovné položky po termíne, blokované a s blízkym termínom",
+      "empty": "Nič nevyžaduje pozornosť",
+      "overdue_by": "{count, plural, one {Po termíne o # deň} few {Po termíne o # dni} many {Po termíne o # dňa} other {Po termíne o # dní}}",
+      "blocked": "Blokovaná",
+      "due_today": "Termín dnes",
+      "due_in": "{count, plural, one {Termín o # deň} few {Termín o # dni} many {Termín o # dňa} other {Termín o # dní}}",
+      "more": "{count, plural, one {# ďalšia položka nie je zobrazená} few {# ďalšie položky nie sú zobrazené} many {# ďalšej položky nie je zobrazenej} other {# ďalších položiek nie je zobrazených}}"
+    },
     "empty_state": {
       "general": {
         "title": "Prehľad projektov, aktivít a metrík",
@@ -63,6 +188,96 @@
           }
         }
       }
+    }
+  },
+  "employee_gantt": {
+    "title": "Zamestnanecký Gantt",
+    "subtitle": "Kto na čom pracuje, naprieč všetkými projektmi",
+    "capacity": {
+      "overloaded": "Preťažený · {count}",
+      "busy": "Vyťažený · {count}",
+      "assigned": "Priradené · {count}",
+      "available": "Voľný",
+      "tooltip": "{count, plural, one {# otvorená pracovná položka} few {# otvorené pracovné položky} many {# otvorenej pracovnej položky} other {# otvorených pracovných položiek}} naplánovaná na dnes"
+    },
+    "summary": {
+      "employees": "Zobrazení zamestnanci",
+      "overloaded": "Dnes preťažení",
+      "with_overlaps": "S prekrytiami",
+      "available": "Dnes voľní",
+      "scheduled": "Naplánované priradenia",
+      "undated": "Pracovné položky bez dátumu"
+    },
+    "filters": {
+      "all": "Všetko",
+      "project": "Projekt",
+      "employee": "Zamestnanec",
+      "search_placeholder": "Hľadať zamestnancov",
+      "only_overlaps": "Iba prekrytia",
+      "today_only": "Len dnes",
+      "today_only_tooltip": "Zobraziť len prácu naplánovanú na dnes",
+      "hide_empty": "Skryť zamestnancov bez priradení",
+      "include_completed": "Vrátane dokončených",
+      "clear": "Vymazať filtre"
+    },
+    "zoom": {
+      "label": "Priblíženie časovej osi",
+      "day": "Deň",
+      "week": "Týždeň",
+      "month": "Mesiac"
+    },
+    "chart": {
+      "employee_column": "Zamestnanec",
+      "today": "Dnes",
+      "today_tooltip": "Posunúť časovú os späť na dnes"
+    },
+    "legend": {
+      "project_color": "Farba pruhu = projekt",
+      "single_date": "Nastavený len jeden dátum",
+      "overlap": "Prekrývajúca sa práca",
+      "overdue": "Po termíne",
+      "completed": "Dokončené",
+      "today": "Dnes",
+      "hover_hint": "Podržte ukazovateľ nad pruhom pre detaily"
+    },
+    "row": {
+      "overlaps": "{count, plural, one {# prekrytie} few {# prekrytia} many {# prekrytia} other {# prekrytí}}",
+      "overlap_tooltip": "{count, plural, one {# obdobie} few {# obdobia} many {# obdobia} other {# období}} s viac ako jedným priradením naraz. Maximum: {peak} súčasne.",
+      "overdue": "{count, plural, one {# po termíne} few {# po termíne} many {# po termíne} other {# po termíne}}",
+      "undated": "{count, plural, one {# bez dátumu} few {# bez dátumu} many {# bez dátumu} other {# bez dátumu}}",
+      "undated_tooltip": "Otvorené pracovné položky priradené tomuto zamestnancovi, ktoré nemajú dátum začiatku ani termín, a preto ich nemožno umiestniť na časovú os.",
+      "next": "Ďalšie: {name} · {date}",
+      "nothing_next": "Nič ďalšie naplánované"
+    },
+    "bar": {
+      "duration": "{count, plural, one {# deň} few {# dni} many {# dňa} other {# dní}}",
+      "no_start_date": "Bez dátumu začiatku",
+      "no_target_date": "Bez termínu",
+      "single_date": "Nastavený je len jeden dátum, preto sa zobrazuje ako jeden deň",
+      "completed": "Dokončené",
+      "overlapping": "Prekrýva sa s iným priradením",
+      "overdue": "Po termíne"
+    },
+    "error": {
+      "title": "Zamestnanecký Gantt sa nepodarilo načítať",
+      "description": "Požiadavka na pracovné položky zlyhala. Skúste to znova alebo obnovte stránku.",
+      "retry": "Skúsiť znova"
+    },
+    "empty": {
+      "title": "Zatiaľ žiadna naplánovaná práca",
+      "description": "Pridajte pracovným položkám dátum začiatku a termín a priraďte ich ľuďom, a toto zobrazenie sa naplní."
+    },
+    "empty_today": {
+      "title": "Na dnes nemá naplánovanú prácu nikto",
+      "description": "Dnes neprebieha nič. Vymazaním filtrov zobrazíte celý harmonogram."
+    },
+    "empty_filtered": {
+      "title": "Týmto filtrom nezodpovedá žiadna práca",
+      "description": "Všetky priradenia boli odfiltrované. Rozšírte alebo vymažte filtre, aby ste videli harmonogram."
+    },
+    "no_matches": {
+      "title": "Týmto filtrom nezodpovedá žiadny zamestnanec",
+      "description": "Rozšírte alebo vymažte filtre, aby ste videli viac členov tímu."
     }
   },
   "workspace_analytics": {

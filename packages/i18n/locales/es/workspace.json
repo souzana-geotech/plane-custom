@@ -51,6 +51,131 @@
     }
   },
   "workspace_dashboard": {
+    "title": "Panel de operaciones",
+    "subtitle": "Visibilidad de gestión sobre trabajos de clientes, tareas, departamentos y empleados",
+    "coverage_note": "Los entregables, las revisiones de clientes, los equipos y las ventas no se muestran porque este espacio de trabajo no tiene datos sobre ellos. Los conflictos de agenda de los empleados requieren horarios, que los elementos de trabajo no incluyen.",
+    "error": {
+      "title": "No se pudo cargar el panel",
+      "description": "Una o más solicitudes fallaron. Reintente o actualice la página.",
+      "retry": "Reintentar"
+    },
+    "empty": {
+      "title": "Todavía no hay datos de operaciones",
+      "description": "Cree Módulos para los trabajos de clientes y elementos de trabajo para el trabajo real, y este panel se completará."
+    },
+    "filters": {
+      "project": "Proyecto",
+      "job": "Trabajo",
+      "department": "Departamento",
+      "employee": "Empleado",
+      "all": "Todos",
+      "clear": "Borrar filtros"
+    },
+    "kpi": {
+      "active_jobs": "Trabajos activos",
+      "active_jobs_hint": "Módulos que no están completados ni cancelados",
+      "jobs_at_risk": "Trabajos que requieren atención",
+      "jobs_at_risk_hint": "Trabajos activos en riesgo, retrasados o bloqueados",
+      "overdue_tasks": "Tareas vencidas",
+      "overdue_tasks_hint": "Elementos de trabajo abiertos con la fecha límite superada",
+      "due_this_week": "Vencen esta semana",
+      "due_this_week_hint": "Elementos de trabajo abiertos que vencen en los próximos 7 días",
+      "blocked_tasks": "Tareas bloqueadas",
+      "blocked_tasks_hint": "Elementos de trabajo abiertos bloqueados por otro trabajo abierto",
+      "no_due_date": "Sin fecha límite",
+      "no_due_date_hint": "Elementos de trabajo abiertos sin fecha límite"
+    },
+    "severity": {
+      "critical": "Crítico",
+      "warning": "Advertencia",
+      "info": "Informativo",
+      "success": "En curso"
+    },
+    "exceptions": {
+      "title": "Excepciones de gestión",
+      "description": "Lo que requiere la atención de la dirección ahora mismo",
+      "none": "No hay excepciones. Todo va según lo previsto.",
+      "delayed_jobs": "{count, plural, one {# trabajo retrasado} other {# trabajos retrasados}}",
+      "overdue_tasks": "{count, plural, one {# tarea vencida} other {# tareas vencidas}}",
+      "blocked_jobs": "{count, plural, one {# trabajo bloqueado} other {# trabajos bloqueados}}",
+      "at_risk_jobs": "{count, plural, one {# trabajo en riesgo} other {# trabajos en riesgo}}",
+      "blocked_tasks": "{count, plural, one {# tarea bloqueada} other {# tareas bloqueadas}}",
+      "due_this_week": "{count, plural, one {# tarea vence esta semana} other {# tareas vencen esta semana}}",
+      "unassigned_tasks": "{count, plural, one {# tarea abierta sin asignar} other {# tareas abiertas sin asignar}}",
+      "no_due_date_tasks": "{count, plural, one {# tarea abierta sin fecha límite} other {# tareas abiertas sin fecha límite}}",
+      "jobs_without_due_date": "{count, plural, one {# trabajo activo sin fecha límite} other {# trabajos activos sin fecha límite}}"
+    },
+    "job_health": {
+      "title": "Estado de los trabajos",
+      "description": "Derivado de las fechas límite de los Módulos, el trabajo bloqueado, el trabajo vencido y el avance del cronograma",
+      "total": "{count, plural, one {# trabajo} other {# trabajos}}",
+      "on_track": "En curso",
+      "at_risk": "En riesgo",
+      "delayed": "Retrasado",
+      "blocked": "Bloqueado"
+    },
+    "jobs": {
+      "title": "Trabajos activos",
+      "description": "Módulos que representan trabajos de clientes",
+      "empty": "No hay trabajos activos",
+      "empty_description": "Cree un Módulo por cada trabajo de cliente para seguirlo aquí.",
+      "columns": {
+        "job": "Trabajo",
+        "lead": "Responsable",
+        "progress": "Progreso",
+        "status": "Estado",
+        "due": "Vence",
+        "health": "Salud"
+      },
+      "no_lead": "Sin responsable",
+      "no_due": "Sin fecha límite",
+      "open_items": "{count, plural, one {# abierto} other {# abiertos}}",
+      "overdue_items": "{count, plural, one {# vencido} other {# vencidos}}",
+      "blocked_items": "{count, plural, one {# bloqueado} other {# bloqueados}}",
+      "days_late": "{count, plural, one {# día de retraso} other {# días de retraso}}",
+      "days_left": "{count, plural, one {# día restante} other {# días restantes}}"
+    },
+    "employees": {
+      "title": "Carga de trabajo por empleado",
+      "description": "Elementos de trabajo abiertos por empleado. La capacidad no se registra, por lo que se muestran recuentos en lugar de utilización.",
+      "empty": "No hay trabajo abierto asignado",
+      "columns": {
+        "employee": "Empleado",
+        "active": "Activos",
+        "due_soon": "Vencen pronto",
+        "overdue": "Vencidos",
+        "blocked": "Bloqueado"
+      }
+    },
+    "pipeline": {
+      "title": "Flujo de trabajo",
+      "description": "Dónde se encuentra el trabajo en los estados del flujo",
+      "total": "{count, plural, one {# elemento de trabajo} other {# elementos de trabajo}}",
+      "empty": "Todavía no hay elementos de trabajo"
+    },
+    "departments": {
+      "title": "Carga de trabajo por departamento",
+      "description": "Los departamentos se representan con etiquetas",
+      "empty": "Todavía no hay trabajo etiquetado",
+      "no_label": "Sin departamento",
+      "columns": {
+        "department": "Departamento",
+        "active": "Activos",
+        "overdue": "Vencidos",
+        "completed": "Completados",
+        "blocked": "Bloqueado"
+      }
+    },
+    "attention": {
+      "title": "Trabajo que requiere atención",
+      "description": "Elementos de trabajo vencidos, bloqueados o que vencen pronto",
+      "empty": "Nada requiere atención",
+      "overdue_by": "{count, plural, one {Vencido hace # día} other {Vencido hace # días}}",
+      "blocked": "Bloqueado",
+      "due_today": "Vence hoy",
+      "due_in": "{count, plural, one {Vence en # día} other {Vence en # días}}",
+      "more": "{count, plural, one {# elemento más no mostrado} other {# elementos más no mostrados}}"
+    },
     "empty_state": {
       "general": {
         "title": "Resumen de tus proyectos, actividad y métricas",
@@ -63,6 +188,96 @@
           }
         }
       }
+    }
+  },
+  "employee_gantt": {
+    "title": "Gantt de empleados",
+    "subtitle": "Quién trabaja en qué, en todos los proyectos",
+    "capacity": {
+      "overloaded": "Sobrecargado · {count}",
+      "busy": "Ocupado · {count}",
+      "assigned": "Asignado · {count}",
+      "available": "Disponible",
+      "tooltip": "{count, plural, one {# elemento de trabajo abierto programado} other {# elementos de trabajo abiertos programados}} para hoy"
+    },
+    "summary": {
+      "employees": "Empleados mostrados",
+      "overloaded": "Sobrecargados hoy",
+      "with_overlaps": "Con solapamientos",
+      "available": "Libres hoy",
+      "scheduled": "Asignaciones programadas",
+      "undated": "Elementos de trabajo sin fecha"
+    },
+    "filters": {
+      "all": "Todos",
+      "project": "Proyecto",
+      "employee": "Empleado",
+      "search_placeholder": "Buscar empleados",
+      "only_overlaps": "Solo solapamientos",
+      "today_only": "Solo hoy",
+      "today_only_tooltip": "Mostrar solo el trabajo programado para hoy",
+      "hide_empty": "Ocultar empleados sin asignaciones",
+      "include_completed": "Incluir completados",
+      "clear": "Borrar filtros"
+    },
+    "zoom": {
+      "label": "Zoom de la línea de tiempo",
+      "day": "Día",
+      "week": "Semana",
+      "month": "Mes"
+    },
+    "chart": {
+      "employee_column": "Empleado",
+      "today": "Hoy",
+      "today_tooltip": "Desplazar la línea de tiempo hasta hoy"
+    },
+    "legend": {
+      "project_color": "Color de la barra = proyecto",
+      "single_date": "Solo una fecha establecida",
+      "overlap": "Trabajo solapado",
+      "overdue": "Vencido",
+      "completed": "Completado",
+      "today": "Hoy",
+      "hover_hint": "Pase el cursor sobre una barra para ver los detalles"
+    },
+    "row": {
+      "overlaps": "{count, plural, one {# solapamiento} other {# solapamientos}}",
+      "overlap_tooltip": "{count, plural, one {# periodo} other {# periodos}} con más de una asignación a la vez. Máximo: {peak} a la vez.",
+      "overdue": "{count, plural, one {# vencido} other {# vencidos}}",
+      "undated": "{count, plural, one {# sin fecha} other {# sin fecha}}",
+      "undated_tooltip": "Elementos de trabajo abiertos asignados a este empleado que no tienen fecha de inicio ni de vencimiento, por lo que no se pueden situar en la línea de tiempo.",
+      "next": "Siguiente: {name} · {date}",
+      "nothing_next": "Nada programado a continuación"
+    },
+    "bar": {
+      "duration": "{count, plural, one {# día} other {# días}}",
+      "no_start_date": "Sin fecha de inicio",
+      "no_target_date": "Sin fecha de vencimiento",
+      "single_date": "Solo hay una fecha establecida, por lo que se muestra como un único día",
+      "completed": "Completado",
+      "overlapping": "Se solapa con otra asignación",
+      "overdue": "Fecha de vencimiento superada"
+    },
+    "error": {
+      "title": "No se pudo cargar el Gantt de empleados",
+      "description": "La solicitud de elementos de trabajo falló. Reintente o actualice la página.",
+      "retry": "Reintentar"
+    },
+    "empty": {
+      "title": "Aún no hay trabajo programado",
+      "description": "Asigne a los elementos de trabajo una fecha de inicio y una de vencimiento, asígnelos a personas y esta vista se completará."
+    },
+    "empty_today": {
+      "title": "Nadie tiene trabajo programado para hoy",
+      "description": "Hoy no hay nada en curso. Borre los filtros para ver la programación completa."
+    },
+    "empty_filtered": {
+      "title": "Ningún trabajo coincide con estos filtros",
+      "description": "Se filtraron todas las asignaciones. Amplíe o borre los filtros para ver la programación."
+    },
+    "no_matches": {
+      "title": "Ningún empleado coincide con estos filtros",
+      "description": "Amplíe o borre los filtros para ver más del equipo."
     }
   },
   "workspace_analytics": {

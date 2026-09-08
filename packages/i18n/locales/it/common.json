@@ -306,6 +306,7 @@
   "start_date": "Data di inizio",
   "end_date": "Data di fine",
   "due_date": "Scadenza",
+  "working_days": "Giorni lavorativi",
   "target_date": "Data prevista",
   "estimate": "Stima",
   "change_parent_issue": "Cambia elemento di lavoro principale",

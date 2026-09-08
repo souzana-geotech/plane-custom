@@ -306,6 +306,7 @@
   "start_date": "დაწყების თარიღი",
   "end_date": "დასრულების თარიღი",
   "due_date": "ვადის თარიღი",
+  "working_days": "სამუშაო დღეები",
   "target_date": "Target date",
   "estimate": "შეფასება",
   "change_parent_issue": "მშობელი სამუშაო ელემენტის შეცვლა",

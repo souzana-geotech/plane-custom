@@ -16,12 +16,15 @@ import globalStyles from "@/styles/globals.css?url";
 import { AppProviders } from "@/providers";
 import type { Route } from "./+types/root";
 // fonts
-import "@fontsource-variable/inter";
-import interVariableWoff2 from "@fontsource-variable/inter/files/inter-latin-wght-normal.woff2?url";
+// Preload the brand body weight. Inter is no longer in any font stack (see
+// brand.css), so preloading it would fetch a face that never paints.
+import graphikRegularWoff2 from "@plane/tailwind-config/fonts/graphik-400.woff2?url";
+// eslint-disable-next-line import/no-unassigned-import -- side-effect CSS import, no binding by design
 import "@fontsource/material-symbols-rounded";
+// eslint-disable-next-line import/no-unassigned-import -- side-effect CSS import, no binding by design
 import "@fontsource/ibm-plex-mono";
 
-const APP_TITLE = "Plane | Simple, extensible, open-source project management tool.";
+const APP_TITLE = "Geotech3D Admin | Geospatial Services";
 const APP_DESCRIPTION =
   "Open-source project management tool to manage work items, sprints, and product roadmaps with peace of mind.";
 
@@ -34,7 +37,7 @@ export const links: LinksFunction = () => [
   { rel: "stylesheet", href: globalStyles },
   {
     rel: "preload",
-    href: interVariableWoff2,
+    href: graphikRegularWoff2,
     as: "font",
     type: "font/woff2",
     crossOrigin: "anonymous",

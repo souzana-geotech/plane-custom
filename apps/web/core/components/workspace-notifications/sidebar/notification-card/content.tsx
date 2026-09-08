@@ -67,6 +67,24 @@ export const BASE_NOTIFICATION_CONTENT_MAP: TNotificationContentMap = {
     value: renderFormattedDate(newValue),
     showConnector: false,
   }),
+  // Scheduled due-date reminders (apps/api/plane/bgtasks/issue_reminder_task.py); oldValue holds the day distance
+  due_reminder: ({ newValue, oldValue }) => {
+    const days = Number(oldValue) || 0;
+    const when = days <= 0 ? "today" : days === 1 ? "tomorrow" : `in ${days} days`;
+    return {
+      action: `Reminder: this work item is due ${when},`,
+      value: renderFormattedDate(newValue),
+      showConnector: false,
+    };
+  },
+  overdue: ({ newValue, oldValue }) => {
+    const days = Number(oldValue) || 0;
+    return {
+      action: `This work item is overdue by ${days} ${days === 1 ? "day" : "days"}, it was due`,
+      value: renderFormattedDate(newValue),
+      showConnector: false,
+    };
+  },
   labels: ({ newValue, oldValue }) => ({
     action: newValue !== "" ? "added label" : "removed label",
     value: newValue !== "" ? newValue : oldValue,

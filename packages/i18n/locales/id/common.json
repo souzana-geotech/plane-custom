@@ -306,6 +306,7 @@
   "start_date": "Tanggal mulai",
   "end_date": "Tanggal akhir",
   "due_date": "Tanggal jatuh tempo",
+  "working_days": "Hari kerja",
   "target_date": "Tanggal target",
   "estimate": "Perkiraan",
   "change_parent_issue": "Ubah item kerja induk",

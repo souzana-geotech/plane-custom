@@ -10,6 +10,7 @@ from bs4 import BeautifulSoup
 
 # Third party imports
 from celery import shared_task
+from django.conf import settings
 from django.core.mail import EmailMultiAlternatives, get_connection
 from django.template.loader import render_to_string
 
@@ -17,6 +18,7 @@ from django.template.loader import render_to_string
 from django.utils import timezone
 
 # Module imports
+from plane.bgtasks.issue_reminder_task import OVERDUE_FIELD, REMINDER_FIELDS, reminder_message
 from plane.db.models import EmailNotificationLog, Issue, User
 from plane.license.utils.instance_value import get_email_configuration
 from plane.settings.redis import redis_instance
@@ -149,6 +151,24 @@ def process_html_content(content):
     return processed_content_list
 
 
+def build_reminder_context(field, change):
+    """
+    Turn a batched due-date reminder change ({"new_value": [date], "old_value": [days]})
+    produced by ``plane.bgtasks.issue_reminder_task`` into template data.
+    """
+    target_date = (change.get("new_value") or [""])[0]
+    try:
+        days = int((change.get("old_value") or ["0"])[0])
+    except (TypeError, ValueError):
+        days = 0
+    return {
+        "kind": field,
+        "target_date": target_date,
+        "days": days,
+        "message": reminder_message(field, days),
+    }
+
+
 @shared_task
 def send_email_notification(issue_id, notification_data, receiver_id, email_notification_ids):
     # Convert UUIDs to a sorted, concatenated string
@@ -162,6 +182,11 @@ def send_email_notification(issue_id, notification_data, receiver_id, email_noti
             # get the redis instance
             ri = redis_instance()
             base_api = ri.get(str(issue_id)).decode() if ri.get(str(issue_id)) else None
+
+            # Scheduled notifications (e.g. due-date reminders) are not tied to a request
+            # origin, so fall back to the configured web URL.
+            if not base_api:
+                base_api = settings.WEB_URL or settings.APP_BASE_URL
 
             # Skip if base api is not present
             if not base_api:
@@ -185,13 +210,20 @@ def send_email_notification(issue_id, notification_data, receiver_id, email_noti
             template_data = []
             total_changes = 0
             comments = []
+            reminders = []
             actors_involved = []
             for actor_id, changes in data.items():
                 actor = User.objects.get(pk=actor_id)
                 total_changes = total_changes + len(changes)
                 comment = changes.pop("comment", False)
                 mention = changes.pop("mention", False)
-                actors_involved.append(actor_id)
+                # Scheduled due-date reminders are rendered in their own block, not as actor changes
+                for reminder_field in REMINDER_FIELDS:
+                    reminder = changes.pop(reminder_field, False)
+                    if reminder:
+                        reminders.append(build_reminder_context(reminder_field, reminder))
+                if comment or mention or any(key != "activity_time" for key in changes):
+                    actors_involved.append(actor_id)
                 if comment:
                     comments.append(
                         {
@@ -241,6 +273,9 @@ def send_email_notification(issue_id, notification_data, receiver_id, email_noti
 
             # Send the mail
             subject = f"{issue.project.identifier}-{issue.sequence_id} {remove_unwanted_characters(issue.name)}"
+            if reminders and not template_data and not comments:
+                prefix = "Overdue" if any(r["kind"] == OVERDUE_FIELD for r in reminders) else "Reminder"
+                subject = f"{prefix}: {subject}"
             context = {
                 "data": template_data,
                 "summary": summary,
@@ -257,6 +292,7 @@ def send_email_notification(issue_id, notification_data, receiver_id, email_noti
                 "project": str(issue.project.name),
                 "user_preference": f"{base_api}/{str(issue.project.workspace.slug)}/settings/account/notifications/",
                 "comments": comments,
+                "reminders": reminders,
                 "entity_type": "issue",
             }
             html_content = render_to_string("emails/notifications/issue-updates.html", context)

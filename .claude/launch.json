@@ -5,7 +5,8 @@
       "name": "plane-web",
       "runtimeExecutable": "cmd.exe",
       "runtimeArgs": ["/c", "set PATH=C:\\nvm4w\\nodejs;%PATH% && pnpm dev"],
-      "port": 3000
+      "port": 3000,
+      "autoPort": false
     }
   ]
 }

@@ -306,6 +306,7 @@
   "start_date": "Datum začátku",
   "end_date": "Datum ukončení",
   "due_date": "Termín",
+  "working_days": "Pracovní dny",
   "target_date": "Cílové datum",
   "estimate": "Odhad",
   "change_parent_issue": "Změnit nadřazenou pracovní položku",

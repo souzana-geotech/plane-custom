@@ -306,6 +306,7 @@
   "start_date": "Data de început",
   "end_date": "Data de sfârșit",
   "due_date": "Data limită",
+  "working_days": "Zile lucrătoare",
   "target_date": "Data țintă",
   "estimate": "Estimare",
   "change_parent_issue": "Schimbă activitatea părinte",

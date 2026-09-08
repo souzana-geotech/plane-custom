@@ -72,6 +72,16 @@ export const coreRoutes: RouteConfigEntry[] = [
           route(":workspaceSlug/analytics/:tabId", "./(all)/[workspaceSlug]/(projects)/analytics/[tabId]/page.tsx"),
         ]),
 
+        // Workspace Dashboard
+        layout("./(all)/[workspaceSlug]/(projects)/dashboard/layout.tsx", [
+          route(":workspaceSlug/dashboard", "./(all)/[workspaceSlug]/(projects)/dashboard/page.tsx"),
+        ]),
+
+        // Employee resource gantt
+        layout("./(all)/[workspaceSlug]/(projects)/employee-gantt/layout.tsx", [
+          route(":workspaceSlug/employee-gantt", "./(all)/[workspaceSlug]/(projects)/employee-gantt/page.tsx"),
+        ]),
+
         // Browse
         layout("./(all)/[workspaceSlug]/(projects)/browse/[workItem]/layout.tsx", [
           route(":workspaceSlug/browse/:workItem", "./(all)/[workspaceSlug]/(projects)/browse/[workItem]/page.tsx"),

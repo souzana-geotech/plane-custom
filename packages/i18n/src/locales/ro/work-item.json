@@ -18,6 +18,7 @@
       "assignee": "Adaugă responsabili",
       "start_date": "Adaugă data de început",
       "due_date": "Adaugă termenul limită",
+      "working_days": "Adaugă zile lucrătoare",
       "parent": "Adaugă activitate părinte",
       "sub_issue": "Adaugă sub-activitate",
       "dependency": "Adaugă dependență",

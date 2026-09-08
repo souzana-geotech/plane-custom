@@ -51,6 +51,131 @@
     }
   },
   "workspace_dashboard": {
+    "title": "Tablou de bord operațional",
+    "subtitle": "Vizibilitate managerială asupra lucrărilor clienților, activității, departamentelor și angajaților",
+    "coverage_note": "Livrabilele, revizuirile clienților, echipamentele și vânzările nu sunt afișate deoarece acest spațiu de lucru nu conține date despre ele. Conflictele de program ale angajaților necesită ore, pe care elementele de lucru nu le conțin.",
+    "error": {
+      "title": "Tabloul de bord nu a putut fi încărcat",
+      "description": "Una sau mai multe cereri au eșuat. Reîncercați sau reîmprospătați pagina.",
+      "retry": "Reîncearcă"
+    },
+    "empty": {
+      "title": "Încă nu există date operaționale",
+      "description": "Creați Module pentru lucrările clienților și elemente de lucru pentru activitatea propriu-zisă, iar acest tablou de bord se va completa."
+    },
+    "filters": {
+      "project": "Proiect",
+      "job": "Lucrare",
+      "department": "Departament",
+      "employee": "Angajat",
+      "all": "Toate",
+      "clear": "Șterge filtrele"
+    },
+    "kpi": {
+      "active_jobs": "Lucrări active",
+      "active_jobs_hint": "Module care nu sunt finalizate sau anulate",
+      "jobs_at_risk": "Lucrări care necesită atenție",
+      "jobs_at_risk_hint": "Lucrări active în risc, întârziate sau blocate",
+      "overdue_tasks": "Sarcini restante",
+      "overdue_tasks_hint": "Elemente de lucru deschise cu termenul depășit",
+      "due_this_week": "Scadente săptămâna aceasta",
+      "due_this_week_hint": "Elemente de lucru deschise scadente în următoarele 7 zile",
+      "blocked_tasks": "Sarcini blocate",
+      "blocked_tasks_hint": "Elemente de lucru deschise blocate de alte activități deschise",
+      "no_due_date": "Fără termen",
+      "no_due_date_hint": "Elemente de lucru deschise fără termen limită"
+    },
+    "severity": {
+      "critical": "Critic",
+      "warning": "Avertisment",
+      "info": "Informativ",
+      "success": "Conform planului"
+    },
+    "exceptions": {
+      "title": "Excepții de management",
+      "description": "Ce necesită acum atenția conducerii",
+      "none": "Nicio excepție. Totul decurge conform planului.",
+      "delayed_jobs": "{count, plural, one {# lucrare întârziată} few {# lucrări întârziate} other {# de lucrări întârziate}}",
+      "overdue_tasks": "{count, plural, one {# sarcină restantă} few {# sarcini restante} other {# de sarcini restante}}",
+      "blocked_jobs": "{count, plural, one {# lucrare blocată} few {# lucrări blocate} other {# de lucrări blocate}}",
+      "at_risk_jobs": "{count, plural, one {# lucrare în risc} few {# lucrări în risc} other {# de lucrări în risc}}",
+      "blocked_tasks": "{count, plural, one {# sarcină blocată} few {# sarcini blocate} other {# de sarcini blocate}}",
+      "due_this_week": "{count, plural, one {# sarcină scadentă săptămâna aceasta} few {# sarcini scadente săptămâna aceasta} other {# de sarcini scadente săptămâna aceasta}}",
+      "unassigned_tasks": "{count, plural, one {# sarcină deschisă neatribuită} few {# sarcini deschise neatribuite} other {# de sarcini deschise neatribuite}}",
+      "no_due_date_tasks": "{count, plural, one {# sarcină deschisă fără termen} few {# sarcini deschise fără termen} other {# de sarcini deschise fără termen}}",
+      "jobs_without_due_date": "{count, plural, one {# lucrare activă fără termen} few {# lucrări active fără termen} other {# de lucrări active fără termen}}"
+    },
+    "job_health": {
+      "title": "Starea lucrărilor",
+      "description": "Derivată din termenele Modulelor, activitatea blocată, activitatea restantă și progresul față de calendar",
+      "total": "{count, plural, one {# lucrare} few {# lucrări} other {# de lucrări}}",
+      "on_track": "Conform planului",
+      "at_risk": "În risc",
+      "delayed": "Întârziată",
+      "blocked": "Blocată"
+    },
+    "jobs": {
+      "title": "Lucrări active",
+      "description": "Module care reprezintă lucrările clienților",
+      "empty": "Nicio lucrare activă",
+      "empty_description": "Creați câte un Modul pentru fiecare lucrare a unui client pentru a o urmări aici.",
+      "columns": {
+        "job": "Lucrare",
+        "lead": "Responsabil",
+        "progress": "Progres",
+        "status": "Stare",
+        "due": "Termen",
+        "health": "Sănătate"
+      },
+      "no_lead": "Fără responsabil",
+      "no_due": "Fără termen",
+      "open_items": "{count, plural, one {# deschisă} few {# deschise} other {# deschise}}",
+      "overdue_items": "{count, plural, one {# restantă} few {# restante} other {# restante}}",
+      "blocked_items": "{count, plural, one {# blocată} few {# blocate} other {# blocate}}",
+      "days_late": "{count, plural, one {# zi întârziere} few {# zile întârziere} other {# de zile întârziere}}",
+      "days_left": "{count, plural, one {# zi rămasă} few {# zile rămase} other {# de zile rămase}}"
+    },
+    "employees": {
+      "title": "Volumul de lucru al angajaților",
+      "description": "Elemente de lucru deschise per angajat. Capacitatea nu este urmărită, așa că se afișează numere în loc de grad de utilizare.",
+      "empty": "Nicio activitate deschisă atribuită",
+      "columns": {
+        "employee": "Angajat",
+        "active": "Active",
+        "due_soon": "Scadente curând",
+        "overdue": "Restante",
+        "blocked": "Blocată"
+      }
+    },
+    "pipeline": {
+      "title": "Fluxul de lucru",
+      "description": "Unde se află activitatea în stările fluxului de lucru",
+      "total": "{count, plural, one {# element de lucru} few {# elemente de lucru} other {# de elemente de lucru}}",
+      "empty": "Încă nu există elemente de lucru"
+    },
+    "departments": {
+      "title": "Volumul de lucru pe departamente",
+      "description": "Departamentele sunt reprezentate prin etichete",
+      "empty": "Încă nu există activitate etichetată",
+      "no_label": "Fără departament",
+      "columns": {
+        "department": "Departament",
+        "active": "Active",
+        "overdue": "Restante",
+        "completed": "Finalizate",
+        "blocked": "Blocată"
+      }
+    },
+    "attention": {
+      "title": "Activitate care necesită atenție",
+      "description": "Elemente de lucru restante, blocate sau scadente curând",
+      "empty": "Nimic nu necesită atenție",
+      "overdue_by": "{count, plural, one {Restant de # zi} few {Restant de # zile} other {Restant de # de zile}}",
+      "blocked": "Blocată",
+      "due_today": "Scadent astăzi",
+      "due_in": "{count, plural, one {Scadent în # zi} few {Scadent în # zile} other {Scadent în # de zile}}",
+      "more": "{count, plural, one {încă # element neafișat} few {încă # elemente neafișate} other {încă # de elemente neafișate}}"
+    },
     "empty_state": {
       "general": {
         "title": "Prezentare generală a proiectelor, activităților și statisticilor tale",
@@ -63,6 +188,96 @@
           }
         }
       }
+    }
+  },
+  "employee_gantt": {
+    "title": "Gantt pentru angajați",
+    "subtitle": "Cine la ce lucrează, în toate proiectele",
+    "capacity": {
+      "overloaded": "Supraîncărcat · {count}",
+      "busy": "Ocupat · {count}",
+      "assigned": "Alocat · {count}",
+      "available": "Disponibil",
+      "tooltip": "{count, plural, one {# activitate deschisă programată} few {# activități deschise programate} other {# de activități deschise programate}} pentru astăzi"
+    },
+    "summary": {
+      "employees": "Angajați afișați",
+      "overloaded": "Supraîncărcați astăzi",
+      "with_overlaps": "Cu suprapuneri",
+      "available": "Liberi astăzi",
+      "scheduled": "Alocări programate",
+      "undated": "Activități fără dată"
+    },
+    "filters": {
+      "all": "Toate",
+      "project": "Proiect",
+      "employee": "Angajat",
+      "search_placeholder": "Caută angajați",
+      "only_overlaps": "Doar suprapuneri",
+      "today_only": "Doar astăzi",
+      "today_only_tooltip": "Afișează doar activitățile programate pentru astăzi",
+      "hide_empty": "Ascunde angajații fără alocări",
+      "include_completed": "Include finalizate",
+      "clear": "Șterge filtrele"
+    },
+    "zoom": {
+      "label": "Zoom cronologie",
+      "day": "Zi",
+      "week": "Săptămână",
+      "month": "Lună"
+    },
+    "chart": {
+      "employee_column": "Angajat",
+      "today": "Astăzi",
+      "today_tooltip": "Derulează cronologia înapoi la astăzi"
+    },
+    "legend": {
+      "project_color": "Culoarea barei = proiect",
+      "single_date": "Este setată o singură dată",
+      "overlap": "Activități suprapuse",
+      "overdue": "Întârziat",
+      "completed": "Finalizat",
+      "today": "Astăzi",
+      "hover_hint": "Treceți cursorul peste o bară pentru detalii"
+    },
+    "row": {
+      "overlaps": "{count, plural, one {# suprapunere} few {# suprapuneri} other {# de suprapuneri}}",
+      "overlap_tooltip": "{count, plural, one {# perioadă} few {# perioade} other {# de perioade}} cu mai mult de o alocare simultan. Maxim: {peak} în același timp.",
+      "overdue": "{count, plural, one {# întârziat} few {# întârziate} other {# de întârziate}}",
+      "undated": "{count, plural, one {# fără dată} few {# fără dată} other {# fără dată}}",
+      "undated_tooltip": "Activități deschise alocate acestui angajat care nu au nici dată de început, nici termen și, prin urmare, nu pot fi plasate pe cronologie.",
+      "next": "Următorul: {name} · {date}",
+      "nothing_next": "Nimic programat în continuare"
+    },
+    "bar": {
+      "duration": "{count, plural, one {# zi} few {# zile} other {# de zile}}",
+      "no_start_date": "Fără dată de început",
+      "no_target_date": "Fără termen",
+      "single_date": "Este setată o singură dată, deci apare ca o singură zi",
+      "completed": "Finalizat",
+      "overlapping": "Se suprapune cu altă alocare",
+      "overdue": "Termenul a fost depășit"
+    },
+    "error": {
+      "title": "Gantt-ul pentru angajați nu a putut fi încărcat",
+      "description": "Solicitarea activităților a eșuat. Reîncercați sau reîmprospătați pagina.",
+      "retry": "Reîncearcă"
+    },
+    "empty": {
+      "title": "Încă nu există activități programate",
+      "description": "Adăugați activităților o dată de început și un termen și alocați-le unor persoane, iar această vizualizare se va completa."
+    },
+    "empty_today": {
+      "title": "Nimeni nu are activități programate astăzi",
+      "description": "Astăzi nu se desfășoară nimic. Ștergeți filtrele pentru a vedea programul complet."
+    },
+    "empty_filtered": {
+      "title": "Nicio activitate nu corespunde acestor filtre",
+      "description": "Toate alocările au fost filtrate. Extindeți sau ștergeți filtrele pentru a vedea programul."
+    },
+    "no_matches": {
+      "title": "Niciun angajat nu corespunde acestor filtre",
+      "description": "Extindeți sau ștergeți filtrele pentru a vedea mai mulți membri ai echipei."
     }
   },
   "workspace_analytics": {

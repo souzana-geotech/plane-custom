@@ -51,6 +51,131 @@
     }
   },
   "workspace_dashboard": {
+    "title": "オペレーションダッシュボード",
+    "subtitle": "顧客案件、作業、部門、従業員を横断した管理者向けの可視化",
+    "coverage_note": "成果物、顧客レビュー、機材、営業は、このワークスペースにデータがないため表示されません。従業員のスケジュール競合の検出には時刻情報が必要ですが、作業項目には時刻がありません。",
+    "error": {
+      "title": "ダッシュボードを読み込めませんでした",
+      "description": "1 件以上のリクエストが失敗しました。再試行するか、ページを更新してください。",
+      "retry": "再試行"
+    },
+    "empty": {
+      "title": "オペレーションデータはまだありません",
+      "description": "顧客案件のモジュールと実作業の作業項目を作成すると、このダッシュボードに表示されます。"
+    },
+    "filters": {
+      "project": "プロジェクト",
+      "job": "案件",
+      "department": "部門",
+      "employee": "従業員",
+      "all": "すべて",
+      "clear": "フィルターをクリア"
+    },
+    "kpi": {
+      "active_jobs": "進行中の案件",
+      "active_jobs_hint": "完了・キャンセル以外のモジュール",
+      "jobs_at_risk": "要注意の案件",
+      "jobs_at_risk_hint": "リスクあり・遅延・ブロック中の進行中案件",
+      "overdue_tasks": "期限超過のタスク",
+      "overdue_tasks_hint": "期限を過ぎた未完了の作業項目",
+      "due_this_week": "今週期限",
+      "due_this_week_hint": "今後 7 日以内に期限を迎える未完了の作業項目",
+      "blocked_tasks": "ブロック中のタスク",
+      "blocked_tasks_hint": "他の未完了作業にブロックされている未完了の作業項目",
+      "no_due_date": "期限なし",
+      "no_due_date_hint": "期限が設定されていない未完了の作業項目"
+    },
+    "severity": {
+      "critical": "重大",
+      "warning": "警告",
+      "info": "情報",
+      "success": "順調"
+    },
+    "exceptions": {
+      "title": "管理上の例外",
+      "description": "今すぐ管理者の対応が必要な事項",
+      "none": "例外はありません。すべて順調です。",
+      "delayed_jobs": "{count, plural, one {遅延中の案件 # 件} other {遅延中の案件 # 件}}",
+      "overdue_tasks": "{count, plural, one {期限超過のタスク # 件} other {期限超過のタスク # 件}}",
+      "blocked_jobs": "{count, plural, one {ブロック中の案件 # 件} other {ブロック中の案件 # 件}}",
+      "at_risk_jobs": "{count, plural, one {リスクのある案件 # 件} other {リスクのある案件 # 件}}",
+      "blocked_tasks": "{count, plural, one {ブロック中のタスク # 件} other {ブロック中のタスク # 件}}",
+      "due_this_week": "{count, plural, one {今週期限のタスク # 件} other {今週期限のタスク # 件}}",
+      "unassigned_tasks": "{count, plural, one {未割り当ての未完了タスク # 件} other {未割り当ての未完了タスク # 件}}",
+      "no_due_date_tasks": "{count, plural, one {期限なしの未完了タスク # 件} other {期限なしの未完了タスク # 件}}",
+      "jobs_without_due_date": "{count, plural, one {期限なしの進行中案件 # 件} other {期限なしの進行中案件 # 件}}"
+    },
+    "job_health": {
+      "title": "案件の健全性",
+      "description": "モジュールの期限、ブロック中の作業、期限超過の作業、スケジュールの進捗から算出",
+      "total": "{count, plural, one {# 件の案件} other {# 件の案件}}",
+      "on_track": "順調",
+      "at_risk": "リスクあり",
+      "delayed": "遅延",
+      "blocked": "ブロック中"
+    },
+    "jobs": {
+      "title": "進行中の案件",
+      "description": "顧客案件を表すモジュール",
+      "empty": "進行中の案件はありません",
+      "empty_description": "顧客案件ごとにモジュールを作成すると、ここで追跡できます。",
+      "columns": {
+        "job": "案件",
+        "lead": "担当リーダー",
+        "progress": "進捗",
+        "status": "ステータス",
+        "due": "期限",
+        "health": "健全性"
+      },
+      "no_lead": "リーダーなし",
+      "no_due": "期限なし",
+      "open_items": "{count, plural, one {未完了 # 件} other {未完了 # 件}}",
+      "overdue_items": "{count, plural, one {期限超過 # 件} other {期限超過 # 件}}",
+      "blocked_items": "{count, plural, one {ブロック中 # 件} other {ブロック中 # 件}}",
+      "days_late": "{count, plural, one {# 日超過} other {# 日超過}}",
+      "days_left": "{count, plural, one {残り # 日} other {残り # 日}}"
+    },
+    "employees": {
+      "title": "従業員の作業負荷",
+      "description": "従業員ごとの未完了作業項目数です。キャパシティは管理されていないため、稼働率ではなく件数を表示します。",
+      "empty": "割り当てられた未完了の作業はありません",
+      "columns": {
+        "employee": "従業員",
+        "active": "進行中",
+        "due_soon": "期限間近",
+        "overdue": "期限超過",
+        "blocked": "ブロック中"
+      }
+    },
+    "pipeline": {
+      "title": "作業パイプライン",
+      "description": "ワークフローの各ステートにおける作業の分布",
+      "total": "{count, plural, one {# 件の作業項目} other {# 件の作業項目}}",
+      "empty": "作業項目はまだありません"
+    },
+    "departments": {
+      "title": "部門別の作業負荷",
+      "description": "部門はラベルで表されます",
+      "empty": "ラベル付きの作業はまだありません",
+      "no_label": "部門なし",
+      "columns": {
+        "department": "部門",
+        "active": "進行中",
+        "overdue": "期限超過",
+        "completed": "完了",
+        "blocked": "ブロック中"
+      }
+    },
+    "attention": {
+      "title": "対応が必要な作業",
+      "description": "期限超過・ブロック中・期限間近の作業項目",
+      "empty": "対応が必要なものはありません",
+      "overdue_by": "{count, plural, one {# 日超過} other {# 日超過}}",
+      "blocked": "ブロック中",
+      "due_today": "本日期限",
+      "due_in": "{count, plural, one {あと # 日} other {あと # 日}}",
+      "more": "{count, plural, one {他 # 件は非表示} other {他 # 件は非表示}}"
+    },
     "empty_state": {
       "general": {
         "title": "プロジェクト、アクティビティ、メトリクスの概要",
@@ -63,6 +188,96 @@
           }
         }
       }
+    }
+  },
+  "employee_gantt": {
+    "title": "従業員ガントチャート",
+    "subtitle": "すべてのプロジェクトを横断して、誰が何に取り組んでいるかを表示します。",
+    "capacity": {
+      "overloaded": "過負荷 · {count}",
+      "busy": "多忙 · {count}",
+      "assigned": "割り当て済み · {count}",
+      "available": "空き",
+      "tooltip": "本日予定されている未完了の作業項目は{count, plural, one {#件} other {#件}}です。"
+    },
+    "summary": {
+      "employees": "表示中の従業員",
+      "overloaded": "本日過負荷",
+      "with_overlaps": "重複あり",
+      "available": "本日空き",
+      "scheduled": "予定された割り当て",
+      "undated": "日付のない作業項目"
+    },
+    "filters": {
+      "all": "すべて",
+      "project": "プロジェクト",
+      "employee": "従業員",
+      "search_placeholder": "従業員を検索",
+      "only_overlaps": "重複のみ",
+      "today_only": "今日のみ",
+      "today_only_tooltip": "本日進行予定の作業のみを表示します",
+      "hide_empty": "割り当てのない従業員を非表示",
+      "include_completed": "完了済みを含める",
+      "clear": "フィルターをクリア"
+    },
+    "zoom": {
+      "label": "タイムラインの表示単位",
+      "day": "日",
+      "week": "週",
+      "month": "月"
+    },
+    "chart": {
+      "employee_column": "従業員",
+      "today": "今日",
+      "today_tooltip": "タイムラインを今日までスクロールします"
+    },
+    "legend": {
+      "project_color": "バーの色 = プロジェクト",
+      "single_date": "日付が片方のみ",
+      "overlap": "重複した作業",
+      "overdue": "期限超過",
+      "completed": "完了",
+      "today": "今日",
+      "hover_hint": "バーにカーソルを合わせると詳細が表示されます"
+    },
+    "row": {
+      "overlaps": "{count, plural, one {重複#件} other {重複#件}}",
+      "overlap_tooltip": "同時に複数の割り当てがある期間が{count, plural, one {#件} other {#件}}あります。最大{peak}件が同時進行です。",
+      "overdue": "{count, plural, one {期限超過#件} other {期限超過#件}}",
+      "undated": "{count, plural, one {日付なし#件} other {日付なし#件}}",
+      "undated_tooltip": "この従業員に割り当てられた未完了の作業項目のうち、開始日も期限も設定されていないため、タイムライン上に配置できないものです。",
+      "next": "次の予定: {name} · {date}",
+      "nothing_next": "次の予定はありません"
+    },
+    "bar": {
+      "duration": "{count, plural, one {#日間} other {#日間}}",
+      "no_start_date": "開始日なし",
+      "no_target_date": "期限なし",
+      "single_date": "日付が片方しか設定されていないため、1日として表示されます。",
+      "completed": "完了",
+      "overlapping": "他の割り当てと重複しています",
+      "overdue": "期限を過ぎています"
+    },
+    "error": {
+      "title": "従業員ガントチャートを読み込めませんでした",
+      "description": "作業項目の取得に失敗しました。再試行するか、ページを再読み込みしてください。",
+      "retry": "再試行"
+    },
+    "empty": {
+      "title": "予定された作業はまだありません",
+      "description": "作業項目に開始日と期限を設定し、担当者を割り当てると、このビューに表示されます。"
+    },
+    "empty_today": {
+      "title": "本日予定されている作業はありません",
+      "description": "本日進行中の作業はありません。フィルターをクリアすると全体のスケジュールが表示されます。"
+    },
+    "empty_filtered": {
+      "title": "この条件に一致する作業はありません",
+      "description": "すべての割り当てが除外されました。フィルターを広げるか、クリアしてください。"
+    },
+    "no_matches": {
+      "title": "この条件に一致する従業員はいません",
+      "description": "フィルターを広げるか、クリアするとチームの他のメンバーが表示されます。"
     }
   },
   "workspace_analytics": {

@@ -51,6 +51,131 @@
     }
   },
   "workspace_dashboard": {
+    "title": "Betriebs-Dashboard",
+    "subtitle": "Managementübersicht über Kundenaufträge, Arbeit, Abteilungen und Mitarbeitende",
+    "coverage_note": "Lieferobjekte, Kundenprüfungen, Ausrüstung und Vertrieb werden nicht angezeigt, da dieser Arbeitsbereich keine Daten dazu enthält. Terminkonflikte von Mitarbeitenden erfordern Uhrzeiten, die Arbeitselemente nicht enthalten.",
+    "error": {
+      "title": "Dashboard konnte nicht geladen werden",
+      "description": "Eine oder mehrere Anfragen sind fehlgeschlagen. Erneut versuchen oder die Seite aktualisieren.",
+      "retry": "Erneut versuchen"
+    },
+    "empty": {
+      "title": "Noch keine Betriebsdaten",
+      "description": "Module für Kundenaufträge und Arbeitselemente für die eigentliche Arbeit anlegen, dann füllt sich dieses Dashboard."
+    },
+    "filters": {
+      "project": "Projekt",
+      "job": "Auftrag",
+      "department": "Abteilung",
+      "employee": "Mitarbeiter",
+      "all": "Alle",
+      "clear": "Filter zurücksetzen"
+    },
+    "kpi": {
+      "active_jobs": "Aktive Aufträge",
+      "active_jobs_hint": "Module, die weder abgeschlossen noch abgebrochen sind",
+      "jobs_at_risk": "Aufträge mit Handlungsbedarf",
+      "jobs_at_risk_hint": "Aktive Aufträge, die gefährdet, verspätet oder blockiert sind",
+      "overdue_tasks": "Überfällige Aufgaben",
+      "overdue_tasks_hint": "Offene Arbeitselemente, deren Fälligkeitsdatum überschritten ist",
+      "due_this_week": "Diese Woche fällig",
+      "due_this_week_hint": "Offene Arbeitselemente, die in den nächsten 7 Tagen fällig sind",
+      "blocked_tasks": "Blockierte Aufgaben",
+      "blocked_tasks_hint": "Offene Arbeitselemente, die durch andere offene Arbeit blockiert sind",
+      "no_due_date": "Ohne Fälligkeitsdatum",
+      "no_due_date_hint": "Offene Arbeitselemente ohne Fälligkeitsdatum"
+    },
+    "severity": {
+      "critical": "Kritisch",
+      "warning": "Warnung",
+      "info": "Information",
+      "success": "Im Plan"
+    },
+    "exceptions": {
+      "title": "Management-Ausnahmen",
+      "description": "Was jetzt die Aufmerksamkeit des Managements erfordert",
+      "none": "Keine Ausnahmen. Alles liegt im Plan.",
+      "delayed_jobs": "{count, plural, one {# verspäteter Auftrag} other {# verspätete Aufträge}}",
+      "overdue_tasks": "{count, plural, one {# überfällige Aufgabe} other {# überfällige Aufgaben}}",
+      "blocked_jobs": "{count, plural, one {# blockierter Auftrag} other {# blockierte Aufträge}}",
+      "at_risk_jobs": "{count, plural, one {# gefährdeter Auftrag} other {# gefährdete Aufträge}}",
+      "blocked_tasks": "{count, plural, one {# blockierte Aufgabe} other {# blockierte Aufgaben}}",
+      "due_this_week": "{count, plural, one {# Aufgabe diese Woche fällig} other {# Aufgaben diese Woche fällig}}",
+      "unassigned_tasks": "{count, plural, one {# nicht zugewiesene offene Aufgabe} other {# nicht zugewiesene offene Aufgaben}}",
+      "no_due_date_tasks": "{count, plural, one {# offene Aufgabe ohne Fälligkeitsdatum} other {# offene Aufgaben ohne Fälligkeitsdatum}}",
+      "jobs_without_due_date": "{count, plural, one {# aktiver Auftrag ohne Fälligkeitsdatum} other {# aktive Aufträge ohne Fälligkeitsdatum}}"
+    },
+    "job_health": {
+      "title": "Auftragsstatus",
+      "description": "Abgeleitet aus Fälligkeitsdaten der Module, blockierter Arbeit, überfälliger Arbeit und Zeitplanfortschritt",
+      "total": "{count, plural, one {# Auftrag} other {# Aufträge}}",
+      "on_track": "Im Plan",
+      "at_risk": "Gefährdet",
+      "delayed": "Verspätet",
+      "blocked": "Blockiert"
+    },
+    "jobs": {
+      "title": "Aktive Aufträge",
+      "description": "Module, die Kundenaufträge darstellen",
+      "empty": "Keine aktiven Aufträge",
+      "empty_description": "Für jeden Kundenauftrag ein Modul anlegen, um ihn hier zu verfolgen.",
+      "columns": {
+        "job": "Auftrag",
+        "lead": "Leitung",
+        "progress": "Fortschritt",
+        "status": "Status",
+        "due": "Fällig",
+        "health": "Zustand"
+      },
+      "no_lead": "Keine Leitung",
+      "no_due": "Ohne Fälligkeitsdatum",
+      "open_items": "{count, plural, one {# offen} other {# offen}}",
+      "overdue_items": "{count, plural, one {# überfällig} other {# überfällig}}",
+      "blocked_items": "{count, plural, one {# blockiert} other {# blockiert}}",
+      "days_late": "{count, plural, one {# Tag verspätet} other {# Tage verspätet}}",
+      "days_left": "{count, plural, one {# Tag verbleibend} other {# Tage verbleibend}}"
+    },
+    "employees": {
+      "title": "Auslastung der Mitarbeitenden",
+      "description": "Offene Arbeitselemente pro Mitarbeiter. Kapazitäten werden nicht erfasst, daher werden Anzahlen statt Auslastung angezeigt.",
+      "empty": "Keine offene Arbeit zugewiesen",
+      "columns": {
+        "employee": "Mitarbeiter",
+        "active": "Aktiv",
+        "due_soon": "Bald fällig",
+        "overdue": "Überfällig",
+        "blocked": "Blockiert"
+      }
+    },
+    "pipeline": {
+      "title": "Arbeits-Pipeline",
+      "description": "Verteilung der Arbeit über die Workflow-Status",
+      "total": "{count, plural, one {# Arbeitselement} other {# Arbeitselemente}}",
+      "empty": "Noch keine Arbeitselemente"
+    },
+    "departments": {
+      "title": "Auslastung nach Abteilung",
+      "description": "Abteilungen werden durch Labels abgebildet",
+      "empty": "Noch keine Arbeit mit Label",
+      "no_label": "Keine Abteilung",
+      "columns": {
+        "department": "Abteilung",
+        "active": "Aktiv",
+        "overdue": "Überfällig",
+        "completed": "Abgeschlossen",
+        "blocked": "Blockiert"
+      }
+    },
+    "attention": {
+      "title": "Arbeit mit Handlungsbedarf",
+      "description": "Überfällige, blockierte und bald fällige Arbeitselemente",
+      "empty": "Nichts erfordert Aufmerksamkeit",
+      "overdue_by": "{count, plural, one {# Tag überfällig} other {# Tage überfällig}}",
+      "blocked": "Blockiert",
+      "due_today": "Heute fällig",
+      "due_in": "{count, plural, one {Fällig in # Tag} other {Fällig in # Tagen}}",
+      "more": "{count, plural, one {# weiteres Element nicht angezeigt} other {# weitere Elemente nicht angezeigt}}"
+    },
     "empty_state": {
       "general": {
         "title": "Übersicht über Projekte, Aktivitäten und Kennzahlen",
@@ -63,6 +188,96 @@
           }
         }
       }
+    }
+  },
+  "employee_gantt": {
+    "title": "Mitarbeiter-Gantt",
+    "subtitle": "Wer woran arbeitet, über alle Projekte hinweg",
+    "capacity": {
+      "overloaded": "Überlastet · {count}",
+      "busy": "Ausgelastet · {count}",
+      "assigned": "Zugewiesen · {count}",
+      "available": "Verfügbar",
+      "tooltip": "{count, plural, one {# offenes Arbeitselement} other {# offene Arbeitselemente}} für heute geplant"
+    },
+    "summary": {
+      "employees": "Angezeigte Mitarbeiter",
+      "overloaded": "Heute überlastet",
+      "with_overlaps": "Mit Überschneidungen",
+      "available": "Heute frei",
+      "scheduled": "Geplante Zuweisungen",
+      "undated": "Arbeitselemente ohne Datum"
+    },
+    "filters": {
+      "all": "Alle",
+      "project": "Projekt",
+      "employee": "Mitarbeiter",
+      "search_placeholder": "Mitarbeiter suchen",
+      "only_overlaps": "Nur Überschneidungen",
+      "today_only": "Nur heute",
+      "today_only_tooltip": "Nur Arbeit anzeigen, die heute laufen soll",
+      "hide_empty": "Mitarbeiter ohne Zuweisung ausblenden",
+      "include_completed": "Abgeschlossene einbeziehen",
+      "clear": "Filter zurücksetzen"
+    },
+    "zoom": {
+      "label": "Zeitleisten-Zoom",
+      "day": "Tag",
+      "week": "Woche",
+      "month": "Monat"
+    },
+    "chart": {
+      "employee_column": "Mitarbeiter",
+      "today": "Heute",
+      "today_tooltip": "Die Zeitleiste zurück zu heute scrollen"
+    },
+    "legend": {
+      "project_color": "Balkenfarbe = Projekt",
+      "single_date": "Nur ein Datum gesetzt",
+      "overlap": "Überschneidende Arbeit",
+      "overdue": "Überfällig",
+      "completed": "Abgeschlossen",
+      "today": "Heute",
+      "hover_hint": "Für Details auf einen Balken zeigen"
+    },
+    "row": {
+      "overlaps": "{count, plural, one {# Überschneidung} other {# Überschneidungen}}",
+      "overlap_tooltip": "{count, plural, one {# Zeitraum} other {# Zeiträume}} mit mehr als einer Zuweisung gleichzeitig. Spitzenwert: {peak} gleichzeitig.",
+      "overdue": "{count, plural, one {# überfällig} other {# überfällig}}",
+      "undated": "{count, plural, one {# ohne Datum} other {# ohne Datum}}",
+      "undated_tooltip": "Offene Arbeitselemente dieses Mitarbeiters ohne Start- und Fälligkeitsdatum, die deshalb nicht auf der Zeitleiste platziert werden können.",
+      "next": "Als Nächstes: {name} · {date}",
+      "nothing_next": "Nichts als Nächstes geplant"
+    },
+    "bar": {
+      "duration": "{count, plural, one {# Tag} other {# Tage}}",
+      "no_start_date": "Kein Startdatum",
+      "no_target_date": "Kein Fälligkeitsdatum",
+      "single_date": "Nur ein Datum gesetzt, daher wird dies als einzelner Tag angezeigt",
+      "completed": "Abgeschlossen",
+      "overlapping": "Überschneidet sich mit einer anderen Zuweisung",
+      "overdue": "Fälligkeitsdatum überschritten"
+    },
+    "error": {
+      "title": "Mitarbeiter-Gantt konnte nicht geladen werden",
+      "description": "Die Anfrage nach Arbeitselementen ist fehlgeschlagen. Erneut versuchen oder die Seite neu laden.",
+      "retry": "Erneut versuchen"
+    },
+    "empty": {
+      "title": "Noch keine geplante Arbeit",
+      "description": "Arbeitselementen ein Start- und ein Fälligkeitsdatum geben und sie Personen zuweisen, dann füllt sich diese Ansicht."
+    },
+    "empty_today": {
+      "title": "Für heute ist niemandem Arbeit zugewiesen",
+      "description": "Heute läuft nichts. Die Filter zurücksetzen, um den vollständigen Plan zu sehen."
+    },
+    "empty_filtered": {
+      "title": "Keine Arbeit entspricht diesen Filtern",
+      "description": "Alle Zuweisungen wurden herausgefiltert. Die Filter erweitern oder zurücksetzen, um den Plan zu sehen."
+    },
+    "no_matches": {
+      "title": "Keine Mitarbeiter entsprechen diesen Filtern",
+      "description": "Die Filter erweitern oder zurücksetzen, um mehr vom Team zu sehen."
     }
   },
   "workspace_analytics": {

@@ -18,6 +18,7 @@
       "assignee": "Dodaj przypisanego",
       "start_date": "Dodaj datę rozpoczęcia",
       "due_date": "Dodaj termin",
+      "working_days": "Dodaj dni robocze",
       "parent": "Dodaj element nadrzędny",
       "sub_issue": "Dodaj podrzędny element pracy",
       "dependency": "Dodaj zależność",

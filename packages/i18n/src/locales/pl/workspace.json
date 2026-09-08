@@ -51,6 +51,131 @@
     }
   },
   "workspace_dashboard": {
+    "title": "Panel operacyjny",
+    "subtitle": "Widok zarządczy zleceń klientów, pracy, działów i pracowników",
+    "coverage_note": "Produkty do dostarczenia, przeglądy klientów, sprzęt i sprzedaż nie są wyświetlane, ponieważ ten obszar roboczy nie zawiera takich danych. Wykrywanie konfliktów w harmonogramach pracowników wymaga godzin, których elementy pracy nie zawierają.",
+    "error": {
+      "title": "Nie udało się wczytać panelu",
+      "description": "Co najmniej jedno żądanie nie powiodło się. Spróbuj ponownie lub odśwież stronę.",
+      "retry": "Spróbuj ponownie"
+    },
+    "empty": {
+      "title": "Brak danych operacyjnych",
+      "description": "Utwórz Moduły dla zleceń klientów i elementy pracy dla faktycznej pracy, a ten panel się wypełni."
+    },
+    "filters": {
+      "project": "Projekt",
+      "job": "Zlecenie",
+      "department": "Dział",
+      "employee": "Pracownik",
+      "all": "Wszystkie",
+      "clear": "Wyczyść filtry"
+    },
+    "kpi": {
+      "active_jobs": "Aktywne zlecenia",
+      "active_jobs_hint": "Moduły, które nie są ukończone ani anulowane",
+      "jobs_at_risk": "Zlecenia wymagające uwagi",
+      "jobs_at_risk_hint": "Aktywne zlecenia zagrożone, opóźnione lub zablokowane",
+      "overdue_tasks": "Zaległe zadania",
+      "overdue_tasks_hint": "Otwarte elementy pracy po terminie",
+      "due_this_week": "Termin w tym tygodniu",
+      "due_this_week_hint": "Otwarte elementy pracy z terminem w ciągu najbliższych 7 dni",
+      "blocked_tasks": "Zablokowane zadania",
+      "blocked_tasks_hint": "Otwarte elementy pracy zablokowane przez inną otwartą pracę",
+      "no_due_date": "Bez terminu",
+      "no_due_date_hint": "Otwarte elementy pracy bez terminu"
+    },
+    "severity": {
+      "critical": "Krytyczne",
+      "warning": "Ostrzeżenie",
+      "info": "Informacja",
+      "success": "Zgodnie z planem"
+    },
+    "exceptions": {
+      "title": "Wyjątki zarządcze",
+      "description": "Co wymaga teraz uwagi kierownictwa",
+      "none": "Brak wyjątków. Wszystko idzie zgodnie z planem.",
+      "delayed_jobs": "{count, plural, one {# opóźnione zlecenie} few {# opóźnione zlecenia} many {# opóźnionych zleceń} other {# opóźnionego zlecenia}}",
+      "overdue_tasks": "{count, plural, one {# zaległe zadanie} few {# zaległe zadania} many {# zaległych zadań} other {# zaległego zadania}}",
+      "blocked_jobs": "{count, plural, one {# zablokowane zlecenie} few {# zablokowane zlecenia} many {# zablokowanych zleceń} other {# zablokowanego zlecenia}}",
+      "at_risk_jobs": "{count, plural, one {# zagrożone zlecenie} few {# zagrożone zlecenia} many {# zagrożonych zleceń} other {# zagrożonego zlecenia}}",
+      "blocked_tasks": "{count, plural, one {# zablokowane zadanie} few {# zablokowane zadania} many {# zablokowanych zadań} other {# zablokowanego zadania}}",
+      "due_this_week": "{count, plural, one {# zadanie z terminem w tym tygodniu} few {# zadania z terminem w tym tygodniu} many {# zadań z terminem w tym tygodniu} other {# zadania z terminem w tym tygodniu}}",
+      "unassigned_tasks": "{count, plural, one {# nieprzypisane otwarte zadanie} few {# nieprzypisane otwarte zadania} many {# nieprzypisanych otwartych zadań} other {# nieprzypisanego otwartego zadania}}",
+      "no_due_date_tasks": "{count, plural, one {# otwarte zadanie bez terminu} few {# otwarte zadania bez terminu} many {# otwartych zadań bez terminu} other {# otwartego zadania bez terminu}}",
+      "jobs_without_due_date": "{count, plural, one {# aktywne zlecenie bez terminu} few {# aktywne zlecenia bez terminu} many {# aktywnych zleceń bez terminu} other {# aktywnego zlecenia bez terminu}}"
+    },
+    "job_health": {
+      "title": "Stan zleceń",
+      "description": "Wyliczany na podstawie terminów Modułów, zablokowanej pracy, zaległej pracy i postępu względem harmonogramu",
+      "total": "{count, plural, one {# zlecenie} few {# zlecenia} many {# zleceń} other {# zlecenia}}",
+      "on_track": "Zgodnie z planem",
+      "at_risk": "Zagrożone",
+      "delayed": "Opóźnione",
+      "blocked": "Zablokowane"
+    },
+    "jobs": {
+      "title": "Aktywne zlecenia",
+      "description": "Moduły reprezentujące zlecenia klientów",
+      "empty": "Brak aktywnych zleceń",
+      "empty_description": "Utwórz Moduł dla każdego zlecenia klienta, aby śledzić je tutaj.",
+      "columns": {
+        "job": "Zlecenie",
+        "lead": "Prowadzący",
+        "progress": "Postęp",
+        "status": "Status",
+        "due": "Termin",
+        "health": "Stan"
+      },
+      "no_lead": "Brak prowadzącego",
+      "no_due": "Bez terminu",
+      "open_items": "{count, plural, one {# otwarte} few {# otwarte} many {# otwartych} other {# otwartego}}",
+      "overdue_items": "{count, plural, one {# zaległe} few {# zaległe} many {# zaległych} other {# zaległego}}",
+      "blocked_items": "{count, plural, one {# zablokowane} few {# zablokowane} many {# zablokowanych} other {# zablokowanego}}",
+      "days_late": "{count, plural, one {# dzień opóźnienia} few {# dni opóźnienia} many {# dni opóźnienia} other {# dnia opóźnienia}}",
+      "days_left": "{count, plural, one {pozostał # dzień} few {pozostały # dni} many {pozostało # dni} other {pozostało # dnia}}"
+    },
+    "employees": {
+      "title": "Obciążenie pracowników",
+      "description": "Otwarte elementy pracy na pracownika. Pojemność nie jest śledzona, dlatego zamiast wykorzystania pokazywane są liczby.",
+      "empty": "Brak przypisanej otwartej pracy",
+      "columns": {
+        "employee": "Pracownik",
+        "active": "Aktywne",
+        "due_soon": "Wkrótce",
+        "overdue": "Zaległe",
+        "blocked": "Zablokowane"
+      }
+    },
+    "pipeline": {
+      "title": "Przepływ pracy",
+      "description": "Rozkład pracy między stanami przepływu",
+      "total": "{count, plural, one {# element pracy} few {# elementy pracy} many {# elementów pracy} other {# elementu pracy}}",
+      "empty": "Brak elementów pracy"
+    },
+    "departments": {
+      "title": "Obciążenie działów",
+      "description": "Działy są reprezentowane przez etykiety",
+      "empty": "Brak oznaczonej etykietą pracy",
+      "no_label": "Bez działu",
+      "columns": {
+        "department": "Dział",
+        "active": "Aktywne",
+        "overdue": "Zaległe",
+        "completed": "Ukończone",
+        "blocked": "Zablokowane"
+      }
+    },
+    "attention": {
+      "title": "Praca wymagająca uwagi",
+      "description": "Zaległe, zablokowane i wkrótce wymagalne elementy pracy",
+      "empty": "Nic nie wymaga uwagi",
+      "overdue_by": "{count, plural, one {Zaległe od # dnia} few {Zaległe od # dni} many {Zaległe od # dni} other {Zaległe od # dnia}}",
+      "blocked": "Zablokowane",
+      "due_today": "Termin dzisiaj",
+      "due_in": "{count, plural, one {Termin za # dzień} few {Termin za # dni} many {Termin za # dni} other {Termin za # dnia}}",
+      "more": "{count, plural, one {# kolejny element niewyświetlony} few {# kolejne elementy niewyświetlone} many {# kolejnych elementów niewyświetlonych} other {# kolejnego elementu niewyświetlonego}}"
+    },
     "empty_state": {
       "general": {
         "title": "Podgląd projektów, aktywności i metryk",
@@ -63,6 +188,96 @@
           }
         }
       }
+    }
+  },
+  "employee_gantt": {
+    "title": "Gantt pracowników",
+    "subtitle": "Kto nad czym pracuje, we wszystkich projektach",
+    "capacity": {
+      "overloaded": "Przeciążony · {count}",
+      "busy": "Zajęty · {count}",
+      "assigned": "Przypisany · {count}",
+      "available": "Dostępny",
+      "tooltip": "{count, plural, one {# otwarty element pracy zaplanowany} few {# otwarte elementy pracy zaplanowane} many {# otwartych elementów pracy zaplanowanych} other {# otwartego elementu pracy zaplanowanego}} na dziś"
+    },
+    "summary": {
+      "employees": "Wyświetleni pracownicy",
+      "overloaded": "Dziś przeciążeni",
+      "with_overlaps": "Z nakładaniem",
+      "available": "Dziś wolni",
+      "scheduled": "Zaplanowane przydziały",
+      "undated": "Elementy pracy bez daty"
+    },
+    "filters": {
+      "all": "Wszystkie",
+      "project": "Projekt",
+      "employee": "Pracownik",
+      "search_placeholder": "Szukaj pracowników",
+      "only_overlaps": "Tylko nakładanie",
+      "today_only": "Tylko dziś",
+      "today_only_tooltip": "Pokaż tylko pracę zaplanowaną na dziś",
+      "hide_empty": "Ukryj pracowników bez przydziałów",
+      "include_completed": "Uwzględnij ukończone",
+      "clear": "Wyczyść filtry"
+    },
+    "zoom": {
+      "label": "Powiększenie osi czasu",
+      "day": "Dzień",
+      "week": "Tydzień",
+      "month": "Miesiąc"
+    },
+    "chart": {
+      "employee_column": "Pracownik",
+      "today": "Dziś",
+      "today_tooltip": "Przewiń oś czasu z powrotem na dziś"
+    },
+    "legend": {
+      "project_color": "Kolor paska = projekt",
+      "single_date": "Ustawiona tylko jedna data",
+      "overlap": "Nakładająca się praca",
+      "overdue": "Po terminie",
+      "completed": "Ukończone",
+      "today": "Dziś",
+      "hover_hint": "Najedź na pasek, aby zobaczyć szczegóły"
+    },
+    "row": {
+      "overlaps": "{count, plural, one {# nakładanie} few {# nakładania} many {# nakładań} other {# nakładania}}",
+      "overlap_tooltip": "{count, plural, one {# okres} few {# okresy} many {# okresów} other {# okresu}} z więcej niż jednym przydziałem naraz. Maksimum: {peak} jednocześnie.",
+      "overdue": "{count, plural, one {# po terminie} few {# po terminie} many {# po terminie} other {# po terminie}}",
+      "undated": "{count, plural, one {# bez daty} few {# bez daty} many {# bez daty} other {# bez daty}}",
+      "undated_tooltip": "Otwarte elementy pracy przypisane temu pracownikowi, które nie mają daty rozpoczęcia ani terminu, więc nie można ich umieścić na osi czasu.",
+      "next": "Następne: {name} · {date}",
+      "nothing_next": "Nic nie zaplanowano dalej"
+    },
+    "bar": {
+      "duration": "{count, plural, one {# dzień} few {# dni} many {# dni} other {# dnia}}",
+      "no_start_date": "Brak daty rozpoczęcia",
+      "no_target_date": "Brak terminu",
+      "single_date": "Ustawiona jest tylko jedna data, więc element pokazano jako jeden dzień",
+      "completed": "Ukończone",
+      "overlapping": "Nakłada się na inny przydział",
+      "overdue": "Po terminie"
+    },
+    "error": {
+      "title": "Nie udało się wczytać Gantta pracowników",
+      "description": "Żądanie elementów pracy nie powiodło się. Proszę spróbować ponownie lub odświeżyć stronę.",
+      "retry": "Spróbuj ponownie"
+    },
+    "empty": {
+      "title": "Brak zaplanowanej pracy",
+      "description": "Proszę nadać elementom pracy datę rozpoczęcia i termin oraz przypisać je do osób, a ten widok się wypełni."
+    },
+    "empty_today": {
+      "title": "Nikt nie ma pracy zaplanowanej na dziś",
+      "description": "Dziś nic nie jest w toku. Proszę wyczyścić filtry, aby zobaczyć pełny harmonogram."
+    },
+    "empty_filtered": {
+      "title": "Żadna praca nie pasuje do tych filtrów",
+      "description": "Wszystkie przydziały zostały odfiltrowane. Proszę poszerzyć lub wyczyścić filtry."
+    },
+    "no_matches": {
+      "title": "Żaden pracownik nie pasuje do tych filtrów",
+      "description": "Proszę poszerzyć lub wyczyścić filtry, aby zobaczyć więcej osób z zespołu."
     }
   },
   "workspace_analytics": {

@@ -51,6 +51,131 @@
     }
   },
   "workspace_dashboard": {
+    "title": "Operasyon panosu",
+    "subtitle": "Müşteri işleri, çalışma, departmanlar ve çalışanlar için yönetim görünürlüğü",
+    "coverage_note": "Teslimatlar, müşteri incelemeleri, ekipman ve satışlar gösterilmiyor çünkü bu çalışma alanında bunlara ait veri yok. Çalışan planlama çakışmaları saat bilgisi gerektirir; iş öğelerinde saat bilgisi bulunmaz.",
+    "error": {
+      "title": "Pano yüklenemedi",
+      "description": "Bir veya daha fazla istek başarısız oldu. Yeniden deneyin veya sayfayı yenileyin.",
+      "retry": "Yeniden dene"
+    },
+    "empty": {
+      "title": "Henüz operasyon verisi yok",
+      "description": "Müşteri işleri için Modüller ve gerçek çalışma için iş öğeleri oluşturun; bu pano dolacaktır."
+    },
+    "filters": {
+      "project": "Proje",
+      "job": "İş",
+      "department": "Departman",
+      "employee": "Çalışan",
+      "all": "Tümü",
+      "clear": "Filtreleri temizle"
+    },
+    "kpi": {
+      "active_jobs": "Aktif işler",
+      "active_jobs_hint": "Tamamlanmamış veya iptal edilmemiş Modüller",
+      "jobs_at_risk": "İlgi gerektiren işler",
+      "jobs_at_risk_hint": "Riskli, gecikmiş veya engellenmiş aktif işler",
+      "overdue_tasks": "Gecikmiş görevler",
+      "overdue_tasks_hint": "Bitiş tarihi geçmiş açık iş öğeleri",
+      "due_this_week": "Bu hafta bitecek",
+      "due_this_week_hint": "Önümüzdeki 7 gün içinde bitmesi gereken açık iş öğeleri",
+      "blocked_tasks": "Engellenen görevler",
+      "blocked_tasks_hint": "Başka açık çalışmalar tarafından engellenen açık iş öğeleri",
+      "no_due_date": "Bitiş tarihi yok",
+      "no_due_date_hint": "Bitiş tarihi olmayan açık iş öğeleri"
+    },
+    "severity": {
+      "critical": "Kritik",
+      "warning": "Uyarı",
+      "info": "Bilgi",
+      "success": "Yolunda"
+    },
+    "exceptions": {
+      "title": "Yönetim istisnaları",
+      "description": "Şu anda yönetimin ilgisini gerektirenler",
+      "none": "İstisna yok. Her şey planlandığı gibi ilerliyor.",
+      "delayed_jobs": "{count, plural, one {# gecikmiş iş} other {# gecikmiş iş}}",
+      "overdue_tasks": "{count, plural, one {# gecikmiş görev} other {# gecikmiş görev}}",
+      "blocked_jobs": "{count, plural, one {# engellenmiş iş} other {# engellenmiş iş}}",
+      "at_risk_jobs": "{count, plural, one {# riskli iş} other {# riskli iş}}",
+      "blocked_tasks": "{count, plural, one {# engellenmiş görev} other {# engellenmiş görev}}",
+      "due_this_week": "{count, plural, one {bu hafta bitecek # görev} other {bu hafta bitecek # görev}}",
+      "unassigned_tasks": "{count, plural, one {# atanmamış açık görev} other {# atanmamış açık görev}}",
+      "no_due_date_tasks": "{count, plural, one {bitiş tarihi olmayan # açık görev} other {bitiş tarihi olmayan # açık görev}}",
+      "jobs_without_due_date": "{count, plural, one {bitiş tarihi olmayan # aktif iş} other {bitiş tarihi olmayan # aktif iş}}"
+    },
+    "job_health": {
+      "title": "İş sağlığı",
+      "description": "Modül bitiş tarihleri, engellenen çalışma, gecikmiş çalışma ve takvim ilerlemesinden türetilir",
+      "total": "{count, plural, one {# iş} other {# iş}}",
+      "on_track": "Yolunda",
+      "at_risk": "Riskli",
+      "delayed": "Gecikmiş",
+      "blocked": "Engellenmiş"
+    },
+    "jobs": {
+      "title": "Aktif işler",
+      "description": "Müşteri işlerini temsil eden Modüller",
+      "empty": "Aktif iş yok",
+      "empty_description": "Her müşteri işi için bir Modül oluşturarak burada takip edin.",
+      "columns": {
+        "job": "İş",
+        "lead": "Sorumlu",
+        "progress": "İlerleme",
+        "status": "Durum",
+        "due": "Bitiş",
+        "health": "Sağlık"
+      },
+      "no_lead": "Sorumlu yok",
+      "no_due": "Bitiş tarihi yok",
+      "open_items": "{count, plural, one {# açık} other {# açık}}",
+      "overdue_items": "{count, plural, one {# gecikmiş} other {# gecikmiş}}",
+      "blocked_items": "{count, plural, one {# engellenmiş} other {# engellenmiş}}",
+      "days_late": "{count, plural, one {# gün gecikmiş} other {# gün gecikmiş}}",
+      "days_left": "{count, plural, one {# gün kaldı} other {# gün kaldı}}"
+    },
+    "employees": {
+      "title": "Çalışan iş yükü",
+      "description": "Çalışan başına açık iş öğeleri. Kapasite takip edilmediğinden kullanım oranı yerine sayılar gösterilir.",
+      "empty": "Atanmış açık iş yok",
+      "columns": {
+        "employee": "Çalışan",
+        "active": "Aktif",
+        "due_soon": "Yakında",
+        "overdue": "Gecikmiş",
+        "blocked": "Engellenmiş"
+      }
+    },
+    "pipeline": {
+      "title": "İş akışı hattı",
+      "description": "Çalışmanın iş akışı durumlarına göre dağılımı",
+      "total": "{count, plural, one {# iş öğesi} other {# iş öğesi}}",
+      "empty": "Henüz iş öğesi yok"
+    },
+    "departments": {
+      "title": "Departman iş yükü",
+      "description": "Departmanlar etiketlerle temsil edilir",
+      "empty": "Henüz etiketlenmiş çalışma yok",
+      "no_label": "Departman yok",
+      "columns": {
+        "department": "Departman",
+        "active": "Aktif",
+        "overdue": "Gecikmiş",
+        "completed": "Tamamlanan",
+        "blocked": "Engellenmiş"
+      }
+    },
+    "attention": {
+      "title": "İlgi gerektiren çalışma",
+      "description": "Gecikmiş, engellenmiş ve yakında bitecek iş öğeleri",
+      "empty": "İlgi gerektiren bir şey yok",
+      "overdue_by": "{count, plural, one {# gün gecikmiş} other {# gün gecikmiş}}",
+      "blocked": "Engellenmiş",
+      "due_today": "Bugün bitiyor",
+      "due_in": "{count, plural, one {# gün içinde bitiyor} other {# gün içinde bitiyor}}",
+      "more": "{count, plural, one {# öğe daha gösterilmiyor} other {# öğe daha gösterilmiyor}}"
+    },
     "empty_state": {
       "general": {
         "title": "Projelerinizin, aktivitenizin ve metriklerinizin genel görünümü",
@@ -63,6 +188,96 @@
           }
         }
       }
+    }
+  },
+  "employee_gantt": {
+    "title": "Çalışan Gantt şeması",
+    "subtitle": "Tüm projelerde kimin ne üzerinde çalıştığı",
+    "capacity": {
+      "overloaded": "Aşırı yüklü · {count}",
+      "busy": "Yoğun · {count}",
+      "assigned": "Atanmış · {count}",
+      "available": "Müsait",
+      "tooltip": "Bugün için planlanmış {count, plural, one {# açık iş öğesi} other {# açık iş öğesi}}"
+    },
+    "summary": {
+      "employees": "Gösterilen çalışanlar",
+      "overloaded": "Bugün aşırı yüklü",
+      "with_overlaps": "Çakışmalı",
+      "available": "Bugün müsait",
+      "scheduled": "Planlanmış atamalar",
+      "undated": "Tarihsiz iş öğeleri"
+    },
+    "filters": {
+      "all": "Tümü",
+      "project": "Proje",
+      "employee": "Çalışan",
+      "search_placeholder": "Çalışan ara",
+      "only_overlaps": "Yalnızca çakışmalar",
+      "today_only": "Yalnızca bugün",
+      "today_only_tooltip": "Yalnızca bugün yürütülmesi planlanan işleri göster",
+      "hide_empty": "Ataması olmayan çalışanları gizle",
+      "include_completed": "Tamamlananları dahil et",
+      "clear": "Filtreleri temizle"
+    },
+    "zoom": {
+      "label": "Zaman çizelgesi yakınlaştırma",
+      "day": "Gün",
+      "week": "Hafta",
+      "month": "Ay"
+    },
+    "chart": {
+      "employee_column": "Çalışan",
+      "today": "Bugün",
+      "today_tooltip": "Zaman çizelgesini bugüne geri kaydır"
+    },
+    "legend": {
+      "project_color": "Çubuk rengi = proje",
+      "single_date": "Yalnızca bir tarih girilmiş",
+      "overlap": "Çakışan iş",
+      "overdue": "Gecikmiş",
+      "completed": "Tamamlandı",
+      "today": "Bugün",
+      "hover_hint": "Ayrıntılar için bir çubuğun üzerine gelin"
+    },
+    "row": {
+      "overlaps": "{count, plural, one {# çakışma} other {# çakışma}}",
+      "overlap_tooltip": "Aynı anda birden fazla atamanın bulunduğu {count, plural, one {# dönem} other {# dönem}} var. En yüksek: aynı anda {peak}.",
+      "overdue": "{count, plural, one {# gecikmiş} other {# gecikmiş}}",
+      "undated": "{count, plural, one {# tarihsiz} other {# tarihsiz}}",
+      "undated_tooltip": "Bu çalışana atanmış, başlangıç ve bitiş tarihi bulunmadığı için zaman çizelgesine yerleştirilemeyen açık iş öğeleri.",
+      "next": "Sıradaki: {name} · {date}",
+      "nothing_next": "Sırada planlanmış bir şey yok"
+    },
+    "bar": {
+      "duration": "{count, plural, one {# gün} other {# gün}}",
+      "no_start_date": "Başlangıç tarihi yok",
+      "no_target_date": "Bitiş tarihi yok",
+      "single_date": "Yalnızca bir tarih girildiği için tek gün olarak gösteriliyor",
+      "completed": "Tamamlandı",
+      "overlapping": "Başka bir atamayla çakışıyor",
+      "overdue": "Bitiş tarihi geçti"
+    },
+    "error": {
+      "title": "Çalışan Gantt şeması yüklenemedi",
+      "description": "İş öğesi isteği başarısız oldu. Yeniden deneyin veya sayfayı yenileyin.",
+      "retry": "Yeniden dene"
+    },
+    "empty": {
+      "title": "Henüz planlanmış iş yok",
+      "description": "İş öğelerine başlangıç ve bitiş tarihi verip kişilere atadığınızda bu görünüm dolacaktır."
+    },
+    "empty_today": {
+      "title": "Bugün için planlanmış işi olan çalışan yok",
+      "description": "Bugün yürütülen bir iş yok. Tüm programı görmek için filtreleri temizleyin."
+    },
+    "empty_filtered": {
+      "title": "Bu filtrelerle eşleşen iş yok",
+      "description": "Tüm atamalar filtrelendi. Programı görmek için filtreleri genişletin veya temizleyin."
+    },
+    "no_matches": {
+      "title": "Bu filtrelerle eşleşen çalışan yok",
+      "description": "Ekibin daha fazlasını görmek için filtreleri genişletin veya temizleyin."
     }
   },
   "workspace_analytics": {

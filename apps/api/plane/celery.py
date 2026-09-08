@@ -47,6 +47,10 @@ app.conf.beat_schedule = {
         "task": "plane.bgtasks.email_notification_task.stack_email_notification",
         "schedule": crontab(minute="*/5"),  # Every 5 minutes
     },
+    "check-every-hour-to-send-issue-due-date-reminders": {
+        "task": "plane.bgtasks.issue_reminder_task.issue_due_date_reminders",
+        "schedule": crontab(minute=10),  # Every hour at :10, idempotent per project-local day
+    },
     "push-instance-metrics": {
         "task": "plane.license.bgtasks.telemetry_metrics.push_instance_metrics",
         "schedule": schedule(run_every=timedelta(minutes=METRICS_PUSH_INTERVAL_MINUTES)),

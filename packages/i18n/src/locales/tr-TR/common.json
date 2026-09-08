@@ -306,6 +306,7 @@
   "start_date": "Başlangıç tarihi",
   "end_date": "Bitiş tarihi",
   "due_date": "Son tarih",
+  "working_days": "İş günleri",
   "target_date": "Hedef tarih",
   "estimate": "Tahmin",
   "change_parent_issue": "Üst iş öğesini değiştir",

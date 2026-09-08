@@ -306,6 +306,7 @@
   "start_date": "Data rozpoczęcia",
   "end_date": "Data zakończenia",
   "due_date": "Termin",
+  "working_days": "Dni robocze",
   "target_date": "Data docelowa",
   "estimate": "Szacowanie",
   "change_parent_issue": "Zmień element nadrzędny",

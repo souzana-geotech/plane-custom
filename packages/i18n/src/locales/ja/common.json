@@ -306,6 +306,7 @@
   "start_date": "開始日",
   "end_date": "終了日",
   "due_date": "期限",
+  "working_days": "稼働日数",
   "target_date": "目標日",
   "estimate": "見積もり",
   "change_parent_issue": "親作業項目を変更",
