@@ -67,6 +67,58 @@ export const getDueDateFromWorkingDays = (
 };
 
 /**
+ * @returns {Date | undefined} the date reached by moving `delta` working days along the calendar (signed; 0 keeps the date)
+ * @description Mirrors `shift_by_working_days` on the backend: a Sunday input first rolls
+ * forward to Monday, so the result is always a working day.
+ * @example shiftByWorkingDays("2026-09-11", 2) // Mon Sep 14 (Sat, [skip Sun], Mon)
+ * @example shiftByWorkingDays("2026-09-14", -2) // Fri Sep 11
+ */
+export const shiftByWorkingDays = (date: Date | string | undefined | null, delta: number): Date | undefined => {
+  const parsedDate = getDate(date);
+  if (!parsedDate || isNaN(parsedDate.getTime()) || !Number.isInteger(delta)) return undefined;
+
+  const result = new Date(parsedDate.getFullYear(), parsedDate.getMonth(), parsedDate.getDate());
+  if (result.getDay() === NON_WORKING_WEEK_DAY) result.setDate(result.getDate() + 1);
+
+  const step = delta >= 0 ? 1 : -1;
+  let remaining = Math.abs(delta);
+  while (remaining > 0) {
+    result.setDate(result.getDate() + step);
+    if (result.getDay() !== NON_WORKING_WEEK_DAY) remaining -= 1;
+  }
+  return result;
+};
+
+/**
+ * @returns {number | undefined} signed number of working days stepped from `from` to `to`
+ * (exclusive of `from`, inclusive of `to`); Sundays are not counted
+ * @description Mirrors `working_days_delta` on the backend and is the inverse of
+ * `shiftByWorkingDays` for working-day inputs.
+ * @example getWorkingDaysDelta("2026-09-11", "2026-09-14") // 2 (Fri -> Sat, [skip Sun], Mon)
+ * @example getWorkingDaysDelta("2026-09-14", "2026-09-11") // -2
+ */
+export const getWorkingDaysDelta = (
+  from: Date | string | undefined | null,
+  to: Date | string | undefined | null
+): number | undefined => {
+  const parsedFrom = getDate(from);
+  const parsedTo = getDate(to);
+  if (!parsedFrom || !parsedTo || isNaN(parsedFrom.getTime()) || isNaN(parsedTo.getTime())) return undefined;
+
+  const cursor = new Date(parsedFrom.getFullYear(), parsedFrom.getMonth(), parsedFrom.getDate());
+  const lastDate = new Date(parsedTo.getFullYear(), parsedTo.getMonth(), parsedTo.getDate());
+  if (cursor.getTime() === lastDate.getTime()) return 0;
+
+  const step = lastDate.getTime() > cursor.getTime() ? 1 : -1;
+  let delta = 0;
+  while (cursor.getTime() !== lastDate.getTime()) {
+    cursor.setDate(cursor.getDate() + step);
+    if (cursor.getDay() !== NON_WORKING_WEEK_DAY) delta += step;
+  }
+  return delta;
+};
+
+/**
  * @returns {number | undefined} number of working days in the inclusive range, or undefined when the range is invalid
  * @description Inverse of `getDueDateFromWorkingDays`. Sundays in the range are not counted.
  * @param {Date | string | undefined | null} startDate

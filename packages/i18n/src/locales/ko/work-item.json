@@ -196,6 +196,12 @@
       "implements": "구현",
       "implemented_by": "구현 참조"
     },
+    "dependency_delay": {
+      "label": "의존성 지연",
+      "delayed_by": "지연 원인: {name}",
+      "adjusted_dates": "조정됨: {startDate} – {targetDate}",
+      "adjusted_date": "조정됨: {targetDate}"
+    },
     "copy_link": "작업 항목 링크 복사",
     "delete": {
       "label": "작업 항목 삭제",

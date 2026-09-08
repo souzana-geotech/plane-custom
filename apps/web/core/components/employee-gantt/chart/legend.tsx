@@ -28,6 +28,9 @@ export const EmployeeGanttLegend = observer(function EmployeeGanttLegend() {
     schedule.assignments.some((assignment) => assignment.dateKind !== "full")
   );
   const hasCompleted = schedules.some((schedule) => schedule.assignments.some((assignment) => assignment.isCompleted));
+  const hasDependencyDelay = schedules.some((schedule) =>
+    schedule.assignments.some((assignment) => assignment.dependencyDelay !== null)
+  );
 
   return (
     <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-10 text-tertiary">
@@ -52,6 +55,15 @@ export const EmployeeGanttLegend = observer(function EmployeeGanttLegend() {
         <span className="flex items-center gap-1.5">
           <AlertTriangle className="size-2.5 text-danger-primary" />
           {t("employee_gantt.legend.overdue")}
+        </span>
+      )}
+      {hasDependencyDelay && (
+        <span className="flex items-center gap-1.5">
+          <span
+            className="border-danger-primary h-2.5 w-5 rounded-sm border border-dashed bg-danger-primary/10"
+            aria-hidden="true"
+          />
+          {t("issue.dependency_delay.label")}
         </span>
       )}
       {hasCompleted && (

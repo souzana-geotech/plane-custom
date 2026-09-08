@@ -39,6 +39,12 @@ export interface IBlockUpdateDependencyData {
   start_date?: string;
   target_date?: string;
   meta?: Record<string, any>;
+  /**
+   * Marks an update produced (or accompanied) by the frontend dependency
+   * auto-shift; the backend then skips its own auto-shift for it to prevent
+   * double shifting.
+   */
+  dependency_auto_shift?: boolean;
 }
 
 export type TGanttViews = "week" | "month" | "quarter";

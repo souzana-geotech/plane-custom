@@ -196,6 +196,12 @@
       "implements": "Menerapkan",
       "implemented_by": "Diterapkan oleh"
     },
+    "dependency_delay": {
+      "label": "Tertunda karena dependensi",
+      "delayed_by": "Tertunda oleh: {name}",
+      "adjusted_dates": "Disesuaikan: {startDate} – {targetDate}",
+      "adjusted_date": "Disesuaikan: {targetDate}"
+    },
     "copy_link": "Salin tautan item kerja",
     "delete": {
       "label": "Hapus item kerja",

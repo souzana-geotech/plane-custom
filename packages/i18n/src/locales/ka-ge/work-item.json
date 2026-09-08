@@ -196,6 +196,12 @@
       "implements": "Implements",
       "implemented_by": "Implemented By"
     },
+    "dependency_delay": {
+      "label": "დამოკიდებულებით დაგვიანებული",
+      "delayed_by": "დაგვიანების მიზეზი: {name}",
+      "adjusted_dates": "კორექტირებული: {startDate} – {targetDate}",
+      "adjusted_date": "კორექტირებული: {targetDate}"
+    },
     "copy_link": "სამუშაო ელემენტის ბმულის კოპირება",
     "delete": {
       "label": "სამუშაო ელემენტის წაშლა",

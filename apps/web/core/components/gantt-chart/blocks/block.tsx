@@ -19,6 +19,7 @@ import { BLOCK_HEIGHT } from "../constants";
 // components
 import { ChartDraggable } from "../helpers";
 import { useGanttResizable } from "../helpers/blockResizables/use-gantt-resizable";
+import { GanttDependencyDelayOverlay } from "./dependency-delay";
 
 type Props = {
   blockId: string;
@@ -77,6 +78,8 @@ export const GanttChartBlock = observer(function GanttChartBlock(props: Props) {
         width: `${block.position?.width}px`,
       }}
     >
+      {/* additive dependency-delay projection; renders nothing unless this block is delayed */}
+      <GanttDependencyDelayOverlay blockId={blockId} />
       {isBlockVisibleOnChart && (
         <RenderIfVisible
           root={ganttContainerRef}

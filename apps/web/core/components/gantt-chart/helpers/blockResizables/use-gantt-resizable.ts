@@ -12,6 +12,7 @@ import type { IBlockUpdateDependencyData, IGanttBlock } from "@plane/types";
 import { useTimeLineChartStore } from "@/hooks/use-timeline-chart";
 //
 import { DEFAULT_BLOCK_WIDTH, SIDEBAR_WIDTH } from "../../constants";
+import { useLiveDependencyShift } from "./use-live-dependency-shift";
 
 export const useGanttResizable = (
   block: IGanttBlock,
@@ -30,6 +31,8 @@ export const useGanttResizable = (
   // states
   const { currentViewData, updateBlockPosition, setIsDragging, getUpdatedPositionAfterDrag } = useTimeLineChartStore();
   const [isMoving, setIsMoving] = useState<"left" | "right" | "move" | undefined>();
+  // live dependency auto-shift: moves `blocked_by` dependents along with this block
+  const liveDependencyShift = useLiveDependencyShift(block);
 
   // handle block resize from the left end
   const handleBlockDrag = (
@@ -46,21 +49,23 @@ export const useGanttResizable = (
     ganttContainerDimensions.current = ganttContainerElement.getBoundingClientRect();
 
     const dayWidth = currentViewData.data.dayWidth;
-    const mouseX = e.clientX - ganttContainerDimensions.current.left - SIDEBAR_WIDTH + ganttContainerElement.scrollLeft;
+    const initialMouseX =
+      e.clientX - ganttContainerDimensions.current.left - SIDEBAR_WIDTH + ganttContainerElement.scrollLeft;
 
     // record position on drag start
     initialPositionRef.current = {
       width: block.position.width ?? 0,
       marginLeft: block.position.marginLeft ?? 0,
-      offsetX: mouseX - block.position.marginLeft,
+      offsetX: initialMouseX - block.position.marginLeft,
     };
+    liveDependencyShift.start(dragDirection);
 
     const handleOnScroll = () => {
       if (currMouseEvent.current) handleMouseMove(currMouseEvent.current);
     };
 
-    const handleMouseMove = (e: MouseEvent) => {
-      currMouseEvent.current = e;
+    const handleMouseMove = (moveEvent: MouseEvent) => {
+      currMouseEvent.current = moveEvent;
       setIsMoving(dragDirection);
       setIsDragging(true);
 
@@ -68,7 +73,7 @@ export const useGanttResizable = (
 
       const { left: containerLeft } = ganttContainerDimensions.current;
 
-      const mouseX = e.clientX - containerLeft - SIDEBAR_WIDTH + ganttContainerElement.scrollLeft;
+      const mouseX = moveEvent.clientX - containerLeft - SIDEBAR_WIDTH + ganttContainerElement.scrollLeft;
 
       let width = initialPositionRef.current.width;
       let marginLeft = initialPositionRef.current.marginLeft;
@@ -109,7 +114,10 @@ export const useGanttResizable = (
       const deltaWidth = Math.round((width - (block.position?.width ?? 0)) / dayWidth) * dayWidth;
 
       // call update blockPosition
-      if (deltaWidth || deltaLeft) updateBlockPosition(block.id, deltaLeft, deltaWidth);
+      if (deltaWidth || deltaLeft) {
+        updateBlockPosition(block.id, deltaLeft, deltaWidth);
+        liveDependencyShift.update();
+      }
     };
 
     // remove event listeners and call updateBlockDates
@@ -126,7 +134,12 @@ export const useGanttResizable = (
 
       try {
         const blockUpdates = getUpdatedPositionAfterDrag(block.id, shouldUpdateHalfBlock);
-        if (updateBlockDates) updateBlockDates(blockUpdates);
+        const dependentUpdates = liveDependencyShift.drop();
+        // mark the whole batch so the backend auto-shift stands down (the shift
+        // already happened here); an unshifted drag stays unmarked and keeps the
+        // backend as the safety layer
+        if (dependentUpdates.length > 0) for (const update of blockUpdates) update.dependency_auto_shift = true;
+        if (updateBlockDates) updateBlockDates([...blockUpdates, ...dependentUpdates]);
       } catch {
         setToast({
           type: TOAST_TYPE.ERROR,

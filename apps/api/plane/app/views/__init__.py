@@ -146,6 +146,8 @@ from .issue.link import IssueLinkViewSet
 
 from .issue.relation import IssueRelationViewSet
 
+from .issue.dependency_schedule import IssueDependencyScheduleEndpoint, WorkspaceDependencyScheduleEndpoint
+
 from .issue.reaction import IssueReactionViewSet
 
 from .issue.sub_issue import SubIssuesEndpoint

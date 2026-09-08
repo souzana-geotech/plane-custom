@@ -196,6 +196,12 @@
       "implements": "Implementa",
       "implemented_by": "Implementado por"
     },
+    "dependency_delay": {
+      "label": "Atraso por dependência",
+      "delayed_by": "Atrasado por: {name}",
+      "adjusted_dates": "Ajustado: {startDate} – {targetDate}",
+      "adjusted_date": "Ajustado: {targetDate}"
+    },
     "copy_link": "Copiar link do item de trabalho",
     "delete": {
       "label": "Excluir item de trabalho",

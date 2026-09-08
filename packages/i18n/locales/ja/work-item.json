@@ -196,6 +196,12 @@
       "implements": "実装",
       "implemented_by": "実装元"
     },
+    "dependency_delay": {
+      "label": "依存関係による遅延",
+      "delayed_by": "遅延の原因：{name}",
+      "adjusted_dates": "調整後：{startDate}～{targetDate}",
+      "adjusted_date": "調整後：{targetDate}"
+    },
     "copy_link": "作業項目のリンクをコピー",
     "delete": {
       "label": "作業項目を削除",

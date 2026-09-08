@@ -196,6 +196,12 @@
       "implements": "Реалізує",
       "implemented_by": "Реалізовано"
     },
+    "dependency_delay": {
+      "label": "Затримка через залежність",
+      "delayed_by": "Причина затримки: {name}",
+      "adjusted_dates": "Скориговано: {startDate} – {targetDate}",
+      "adjusted_date": "Скориговано: {targetDate}"
+    },
     "copy_link": "Скопіювати посилання на робочу одиницю",
     "delete": {
       "label": "Видалити робочу одиницю",

@@ -196,6 +196,12 @@
       "implements": "实现",
       "implemented_by": "实现者"
     },
+    "dependency_delay": {
+      "label": "依赖延迟",
+      "delayed_by": "延迟来源：{name}",
+      "adjusted_dates": "调整后：{startDate} 至 {targetDate}",
+      "adjusted_date": "调整后：{targetDate}"
+    },
     "copy_link": "复制工作项链接",
     "delete": {
       "label": "删除工作项",

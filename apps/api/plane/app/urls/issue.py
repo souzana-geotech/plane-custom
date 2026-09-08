@@ -17,6 +17,8 @@ from plane.app.views import (
     IssueListEndpoint,
     IssueReactionViewSet,
     IssueRelationViewSet,
+    IssueDependencyScheduleEndpoint,
+    WorkspaceDependencyScheduleEndpoint,
     IssueSubscriberViewSet,
     ProjectUserDisplayPropertyEndpoint,
     IssueViewSet,
@@ -241,6 +243,16 @@ urlpatterns = [
         "workspaces/<str:slug>/projects/<uuid:project_id>/issues/<uuid:issue_id>/remove-relation/",
         IssueRelationViewSet.as_view({"post": "remove_relation"}),
         name="issue-relation",
+    ),
+    path(
+        "workspaces/<str:slug>/projects/<uuid:project_id>/issues/<uuid:issue_id>/dependency-schedule/",
+        IssueDependencyScheduleEndpoint.as_view(),
+        name="issue-dependency-schedule",
+    ),
+    path(
+        "workspaces/<str:slug>/dependency-schedules/",
+        WorkspaceDependencyScheduleEndpoint.as_view(),
+        name="workspace-dependency-schedules",
     ),
     ## End Issue Relation
     path(

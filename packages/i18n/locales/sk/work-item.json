@@ -196,6 +196,12 @@
       "implements": "Implementuje",
       "implemented_by": "Implementované"
     },
+    "dependency_delay": {
+      "label": "Oneskorené závislosťou",
+      "delayed_by": "Oneskorené kvôli: {name}",
+      "adjusted_dates": "Upravené: {startDate} – {targetDate}",
+      "adjusted_date": "Upravené: {targetDate}"
+    },
     "copy_link": "Kopírovať odkaz na pracovnú položku",
     "delete": {
       "label": "Zmazať pracovnú položku",

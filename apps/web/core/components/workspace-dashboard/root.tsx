@@ -94,11 +94,8 @@ export const WorkspaceDashboardRoot = observer(function WorkspaceDashboardRoot(p
   const { workspaceProjectIds, loader } = useProject();
   const { allowPermissions } = useUserPermissions();
 
-  // the work item endpoints backing the widgets are admin/member only
-  const canViewDashboard = allowPermissions(
-    [EUserPermissions.ADMIN, EUserPermissions.MEMBER],
-    EUserPermissionsLevel.WORKSPACE
-  );
+  // management view: workspace admins only
+  const canViewDashboard = allowPermissions([EUserPermissions.ADMIN], EUserPermissionsLevel.WORKSPACE);
 
   if (!canViewDashboard) return <NotAuthorizedView />;
 

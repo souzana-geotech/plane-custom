@@ -51,6 +51,10 @@ app.conf.beat_schedule = {
         "task": "plane.bgtasks.issue_reminder_task.issue_due_date_reminders",
         "schedule": crontab(minute=10),  # Every hour at :10, idempotent per project-local day
     },
+    "check-every-hour-to-refresh-dependency-schedules": {
+        "task": "plane.bgtasks.dependency_schedule_task.dependency_schedule_sweep",
+        "schedule": crontab(minute=25),  # Every hour at :25, keeps "today"-based delay projections fresh
+    },
     "push-instance-metrics": {
         "task": "plane.license.bgtasks.telemetry_metrics.push_instance_metrics",
         "schedule": schedule(run_every=timedelta(minutes=METRICS_PUSH_INTERVAL_MINUTES)),

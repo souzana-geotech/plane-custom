@@ -196,6 +196,12 @@
       "implements": "Thực hiện",
       "implemented_by": "Được thực hiện bởi"
     },
+    "dependency_delay": {
+      "label": "Trễ do phụ thuộc",
+      "delayed_by": "Bị trễ bởi: {name}",
+      "adjusted_dates": "Đã điều chỉnh: {startDate} – {targetDate}",
+      "adjusted_date": "Đã điều chỉnh: {targetDate}"
+    },
     "copy_link": "Sao chép liên kết mục công việc",
     "delete": {
       "label": "Xóa mục công việc",

@@ -196,6 +196,12 @@
       "implements": "Implemente",
       "implemented_by": "Implemente edilen"
     },
+    "dependency_delay": {
+      "label": "Bağımlılık gecikmesi",
+      "delayed_by": "Geciktiren: {name}",
+      "adjusted_dates": "Ayarlanan: {startDate} – {targetDate}",
+      "adjusted_date": "Ayarlanan: {targetDate}"
+    },
     "copy_link": "İş öğesi bağlantısını kopyala",
     "delete": {
       "label": "İş öğesini sil",

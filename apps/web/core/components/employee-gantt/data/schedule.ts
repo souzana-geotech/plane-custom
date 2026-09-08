@@ -4,11 +4,13 @@
  * See the LICENSE file for details.
  */
 
+import type { TWorkspaceDependencySchedule } from "@plane/types";
 import type { TEmployeeGanttWorkItem } from "@/services/employee-gantt.service";
 // local imports
 import { toDayNumber } from "./timeline";
 import type {
   TAssignmentDateKind,
+  TAssignmentDependencyDelay,
   TEmployeeAssignment,
   TEmployeeCapacity,
   TEmployeeGanttFilters,
@@ -110,6 +112,34 @@ export const findOverlapWindows = (assignments: TEmployeeAssignment[]): TOverlap
   return windows;
 };
 
+/**
+ * Resolves a dependency-schedule row onto the timeline for an open work item.
+ * Returns `null` when the adjusted period carries no resolvable date, so the caller
+ * can treat "no projection" and "unusable projection" the same way.
+ */
+export const resolveDependencyDelay = (
+  row: TWorkspaceDependencySchedule | undefined,
+  isCompleted: boolean,
+  isCancelled: boolean
+): TAssignmentDependencyDelay | null => {
+  // closed work is never dependency delayed; a stale row must not decorate it
+  if (!row || isCompleted || isCancelled) return null;
+  const adjustedStart = toDayNumber(row.adjusted_start_date);
+  const adjustedEnd = toDayNumber(row.adjusted_target_date);
+  const startDay = adjustedStart ?? adjustedEnd;
+  const endDay = adjustedEnd ?? adjustedStart;
+  if (startDay === undefined || endDay === undefined) return null;
+  return {
+    adjustedStartDay: Math.min(startDay, endDay),
+    adjustedEndDay: Math.max(startDay, endDay),
+    adjustedStartDate: row.adjusted_start_date,
+    adjustedTargetDate: row.adjusted_target_date,
+    delayedByName: row.delayed_by.name,
+    delayedBySequenceId: row.delayed_by.sequence_id,
+    delayedByProjectIdentifier: row.delayed_by.project_identifier,
+  };
+};
+
 const capacityFor = (activeToday: number): TEmployeeCapacity => {
   if (activeToday === 0) return "available";
   if (activeToday >= OVERLOADED_THRESHOLD) return "overloaded";
@@ -124,6 +154,12 @@ type TBuildInput = {
   getEmployee: (userId: string) => { displayName: string; avatarUrl: string };
   filters: TEmployeeGanttFilters;
   today: number;
+  /**
+   * Dependency-delay projections keyed by work item id. Optional and purely
+   * decorative: when absent (not loaded, or the request failed) the chart renders
+   * exactly as before.
+   */
+  dependencyDelays?: Map<string, TWorkspaceDependencySchedule>;
 };
 
 /**
@@ -132,7 +168,7 @@ type TBuildInput = {
  * what is actually drawn.
  */
 export const buildSchedules = (input: TBuildInput): TEmployeeSchedule[] => {
-  const { workItems, employeeIds, getEmployee, filters, today } = input;
+  const { workItems, employeeIds, getEmployee, filters, today, dependencyDelays } = input;
 
   const relevantEmployeeIds = filters.employeeId
     ? employeeIds.filter((id) => id === filters.employeeId)
@@ -157,6 +193,8 @@ export const buildSchedules = (input: TBuildInput): TEmployeeSchedule[] => {
     // "today only" keeps just the work actually in progress today; undated work has no day at all,
     // so it cannot qualify and is not counted either
     if (filters.todayOnly && (!range || range.startDay > today || range.endDay < today)) continue;
+
+    const dependencyDelay = resolveDependencyDelay(dependencyDelays?.get(item.id), isCompleted, isCancelled);
 
     for (const assigneeId of item.assignee_ids ?? []) {
       const bucket = byEmployee.get(assigneeId);
@@ -185,6 +223,7 @@ export const buildSchedules = (input: TBuildInput): TEmployeeSchedule[] => {
         isOverdue: !isCompleted && range.endDay < today && item.target_date !== null,
         // filled in below, once the whole set for this employee is known
         isOverlapping: false,
+        dependencyDelay,
       });
     }
   }
@@ -274,6 +313,9 @@ export const getDataRange = (schedules: TEmployeeSchedule[]): { startDay: number
     for (const assignment of schedule.assignments) {
       if (startDay === null || assignment.startDay < startDay) startDay = assignment.startDay;
       if (endDay === null || assignment.endDay > endDay) endDay = assignment.endDay;
+      // an adjusted period can extend past every planned bar; keep it inside the window
+      if (assignment.dependencyDelay && assignment.dependencyDelay.adjustedEndDay > (endDay ?? -Infinity))
+        endDay = assignment.dependencyDelay.adjustedEndDay;
     }
   }
   return { startDay, endDay };

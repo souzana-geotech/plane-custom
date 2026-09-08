@@ -40,4 +40,5 @@ export * from "./validation";
 export * from "./work-item-filters";
 export * from "./work-item";
 export * from "./working-days";
+export * from "./dependency-shift";
 export * from "./workspace";

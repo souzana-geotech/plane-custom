@@ -1165,9 +1165,15 @@ class IssueBulkUpdateDateEndpoint(BaseAPIView):
                 issues_to_update.append(issue)
 
             if target_date:
+                target_payload = {"target_date": update.get("target_date")}
+                # A gantt drag that already live-shifted dependents marks its updates;
+                # forwarding the marker makes the backend dependency auto-shift stand
+                # down for them, preventing double shifting.
+                if update.get("dependency_auto_shift"):
+                    target_payload["dependency_auto_shift"] = True
                 issue_activity.delay(
                     type="issue.activity.updated",
-                    requested_data=json.dumps({"target_date": update.get("target_date")}),
+                    requested_data=json.dumps(target_payload),
                     current_instance=json.dumps({"target_date": str(issue.target_date)}),
                     issue_id=str(issue_id),
                     actor_id=str(request.user.id),

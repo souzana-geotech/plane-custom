@@ -25,6 +25,24 @@ export type TAssignmentDateKind =
   | "start_only";
 
 /**
+ * Dependency-delay projection attached to an assignment, resolved onto the timeline.
+ * Comes from the dependency scheduling service; the assignment's own dates stay untouched.
+ */
+export type TAssignmentDependencyDelay = {
+  /** inclusive first day of the adjusted period, as a whole day number */
+  adjustedStartDay: number;
+  /** inclusive last day of the adjusted period, as a whole day number */
+  adjustedEndDay: number;
+  /** raw values, kept for the tooltip */
+  adjustedStartDate: string | null;
+  adjustedTargetDate: string | null;
+  /** upstream blocker that causes the delay */
+  delayedByName: string;
+  delayedBySequenceId: number;
+  delayedByProjectIdentifier: string;
+};
+
+/**
  * One work item assigned to one employee, resolved onto the timeline.
  * Work items without any date never become an assignment; they are counted separately.
  */
@@ -54,6 +72,8 @@ export type TEmployeeAssignment = {
   isOverdue: boolean;
   /** overlaps at least one other open assignment of the same employee */
   isOverlapping: boolean;
+  /** set when a delayed `blocked_by` dependency pushes this assignment; null otherwise */
+  dependencyDelay: TAssignmentDependencyDelay | null;
 };
 
 /** A contiguous day range where an employee has more than one open assignment. */

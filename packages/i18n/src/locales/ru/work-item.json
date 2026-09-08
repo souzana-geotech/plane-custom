@@ -196,6 +196,12 @@
       "implements": "Реализует",
       "implemented_by": "Реализовано"
     },
+    "dependency_delay": {
+      "label": "Задержка из-за зависимости",
+      "delayed_by": "Причина задержки: {name}",
+      "adjusted_dates": "Скорректировано: {startDate} – {targetDate}",
+      "adjusted_date": "Скорректировано: {targetDate}"
+    },
     "copy_link": "Копировать ссылку на рабочий элемент",
     "delete": {
       "label": "Удалить рабочий элемент",

@@ -196,6 +196,12 @@
       "implements": "Implements",
       "implemented_by": "Implemented By"
     },
+    "dependency_delay": {
+      "label": "Dependency Delayed",
+      "delayed_by": "Delayed by: {name}",
+      "adjusted_dates": "Adjusted: {startDate} – {targetDate}",
+      "adjusted_date": "Adjusted: {targetDate}"
+    },
     "copy_link": "Copy work item link",
     "delete": {
       "label": "Delete work item",

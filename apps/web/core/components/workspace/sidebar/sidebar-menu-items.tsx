@@ -6,21 +6,26 @@
 
 import React, { useMemo } from "react";
 import { observer } from "mobx-react";
+import { useParams } from "next/navigation";
 import { ChevronRightOutline, MoreHorizontalOutline } from "@makeplane/propel/icons";
 import { Disclosure, Transition } from "@headlessui/react";
 // plane imports
 import {
+  EUserPermissionsLevel,
   WORKSPACE_SIDEBAR_DYNAMIC_NAVIGATION_ITEMS_LINKS,
+  WORKSPACE_SIDEBAR_MANAGEMENT_NAVIGATION_ITEMS_LINKS,
   WORKSPACE_SIDEBAR_STATIC_NAVIGATION_ITEMS,
   WORKSPACE_SIDEBAR_STATIC_NAVIGATION_ITEMS_LINKS,
   WORKSPACE_SIDEBAR_STATIC_PINNED_NAVIGATION_ITEMS_LINKS,
 } from "@plane/constants";
 import { useTranslation } from "@plane/i18n";
+import { EUserWorkspaceRoles } from "@plane/types";
 import { cn } from "@plane/utils";
 // components
 import { SidebarNavItem } from "@/components/sidebar/sidebar-navigation";
 // store hooks
 import { useAppTheme } from "@/hooks/store/use-app-theme";
+import { useUserPermissions } from "@/hooks/store/user";
 import useLocalStorage from "@/hooks/use-local-storage";
 import {
   usePersonalNavigationPreferences,
@@ -36,7 +41,9 @@ export const SidebarMenuItems = observer(function SidebarMenuItems() {
   );
 
   // store hooks
+  const { workspaceSlug } = useParams();
   const { isExtendedSidebarOpened, toggleExtendedSidebar } = useAppTheme();
+  const { allowPermissions } = useUserPermissions();
   // hooks
   const { preferences: personalPreferences } = usePersonalNavigationPreferences();
   const { preferences: workspacePreferences } = useWorkspaceNavigationPreferences();
@@ -93,6 +100,12 @@ export const SidebarMenuItems = observer(function SidebarMenuItems() {
     [workspacePreferences]
   );
 
+  const isWorkspaceAdmin = allowPermissions(
+    [EUserWorkspaceRoles.ADMIN],
+    EUserPermissionsLevel.WORKSPACE,
+    workspaceSlug?.toString()
+  );
+
   return (
     <>
       <div className="flex flex-col gap-0.5">
@@ -101,6 +114,19 @@ export const SidebarMenuItems = observer(function SidebarMenuItems() {
           <SidebarItemBase key={`static_${_index}`} item={item} />
         ))}
       </div>
+      {isWorkspaceAdmin && (
+        <div className="flex flex-col">
+          <div className="flex w-full items-center rounded-sm px-2 py-1.5 text-placeholder">
+            <span className="text-13 font-semibold">{t("sidebar.management")}</span>
+          </div>
+          <div className="flex flex-col gap-0.5">
+            {WORKSPACE_SIDEBAR_MANAGEMENT_NAVIGATION_ITEMS_LINKS.map((item, _index) => (
+              // oxlint-disable-next-line react/no-array-index-key
+              <SidebarItemBase key={`management_${_index}`} item={item} />
+            ))}
+          </div>
+        </div>
+      )}
       <Disclosure as="div" className="flex flex-col" defaultOpen={!!isWorkspaceMenuOpen}>
         <div className="group flex w-full items-center justify-between rounded-sm px-2 py-1.5 text-placeholder hover:bg-layer-transparent-hover">
           <Disclosure.Button

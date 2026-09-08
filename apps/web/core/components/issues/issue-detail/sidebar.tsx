@@ -44,6 +44,7 @@ import { useWorkItemWorkingDays } from "@/hooks/use-work-item-working-days";
 import { IssueParentSelectRoot } from "@/components/issues/parent-select-root";
 import { SidebarPropertyListItem } from "@/components/common/layout/sidebar/property-list-item";
 import { IssueCycleSelect } from "./cycle-select";
+import { IssueDependencyDelayIndicator } from "./dependency-delay-indicator";
 import { IssueLabel } from "./label";
 import { IssueModuleSelect } from "./module-select";
 import type { TIssueOperations } from "./root";
@@ -194,6 +195,8 @@ export const IssueDetailsSidebar = observer(function IssueDetailsSidebar(props: 
                 />
               </div>
             </SidebarPropertyListItem>
+
+            <IssueDependencyDelayIndicator workspaceSlug={workspaceSlug} projectId={projectId} issueId={issueId} />
 
             <SidebarPropertyListItem icon={HourglassOutline} label={t("working_days")}>
               <WorkingDaysInput

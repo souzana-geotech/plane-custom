@@ -6,10 +6,13 @@
 
 import { useCallback, useMemo, useRef, useState } from "react";
 import useSWR from "swr";
+// plane imports
+import type { TWorkspaceDependencySchedule } from "@plane/types";
 // hooks
 import { useMember } from "@/hooks/store/use-member";
 // services
 import { EmployeeGanttService } from "@/services/employee-gantt.service";
+import { IssueDependencyScheduleService } from "@/services/issue/issue_dependency_schedule.service";
 // local imports
 import type { TEmployeeGanttContext } from "./context";
 import { applyDisplayFilters, buildSchedules, getDataRange, summarise } from "./schedule";
@@ -17,6 +20,7 @@ import { buildTimelineScale, getTodayDayNumber } from "./timeline";
 import type { TEmployeeGanttFilters, TEmployeeGanttZoom } from "./types";
 
 const employeeGanttService = new EmployeeGanttService();
+const issueDependencyScheduleService = new IssueDependencyScheduleService();
 
 const EMPTY_FILTERS: TEmployeeGanttFilters = {
   projectId: null,
@@ -57,6 +61,20 @@ export const useEmployeeGanttData = (workspaceSlug: string): TEmployeeGanttConte
     { revalidateOnFocus: false }
   );
 
+  // Dependency-delay projections are decorative: the chart renders identically without
+  // them, so a failed request degrades silently instead of blocking the page.
+  const { data: dependencyScheduleRows } = useSWR(
+    workspaceSlug ? `EMPLOYEE_GANTT_DEPENDENCY_SCHEDULES_${workspaceSlug}` : null,
+    workspaceSlug ? () => issueDependencyScheduleService.listWorkspace(workspaceSlug) : null,
+    { revalidateOnFocus: false, shouldRetryOnError: false }
+  );
+
+  const dependencyDelays = useMemo(() => {
+    const map = new Map<string, TWorkspaceDependencySchedule>();
+    for (const row of dependencyScheduleRows ?? []) map.set(row.issue_id, row);
+    return map;
+  }, [dependencyScheduleRows]);
+
   const retry = useCallback(() => {
     if (error) refetch();
   }, [error, refetch]);
@@ -94,9 +112,10 @@ export const useEmployeeGanttData = (workspaceSlug: string): TEmployeeGanttConte
         },
         filters,
         today,
+        dependencyDelays,
       }),
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [workItems, memberKey, getUserDetails, filters, today]
+    [workItems, memberKey, getUserDetails, filters, today, dependencyDelays]
   );
 
   const schedules = useMemo(() => applyDisplayFilters(allSchedules, filters), [allSchedules, filters]);

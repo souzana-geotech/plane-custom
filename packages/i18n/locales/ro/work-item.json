@@ -196,6 +196,12 @@
       "implements": "Implementează",
       "implemented_by": "Implementat de"
     },
+    "dependency_delay": {
+      "label": "Întârziere din dependență",
+      "delayed_by": "Întârziat de: {name}",
+      "adjusted_dates": "Ajustat: {startDate} – {targetDate}",
+      "adjusted_date": "Ajustat: {targetDate}"
+    },
     "copy_link": "Copiază link-ul activității",
     "delete": {
       "label": "Șterge activitatea",

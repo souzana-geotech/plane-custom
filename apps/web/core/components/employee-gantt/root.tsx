@@ -118,12 +118,8 @@ export const EmployeeGanttRoot = observer(function EmployeeGanttRoot(props: Prop
   const { workspaceSlug } = props;
   const { allowPermissions } = useUserPermissions();
 
-  // the cross-project work item endpoint is admin/member only in practice, and the roll-up is a
-  // management view, so guests never see it
-  const canViewEmployeeGantt = allowPermissions(
-    [EUserPermissions.ADMIN, EUserPermissions.MEMBER],
-    EUserPermissionsLevel.WORKSPACE
-  );
+  // management view: workspace admins only
+  const canViewEmployeeGantt = allowPermissions([EUserPermissions.ADMIN], EUserPermissionsLevel.WORKSPACE);
 
   if (!canViewEmployeeGantt) return <NotAuthorizedView />;
 
