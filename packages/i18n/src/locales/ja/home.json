@@ -35,7 +35,8 @@
       "empty": "手元に置いておきたい作業関連のリンクを保存してください。",
       "add": "クイックリンクを追加",
       "title": "クイックリンク",
-      "title_plural": "クイックリンク"
+      "title_plural": "クイックリンク",
+      "description": "重要な資料やリソースをすぐ手元に置いておけます。"
     },
     "recents": {
       "title": "最近",
@@ -63,7 +64,60 @@
       "reordering_failed": "ウィジェットの並び替え中にエラーが発生しました。"
     },
     "manage_widgets": "ウィジェットを管理",
-    "title": "ホーム",
+    "title": "マイワーク",
+    "greeting": {
+      "subtitle": "確認が必要な項目はこちらです。"
+    },
+    "due": {
+      "prefix": "期限：",
+      "today": "今日",
+      "tomorrow": "明日"
+    },
+    "status": {
+      "not_started": "未開始",
+      "in_progress": "進行中",
+      "done": "完了",
+      "cancelled": "キャンセル"
+    },
+    "today": {
+      "title": "今日",
+      "overdue": "期限超過",
+      "due_today": "今日期限",
+      "in_progress": "進行中",
+      "empty": {
+        "title": "すべて完了しました 🎉",
+        "description": "本日期限のタスクはありません。"
+      }
+    },
+    "upcoming": {
+      "title": "今後の予定",
+      "tomorrow": "明日",
+      "empty": {
+        "title": "予定はありません",
+        "description": "今後のタスクはありません。"
+      }
+    },
+    "my_tasks": {
+      "title": "マイタスク",
+      "tabs": {
+        "all": "すべて",
+        "todo": "やること",
+        "in_progress": "進行中",
+        "done": "完了"
+      },
+      "open": "開く",
+      "view_all": "すべて表示",
+      "empty": {
+        "title": "ここにはまだ何もありません",
+        "description": "あなたに割り当てられたタスクがここに表示されます。"
+      }
+    },
+    "quick_actions": {
+      "add_task": "タスクを追加",
+      "add_note": "メモを追加",
+      "search": "検索",
+      "search_placeholder": "タスク、プロジェクト、メンバーを検索"
+    },
     "star_us_on_github": "GitHubでスターをつける",
     "business_trial_banner": {
       "title": "14日間のBusinessプラントライアルが開始されました！",

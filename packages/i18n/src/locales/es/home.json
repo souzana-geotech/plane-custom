@@ -35,7 +35,8 @@
       "empty": "Guarda enlaces a cosas de trabajo que te gustaría tener a mano.",
       "add": "Agregar enlace rápido",
       "title": "Enlace rápido",
-      "title_plural": "Enlaces rápidos"
+      "title_plural": "Enlaces rápidos",
+      "description": "Mantén cerca los documentos y recursos importantes."
     },
     "recents": {
       "title": "Recientes",
@@ -63,7 +64,60 @@
       "reordering_failed": "Ocurrió un error al reordenar el widget."
     },
     "manage_widgets": "Gestionar widgets",
-    "title": "Inicio",
+    "title": "Mi trabajo",
+    "greeting": {
+      "subtitle": "Esto es lo que necesita tu atención."
+    },
+    "due": {
+      "prefix": "Vence",
+      "today": "hoy",
+      "tomorrow": "mañana"
+    },
+    "status": {
+      "not_started": "Sin comenzar",
+      "in_progress": "En progreso",
+      "done": "Completado",
+      "cancelled": "Cancelado"
+    },
+    "today": {
+      "title": "Hoy",
+      "overdue": "Atrasado",
+      "due_today": "Vence hoy",
+      "in_progress": "En progreso",
+      "empty": {
+        "title": "¡Estás al día! 🎉",
+        "description": "No tienes nada pendiente para hoy."
+      }
+    },
+    "upcoming": {
+      "title": "Próximamente",
+      "tomorrow": "Mañana",
+      "empty": {
+        "title": "No hay nada próximamente",
+        "description": "No tienes tareas próximas."
+      }
+    },
+    "my_tasks": {
+      "title": "Mis tareas",
+      "tabs": {
+        "all": "Todos",
+        "todo": "Por hacer",
+        "in_progress": "En progreso",
+        "done": "Completado"
+      },
+      "open": "Abrir",
+      "view_all": "Ver todo",
+      "empty": {
+        "title": "Nada aquí",
+        "description": "Las tareas que se te asignen aparecerán aquí."
+      }
+    },
+    "quick_actions": {
+      "add_task": "Agregar una tarea",
+      "add_note": "Agregar una nota",
+      "search": "Buscar",
+      "search_placeholder": "Buscar tareas, proyectos o personas"
+    },
     "star_us_on_github": "Danos una estrella en GitHub",
     "business_trial_banner": {
       "title": "¡Tu prueba de 14 días del plan Business está activa!",

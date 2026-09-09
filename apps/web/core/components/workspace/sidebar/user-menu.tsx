@@ -9,10 +9,10 @@ import { observer } from "mobx-react";
 import { useParams } from "next/navigation";
 // plane imports
 import { PiChatLogo } from "@plane/propel/icons";
-import { DashboardsOutline, DraftsOutline, HomeOutline, YourWorkOutline } from "@makeplane/propel/icons";
+import { DashboardsOutline, DraftsOutline, HomeOutline } from "@makeplane/propel/icons";
 import { EUserWorkspaceRoles } from "@plane/types";
 // hooks
-import { useUserPermissions, useUser } from "@/hooks/store/user";
+import { useUserPermissions } from "@/hooks/store/user";
 // local imports
 import { SidebarUserMenuItem } from "./user-menu-item";
 
@@ -21,7 +21,6 @@ export const SidebarUserMenu = observer(function SidebarUserMenu() {
   const { workspaceSlug } = useParams();
   // store hooks
   const { workspaceUserInfo } = useUserPermissions();
-  const { data: currentUser } = useUser();
 
   const SIDEBAR_USER_MENU_ITEMS = [
     {
@@ -37,13 +36,6 @@ export const SidebarUserMenu = observer(function SidebarUserMenu() {
       href: `/${workspaceSlug.toString()}/dashboards/`,
       access: [EUserWorkspaceRoles.ADMIN, EUserWorkspaceRoles.MEMBER],
       Icon: DashboardsOutline,
-    },
-    {
-      key: "your-work",
-      labelTranslationKey: "sidebar.your_work",
-      href: `/${workspaceSlug.toString()}/profile/${currentUser?.id}/`,
-      access: [EUserWorkspaceRoles.ADMIN, EUserWorkspaceRoles.MEMBER],
-      Icon: YourWorkOutline,
     },
     {
       key: "drafts",

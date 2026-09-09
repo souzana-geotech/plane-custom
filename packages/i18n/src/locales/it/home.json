@@ -35,7 +35,8 @@
       "empty": "Salva link a elementi di lavoro che ti servono.",
       "add": "Aggiungi link rapido",
       "title": "Link rapido",
-      "title_plural": "Link rapidi"
+      "title_plural": "Link rapidi",
+      "description": "Tieni vicino i documenti e le risorse importanti."
     },
     "recents": {
       "title": "Recenti",
@@ -63,7 +64,60 @@
       "reordering_failed": "Si è verificato un errore durante il riordino del widget."
     },
     "manage_widgets": "Gestisci widget",
-    "title": "Home",
+    "title": "Il mio lavoro",
+    "greeting": {
+      "subtitle": "Ecco cosa richiede la tua attenzione."
+    },
+    "due": {
+      "prefix": "In scadenza",
+      "today": "oggi",
+      "tomorrow": "domani"
+    },
+    "status": {
+      "not_started": "Non iniziato",
+      "in_progress": "In corso",
+      "done": "Completato",
+      "cancelled": "Annullato"
+    },
+    "today": {
+      "title": "Oggi",
+      "overdue": "In ritardo",
+      "due_today": "In scadenza oggi",
+      "in_progress": "In corso",
+      "empty": {
+        "title": "Sei in pari 🎉",
+        "description": "Nessuna scadenza per oggi."
+      }
+    },
+    "upcoming": {
+      "title": "Prossimamente",
+      "tomorrow": "Domani",
+      "empty": {
+        "title": "Niente in arrivo",
+        "description": "Non hai attività in programma."
+      }
+    },
+    "my_tasks": {
+      "title": "Le mie attività",
+      "tabs": {
+        "all": "Tutti",
+        "todo": "Da fare",
+        "in_progress": "In corso",
+        "done": "Completato"
+      },
+      "open": "Apri",
+      "view_all": "Vedi tutto",
+      "empty": {
+        "title": "Niente qui",
+        "description": "Le attività a te assegnate appariranno qui."
+      }
+    },
+    "quick_actions": {
+      "add_task": "Aggiungi un'attività",
+      "add_note": "Aggiungi una nota",
+      "search": "Cerca",
+      "search_placeholder": "Cerca attività, progetti o persone"
+    },
     "star_us_on_github": "Metti una stella su GitHub",
     "business_trial_banner": {
       "title": "Il tuo periodo di prova di 14 giorni del piano Business è attivo!",

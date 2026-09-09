@@ -34,11 +34,12 @@
     "quick_links": {
       "empty": "Save links to work things that you'd like handy.",
       "add": "Add quick Link",
-      "title": "Quicklink",
-      "title_plural": "Quicklinks"
+      "title": "Quick Link",
+      "title_plural": "Quick Links",
+      "description": "Keep important documents and resources nearby."
     },
     "recents": {
-      "title": "Recents",
+      "title": "Recent",
       "empty": {
         "project": "Your recent projects will appear here once you visit one.",
         "page": "Your recent pages will appear here once you visit one.",
@@ -63,7 +64,60 @@
       "reordering_failed": "Error occurred while reordering widget."
     },
     "manage_widgets": "Manage widgets",
-    "title": "Home",
+    "title": "My Work",
+    "greeting": {
+      "subtitle": "Here's what needs your attention."
+    },
+    "due": {
+      "prefix": "Due",
+      "today": "today",
+      "tomorrow": "tomorrow"
+    },
+    "status": {
+      "not_started": "Not started",
+      "in_progress": "In progress",
+      "done": "Done",
+      "cancelled": "Cancelled"
+    },
+    "today": {
+      "title": "Today",
+      "overdue": "Overdue",
+      "due_today": "Due today",
+      "in_progress": "In progress",
+      "empty": {
+        "title": "You're all caught up 🎉",
+        "description": "Nothing is due today."
+      }
+    },
+    "upcoming": {
+      "title": "Coming Up",
+      "tomorrow": "Tomorrow",
+      "empty": {
+        "title": "Nothing coming up",
+        "description": "You have no upcoming tasks."
+      }
+    },
+    "my_tasks": {
+      "title": "My Tasks",
+      "tabs": {
+        "all": "All",
+        "todo": "To Do",
+        "in_progress": "In Progress",
+        "done": "Done"
+      },
+      "open": "Open",
+      "view_all": "View all",
+      "empty": {
+        "title": "Nothing here",
+        "description": "Tasks assigned to you will show up here."
+      }
+    },
+    "quick_actions": {
+      "add_task": "Add a task",
+      "add_note": "Add a note",
+      "search": "Search",
+      "search_placeholder": "Search tasks, projects, or people"
+    },
     "star_us_on_github": "Star us on GitHub",
     "business_trial_banner": {
       "title": "Your 14-day Business plan trial is live!",

@@ -35,7 +35,8 @@
       "empty": "Salvează link-uri către elementele utile pe care vrei să le ai la îndemână.",
       "add": "Adaugă link rapid",
       "title": "Link rapid",
-      "title_plural": "Linkuri rapide"
+      "title_plural": "Linkuri rapide",
+      "description": "Păstrează la îndemână documentele și resursele importante."
     },
     "recents": {
       "title": "Recente",
@@ -63,7 +64,60 @@
       "reordering_failed": "Eroare la reordonarea mini-aplicației."
     },
     "manage_widgets": "Gestionează mini-aplicațiile",
-    "title": "Acasă",
+    "title": "Munca mea",
+    "greeting": {
+      "subtitle": "Iată ce are nevoie de atenția ta."
+    },
+    "due": {
+      "prefix": "Scadent",
+      "today": "azi",
+      "tomorrow": "mâine"
+    },
+    "status": {
+      "not_started": "Neînceput",
+      "in_progress": "În curs",
+      "done": "Finalizat",
+      "cancelled": "Anulat"
+    },
+    "today": {
+      "title": "Azi",
+      "overdue": "Întârziate",
+      "due_today": "Scadent azi",
+      "in_progress": "În curs",
+      "empty": {
+        "title": "Ești la zi 🎉",
+        "description": "Nu ai nimic scadent azi."
+      }
+    },
+    "upcoming": {
+      "title": "În curând",
+      "tomorrow": "Mâine",
+      "empty": {
+        "title": "Nimic în curând",
+        "description": "Nu ai nicio sarcină viitoare."
+      }
+    },
+    "my_tasks": {
+      "title": "Sarcinile mele",
+      "tabs": {
+        "all": "Toate",
+        "todo": "De făcut",
+        "in_progress": "În curs",
+        "done": "Finalizate"
+      },
+      "open": "Deschide",
+      "view_all": "Vezi toate",
+      "empty": {
+        "title": "Nimic aici",
+        "description": "Sarcinile atribuite ție vor apărea aici."
+      }
+    },
+    "quick_actions": {
+      "add_task": "Adaugă o sarcină",
+      "add_note": "Adaugă o notiță",
+      "search": "Caută",
+      "search_placeholder": "Caută sarcini, proiecte sau persoane"
+    },
     "star_us_on_github": "Dă-ne o stea pe GitHub",
     "business_trial_banner": {
       "title": "Perioada de probă de 14 zile pentru planul Business este activă!",

@@ -35,7 +35,8 @@
       "empty": "Enregistrez des liens vers des éléments de travail que vous souhaitez avoir à portée de main.",
       "add": "Ajouter un lien rapide",
       "title": "Lien rapide",
-      "title_plural": "Liens rapides"
+      "title_plural": "Liens rapides",
+      "description": "Gardez les documents et ressources importants à portée de main."
     },
     "recents": {
       "title": "Récents",
@@ -63,7 +64,60 @@
       "reordering_failed": "Une erreur s’est produite lors de la réorganisation du widget."
     },
     "manage_widgets": "Gérer les widgets",
-    "title": "Accueil",
+    "title": "Mon travail",
+    "greeting": {
+      "subtitle": "Voici ce qui nécessite votre attention."
+    },
+    "due": {
+      "prefix": "Échéance",
+      "today": "aujourd'hui",
+      "tomorrow": "demain"
+    },
+    "status": {
+      "not_started": "Non commencé",
+      "in_progress": "En cours",
+      "done": "Terminé",
+      "cancelled": "Annulé"
+    },
+    "today": {
+      "title": "Aujourd'hui",
+      "overdue": "En retard",
+      "due_today": "Échéance aujourd'hui",
+      "in_progress": "En cours",
+      "empty": {
+        "title": "Vous êtes à jour 🎉",
+        "description": "Aucune échéance aujourd'hui."
+      }
+    },
+    "upcoming": {
+      "title": "À venir",
+      "tomorrow": "Demain",
+      "empty": {
+        "title": "Rien à venir",
+        "description": "Vous n'avez aucune tâche à venir."
+      }
+    },
+    "my_tasks": {
+      "title": "Mes tâches",
+      "tabs": {
+        "all": "Tous",
+        "todo": "À faire",
+        "in_progress": "En cours",
+        "done": "Terminé"
+      },
+      "open": "Ouvrir",
+      "view_all": "Voir tout",
+      "empty": {
+        "title": "Rien ici",
+        "description": "Les tâches qui vous sont assignées s'afficheront ici."
+      }
+    },
+    "quick_actions": {
+      "add_task": "Ajouter une tâche",
+      "add_note": "Ajouter une note",
+      "search": "Rechercher",
+      "search_placeholder": "Rechercher des tâches, projets ou personnes"
+    },
     "star_us_on_github": "Donnez-nous une étoile sur GitHub",
     "business_trial_banner": {
       "title": "Votre essai de 14 jours du plan Business est actif !",

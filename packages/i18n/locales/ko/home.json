@@ -35,10 +35,11 @@
       "empty": "작업과 관련된 링크를 저장하세요.",
       "add": "빠른 링크 추가",
       "title": "빠른 링크",
-      "title_plural": "빠른 링크"
+      "title_plural": "빠른 링크",
+      "description": "중요한 문서와 리소스를 가까이에 보관하세요."
     },
     "recents": {
-      "title": "최근 항목",
+      "title": "최근",
       "empty": {
         "project": "최근 방문한 프로젝트가 여기에 표시됩니다.",
         "page": "최근 방문한 페이지가 여기에 표시됩니다.",
@@ -63,7 +64,60 @@
       "reordering_failed": "위젯 재정렬 중 오류가 발생했습니다."
     },
     "manage_widgets": "위젯 관리",
-    "title": "홈",
+    "title": "내 업무",
+    "greeting": {
+      "subtitle": "지금 확인이 필요한 항목이에요."
+    },
+    "due": {
+      "prefix": "마감:",
+      "today": "오늘",
+      "tomorrow": "내일"
+    },
+    "status": {
+      "not_started": "시작 전",
+      "in_progress": "진행 중",
+      "done": "완료",
+      "cancelled": "취소됨"
+    },
+    "today": {
+      "title": "오늘",
+      "overdue": "기한 초과",
+      "due_today": "오늘 마감",
+      "in_progress": "진행 중",
+      "empty": {
+        "title": "모두 처리했어요 🎉",
+        "description": "오늘 마감인 작업이 없어요."
+      }
+    },
+    "upcoming": {
+      "title": "다가오는 작업",
+      "tomorrow": "내일",
+      "empty": {
+        "title": "다가오는 작업이 없어요",
+        "description": "예정된 작업이 아직 없어요."
+      }
+    },
+    "my_tasks": {
+      "title": "내 작업",
+      "tabs": {
+        "all": "전체",
+        "todo": "할 일",
+        "in_progress": "진행 중",
+        "done": "완료"
+      },
+      "open": "열기",
+      "view_all": "전체 보기",
+      "empty": {
+        "title": "아직 아무것도 없어요",
+        "description": "할당된 작업이 여기에 표시돼요."
+      }
+    },
+    "quick_actions": {
+      "add_task": "작업 추가",
+      "add_note": "메모 추가",
+      "search": "검색",
+      "search_placeholder": "작업, 프로젝트, 사람 검색"
+    },
     "star_us_on_github": "GitHub에서 별표",
     "business_trial_banner": {
       "title": "14일 Business 플랜 체험판이 활성화되었습니다!",

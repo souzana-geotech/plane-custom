@@ -35,7 +35,8 @@
       "empty": "Uložte si odkazy na dôležité veci, ktoré chcete mať po ruke.",
       "add": "Pridať rýchly odkaz",
       "title": "Rýchly odkaz",
-      "title_plural": "Rýchle odkazy"
+      "title_plural": "Rýchle odkazy",
+      "description": "Majte dôležité dokumenty a zdroje po ruke."
     },
     "recents": {
       "title": "Nedávne",
@@ -63,7 +64,60 @@
       "reordering_failed": "Pri presúvaní widgetu došlo k chybe."
     },
     "manage_widgets": "Spravovať widgety",
-    "title": "Domov",
+    "title": "Moja práca",
+    "greeting": {
+      "subtitle": "Tu je to, čo potrebuje Vašu pozornosť."
+    },
+    "due": {
+      "prefix": "Termín",
+      "today": "dnes",
+      "tomorrow": "zajtra"
+    },
+    "status": {
+      "not_started": "Nezačaté",
+      "in_progress": "Prebieha",
+      "done": "Hotovo",
+      "cancelled": "Zrušené"
+    },
+    "today": {
+      "title": "Dnes",
+      "overdue": "Po termíne",
+      "due_today": "Termín dnes",
+      "in_progress": "Prebieha",
+      "empty": {
+        "title": "Máte hotovo 🎉",
+        "description": "Dnes nič nemá termín."
+      }
+    },
+    "upcoming": {
+      "title": "Nadchádzajúce",
+      "tomorrow": "Zajtra",
+      "empty": {
+        "title": "Nič nadchádzajúce",
+        "description": "Nemáte žiadne nadchádzajúce úlohy."
+      }
+    },
+    "my_tasks": {
+      "title": "Moje úlohy",
+      "tabs": {
+        "all": "Všetko",
+        "todo": "Na vybavenie",
+        "in_progress": "Prebieha",
+        "done": "Hotovo"
+      },
+      "open": "Otvoriť",
+      "view_all": "Zobraziť všetko",
+      "empty": {
+        "title": "Nič tu nie je",
+        "description": "Úlohy priradené Vám sa zobrazia tu."
+      }
+    },
+    "quick_actions": {
+      "add_task": "Pridať úlohu",
+      "add_note": "Pridať poznámku",
+      "search": "Hľadať",
+      "search_placeholder": "Hľadať úlohy, projekty alebo ľudí"
+    },
     "star_us_on_github": "Ohodnoťte nás na GitHube",
     "business_trial_banner": {
       "title": "Vaša 14-dňová skúšobná verzia plánu Business je aktívna!",

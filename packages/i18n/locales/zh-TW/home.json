@@ -35,7 +35,8 @@
       "empty": "儲存您想要隨手可得的工作連結。",
       "add": "新增快速連結",
       "title": "快速連結",
-      "title_plural": "快速連結"
+      "title_plural": "快速連結",
+      "description": "將重要文件和資源保存在身邊。"
     },
     "recents": {
       "title": "最近",
@@ -63,7 +64,60 @@
       "reordering_failed": "重新排序小工具時發生錯誤。"
     },
     "manage_widgets": "管理小工具",
-    "title": "首頁",
+    "title": "我的工作",
+    "greeting": {
+      "subtitle": "這裡是需要您關注的內容。"
+    },
+    "due": {
+      "prefix": "截止",
+      "today": "今天",
+      "tomorrow": "明天"
+    },
+    "status": {
+      "not_started": "未開始",
+      "in_progress": "進行中",
+      "done": "已完成",
+      "cancelled": "已取消"
+    },
+    "today": {
+      "title": "今天",
+      "overdue": "已逾期",
+      "due_today": "今天到期",
+      "in_progress": "進行中",
+      "empty": {
+        "title": "全部完成 🎉",
+        "description": "今天沒有到期的任務。"
+      }
+    },
+    "upcoming": {
+      "title": "即將到來",
+      "tomorrow": "明天",
+      "empty": {
+        "title": "沒有即將到來的任務",
+        "description": "您目前沒有即將到來的任務。"
+      }
+    },
+    "my_tasks": {
+      "title": "我的任務",
+      "tabs": {
+        "all": "全部",
+        "todo": "待辦",
+        "in_progress": "進行中",
+        "done": "已完成"
+      },
+      "open": "開啟",
+      "view_all": "檢視全部",
+      "empty": {
+        "title": "尚無內容",
+        "description": "指派給您的任務將顯示在這裡。"
+      }
+    },
+    "quick_actions": {
+      "add_task": "新增任務",
+      "add_note": "新增筆記",
+      "search": "搜尋",
+      "search_placeholder": "搜尋任務、專案或成員"
+    },
     "star_us_on_github": "在 GitHub 上給我們星星",
     "business_trial_banner": {
       "title": "您的14天Business方案試用已啟動！",

@@ -35,7 +35,8 @@
       "empty": "Uložte si odkazy na důležité věci, které chcete mít po ruce.",
       "add": "Přidat rychlý odkaz",
       "title": "Rychlý odkaz",
-      "title_plural": "Rychlé odkazy"
+      "title_plural": "Rychlé odkazy",
+      "description": "Mějte důležité dokumenty a zdroje po ruce."
     },
     "recents": {
       "title": "Nedávné",
@@ -63,7 +64,60 @@
       "reordering_failed": "Při přesouvání widgetu došlo k chybě."
     },
     "manage_widgets": "Spravovat widgety",
-    "title": "Domů",
+    "title": "Moje práce",
+    "greeting": {
+      "subtitle": "Tady je to, co potřebuje Vaši pozornost."
+    },
+    "due": {
+      "prefix": "Termín",
+      "today": "dnes",
+      "tomorrow": "zítra"
+    },
+    "status": {
+      "not_started": "Nezahájeno",
+      "in_progress": "Probíhá",
+      "done": "Hotovo",
+      "cancelled": "Zrušeno"
+    },
+    "today": {
+      "title": "Dnes",
+      "overdue": "Po termínu",
+      "due_today": "Termín dnes",
+      "in_progress": "Probíhá",
+      "empty": {
+        "title": "Máte hotovo 🎉",
+        "description": "Dnes nic nemá termín."
+      }
+    },
+    "upcoming": {
+      "title": "Nadcházející",
+      "tomorrow": "Zítra",
+      "empty": {
+        "title": "Nic nadcházejícího",
+        "description": "Nemáte žádné nadcházející úkoly."
+      }
+    },
+    "my_tasks": {
+      "title": "Moje úkoly",
+      "tabs": {
+        "all": "Vše",
+        "todo": "K vyřízení",
+        "in_progress": "Probíhá",
+        "done": "Hotovo"
+      },
+      "open": "Otevřít",
+      "view_all": "Zobrazit vše",
+      "empty": {
+        "title": "Nic tu není",
+        "description": "Úkoly přiřazené Vám se zobrazí zde."
+      }
+    },
+    "quick_actions": {
+      "add_task": "Přidat úkol",
+      "add_note": "Přidat poznámku",
+      "search": "Hledat",
+      "search_placeholder": "Hledat úkoly, projekty nebo lidi"
+    },
     "star_us_on_github": "Ohodnoťte nás na GitHubu",
     "business_trial_banner": {
       "title": "Vaše 14denní zkušební verze plánu Business je aktivní!",

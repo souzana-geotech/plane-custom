@@ -35,7 +35,8 @@
       "empty": "Simpan tautan ke hal-hal kerja yang ingin Anda miliki.",
       "add": "Tambahkan Tautan Cepat",
       "title": "Tautan Cepat",
-      "title_plural": "Tautan Cepat"
+      "title_plural": "Tautan Cepat",
+      "description": "Simpan dokumen dan sumber daya penting di dekat Anda."
     },
     "recents": {
       "title": "Terbaru",
@@ -63,7 +64,60 @@
       "reordering_failed": "Kesalahan terjadi saat mengurutkan ulang widget."
     },
     "manage_widgets": "Kelola widget",
-    "title": "Beranda",
+    "title": "Pekerjaan Saya",
+    "greeting": {
+      "subtitle": "Berikut hal-hal yang membutuhkan perhatian Anda."
+    },
+    "due": {
+      "prefix": "Jatuh tempo",
+      "today": "hari ini",
+      "tomorrow": "besok"
+    },
+    "status": {
+      "not_started": "Belum dimulai",
+      "in_progress": "Sedang berlangsung",
+      "done": "Selesai",
+      "cancelled": "Dibatalkan"
+    },
+    "today": {
+      "title": "Hari ini",
+      "overdue": "Terlambat",
+      "due_today": "Jatuh tempo hari ini",
+      "in_progress": "Sedang berlangsung",
+      "empty": {
+        "title": "Semua sudah beres 🎉",
+        "description": "Tidak ada yang jatuh tempo hari ini."
+      }
+    },
+    "upcoming": {
+      "title": "Akan Datang",
+      "tomorrow": "Besok",
+      "empty": {
+        "title": "Tidak ada yang akan datang",
+        "description": "Anda tidak memiliki tugas mendatang."
+      }
+    },
+    "my_tasks": {
+      "title": "Tugas Saya",
+      "tabs": {
+        "all": "Semua",
+        "todo": "Belum dikerjakan",
+        "in_progress": "Sedang berlangsung",
+        "done": "Selesai"
+      },
+      "open": "Buka",
+      "view_all": "Lihat semua",
+      "empty": {
+        "title": "Tidak ada apa-apa di sini",
+        "description": "Tugas yang ditugaskan kepada Anda akan muncul di sini."
+      }
+    },
+    "quick_actions": {
+      "add_task": "Tambah tugas",
+      "add_note": "Tambah catatan",
+      "search": "Cari",
+      "search_placeholder": "Cari tugas, proyek, atau orang"
+    },
     "star_us_on_github": "Bintang kami di GitHub",
     "business_trial_banner": {
       "title": "Uji coba 14 hari paket Business Anda telah aktif!",

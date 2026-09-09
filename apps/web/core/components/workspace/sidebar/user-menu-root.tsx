@@ -6,8 +6,8 @@
 
 import { useState, useEffect } from "react";
 import { observer } from "mobx-react";
-import { useRouter } from "next/navigation";
-import { LogOutOutline, SettingsOutline } from "@makeplane/propel/icons";
+import { useParams, useRouter } from "next/navigation";
+import { LogOutOutline, SettingsOutline, UserOutline } from "@makeplane/propel/icons";
 // plane imports
 import { Avatar } from "@makeplane/propel/components/avatar";
 import { GOD_MODE_URL } from "@plane/constants";
@@ -28,6 +28,7 @@ export const UserMenuRoot = observer(function UserMenuRoot() {
   const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
   // router
   const router = useRouter();
+  const { workspaceSlug } = useParams();
   // store hooks
   const { toggleAnySidebarDropdown } = useAppTheme();
   const { data: currentUser } = useUser();
@@ -108,6 +109,15 @@ export const UserMenuRoot = observer(function UserMenuRoot() {
         </div>
       </div>
       <div>
+        {workspaceSlug && currentUser && (
+          <CustomMenu.MenuItem
+            onClick={() => router.push(`/${workspaceSlug.toString()}/profile/${currentUser.id}`)}
+            className="flex items-center gap-2"
+          >
+            <UserOutline className="size-3.5 shrink-0" />
+            {t("profile.label")}
+          </CustomMenu.MenuItem>
+        )}
         <CustomMenu.MenuItem
           onClick={() =>
             toggleProfileSettingsModal({

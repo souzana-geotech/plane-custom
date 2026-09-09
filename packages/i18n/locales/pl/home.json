@@ -35,7 +35,8 @@
       "empty": "Zapisz linki do ważnych rzeczy, które chcesz mieć pod ręką.",
       "add": "Dodaj szybki link",
       "title": "Szybki link",
-      "title_plural": "Szybkie linki"
+      "title_plural": "Szybkie linki",
+      "description": "Miej ważne dokumenty i zasoby zawsze pod ręką."
     },
     "recents": {
       "title": "Ostatnie",
@@ -63,7 +64,60 @@
       "reordering_failed": "Wystąpił błąd podczas przenoszenia widżetu."
     },
     "manage_widgets": "Zarządzaj widżetami",
-    "title": "Strona główna",
+    "title": "Moja praca",
+    "greeting": {
+      "subtitle": "Oto, co wymaga Twojej uwagi."
+    },
+    "due": {
+      "prefix": "Termin:",
+      "today": "dziś",
+      "tomorrow": "jutro"
+    },
+    "status": {
+      "not_started": "Nierozpoczęte",
+      "in_progress": "W trakcie",
+      "done": "Ukończone",
+      "cancelled": "Anulowane"
+    },
+    "today": {
+      "title": "Dziś",
+      "overdue": "Zaległe",
+      "due_today": "Termin: dziś",
+      "in_progress": "W trakcie",
+      "empty": {
+        "title": "Wszystko zrobione 🎉",
+        "description": "Nic nie jest dziś zaplanowane."
+      }
+    },
+    "upcoming": {
+      "title": "Nadchodzące",
+      "tomorrow": "Jutro",
+      "empty": {
+        "title": "Nic nie nadchodzi",
+        "description": "Nie masz żadnych nadchodzących zadań."
+      }
+    },
+    "my_tasks": {
+      "title": "Moje zadania",
+      "tabs": {
+        "all": "Wszystkie",
+        "todo": "Do zrobienia",
+        "in_progress": "W trakcie",
+        "done": "Ukończone"
+      },
+      "open": "Otwórz",
+      "view_all": "Zobacz wszystkie",
+      "empty": {
+        "title": "Nic tu nie ma",
+        "description": "Tutaj pojawią się zadania przypisane Tobie."
+      }
+    },
+    "quick_actions": {
+      "add_task": "Dodaj zadanie",
+      "add_note": "Dodaj notatkę",
+      "search": "Szukaj",
+      "search_placeholder": "Szukaj zadań, projektów lub osób"
+    },
     "star_us_on_github": "Oceń nas na GitHubie",
     "business_trial_banner": {
       "title": "Twój 14-dniowy okres próbny planu Business jest aktywny!",

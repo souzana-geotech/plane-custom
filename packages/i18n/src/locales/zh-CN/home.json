@@ -35,7 +35,8 @@
       "empty": "保存您想要方便访问的工作相关链接。",
       "add": "添加快速链接",
       "title": "快速链接",
-      "title_plural": "快速链接"
+      "title_plural": "快速链接",
+      "description": "将重要的文档和资源保存在身边。"
     },
     "recents": {
       "title": "最近",
@@ -63,7 +64,60 @@
       "reordering_failed": "重新排序小部件时出错。"
     },
     "manage_widgets": "管理小部件",
-    "title": "首页",
+    "title": "我的工作",
+    "greeting": {
+      "subtitle": "这里是需要您关注的内容。"
+    },
+    "due": {
+      "prefix": "截止",
+      "today": "今天",
+      "tomorrow": "明天"
+    },
+    "status": {
+      "not_started": "未开始",
+      "in_progress": "进行中",
+      "done": "已完成",
+      "cancelled": "已取消"
+    },
+    "today": {
+      "title": "今天",
+      "overdue": "已逾期",
+      "due_today": "今天到期",
+      "in_progress": "进行中",
+      "empty": {
+        "title": "全部完成 🎉",
+        "description": "今天没有到期的任务。"
+      }
+    },
+    "upcoming": {
+      "title": "即将到来",
+      "tomorrow": "明天",
+      "empty": {
+        "title": "没有即将到来的任务",
+        "description": "您暂时没有即将到来的任务。"
+      }
+    },
+    "my_tasks": {
+      "title": "我的任务",
+      "tabs": {
+        "all": "全部",
+        "todo": "待办",
+        "in_progress": "进行中",
+        "done": "已完成"
+      },
+      "open": "打开",
+      "view_all": "查看全部",
+      "empty": {
+        "title": "暂无内容",
+        "description": "分配给您的任务将显示在这里。"
+      }
+    },
+    "quick_actions": {
+      "add_task": "添加任务",
+      "add_note": "添加笔记",
+      "search": "搜索",
+      "search_placeholder": "搜索任务、项目或成员"
+    },
     "star_us_on_github": "在GitHub上为我们加星",
     "business_trial_banner": {
       "title": "您的14天Business计划试用已开始！",

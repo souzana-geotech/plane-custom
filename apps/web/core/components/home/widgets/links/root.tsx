@@ -47,7 +47,7 @@ export const DashboardQuickLinks = observer(function DashboardQuickLinks(props: 
         preloadedData={linkData}
       />
       <div className="mb-2">
-        <div className="mb-4 flex items-center justify-between">
+        <div className="mb-1 flex items-center justify-between">
           <div className="text-14 font-semibold text-tertiary">{t("home.quick_links.title_plural")}</div>
           <button
             onClick={handleCreateLinkModal}
@@ -56,6 +56,7 @@ export const DashboardQuickLinks = observer(function DashboardQuickLinks(props: 
             <AddOutline className="my-auto size-4" /> <span>{t("home.quick_links.add")}</span>
           </button>
         </div>
+        <p className="mb-3 text-12 text-placeholder">{t("home.quick_links.description")}</p>
         <div className="flex w-full flex-wrap">
           {/* rendering links */}
           <ProjectLinkList workspaceSlug={workspaceSlug} linkOperations={linkOperations} />

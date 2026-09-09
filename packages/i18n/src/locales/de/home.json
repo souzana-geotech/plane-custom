@@ -35,7 +35,8 @@
       "empty": "Speichern Sie hier Links zu wichtigen Dingen, auf die Sie schnell zugreifen möchten.",
       "add": "Schnelllink hinzufügen",
       "title": "Schnelllink",
-      "title_plural": "Schnelllinks"
+      "title_plural": "Schnelllinks",
+      "description": "Behalten Sie wichtige Dokumente und Ressourcen griffbereit."
     },
     "recents": {
       "title": "Zuletzt verwendet",
@@ -63,7 +64,60 @@
       "reordering_failed": "Beim Verschieben des Widgets ist ein Fehler aufgetreten."
     },
     "manage_widgets": "Widgets verwalten",
-    "title": "Startseite",
+    "title": "Meine Arbeit",
+    "greeting": {
+      "subtitle": "Hier ist, was Ihre Aufmerksamkeit erfordert."
+    },
+    "due": {
+      "prefix": "Fällig",
+      "today": "heute",
+      "tomorrow": "morgen"
+    },
+    "status": {
+      "not_started": "Nicht begonnen",
+      "in_progress": "In Bearbeitung",
+      "done": "Erledigt",
+      "cancelled": "Abgebrochen"
+    },
+    "today": {
+      "title": "Heute",
+      "overdue": "Überfällig",
+      "due_today": "Heute fällig",
+      "in_progress": "In Bearbeitung",
+      "empty": {
+        "title": "Sie sind auf dem neuesten Stand 🎉",
+        "description": "Für heute ist nichts fällig."
+      }
+    },
+    "upcoming": {
+      "title": "Demnächst",
+      "tomorrow": "Morgen",
+      "empty": {
+        "title": "Nichts Anstehendes",
+        "description": "Sie haben keine anstehenden Aufgaben."
+      }
+    },
+    "my_tasks": {
+      "title": "Meine Aufgaben",
+      "tabs": {
+        "all": "Alle",
+        "todo": "Zu erledigen",
+        "in_progress": "In Bearbeitung",
+        "done": "Erledigt"
+      },
+      "open": "Öffnen",
+      "view_all": "Alle anzeigen",
+      "empty": {
+        "title": "Nichts vorhanden",
+        "description": "Ihnen zugewiesene Aufgaben werden hier angezeigt."
+      }
+    },
+    "quick_actions": {
+      "add_task": "Aufgabe hinzufügen",
+      "add_note": "Notiz hinzufügen",
+      "search": "Suchen",
+      "search_placeholder": "Aufgaben, Projekte oder Personen suchen"
+    },
     "star_us_on_github": "Geben Sie uns einen Stern auf GitHub",
     "business_trial_banner": {
       "title": "Ihre 14-tägige Business-Testversion ist aktiv!",

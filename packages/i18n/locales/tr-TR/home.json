@@ -35,10 +35,11 @@
       "empty": "Kolay erişim için hızlı bağlantılar ekleyin.",
       "add": "Hızlı bağlantı ekle",
       "title": "Hızlı Bağlantı",
-      "title_plural": "Hızlı Bağlantılar"
+      "title_plural": "Hızlı Bağlantılar",
+      "description": "Önemli belgeleri ve kaynakları yakınınızda tutun."
     },
     "recents": {
-      "title": "Sonlar",
+      "title": "Son",
       "empty": {
         "project": "Bir projeyi ziyaret ettikten sonra son projeleriniz burada görünecek.",
         "page": "Bir sayfayı ziyaret ettikten sonra son sayfalarınız burada görünecek.",
@@ -63,7 +64,60 @@
       "reordering_failed": "Widget yeniden sıralanırken hata oluştu."
     },
     "manage_widgets": "Widget'ları yönet",
-    "title": "Ana Sayfa",
+    "title": "Çalışmalarım",
+    "greeting": {
+      "subtitle": "İşte dikkatinizi bekleyenler."
+    },
+    "due": {
+      "prefix": "Bitiş tarihi",
+      "today": "bugün",
+      "tomorrow": "yarın"
+    },
+    "status": {
+      "not_started": "Başlamadı",
+      "in_progress": "Devam ediyor",
+      "done": "Yapıldı",
+      "cancelled": "İptal Edildi"
+    },
+    "today": {
+      "title": "Bugün",
+      "overdue": "Gecikmiş",
+      "due_today": "Bitiş tarihi bugün",
+      "in_progress": "Devam ediyor",
+      "empty": {
+        "title": "Her şey tamam 🎉",
+        "description": "Bugün bitiş tarihi olan bir şey yok."
+      }
+    },
+    "upcoming": {
+      "title": "Yaklaşanlar",
+      "tomorrow": "Yarın",
+      "empty": {
+        "title": "Yaklaşan bir şey yok",
+        "description": "Yaklaşan göreviniz yok."
+      }
+    },
+    "my_tasks": {
+      "title": "Görevlerim",
+      "tabs": {
+        "all": "Tümü",
+        "todo": "Yapılacak",
+        "in_progress": "Devam ediyor",
+        "done": "Yapıldı"
+      },
+      "open": "Aç",
+      "view_all": "Tümünü görüntüle",
+      "empty": {
+        "title": "Burada bir şey yok",
+        "description": "Size atanan görevler burada görünecek."
+      }
+    },
+    "quick_actions": {
+      "add_task": "Görev ekle",
+      "add_note": "Not ekle",
+      "search": "Ara",
+      "search_placeholder": "Görev, proje veya kişi ara"
+    },
     "star_us_on_github": "Bizi GitHub'da yıldızlayın",
     "business_trial_banner": {
       "title": "14 günlük Business planı denemeniz aktif!",

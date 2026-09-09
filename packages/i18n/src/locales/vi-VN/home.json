@@ -35,7 +35,8 @@
       "empty": "Lưu liên kết liên quan đến công việc mà bạn muốn truy cập thuận tiện.",
       "add": "Thêm liên kết nhanh",
       "title": "Liên kết nhanh",
-      "title_plural": "Liên kết nhanh"
+      "title_plural": "Liên kết nhanh",
+      "description": "Giữ các tài liệu và tài nguyên quan trọng luôn ở gần bạn."
     },
     "recents": {
       "title": "Gần đây",
@@ -63,7 +64,60 @@
       "reordering_failed": "Đã xảy ra lỗi khi sắp xếp lại tiện ích."
     },
     "manage_widgets": "Quản lý tiện ích",
-    "title": "Trang chủ",
+    "title": "Công việc của tôi",
+    "greeting": {
+      "subtitle": "Đây là những việc cần bạn chú ý."
+    },
+    "due": {
+      "prefix": "Hạn",
+      "today": "hôm nay",
+      "tomorrow": "ngày mai"
+    },
+    "status": {
+      "not_started": "Chưa bắt đầu",
+      "in_progress": "Đang tiến hành",
+      "done": "Xong",
+      "cancelled": "Đã hủy"
+    },
+    "today": {
+      "title": "Hôm nay",
+      "overdue": "Quá hạn",
+      "due_today": "Hạn hôm nay",
+      "in_progress": "Đang tiến hành",
+      "empty": {
+        "title": "Bạn đã hoàn tất mọi việc 🎉",
+        "description": "Không có gì đến hạn hôm nay."
+      }
+    },
+    "upcoming": {
+      "title": "Sắp tới",
+      "tomorrow": "Ngày mai",
+      "empty": {
+        "title": "Không có gì sắp tới",
+        "description": "Bạn không có nhiệm vụ sắp tới nào."
+      }
+    },
+    "my_tasks": {
+      "title": "Nhiệm vụ của tôi",
+      "tabs": {
+        "all": "Tất cả",
+        "todo": "Cần làm",
+        "in_progress": "Đang tiến hành",
+        "done": "Xong"
+      },
+      "open": "Mở",
+      "view_all": "Xem tất cả",
+      "empty": {
+        "title": "Không có gì ở đây",
+        "description": "Nhiệm vụ được giao cho bạn sẽ hiển thị ở đây."
+      }
+    },
+    "quick_actions": {
+      "add_task": "Thêm nhiệm vụ",
+      "add_note": "Thêm ghi chú",
+      "search": "Tìm kiếm",
+      "search_placeholder": "Tìm kiếm nhiệm vụ, dự án hoặc mọi người"
+    },
     "star_us_on_github": "Gắn sao cho chúng tôi trên GitHub",
     "business_trial_banner": {
       "title": "Bản dùng thử 14 ngày gói Business của bạn đã được kích hoạt!",
