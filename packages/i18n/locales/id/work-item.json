@@ -7,6 +7,13 @@
       "label": "Judul item kerja",
       "required": "Judul item kerja diperlukan."
     },
+    "form": {
+      "title_placeholder": "Apa yang perlu dikerjakan?",
+      "description_placeholder": "Tambahkan detail, persyaratan, tautan, atau catatan…",
+      "no_due_date": "Tanpa tanggal jatuh tempo",
+      "more_options": "Opsi lainnya",
+      "fewer_options": "Lebih sedikit opsi"
+    },
     "add": {
       "press_enter": "Tekan 'Enter' untuk menambahkan item kerja lainnya",
       "label": "Tambah item kerja",

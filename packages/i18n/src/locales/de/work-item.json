@@ -7,6 +7,13 @@
       "label": "Titel des Arbeitselements",
       "required": "Ein Titel für das Arbeitselement ist erforderlich."
     },
+    "form": {
+      "title_placeholder": "Was ist zu tun?",
+      "description_placeholder": "Details, Anforderungen, Links oder Notizen hinzufügen…",
+      "no_due_date": "Kein Fälligkeitsdatum",
+      "more_options": "Mehr Optionen",
+      "fewer_options": "Weniger Optionen"
+    },
     "add": {
       "press_enter": "Drücken Sie 'Enter', um ein weiteres Arbeitselement hinzuzufügen",
       "label": "Arbeitselement hinzufügen",

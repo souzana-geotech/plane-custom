@@ -7,6 +7,13 @@
       "label": "Titre de l’élément de travail",
       "required": "Le titre de l’élément de travail est requis."
     },
+    "form": {
+      "title_placeholder": "Que faut-il faire ?",
+      "description_placeholder": "Ajoutez des détails, des exigences, des liens ou des notes…",
+      "no_due_date": "Aucune date d’échéance",
+      "more_options": "Plus d’options",
+      "fewer_options": "Moins d’options"
+    },
     "add": {
       "press_enter": "Appuyez sur 'Entrée' pour ajouter un autre élément de travail",
       "label": "Ajouter un élément de travail",

@@ -7,6 +7,13 @@
       "label": "Work item title",
       "required": "Work item title is required."
     },
+    "form": {
+      "title_placeholder": "What needs to be done?",
+      "description_placeholder": "Add details, requirements, links, or notes…",
+      "no_due_date": "No due date",
+      "more_options": "More options",
+      "fewer_options": "Fewer options"
+    },
     "add": {
       "press_enter": "Press 'Enter' to add another work item",
       "label": "Add work item",

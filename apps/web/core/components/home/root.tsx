@@ -17,6 +17,7 @@ import { TourRoot } from "@/components/onboarding/tour/root";
 // local imports
 import { DashboardWidgets } from "./home-dashboard-widgets";
 import { UserGreetingsView } from "./user-greetings";
+import { MyWorkWidget } from "./widgets/my-work/root";
 import { HomePeekOverviewsRoot } from "../issues/peek-overview/peek-overviews";
 
 export const WorkspaceHomeView = observer(function WorkspaceHomeView() {
@@ -57,6 +58,12 @@ export const WorkspaceHomeView = observer(function WorkspaceHomeView() {
         <ContentWrapper className="mx-auto scrollbar-hide gap-6 bg-surface-1 px-page-x">
           <div className="mx-auto w-full max-w-[800px]">
             {currentUser && <UserGreetingsView user={currentUser} />}
+            {/* the employee's own work always leads; the user-managed widgets keep their order below */}
+            {workspaceSlug && (
+              <div className="pb-4">
+                <MyWorkWidget workspaceSlug={workspaceSlug.toString()} />
+              </div>
+            )}
             <DashboardWidgets />
           </div>
         </ContentWrapper>

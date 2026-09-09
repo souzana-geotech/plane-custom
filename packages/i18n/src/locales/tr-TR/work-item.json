@@ -7,6 +7,13 @@
       "label": "İş öğesi başlığı",
       "required": "İş öğesi başlığı gereklidir."
     },
+    "form": {
+      "title_placeholder": "Ne yapılması gerekiyor?",
+      "description_placeholder": "Ayrıntı, gereksinim, bağlantı veya not ekle…",
+      "no_due_date": "Son tarih yok",
+      "more_options": "Daha fazla seçenek",
+      "fewer_options": "Daha az seçenek"
+    },
     "add": {
       "press_enter": "Başka bir iş öğesi eklemek için 'Enter'a basın",
       "label": "İş öğesi ekle",

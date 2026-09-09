@@ -7,6 +7,13 @@
       "label": "工作项标题",
       "required": "工作项标题为必填项"
     },
+    "form": {
+      "title_placeholder": "需要做什么？",
+      "description_placeholder": "添加详情、要求、链接或备注…",
+      "no_due_date": "无截止日期",
+      "more_options": "更多选项",
+      "fewer_options": "收起选项"
+    },
     "add": {
       "press_enter": "按'Enter'添加另一个工作项",
       "label": "添加工作项",

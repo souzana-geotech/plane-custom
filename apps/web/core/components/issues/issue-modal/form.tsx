@@ -87,7 +87,7 @@ export const IssueFormRoot = observer(function IssueFormRoot(props: IssueFormPro
     moveToIssue = false,
     modalTitle = `${data?.id ? t("update") : isDraft ? t("create_a_draft") : t("create_new_issue")}`,
     primaryButtonText = {
-      default: `${data?.id ? t("update") : isDraft ? t("save_to_drafts") : t("save")}`,
+      default: `${data?.id ? t("update") : isDraft ? t("save_to_drafts") : t("common.create")}`,
       loading: `${data?.id ? t("updating") : t("saving")}`,
     },
     isProjectSelectionDisabled = false,
@@ -360,8 +360,8 @@ export const IssueFormRoot = observer(function IssueFormRoot(props: IssueFormPro
             className="flex w-full flex-col"
           >
             <div className="rounded-t-lg bg-surface-1 p-5">
-              <h3 className="pb-2 text-h4-medium text-secondary">{modalTitle}</h3>
-              <div className="flex items-center justify-between pt-2 pb-4">
+              <h3 className="text-h4-medium text-secondary">{modalTitle}</h3>
+              <div className="flex items-center justify-between pt-3 pb-3">
                 <div className="flex items-center gap-x-1">
                   <IssueProjectSelect
                     control={control}
@@ -425,7 +425,7 @@ export const IssueFormRoot = observer(function IssueFormRoot(props: IssueFormPro
                 activeAdditionalPropertiesLength > 0 && "shadow-raised-100"
               )}
             >
-              <div className="pb-3">
+              <div className="pb-4">
                 <IssueDefaultProperties
                   control={control}
                   setValue={setValue}
@@ -443,7 +443,7 @@ export const IssueFormRoot = observer(function IssueFormRoot(props: IssueFormPro
               </div>
               {showActionButtons && (
                 <div
-                  className="flex items-center justify-end gap-4 border-t-[0.5px] border-subtle pt-6 pb-3"
+                  className="flex items-center justify-end gap-4 border-t-[0.5px] border-subtle pt-4 pb-1"
                   tabIndex={getIndex("create_more")}
                 >
                   {!data?.id && (

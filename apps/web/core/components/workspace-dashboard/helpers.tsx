@@ -111,8 +111,9 @@ export function ShareBar({
 }
 
 export function WidgetTable({ children, className }: { children: React.ReactNode; className?: string }) {
+  // -mx-2 cancels the cells' px-2 so first/last column text aligns with the card title
   return (
-    <div className={cn("-mx-1 overflow-x-auto", className)}>
+    <div className={cn("-mx-2 overflow-x-auto", className)}>
       <table className="w-full min-w-[480px] border-separate border-spacing-0 text-13">{children}</table>
     </div>
   );

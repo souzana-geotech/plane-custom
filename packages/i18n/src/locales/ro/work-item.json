@@ -7,6 +7,13 @@
       "label": "Titlul activității",
       "required": "Titlul activității este obligatoriu."
     },
+    "form": {
+      "title_placeholder": "Ce trebuie făcut?",
+      "description_placeholder": "Adaugă detalii, cerințe, linkuri sau notițe…",
+      "no_due_date": "Fără dată limită",
+      "more_options": "Mai multe opțiuni",
+      "fewer_options": "Mai puține opțiuni"
+    },
     "add": {
       "press_enter": "Apasă 'Enter' pentru a adăuga o altă activitate",
       "label": "Adaugă activitate",

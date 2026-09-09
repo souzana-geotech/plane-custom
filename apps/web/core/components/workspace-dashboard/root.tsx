@@ -51,7 +51,7 @@ const WorkspaceDashboardContent = observer(function WorkspaceDashboardContent(pr
           </header>
 
           {error ? (
-            <div className="flex flex-col items-center gap-3 rounded-lg border border-danger-subtle bg-danger-subtle px-6 py-10 text-center">
+            <div className="flex flex-col items-center gap-3 rounded-lg border border-danger-strong/50 bg-danger-subtle px-6 py-10 text-center">
               <AlertTriangle className="size-6 text-danger-primary" />
               <p className="text-14 font-medium text-primary">{t("workspace_dashboard.error.title")}</p>
               <p className="max-w-md text-13 text-secondary">{t("workspace_dashboard.error.description")}</p>

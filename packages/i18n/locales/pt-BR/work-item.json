@@ -7,6 +7,13 @@
       "label": "Título do item de trabalho",
       "required": "O título do item de trabalho é obrigatório."
     },
+    "form": {
+      "title_placeholder": "O que precisa ser feito?",
+      "description_placeholder": "Adicione detalhes, requisitos, links ou notas…",
+      "no_due_date": "Sem data de vencimento",
+      "more_options": "Mais opções",
+      "fewer_options": "Menos opções"
+    },
     "add": {
       "press_enter": "Pressione 'Enter' para adicionar outro item de trabalho",
       "label": "Adicionar item de trabalho",

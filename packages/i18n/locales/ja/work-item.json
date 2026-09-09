@@ -7,6 +7,13 @@
       "label": "作業項目のタイトル",
       "required": "作業項目のタイトルは必須です。"
     },
+    "form": {
+      "title_placeholder": "何をする必要がありますか？",
+      "description_placeholder": "詳細、要件、リンク、メモなどを追加…",
+      "no_due_date": "期限なし",
+      "more_options": "その他のオプション",
+      "fewer_options": "オプションを減らす"
+    },
     "add": {
       "press_enter": "Enterを押して別の作業項目を追加",
       "label": "作業項目を追加",

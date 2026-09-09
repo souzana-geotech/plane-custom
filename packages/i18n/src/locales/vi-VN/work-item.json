@@ -7,6 +7,13 @@
       "label": "Tiêu đề mục công việc",
       "required": "Tiêu đề mục công việc là bắt buộc"
     },
+    "form": {
+      "title_placeholder": "Cần làm gì?",
+      "description_placeholder": "Thêm chi tiết, yêu cầu, liên kết hoặc ghi chú…",
+      "no_due_date": "Không có ngày hết hạn",
+      "more_options": "Xem thêm tùy chọn",
+      "fewer_options": "Ẩn bớt tùy chọn"
+    },
     "add": {
       "press_enter": "Nhấn 'Enter' để thêm mục công việc khác",
       "label": "Thêm mục công việc",

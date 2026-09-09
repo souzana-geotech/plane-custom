@@ -28,13 +28,16 @@ type Props = {
 };
 
 function ChartLoader() {
+  // mirrors the loaded chart's card so the page doesn't reflow when data arrives
   return (
-    <Loader className="flex flex-col gap-2 p-4">
-      {Array.from({ length: 8 }).map((_, index) => (
-        // oxlint-disable-next-line react/no-array-index-key
-        <Loader.Item key={index} height="46px" />
-      ))}
-    </Loader>
+    <div className="min-h-0 overflow-hidden rounded-lg border border-subtle bg-surface-1">
+      <Loader className="flex flex-col gap-2 p-4">
+        {Array.from({ length: 8 }).map((_, index) => (
+          // oxlint-disable-next-line react/no-array-index-key
+          <Loader.Item key={index} height="46px" />
+        ))}
+      </Loader>
+    </div>
   );
 }
 
@@ -58,7 +61,7 @@ const EmployeeGanttContent = observer(function EmployeeGanttContent(props: Props
         </header>
 
         {error ? (
-          <div className="flex flex-col items-center gap-3 rounded-lg border border-danger-subtle bg-danger-subtle px-6 py-10 text-center">
+          <div className="flex flex-col items-center gap-3 rounded-lg border border-danger-strong/50 bg-danger-subtle px-6 py-10 text-center">
             <AlertTriangle className="size-6 text-danger-primary" />
             <p className="text-14 font-medium text-primary">{t("employee_gantt.error.title")}</p>
             <p className="max-w-md text-13 text-secondary">{t("employee_gantt.error.description")}</p>

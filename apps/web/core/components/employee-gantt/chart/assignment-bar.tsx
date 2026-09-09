@@ -144,7 +144,7 @@ export const EmployeeGanttAssignmentBar = observer(function EmployeeGanttAssignm
           aria-label={`${projectName} — ${assignment.name}. ${assignment.startDate ?? ""} ${assignment.targetDate ?? ""}`}
         >
           {/* the one exception to "no marks": an overdue item should be findable without hovering */}
-          {assignment.isOverdue && <AlertTriangle className="ml-0.5 size-3 shrink-0 text-white" />}
+          {assignment.isOverdue && <AlertTriangle className="ml-0.5 size-3 shrink-0 text-on-color" />}
         </Link>
       </Tooltip>
     </>

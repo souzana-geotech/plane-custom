@@ -7,6 +7,13 @@
       "label": "工作事項標題",
       "required": "工作事項標題為必填。"
     },
+    "form": {
+      "title_placeholder": "需要做什麼？",
+      "description_placeholder": "新增詳細資訊、需求、連結或備註…",
+      "no_due_date": "無截止日期",
+      "more_options": "更多選項",
+      "fewer_options": "收合選項"
+    },
     "add": {
       "press_enter": "按 'Enter' 以新增另一個工作事項",
       "label": "新增工作事項",

@@ -39,7 +39,7 @@ function TogglePill(props: { label: string; isActive: boolean; onChange: (next: 
       aria-pressed={isActive}
       title={title}
       className={cn(
-        "h-8 shrink-0 rounded-md border px-2.5 text-11 font-medium transition-colors",
+        "h-8 shrink-0 rounded-md border px-2.5 text-11 font-medium transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-strong",
         isActive
           ? "border-accent-primary bg-accent-primary/10 text-accent-primary"
           : "border-subtle text-tertiary hover:bg-layer-transparent-hover"
@@ -162,7 +162,7 @@ export const EmployeeGanttToolbar = observer(function EmployeeGanttToolbar() {
           onClick={scrollToToday}
           disabled={scale.todayOffset === null}
           title={t("employee_gantt.chart.today_tooltip")}
-          className="h-8 shrink-0 rounded-md border border-subtle px-2.5 text-11 font-medium text-tertiary transition-colors hover:bg-layer-transparent-hover disabled:opacity-50"
+          className="h-8 shrink-0 rounded-md border border-subtle px-2.5 text-11 font-medium text-tertiary transition-colors hover:bg-layer-transparent-hover focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-strong disabled:opacity-50"
         >
           {t("employee_gantt.chart.today")}
         </button>
@@ -178,8 +178,8 @@ export const EmployeeGanttToolbar = observer(function EmployeeGanttToolbar() {
               onClick={() => setZoom(level)}
               aria-pressed={zoom === level}
               className={cn(
-                "rounded px-2.5 py-1 text-11 font-medium transition-colors",
-                zoom === level ? "bg-accent-primary text-white" : "text-tertiary hover:bg-layer-transparent-hover"
+                "rounded px-2.5 py-1 text-11 font-medium transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-strong",
+                zoom === level ? "bg-accent-primary text-on-color" : "text-tertiary hover:bg-layer-transparent-hover"
               )}
             >
               {t(`employee_gantt.zoom.${level}`)}

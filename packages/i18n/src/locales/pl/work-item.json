@@ -7,6 +7,13 @@
       "label": "Tytuł elementu pracy",
       "required": "Tytuł elementu pracy jest wymagany."
     },
+    "form": {
+      "title_placeholder": "Co trzeba zrobić?",
+      "description_placeholder": "Dodaj szczegóły, wymagania, linki lub notatki…",
+      "no_due_date": "Bez terminu",
+      "more_options": "Więcej opcji",
+      "fewer_options": "Mniej opcji"
+    },
     "add": {
       "press_enter": "Naciśnij 'Enter', aby dodać kolejny element pracy",
       "label": "Dodaj element pracy",

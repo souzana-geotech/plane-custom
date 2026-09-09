@@ -90,7 +90,7 @@ export const EmployeeGanttSummary = observer(function EmployeeGanttSummary() {
             aria-pressed={stat.active}
             className={cn(
               shared,
-              "border transition-colors",
+              "border transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-strong",
               stat.active
                 ? "border-warning-primary bg-warning-subtle"
                 : "border-transparent hover:bg-layer-transparent-hover"

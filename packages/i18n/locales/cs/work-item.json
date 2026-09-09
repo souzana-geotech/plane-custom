@@ -7,6 +7,13 @@
       "label": "Název pracovní položky",
       "required": "Název pracovní položky je povinný."
     },
+    "form": {
+      "title_placeholder": "Co je potřeba udělat?",
+      "description_placeholder": "Přidejte podrobnosti, požadavky, odkazy nebo poznámky…",
+      "no_due_date": "Bez termínu",
+      "more_options": "Více možností",
+      "fewer_options": "Méně možností"
+    },
     "add": {
       "press_enter": "Stiskněte 'Enter' pro přidání další pracovní položky",
       "label": "Přidat pracovní položku",

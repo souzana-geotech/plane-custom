@@ -7,6 +7,13 @@
       "label": "Titolo dell'elemento di lavoro",
       "required": "Il titolo dell'elemento di lavoro è obbligatorio."
     },
+    "form": {
+      "title_placeholder": "Che cosa bisogna fare?",
+      "description_placeholder": "Aggiungi dettagli, requisiti, link o note…",
+      "no_due_date": "Nessuna scadenza",
+      "more_options": "Più opzioni",
+      "fewer_options": "Meno opzioni"
+    },
     "add": {
       "press_enter": "Premi 'Invio' per aggiungere un altro elemento di lavoro",
       "label": "Aggiungi elemento di lavoro",

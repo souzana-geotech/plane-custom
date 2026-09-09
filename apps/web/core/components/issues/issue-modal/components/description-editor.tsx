@@ -126,13 +126,13 @@ export const IssueDescriptionEditor = observer(function IssueDescriptionEditor(p
       })
       .then((res) => {
         if (res.response === "")
-          setToast({
+          return setToast({
             type: TOAST_TYPE.ERROR,
             title: "Error!",
             message:
               "Work item title isn't informative enough to generate the description. Please try with a different title.",
           });
-        else handleAiAssistance(res.response_html);
+        return handleAiAssistance(res.response_html);
       })
       .catch((err) => {
         const error = err?.data?.error;
@@ -196,7 +196,15 @@ export const IssueDescriptionEditor = observer(function IssueDescriptionEditor(p
                 onEnterKeyPress={() => submitBtnRef?.current?.click()}
                 ref={editorRef}
                 tabIndex={getIndex("description_html")}
-                placeholder={(isFocused, description) => t(getDescriptionPlaceholderI18n(isFocused, description))}
+                placeholder={(isFocused, description) => {
+                  // the shared helper's empty-state string ("Click to add description") is also used
+                  // by the work item detail view; here the first-time user needs to know *what* to
+                  // write, so only the create/update modal gets the more specific prompt
+                  const placeholderI18nKey = getDescriptionPlaceholderI18n(isFocused, description);
+                  return placeholderI18nKey === "common.click_to_add_description"
+                    ? t("issue.form.description_placeholder")
+                    : t(placeholderI18nKey);
+                }}
                 searchMentionCallback={async (payload) =>
                   await workspaceService.searchEntity(workspaceSlug?.toString() ?? "", {
                     ...payload,
@@ -222,7 +230,7 @@ export const IssueDescriptionEditor = observer(function IssueDescriptionEditor(p
                     return asset_id;
                   } catch (error) {
                     console.log("Error in uploading issue asset:", error);
-                    throw new Error("Asset upload failed. Please try again later.");
+                    throw new Error("Asset upload failed. Please try again later.", { cause: error });
                   }
                 }}
                 duplicateFile={async (assetId: string) => {
