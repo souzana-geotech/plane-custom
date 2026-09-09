@@ -4,48 +4,49 @@
  * See the LICENSE file for details.
  */
 
-import type { TProject } from "@plane/types";
+import { STATE_GROUPS } from "@plane/constants";
+import type { IState, TStateGroups } from "@plane/types";
 
 /**
- * Bars are colored by **project**, not by state group.
+ * Bars are coloured by **work item state**, using the exact same source of truth as the project
+ * gantt: the state's own colour, as configured per project, falling back to the colour of its
+ * state group. Nothing here invents a palette - a task that is amber on the project timeline is
+ * amber here too.
  *
- * This view exists to answer "which project is each person on?", so project identity is the
- * primary dimension and deserves the strongest visual encoding. Progress is carried by opacity
- * (completed work is faded) and by the icons on the bar, not by hue.
+ * The one difference is strength. The project gantt paints the raw state colour and lays a 50%
+ * surface wash over it; this view stacks many more, much shorter bars per screen, so the same
+ * wash is taken further to a pastel tint. Mixing against the surface token rather than plain
+ * white keeps the tint correct in both themes, the same way the project gantt's overlay does.
  */
+
+/** Used when a task has no state at all, which the workspace endpoint does allow. */
+const DEFAULT_STATE_COLOR = STATE_GROUPS.backlog.color;
 
 /**
- * Fallback palette, used when a project has no icon color of its own. Hues are spaced far enough
- * apart to stay distinguishable, and mid-tone enough to hold white text in both themes.
+ * The raw, full-strength status colour of an assignment: the state's own colour when its project's
+ * states are loaded, otherwise the colour of the state group the server resolved for it.
  */
-const PROJECT_PALETTE = [
-  "#3f76ff",
-  "#e8618c",
-  "#0ea5e9",
-  "#f59e0b",
-  "#8b5cf6",
-  "#10b981",
-  "#ef4444",
-  "#14b8a6",
-  "#f97316",
-  "#6366f1",
-];
-
-/** Stable, order-independent index into the palette so a project keeps its color across reloads. */
-const hashToIndex = (value: string, buckets: number): number => {
-  let hash = 0;
-  for (let index = 0; index < value.length; index++) {
-    hash = (hash * 31 + value.charCodeAt(index)) >>> 0;
-  }
-  return hash % buckets;
+export const getStatusColor = (state: IState | undefined, stateGroup: TStateGroups | null): string => {
+  if (state?.color) return state.color;
+  if (stateGroup) return STATE_GROUPS[stateGroup]?.color ?? DEFAULT_STATE_COLOR;
+  return DEFAULT_STATE_COLOR;
 };
+
+/** How much of the raw status colour survives in the bar fill. */
+const FILL_STRENGTH = 30;
 
 /**
- * The color used for a project's bars: its own icon color when it has one, otherwise a stable
- * color derived from its id.
+ * Pastel fill for a bar body: the status colour mixed toward the current theme's surface, the same
+ * move the project gantt makes with its surface wash, taken further.
  */
-export const getProjectColor = (projectId: string, project: TProject | undefined): string => {
-  const iconColor = project?.logo_props?.in_use === "icon" ? project.logo_props.icon?.color : undefined;
-  if (iconColor) return iconColor;
-  return PROJECT_PALETTE[hashToIndex(projectId, PROJECT_PALETTE.length)];
-};
+export const getStatusFill = (color: string): string =>
+  `color-mix(in srgb, ${color} ${FILL_STRENGTH}%, var(--background-color-surface-1))`;
+
+/**
+ * Borders keep the status colour at full strength.
+ *
+ * A pastel of an already pale status - backlog grey most of all - lands within a few percent of
+ * the white chart behind it, so a softened border would leave those bars effectively invisible.
+ * One hairline of the real colour is enough to define the bar without undoing the soft fill.
+ */
+export const getStatusEdge = (color: string): string => color;

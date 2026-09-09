@@ -232,7 +232,7 @@
       "today_tooltip": "Die Zeitleiste zurück zu heute scrollen"
     },
     "legend": {
-      "project_color": "Balkenfarbe = Projekt",
+      "status_color": "Balkenfarbe = Status",
       "single_date": "Nur ein Datum gesetzt",
       "overlap": "Überschneidende Arbeit",
       "overdue": "Überfällig",

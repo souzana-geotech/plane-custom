@@ -232,7 +232,7 @@
       "today_tooltip": "Cuộn dòng thời gian về hôm nay"
     },
     "legend": {
-      "project_color": "Màu thanh = dự án",
+      "status_color": "Màu thanh = trạng thái",
       "single_date": "Chỉ đặt một ngày",
       "overlap": "Công việc chồng lấn",
       "overdue": "Quá hạn",

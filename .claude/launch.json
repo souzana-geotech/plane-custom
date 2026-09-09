@@ -7,6 +7,13 @@
       "runtimeArgs": ["/c", "set PATH=C:\\nvm4w\\nodejs;%PATH% && pnpm dev"],
       "port": 3000,
       "autoPort": false
+    },
+    {
+      "name": "plane-web-3010",
+      "runtimeExecutable": "cmd.exe",
+      "runtimeArgs": ["/c", ".claude\\dev-web-3010.cmd"],
+      "port": 3010,
+      "autoPort": false
     }
   ]
 }

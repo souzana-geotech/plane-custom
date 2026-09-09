@@ -232,7 +232,7 @@
       "today_tooltip": "Przewiń oś czasu z powrotem na dziś"
     },
     "legend": {
-      "project_color": "Kolor paska = projekt",
+      "status_color": "Kolor paska = status",
       "single_date": "Ustawiona tylko jedna data",
       "overlap": "Nakładająca się praca",
       "overdue": "Po terminie",

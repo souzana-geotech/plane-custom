@@ -7,9 +7,11 @@
 import { observer } from "mobx-react";
 import { AlertTriangle, Check, Layers } from "lucide-react";
 // plane imports
+import { STATE_GROUPS } from "@plane/constants";
 import { useTranslation } from "@plane/i18n";
 // local imports
 import { useEmployeeGantt } from "../data/context";
+import { getStatusEdge, getStatusFill } from "./colors";
 
 /**
  * Decodes the chart's visual language.
@@ -20,6 +22,10 @@ import { useEmployeeGantt } from "../data/context";
 export const EmployeeGanttLegend = observer(function EmployeeGanttLegend() {
   const { t } = useTranslation();
   const { schedules } = useEmployeeGantt();
+
+  // three chips rather than one say "this is a scale of statuses" without needing a label per chip;
+  // the tooltip on a bar names its exact state
+  const statusSwatches = [STATE_GROUPS.unstarted, STATE_GROUPS.started, STATE_GROUPS.completed];
 
   // only explain the marks that are actually on screen
   const hasOverlap = schedules.some((schedule) => schedule.overlapWindows.length > 0);
@@ -35,8 +41,16 @@ export const EmployeeGanttLegend = observer(function EmployeeGanttLegend() {
   return (
     <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-10 text-tertiary">
       <span className="flex items-center gap-1.5">
-        <span className="h-2.5 w-5 rounded-sm bg-accent-primary" aria-hidden="true" />
-        {t("employee_gantt.legend.project_color")}
+        <span className="flex items-center gap-0.5" aria-hidden="true">
+          {statusSwatches.map((group) => (
+            <span
+              key={group.key}
+              className="h-2.5 w-3 rounded-sm border"
+              style={{ backgroundColor: getStatusFill(group.color), borderColor: getStatusEdge(group.color) }}
+            />
+          ))}
+        </span>
+        {t("employee_gantt.legend.status_color")}
       </span>
       {hasSingleDate && (
         <span className="flex items-center gap-1.5">

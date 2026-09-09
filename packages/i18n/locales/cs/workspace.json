@@ -232,7 +232,7 @@
       "today_tooltip": "Posunout časovou osu zpět na dnešek"
     },
     "legend": {
-      "project_color": "Barva pruhu = projekt",
+      "status_color": "Barva pruhu = stav",
       "single_date": "Nastaveno jen jedno datum",
       "overlap": "Překrývající se práce",
       "overdue": "Po termínu",

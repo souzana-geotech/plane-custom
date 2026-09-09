@@ -232,7 +232,7 @@
       "today_tooltip": "Zaman çizelgesini bugüne geri kaydır"
     },
     "legend": {
-      "project_color": "Çubuk rengi = proje",
+      "status_color": "Çubuk rengi = durum",
       "single_date": "Yalnızca bir tarih girilmiş",
       "overlap": "Çakışan iş",
       "overdue": "Gecikmiş",

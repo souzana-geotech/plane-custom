@@ -13,11 +13,12 @@ import { Tooltip } from "@plane/propel/tooltip";
 import { cn, generateWorkItemLink, renderFormattedDate } from "@plane/utils";
 // hooks
 import { useProject } from "@/hooks/store/use-project";
+import { useProjectState } from "@/hooks/store/use-project-state";
 // local imports
 import type { TTimelineScale } from "../data/timeline";
 import { offsetForDay, widthForDays } from "../data/timeline";
 import type { TEmployeeAssignment } from "../data/types";
-import { getProjectColor } from "./colors";
+import { getStatusColor, getStatusEdge, getStatusFill } from "./colors";
 import { BAR_HEIGHT, LANE_HEIGHT } from "./constants";
 
 type Props = {
@@ -32,8 +33,8 @@ type Props = {
  *
  * The bar carries **no text at any zoom**. Bars are frequently only a few pixels wide, and a label
  * that has to be truncated, floated beside the bar or squeezed between neighbours costs more
- * clarity than it buys. The bar encodes position (when), length (how long) and colour (which
- * project); everything else lives in the tooltip, one hover away.
+ * clarity than it buys. The bar encodes position (when), length (how long) and colour (what
+ * state the work is in); everything else lives in the tooltip, one hover away.
  *
  * It is also intentionally read-only: unlike the project gantt there is no drag, resize or
  * dependency handling here, so nothing on this page can write back to a task.
@@ -42,11 +43,16 @@ export const EmployeeGanttAssignmentBar = observer(function EmployeeGanttAssignm
   const { assignment, scale, laneIndex, workspaceSlug } = props;
   const { t } = useTranslation();
   const { getProjectById, getProjectIdentifierById } = useProject();
+  const { getStateById } = useProjectState();
 
   const project = getProjectById(assignment.projectId);
   const projectName = project?.name ?? assignment.projectId;
   const identifier = getProjectIdentifierById(assignment.projectId);
-  const color = getProjectColor(assignment.projectId, project);
+  // the same status colour the project gantt paints, softened to a pastel tint for this denser view
+  const state = getStateById(assignment.stateId);
+  const statusColor = getStatusColor(state, assignment.stateGroup);
+  const fillColor = getStatusFill(statusColor);
+  const edgeColor = getStatusEdge(statusColor);
 
   const left = offsetForDay(scale, assignment.startDay);
   // never let a bar collapse to an invisible sliver at month zoom
@@ -84,7 +90,10 @@ export const EmployeeGanttAssignmentBar = observer(function EmployeeGanttAssignm
       <span className="font-medium text-primary">
         {identifier}-{assignment.sequenceId} {assignment.name}
       </span>
-      <span className="text-tertiary">{projectName}</span>
+      <span className="text-tertiary">
+        {projectName}
+        {state?.name ? ` · ${state.name}` : ""}
+      </span>
       <span className="text-tertiary">
         {assignment.startDate ? renderFormattedDate(assignment.startDate) : t("employee_gantt.bar.no_start_date")}
         {" → "}
@@ -137,14 +146,15 @@ export const EmployeeGanttAssignmentBar = observer(function EmployeeGanttAssignm
             width,
             top: laneIndex * LANE_HEIGHT + (LANE_HEIGHT - BAR_HEIGHT) / 2,
             height: BAR_HEIGHT,
-            backgroundColor: assignment.dateKind === "full" ? color : "transparent",
-            // one date only is a point in time, not a span, so it reads as an outline
-            border: assignment.dateKind !== "full" ? `1px dashed ${color}` : undefined,
+            backgroundColor: assignment.dateKind === "full" ? fillColor : "transparent",
+            // a pastel fill needs an edge to stay legible at a few pixels wide; one date only is a
+            // point in time rather than a span, so it drops the fill and reads as a dashed outline
+            border: `1px ${assignment.dateKind === "full" ? "solid" : "dashed"} ${edgeColor}`,
           }}
           aria-label={`${projectName} — ${assignment.name}. ${assignment.startDate ?? ""} ${assignment.targetDate ?? ""}`}
         >
           {/* the one exception to "no marks": an overdue item should be findable without hovering */}
-          {assignment.isOverdue && <AlertTriangle className="ml-0.5 size-3 shrink-0 text-on-color" />}
+          {assignment.isOverdue && <AlertTriangle className="ml-0.5 size-3 shrink-0 text-danger-primary" />}
         </Link>
       </Tooltip>
     </>

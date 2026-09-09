@@ -232,7 +232,7 @@
       "today_tooltip": "Desplazar la línea de tiempo hasta hoy"
     },
     "legend": {
-      "project_color": "Color de la barra = proyecto",
+      "status_color": "Color de la barra = estado",
       "single_date": "Solo una fecha establecida",
       "overlap": "Trabajo solapado",
       "overdue": "Vencido",

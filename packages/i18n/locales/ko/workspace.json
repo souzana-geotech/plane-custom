@@ -232,7 +232,7 @@
       "today_tooltip": "타임라인을 오늘로 되돌립니다"
     },
     "legend": {
-      "project_color": "막대 색상 = 프로젝트",
+      "status_color": "막대 색상 = 상태",
       "single_date": "날짜가 하나만 설정됨",
       "overlap": "겹치는 작업",
       "overdue": "기한 초과",

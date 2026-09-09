@@ -232,7 +232,7 @@
       "today_tooltip": "将时间轴滚动回今天"
     },
     "legend": {
-      "project_color": "条形颜色 = 项目",
+      "status_color": "条形颜色 = 状态",
       "single_date": "仅设置了一个日期",
       "overlap": "重叠的工作",
       "overdue": "已逾期",

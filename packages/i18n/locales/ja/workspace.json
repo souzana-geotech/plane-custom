@@ -232,7 +232,7 @@
       "today_tooltip": "タイムラインを今日までスクロールします"
     },
     "legend": {
-      "project_color": "バーの色 = プロジェクト",
+      "status_color": "バーの色 = ステータス",
       "single_date": "日付が片方のみ",
       "overlap": "重複した作業",
       "overdue": "期限超過",

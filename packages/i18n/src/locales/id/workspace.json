@@ -232,7 +232,7 @@
       "today_tooltip": "Gulirkan lini masa kembali ke hari ini"
     },
     "legend": {
-      "project_color": "Warna batang = proyek",
+      "status_color": "Warna batang = status",
       "single_date": "Hanya satu tanggal diisi",
       "overlap": "Pekerjaan tumpang tindih",
       "overdue": "Terlambat",

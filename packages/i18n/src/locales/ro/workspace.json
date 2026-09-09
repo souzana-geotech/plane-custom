@@ -232,7 +232,7 @@
       "today_tooltip": "Derulează cronologia înapoi la astăzi"
     },
     "legend": {
-      "project_color": "Culoarea barei = proiect",
+      "status_color": "Culoarea barei = stare",
       "single_date": "Este setată o singură dată",
       "overlap": "Activități suprapuse",
       "overdue": "Întârziat",

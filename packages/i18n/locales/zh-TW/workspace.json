@@ -232,7 +232,7 @@
       "today_tooltip": "將時間軸捲動回今天"
     },
     "legend": {
-      "project_color": "長條顏色 = 專案",
+      "status_color": "長條顏色 = 狀態",
       "single_date": "僅設定了一個日期",
       "overlap": "重疊的工作",
       "overdue": "已逾期",

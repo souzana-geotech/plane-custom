@@ -232,7 +232,7 @@
       "today_tooltip": "Scroll the timeline back to today"
     },
     "legend": {
-      "project_color": "Bar color = project",
+      "status_color": "Bar color = status",
       "single_date": "Only one date set",
       "overlap": "Overlapping work",
       "overdue": "Past due date",

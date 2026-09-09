@@ -232,7 +232,7 @@
       "today_tooltip": "Riporta la cronologia a oggi"
     },
     "legend": {
-      "project_color": "Colore della barra = progetto",
+      "status_color": "Colore della barra = stato",
       "single_date": "Impostata una sola data",
       "overlap": "Lavoro sovrapposto",
       "overdue": "In ritardo",
