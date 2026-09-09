@@ -84,14 +84,14 @@ export const InboxIssueMainContent = observer(function InboxIssueMainContent(pro
           setToast({
             title: "Success!",
             type: TOAST_TYPE.SUCCESS,
-            message: "Work item deleted successfully",
+            message: "Task deleted successfully",
           });
         } catch (error) {
-          console.log("Error in deleting work item:", error);
+          console.log("Error in deleting task:", error);
           setToast({
             title: "Error!",
             type: TOAST_TYPE.ERROR,
-            message: "Work item delete failed",
+            message: "Task delete failed",
           });
         }
       },
@@ -100,9 +100,9 @@ export const InboxIssueMainContent = observer(function InboxIssueMainContent(pro
           await inboxIssue.updateIssue(data);
         } catch (_error) {
           setToast({
-            title: "Work item update failed",
+            title: "Task update failed",
             type: TOAST_TYPE.ERROR,
-            message: "Work item update failed",
+            message: "Task update failed",
           });
         }
       },

@@ -45,7 +45,7 @@
     },
     "notifications": {
       "heading": "E-mailové oznámenia",
-      "description": "Majte prehľad o pracovných položkách, ktoré odoberáte. Aktivujte toto pre zasielanie oznámení.",
+      "description": "Majte prehľad o úlohách, ktoré odoberáte. Aktivujte toto pre zasielanie oznámení.",
       "select_default_view": "Vybrať predvolené zobrazenie",
       "compact": "Kompaktné",
       "full": "Celá obrazovka"
@@ -59,7 +59,7 @@
     },
     "activity": {
       "heading": "Aktivita",
-      "description": "Sledujte svoje nedávne akcie a zmeny naprieč všetkými projektmi a pracovnými položkami."
+      "description": "Sledujte svoje nedávne akcie a zmeny naprieč všetkými projektmi a úlohami."
     },
     "connections": {
       "title": "Prepojenia",
@@ -115,19 +115,19 @@
     "empty_state": {
       "activity": {
         "title": "Žiadna aktivita",
-        "description": "Vytvorte pracovnú položku pre začiatok."
+        "description": "Vytvorte úlohu pre začiatok."
       },
       "assigned": {
-        "title": "Žiadne priradené pracovné položky",
-        "description": "Tu uvidíte priradené pracovné položky."
+        "title": "Žiadne priradené úlohy",
+        "description": "Tu uvidíte priradené úlohy."
       },
       "created": {
-        "title": "Žiadne vytvorené pracovné položky",
-        "description": "Tu sú pracovné položky, ktoré ste vytvorili."
+        "title": "Žiadne vytvorené úlohy",
+        "description": "Tu sú úlohy, ktoré ste vytvorili."
       },
       "subscribed": {
-        "title": "Žiadne odoberané pracovné položky",
-        "description": "Odobierajte pracovné položky, ktoré vás zaujímajú, a sledujte ich tu."
+        "title": "Žiadne odoberané úlohy",
+        "description": "Odobierajte úlohy, ktoré vás zaujímajú, a sledujte ich tu."
       }
     }
   },

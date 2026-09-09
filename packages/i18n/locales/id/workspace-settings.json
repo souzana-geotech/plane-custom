@@ -82,7 +82,7 @@
         "export_separate_files": "Ekspor data ke file terpisah",
         "exporting_projects": "Mengekspor proyek",
         "format": "Format",
-        "filters_info": "Terapkan filter untuk mengekspor item kerja tertentu berdasarkan kriteria Anda.",
+        "filters_info": "Terapkan filter untuk mengekspor tugas tertentu berdasarkan kriteria Anda.",
         "modal": {
           "title": "Ekspor ke",
           "toasts": {
@@ -272,12 +272,12 @@
       "templates": {
         "title": "Templat",
         "heading": "Templat",
-        "description": "Hemat 80% waktu yang dihabiskan untuk membuat proyek, item kerja, dan halaman saat Anda menggunakan templat."
+        "description": "Hemat 80% waktu yang dihabiskan untuk membuat proyek, tugas, dan halaman saat Anda menggunakan templat."
       },
       "relations": {
         "title": "Relasi",
         "heading": "Relasi",
-        "description": "Buat dan kelola tipe relasi yang menghubungkan item kerja di seluruh ruang kerja Anda."
+        "description": "Buat dan kelola tipe relasi yang menghubungkan tugas di seluruh ruang kerja Anda."
       },
       "cancel_trial": {
         "title": "Batalkan uji coba Anda terlebih dahulu.",
@@ -454,7 +454,7 @@
         "app_consent_unapproved_description": "Pastikan Anda memercayai aplikasi ini sebelum menghubungkannya ke ruang kerja Anda.",
         "go_to_app": "Buka aplikasi",
         "enable_app_mentions": "Aktifkan penyebutan aplikasi",
-        "enable_app_mentions_tooltip": "Saat ini diaktifkan, pengguna dapat menyebut atau menetapkan Work Items ke aplikasi ini.",
+        "enable_app_mentions_tooltip": "Saat ini diaktifkan, pengguna dapat menyebut atau menetapkan Tasks ke aplikasi ini.",
         "scopes": "Lingkup",
         "select_scopes": "Pilih Lingkup",
         "read_access_to": "Akses baca-saja ke",

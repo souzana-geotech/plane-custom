@@ -3,11 +3,11 @@
 # See the LICENSE file for details.
 
 """
-Scheduled due-date reminders and overdue notifications for work items.
+Scheduled due-date reminders and overdue notifications for tasks.
 
 Runs from Celery Beat (see ``plane/celery.py``). For every non-archived project the
 task computes "today" in the project's timezone and notifies the *current* active
-assignees of open work items that are
+assignees of open tasks that are
 
 * due today or tomorrow  -> ``due_reminder`` (sent once per target date, normally the
   day before the due date), and
@@ -82,12 +82,12 @@ def _project_today(project, now):
 def reminder_message(kind, days):
     """Human readable sentence for a reminder; ``days`` is the distance to the due date."""
     if kind == OVERDUE_FIELD:
-        return f"This work item is overdue by {days} {'day' if days == 1 else 'days'}."
+        return f"This task is overdue by {days} {'day' if days == 1 else 'days'}."
     if days <= 0:
-        return "This work item is due today."
+        return "This task is due today."
     if days == 1:
-        return "This work item is due tomorrow."
-    return f"This work item is due in {days} days."
+        return "This task is due tomorrow."
+    return f"This task is due in {days} days."
 
 
 def _issue_payload(issue, include_urls=False):

@@ -82,7 +82,7 @@
         "export_separate_files": "Exportar los datos en archivos separados",
         "exporting_projects": "Exportando proyecto",
         "format": "Formato",
-        "filters_info": "Aplica filtros para exportar elementos de trabajo específicos según tus criterios.",
+        "filters_info": "Aplica filtros para exportar tareas específicos según tus criterios.",
         "modal": {
           "title": "Exportar a",
           "toasts": {
@@ -272,12 +272,12 @@
       "templates": {
         "title": "Plantillas",
         "heading": "Plantillas",
-        "description": "Ahorra el 80 % del tiempo dedicado a crear proyectos, elementos de trabajo y páginas cuando usas plantillas."
+        "description": "Ahorra el 80 % del tiempo dedicado a crear proyectos, tareas y páginas cuando usas plantillas."
       },
       "relations": {
         "title": "Relaciones",
         "heading": "Relaciones",
-        "description": "Crea y gestiona tipos de relaciones que conectan elementos de trabajo en tu espacio de trabajo."
+        "description": "Crea y gestiona tipos de relaciones que conectan tareas en tu espacio de trabajo."
       },
       "cancel_trial": {
         "title": "Cancela primero tu periodo de prueba.",
@@ -454,7 +454,7 @@
         "app_consent_unapproved_description": "Asegúrate de confiar en esta aplicación antes de conectarla a tu espacio de trabajo.",
         "go_to_app": "Ir a la aplicación",
         "enable_app_mentions": "Habilitar menciones de la aplicación",
-        "enable_app_mentions_tooltip": "Cuando esto está habilitado, los usuarios pueden mencionar o asignar elementos de trabajo a esta aplicación.",
+        "enable_app_mentions_tooltip": "Cuando esto está habilitado, los usuarios pueden mencionar o asignar tareas a esta aplicación.",
         "scopes": "Ámbitos",
         "select_scopes": "Seleccionar ámbitos",
         "read_access_to": "Acceso de solo lectura a",

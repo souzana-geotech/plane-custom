@@ -360,7 +360,7 @@ class IntakeIssueViewSet(BaseViewSet):
 
         if not project_member and not is_workspace_admin:
             return Response(
-                {"error": "Only admin or creator can update the intake work items"},
+                {"error": "Only admin or creator can update the intake tasks"},
                 status=status.HTTP_403_FORBIDDEN,
             )
 

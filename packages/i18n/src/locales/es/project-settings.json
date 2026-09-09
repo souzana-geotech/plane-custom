@@ -27,8 +27,8 @@
       "project_subscribers": "Suscriptores del proyecto",
       "project_subscribers_description": "Seleccione los miembros que recibirán notificaciones para este proyecto.",
       "guest_super_permissions": {
-        "title": "Otorgar acceso de visualización a todos los elementos de trabajo para usuarios invitados:",
-        "sub_heading": "Esto permitirá a los invitados tener acceso de visualización a todos los elementos de trabajo del proyecto."
+        "title": "Otorgar acceso de visualización a todas las tareas para usuarios invitados:",
+        "sub_heading": "Esto permitirá a los invitados tener acceso de visualización a todas las tareas del proyecto."
       },
       "invite_members": {
         "title": "Invitar miembros",
@@ -38,7 +38,7 @@
     },
     "states": {
       "heading": "Estados",
-      "description": "Define y personaliza los estados del flujo de trabajo para rastrear el progreso de tus elementos de trabajo.",
+      "description": "Define y personaliza los estados del flujo de trabajo para rastrear el progreso de tus tareas.",
       "describe_this_state_for_your_members": "Describe este estado para tus miembros.",
       "empty_state": {
         "title": "No estados disponibles para el grupo {groupKey}",
@@ -47,7 +47,7 @@
     },
     "labels": {
       "heading": "Etiquetas",
-      "description": "Crea etiquetas personalizadas para categorizar y organizar tus elementos de trabajo",
+      "description": "Crea etiquetas personalizadas para categorizar y organizar tus tareas",
       "label_title": "Título de la etiqueta",
       "label_title_is_required": "El título de la etiqueta es requerido",
       "label_max_char": "El nombre de la etiqueta no debe exceder 255 caracteres",
@@ -181,14 +181,14 @@
       "heading": "Automatizaciones",
       "description": "Configura acciones automatizadas para optimizar tu flujo de trabajo de gestión de proyectos y reducir tareas manuales.",
       "auto-archive": {
-        "title": "Archivar automáticamente elementos de trabajo cerrados",
-        "description": "Plane archivará automáticamente los elementos de trabajo que hayan sido completados o cancelados.",
-        "duration": "Archivar automáticamente elementos de trabajo cerrados durante"
+        "title": "Archivar automáticamente tareas cerradas",
+        "description": "Plane archivará automáticamente las tareas que hayan sido completados o cancelados.",
+        "duration": "Archivar automáticamente tareas cerradas durante"
       },
       "auto-close": {
-        "title": "Cerrar automáticamente elementos de trabajo",
-        "description": "Plane cerrará automáticamente los elementos de trabajo que no hayan sido completados o cancelados.",
-        "duration": "Cerrar automáticamente elementos de trabajo inactivos durante",
+        "title": "Cerrar automáticamente tareas",
+        "description": "Plane cerrará automáticamente las tareas que no hayan sido completados o cancelados.",
+        "duration": "Cerrar automáticamente tareas inactivos durante",
         "auto_close_status": "Estado de cierre automático"
       },
       "auto-remind": {
@@ -200,25 +200,25 @@
     "empty_state": {
       "labels": {
         "title": "Aún no hay etiquetas",
-        "description": "Crea etiquetas para organizar y filtrar elementos de trabajo en tu proyecto."
+        "description": "Crea etiquetas para organizar y filtrar tareas en tu proyecto."
       },
       "estimates": {
         "title": "Aún no hay sistemas de estimación",
-        "description": "Crea un conjunto de estimaciones para comunicar el volumen de trabajo por elemento de trabajo.",
+        "description": "Crea un conjunto de estimaciones para comunicar el volumen de trabajo por tarea.",
         "primary_button": "Agregar sistema de estimación"
       },
       "integrations": {
         "title": "No hay integraciones configuradas",
-        "description": "Configura GitHub y otras integraciones para sincronizar los elementos de trabajo de tu proyecto."
+        "description": "Configura GitHub y otras integraciones para sincronizar las tareas de tu proyecto."
       }
     },
     "workflows": {
       "toggle": {
         "title": "Habilitar flujos de trabajo",
-        "description": "Configura flujos de trabajo para controlar el movimiento de los elementos de trabajo",
+        "description": "Configura flujos de trabajo para controlar el movimiento de las tareas",
         "no_states_tooltip": "No se han agregado estados al flujo de trabajo.",
-        "no_work_item_types_tooltip": "No se han agregado tipos de elementos de trabajo al flujo de trabajo.",
-        "no_states_or_work_item_types_tooltip": "No se han agregado estados ni tipos de elementos de trabajo al flujo de trabajo.",
+        "no_work_item_types_tooltip": "No se han agregado tipos de tareas al flujo de trabajo.",
+        "no_states_or_work_item_types_tooltip": "No se han agregado estados ni tipos de tareas al flujo de trabajo.",
         "toast": {
           "loading": {
             "enabling": "Habilitando flujos de trabajo",
@@ -235,7 +235,7 @@
         }
       },
       "heading": "Flujos de trabajo",
-      "description": "Automatiza las transiciones de elementos de trabajo y establece reglas para controlar cómo se mueven las tareas a través del flujo de tu proyecto.",
+      "description": "Automatiza las transiciones de tareas y establece reglas para controlar cómo se mueven las tareas a través del flujo de tu proyecto.",
       "add_button": "Agregar nuevo flujo de trabajo",
       "search": "Buscar flujos de trabajo",
       "detail": {
@@ -243,10 +243,10 @@
         "add_states": "Agregar estados",
         "unmapped_states": {
           "title": "Estados no asignados detectados",
-          "description": "Algunos elementos de trabajo para los tipos seleccionados están actualmente en estados que no existen en este flujo de trabajo.",
+          "description": "Algunas tareas para los tipos seleccionados están actualmente en estados que no existen en este flujo de trabajo.",
           "note": "Si habilitas este flujo de trabajo, estos elementos se moverán automáticamente al estado inicial de este flujo de trabajo.",
           "label": "Estados faltantes",
-          "tooltip": "Algunos elementos de trabajo están en estados que no están asignados a este flujo de trabajo. Abre el flujo de trabajo para revisarlo."
+          "tooltip": "Algunas tareas están en estados que no están asignados a este flujo de trabajo. Abre el flujo de trabajo para revisarlo."
         }
       },
       "select_states": {
@@ -256,7 +256,7 @@
         }
       },
       "default_footer": {
-        "fallback_message": "Este flujo de trabajo se aplica a cualquier tipo de elemento de trabajo que no esté asignado a un flujo de trabajo."
+        "fallback_message": "Este flujo de trabajo se aplica a cualquier tipo de tarea que no esté asignado a un flujo de trabajo."
       },
       "create": {
         "heading": "Crear nuevo flujo de trabajo",
@@ -275,7 +275,7 @@
           }
         },
         "work_item_type": {
-          "label": "Tipo de elemento de trabajo"
+          "label": "Tipo de tarea"
         },
         "success": {
           "title": "¡Éxito!",
@@ -319,8 +319,8 @@
       }
     },
     "work_item_types": {
-      "heading": "Tipos de elemento de trabajo",
-      "description": "Crea y personaliza diferentes tipos de elementos de trabajo con propiedades únicas"
+      "heading": "Tipos de tarea",
+      "description": "Crea y personaliza diferentes tipos de tareas con propiedades únicas"
     },
     "features": {
       "cycles": {
@@ -367,25 +367,25 @@
         },
         "in_app": {
           "title": "En la aplicación",
-          "description": "Recibe nuevos elementos de trabajo de miembros e invitados en tu espacio de trabajo sin interrumpir los existentes."
+          "description": "Recibe nuevas tareas de miembros e invitados en tu espacio de trabajo sin interrumpir los existentes."
         },
         "email": {
           "title": "Correo electrónico",
-          "description": "Recopila nuevos elementos de trabajo de cualquiera que envíe un correo a una dirección de Plane.",
+          "description": "Recopila nuevas tareas de cualquiera que envíe un correo a una dirección de Plane.",
           "fieldName": "ID de correo electrónico"
         },
         "form": {
           "title": "Formularios",
-          "description": "Permite que personas fuera de tu espacio de trabajo creen posibles nuevos elementos de trabajo mediante un formulario dedicado y seguro.",
+          "description": "Permite que personas fuera de tu espacio de trabajo creen posibles nuevas tareas mediante un formulario dedicado y seguro.",
           "fieldName": "URL del formulario predeterminado",
-          "create_forms": "Crear formularios usando tipos de elementos de trabajo",
+          "create_forms": "Crear formularios usando tipos de tareas",
           "manage_forms": "Gestionar formularios",
           "manage_forms_tooltip": "Pide a tu administrador del espacio de trabajo que gestione esto.",
           "create_form": "Crear formulario",
           "edit_form": "Editar detalles del formulario",
           "form_title": "Título del formulario",
           "form_title_required": "El título del formulario es obligatorio",
-          "work_item_type": "Tipo de elemento de trabajo",
+          "work_item_type": "Tipo de tarea",
           "remove_property": "Eliminar propiedad",
           "select_properties": "Seleccionar propiedades",
           "search_placeholder": "Buscar propiedades",
@@ -413,16 +413,16 @@
       "time_tracking": {
         "title": "Seguimiento de tiempo",
         "short_title": "Seguimiento de tiempo",
-        "description": "Registra el tiempo dedicado a elementos de trabajo y proyectos.",
+        "description": "Registra el tiempo dedicado a tareas y proyectos.",
         "toggle_title": "Habilitar seguimiento de tiempo",
         "toggle_description": "Los miembros del proyecto podrán registrar el tiempo trabajado."
       },
       "milestones": {
         "title": "Hitos",
         "short_title": "Hitos",
-        "description": "Los hitos proporcionan una capa para alinear los elementos de trabajo hacia fechas de finalización compartidas.",
+        "description": "Los hitos proporcionan una capa para alinear las tareas hacia fechas de finalización compartidas.",
         "toggle_title": "Habilitar hitos",
-        "toggle_description": "Organiza elementos de trabajo por plazos de hitos."
+        "toggle_description": "Organiza tareas por plazos de hitos."
       },
       "toasts": {
         "loading": "Actualizando función del proyecto...",
@@ -436,7 +436,7 @@
     },
     "templates": {
       "heading": "Plantillas",
-      "description": "Ahorra el 80 % del tiempo dedicado a crear proyectos, elementos de trabajo y páginas cuando usas plantillas."
+      "description": "Ahorra el 80 % del tiempo dedicado a crear proyectos, tareas y páginas cuando usas plantillas."
     },
     "cycles": {
       "auto_schedule": {
@@ -489,8 +489,8 @@
             }
           },
           "auto_rollover": {
-            "label": "Transferencia automática de elementos de trabajo",
-            "tooltip": "El día que se complete un ciclo, mover todos los elementos de trabajo sin terminar al siguiente ciclo."
+            "label": "Transferencia automática de tareas",
+            "tooltip": "El día que se complete un ciclo, mover todas las tareas sin terminar al siguiente ciclo."
           }
         },
         "toast": {

@@ -512,7 +512,7 @@ class GenericAssetEndpoint(BaseAPIView):
     def post(self, request, slug):
         """Generate presigned URL for generic asset upload.
 
-        Create a presigned URL for uploading generic assets that can be bound to entities like work items.
+        Create a presigned URL for uploading generic assets that can be bound to entities like tasks.
         Supports various file types and includes external source tracking for integrations.
         """
         name = sanitize_filename(request.data.get("name"))

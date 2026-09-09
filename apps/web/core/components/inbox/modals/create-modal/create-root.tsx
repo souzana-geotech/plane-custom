@@ -160,7 +160,7 @@ export const InboxIssueCreateRoot = observer(function InboxIssueCreateRoot(props
         setToast({
           type: TOAST_TYPE.SUCCESS,
           title: `Success!`,
-          message: "Work item created successfully.",
+          message: "Task created successfully.",
         });
       })
       .catch((error) => {

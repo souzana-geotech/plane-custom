@@ -50,7 +50,7 @@ export function DeclineIssueModal(props: Props) {
       // TODO: Need to translate the confirmation message
       content={
         <>
-          Are you sure you want to decline work item{" "}
+          Are you sure you want to decline task{" "}
           <span className="font-medium break-words text-primary">
             {projectDetails?.identifier}-{data?.sequence_id}
           </span>

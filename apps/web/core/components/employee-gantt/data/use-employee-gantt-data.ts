@@ -35,10 +35,10 @@ const EMPTY_FILTERS: TEmployeeGanttFilters = {
 const EMPTY_MEMBER_IDS: string[] = [];
 
 /**
- * Loads the workspace-wide work item list once and derives every employee lane from it.
+ * Loads the workspace-wide task list once and derives every employee lane from it.
  *
  * Members come from the member store, which the workspace wrapper already populates, so the only
- * request this page makes is the cross-project work item list.
+ * request this page makes is the cross-project task list.
  */
 export const useEmployeeGanttData = (workspaceSlug: string): TEmployeeGanttContext => {
   // store hooks

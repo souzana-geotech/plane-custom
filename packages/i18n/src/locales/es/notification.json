@@ -29,12 +29,12 @@
         "title": "Selecciona para ver detalles."
       },
       "all": {
-        "title": "No hay elementos de trabajo asignados",
-        "description": "Las actualizaciones de elementos de trabajo asignados a ti se pueden\n ver aquí"
+        "title": "No hay tareas asignadas",
+        "description": "Las actualizaciones de tareas asignadas a ti se pueden\n ver aquí"
       },
       "mentions": {
-        "title": "No hay elementos de trabajo asignados",
-        "description": "Las actualizaciones de elementos de trabajo asignados a ti se pueden\n ver aquí"
+        "title": "No hay tareas asignadas",
+        "description": "Las actualizaciones de tareas asignadas a ti se pueden\n ver aquí"
       }
     },
     "tabs": {

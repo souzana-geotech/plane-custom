@@ -45,7 +45,7 @@
     },
     "notifications": {
       "heading": "E-mailová oznámení",
-      "description": "Zůstaňte v obraze u pracovních položek, které odebíráte. Aktivujte toto pro zasílání oznámení.",
+      "description": "Zůstaňte v obraze u úkolů, které odebíráte. Aktivujte toto pro zasílání oznámení.",
       "select_default_view": "Vybrat výchozí zobrazení",
       "compact": "Kompaktní",
       "full": "Celá obrazovka"
@@ -115,19 +115,19 @@
     "empty_state": {
       "activity": {
         "title": "Žádná aktivita",
-        "description": "Vytvořte pracovní položku pro začátek."
+        "description": "Vytvořte úkol pro začátek."
       },
       "assigned": {
-        "title": "Žádné přiřazené pracovní položky",
-        "description": "Zde uvidíte přiřazené pracovní položky."
+        "title": "Žádné přiřazené úkoly",
+        "description": "Zde uvidíte přiřazené úkoly."
       },
       "created": {
-        "title": "Žádné vytvořené pracovní položky",
-        "description": "Zde jsou pracovní položky, které jste vytvořili."
+        "title": "Žádné vytvořené úkoly",
+        "description": "Zde jsou úkoly, které jste vytvořili."
       },
       "subscribed": {
-        "title": "Žádné odebírané pracovní položky",
-        "description": "Odebírejte pracovní položky, které vás zajímají, a sledujte je zde."
+        "title": "Žádné odebírané úkoly",
+        "description": "Odebírejte úkoly, které vás zajímají, a sledujte je zde."
       }
     }
   },

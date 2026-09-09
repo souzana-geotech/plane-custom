@@ -3,9 +3,9 @@
 # See the LICENSE file for details.
 
 """
-Dependency-aware scheduling for work items.
+Dependency-aware scheduling for tasks.
 
-When an upstream work item is delayed, the work items that depend on it through
+When an upstream task is delayed, the tasks that depend on it through
 ``blocked_by`` relations are marked *dependency delayed* and get projected
 (adjusted) dates. The projection is stored in ``IssueDependencySchedule`` — a row
 exists if and only if the issue is currently dependency delayed. The issue's own
@@ -426,7 +426,7 @@ def dependency_schedule_sweep(now=None):
 
 def _maybe_dispatch_auto_shift(activity_type, issue_id, payload, current_instance, actor_id):
     """
-    Dispatch the dependency auto-shift when a work item's ``target_date`` actually
+    Dispatch the dependency auto-shift when a task's ``target_date`` actually
     changed. Payloads carrying the auto-shift marker are themselves the *output* of
     an auto-shift pass and never re-trigger one — that guard is what prevents
     recursive shifting through the activity pipeline.

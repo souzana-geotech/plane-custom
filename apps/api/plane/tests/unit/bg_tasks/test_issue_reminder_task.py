@@ -116,7 +116,7 @@ class TestIssueDueDateReminders:
         assert notification.data["issue_activity"]["field"] == DUE_REMINDER_FIELD
         assert notification.data["issue_activity"]["new_value"] == TOMORROW.isoformat()
         assert notification.data["issue_activity"]["old_value"] == "1"
-        assert notification.title == "This work item is due tomorrow."
+        assert notification.title == "This task is due tomorrow."
 
         log = IssueReminderLog.objects.get(issue=issue, receiver=user)
         assert log.kind == DUE_REMINDER_FIELD
@@ -139,7 +139,7 @@ class TestIssueDueDateReminders:
         notification = _notifications(user, OVERDUE_FIELD).get()
         assert notification.data["issue_activity"]["field"] == OVERDUE_FIELD
         assert notification.data["issue_activity"]["old_value"] == "1"
-        assert notification.title == "This work item is overdue by 1 day."
+        assert notification.title == "This task is overdue by 1 day."
         assert IssueReminderLog.objects.filter(issue=issue, kind=OVERDUE_FIELD).count() == 1
         assert not _notifications(user, DUE_REMINDER_FIELD).exists()
 
@@ -313,11 +313,11 @@ class TestIssueDueDateReminders:
 @pytest.mark.unit
 class TestReminderEmailRendering:
     def test_reminder_message_wording(self):
-        assert reminder_message(DUE_REMINDER_FIELD, 0) == "This work item is due today."
-        assert reminder_message(DUE_REMINDER_FIELD, 1) == "This work item is due tomorrow."
-        assert reminder_message(DUE_REMINDER_FIELD, 3) == "This work item is due in 3 days."
-        assert reminder_message(OVERDUE_FIELD, 1) == "This work item is overdue by 1 day."
-        assert reminder_message(OVERDUE_FIELD, 4) == "This work item is overdue by 4 days."
+        assert reminder_message(DUE_REMINDER_FIELD, 0) == "This task is due today."
+        assert reminder_message(DUE_REMINDER_FIELD, 1) == "This task is due tomorrow."
+        assert reminder_message(DUE_REMINDER_FIELD, 3) == "This task is due in 3 days."
+        assert reminder_message(OVERDUE_FIELD, 1) == "This task is overdue by 1 day."
+        assert reminder_message(OVERDUE_FIELD, 4) == "This task is overdue by 4 days."
 
     def test_build_reminder_context_from_batched_change(self):
         context = build_reminder_context(OVERDUE_FIELD, {"new_value": ["2026-09-09"], "old_value": ["2"]})
@@ -325,7 +325,7 @@ class TestReminderEmailRendering:
             "kind": OVERDUE_FIELD,
             "target_date": "2026-09-09",
             "days": 2,
-            "message": "This work item is overdue by 2 days.",
+            "message": "This task is overdue by 2 days.",
         }
         assert build_reminder_context(DUE_REMINDER_FIELD, {"new_value": ["2026-09-11"]})["days"] == 0
 
@@ -348,6 +348,6 @@ class TestReminderEmailRendering:
 
         html = render_to_string("emails/notifications/issue-updates.html", context)
 
-        assert "This work item is overdue by 2 days." in html
+        assert "This task is overdue by 2 days." in html
         assert "Due date: 2026-09-09" in html
         assert "Updates were made to the issue by" not in html

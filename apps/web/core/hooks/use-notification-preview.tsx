@@ -17,7 +17,7 @@ export type TNotificationPreview = {
 };
 
 /**
- * This function returns if the current active notification is related to work item or an epic.
+ * This function returns if the current active notification is related to task or an epic.
  * @returns isWorkItem: boolean, peekOverviewComponent: IWorkItemPeekOverview, setPeekWorkItem
  */
 export const useNotificationPreview = (): TNotificationPreview => {

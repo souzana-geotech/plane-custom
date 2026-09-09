@@ -28,7 +28,7 @@ type Props = {
 };
 
 /**
- * One work item on an employee lane.
+ * One task on an employee lane.
  *
  * The bar carries **no text at any zoom**. Bars are frequently only a few pixels wide, and a label
  * that has to be truncated, floated beside the bar or squeezed between neighbours costs more
@@ -36,7 +36,7 @@ type Props = {
  * project); everything else lives in the tooltip, one hover away.
  *
  * It is also intentionally read-only: unlike the project gantt there is no drag, resize or
- * dependency handling here, so nothing on this page can write back to a work item.
+ * dependency handling here, so nothing on this page can write back to a task.
  */
 export const EmployeeGanttAssignmentBar = observer(function EmployeeGanttAssignmentBar(props: Props) {
   const { assignment, scale, laneIndex, workspaceSlug } = props;

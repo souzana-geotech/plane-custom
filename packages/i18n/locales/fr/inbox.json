@@ -24,30 +24,30 @@
     },
     "modals": {
       "decline": {
-        "title": "Refuser l’élément de travail",
-        "content": "Êtes-vous sûr de vouloir refuser l’élément de travail {value} ?"
+        "title": "Refuser la tâche",
+        "content": "Êtes-vous sûr de vouloir refuser la tâche {value} ?"
       },
       "delete": {
-        "title": "Supprimer l’élément de travail",
-        "content": "Êtes-vous sûr de vouloir supprimer l’élément de travail {value} ?",
-        "success": "Élément de travail supprimé avec succès"
+        "title": "Supprimer la tâche",
+        "content": "Êtes-vous sûr de vouloir supprimer la tâche {value} ?",
+        "success": "Tâche supprimé avec succès"
       }
     },
     "errors": {
-      "snooze_permission": "Seuls les administrateurs du projet peuvent reporter/annuler le report des éléments de travail",
-      "accept_permission": "Seuls les administrateurs du projet peuvent accepter les éléments de travail",
-      "decline_permission": "Seuls les administrateurs du projet peuvent refuser les éléments de travail"
+      "snooze_permission": "Seuls les administrateurs du projet peuvent reporter/annuler le report des tâches",
+      "accept_permission": "Seuls les administrateurs du projet peuvent accepter les tâches",
+      "decline_permission": "Seuls les administrateurs du projet peuvent refuser les tâches"
     },
     "actions": {
       "accept": "Accepter",
       "decline": "Refuser",
       "snooze": "Reporter",
       "unsnooze": "Annuler le report",
-      "copy": "Copier le lien de l’élément de travail",
+      "copy": "Copier le lien de la tâche",
       "delete": "Supprimer",
-      "open": "Ouvrir l’élément de travail",
+      "open": "Ouvrir la tâche",
       "mark_as_duplicate": "Marquer comme doublon",
-      "move": "Déplacer {value} vers les éléments de travail du projet"
+      "move": "Déplacer {value} vers les tâches du projet"
     },
     "source": {
       "in-app": "in-app"
@@ -60,7 +60,7 @@
     "label": "Intake",
     "page_label": "{workspace} - Intake",
     "modal": {
-      "title": "Créer un élément de travail Intake"
+      "title": "Créer une tâche Intake"
     },
     "tabs": {
       "open": "Ouvert",
@@ -68,19 +68,19 @@
     },
     "empty_state": {
       "sidebar_open_tab": {
-        "title": "Aucun élément de travail ouvert",
-        "description": "Trouvez les éléments de travail ouverts ici. Créez un nouvel élément de travail."
+        "title": "Aucune tâche ouverte",
+        "description": "Trouvez les tâches ouvertes ici. Créez un nouvelle tâche."
       },
       "sidebar_closed_tab": {
-        "title": "Aucun élément de travail fermé",
-        "description": "Tous les éléments de travail, qu’ils soient acceptés ou refusés, peuvent être trouvés ici."
+        "title": "Aucune tâche fermée",
+        "description": "Toutes les tâches, qu’ils soient acceptés ou refusés, peuvent être trouvés ici."
       },
       "sidebar_filter": {
-        "title": "Aucun élément de travail correspondant",
-        "description": "Aucun élément de travail ne correspond au filtre appliqué dans Intake. Créez un nouvel élément de travail."
+        "title": "Aucune tâche correspondant",
+        "description": "Aucune tâche ne correspond au filtre appliqué dans Intake. Créez un nouvelle tâche."
       },
       "detail": {
-        "title": "Sélectionnez un élément de travail pour voir ses détails."
+        "title": "Sélectionnez une tâche pour voir ses détails."
       }
     }
   }

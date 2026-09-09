@@ -10,9 +10,9 @@ import type { TIssuesResponse, TStateGroups } from "@plane/types";
 import { WorkspaceService } from "./workspace.service";
 
 /**
- * Work item shape consumed by the employee resource gantt.
+ * Task shape consumed by the employee resource gantt.
  *
- * These are exactly the fields the pre-existing workspace work item endpoint
+ * These are exactly the fields the pre-existing workspace task endpoint
  * (`GET /api/workspaces/:slug/issues/`, serialised by `ViewIssueListSerializer`) already
  * returns. Nothing here is gantt specific and no backend change was needed.
  */
@@ -42,8 +42,8 @@ const PAGE_SIZE = 1000;
  *
  * It composes the existing `WorkspaceService` instead of defining a new endpoint: without an
  * `expand` param `getViewIssues` resolves to `/api/workspaces/:slug/issues/`, the cross-project
- * work item list that already powers workspace views. That endpoint is permission filtered per
- * project by the backend and already excludes archived, draft and triage work items.
+ * task list that already powers workspace views. That endpoint is permission filtered per
+ * project by the backend and already excludes archived, draft and triage tasks.
  */
 export class EmployeeGanttService {
   private readonly workspaceService: WorkspaceService;
@@ -53,7 +53,7 @@ export class EmployeeGanttService {
   }
 
   /**
-   * Fetches every work item of the workspace the current user is allowed to see, paging through
+   * Fetches every task of the workspace the current user is allowed to see, paging through
    * the cursor based response until it reports no further pages.
    */
   async getWorkspaceWorkItems(workspaceSlug: string): Promise<TEmployeeGanttWorkItem[]> {

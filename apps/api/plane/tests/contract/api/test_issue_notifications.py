@@ -25,7 +25,7 @@ def project(db, workspace, create_user):
         role=20,  # Admin role
         is_active=True,
     )
-    # A default state is required to create work items through the API
+    # A default state is required to create tasks through the API
     State.objects.create(
         name="Backlog",
         color="#000000",
@@ -40,7 +40,7 @@ def project(db, workspace, create_user):
 
 @pytest.fixture
 def create_issue(db, project, workspace, create_user):
-    """Create an existing work item to update/assign in tests."""
+    """Create an existing task to update/assign in tests."""
     return Issue.objects.create(
         name="Existing Issue",
         project=project,
@@ -51,7 +51,7 @@ def create_issue(db, project, workspace, create_user):
 
 @pytest.fixture
 def assignee_user(db):
-    """Create a second user that can be assigned to a work item."""
+    """Create a second user that can be assigned to a task."""
     user = User.objects.create(
         email="assignee@plane.so",
         username="assignee-user",
@@ -66,23 +66,23 @@ def assignee_user(db):
 @pytest.mark.contract
 class TestIssueNotificationContract:
     """
-    Contract: creating and updating/assigning a work item through the external
+    Contract: creating and updating/assigning a task through the external
     REST API (``/api/v1/...``) must trigger notifications, i.e. ``issue_activity``
     is dispatched with ``notification=True`` so subscribers and assignees are
     notified the same way the web app does. See makeplane/plane#9306.
     """
 
     def get_list_url(self, workspace_slug, project_id):
-        """Helper to build the work item list/create endpoint URL."""
+        """Helper to build the task list/create endpoint URL."""
         return f"/api/v1/workspaces/{workspace_slug}/projects/{project_id}/issues/"
 
     def get_detail_url(self, workspace_slug, project_id, issue_id):
-        """Helper to build the work item detail endpoint URL."""
+        """Helper to build the task detail endpoint URL."""
         return f"/api/v1/workspaces/{workspace_slug}/projects/{project_id}/issues/{issue_id}/"
 
     @pytest.mark.django_db
     def test_create_issue_triggers_notification(self, api_key_client, workspace, project):
-        """Creating a work item via the external API dispatches a notifying activity."""
+        """Creating a task via the external API dispatches a notifying activity."""
         url = self.get_list_url(workspace.slug, project.id)
 
         with patch("plane.api.views.issue.issue_activity") as mock_issue_activity:
@@ -98,7 +98,7 @@ class TestIssueNotificationContract:
 
     @pytest.mark.django_db
     def test_update_issue_triggers_notification(self, api_key_client, workspace, project, create_issue):
-        """Updating a work item via the external API dispatches a notifying activity."""
+        """Updating a task via the external API dispatches a notifying activity."""
         url = self.get_detail_url(workspace.slug, project.id, create_issue.id)
 
         with patch("plane.api.views.issue.issue_activity") as mock_issue_activity:
@@ -115,7 +115,7 @@ class TestIssueNotificationContract:
 
     @pytest.mark.django_db
     def test_assign_issue_triggers_notification(self, api_key_client, workspace, project, create_issue, assignee_user):
-        """Assigning a work item via the external API dispatches a notifying activity."""
+        """Assigning a task via the external API dispatches a notifying activity."""
         ProjectMember.objects.create(
             project=project,
             member=assignee_user,

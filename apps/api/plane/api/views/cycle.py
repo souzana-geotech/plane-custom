@@ -884,24 +884,24 @@ class CycleIssueListCreateAPIEndpoint(BaseAPIView):
 
     @cycle_docs(
         operation_id="list_cycle_work_items",
-        summary="List cycle work items",
-        description="Retrieve all work items assigned to a cycle.",
+        summary="List cycle tasks",
+        description="Retrieve all tasks assigned to a cycle.",
         parameters=[CURSOR_PARAMETER, PER_PAGE_PARAMETER],
         request={},
         responses={
             200: create_paginated_response(
                 IssueSerializer,
                 "PaginatedCycleIssueResponse",
-                "Paginated list of cycle work items",
-                "Paginated Cycle Work Items",
+                "Paginated list of cycle tasks",
+                "Paginated Cycle Tasks",
             ),
         },
     )
     def get(self, request, slug, project_id, cycle_id):
-        """List or retrieve cycle work items
+        """List or retrieve cycle tasks
 
-        Retrieve all work items assigned to a cycle or get details of a specific cycle work item.
-        Returns paginated results with work item details, assignees, and labels.
+        Retrieve all tasks assigned to a cycle or get details of a specific cycle task.
+        Returns paginated results with task details, assignees, and labels.
         """
         # List
         order_by = sanitize_order_by(request.GET.get("order_by", "created_at"), ISSUE_ORDER_BY_ALLOWLIST, "created_at")
@@ -948,15 +948,15 @@ class CycleIssueListCreateAPIEndpoint(BaseAPIView):
 
     @cycle_docs(
         operation_id="add_cycle_work_items",
-        summary="Add Work Items to Cycle",
-        description="Assign multiple work items to a cycle. Automatically handles bulk creation and updates with activity tracking.",  # noqa: E501
+        summary="Add Tasks to Cycle",
+        description="Assign multiple tasks to a cycle. Automatically handles bulk creation and updates with activity tracking.",  # noqa: E501
         request=OpenApiRequest(
             request=CycleIssueRequestSerializer,
             examples=[CYCLE_ISSUE_REQUEST_EXAMPLE],
         ),
         responses={
             200: OpenApiResponse(
-                description="Cycle work items added",
+                description="Cycle tasks added",
                 response=CycleIssueSerializer,
                 examples=[CYCLE_ISSUE_EXAMPLE],
             ),
@@ -966,14 +966,14 @@ class CycleIssueListCreateAPIEndpoint(BaseAPIView):
     def post(self, request, slug, project_id, cycle_id):
         """Add cycle issues
 
-        Assign multiple work items to a cycle or move them from another cycle.
+        Assign multiple tasks to a cycle or move them from another cycle.
         Automatically handles bulk creation and updates with activity tracking.
         """
         issues = request.data.get("issues", [])
 
         if not issues:
             return Response(
-                {"error": "Work items are required", "code": "MISSING_WORK_ITEMS"},
+                {"error": "Tasks are required", "code": "MISSING_WORK_ITEMS"},
                 status=status.HTTP_400_BAD_REQUEST,
             )
 
@@ -1106,21 +1106,21 @@ class CycleIssueDetailAPIEndpoint(BaseAPIView):
 
     @cycle_docs(
         operation_id="retrieve_cycle_work_item",
-        summary="Retrieve cycle work item",
-        description="Retrieve details of a specific cycle work item.",
+        summary="Retrieve cycle task",
+        description="Retrieve details of a specific cycle task.",
         responses={
             200: OpenApiResponse(
-                description="Cycle work items",
+                description="Cycle tasks",
                 response=CycleIssueSerializer,
                 examples=[CYCLE_ISSUE_EXAMPLE],
             ),
         },
     )
     def get(self, request, slug, project_id, cycle_id, issue_id):
-        """Retrieve cycle work item
+        """Retrieve cycle task
 
-        Retrieve details of a specific cycle work item.
-        Returns paginated results with work item details, assignees, and labels.
+        Retrieve details of a specific cycle task.
+        Returns paginated results with task details, assignees, and labels.
         """
         cycle_issue = CycleIssue.objects.get(
             workspace__slug=slug,
@@ -1133,16 +1133,16 @@ class CycleIssueDetailAPIEndpoint(BaseAPIView):
 
     @cycle_docs(
         operation_id="delete_cycle_work_item",
-        summary="Delete cycle work item",
-        description="Remove a work item from a cycle while keeping the work item in the project.",
+        summary="Delete cycle task",
+        description="Remove a task from a cycle while keeping the task in the project.",
         responses={
             204: DELETED_RESPONSE,
         },
     )
     def delete(self, request, slug, project_id, cycle_id, issue_id):
-        """Remove cycle work item
+        """Remove cycle task
 
-        Remove a work item from a cycle while keeping the work item in the project.
+        Remove a task from a cycle while keeping the task in the project.
         Records the removal activity for tracking purposes.
         """
         cycle_issue = CycleIssue.objects.get(
@@ -1180,15 +1180,15 @@ class TransferCycleIssueAPIEndpoint(BaseAPIView):
 
     @cycle_docs(
         operation_id="transfer_cycle_work_items",
-        summary="Transfer cycle work items",
-        description="Move incomplete work items from the current cycle to a new target cycle. Captures progress snapshot and transfers only unfinished work items.",  # noqa: E501
+        summary="Transfer cycle tasks",
+        description="Move incomplete tasks from the current cycle to a new target cycle. Captures progress snapshot and transfers only unfinished tasks.",  # noqa: E501
         request=OpenApiRequest(
             request=TransferCycleIssueRequestSerializer,
             examples=[TRANSFER_CYCLE_ISSUE_EXAMPLE],
         ),
         responses={
             200: OpenApiResponse(
-                description="Work items transferred successfully",
+                description="Tasks transferred successfully",
                 response={
                     "type": "object",
                     "properties": {
@@ -1224,7 +1224,7 @@ class TransferCycleIssueAPIEndpoint(BaseAPIView):
         """Transfer cycle issues
 
         Move incomplete issues from the current cycle to a new target cycle.
-        Captures progress snapshot and transfers only unfinished work items.
+        Captures progress snapshot and transfers only unfinished tasks.
         """
         new_cycle_id = request.data.get("new_cycle_id", False)
 
@@ -1239,7 +1239,7 @@ class TransferCycleIssueAPIEndpoint(BaseAPIView):
             project_id=project_id,
             pk=cycle_id,
         )
-        # transfer work items only when cycle is completed (passed the end data)
+        # transfer tasks only when cycle is completed (passed the end data)
         if old_cycle.end_date is not None and old_cycle.end_date > timezone.now():
             return Response(
                 {"error": "The old cycle is not completed yet"},

@@ -45,7 +45,7 @@
     },
     "notifications": {
       "heading": "Powiadomienia e-mail",
-      "description": "Bądź na bieżąco z subskrybowanymi elementami pracy. Włącz, aby otrzymywać powiadomienia.",
+      "description": "Bądź na bieżąco z subskrybowanymi zadaniami. Włącz, aby otrzymywać powiadomienia.",
       "select_default_view": "Wybierz widok domyślny",
       "compact": "Kompaktowy",
       "full": "Pełny ekran"
@@ -59,7 +59,7 @@
     },
     "activity": {
       "heading": "Aktywność",
-      "description": "Śledź swoje ostatnie działania i zmiany we wszystkich projektach i elementach pracy."
+      "description": "Śledź swoje ostatnie działania i zmiany we wszystkich projektach i zadaniach."
     },
     "connections": {
       "title": "Połączenia",
@@ -115,19 +115,19 @@
     "empty_state": {
       "activity": {
         "title": "Brak aktywności",
-        "description": "Utwórz element pracy, aby zacząć."
+        "description": "Utwórz zadanie, aby zacząć."
       },
       "assigned": {
-        "title": "Brak przypisanych elementów pracy",
-        "description": "Tutaj zobaczysz elementy pracy przypisane do Ciebie."
+        "title": "Brak przypisanych zadań",
+        "description": "Tutaj zobaczysz zadania przypisane do Ciebie."
       },
       "created": {
-        "title": "Brak utworzonych elementów pracy",
-        "description": "Tutaj są elementy pracy, które utworzyłeś(aś)."
+        "title": "Brak utworzonych zadań",
+        "description": "Tutaj są zadania, które utworzyłeś(aś)."
       },
       "subscribed": {
-        "title": "Brak subskrybowanych elementów pracy",
-        "description": "Subskrybuj interesujące Cię elementy pracy, a pojawią się tutaj."
+        "title": "Brak subskrybowanych zadań",
+        "description": "Subskrybuj interesujące Cię zadania, a pojawią się tutaj."
       }
     }
   },

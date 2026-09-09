@@ -1,12 +1,12 @@
 {
   "power_k": {
     "actions_commands": {
-      "bulk_delete_work_items": "Elimina elementi di lavoro in blocco"
+      "bulk_delete_work_items": "Elimina attività in blocco"
     },
     "contextual_actions": {
       "work_item": {
-        "title": "Azioni elemento di lavoro",
-        "indicator": "Elemento di lavoro",
+        "title": "Azioni attività",
+        "indicator": "Attività",
         "change_state": "Cambia stato",
         "change_priority": "Cambia priorità",
         "change_assignees": "Assegna a",
@@ -20,14 +20,14 @@
         "unsubscribe": "Annulla iscrizione alle notifiche",
         "delete": "Elimina",
         "copy_id": "Copia ID",
-        "copy_id_toast_success": "ID dell'elemento di lavoro copiato negli appunti.",
-        "copy_id_toast_error": "Si è verificato un errore durante la copia dell'ID dell'elemento di lavoro negli appunti.",
+        "copy_id_toast_success": "ID dell'attività copiata negli appunti.",
+        "copy_id_toast_error": "Si è verificato un errore durante la copia dell'ID dell'attività negli appunti.",
         "copy_title": "Copia titolo",
-        "copy_title_toast_success": "Titolo dell'elemento di lavoro copiato negli appunti.",
-        "copy_title_toast_error": "Si è verificato un errore durante la copia del titolo dell'elemento di lavoro negli appunti.",
+        "copy_title_toast_success": "Titolo dell'attività copiata negli appunti.",
+        "copy_title_toast_error": "Si è verificato un errore durante la copia del titolo dell'attività negli appunti.",
         "copy_url": "Copia URL",
-        "copy_url_toast_success": "URL dell'elemento di lavoro copiato negli appunti.",
-        "copy_url_toast_error": "Si è verificato un errore durante la copia dell'URL dell'elemento di lavoro negli appunti."
+        "copy_url_toast_success": "URL dell'attività copiata negli appunti.",
+        "copy_url_toast_error": "Si è verificato un errore durante la copia dell'URL dell'attività negli appunti."
       },
       "cycle": {
         "title": "Azioni ciclo",
@@ -66,7 +66,7 @@
       }
     },
     "creation_actions": {
-      "create_work_item": "Nuovo elemento di lavoro",
+      "create_work_item": "Nuova attività",
       "create_page": "Nuova pagina",
       "create_view": "Nuova visualizzazione",
       "create_cycle": "Nuovo ciclo",
@@ -83,16 +83,16 @@
       "nav_account_settings": "Vai alle impostazioni dell'account",
       "open_project": "Apri un progetto",
       "nav_projects_list": "Vai all'elenco dei progetti",
-      "nav_all_workspace_work_items": "Vai a tutti gli elementi di lavoro",
-      "nav_assigned_workspace_work_items": "Vai agli elementi di lavoro assegnati",
-      "nav_created_workspace_work_items": "Vai agli elementi di lavoro creati",
-      "nav_subscribed_workspace_work_items": "Vai agli elementi di lavoro iscritti",
+      "nav_all_workspace_work_items": "Vai a tutte le attività",
+      "nav_assigned_workspace_work_items": "Vai alle attività assegnate",
+      "nav_created_workspace_work_items": "Vai alle attività create",
+      "nav_subscribed_workspace_work_items": "Vai alle attività iscritti",
       "nav_workspace_analytics": "Vai alle analisi dello spazio di lavoro",
       "nav_workspace_drafts": "Vai alle bozze dello spazio di lavoro",
       "nav_workspace_archives": "Vai agli archivi dello spazio di lavoro",
       "open_workspace_setting": "Apri un'impostazione dello spazio di lavoro",
       "nav_workspace_settings": "Vai alle impostazioni dello spazio di lavoro",
-      "nav_project_work_items": "Vai agli elementi di lavoro",
+      "nav_project_work_items": "Vai alle attività",
       "open_project_cycle": "Apri un ciclo",
       "nav_project_cycles": "Vai ai cicli",
       "open_project_module": "Apri un modulo",

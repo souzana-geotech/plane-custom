@@ -19,7 +19,7 @@
   },
   "github_integration": {
     "name": "GitHub",
-    "description": "GitHubの作業項目をPlaneと連携・同期します。",
+    "description": "GitHubのタスクをPlaneと連携・同期します。",
     "connect_org": "Connect Organization",
     "connect_org_description": "GitHub組織をPlaneと連携します。",
     "processing": "処理中",
@@ -48,7 +48,7 @@
     "pr_state_mapping_empty_state": "マッピングされたPR状態がここに表示されます",
     "remove_pr_state_mapping": "プルリクエスト状態マッピングを削除",
     "remove_pr_state_mapping_confirmation": "このプルリクエスト状態マッピングを削除してもよろしいですか？",
-    "issue_sync_message": "作業項目が{project}に同期されました",
+    "issue_sync_message": "タスクが{project}に同期されました",
     "link": "GitHubリポジトリをPlaneプロジェクトにリンク",
     "pull_request_automation": "プルリクエスト自動化",
     "pull_request_automation_description": "GitHubからPlaneプロジェクトへのプルリクエスト状態マッピングを設定",
@@ -85,7 +85,7 @@
     "MR_READY_FOR_MERGE": "MRがマージ準備完了のとき、状態を次に設定",
     "MR_MERGED": "MRがマージされたとき、状態を次に設定",
     "MR_CLOSED": "MRがクローズされたとき、状態を次に設定",
-    "integration_enabled_text": "GitLabインテグレーションを有効にすると、作業項目のワークフローを自動化できます",
+    "integration_enabled_text": "GitLabインテグレーションを有効にすると、タスクのワークフローを自動化できます",
     "choose_entity": "エンティティを選択",
     "choose_project": "プロジェクトを選択",
     "link_plane_project": "Planeプロジェクトをリンク",
@@ -150,7 +150,7 @@
       "project_updates_empty_state": "Slackチャンネルに接続されたプロジェクトがここに表示されます。",
       "project_updates_form": {
         "title": "プロジェクトアップデートを設定",
-        "description": "作業項目が作成されたときにSlackでプロジェクトアップデート通知を受け取る",
+        "description": "タスクが作成されたときにSlackでプロジェクトアップデート通知を受け取る",
         "failed_to_load_channels": "Slackからチャンネルを読み込めませんでした",
         "project_dropdown": {
           "placeholder": "プロジェクトを選択",

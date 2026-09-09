@@ -3,9 +3,9 @@
 # See the LICENSE file for details.
 
 """
-Dependency auto-shift for work items.
+Dependency auto-shift for tasks.
 
-When a work item is rescheduled (its ``target_date`` changes), the work items that
+When a task is rescheduled (its ``target_date`` changes), the tasks that
 depend on it through ``blocked_by`` relations are shifted automatically — their
 actual ``start_date`` / ``target_date`` are updated, unlike the read-only projection
 in ``dependency_schedule_task``.
@@ -22,7 +22,7 @@ Semantics
   excluded), so a dependent's working-day duration is preserved and shifted dates
   never land on a Sunday.
 * The shift propagates through the whole chain in one topologically-ordered pass:
-  each affected work item is updated at most once, dependency cycles are detected
+  each affected task is updated at most once, dependency cycles are detected
   and skipped, and completed/cancelled/archived/draft dependents (and anything
   behind them) stay untouched.
 * Every applied shift is announced through the normal ``issue_activity`` pipeline
@@ -78,7 +78,7 @@ def _is_shiftable(issue):
 @shared_task
 def auto_shift_dependents(issue_id, old_target_date, new_target_date, actor_id=None):
     """
-    Celery entry point: the work item ``issue_id`` had its ``target_date`` changed
+    Celery entry point: the task ``issue_id`` had its ``target_date`` changed
     from ``old_target_date`` to ``new_target_date`` (ISO strings). Shifts every
     transitive dependent whose latest required date changed. Returns a summary.
     """

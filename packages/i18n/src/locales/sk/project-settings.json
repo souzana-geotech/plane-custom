@@ -38,7 +38,7 @@
     },
     "states": {
       "heading": "Stavy",
-      "description": "Definujte a prispôsobte stavy pracovného postupu na sledovanie priebehu vašich pracovných položiek.",
+      "description": "Definujte a prispôsobte stavy pracovného postupu na sledovanie priebehu vašich úloh.",
       "describe_this_state_for_your_members": "Opíšte tento stav členom.",
       "empty_state": {
         "title": "Žiadne stavy pre skupinu {groupKey}",
@@ -47,7 +47,7 @@
     },
     "labels": {
       "heading": "Štítky",
-      "description": "Vytvorte vlastné štítky na kategorizáciu a organizáciu pracovných položiek",
+      "description": "Vytvorte vlastné štítky na kategorizáciu a organizáciu úloh",
       "label_title": "Názov štítka",
       "label_title_is_required": "Názov štítka je povinný",
       "label_max_char": "Názov štítka nesmie presiahnuť 255 znakov",
@@ -209,16 +209,16 @@
       },
       "integrations": {
         "title": "Žiadne nakonfigurované integrácie",
-        "description": "Nakonfigurujte GitHub a ďalšie integrácie na synchronizáciu vašich projektových pracovných položiek."
+        "description": "Nakonfigurujte GitHub a ďalšie integrácie na synchronizáciu vašich projektových úloh."
       }
     },
     "workflows": {
       "toggle": {
         "title": "Povoliť pracovné postupy",
-        "description": "Nastavte pracovné postupy na riadenie pohybu pracovných položiek",
+        "description": "Nastavte pracovné postupy na riadenie pohybu úloh",
         "no_states_tooltip": "Do pracovného postupu nie sú pridané žiadne stavy.",
-        "no_work_item_types_tooltip": "Do pracovného postupu nie sú pridané žiadne typy pracovných položiek.",
-        "no_states_or_work_item_types_tooltip": "Do pracovného postupu nie sú pridané žiadne stavy ani typy pracovných položiek.",
+        "no_work_item_types_tooltip": "Do pracovného postupu nie sú pridané žiadne typy úloh.",
+        "no_states_or_work_item_types_tooltip": "Do pracovného postupu nie sú pridané žiadne stavy ani typy úloh.",
         "toast": {
           "loading": {
             "enabling": "Povoľovanie pracovných postupov",
@@ -235,7 +235,7 @@
         }
       },
       "heading": "Pracovné postupy",
-      "description": "Automatizujte prechody pracovných položiek a nastavte pravidlá, ktorými sa bude riadiť pohyb úloh vaším projektom.",
+      "description": "Automatizujte prechody úloh a nastavte pravidlá, ktorými sa bude riadiť pohyb úloh vaším projektom.",
       "add_button": "Pridať nový pracovný postup",
       "search": "Hľadať pracovné postupy",
       "detail": {
@@ -243,10 +243,10 @@
         "add_states": "Pridať stavy",
         "unmapped_states": {
           "title": "Zistené nenamapované stavy",
-          "description": "Niektoré pracovné položky vybraných typov sa aktuálne nachádzajú v stavoch, ktoré v tomto pracovnom postupe neexistujú.",
+          "description": "Niektoré úlohy vybraných typov sa aktuálne nachádzajú v stavoch, ktoré v tomto pracovnom postupe neexistujú.",
           "note": "Ak tento pracovný postup povolíte, tieto položky sa automaticky presunú do počiatočného stavu tohto pracovného postupu.",
           "label": "Chýbajúce stavy",
-          "tooltip": "Niektoré pracovné položky sú v stavoch, ktoré nie sú namapované na tento pracovný postup. Otvorte pracovný postup a skontrolujte."
+          "tooltip": "Niektoré úlohy sú v stavoch, ktoré nie sú namapované na tento pracovný postup. Otvorte pracovný postup a skontrolujte."
         }
       },
       "select_states": {
@@ -256,7 +256,7 @@
         }
       },
       "default_footer": {
-        "fallback_message": "Tento pracovný postup platí pre všetky typy pracovných položiek, ktoré nie sú priradené k pracovnému postupu."
+        "fallback_message": "Tento pracovný postup platí pre všetky typy úloh, ktoré nie sú priradené k pracovnému postupu."
       },
       "create": {
         "heading": "Vytvoriť nový pracovný postup",
@@ -275,7 +275,7 @@
           }
         },
         "work_item_type": {
-          "label": "Typ pracovnej položky"
+          "label": "Typ úlohy"
         },
         "success": {
           "title": "Úspech!",
@@ -319,8 +319,8 @@
       }
     },
     "work_item_types": {
-      "heading": "Typy pracovných položiek",
-      "description": "Vytvárajte a prispôsobujte rôzne typy pracovných položiek s jedinečnými vlastnosťami"
+      "heading": "Typy úloh",
+      "description": "Vytvárajte a prispôsobujte rôzne typy úloh s jedinečnými vlastnosťami"
     },
     "features": {
       "cycles": {
@@ -367,25 +367,25 @@
         },
         "in_app": {
           "title": "V aplikácii",
-          "description": "Získajte nové pracovné položky od členov a hostí vo vašom pracovnom priestore bez narušenia existujúcich pracovných položiek."
+          "description": "Získajte nové úlohy od členov a hostí vo vašom pracovnom priestore bez narušenia existujúcich úloh."
         },
         "email": {
           "title": "E-mail",
-          "description": "Zhromažďujte nové pracovné položky od každého, kto pošle e-mail na Plane e-mailovú adresu.",
+          "description": "Zhromažďujte nové úlohy od každého, kto pošle e-mail na Plane e-mailovú adresu.",
           "fieldName": "ID e-mailu"
         },
         "form": {
           "title": "Formuláre",
-          "description": "Umožnite ľuďom mimo pracovného priestoru vytvárať pre vás potenciálne nové pracovné položky prostredníctvom vyhradeného a bezpečného formulára.",
+          "description": "Umožnite ľuďom mimo pracovného priestoru vytvárať pre vás potenciálne nové úlohy prostredníctvom vyhradeného a bezpečného formulára.",
           "fieldName": "Predvolená URL formulára",
-          "create_forms": "Vytvárať formuláre pomocou typov pracovných položiek",
+          "create_forms": "Vytvárať formuláre pomocou typov úloh",
           "manage_forms": "Spravovať formuláre",
           "manage_forms_tooltip": "Požiadajte správcu pracovného priestoru, aby toto spravoval.",
           "create_form": "Vytvoriť formulár",
           "edit_form": "Upraviť detaily formulára",
           "form_title": "Názov formulára",
           "form_title_required": "Názov formulára je povinný",
-          "work_item_type": "Typ pracovnej položky",
+          "work_item_type": "Typ úlohy",
           "remove_property": "Odstrániť vlastnosť",
           "select_properties": "Vybrať vlastnosti",
           "search_placeholder": "Hľadať vlastnosti",
@@ -413,16 +413,16 @@
       "time_tracking": {
         "title": "Sledovanie času",
         "short_title": "Sledovanie času",
-        "description": "Zaznamenávajte čas strávený na pracovných položkách a projektoch.",
+        "description": "Zaznamenávajte čas strávený na úlohách a projektoch.",
         "toggle_title": "Povoliť sledovanie času",
         "toggle_description": "Členovia projektu budú môcť zaznamenávať odpracovaný čas."
       },
       "milestones": {
         "title": "Míľniky",
         "short_title": "Míľniky",
-        "description": "Míľniky poskytujú vrstvu na zladenie pracovných položiek smerom k spoločným termínom dokončenia.",
+        "description": "Míľniky poskytujú vrstvu na zladenie úloh smerom k spoločným termínom dokončenia.",
         "toggle_title": "Povoliť míľniky",
-        "toggle_description": "Organizujte pracovné položky podľa termínov míľnikov."
+        "toggle_description": "Organizujte úlohy podľa termínov míľnikov."
       },
       "toasts": {
         "loading": "Aktualizácia funkcie projektu...",
@@ -436,7 +436,7 @@
     },
     "templates": {
       "heading": "Šablóny",
-      "description": "Ušetrite 80 % času stráveného vytváraním projektov, pracovných položiek a stránok pomocou šablón."
+      "description": "Ušetrite 80 % času stráveného vytváraním projektov, úloh a stránok pomocou šablón."
     },
     "cycles": {
       "auto_schedule": {
@@ -489,8 +489,8 @@
             }
           },
           "auto_rollover": {
-            "label": "Automatický prevod pracovných položiek",
-            "tooltip": "V deň dokončenia cyklu presunúť všetky nedokončené pracovné položky do ďalšieho cyklu."
+            "label": "Automatický prevod úloh",
+            "tooltip": "V deň dokončenia cyklu presunúť všetky nedokončené úlohy do ďalšieho cyklu."
           }
         },
         "toast": {

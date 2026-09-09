@@ -95,7 +95,7 @@ USER_EXAMPLE = OpenApiExample(
 # REQUEST EXAMPLES - Centralized examples for API requests
 # ============================================================================
 
-# Work Item / Issue Examples
+# Task / Issue Examples
 ISSUE_CREATE_EXAMPLE = OpenApiExample(
     "IssueCreateSerializer",
     value={
@@ -108,7 +108,7 @@ ISSUE_CREATE_EXAMPLE = OpenApiExample(
         "external_id": "1234567890",
         "external_source": "github",
     },
-    description="Example request for creating a work item",
+    description="Example request for creating a task",
 )
 
 ISSUE_UPDATE_EXAMPLE = OpenApiExample(
@@ -121,7 +121,7 @@ ISSUE_UPDATE_EXAMPLE = OpenApiExample(
         "assignees": ["0ec6cfa4-e906-4aad-9390-2df0303a41cd"],
         "labels": ["0ec6cfa4-e906-4aad-9390-2df0303a41ce"],
     },
-    description="Example request for updating a work item",
+    description="Example request for updating a task",
 )
 
 ISSUE_UPSERT_EXAMPLE = OpenApiExample(
@@ -136,7 +136,7 @@ ISSUE_UPSERT_EXAMPLE = OpenApiExample(
         "external_id": "1234567890",
         "external_source": "github",
     },
-    description="Example request for upserting a work item via external ID",
+    description="Example request for upserting a task via external ID",
 )
 
 # Label Examples

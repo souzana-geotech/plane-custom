@@ -4,26 +4,16 @@
  * See the LICENSE file for details.
  */
 
-import { observer } from "mobx-react";
-import { useParams, usePathname } from "next/navigation";
-import { useTheme } from "next-themes";
-// plane imports
-import { useTranslation } from "@plane/i18n";
 import type { THomeWidgetKeys, THomeWidgetProps } from "@plane/types";
-// assets
-import darkWidgetsAsset from "@/app/assets/empty-state/dashboard/widgets-dark.webp?url";
-import lightWidgetsAsset from "@/app/assets/empty-state/dashboard/widgets-light.webp?url";
-// components
-import { SimpleEmptyState } from "@/components/empty-state/simple-empty-state-root";
-// hooks
-import { useHome } from "@/hooks/store/use-home";
-import { useProject } from "@/hooks/store/use-project";
 // local imports
 import { StickiesWidget } from "../stickies/widget";
-import { HomeLoader, NoProjectsEmptyState, RecentActivityWidget } from "./widgets";
+import { RecentActivityWidget } from "./widgets";
 import { DashboardQuickLinks } from "./widgets/links";
-import { ManageWidgetsModal } from "./widgets/manage";
 
+/**
+ * Registry of the user-manageable home widgets (titles drive the "Manage widgets" dialog).
+ * On My Work these render as compact side-panel versions — see `widgets/sidebar/root.tsx`.
+ */
 export const HOME_WIDGETS_LIST: {
   [key in THomeWidgetKeys]: {
     component: React.FC<THomeWidgetProps> | null;
@@ -57,59 +47,3 @@ export const HOME_WIDGETS_LIST: {
     title: "home.quick_tutorial.title",
   },
 };
-
-export const DashboardWidgets = observer(function DashboardWidgets() {
-  // router
-  const { workspaceSlug } = useParams();
-  // navigation
-  const pathname = usePathname();
-  // theme hook
-  const { resolvedTheme } = useTheme();
-  // store hooks
-  const { toggleWidgetSettings, widgetsMap, showWidgetSettings, orderedWidgets, isAnyWidgetEnabled, loading } =
-    useHome();
-  const { loader } = useProject();
-  // plane hooks
-  const { t } = useTranslation();
-  // derived values
-  const noWidgetsResolvedPath = resolvedTheme === "light" ? lightWidgetsAsset : darkWidgetsAsset;
-
-  // derived values
-  const isWikiApp = pathname.includes(`/${workspaceSlug.toString()}/pages`);
-  if (!workspaceSlug) return null;
-  if (loading || loader !== "loaded") return <HomeLoader />;
-
-  return (
-    <div className="relative flex h-full w-full flex-col gap-7">
-      <ManageWidgetsModal
-        workspaceSlug={workspaceSlug.toString()}
-        isModalOpen={showWidgetSettings}
-        handleOnClose={() => toggleWidgetSettings(false)}
-      />
-      {!isWikiApp && <NoProjectsEmptyState />}
-
-      {isAnyWidgetEnabled ? (
-        <div className="flex flex-col">
-          {orderedWidgets.map((key) => {
-            const WidgetComponent = HOME_WIDGETS_LIST[key]?.component;
-            const isEnabled = widgetsMap[key]?.is_enabled;
-            if (!WidgetComponent || !isEnabled) return null;
-            return (
-              <div key={key} className="py-4">
-                <WidgetComponent workspaceSlug={workspaceSlug.toString()} />
-              </div>
-            );
-          })}
-        </div>
-      ) : (
-        <div className="grid h-full w-full place-items-center">
-          <SimpleEmptyState
-            title={t("home.empty.widgets.title")}
-            description={t("home.empty.widgets.description")}
-            assetPath={noWidgetsResolvedPath}
-          />
-        </div>
-      )}
-    </div>
-  );
-});

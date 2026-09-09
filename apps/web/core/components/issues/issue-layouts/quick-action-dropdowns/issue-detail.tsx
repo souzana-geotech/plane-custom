@@ -152,14 +152,14 @@ export const WorkItemDetailQuickActions = observer(function WorkItemDetailQuickA
   const MENU_ITEMS = baseMenuItems
     // oxlint-disable-next-line oxc/no-map-spread
     .map((item) => {
-      // Customize edit action for work item
+      // Customize edit action for task
       if (item.key === "edit") {
         return {
           ...item,
           shouldRender: isEditingAllowed && !isPeekMode,
         };
       }
-      // Customize delete action for work item
+      // Customize delete action for task
       if (item.key === "delete") {
         return {
           ...item,

@@ -1,12 +1,12 @@
 {
   "power_k": {
     "actions_commands": {
-      "bulk_delete_work_items": "作業項目を一括削除"
+      "bulk_delete_work_items": "タスクを一括削除"
     },
     "contextual_actions": {
       "work_item": {
-        "title": "作業項目のアクション",
-        "indicator": "作業項目",
+        "title": "タスクのアクション",
+        "indicator": "タスク",
         "change_state": "ステータスを変更",
         "change_priority": "優先度を変更",
         "change_assignees": "担当者を割り当て",
@@ -20,14 +20,14 @@
         "unsubscribe": "通知の購読を解除",
         "delete": "削除",
         "copy_id": "IDをコピー",
-        "copy_id_toast_success": "作業項目のIDをクリップボードにコピーしました。",
-        "copy_id_toast_error": "作業項目のIDのコピー中にエラーが発生しました。",
+        "copy_id_toast_success": "タスクのIDをクリップボードにコピーしました。",
+        "copy_id_toast_error": "タスクのIDのコピー中にエラーが発生しました。",
         "copy_title": "タイトルをコピー",
-        "copy_title_toast_success": "作業項目のタイトルをクリップボードにコピーしました。",
-        "copy_title_toast_error": "作業項目のタイトルのコピー中にエラーが発生しました。",
+        "copy_title_toast_success": "タスクのタイトルをクリップボードにコピーしました。",
+        "copy_title_toast_error": "タスクのタイトルのコピー中にエラーが発生しました。",
         "copy_url": "URLをコピー",
-        "copy_url_toast_success": "作業項目のURLをクリップボードにコピーしました。",
-        "copy_url_toast_error": "作業項目のURLのコピー中にエラーが発生しました。"
+        "copy_url_toast_success": "タスクのURLをクリップボードにコピーしました。",
+        "copy_url_toast_error": "タスクのURLのコピー中にエラーが発生しました。"
       },
       "cycle": {
         "title": "サイクルのアクション",
@@ -66,7 +66,7 @@
       }
     },
     "creation_actions": {
-      "create_work_item": "新規作業項目",
+      "create_work_item": "新規タスク",
       "create_page": "新規ページ",
       "create_view": "新規ビュー",
       "create_cycle": "新規サイクル",
@@ -83,16 +83,16 @@
       "nav_account_settings": "アカウント設定に移動",
       "open_project": "プロジェクトを開く",
       "nav_projects_list": "プロジェクト一覧に移動",
-      "nav_all_workspace_work_items": "すべての作業項目に移動",
-      "nav_assigned_workspace_work_items": "割り当てられた作業項目に移動",
-      "nav_created_workspace_work_items": "作成した作業項目に移動",
-      "nav_subscribed_workspace_work_items": "購読中の作業項目に移動",
+      "nav_all_workspace_work_items": "すべてのタスクに移動",
+      "nav_assigned_workspace_work_items": "割り当てられたタスクに移動",
+      "nav_created_workspace_work_items": "作成したタスクに移動",
+      "nav_subscribed_workspace_work_items": "購読中のタスクに移動",
       "nav_workspace_analytics": "ワークスペースのアナリティクスに移動",
       "nav_workspace_drafts": "ワークスペースの下書きに移動",
       "nav_workspace_archives": "ワークスペースのアーカイブに移動",
       "open_workspace_setting": "ワークスペースの設定を開く",
       "nav_workspace_settings": "ワークスペースの設定に移動",
-      "nav_project_work_items": "作業項目に移動",
+      "nav_project_work_items": "タスクに移動",
       "open_project_cycle": "サイクルを開く",
       "nav_project_cycles": "サイクルに移動",
       "open_project_module": "モジュールを開く",

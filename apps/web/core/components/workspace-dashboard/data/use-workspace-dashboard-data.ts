@@ -43,7 +43,7 @@ const EMPTY_STATES: IState[] = [];
 /**
  * Loads everything the dashboard needs through existing endpoints and stores:
  *  - modules of all joined projects (workspace modules endpoint)
- *  - work items with relations of every joined project (project issues-detail endpoint)
+ *  - tasks with relations of every joined project (project issues-detail endpoint)
  *  - workspace labels (label store) and states (state store, already loaded by the workspace wrapper)
  * and derives the filtered metrics from them.
  */

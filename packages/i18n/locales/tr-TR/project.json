@@ -19,9 +19,9 @@
     "start_date": "Başlangıç tarihi",
     "end_date": "Bitiş tarihi",
     "in_your_timezone": "Saat diliminizde",
-    "transfer_work_items": "{count} iş öğesini aktar",
+    "transfer_work_items": "{count} görevi aktar",
     "transfer": {
-      "no_cycles_available": "İş öğelerini aktaracak başka döngü bulunamadı."
+      "no_cycles_available": "Görevleri aktaracak başka döngü bulunamadı."
     },
     "date_range": "Tarih aralığı",
     "add_date": "Tarih ekle",
@@ -29,9 +29,9 @@
       "label": "Aktif döngü",
       "progress": "İlerleme",
       "chart": "Burndown grafiği",
-      "priority_issue": "Öncelikli iş öğeleri",
+      "priority_issue": "Öncelikli görevler",
       "assignees": "Atananlar",
-      "issue_burndown": "İş öğesi burndown",
+      "issue_burndown": "Görev burndown",
       "ideal": "İdeal",
       "current": "Mevcut",
       "labels": "Etiketler",
@@ -113,18 +113,18 @@
         }
       },
       "no_issues": {
-        "title": "Döngüye iş öğesi eklenmedi",
-        "description": "Bu döngüde tamamlamak istediğiniz iş öğelerini ekleyin veya oluşturun",
+        "title": "Döngüye görev eklenmedi",
+        "description": "Bu döngüde tamamlamak istediğiniz görevleri ekleyin veya oluşturun",
         "primary_button": {
-          "text": "Yeni iş öğesi oluştur"
+          "text": "Yeni görev oluştur"
         },
         "secondary_button": {
-          "text": "Varolan iş öğesi ekle"
+          "text": "Varolan görev ekle"
         }
       },
       "completed_no_issues": {
-        "title": "Döngüde iş öğesi yok",
-        "description": "Döngüde iş öğesi yok. İş öğeleri ya aktarıldı ya da gizlendi. Gizli iş öğelerini görmek için görüntüleme özelliklerinizi güncelleyin."
+        "title": "Döngüde görev yok",
+        "description": "Döngüde görev yok. Görevler ya aktarıldı ya da gizlendi. Gizli görevleri görmek için görüntüleme özelliklerinizi güncelleyin."
       },
       "active": {
         "title": "Aktif döngü yok",
@@ -144,7 +144,7 @@
         "primary_button": {
           "text": "İlk görünümünüzü oluşturun",
           "comic": {
-            "title": "Görünümler İş Öğesi özellikleri üzerinde çalışır.",
+            "title": "Görünümler Görev özellikleri üzerinde çalışır.",
             "description": "Buradan istediğiniz kadar özellikle filtre içeren bir görünüm oluşturabilirsiniz."
           }
         },
@@ -154,14 +154,14 @@
         }
       },
       "no_archived_issues": {
-        "title": "Henüz arşivlenmiş iş öğesi yok",
-        "description": "Manuel olarak veya otomasyon aracılığıyla, tamamlanan veya iptal edilen iş öğelerini arşivleyebilirsiniz. Arşivlendikten sonra burada bulabilirsiniz.",
+        "title": "Henüz arşivlenmiş görev yok",
+        "description": "Manuel olarak veya otomasyon aracılığıyla, tamamlanan veya iptal edilen görevleri arşivleyebilirsiniz. Arşivlendikten sonra burada bulabilirsiniz.",
         "primary_button": {
           "text": "Otomasyon ayarla"
         }
       },
       "issues_empty_filter": {
-        "title": "Uygulanan filtrelerle eşleşen iş öğesi bulunamadı",
+        "title": "Uygulanan filtrelerle eşleşen görev bulunamadı",
         "secondary_button": {
           "text": "Tüm filtreleri temizle"
         }
@@ -190,25 +190,25 @@
   "project_issues": {
     "empty_state": {
       "no_issues": {
-        "title": "Bir iş öğesi oluşturun ve birine, hatta kendinize atayın",
-        "description": "İş öğelerini işler, görevler, çalışma veya JTBD olarak düşünün. Bir iş öğesi ve alt iş öğeleri genellikle takım üyelerinize atanan zaman temelli eylemlerdir. Takımınız, projenizi hedefine doğru ilerletmek için iş öğeleri oluşturur, atar ve tamamlar.",
+        "title": "Bir görev oluşturun ve birine, hatta kendinize atayın",
+        "description": "Görevleri işler, görevler, çalışma veya JTBD olarak düşünün. Bir görev ve alt görevler genellikle takım üyelerinize atanan zaman temelli eylemlerdir. Takımınız, projenizi hedefine doğru ilerletmek için görevler oluşturur, atar ve tamamlar.",
         "primary_button": {
-          "text": "İlk iş öğenizi oluşturun",
+          "text": "İlk görevinizi oluşturun",
           "comic": {
-            "title": "İş öğeleri Plane'de yapı taşlarıdır.",
-            "description": "Plane UI'yi yeniden tasarlamak, şirketi yeniden markalaştırmak veya yeni yakıt enjeksiyon sistemini başlatmak, muhtemelen alt iş öğeleri olan iş öğesi örnekleridir."
+            "title": "Görevler Plane'de yapı taşlarıdır.",
+            "description": "Plane UI'yi yeniden tasarlamak, şirketi yeniden markalaştırmak veya yeni yakıt enjeksiyon sistemini başlatmak, muhtemelen alt görevler olan görev örnekleridir."
           }
         }
       },
       "no_archived_issues": {
-        "title": "Henüz arşivlenmiş iş öğesi yok",
-        "description": "Tamamlanan veya iptal edilen iş öğelerini manuel olarak veya otomasyonla arşivleyebilirsiniz. Arşivlendikten sonra burada bulabilirsiniz.",
+        "title": "Henüz arşivlenmiş görev yok",
+        "description": "Tamamlanan veya iptal edilen görevleri manuel olarak veya otomasyonla arşivleyebilirsiniz. Arşivlendikten sonra burada bulabilirsiniz.",
         "primary_button": {
           "text": "Otomasyon ayarla"
         }
       },
       "issues_empty_filter": {
-        "title": "Uygulanan filtrelerle eşleşen iş öğesi bulunamadı",
+        "title": "Uygulanan filtrelerle eşleşen görev bulunamadı",
         "secondary_button": {
           "text": "Tüm filtreleri temizle"
         }
@@ -225,7 +225,7 @@
     "empty_state": {
       "general": {
         "title": "Proje kilometre taşlarınızı Modüllere eşleyin ve toplu işleri kolayca takip edin.",
-        "description": "Mantıksal bir üst öğeye ait iş öğeleri grubu bir modül oluşturur. Bunları bir kilometre taşını takip etmenin bir yolu olarak düşünün. Kendi dönemleri ve son teslim tarihleri ile birlikte, bir kilometre taşına ne kadar yakın veya uzak olduğunuzu görmenize yardımcı olacak analitiklere sahiptirler.",
+        "description": "Mantıksal bir üst öğeye ait görevler grubu bir modül oluşturur. Bunları bir kilometre taşını takip etmenin bir yolu olarak düşünün. Kendi dönemleri ve son teslim tarihleri ile birlikte, bir kilometre taşına ne kadar yakın veya uzak olduğunuzu görmenize yardımcı olacak analitiklere sahiptirler.",
         "primary_button": {
           "text": "İlk modülünüzü oluşturun",
           "comic": {
@@ -235,13 +235,13 @@
         }
       },
       "no_issues": {
-        "title": "Modülde iş öğesi yok",
-        "description": "Bu modülün bir parçası olarak gerçekleştirmek istediğiniz iş öğelerini oluşturun veya ekleyin",
+        "title": "Modülde görev yok",
+        "description": "Bu modülün bir parçası olarak gerçekleştirmek istediğiniz görevleri oluşturun veya ekleyin",
         "primary_button": {
-          "text": "Yeni iş öğeleri oluştur"
+          "text": "Yeni görevler oluştur"
         },
         "secondary_button": {
-          "text": "Varolan bir iş öğesi ekle"
+          "text": "Varolan bir görev ekle"
         }
       },
       "archived": {
@@ -272,7 +272,7 @@
     "empty_state": {
       "general": {
         "title": "Bir not, belge veya tam bir bilgi bankası yazın. Plane'in AI asistanı Galileo'nun başlamanıza yardımcı olmasını sağlayın",
-        "description": "Sayfalar Plane'de düşüncelerinizi döktüğünüz alanlardır. Toplantı notları alın, kolayca biçimlendirin, iş öğelerini yerleştirin, bir bileşen kitaplığı kullanarak düzenleyin ve hepsini proje bağlamınızda tutun. Herhangi bir belgeyi hızlıca tamamlamak için bir kısayol veya düğme ile Plane'in AI'sı Galileo'yu çağırın.",
+        "description": "Sayfalar Plane'de düşüncelerinizi döktüğünüz alanlardır. Toplantı notları alın, kolayca biçimlendirin, görevleri yerleştirin, bir bileşen kitaplığı kullanarak düzenleyin ve hepsini proje bağlamınızda tutun. Herhangi bir belgeyi hızlıca tamamlamak için bir kısayol veya düğme ile Plane'in AI'sı Galileo'yu çağırın.",
         "primary_button": {
           "text": "İlk sayfanızı oluşturun"
         }
@@ -301,7 +301,7 @@
     "empty_state": {
       "inbox": {
         "title": "Talep bu proje için etkin değil.",
-        "description": "Talep, projenize gelen istekleri yönetmenize ve bunları iş akışınıza iş öğesi olarak eklemenize yardımcı olur. İstekleri yönetmek için proje ayarlarından talebi etkinleştirin.",
+        "description": "Talep, projenize gelen istekleri yönetmenize ve bunları iş akışınıza görev olarak eklemenize yardımcı olur. İstekleri yönetmek için proje ayarlarından talebi etkinleştirin.",
         "primary_button": {
           "text": "Özellikleri yönet"
         }
@@ -353,7 +353,7 @@
     "order_by": {
       "name": "Ad",
       "progress": "İlerleme",
-      "issues": "İş öğesi sayısı",
+      "issues": "Görev sayısı",
       "due_date": "Son tarih",
       "created_at": "Oluşturulma tarihi",
       "manual": "Manuel"

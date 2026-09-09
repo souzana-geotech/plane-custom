@@ -53,7 +53,7 @@
   "workspace_dashboard": {
     "title": "Operasyon panosu",
     "subtitle": "Müşteri işleri, çalışma, departmanlar ve çalışanlar için yönetim görünürlüğü",
-    "coverage_note": "Teslimatlar, müşteri incelemeleri, ekipman ve satışlar gösterilmiyor çünkü bu çalışma alanında bunlara ait veri yok. Çalışan planlama çakışmaları saat bilgisi gerektirir; iş öğelerinde saat bilgisi bulunmaz.",
+    "coverage_note": "Teslimatlar, müşteri incelemeleri, ekipman ve satışlar gösterilmiyor çünkü bu çalışma alanında bunlara ait veri yok. Çalışan planlama çakışmaları saat bilgisi gerektirir; görevlerde saat bilgisi bulunmaz.",
     "error": {
       "title": "Pano yüklenemedi",
       "description": "Bir veya daha fazla istek başarısız oldu. Yeniden deneyin veya sayfayı yenileyin.",
@@ -61,7 +61,7 @@
     },
     "empty": {
       "title": "Henüz operasyon verisi yok",
-      "description": "Müşteri işleri için Modüller ve gerçek çalışma için iş öğeleri oluşturun; bu pano dolacaktır."
+      "description": "Müşteri işleri için Modüller ve gerçek çalışma için görevler oluşturun; bu pano dolacaktır."
     },
     "filters": {
       "project": "Proje",
@@ -77,13 +77,13 @@
       "jobs_at_risk": "İlgi gerektiren işler",
       "jobs_at_risk_hint": "Riskli, gecikmiş veya engellenmiş aktif işler",
       "overdue_tasks": "Gecikmiş görevler",
-      "overdue_tasks_hint": "Bitiş tarihi geçmiş açık iş öğeleri",
+      "overdue_tasks_hint": "Bitiş tarihi geçmiş açık görevler",
       "due_this_week": "Bu hafta bitecek",
-      "due_this_week_hint": "Önümüzdeki 7 gün içinde bitmesi gereken açık iş öğeleri",
+      "due_this_week_hint": "Önümüzdeki 7 gün içinde bitmesi gereken açık görevler",
       "blocked_tasks": "Engellenen görevler",
-      "blocked_tasks_hint": "Başka açık çalışmalar tarafından engellenen açık iş öğeleri",
+      "blocked_tasks_hint": "Başka açık çalışmalar tarafından engellenen açık görevler",
       "no_due_date": "Bitiş tarihi yok",
-      "no_due_date_hint": "Bitiş tarihi olmayan açık iş öğeleri"
+      "no_due_date_hint": "Bitiş tarihi olmayan açık görevler"
     },
     "severity": {
       "critical": "Kritik",
@@ -137,7 +137,7 @@
     },
     "employees": {
       "title": "Çalışan iş yükü",
-      "description": "Çalışan başına açık iş öğeleri. Kapasite takip edilmediğinden kullanım oranı yerine sayılar gösterilir.",
+      "description": "Çalışan başına açık görevler. Kapasite takip edilmediğinden kullanım oranı yerine sayılar gösterilir.",
       "empty": "Atanmış açık iş yok",
       "columns": {
         "employee": "Çalışan",
@@ -150,8 +150,8 @@
     "pipeline": {
       "title": "İş akışı hattı",
       "description": "Çalışmanın iş akışı durumlarına göre dağılımı",
-      "total": "{count, plural, one {# iş öğesi} other {# iş öğesi}}",
-      "empty": "Henüz iş öğesi yok"
+      "total": "{count, plural, one {# görev} other {# görev}}",
+      "empty": "Henüz görev yok"
     },
     "departments": {
       "title": "Departman iş yükü",
@@ -168,7 +168,7 @@
     },
     "attention": {
       "title": "İlgi gerektiren çalışma",
-      "description": "Gecikmiş, engellenmiş ve yakında bitecek iş öğeleri",
+      "description": "Gecikmiş, engellenmiş ve yakında bitecek görevler",
       "empty": "İlgi gerektiren bir şey yok",
       "overdue_by": "{count, plural, one {# gün gecikmiş} other {# gün gecikmiş}}",
       "blocked": "Engellenmiş",
@@ -179,7 +179,7 @@
     "empty_state": {
       "general": {
         "title": "Projelerinizin, aktivitenizin ve metriklerinizin genel görünümü",
-        "description": "Plane'e hoş geldiniz, sizi aramızda görmekten heyecan duyuyoruz. İlk projenizi oluşturun ve iş öğelerinizi takip edin, bu sayfa ilerlemenize yardımcı olacak bir alana dönüşecek. Yöneticiler ayrıca ekiplerinin ilerlemesine yardımcı olacak öğeler görecek.",
+        "description": "Plane'e hoş geldiniz, sizi aramızda görmekten heyecan duyuyoruz. İlk projenizi oluşturun ve görevlerinizi takip edin, bu sayfa ilerlemenize yardımcı olacak bir alana dönüşecek. Yöneticiler ayrıca ekiplerinin ilerlemesine yardımcı olacak öğeler görecek.",
         "primary_button": {
           "text": "İlk projenizi oluşturun",
           "comic": {
@@ -198,7 +198,7 @@
       "busy": "Yoğun · {count}",
       "assigned": "Atanmış · {count}",
       "available": "Müsait",
-      "tooltip": "Bugün için planlanmış {count, plural, one {# açık iş öğesi} other {# açık iş öğesi}}"
+      "tooltip": "Bugün için planlanmış {count, plural, one {# açık görev} other {# açık görev}}"
     },
     "summary": {
       "employees": "Gösterilen çalışanlar",
@@ -206,7 +206,7 @@
       "with_overlaps": "Çakışmalı",
       "available": "Bugün müsait",
       "scheduled": "Planlanmış atamalar",
-      "undated": "Tarihsiz iş öğeleri"
+      "undated": "Tarihsiz görevler"
     },
     "filters": {
       "all": "Tümü",
@@ -245,7 +245,7 @@
       "overlap_tooltip": "Aynı anda birden fazla atamanın bulunduğu {count, plural, one {# dönem} other {# dönem}} var. En yüksek: aynı anda {peak}.",
       "overdue": "{count, plural, one {# gecikmiş} other {# gecikmiş}}",
       "undated": "{count, plural, one {# tarihsiz} other {# tarihsiz}}",
-      "undated_tooltip": "Bu çalışana atanmış, başlangıç ve bitiş tarihi bulunmadığı için zaman çizelgesine yerleştirilemeyen açık iş öğeleri.",
+      "undated_tooltip": "Bu çalışana atanmış, başlangıç ve bitiş tarihi bulunmadığı için zaman çizelgesine yerleştirilemeyen açık görevler.",
       "next": "Sıradaki: {name} · {date}",
       "nothing_next": "Sırada planlanmış bir şey yok"
     },
@@ -260,12 +260,12 @@
     },
     "error": {
       "title": "Çalışan Gantt şeması yüklenemedi",
-      "description": "İş öğesi isteği başarısız oldu. Yeniden deneyin veya sayfayı yenileyin.",
+      "description": "Görev isteği başarısız oldu. Yeniden deneyin veya sayfayı yenileyin.",
       "retry": "Yeniden dene"
     },
     "empty": {
       "title": "Henüz planlanmış iş yok",
-      "description": "İş öğelerine başlangıç ve bitiş tarihi verip kişilere atadığınızda bu görünüm dolacaktır."
+      "description": "Görevlere başlangıç ve bitiş tarihi verip kişilere atadığınızda bu görünüm dolacaktır."
     },
     "empty_today": {
       "title": "Bugün için planlanmış işi olan çalışan yok",
@@ -285,26 +285,26 @@
     "page_label": "{workspace} - Analitik",
     "open_tasks": "Toplam açık görev",
     "error": "Veri alınırken bir hata oluştu.",
-    "work_items_closed_in": "Kapanan iş öğeleri",
+    "work_items_closed_in": "Kapanan görevler",
     "selected_projects": "Seçilen projeler",
     "total_members": "Toplam üye",
     "total_cycles": "Toplam döngü",
     "total_modules": "Toplam modül",
     "pending_work_items": {
-      "title": "Bekleyen iş öğeleri",
-      "empty_state": "Ekip arkadaşlarınız tarafından bekleyen iş öğelerinin analizi burada görünür."
+      "title": "Bekleyen görevler",
+      "empty_state": "Ekip arkadaşlarınız tarafından bekleyen görevlerin analizi burada görünür."
     },
     "work_items_closed_in_a_year": {
-      "title": "Bir yılda kapanan iş öğeleri",
-      "empty_state": "Aynı grafikte analizini görmek için iş öğelerini kapatın."
+      "title": "Bir yılda kapanan görevler",
+      "empty_state": "Aynı grafikte analizini görmek için görevleri kapatın."
     },
     "most_work_items_created": {
-      "title": "En çok iş öğesi oluşturan",
-      "empty_state": "Ekip arkadaşlarınız ve onların oluşturduğu iş öğesi sayıları burada görünür."
+      "title": "En çok görev oluşturan",
+      "empty_state": "Ekip arkadaşlarınız ve onların oluşturduğu görev sayıları burada görünür."
     },
     "most_work_items_closed": {
-      "title": "En çok iş öğesi kapatan",
-      "empty_state": "Ekip arkadaşlarınız ve onların kapattığı iş öğesi sayıları burada görünür."
+      "title": "En çok görev kapatan",
+      "empty_state": "Ekip arkadaşlarınız ve onların kapattığı görev sayıları burada görünür."
     },
     "tabs": {
       "scope_and_demand": "Kapsam ve Talep",
@@ -325,15 +325,15 @@
     "empty_state": {
       "project_insights": {
         "title": "Henüz veri yok",
-        "description": "Size atanan iş öğeleri, duruma göre ayrılarak burada gösterilecektir."
+        "description": "Size atanan görevler, duruma göre ayrılarak burada gösterilecektir."
       },
       "created_vs_resolved": {
         "title": "Henüz veri yok",
-        "description": "Zaman içinde oluşturulan ve çözümlenen iş öğeleri burada gösterilecektir."
+        "description": "Zaman içinde oluşturulan ve çözümlenen görevler burada gösterilecektir."
       },
       "customized_insights": {
         "title": "Henüz veri yok",
-        "description": "Size atanan iş öğeleri, duruma göre ayrılarak burada gösterilecektir."
+        "description": "Size atanan görevler, duruma göre ayrılarak burada gösterilecektir."
       },
       "general": {
         "title": "İlerlemeyi, iş yüklerini ve tahsisleri takip edin. Eğilimleri tespit edin, engelleri kaldırın ve işi hızlandırın",
@@ -348,19 +348,19 @@
       },
       "cycle_progress": {
         "title": "Henüz veri yok",
-        "description": "Döngü ilerleme analizleri burada görünecek. İlerlemesini izlemeye başlamak için döngülere iş öğeleri ekleyin."
+        "description": "Döngü ilerleme analizleri burada görünecek. İlerlemesini izlemeye başlamak için döngülere görevler ekleyin."
       },
       "module_progress": {
         "title": "Henüz veri yok",
-        "description": "Modül ilerleme analizleri burada görünecek. İlerlemesini izlemeye başlamak için modüllere iş öğeleri ekleyin."
+        "description": "Modül ilerleme analizleri burada görünecek. İlerlemesini izlemeye başlamak için modüllere görevler ekleyin."
       },
       "intake_trends": {
         "title": "Henüz veri yok",
-        "description": "Intake eğilim analizleri burada görünecek. Eğilimleri izlemeye başlamak için intake'e iş öğeleri ekleyin."
+        "description": "Intake eğilim analizleri burada görünecek. Eğilimleri izlemeye başlamak için intake'e görevler ekleyin."
       }
     },
     "upgrade_to_plan": "{tab} sekmesini açmak için {plan} planına geçin",
-    "workitem_resolved_vs_pending": "Çözülen vs bekleyen iş öğeleri",
+    "workitem_resolved_vs_pending": "Çözülen vs bekleyen görevler",
     "projects_by_status": "Durumuna göre projeler",
     "active_users": "Aktif kullanıcılar",
     "intake_trends": "Alım Eğilimleri"
@@ -385,7 +385,7 @@
       "permission": "Bu işlemi yapma izniniz yok.",
       "cycle_delete": "Döngü silinemedi",
       "module_delete": "Modül silinemedi",
-      "issue_delete": "İş öğesi silinemedi"
+      "issue_delete": "Görev silinemedi"
     },
     "state": {
       "backlog": "Bekleme Listesi",
@@ -422,7 +422,7 @@
       },
       "no_projects": {
         "title": "Proje yok",
-        "description": "İş öğesi oluşturmak veya işlerinizi yönetmek için bir proje oluşturmalı veya bir parçası olmalısınız.",
+        "description": "Görev oluşturmak veya işlerinizi yönetmek için bir proje oluşturmalı veya bir parçası olmalısınız.",
         "primary_button": {
           "text": "İlk projenizi başlatın",
           "comic": {
@@ -444,33 +444,33 @@
     "add_view": "Görünüm ekle",
     "empty_state": {
       "all-issues": {
-        "title": "Projede iş öğesi yok",
+        "title": "Projede görev yok",
         "description": "İlk projeniz tamamlandı! Şimdi, işlerinizi izlenebilir parçalara bölün. Hadi başlayalım!",
         "primary_button": {
-          "text": "Yeni iş öğesi oluştur"
+          "text": "Yeni görev oluştur"
         }
       },
       "assigned": {
-        "title": "Henüz iş öğesi yok",
-        "description": "Size atanan iş öğeleri buradan takip edilebilir.",
+        "title": "Henüz görev yok",
+        "description": "Size atanan görevler buradan takip edilebilir.",
         "primary_button": {
-          "text": "Yeni iş öğesi oluştur"
+          "text": "Yeni görev oluştur"
         }
       },
       "created": {
-        "title": "Henüz iş öğesi yok",
-        "description": "Sizin oluşturduğunuz tüm iş öğeleri burada görünecek, doğrudan buradan takip edin.",
+        "title": "Henüz görev yok",
+        "description": "Sizin oluşturduğunuz tüm görevler burada görünecek, doğrudan buradan takip edin.",
         "primary_button": {
-          "text": "Yeni iş öğesi oluştur"
+          "text": "Yeni görev oluştur"
         }
       },
       "subscribed": {
-        "title": "Henüz iş öğesi yok",
-        "description": "İlgilendiğiniz iş öğelerine abone olun, hepsini buradan takip edin."
+        "title": "Henüz görev yok",
+        "description": "İlgilendiğiniz görevlere abone olun, hepsini buradan takip edin."
       },
       "custom-view": {
-        "title": "Henüz iş öğesi yok",
-        "description": "Filtrelere uyan iş öğeleri burada takip edilebilir."
+        "title": "Henüz görev yok",
+        "description": "Filtrelere uyan görevler burada takip edilebilir."
       }
     },
     "delete_view": {
@@ -479,10 +479,10 @@
     }
   },
   "workspace_draft_issues": {
-    "draft_an_issue": "Taslak iş öğesi oluştur",
+    "draft_an_issue": "Taslak görev oluştur",
     "empty_state": {
-      "title": "Yarı yazılmış iş öğeleri ve yakında yorumlar burada görünecek.",
-      "description": "Bunu denemek için bir iş öğesi eklemeye başlayın ve yarıda bırakın veya ilk taslağınızı aşağıda oluşturun. 😉",
+      "title": "Yarı yazılmış görevler ve yakında yorumlar burada görünecek.",
+      "description": "Bunu denemek için bir görev eklemeye başlayın ve yarıda bırakın veya ilk taslağınızı aşağıda oluşturun. 😉",
       "primary_button": {
         "text": "İlk taslağınızı oluşturun"
       }
@@ -494,7 +494,7 @@
     "toasts": {
       "created": {
         "success": "Taslak oluşturuldu",
-        "error": "İş öğesi oluşturulamadı. Lütfen tekrar deneyin."
+        "error": "Görev oluşturulamadı. Lütfen tekrar deneyin."
       },
       "deleted": {
         "success": "Taslak silindi"
@@ -505,7 +505,7 @@
     "empty_state": {
       "general": {
         "title": "Bir not, bir belge veya tam bir bilgi tabanı yazın. Başlamanıza yardımcı olması için Plane'in yapay zeka asistanı Galileo'yu alın",
-        "description": "Sayfalar, Plane'deki düşünce saksı alanıdır. Toplantı notları alın, bunları kolayca biçimlendirin, iş öğelerini gömin, bunları bir bileşen kitaplığı kullanarak düzenleyin ve hepsini projenizin bağlamında tutun. Herhangi bir belgeyi kısa sürede yapmak için, Plane'in yapay zekası Galileo'yu bir kısayolla veya bir düğmeye tıklayarak çağırın.",
+        "description": "Sayfalar, Plane'deki düşünce saksı alanıdır. Toplantı notları alın, bunları kolayca biçimlendirin, görevleri gömin, bunları bir bileşen kitaplığı kullanarak düzenleyin ve hepsini projenizin bağlamında tutun. Herhangi bir belgeyi kısa sürede yapmak için, Plane'in yapay zekası Galileo'yu bir kısayolla veya bir düğmeye tıklayarak çağırın.",
         "primary_button": {
           "text": "İlk sayfanızı oluşturun"
         }

@@ -1,9 +1,9 @@
 {
   "workflows": {
     "workflow_states": {
-      "work_item_creation": "Yeni iş öğelerine izin ver",
-      "work_item_creation_disable_tooltip": "Bu durum için iş öğesi oluşturma devre dışı",
-      "default_state": "Varsayılan durum tüm üyelerin yeni iş öğeleri oluşturmasına izin verir. Bu değiştirilemez",
+      "work_item_creation": "Yeni görevlere izin ver",
+      "work_item_creation_disable_tooltip": "Bu durum için görev oluşturma devre dışı",
+      "default_state": "Varsayılan durum tüm üyelerin yeni görevler oluşturmasına izin verir. Bu değiştirilemez",
       "state_change_count": "{count, plural, one {1 izin verilen durum değişikliği} other {{count} izin verilen durum değişikliği}}",
       "movers_count": "{count, plural, one {1 listelenmiş inceleyici} other {{count} listelenmiş inceleyici}}",
       "state_changes": {
@@ -14,19 +14,19 @@
         "move_to": "Durumu şuna değiştir",
         "movers": {
           "label": "İncelendiğinde",
-          "tooltip": "İnceleyiciler, iş öğelerini bir durumdan diğerine taşıma izni olan kişilerdir.",
+          "tooltip": "İnceleyiciler, görevleri bir durumdan diğerine taşıma izni olan kişilerdir.",
           "add": "İnceleyici ekle"
         }
       }
     },
     "workflow_disabled": {
-      "title": "Bu iş öğesini buraya taşıyamazsınız."
+      "title": "Bu görevi buraya taşıyamazsınız."
     },
     "workflow_enabled": {
       "label": "Durum değişikliği"
     },
     "workflow_tree": {
-      "label": "Şuradaki iş öğeleri için",
+      "label": "Şuradaki görevler için",
       "state_change_label": "şuraya taşıyabilir"
     },
     "empty_state": {

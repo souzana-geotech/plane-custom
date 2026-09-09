@@ -2,16 +2,16 @@
   "templates": {
     "settings": {
       "title": "模板",
-      "description": "使用模板可以节省80%创建项目、工作项和页面的时间。",
+      "description": "使用模板可以节省80%创建项目、任务和页面的时间。",
       "new_project_template": "新建项目模板",
-      "new_work_item_template": "新建工作项模板",
+      "new_work_item_template": "新建任务模板",
       "new_page_template": "新建页面模板",
       "options": {
         "project": {
           "label": "项目模板"
         },
         "work_item": {
-          "label": "工作项模板"
+          "label": "任务模板"
         },
         "page": {
           "label": "页面模板"
@@ -70,7 +70,7 @@
         "work_item": {
           "template": {
             "name": {
-              "placeholder": "为您的工作项模板命名。",
+              "placeholder": "为您的任务模板命名。",
               "validation": {
                 "required": "模板名称是必填项",
                 "maxLength": "模板名称应少于255个字符"
@@ -81,18 +81,18 @@
             }
           },
           "name": {
-            "placeholder": "为此工作项提供标题。",
+            "placeholder": "为此任务提供标题。",
             "validation": {
-              "required": "工作项标题是必填项",
-              "maxLength": "工作项标题应少于255个字符"
+              "required": "任务标题是必填项",
+              "maxLength": "任务标题应少于255个字符"
             }
           },
           "description": {
-            "placeholder": "描述此工作项，以便清楚地了解完成后您将实现什么。"
+            "placeholder": "描述此任务，以便清楚地了解完成后您将实现什么。"
           },
           "button": {
-            "create": "创建工作项模板",
-            "update": "更新工作项模板"
+            "create": "创建任务模板",
+            "update": "更新任务模板"
           }
         },
         "page": {
@@ -227,23 +227,23 @@
     "empty_state": {
       "upgrade": {
         "title": "模板",
-        "description": "使用Plane中的项目、工作项和页面模板，您无需从头开始创建项目或手动设置工作项属性。",
+        "description": "使用Plane中的项目、任务和页面模板，您无需从头开始创建项目或手动设置任务属性。",
         "sub_description": "使用模板可以收回80%的管理时间。"
       },
       "no_templates": {
         "button": "创建您的第一个模板"
       },
       "no_labels": {
-        "description": " 还没有标签。创建标签以帮助组织和筛选项目中的工作项。"
+        "description": " 还没有标签。创建标签以帮助组织和筛选项目中的任务。"
       },
       "no_modules": {
         "description": "还没有模块。将工作组织成具有专门负责人和受理人的子项目。"
       },
       "no_work_items": {
-        "description": "还没有工作项。添加一个以更好地组织您的工作。"
+        "description": "还没有任务。添加一个以更好地组织您的工作。"
       },
       "no_sub_work_items": {
-        "description": "还没有子工作项。添加一个以更好地组织您的工作。"
+        "description": "还没有子任务。添加一个以更好地组织您的工作。"
       },
       "page": {
         "no_templates": {
@@ -322,7 +322,7 @@
         "page": "从模板中选择"
       },
       "tooltip": {
-        "work_item": "选择工作项模板"
+        "work_item": "选择任务模板"
       },
       "no_results": {
         "work_item": "未找到模板。",

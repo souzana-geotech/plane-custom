@@ -112,7 +112,7 @@ export const IssueDetailWidgetModals = observer(function IssueDetailWidgetModals
       setToast({
         type: TOAST_TYPE.ERROR,
         title: "Error!",
-        message: "Please select at least one work item.",
+        message: "Please select at least one task.",
       });
       return;
     }

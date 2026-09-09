@@ -82,7 +82,7 @@
         "export_separate_files": "Exportovať dáta do samostatných súborov",
         "exporting_projects": "Exportovanie projektu",
         "format": "Formát",
-        "filters_info": "Použite filtre na export konkrétnych pracovných položiek podľa vašich kritérií.",
+        "filters_info": "Použite filtre na export konkrétnych úloh podľa vašich kritérií.",
         "modal": {
           "title": "Exportovať do",
           "toasts": {
@@ -272,12 +272,12 @@
       "templates": {
         "title": "Šablóny",
         "heading": "Šablóny",
-        "description": "Ušetrite 80 % času stráveného vytváraním projektov, pracovných položiek a stránok pomocou šablón."
+        "description": "Ušetrite 80 % času stráveného vytváraním projektov, úloh a stránok pomocou šablón."
       },
       "relations": {
         "title": "Vzťahy",
         "heading": "Vzťahy",
-        "description": "Vytvárajte a spravujte typy vzťahov, ktoré prepájajú pracovné položky naprieč vaším pracovným priestorom."
+        "description": "Vytvárajte a spravujte typy vzťahov, ktoré prepájajú úlohy naprieč vaším pracovným priestorom."
       },
       "cancel_trial": {
         "title": "Najprv zrušte vašu skúšobnú verziu.",
@@ -454,7 +454,7 @@
         "app_consent_unapproved_description": "Pred prepojením s pracovným priestorom sa uistite, že tejto aplikácii dôverujete.",
         "go_to_app": "Prejsť na aplikáciu",
         "enable_app_mentions": "Povoliť zmienky o aplikácii",
-        "enable_app_mentions_tooltip": "Keď je toto povolené, používatelia môžu spomenúť alebo priradiť pracovné položky tejto aplikácii.",
+        "enable_app_mentions_tooltip": "Keď je toto povolené, používatelia môžu spomenúť alebo priradiť úlohy tejto aplikácii.",
         "scopes": "Rozsahy",
         "select_scopes": "Vybrať rozsahy",
         "read_access_to": "Prístup len na čítanie k",

@@ -72,10 +72,10 @@ SPECTACULAR_SETTINGS = {
             "description": (
                 "**Sprint & Development Cycles**\n\n"
                 "Create and manage development cycles (sprints) to organize work into time-boxed iterations. "
-                "Track progress, assign work items, and monitor team velocity.\n\n"
+                "Track progress, assign tasks, and monitor team velocity.\n\n"
                 "*Key Features:*\n"
                 "- Create and configure development cycles\n"
-                "- Assign work items to cycles\n"
+                "- Assign tasks to cycles\n"
                 "- Track cycle progress and completion\n"
                 "- Generate cycle analytics and reports\n\n"
                 "*Use Cases:* Sprint planning, iterative development, progress tracking, team velocity."
@@ -85,15 +85,15 @@ SPECTACULAR_SETTINGS = {
         {
             "name": "Intake",
             "description": (
-                "**Work Item Intake Queue**\n\n"
-                "Manage incoming work items through a dedicated intake queue for triage and review. "
-                "Submit, update, and process work items before they enter the main project workflow.\n\n"
+                "**Task Intake Queue**\n\n"
+                "Manage incoming tasks through a dedicated intake queue for triage and review. "
+                "Submit, update, and process tasks before they enter the main project workflow.\n\n"
                 "*Key Features:*\n"
-                "- Submit work items to intake queue\n"
-                "- Review and triage incoming work items\n"
-                "- Update intake work item status and properties\n"
-                "- Accept, reject, or modify work items before approval\n\n"
-                "*Use Cases:* Work item triage, external submissions, quality review, approval workflows."
+                "- Submit tasks to intake queue\n"
+                "- Review and triage incoming tasks\n"
+                "- Update intake task status and properties\n"
+                "- Accept, reject, or modify tasks before approval\n\n"
+                "*Use Cases:* Task triage, external submissions, quality review, approval workflows."
             ),
         },
         # Project Organization
@@ -101,11 +101,11 @@ SPECTACULAR_SETTINGS = {
             "name": "Labels",
             "description": (
                 "**Labels & Tags**\n\n"
-                "Create and manage labels to categorize and organize work items. Use color-coded labels "
+                "Create and manage labels to categorize and organize tasks. Use color-coded labels "
                 "for easy identification, filtering, and project organization.\n\n"
                 "*Key Features:*\n"
                 "- Create custom labels with colors and descriptions\n"
-                "- Apply labels to work items for categorization\n"
+                "- Apply labels to tasks for categorization\n"
                 "- Filter and search by labels\n"
                 "- Organize labels across projects\n\n"
                 "*Use Cases:* Priority marking, feature categorization, bug classification, team organization."
@@ -131,11 +131,11 @@ SPECTACULAR_SETTINGS = {
             "name": "Modules",
             "description": (
                 "**Feature Modules**\n\n"
-                "Group related work items into modules for better organization and tracking. "
+                "Group related tasks into modules for better organization and tracking. "
                 "Plan features, track progress, and manage deliverables at a higher level.\n\n"
                 "*Key Features:*\n"
                 "- Create and organize feature modules\n"
-                "- Group work items by module\n"
+                "- Group tasks by module\n"
                 "- Track module progress and completion\n"
                 "- Manage module leads and assignments\n\n"
                 "*Use Cases:* Feature planning, release organization, progress tracking, team coordination."
@@ -161,12 +161,12 @@ SPECTACULAR_SETTINGS = {
             "name": "States",
             "description": (
                 "**Workflow States**\n\n"
-                "Define custom workflow states for work items to match your team's process. "
-                "Configure state transitions and track work item progress through different stages.\n\n"
+                "Define custom workflow states for tasks to match your team's process. "
+                "Configure state transitions and track task progress through different stages.\n\n"
                 "*Key Features:*\n"
                 "- Create custom workflow states\n"
                 "- Configure state transitions and rules\n"
-                "- Track work item progress through states\n"
+                "- Track task progress through states\n"
                 "- Set state-based permissions and automation\n\n"
                 "*Use Cases:* Custom workflows, status tracking, process automation, progress monitoring."
             ),
@@ -186,43 +186,43 @@ SPECTACULAR_SETTINGS = {
                 "*Use Cases:* Profile display, user context, account information, authentication status."
             ),
         },
-        # Work Item Management
+        # Task Management
         {
-            "name": "Work Item Activity",
+            "name": "Task Activity",
             "description": (
                 "**Activity History & Search**\n\n"
-                "View activity history and search for work items across the workspace. "
-                "Get detailed activity logs and find work items using text search.\n\n"
+                "View activity history and search for tasks across the workspace. "
+                "Get detailed activity logs and find tasks using text search.\n\n"
                 "*Key Features:*\n"
-                "- View work item activity history\n"
-                "- Search work items across workspace\n"
+                "- View task activity history\n"
+                "- Search tasks across workspace\n"
                 "- Track changes and modifications\n"
                 "- Filter search results by project\n\n"
-                "*Use Cases:* Activity tracking, work item discovery, change history, workspace search."
+                "*Use Cases:* Activity tracking, task discovery, change history, workspace search."
             ),
         },
         {
-            "name": "Work Item Attachments",
+            "name": "Task Attachments",
             "description": (
-                "**Work Item File Attachments**\n\n"
-                "Generate presigned URLs for uploading files directly to specific work items. "
-                "Upload and manage attachments associated with work items.\n\n"
+                "**Task File Attachments**\n\n"
+                "Generate presigned URLs for uploading files directly to specific tasks. "
+                "Upload and manage attachments associated with tasks.\n\n"
                 "*Key Features:*\n"
-                "- Generate presigned URLs for work item attachments\n"
-                "- Upload files directly to work items\n"
+                "- Generate presigned URLs for task attachments\n"
+                "- Upload files directly to tasks\n"
                 "- Retrieve and manage attachment metadata\n"
-                "- Delete attachments from work items\n\n"
+                "- Delete attachments from tasks\n\n"
                 "*Use Cases:* Screenshots, error logs, design files, supporting documents."
             ),
         },
         {
-            "name": "Work Item Comments",
+            "name": "Task Comments",
             "description": (
                 "**Comments & Discussions**\n\n"
-                "Add comments and discussions to work items for team collaboration. "
+                "Add comments and discussions to tasks for team collaboration. "
                 "Support threaded conversations, mentions, and rich text formatting.\n\n"
                 "*Key Features:*\n"
-                "- Add comments to work items\n"
+                "- Add comments to tasks\n"
                 "- Thread conversations and replies\n"
                 "- Mention users and trigger notifications\n"
                 "- Rich text and markdown support\n\n"
@@ -230,13 +230,13 @@ SPECTACULAR_SETTINGS = {
             ),
         },
         {
-            "name": "Work Item Links",
+            "name": "Task Links",
             "description": (
                 "**External Links & References**\n\n"
-                "Link work items to external resources like documentation, repositories, or design files. "
-                "Maintain connections between work items and external systems.\n\n"
+                "Link tasks to external resources like documentation, repositories, or design files. "
+                "Maintain connections between tasks and external systems.\n\n"
                 "*Key Features:*\n"
-                "- Add external URL links to work items\n"
+                "- Add external URL links to tasks\n"
                 "- Validate and preview linked resources\n"
                 "- Organize links by type and category\n"
                 "- Track link usage and access\n\n"
@@ -244,13 +244,13 @@ SPECTACULAR_SETTINGS = {
             ),
         },
         {
-            "name": "Work Items",
+            "name": "Tasks",
             "description": (
-                "**Work Items & Tasks**\n\n"
-                "Create and manage work items like tasks, bugs, features, and user stories. "
+                "**Tasks & Tasks**\n\n"
+                "Create and manage tasks like tasks, bugs, features, and user stories. "
                 "The core entities for tracking work in your projects.\n\n"
                 "*Key Features:*\n"
-                "- Create, update, and manage work items\n"
+                "- Create, update, and manage tasks\n"
                 "- Assign to team members and set priorities\n"
                 "- Track progress through workflow states\n"
                 "- Set due dates, estimates, and relationships\n\n"

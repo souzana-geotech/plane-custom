@@ -2,19 +2,19 @@
   "active_cycle": {
     "empty_state": {
       "progress": {
-        "title": "Aggiungi elementi di lavoro al ciclo per visualizzarne l'avanzamento"
+        "title": "Aggiungi attività al ciclo per visualizzarne l'avanzamento"
       },
       "chart": {
-        "title": "Aggiungi elementi di lavoro al ciclo per visualizzare il grafico di burndown."
+        "title": "Aggiungi attività al ciclo per visualizzare il grafico di burndown."
       },
       "priority_issue": {
-        "title": "Visualizza in anteprima gli elementi di lavoro ad alta priorità del ciclo."
+        "title": "Visualizza in anteprima le attività ad alta priorità del ciclo."
       },
       "assignee": {
-        "title": "Aggiungi assegnatari agli elementi di lavoro per vedere la ripartizione per assegnatario."
+        "title": "Aggiungi assegnatari alle attività per vedere la ripartizione per assegnatario."
       },
       "label": {
-        "title": "Aggiungi etichette agli elementi di lavoro per vedere la ripartizione per etichette."
+        "title": "Aggiungi etichette alle attività per vedere la ripartizione per etichette."
       }
     }
   },
@@ -25,16 +25,16 @@
   "active_cycle_analytics": {
     "empty_state": {
       "progress": {
-        "title": "Aggiungi elementi di lavoro al ciclo per vedere il suo\n progresso"
+        "title": "Aggiungi attività al ciclo per vedere il suo\n progresso"
       },
       "priority": {
-        "title": "Osserva elementi di lavoro ad alta priorità affrontati in\n il ciclo a colpo d'occhio."
+        "title": "Osserva attività ad alta priorità affrontati in\n il ciclo a colpo d'occhio."
       },
       "assignee": {
-        "title": "Aggiungi assegnatari agli elementi di lavoro per vedere una\n distribuzione del lavoro per assegnatari."
+        "title": "Aggiungi assegnatari alle attività per vedere una\n distribuzione del lavoro per assegnatari."
       },
       "label": {
-        "title": "Aggiungi etichette agli elementi di lavoro per vedere la\n distribuzione del lavoro per etichette."
+        "title": "Aggiungi etichette alle attività per vedere la\n distribuzione del lavoro per etichette."
       }
     }
   }

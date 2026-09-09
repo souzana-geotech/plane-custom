@@ -43,15 +43,16 @@
       "empty": {
         "project": "Tus proyectos recientes aparecerán aquí una vez que visites uno.",
         "page": "Tus páginas recientes aparecerán aquí una vez que visites una.",
-        "issue": "Tus elementos de trabajo recientes aparecerán aquí una vez que visites uno.",
+        "issue": "Tus tareas recientes aparecerán aquí una vez que visites uno.",
         "default": "Aún no tienes elementos recientes."
       },
       "filters": {
         "all": "Todos",
         "projects": "Proyectos",
         "pages": "Páginas",
-        "issues": "Elementos de trabajo"
-      }
+        "issues": "Tareas"
+      },
+      "view_all": "Ver toda la actividad"
     },
     "new_at_plane": {
       "title": "Nuevo en Plane"
@@ -66,57 +67,21 @@
     "manage_widgets": "Gestionar widgets",
     "title": "Mi trabajo",
     "greeting": {
-      "subtitle": "Esto es lo que necesita tu atención."
-    },
-    "due": {
-      "prefix": "Vence",
-      "today": "hoy",
-      "tomorrow": "mañana"
+      "subtitle": "Esto es lo que necesita su atención hoy."
     },
     "status": {
-      "not_started": "Sin comenzar",
       "in_progress": "En progreso",
       "done": "Completado",
-      "cancelled": "Cancelado"
-    },
-    "today": {
-      "title": "Hoy",
-      "overdue": "Atrasado",
-      "due_today": "Vence hoy",
-      "in_progress": "En progreso",
-      "empty": {
-        "title": "¡Estás al día! 🎉",
-        "description": "No tienes nada pendiente para hoy."
-      }
-    },
-    "upcoming": {
-      "title": "Próximamente",
-      "tomorrow": "Mañana",
-      "empty": {
-        "title": "No hay nada próximamente",
-        "description": "No tienes tareas próximas."
-      }
+      "cancelled": "Cancelado",
+      "to_do": "Por hacer",
+      "overdue": "Atrasado"
     },
     "my_tasks": {
-      "title": "Mis tareas",
-      "tabs": {
-        "all": "Todos",
-        "todo": "Por hacer",
-        "in_progress": "En progreso",
-        "done": "Completado"
-      },
-      "open": "Abrir",
-      "view_all": "Ver todo",
       "empty": {
-        "title": "Nada aquí",
-        "description": "Las tareas que se te asignen aparecerán aquí."
-      }
-    },
-    "quick_actions": {
-      "add_task": "Agregar una tarea",
-      "add_note": "Agregar una nota",
-      "search": "Buscar",
-      "search_placeholder": "Buscar tareas, proyectos o personas"
+        "filtered": "Ninguna tarea coincide con el filtro actual."
+      },
+      "show_more": "Mostrar {count} más",
+      "clear_filters": "Borrar filtros"
     },
     "star_us_on_github": "Danos una estrella en GitHub",
     "business_trial_banner": {
@@ -126,6 +91,98 @@
       "trial_ends_in_days": "La prueba termina en {days, plural, one {# día} other {# días}}",
       "start_subscription": "Iniciar suscripción",
       "explore_business_features": "Explorar funciones Business"
+    },
+    "summary": {
+      "aria_label": "Resumen del trabajo",
+      "overdue": "Atrasadas",
+      "due_today": "Vencen hoy",
+      "in_progress": "En progreso",
+      "upcoming": "Próximas"
+    },
+    "card": {
+      "mark_done": "Marcar como completada",
+      "more": "Más",
+      "change_status": "Cambiar estado",
+      "toasts": {
+        "marked_done": "Tarea marcada como completada",
+        "status_updated": "Estado actualizado",
+        "status_update_failed": "No se pudo actualizar el estado",
+        "due_date_update_failed": "No se pudo actualizar la fecha de vencimiento"
+      },
+      "set_due_date": "Definir vencimiento",
+      "remove_due_date": "Quitar fecha de vencimiento"
+    },
+    "filter": {
+      "by_project": "Filtrar por proyecto",
+      "all_projects": "Todos los proyectos"
+    },
+    "header": {
+      "new_task": "Nueva tarea"
+    },
+    "filters": {
+      "all": "Todas",
+      "done": "Completadas"
+    },
+    "priority": {
+      "urgent": "Prioridad urgente",
+      "high": "Prioridad alta"
+    },
+    "queue": {
+      "groups": {
+        "overdue": "Atrasadas",
+        "today": "Vencen hoy",
+        "this_week": "Esta semana",
+        "later": "Más adelante",
+        "no_date": "Sin fecha de vencimiento"
+      },
+      "empty": {
+        "all": {
+          "title": "No tiene tareas asignadas",
+          "description": "Las tareas asignadas a usted aparecerán aquí."
+        },
+        "overdue": {
+          "title": "Nada atrasado",
+          "description": "Va según lo previsto."
+        },
+        "due_today": {
+          "title": "Nada vence hoy",
+          "description": "Ninguna tarea tiene hoy como fecha de vencimiento."
+        },
+        "in_progress": {
+          "title": "Nada en progreso",
+          "description": "Pase una tarea a En progreso y aparecerá aquí."
+        },
+        "upcoming": {
+          "title": "Nada vence esta semana",
+          "description": "Ninguna tarea vence en los próximos 7 días."
+        },
+        "done": {
+          "title": "Aún no ha completado nada",
+          "description": "Las tareas que complete aparecerán aquí."
+        }
+      },
+      "error": {
+        "title": "No se pudo cargar su trabajo",
+        "description": "Compruebe su conexión e inténtelo de nuevo.",
+        "retry": "Reintentar"
+      }
+    },
+    "activity": {
+      "title": "Su actividad reciente",
+      "empty": "Sin actividad reciente.",
+      "error": "No se pudo cargar la actividad.",
+      "completed": "Marcada como completada",
+      "state": "Movida a {state}",
+      "created": "Creada",
+      "commented": "Comentario añadido",
+      "due_date": "Vencimiento definido para el {date}",
+      "due_date_removed": "Fecha de vencimiento eliminada",
+      "priority": "Prioridad definida como {priority}",
+      "assignees": "Responsables actualizados",
+      "labels": "Etiquetas actualizadas",
+      "renamed": "Renombrada",
+      "description": "Descripción actualizada",
+      "updated": "Actualizada"
     }
   }
 }

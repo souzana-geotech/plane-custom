@@ -224,7 +224,7 @@ export const ModuleState: Story = {
     assetKey: "module",
     assetClassName: "w-40 h-45",
     title: "No modules found",
-    description: "Modules help you organize related work items into logical groups.",
+    description: "Modules help you organize related tasks into logical groups.",
     actions: [
       {
         label: "Create Module",
@@ -241,7 +241,7 @@ export const ViewState: Story = {
     assetKey: "view",
     assetClassName: "w-40 h-45",
     title: "No saved views",
-    description: "Create custom views to filter and organize your work items.",
+    description: "Create custom views to filter and organize your tasks.",
     actions: [
       {
         label: "Create View",

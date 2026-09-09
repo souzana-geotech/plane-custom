@@ -2,7 +2,7 @@
   "common_empty_state": {
     "progress": {
       "title": "Es gibt noch keine Fortschrittsmetriken anzuzeigen.",
-      "description": "Beginnen Sie mit dem Festlegen von Eigenschaftswerten in Arbeitselementen, um hier Fortschrittsmetriken zu sehen."
+      "description": "Beginnen Sie mit dem Festlegen von Eigenschaftswerten in Aufgaben, um hier Fortschrittsmetriken zu sehen."
     },
     "updates": {
       "title": "Noch keine Updates.",
@@ -36,9 +36,9 @@
       "description": "Das gesuchte Projekt existiert nicht."
     },
     "work_items": {
-      "title": "Beginnen Sie mit Ihrem ersten Arbeitselement.",
-      "description": "Arbeitselemente sind die Bausteine Ihres Projekts — weisen Sie Eigentümer zu, setzen Sie Prioritäten und verfolgen Sie den Fortschritt einfach.",
-      "cta_primary": "Erstellen Sie Ihr erstes Arbeitselement"
+      "title": "Beginnen Sie mit Ihrem ersten Aufgabe.",
+      "description": "Aufgaben sind die Bausteine Ihres Projekts — weisen Sie Eigentümer zu, setzen Sie Prioritäten und verfolgen Sie den Fortschritt einfach.",
+      "cta_primary": "Erstellen Sie Ihr erste Aufgabe"
     },
     "cycles": {
       "title": "Gruppieren und zeitlich begrenzen Sie Ihre Arbeit in Zyklen.",
@@ -46,21 +46,21 @@
       "cta_primary": "Legen Sie Ihren ersten Zyklus fest"
     },
     "cycle_work_items": {
-      "title": "Keine Arbeitselemente in diesem Zyklus anzuzeigen",
-      "description": "Erstellen Sie Arbeitselemente, um den Fortschritt Ihres Teams in diesem Zyklus zu überwachen und Ihre Ziele rechtzeitig zu erreichen.",
-      "cta_primary": "Arbeitselement erstellen",
-      "cta_secondary": "Bestehendes Arbeitselement hinzufügen"
+      "title": "Keine Aufgaben in diesem Zyklus anzuzeigen",
+      "description": "Erstellen Sie Aufgaben, um den Fortschritt Ihres Teams in diesem Zyklus zu überwachen und Ihre Ziele rechtzeitig zu erreichen.",
+      "cta_primary": "Aufgabe erstellen",
+      "cta_secondary": "Bestehende Aufgabe hinzufügen"
     },
     "modules": {
       "title": "Ordnen Sie Ihre Projektziele Modulen zu und verfolgen Sie sie einfach.",
-      "description": "Module bestehen aus miteinander verbundenen Arbeitselementen. Sie helfen bei der Überwachung des Fortschritts durch Projektphasen, jede mit spezifischen Fristen und Analysen, um anzuzeigen, wie nahe Sie dem Erreichen dieser Phasen sind.",
+      "description": "Module bestehen aus miteinander verbundenen Aufgaben. Sie helfen bei der Überwachung des Fortschritts durch Projektphasen, jede mit spezifischen Fristen und Analysen, um anzuzeigen, wie nahe Sie dem Erreichen dieser Phasen sind.",
       "cta_primary": "Legen Sie Ihr erstes Modul fest"
     },
     "module_work_items": {
-      "title": "Keine Arbeitselemente in diesem Modul anzuzeigen",
-      "description": "Erstellen Sie Arbeitselemente, um dieses Modul zu überwachen.",
-      "cta_primary": "Arbeitselement erstellen",
-      "cta_secondary": "Bestehendes Arbeitselement hinzufügen"
+      "title": "Keine Aufgaben in diesem Modul anzuzeigen",
+      "description": "Erstellen Sie Aufgaben, um dieses Modul zu überwachen.",
+      "cta_primary": "Aufgabe erstellen",
+      "cta_secondary": "Bestehende Aufgabe hinzufügen"
     },
     "views": {
       "title": "Speichern Sie benutzerdefinierte Ansichten für Ihr Projekt",
@@ -68,18 +68,18 @@
       "cta_primary": "Ansicht erstellen"
     },
     "no_work_items_in_project": {
-      "title": "Noch keine Arbeitselemente im Projekt",
-      "description": "Fügen Sie Arbeitselemente zu Ihrem Projekt hinzu und unterteilen Sie Ihre Arbeit in nachverfolgbare Teile mit Ansichten.",
-      "cta_primary": "Arbeitselement hinzufügen"
+      "title": "Noch keine Aufgaben im Projekt",
+      "description": "Fügen Sie Aufgaben zu Ihrem Projekt hinzu und unterteilen Sie Ihre Arbeit in nachverfolgbare Teile mit Ansichten.",
+      "cta_primary": "Aufgabe hinzufügen"
     },
     "work_item_filter": {
-      "title": "Keine Arbeitselemente gefunden",
+      "title": "Keine Aufgaben gefunden",
       "description": "Ihr aktueller Filter hat keine Ergebnisse zurückgegeben. Versuchen Sie, die Filter zu ändern.",
-      "cta_primary": "Arbeitselement hinzufügen"
+      "cta_primary": "Aufgabe hinzufügen"
     },
     "pages": {
       "title": "Dokumentieren Sie alles — von Notizen bis PRDs",
-      "description": "Seiten ermöglichen es Ihnen, Informationen an einem Ort zu erfassen und zu organisieren. Schreiben Sie Besprechungsnotizen, Projektdokumentationen und PRDs, betten Sie Arbeitselemente ein und strukturieren Sie sie mit gebrauchsfertigen Komponenten.",
+      "description": "Seiten ermöglichen es Ihnen, Informationen an einem Ort zu erfassen und zu organisieren. Schreiben Sie Besprechungsnotizen, Projektdokumentationen und PRDs, betten Sie Aufgaben ein und strukturieren Sie sie mit gebrauchsfertigen Komponenten.",
       "cta_primary": "Erstellen Sie Ihre erste Seite"
     },
     "archive_pages": {
@@ -92,7 +92,7 @@
       "cta_primary": "Intake-Anfrage erstellen"
     },
     "intake_main": {
-      "title": "Wählen Sie ein Intake-Arbeitselement aus, um seine Details anzuzeigen"
+      "title": "Wählen Sie ein Intake-Aufgabe aus, um seine Details anzuzeigen"
     },
     "epics": {
       "title": "Verwandeln Sie komplexe Projekte in strukturierte Epics.",
@@ -101,9 +101,9 @@
       "cta_secondary": "Dokumentation"
     },
     "epic_work_items": {
-      "title": "Sie haben diesem Epic noch keine Arbeitselemente hinzugefügt.",
-      "description": "Beginnen Sie, indem Sie einige Arbeitselemente zu diesem Epic hinzufügen und hier verfolgen.",
-      "cta_secondary": "Arbeitselemente hinzufügen"
+      "title": "Sie haben diesem Epic noch keine Aufgaben hinzugefügt.",
+      "description": "Beginnen Sie, indem Sie einige Aufgaben zu diesem Epic hinzufügen und hier verfolgen.",
+      "cta_secondary": "Aufgaben hinzufügen"
     }
   },
   "workspace_empty_state": {
@@ -112,8 +112,8 @@
       "description": "Sie können abgeschlossene oder stornierte Epics archivieren. Finden Sie sie hier, sobald sie archiviert sind."
     },
     "archive_work_items": {
-      "title": "Noch keine archivierten Arbeitselemente",
-      "description": "Manuell oder durch Automatisierung können Sie abgeschlossene oder stornierte Arbeitselemente archivieren. Finden Sie sie hier, sobald sie archiviert sind.",
+      "title": "Noch keine archivierten Aufgaben",
+      "description": "Manuell oder durch Automatisierung können Sie abgeschlossene oder stornierte Aufgaben archivieren. Finden Sie sie hier, sobald sie archiviert sind.",
       "cta_primary": "Automatisierung einrichten"
     },
     "archive_cycles": {
@@ -128,26 +128,26 @@
       "title": "Halten Sie wichtige Referenzen, Ressourcen oder Dokumente für Ihre Arbeit griffbereit"
     },
     "inbox_sidebar_all": {
-      "title": "Updates für Ihre abonnierten Arbeitselemente werden hier angezeigt"
+      "title": "Updates für Ihre abonnierten Aufgaben werden hier angezeigt"
     },
     "inbox_sidebar_mentions": {
-      "title": "Erwähnungen für Ihre Arbeitselemente werden hier angezeigt"
+      "title": "Erwähnungen für Ihre Aufgaben werden hier angezeigt"
     },
     "your_work_by_priority": {
-      "title": "Noch kein Arbeitselement zugewiesen"
+      "title": "Noch keine Aufgabe zugewiesen"
     },
     "your_work_by_state": {
-      "title": "Noch kein Arbeitselement zugewiesen"
+      "title": "Noch keine Aufgabe zugewiesen"
     },
     "views": {
       "title": "Noch keine Ansichten",
-      "description": "Fügen Sie Arbeitselemente zu Ihrem Projekt hinzu und verwenden Sie Ansichten, um mühelos zu filtern, zu sortieren und den Fortschritt zu überwachen.",
-      "cta_primary": "Arbeitselement hinzufügen"
+      "description": "Fügen Sie Aufgaben zu Ihrem Projekt hinzu und verwenden Sie Ansichten, um mühelos zu filtern, zu sortieren und den Fortschritt zu überwachen.",
+      "cta_primary": "Aufgabe hinzufügen"
     },
     "drafts": {
-      "title": "Halb geschriebene Arbeitselemente",
-      "description": "Um dies auszuprobieren, beginnen Sie, ein Arbeitselement hinzuzufügen, und lassen Sie es auf halbem Weg liegen oder erstellen Sie unten Ihren ersten Entwurf. 😉",
-      "cta_primary": "Entwurf-Arbeitselement erstellen"
+      "title": "Halb geschriebene Aufgaben",
+      "description": "Um dies auszuprobieren, beginnen Sie, eine Aufgabe hinzuzufügen, und lassen Sie es auf halbem Weg liegen oder erstellen Sie unten Ihren ersten Entwurf. 😉",
+      "cta_primary": "Entwurfsaufgabe erstellen"
     },
     "projects_archived": {
       "title": "Keine Projekte archiviert",
@@ -157,7 +157,7 @@
       "title": "Erstellen Sie Projekte, um hier Projektmetriken zu visualisieren."
     },
     "analytics_work_items": {
-      "title": "Erstellen Sie Projekte mit Arbeitselementen und Zugewiesenen, um hier Leistung, Fortschritt und Teameinfluss zu verfolgen."
+      "title": "Erstellen Sie Projekte mit Aufgaben und Zugewiesenen, um hier Leistung, Fortschritt und Teameinfluss zu verfolgen."
     },
     "analytics_no_cycle": {
       "title": "Erstellen Sie Zyklen, um Arbeit in zeitlich begrenzte Phasen zu organisieren und Fortschritte über Sprints hinweg zu verfolgen."
@@ -188,7 +188,7 @@
     },
     "wiki": {
       "title": "Schreiben Sie eine Notiz, ein Dokument oder eine vollständige Wissensdatenbank.",
-      "description": "Seiten sind Gedankenraum in Plane. Notieren Sie Besprechungsnotizen, formatieren Sie sie einfach, betten Sie Arbeitselemente ein, ordnen Sie sie mit einer Bibliothek von Komponenten an und behalten Sie alles im Kontext Ihres Projekts.",
+      "description": "Seiten sind Gedankenraum in Plane. Notieren Sie Besprechungsnotizen, formatieren Sie sie einfach, betten Sie Aufgaben ein, ordnen Sie sie mit einer Bibliothek von Komponenten an und behalten Sie alles im Kontext Ihres Projekts.",
       "cta_primary": "Erstellen Sie Ihre Seite"
     },
     "project_overview_state_sidebar": {
@@ -199,12 +199,12 @@
   "settings_empty_state": {
     "estimates": {
       "title": "Noch keine Schätzungen",
-      "description": "Definieren Sie, wie Ihr Team den Aufwand misst, und verfolgen Sie ihn konsistent über alle Arbeitselemente hinweg.",
+      "description": "Definieren Sie, wie Ihr Team den Aufwand misst, und verfolgen Sie ihn konsistent über alle Aufgaben hinweg.",
       "cta_primary": "Schätzsystem hinzufügen"
     },
     "labels": {
       "title": "Noch keine Labels",
-      "description": "Erstellen Sie personalisierte Labels, um Ihre Arbeitselemente effektiv zu kategorisieren und zu verwalten.",
+      "description": "Erstellen Sie personalisierte Labels, um Ihre Aufgaben effektiv zu kategorisieren und zu verwalten.",
       "cta_primary": "Erstellen Sie Ihr erstes Label"
     },
     "exports": {
@@ -227,43 +227,43 @@
       "cta_primary": "Webhook hinzufügen"
     },
     "work_item_types": {
-      "title": "Arbeitselementtypen erstellen und anpassen",
-      "description": "Definieren Sie einzigartige Arbeitselementtypen für Ihr Projekt. Jeder Typ kann seine eigenen Eigenschaften, Workflows und Felder haben - zugeschnitten auf die Bedürfnisse Ihres Projekts und Teams.",
+      "title": "Aufgabentypen erstellen und anpassen",
+      "description": "Definieren Sie einzigartige Aufgabentypen für Ihr Projekt. Jeder Typ kann seine eigenen Eigenschaften, Workflows und Felder haben - zugeschnitten auf die Bedürfnisse Ihres Projekts und Teams.",
       "cta_primary": "Aktivieren"
     },
     "work_item_type_properties": {
-      "title": "Definieren Sie die Eigenschaft und Details, die Sie für diesen Arbeitselementtyp erfassen möchten. Passen Sie ihn an den Workflow Ihres Projekts an.",
+      "title": "Definieren Sie die Eigenschaft und Details, die Sie für diesen Aufgabentyp erfassen möchten. Passen Sie ihn an den Workflow Ihres Projekts an.",
       "cta_secondary": "Eigenschaft hinzufügen"
     },
     "templates": {
       "title": "Noch keine Vorlagen",
-      "description": "Reduzieren Sie die Einrichtungszeit, indem Sie Vorlagen für Arbeitselemente und Seiten erstellen — und starten Sie neue Arbeit in Sekunden.",
+      "description": "Reduzieren Sie die Einrichtungszeit, indem Sie Vorlagen für Aufgaben und Seiten erstellen — und starten Sie neue Arbeit in Sekunden.",
       "cta_primary": "Erstellen Sie Ihre erste Vorlage"
     },
     "recurring_work_items": {
-      "title": "Noch kein wiederkehrendes Arbeitselement",
-      "description": "Richten Sie wiederkehrende Arbeitselemente ein, um wiederholte Aufgaben zu automatisieren und mühelos im Zeitplan zu bleiben.",
-      "cta_primary": "Wiederkehrendes Arbeitselement erstellen"
+      "title": "Noch kein wiederkehrende Aufgabe",
+      "description": "Richten Sie wiederkehrende Aufgaben ein, um wiederholte Aufgaben zu automatisieren und mühelos im Zeitplan zu bleiben.",
+      "cta_primary": "Wiederkehrende Aufgabe erstellen"
     },
     "worklogs": {
       "title": "Zeiterfassungen für alle Mitglieder verfolgen",
-      "description": "Erfassen Sie Zeit für Arbeitselemente, um detaillierte Zeiterfassungen für jedes Teammitglied über Projekte hinweg anzuzeigen."
+      "description": "Erfassen Sie Zeit für Aufgaben, um detaillierte Zeiterfassungen für jedes Teammitglied über Projekte hinweg anzuzeigen."
     },
     "group_syncing": {
       "title": "Noch keine Gruppenzuordnungen"
     },
     "template_setting": {
       "title": "Noch keine Vorlagen",
-      "description": "Reduzieren Sie die Einrichtungszeit, indem Sie Vorlagen für Projekte, Arbeitselemente und Seiten erstellen — und starten Sie neue Arbeit in Sekunden.",
+      "description": "Reduzieren Sie die Einrichtungszeit, indem Sie Vorlagen für Projekte, Aufgaben und Seiten erstellen — und starten Sie neue Arbeit in Sekunden.",
       "cta_primary": "Vorlage erstellen"
     },
     "workflows": {
       "title": "Noch keine Workflows",
-      "description": "Erstellen Sie Workflows, um den Fortschritt Ihrer Arbeitselemente zu verwalten.",
+      "description": "Erstellen Sie Workflows, um den Fortschritt Ihrer Aufgaben zu verwalten.",
       "cta_primary": "Neuen Workflow hinzufügen",
       "states": {
         "title": "Zustände hinzufügen",
-        "description": "Wählen Sie die Zustände aus, die das Arbeitselement durchläuft."
+        "description": "Wählen Sie die Zustände aus, die die Aufgabe durchläuft."
       }
     }
   }

@@ -70,7 +70,7 @@ def project(db, workspace, user_with_avatar_asset):
 
 @pytest.fixture
 def assigned_issue(db, project, user_with_avatar_asset):
-    """A work item assigned to the avatar-bearing user, so the distribution
+    """A task assigned to the avatar-bearing user, so the distribution
     querysets have at least one row to annotate."""
     state = State.objects.create(name="Todo", group="unstarted", project=project, workspace=project.workspace)
     issue = Issue.objects.create(

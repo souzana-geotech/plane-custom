@@ -43,15 +43,16 @@
       "empty": {
         "project": "Sau khi truy cập dự án, các dự án gần đây của bạn sẽ xuất hiện ở đây.",
         "page": "Sau khi truy cập trang, các trang gần đây của bạn sẽ xuất hiện ở đây.",
-        "issue": "Sau khi truy cập mục công việc, các mục công việc gần đây của bạn sẽ xuất hiện ở đây.",
+        "issue": "Sau khi truy cập nhiệm vụ, các nhiệm vụ gần đây của bạn sẽ xuất hiện ở đây.",
         "default": "Bạn chưa có dự án gần đây nào."
       },
       "filters": {
         "all": "Tất cả",
         "projects": "Dự án",
         "pages": "Trang",
-        "issues": "Mục công việc"
-      }
+        "issues": "Nhiệm vụ"
+      },
+      "view_all": "Xem tất cả hoạt động"
     },
     "new_at_plane": {
       "title": "Tính năng mới của Plane"
@@ -66,57 +67,21 @@
     "manage_widgets": "Quản lý tiện ích",
     "title": "Công việc của tôi",
     "greeting": {
-      "subtitle": "Đây là những việc cần bạn chú ý."
-    },
-    "due": {
-      "prefix": "Hạn",
-      "today": "hôm nay",
-      "tomorrow": "ngày mai"
+      "subtitle": "Đây là những việc bạn cần chú ý hôm nay."
     },
     "status": {
-      "not_started": "Chưa bắt đầu",
       "in_progress": "Đang tiến hành",
       "done": "Xong",
-      "cancelled": "Đã hủy"
-    },
-    "today": {
-      "title": "Hôm nay",
-      "overdue": "Quá hạn",
-      "due_today": "Hạn hôm nay",
-      "in_progress": "Đang tiến hành",
-      "empty": {
-        "title": "Bạn đã hoàn tất mọi việc 🎉",
-        "description": "Không có gì đến hạn hôm nay."
-      }
-    },
-    "upcoming": {
-      "title": "Sắp tới",
-      "tomorrow": "Ngày mai",
-      "empty": {
-        "title": "Không có gì sắp tới",
-        "description": "Bạn không có nhiệm vụ sắp tới nào."
-      }
+      "cancelled": "Đã hủy",
+      "to_do": "Cần làm",
+      "overdue": "Quá hạn"
     },
     "my_tasks": {
-      "title": "Nhiệm vụ của tôi",
-      "tabs": {
-        "all": "Tất cả",
-        "todo": "Cần làm",
-        "in_progress": "Đang tiến hành",
-        "done": "Xong"
-      },
-      "open": "Mở",
-      "view_all": "Xem tất cả",
       "empty": {
-        "title": "Không có gì ở đây",
-        "description": "Nhiệm vụ được giao cho bạn sẽ hiển thị ở đây."
-      }
-    },
-    "quick_actions": {
-      "add_task": "Thêm nhiệm vụ",
-      "add_note": "Thêm ghi chú",
-      "search": "Tìm kiếm",
-      "search_placeholder": "Tìm kiếm nhiệm vụ, dự án hoặc mọi người"
+        "filtered": "Không có nhiệm vụ nào khớp với bộ lọc hiện tại."
+      },
+      "show_more": "Hiện thêm {count}",
+      "clear_filters": "Xóa bộ lọc"
     },
     "star_us_on_github": "Gắn sao cho chúng tôi trên GitHub",
     "business_trial_banner": {
@@ -126,6 +91,98 @@
       "trial_ends_in_days": "Bản dùng thử kết thúc sau {days} ngày",
       "start_subscription": "Bắt đầu đăng ký",
       "explore_business_features": "Khám phá tính năng Business"
+    },
+    "summary": {
+      "aria_label": "Tóm tắt công việc",
+      "overdue": "Quá hạn",
+      "due_today": "Hạn hôm nay",
+      "in_progress": "Đang tiến hành",
+      "upcoming": "Sắp tới"
+    },
+    "card": {
+      "mark_done": "Đánh dấu xong",
+      "more": "Thêm",
+      "change_status": "Đổi trạng thái",
+      "toasts": {
+        "marked_done": "Đã đánh dấu nhiệm vụ là xong",
+        "status_updated": "Đã cập nhật trạng thái",
+        "status_update_failed": "Không thể cập nhật trạng thái",
+        "due_date_update_failed": "Không thể cập nhật hạn"
+      },
+      "set_due_date": "Đặt hạn",
+      "remove_due_date": "Bỏ hạn"
+    },
+    "filter": {
+      "by_project": "Lọc theo dự án",
+      "all_projects": "Tất cả dự án"
+    },
+    "header": {
+      "new_task": "Nhiệm vụ mới"
+    },
+    "filters": {
+      "all": "Tất cả",
+      "done": "Xong"
+    },
+    "priority": {
+      "urgent": "Ưu tiên khẩn cấp",
+      "high": "Ưu tiên cao"
+    },
+    "queue": {
+      "groups": {
+        "overdue": "Quá hạn",
+        "today": "Hạn hôm nay",
+        "this_week": "Tuần này",
+        "later": "Sau này",
+        "no_date": "Không có hạn"
+      },
+      "empty": {
+        "all": {
+          "title": "Bạn chưa được giao nhiệm vụ nào",
+          "description": "Nhiệm vụ được giao cho bạn sẽ hiển thị ở đây."
+        },
+        "overdue": {
+          "title": "Không có gì quá hạn",
+          "description": "Bạn đang đúng tiến độ."
+        },
+        "due_today": {
+          "title": "Không có gì đến hạn hôm nay",
+          "description": "Không có nhiệm vụ nào có hạn là hôm nay."
+        },
+        "in_progress": {
+          "title": "Không có gì đang tiến hành",
+          "description": "Chuyển một nhiệm vụ sang Đang tiến hành để thấy nó ở đây."
+        },
+        "upcoming": {
+          "title": "Không có gì đến hạn tuần này",
+          "description": "Không có nhiệm vụ nào đến hạn trong 7 ngày tới."
+        },
+        "done": {
+          "title": "Chưa hoàn thành gì",
+          "description": "Nhiệm vụ bạn hoàn thành sẽ hiển thị ở đây."
+        }
+      },
+      "error": {
+        "title": "Không thể tải công việc của bạn",
+        "description": "Kiểm tra kết nối và thử lại.",
+        "retry": "Thử lại"
+      }
+    },
+    "activity": {
+      "title": "Hoạt động gần đây của bạn",
+      "empty": "Không có hoạt động gần đây.",
+      "error": "Không thể tải hoạt động.",
+      "completed": "Đã đánh dấu xong",
+      "state": "Đã chuyển sang {state}",
+      "created": "Đã tạo",
+      "commented": "Đã bình luận",
+      "due_date": "Đã đặt hạn là {date}",
+      "due_date_removed": "Đã bỏ hạn",
+      "priority": "Đã đặt ưu tiên là {priority}",
+      "assignees": "Đã cập nhật người phụ trách",
+      "labels": "Đã cập nhật nhãn",
+      "renamed": "Đã đổi tên",
+      "description": "Đã cập nhật mô tả",
+      "updated": "Đã cập nhật"
     }
   }
 }

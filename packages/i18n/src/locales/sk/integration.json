@@ -19,7 +19,7 @@
   },
   "github_integration": {
     "name": "GitHub",
-    "description": "Pripojte a synchronizujte vaše pracovné položky z GitHub s Plane",
+    "description": "Pripojte a synchronizujte vaše úlohy z GitHub s Plane",
     "connect_org": "Pripojte organizáciu",
     "connect_org_description": "Pripojte vašu GitHub organizáciu s Plane",
     "processing": "Spracováva sa",
@@ -48,7 +48,7 @@
     "pr_state_mapping_empty_state": "Zmapované stavy PR sa zobrazia tu",
     "remove_pr_state_mapping": "Odstrániť toto mapovanie stavu žiadosti o zlúčenie",
     "remove_pr_state_mapping_confirmation": "Ste si istí, že chcete odstrániť toto mapovanie stavu žiadosti o zlúčenie?",
-    "issue_sync_message": "Pracovné položky sú synchronizované do {project}",
+    "issue_sync_message": "Úlohy sú synchronizované do {project}",
     "link": "Prepojiť GitHub repozitár s projektom Plane",
     "pull_request_automation": "Automatizácia žiadosti o zlúčenie",
     "pull_request_automation_description": "Nakonfigurujte mapovanie stavu žiadosti o zlúčenie z GitHub do vašeho projektu Plane",
@@ -85,7 +85,7 @@
     "MR_READY_FOR_MERGE": "Pri MR pripravenom na zlúčenie nastaviť stav na",
     "MR_MERGED": "Pri zlúčení MR nastaviť stav na",
     "MR_CLOSED": "Pri uzavretí MR nastaviť stav na",
-    "integration_enabled_text": "S povolenou integráciou Gitlab môžete automatizovať pracovné postupy pracovných položiek",
+    "integration_enabled_text": "S povolenou integráciou Gitlab môžete automatizovať pracovné postupy úloh",
     "choose_entity": "Vyberte entitu",
     "choose_project": "Vyberte projekt",
     "link_plane_project": "Prepojiť projekt Plane",
@@ -150,7 +150,7 @@
       "project_updates_empty_state": "Projekty pripojené s kanálmi Slack sa zobrazia tu.",
       "project_updates_form": {
         "title": "Konfigurovať Aktualizácie Projektu",
-        "description": "Dostávajte notifikácie o aktualizáciách projektu v Slack, keď sa vytvoria pracovné položky",
+        "description": "Dostávajte notifikácie o aktualizáciách projektu v Slack, keď sa vytvoria úlohy",
         "failed_to_load_channels": "Nepodarilo sa načítať kanály zo Slack",
         "project_dropdown": {
           "placeholder": "Vyberte projekt",

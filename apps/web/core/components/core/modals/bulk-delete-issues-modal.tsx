@@ -104,7 +104,7 @@ export const BulkDeleteIssuesModal = observer(function BulkDeleteIssuesModal(pro
       setToast({
         type: TOAST_TYPE.ERROR,
         title: "Error!",
-        message: "Please select at least one work item.",
+        message: "Please select at least one task.",
       });
       return;
     }
@@ -116,7 +116,7 @@ export const BulkDeleteIssuesModal = observer(function BulkDeleteIssuesModal(pro
         setToast({
           type: TOAST_TYPE.SUCCESS,
           title: "Success!",
-          message: "Work items deleted successfully!",
+          message: "Tasks deleted successfully!",
         });
         handleClose();
       })
@@ -133,7 +133,7 @@ export const BulkDeleteIssuesModal = observer(function BulkDeleteIssuesModal(pro
     issues.length > 0 ? (
       <li className="p-2">
         {query === "" && (
-          <h2 className="mt-4 mb-2 px-3 text-11 font-semibold text-primary">Select work items to delete</h2>
+          <h2 className="mt-4 mb-2 px-3 text-11 font-semibold text-primary">Select tasks to delete</h2>
         )}
         <ul className="text-13 text-secondary">
           {issues.map((issue) => (
@@ -203,7 +203,7 @@ export const BulkDeleteIssuesModal = observer(function BulkDeleteIssuesModal(pro
               Cancel
             </Button>
             <Button variant="error-fill" size="lg" onClick={handleSubmit(handleDelete)} loading={isSubmitting}>
-              {isSubmitting ? "Deleting..." : "Delete selected work items"}
+              {isSubmitting ? "Deleting..." : "Delete selected tasks"}
             </Button>
           </div>
         )}

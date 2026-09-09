@@ -57,7 +57,7 @@ class ProjectAdvanceAnalyticsEndpoint(ProjectAdvanceAnalyticsBaseView):
 
     def get_work_items_stats(self, project_id, cycle_id=None, module_id=None) -> Dict[str, Dict[str, int]]:
         """
-        Returns work item stats for the workspace, or filtered by cycle_id or module_id if provided.
+        Returns task stats for the workspace, or filtered by cycle_id or module_id if provided.
         """
         base_queryset = None
         if cycle_id is not None:

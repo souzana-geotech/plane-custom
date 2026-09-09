@@ -43,7 +43,7 @@
       "empty": {
         "project": "Vaše nedávné projekty se zde zobrazí po návštěvě.",
         "page": "Vaše nedávné stránky se zde zobrazí po návštěvě.",
-        "issue": "Vaše nedávné pracovní položky se zde zobrazí po návštěvě.",
+        "issue": "Vaše nedávné úkoly se zde zobrazí po návštěvě.",
         "default": "Zatím nemáte žádné nedávné položky."
       },
       "filters": {
@@ -51,7 +51,8 @@
         "projects": "Projekty",
         "pages": "Stránky",
         "issues": "Úkoly"
-      }
+      },
+      "view_all": "Zobrazit veškerou aktivitu"
     },
     "new_at_plane": {
       "title": "Novinky v Plane"
@@ -66,57 +67,21 @@
     "manage_widgets": "Spravovat widgety",
     "title": "Moje práce",
     "greeting": {
-      "subtitle": "Tady je to, co potřebuje Vaši pozornost."
-    },
-    "due": {
-      "prefix": "Termín",
-      "today": "dnes",
-      "tomorrow": "zítra"
+      "subtitle": "Tady je to, co dnes vyžaduje vaši pozornost."
     },
     "status": {
-      "not_started": "Nezahájeno",
       "in_progress": "Probíhá",
       "done": "Hotovo",
-      "cancelled": "Zrušeno"
-    },
-    "today": {
-      "title": "Dnes",
-      "overdue": "Po termínu",
-      "due_today": "Termín dnes",
-      "in_progress": "Probíhá",
-      "empty": {
-        "title": "Máte hotovo 🎉",
-        "description": "Dnes nic nemá termín."
-      }
-    },
-    "upcoming": {
-      "title": "Nadcházející",
-      "tomorrow": "Zítra",
-      "empty": {
-        "title": "Nic nadcházejícího",
-        "description": "Nemáte žádné nadcházející úkoly."
-      }
+      "cancelled": "Zrušeno",
+      "to_do": "K udělání",
+      "overdue": "Po termínu"
     },
     "my_tasks": {
-      "title": "Moje úkoly",
-      "tabs": {
-        "all": "Vše",
-        "todo": "K vyřízení",
-        "in_progress": "Probíhá",
-        "done": "Hotovo"
-      },
-      "open": "Otevřít",
-      "view_all": "Zobrazit vše",
       "empty": {
-        "title": "Nic tu není",
-        "description": "Úkoly přiřazené Vám se zobrazí zde."
-      }
-    },
-    "quick_actions": {
-      "add_task": "Přidat úkol",
-      "add_note": "Přidat poznámku",
-      "search": "Hledat",
-      "search_placeholder": "Hledat úkoly, projekty nebo lidi"
+        "filtered": "Aktuálnímu filtru neodpovídají žádné úkoly."
+      },
+      "show_more": "Zobrazit další ({count})",
+      "clear_filters": "Vymazat filtry"
     },
     "star_us_on_github": "Ohodnoťte nás na GitHubu",
     "business_trial_banner": {
@@ -126,6 +91,98 @@
       "trial_ends_in_days": "Zkušební verze končí za {days, plural, one {# den} few {# dny} other {# dní}}",
       "start_subscription": "Zahájit předplatné",
       "explore_business_features": "Prozkoumat funkce Business"
+    },
+    "summary": {
+      "aria_label": "Přehled práce",
+      "overdue": "Po termínu",
+      "due_today": "Termín dnes",
+      "in_progress": "Probíhá",
+      "upcoming": "Nadcházející"
+    },
+    "card": {
+      "mark_done": "Označit jako hotové",
+      "more": "Více",
+      "change_status": "Změnit stav",
+      "toasts": {
+        "marked_done": "Úkol označen jako hotový",
+        "status_updated": "Stav aktualizován",
+        "status_update_failed": "Stav se nepodařilo aktualizovat",
+        "due_date_update_failed": "Termín se nepodařilo aktualizovat"
+      },
+      "set_due_date": "Nastavit termín",
+      "remove_due_date": "Odebrat termín"
+    },
+    "filter": {
+      "by_project": "Filtrovat podle projektu",
+      "all_projects": "Všechny projekty"
+    },
+    "header": {
+      "new_task": "Nový úkol"
+    },
+    "filters": {
+      "all": "Vše",
+      "done": "Hotovo"
+    },
+    "priority": {
+      "urgent": "Urgentní priorita",
+      "high": "Vysoká priorita"
+    },
+    "queue": {
+      "groups": {
+        "overdue": "Po termínu",
+        "today": "Termín dnes",
+        "this_week": "Tento týden",
+        "later": "Později",
+        "no_date": "Bez termínu"
+      },
+      "empty": {
+        "all": {
+          "title": "Nemáte přiřazené žádné úkoly",
+          "description": "Úkoly přiřazené vám se zobrazí zde."
+        },
+        "overdue": {
+          "title": "Nic po termínu",
+          "description": "Vše stíháte."
+        },
+        "due_today": {
+          "title": "Dnes nic nekončí",
+          "description": "Žádný úkol nemá termín dnes."
+        },
+        "in_progress": {
+          "title": "Nic neprobíhá",
+          "description": "Přesuňte úkol do stavu Probíhá a zobrazí se zde."
+        },
+        "upcoming": {
+          "title": "Tento týden nic nekončí",
+          "description": "V příštích 7 dnech nemá termín žádný úkol."
+        },
+        "done": {
+          "title": "Zatím nic dokončeno",
+          "description": "Dokončené úkoly se zobrazí zde."
+        }
+      },
+      "error": {
+        "title": "Vaši práci se nepodařilo načíst",
+        "description": "Zkontrolujte připojení a zkuste to znovu.",
+        "retry": "Zkusit znovu"
+      }
+    },
+    "activity": {
+      "title": "Vaše nedávná aktivita",
+      "empty": "Žádná nedávná aktivita.",
+      "error": "Aktivitu se nepodařilo načíst.",
+      "completed": "Označeno jako hotové",
+      "state": "Přesunuto do stavu {state}",
+      "created": "Vytvořeno",
+      "commented": "Okomentováno",
+      "due_date": "Termín nastaven na {date}",
+      "due_date_removed": "Termín odstraněn",
+      "priority": "Priorita nastavena na {priority}",
+      "assignees": "Řešitelé aktualizováni",
+      "labels": "Štítky aktualizovány",
+      "renamed": "Přejmenováno",
+      "description": "Popis aktualizován",
+      "updated": "Aktualizováno"
     }
   }
 }

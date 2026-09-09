@@ -29,12 +29,12 @@
         "title": "Seleziona per visualizzare i dettagli."
       },
       "all": {
-        "title": "Nessun elemento di lavoro assegnato",
-        "description": "Qui puoi vedere gli aggiornamenti degli elementi di lavoro assegnati a te"
+        "title": "Nessuna attività assegnata",
+        "description": "Qui puoi vedere gli aggiornamenti delle attività assegnate a te"
       },
       "mentions": {
-        "title": "Nessun elemento di lavoro assegnato",
-        "description": "Qui puoi vedere gli aggiornamenti degli elementi di lavoro assegnati a te"
+        "title": "Nessuna attività assegnata",
+        "description": "Qui puoi vedere gli aggiornamenti delle attività assegnate a te"
       }
     },
     "tabs": {

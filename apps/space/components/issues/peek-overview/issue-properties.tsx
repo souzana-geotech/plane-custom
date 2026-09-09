@@ -49,7 +49,7 @@ export const PeekOverviewIssueProperties = observer(function PeekOverviewIssuePr
       setToast({
         type: TOAST_TYPE.INFO,
         title: "Link copied!",
-        message: "Work item link copied to clipboard",
+        message: "Task link copied to clipboard",
       });
     });
   };

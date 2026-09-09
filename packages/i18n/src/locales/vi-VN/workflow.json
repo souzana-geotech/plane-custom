@@ -1,9 +1,9 @@
 {
   "workflows": {
     "workflow_states": {
-      "work_item_creation": "Cho phép mục công việc mới",
-      "work_item_creation_disable_tooltip": "Tạo mục công việc bị vô hiệu hóa cho trạng thái này",
-      "default_state": "Trạng thái mặc định cho phép tất cả thành viên tạo mục công việc mới. Điều này không thể thay đổi",
+      "work_item_creation": "Cho phép nhiệm vụ mới",
+      "work_item_creation_disable_tooltip": "Tạo nhiệm vụ bị vô hiệu hóa cho trạng thái này",
+      "default_state": "Trạng thái mặc định cho phép tất cả thành viên tạo nhiệm vụ mới. Điều này không thể thay đổi",
       "state_change_count": "{count, plural, one {1 thay đổi trạng thái được cho phép} other {{count} thay đổi trạng thái được cho phép}}",
       "movers_count": "{count, plural, one {1 người xem xét được liệt kê} other {{count} người xem xét được liệt kê}}",
       "state_changes": {
@@ -14,19 +14,19 @@
         "move_to": "Thay đổi trạng thái thành",
         "movers": {
           "label": "Khi được xem xét bởi",
-          "tooltip": "Người xem xét là những người được phép di chuyển mục công việc từ một trạng thái sang trạng thái khác.",
+          "tooltip": "Người xem xét là những người được phép di chuyển nhiệm vụ từ một trạng thái sang trạng thái khác.",
           "add": "Thêm người xem xét"
         }
       }
     },
     "workflow_disabled": {
-      "title": "Bạn không thể di chuyển mục công việc này đến đây."
+      "title": "Bạn không thể di chuyển nhiệm vụ này đến đây."
     },
     "workflow_enabled": {
       "label": "Thay đổi trạng thái"
     },
     "workflow_tree": {
-      "label": "Đối với mục công việc trong",
+      "label": "Đối với nhiệm vụ trong",
       "state_change_label": "có thể di chuyển nó đến"
     },
     "empty_state": {

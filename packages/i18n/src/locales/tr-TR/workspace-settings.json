@@ -82,7 +82,7 @@
         "export_separate_files": "Verileri ayrı dosyalara aktar",
         "exporting_projects": "Proje dışa aktarılıyor",
         "format": "Format",
-        "filters_info": "Kriterlerinize göre belirli iş öğelerini dışa aktarmak için filtreler uygulayın.",
+        "filters_info": "Kriterlerinize göre belirli görevleri dışa aktarmak için filtreler uygulayın.",
         "modal": {
           "title": "Şuraya aktar",
           "toasts": {
@@ -272,12 +272,12 @@
       "templates": {
         "title": "Şablonlar",
         "heading": "Şablonlar",
-        "description": "Şablonları kullandığınızda projeler, iş öğeleri ve sayfalar oluşturmaya harcanan zamanın %80'ini tasarruf edin."
+        "description": "Şablonları kullandığınızda projeler, görevler ve sayfalar oluşturmaya harcanan zamanın %80'ini tasarruf edin."
       },
       "relations": {
         "title": "İlişkiler",
         "heading": "İlişkiler",
-        "description": "Çalışma alanınızdaki iş öğelerini birbirine bağlayan ilişki türlerini oluşturun ve yönetin."
+        "description": "Çalışma alanınızdaki görevleri birbirine bağlayan ilişki türlerini oluşturun ve yönetin."
       },
       "cancel_trial": {
         "title": "Önce deneme sürenizi iptal edin.",

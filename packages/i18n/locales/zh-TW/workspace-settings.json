@@ -272,12 +272,12 @@
       "templates": {
         "title": "範本",
         "heading": "範本",
-        "description": "使用範本可節省 80% 建立專案、工作事項和頁面所花費的時間。"
+        "description": "使用範本可節省 80% 建立專案、任務和頁面所花費的時間。"
       },
       "relations": {
         "title": "關聯",
         "heading": "關聯",
-        "description": "建立並管理能連接工作區中各工作事項的關聯類型。"
+        "description": "建立並管理能連接工作區中各任務的關聯類型。"
       },
       "cancel_trial": {
         "title": "請先取消您的試用期。",

@@ -19,9 +19,9 @@
     "start_date": "Data di inizio",
     "end_date": "Data di fine",
     "in_your_timezone": "Nel tuo fuso orario",
-    "transfer_work_items": "Trasferisci {count} elementi di lavoro",
+    "transfer_work_items": "Trasferisci {count} attività",
     "transfer": {
-      "no_cycles_available": "Nessun altro ciclo disponibile per trasferire gli elementi di lavoro."
+      "no_cycles_available": "Nessun altro ciclo disponibile per trasferire le attività."
     },
     "date_range": "Intervallo di date",
     "add_date": "Aggiungi data",
@@ -29,9 +29,9 @@
       "label": "Ciclo attivo",
       "progress": "Avanzamento",
       "chart": "Grafico di burndown",
-      "priority_issue": "Elementi di lavoro ad alta priorità",
+      "priority_issue": "Attività ad alta priorità",
       "assignees": "Assegnatari",
-      "issue_burndown": "Burndown degli elementi di lavoro",
+      "issue_burndown": "Burndown delle attività",
       "ideal": "Ideale",
       "current": "Corrente",
       "labels": "Etichette",
@@ -113,18 +113,18 @@
         }
       },
       "no_issues": {
-        "title": "Nessun elemento di lavoro aggiunto al ciclo",
-        "description": "Aggiungi o crea gli elementi di lavoro che desideri includere in questo ciclo",
+        "title": "Nessuna attività aggiunta al ciclo",
+        "description": "Aggiungi o crea le attività che desideri includere in questo ciclo",
         "primary_button": {
-          "text": "Crea un nuovo elemento di lavoro"
+          "text": "Crea un nuova attività"
         },
         "secondary_button": {
-          "text": "Aggiungi un elemento di lavoro esistente"
+          "text": "Aggiungi un'attività esistente"
         }
       },
       "completed_no_issues": {
-        "title": "Nessun elemento di lavoro nel ciclo",
-        "description": "Nessun elemento di lavoro presente nel ciclo. Gli elementi di lavoro sono stati trasferiti o nascosti. Per visualizzare gli elementi nascosti, se presenti, aggiorna le proprietà di visualizzazione di conseguenza."
+        "title": "Nessuna attività nel ciclo",
+        "description": "Nessuna attività presente nel ciclo. Le attività sono stati trasferiti o nascosti. Per visualizzare gli elementi nascosti, se presenti, aggiorna le proprietà di visualizzazione di conseguenza."
       },
       "active": {
         "title": "Nessun ciclo attivo",
@@ -144,7 +144,7 @@
         "primary_button": {
           "text": "Crea la tua prima visualizzazione",
           "comic": {
-            "title": "Le visualizzazioni si basano sulle proprietà degli elementi di lavoro.",
+            "title": "Le visualizzazioni si basano sulle proprietà delle attività.",
             "description": "Puoi creare una visualizzazione da qui con quante proprietà e filtri desideri."
           }
         },
@@ -154,14 +154,14 @@
         }
       },
       "no_archived_issues": {
-        "title": "Nessun elemento di lavoro archiviato ancora",
-        "description": "Manualmente o tramite automazione, puoi archiviare gli elementi di lavoro completati o annullati. Trovali qui una volta archiviati.",
+        "title": "Nessuna attività archiviata ancora",
+        "description": "Manualmente o tramite automazione, puoi archiviare le attività completate o annullati. Trovali qui una volta archiviati.",
         "primary_button": {
           "text": "Imposta automazione"
         }
       },
       "issues_empty_filter": {
-        "title": "Nessun elemento di lavoro trovato corrispondente ai filtri applicati",
+        "title": "Nessuna attività trovata corrispondente ai filtri applicati",
         "secondary_button": {
           "text": "Cancella tutti i filtri"
         }
@@ -190,25 +190,25 @@
   "project_issues": {
     "empty_state": {
       "no_issues": {
-        "title": "Crea un elemento di lavoro e assegnalo a qualcuno, anche a te stesso",
-        "description": "Considera gli elementi di lavoro come compiti, attività, lavori o JTBD. Un elemento di lavoro e i suoi sotto-elementi di lavoro sono solitamente attività basate sul tempo assegnate ai membri del team. Il tuo team crea, assegna e completa gli elementi di lavoro per portare il progetto verso il suo obiettivo.",
+        "title": "Crea un'attività e assegnalo a qualcuno, anche a te stesso",
+        "description": "Considera le attività come compiti, attività, lavori o JTBD. Un'attività e i suoi sottoattività sono solitamente attività basate sul tempo assegnate ai membri del team. Il tuo team crea, assegna e completa le attività per portare il progetto verso il suo obiettivo.",
         "primary_button": {
-          "text": "Crea il tuo primo elemento di lavoro",
+          "text": "Crea il tuo prima attività",
           "comic": {
-            "title": "Gli elementi di lavoro sono i mattoni fondamentali in Plane.",
-            "description": "Ridisegna l'interfaccia di Plane, rebranding dell'azienda o lancia il nuovo sistema di iniezione del carburante sono esempi di elementi di lavoro che probabilmente hanno sotto-elementi."
+            "title": "Le attività sono i mattoni fondamentali in Plane.",
+            "description": "Ridisegna l'interfaccia di Plane, rebranding dell'azienda o lancia il nuovo sistema di iniezione del carburante sono esempi di attività che probabilmente hanno sotto-elementi."
           }
         }
       },
       "no_archived_issues": {
-        "title": "Nessun elemento di lavoro archiviato ancora",
-        "description": "Manualmente o tramite automazione, puoi archiviare gli elementi di lavoro che sono stati completati o annullati. Li troverai qui una volta archiviati.",
+        "title": "Nessuna attività archiviata ancora",
+        "description": "Manualmente o tramite automazione, puoi archiviare le attività che sono stati completati o annullati. Li troverai qui una volta archiviati.",
         "primary_button": {
           "text": "Imposta l'automazione"
         }
       },
       "issues_empty_filter": {
-        "title": "Nessun elemento di lavoro trovato corrispondente ai filtri applicati",
+        "title": "Nessuna attività trovata corrispondente ai filtri applicati",
         "secondary_button": {
           "text": "Cancella tutti i filtri"
         }
@@ -225,7 +225,7 @@
     "empty_state": {
       "general": {
         "title": "Associa i traguardi del tuo progetto ai Moduli e traccia facilmente il lavoro aggregato.",
-        "description": "Un gruppo di elementi di lavoro che appartengono a un genitore logico e gerarchico forma un modulo. Considerali come un modo per tracciare il lavoro in base ai traguardi del progetto. Hanno i propri intervalli temporali e scadenze, oltre ad analisi che ti aiutano a vedere quanto sei vicino o lontano da un traguardo.",
+        "description": "Un gruppo di attività che appartengono a un genitore logico e gerarchico forma un modulo. Considerali come un modo per tracciare il lavoro in base ai traguardi del progetto. Hanno i propri intervalli temporali e scadenze, oltre ad analisi che ti aiutano a vedere quanto sei vicino o lontano da un traguardo.",
         "primary_button": {
           "text": "Crea il tuo primo modulo",
           "comic": {
@@ -235,13 +235,13 @@
         }
       },
       "no_issues": {
-        "title": "Nessun elemento di lavoro nel modulo",
-        "description": "Crea o aggiungi elementi di lavoro che desideri completare come parte di questo modulo",
+        "title": "Nessuna attività nel modulo",
+        "description": "Crea o aggiungi attività che desideri completare come parte di questo modulo",
         "primary_button": {
-          "text": "Crea nuovi elementi di lavoro"
+          "text": "Crea nuove attività"
         },
         "secondary_button": {
-          "text": "Aggiungi un elemento di lavoro esistente"
+          "text": "Aggiungi un'attività esistente"
         }
       },
       "archived": {
@@ -272,7 +272,7 @@
     "empty_state": {
       "general": {
         "title": "Scrivi una nota, un documento o una vera e propria base di conoscenza. Fai partire Galileo, l'assistente AI di Plane, per aiutarti a iniziare",
-        "description": "Le pagine sono spazi per appunti in Plane. Prendi note durante le riunioni, formattale facilmente, inserisci elementi di lavoro, disponili usando una libreria di componenti e tienili tutti nel contesto del tuo progetto. Per velocizzare qualsiasi documento, invoca Galileo, l'IA di Plane, con una scorciatoia o con il clic di un pulsante.",
+        "description": "Le pagine sono spazi per appunti in Plane. Prendi note durante le riunioni, formattale facilmente, inserisci attività, disponili usando una libreria di componenti e tienili tutti nel contesto del tuo progetto. Per velocizzare qualsiasi documento, invoca Galileo, l'IA di Plane, con una scorciatoia o con il clic di un pulsante.",
         "primary_button": {
           "text": "Crea la tua prima pagina"
         }
@@ -301,7 +301,7 @@
     "empty_state": {
       "inbox": {
         "title": "L'accoglienza non è abilitata per il progetto.",
-        "description": "L'accoglienza ti aiuta a gestire le richieste in entrata per il tuo progetto e ad aggiungerle come elementi di lavoro nel tuo flusso. Abilita l'accoglienza dalle impostazioni del progetto per gestire le richieste.",
+        "description": "L'accoglienza ti aiuta a gestire le richieste in entrata per il tuo progetto e ad aggiungerle come attività nel tuo flusso. Abilita l'accoglienza dalle impostazioni del progetto per gestire le richieste.",
         "primary_button": {
           "text": "Gestisci funzionalità"
         }
@@ -353,7 +353,7 @@
     "order_by": {
       "name": "Nome",
       "progress": "Avanzamento",
-      "issues": "Numero di elementi di lavoro",
+      "issues": "Numero di attività",
       "due_date": "Scadenza",
       "created_at": "Data di creazione",
       "manual": "Manuale"

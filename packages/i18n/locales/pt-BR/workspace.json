@@ -53,7 +53,7 @@
   "workspace_dashboard": {
     "title": "Painel de operações",
     "subtitle": "Visibilidade gerencial sobre trabalhos de clientes, tarefas, departamentos e funcionários",
-    "coverage_note": "Entregáveis, revisões de clientes, equipamentos e vendas não são exibidos porque este espaço de trabalho não possui dados sobre eles. Conflitos de agenda dos funcionários exigem horários, que os itens de trabalho não têm.",
+    "coverage_note": "Entregáveis, revisões de clientes, equipamentos e vendas não são exibidos porque este espaço de trabalho não possui dados sobre eles. Conflitos de agenda dos funcionários exigem horários, que as tarefas não têm.",
     "error": {
       "title": "Não foi possível carregar o painel",
       "description": "Uma ou mais solicitações falharam. Tente novamente ou atualize a página.",
@@ -61,7 +61,7 @@
     },
     "empty": {
       "title": "Ainda não há dados de operações",
-      "description": "Crie Módulos para os trabalhos de clientes e itens de trabalho para o trabalho real, e este painel será preenchido."
+      "description": "Crie Módulos para os trabalhos de clientes e tarefas para o trabalho real, e este painel será preenchido."
     },
     "filters": {
       "project": "Projeto",
@@ -77,13 +77,13 @@
       "jobs_at_risk": "Trabalhos que precisam de atenção",
       "jobs_at_risk_hint": "Trabalhos ativos em risco, atrasados ou bloqueados",
       "overdue_tasks": "Tarefas atrasadas",
-      "overdue_tasks_hint": "Itens de trabalho abertos com prazo vencido",
+      "overdue_tasks_hint": "Tarefas abertos com prazo vencido",
       "due_this_week": "Vencem esta semana",
-      "due_this_week_hint": "Itens de trabalho abertos com vencimento nos próximos 7 dias",
+      "due_this_week_hint": "Tarefas abertos com vencimento nos próximos 7 dias",
       "blocked_tasks": "Tarefas bloqueadas",
-      "blocked_tasks_hint": "Itens de trabalho abertos bloqueados por outro trabalho aberto",
+      "blocked_tasks_hint": "Tarefas abertos bloqueados por outro trabalho aberto",
       "no_due_date": "Sem prazo",
-      "no_due_date_hint": "Itens de trabalho abertos sem data de vencimento"
+      "no_due_date_hint": "Tarefas abertos sem data de vencimento"
     },
     "severity": {
       "critical": "Crítico",
@@ -137,7 +137,7 @@
     },
     "employees": {
       "title": "Carga de trabalho por funcionário",
-      "description": "Itens de trabalho abertos por funcionário. A capacidade não é registrada, então são exibidas contagens em vez de utilização.",
+      "description": "Tarefas abertos por funcionário. A capacidade não é registrada, então são exibidas contagens em vez de utilização.",
       "empty": "Nenhum trabalho aberto atribuído",
       "columns": {
         "employee": "Funcionário",
@@ -150,8 +150,8 @@
     "pipeline": {
       "title": "Fluxo de trabalho",
       "description": "Onde o trabalho está nos estados do fluxo",
-      "total": "{count, plural, one {# item de trabalho} many {# itens de trabalho} other {# itens de trabalho}}",
-      "empty": "Ainda não há itens de trabalho"
+      "total": "{count, plural, one {# tarefa} many {# tarefas} other {# tarefas}}",
+      "empty": "Ainda não há tarefas"
     },
     "departments": {
       "title": "Carga de trabalho por departamento",
@@ -168,7 +168,7 @@
     },
     "attention": {
       "title": "Trabalho que precisa de atenção",
-      "description": "Itens de trabalho atrasados, bloqueados ou que vencem em breve",
+      "description": "Tarefas atrasados, bloqueados ou que vencem em breve",
       "empty": "Nada precisa de atenção",
       "overdue_by": "{count, plural, one {Atrasado há # dia} many {Atrasado há # dias} other {Atrasado há # dias}}",
       "blocked": "Bloqueado",
@@ -179,7 +179,7 @@
     "empty_state": {
       "general": {
         "title": "Visão geral dos seus projetos, atividades e métricas",
-        "description": "Bem-vindo ao Plane, estamos animados por tê-lo aqui. Crie seu primeiro projeto e rastreie seus itens de trabalho, e esta página se transformará em um espaço que ajuda você a progredir. Os administradores também verão itens que ajudam sua equipe a progredir.",
+        "description": "Bem-vindo ao Plane, estamos animados por tê-lo aqui. Crie seu primeiro projeto e rastreie suas tarefas, e esta página se transformará em um espaço que ajuda você a progredir. Os administradores também verão itens que ajudam sua equipe a progredir.",
         "primary_button": {
           "text": "Construa seu primeiro projeto",
           "comic": {
@@ -198,7 +198,7 @@
       "busy": "Ocupado · {count}",
       "assigned": "Atribuído · {count}",
       "available": "Disponível",
-      "tooltip": "{count, plural, one {# item de trabalho aberto agendado} many {# itens de trabalho abertos agendados} other {# itens de trabalho abertos agendados}} para hoje"
+      "tooltip": "{count, plural, one {# tarefa aberta agendado} many {# tarefas abertas agendados} other {# tarefas abertas agendados}} para hoje"
     },
     "summary": {
       "employees": "Funcionários exibidos",
@@ -206,7 +206,7 @@
       "with_overlaps": "Com sobreposições",
       "available": "Livres hoje",
       "scheduled": "Atribuições agendadas",
-      "undated": "Itens de trabalho sem data"
+      "undated": "Tarefas sem data"
     },
     "filters": {
       "all": "Todos",
@@ -245,7 +245,7 @@
       "overlap_tooltip": "{count, plural, one {# período} many {# períodos} other {# períodos}} com mais de uma atribuição ao mesmo tempo. Pico: {peak} simultâneas.",
       "overdue": "{count, plural, one {# atrasado} many {# atrasados} other {# atrasados}}",
       "undated": "{count, plural, one {# sem data} many {# sem data} other {# sem data}}",
-      "undated_tooltip": "Itens de trabalho abertos atribuídos a este funcionário que não têm data de início nem de vencimento e, por isso, não podem ser posicionados na linha do tempo.",
+      "undated_tooltip": "Tarefas abertos atribuídos a este funcionário que não têm data de início nem de vencimento e, por isso, não podem ser posicionados na linha do tempo.",
       "next": "Próximo: {name} · {date}",
       "nothing_next": "Nada agendado a seguir"
     },
@@ -260,12 +260,12 @@
     },
     "error": {
       "title": "Não foi possível carregar o Gantt de funcionários",
-      "description": "A solicitação de itens de trabalho falhou. Tente novamente ou atualize a página.",
+      "description": "A solicitação de tarefas falhou. Tente novamente ou atualize a página.",
       "retry": "Tentar novamente"
     },
     "empty": {
       "title": "Ainda não há trabalho agendado",
-      "description": "Defina uma data de início e uma data de vencimento para os itens de trabalho e atribua-os a pessoas, e esta visualização será preenchida."
+      "description": "Defina uma data de início e uma data de vencimento para as tarefas e atribua-os a pessoas, e esta visualização será preenchida."
     },
     "empty_today": {
       "title": "Ninguém tem trabalho agendado para hoje",
@@ -285,26 +285,26 @@
     "page_label": "{workspace} - Análises",
     "open_tasks": "Total de tarefas abertas",
     "error": "Ocorreu algum erro ao buscar os dados.",
-    "work_items_closed_in": "Itens de trabalho fechados em",
+    "work_items_closed_in": "Tarefas fechados em",
     "selected_projects": "Projetos selecionados",
     "total_members": "Total de membros",
     "total_cycles": "Total de ciclos",
     "total_modules": "Total de módulos",
     "pending_work_items": {
-      "title": "Itens de trabalho pendentes",
-      "empty_state": "A análise de itens de trabalho pendentes por colegas de trabalho aparece aqui."
+      "title": "Tarefas pendentes",
+      "empty_state": "A análise de tarefas pendentes por colegas de trabalho aparece aqui."
     },
     "work_items_closed_in_a_year": {
-      "title": "Itens de trabalho fechados em um ano",
-      "empty_state": "Feche os itens de trabalho para visualizar a análise dos mesmos na forma de um gráfico."
+      "title": "Tarefas fechados em um ano",
+      "empty_state": "Feche as tarefas para visualizar a análise dos mesmos na forma de um gráfico."
     },
     "most_work_items_created": {
-      "title": "Itens de trabalho mais criados",
-      "empty_state": "Colegas de trabalho e o número de itens de trabalho criados por eles aparecem aqui."
+      "title": "Tarefas mais criados",
+      "empty_state": "Colegas de trabalho e o número de tarefas criadas por eles aparecem aqui."
     },
     "most_work_items_closed": {
-      "title": "Itens de trabalho mais fechados",
-      "empty_state": "Colegas de trabalho e o número de itens de trabalho fechados por eles aparecem aqui."
+      "title": "Tarefas mais fechados",
+      "empty_state": "Colegas de trabalho e o número de tarefas fechadas por eles aparecem aqui."
     },
     "tabs": {
       "scope_and_demand": "Escopo e Demanda",
@@ -325,15 +325,15 @@
     "empty_state": {
       "project_insights": {
         "title": "Ainda não há dados",
-        "description": "Os itens de trabalho atribuídos a você, divididos por estado, aparecerão aqui."
+        "description": "As tarefas atribuídas a você, divididos por estado, aparecerão aqui."
       },
       "created_vs_resolved": {
         "title": "Ainda não há dados",
-        "description": "Os itens de trabalho criados e resolvidos ao longo do tempo aparecerão aqui."
+        "description": "As tarefas criadas e resolvidos ao longo do tempo aparecerão aqui."
       },
       "customized_insights": {
         "title": "Ainda não há dados",
-        "description": "Os itens de trabalho atribuídos a você, divididos por estado, aparecerão aqui."
+        "description": "As tarefas atribuídas a você, divididos por estado, aparecerão aqui."
       },
       "general": {
         "title": "Acompanhe progresso, cargas de trabalho e alocações. Identifique tendências, remova bloqueios e trabalhe mais rápido",
@@ -342,25 +342,25 @@
           "text": "Comece seu primeiro projeto",
           "comic": {
             "title": "Analytics funciona melhor com Ciclos + Módulos",
-            "description": "Primeiro, defina um tempo limite para seus itens de trabalho em Ciclos e, se possível, agrupe itens que abrangem mais de um ciclo em Módulos. Confira ambos na navegação esquerda."
+            "description": "Primeiro, defina um tempo limite para suas tarefas em Ciclos e, se possível, agrupe itens que abrangem mais de um ciclo em Módulos. Confira ambos na navegação esquerda."
           }
         }
       },
       "cycle_progress": {
         "title": "Ainda não há dados",
-        "description": "A análise de progresso do ciclo aparecerá aqui. Adicione itens de trabalho aos ciclos para começar a acompanhar o progresso."
+        "description": "A análise de progresso do ciclo aparecerá aqui. Adicione tarefas aos ciclos para começar a acompanhar o progresso."
       },
       "module_progress": {
         "title": "Ainda não há dados",
-        "description": "A análise de progresso do módulo aparecerá aqui. Adicione itens de trabalho aos módulos para começar a acompanhar o progresso."
+        "description": "A análise de progresso do módulo aparecerá aqui. Adicione tarefas aos módulos para começar a acompanhar o progresso."
       },
       "intake_trends": {
         "title": "Ainda não há dados",
-        "description": "A análise de tendências de intake aparecerá aqui. Adicione itens de trabalho ao intake para começar a acompanhar as tendências."
+        "description": "A análise de tendências de intake aparecerá aqui. Adicione tarefas ao intake para começar a acompanhar as tendências."
       }
     },
     "upgrade_to_plan": "Faça upgrade para {plan} para desbloquear {tab}",
-    "workitem_resolved_vs_pending": "Itens de trabalho resolvidos vs pendentes",
+    "workitem_resolved_vs_pending": "Tarefas resolvidos vs pendentes",
     "projects_by_status": "Projetos por status",
     "active_users": "Usuários ativos",
     "intake_trends": "Tendências de entrada"
@@ -385,7 +385,7 @@
       "permission": "Você não tem permissão para realizar esta ação.",
       "cycle_delete": "Falha ao excluir o ciclo",
       "module_delete": "Falha ao excluir o módulo",
-      "issue_delete": "Falha ao excluir o item de trabalho"
+      "issue_delete": "Falha ao excluir a tarefa"
     },
     "state": {
       "backlog": "Backlog",
@@ -422,7 +422,7 @@
       },
       "no_projects": {
         "title": "Nenhum projeto",
-        "description": "Para criar itens de trabalho ou gerenciar seu trabalho, você precisa criar um projeto ou fazer parte de um.",
+        "description": "Para criar tarefas ou gerenciar seu trabalho, você precisa criar um projeto ou fazer parte de um.",
         "primary_button": {
           "text": "Comece seu primeiro projeto",
           "comic": {
@@ -444,33 +444,33 @@
     "add_view": "Adicionar visualização",
     "empty_state": {
       "all-issues": {
-        "title": "Nenhum item de trabalho no projeto",
-        "description": "Primeiro projeto concluído! Agora, divida seu trabalho em partes rastreáveis com itens de trabalho. Vamos lá!",
+        "title": "Nenhuma tarefa no projeto",
+        "description": "Primeiro projeto concluído! Agora, divida seu trabalho em partes rastreáveis com tarefas. Vamos lá!",
         "primary_button": {
-          "text": "Criar novo item de trabalho"
+          "text": "Criar nova tarefa"
         }
       },
       "assigned": {
-        "title": "Nenhum item de trabalho ainda",
-        "description": "Os itens de trabalho atribuídos a você podem ser rastreados aqui.",
+        "title": "Nenhuma tarefa ainda",
+        "description": "As tarefas atribuídas a você podem ser rastreados aqui.",
         "primary_button": {
-          "text": "Criar novo item de trabalho"
+          "text": "Criar nova tarefa"
         }
       },
       "created": {
-        "title": "Nenhum item de trabalho ainda",
-        "description": "Todos os itens de trabalho criados por você vêm aqui, rastreie-os aqui diretamente.",
+        "title": "Nenhuma tarefa ainda",
+        "description": "Todas as tarefas criadas por você vêm aqui, rastreie-os aqui diretamente.",
         "primary_button": {
-          "text": "Criar novo item de trabalho"
+          "text": "Criar nova tarefa"
         }
       },
       "subscribed": {
-        "title": "Nenhum item de trabalho ainda",
-        "description": "Inscreva-se nos itens de trabalho nos quais você está interessado, rastreie todos eles aqui."
+        "title": "Nenhuma tarefa ainda",
+        "description": "Inscreva-se nas tarefas nos quais você está interessado, rastreie todos eles aqui."
       },
       "custom-view": {
-        "title": "Nenhum item de trabalho ainda",
-        "description": "Itens de trabalho que se aplicam aos filtros, rastreie todos eles aqui."
+        "title": "Nenhuma tarefa ainda",
+        "description": "Tarefas que se aplicam aos filtros, rastreie todos eles aqui."
       }
     },
     "delete_view": {
@@ -479,10 +479,10 @@
     }
   },
   "workspace_draft_issues": {
-    "draft_an_issue": "Rascunhar um item de trabalho",
+    "draft_an_issue": "Rascunhar uma tarefa",
     "empty_state": {
-      "title": "Itens de trabalho semi-escritos e, em breve, os comentários aparecerão aqui.",
-      "description": "Para experimentar, comece a adicionar um item de trabalho e deixe-o no meio do caminho ou crie seu primeiro rascunho abaixo. 😉",
+      "title": "Tarefas semi-escritos e, em breve, os comentários aparecerão aqui.",
+      "description": "Para experimentar, comece a adicionar uma tarefa e deixe-o no meio do caminho ou crie seu primeiro rascunho abaixo. 😉",
       "primary_button": {
         "text": "Criar seu primeiro rascunho"
       }
@@ -494,7 +494,7 @@
     "toasts": {
       "created": {
         "success": "Rascunho criado",
-        "error": "Não foi possível criar o item de trabalho. Por favor, tente novamente."
+        "error": "Não foi possível criar a tarefa. Por favor, tente novamente."
       },
       "deleted": {
         "success": "Rascunho excluído"
@@ -505,7 +505,7 @@
     "empty_state": {
       "general": {
         "title": "Escreva uma nota, um documento ou uma base de conhecimento completa. Obtenha ajuda do Galileo, o assistente de IA do Plane, para começar",
-        "description": "Páginas são espaços para desenvolver pensamentos no Plane. Anote notas de reunião, formate-as facilmente, incorpore itens de trabalho, organize-os usando uma biblioteca de componentes e mantenha tudo no contexto do seu projeto. Para facilitar qualquer documento, invoque o Galileo, a IA do Plane, com um atalho ou clique de um botão.",
+        "description": "Páginas são espaços para desenvolver pensamentos no Plane. Anote notas de reunião, formate-as facilmente, incorpore tarefas, organize-os usando uma biblioteca de componentes e mantenha tudo no contexto do seu projeto. Para facilitar qualquer documento, invoque o Galileo, a IA do Plane, com um atalho ou clique de um botão.",
         "primary_button": {
           "text": "Crie sua primeira página"
         }

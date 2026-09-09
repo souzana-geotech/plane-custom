@@ -8,7 +8,7 @@
         "title": "Pridajte položky pre zobrazenie burndown grafu."
       },
       "priority_issue": {
-        "title": "Zobrazia sa vysoko prioritné pracovné položky."
+        "title": "Zobrazia sa vysoko prioritné úlohy."
       },
       "assignee": {
         "title": "Priraďte položky pre prehľad priradení."
@@ -25,16 +25,16 @@
   "active_cycle_analytics": {
     "empty_state": {
       "progress": {
-        "title": "Pridajte pracovné položky do cyklu, aby ste videli jeho\n pokrok"
+        "title": "Pridajte úlohy do cyklu, aby ste videli jeho\n pokrok"
       },
       "priority": {
-        "title": "Sledujte pracovné položky s vysokou prioritou riešené v\n cykle na prvý pohľad."
+        "title": "Sledujte úlohy s vysokou prioritou riešené v\n cykle na prvý pohľad."
       },
       "assignee": {
-        "title": "Pridajte priradeným osobám pracovné položky, aby ste videli\n rozdelenie práce podľa priradených osôb."
+        "title": "Pridajte priradeným osobám úlohy, aby ste videli\n rozdelenie práce podľa priradených osôb."
       },
       "label": {
-        "title": "Pridajte štítky k pracovným položkám, aby ste videli\n rozdelenie práce podľa štítkov."
+        "title": "Pridajte štítky k úlohám, aby ste videli\n rozdelenie práce podľa štítkov."
       }
     }
   }

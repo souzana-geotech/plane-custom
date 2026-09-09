@@ -43,15 +43,16 @@
       "empty": {
         "project": "Twoje ostatnio odwiedzone projekty pojawią się tutaj.",
         "page": "Twoje ostatnio odwiedzone strony pojawią się tutaj.",
-        "issue": "Twoje ostatnio odwiedzone elementy pracy pojawią się tutaj.",
+        "issue": "Twoje ostatnio odwiedzone zadania pojawią się tutaj.",
         "default": "Nie masz jeszcze żadnych ostatnich pozycji."
       },
       "filters": {
         "all": "Wszystkie",
         "projects": "Projekty",
         "pages": "Strony",
-        "issues": "Elementy pracy"
-      }
+        "issues": "Zadania"
+      },
+      "view_all": "Zobacz całą aktywność"
     },
     "new_at_plane": {
       "title": "Co nowego w Plane"
@@ -66,57 +67,21 @@
     "manage_widgets": "Zarządzaj widżetami",
     "title": "Moja praca",
     "greeting": {
-      "subtitle": "Oto, co wymaga Twojej uwagi."
-    },
-    "due": {
-      "prefix": "Termin:",
-      "today": "dziś",
-      "tomorrow": "jutro"
+      "subtitle": "Oto, co dziś wymaga uwagi."
     },
     "status": {
-      "not_started": "Nierozpoczęte",
       "in_progress": "W trakcie",
       "done": "Ukończone",
-      "cancelled": "Anulowane"
-    },
-    "today": {
-      "title": "Dziś",
-      "overdue": "Zaległe",
-      "due_today": "Termin: dziś",
-      "in_progress": "W trakcie",
-      "empty": {
-        "title": "Wszystko zrobione 🎉",
-        "description": "Nic nie jest dziś zaplanowane."
-      }
-    },
-    "upcoming": {
-      "title": "Nadchodzące",
-      "tomorrow": "Jutro",
-      "empty": {
-        "title": "Nic nie nadchodzi",
-        "description": "Nie masz żadnych nadchodzących zadań."
-      }
+      "cancelled": "Anulowane",
+      "to_do": "Do zrobienia",
+      "overdue": "Zaległe"
     },
     "my_tasks": {
-      "title": "Moje zadania",
-      "tabs": {
-        "all": "Wszystkie",
-        "todo": "Do zrobienia",
-        "in_progress": "W trakcie",
-        "done": "Ukończone"
-      },
-      "open": "Otwórz",
-      "view_all": "Zobacz wszystkie",
       "empty": {
-        "title": "Nic tu nie ma",
-        "description": "Tutaj pojawią się zadania przypisane Tobie."
-      }
-    },
-    "quick_actions": {
-      "add_task": "Dodaj zadanie",
-      "add_note": "Dodaj notatkę",
-      "search": "Szukaj",
-      "search_placeholder": "Szukaj zadań, projektów lub osób"
+        "filtered": "Żadne zadania nie pasują do bieżącego filtra."
+      },
+      "show_more": "Pokaż więcej ({count})",
+      "clear_filters": "Wyczyść filtry"
     },
     "star_us_on_github": "Oceń nas na GitHubie",
     "business_trial_banner": {
@@ -126,6 +91,98 @@
       "trial_ends_in_days": "Okres próbny kończy się za {days, plural, one {# dzień} few {# dni} other {# dni}}",
       "start_subscription": "Rozpocznij subskrypcję",
       "explore_business_features": "Poznaj funkcje Business"
+    },
+    "summary": {
+      "aria_label": "Podsumowanie pracy",
+      "overdue": "Zaległe",
+      "due_today": "Termin dziś",
+      "in_progress": "W trakcie",
+      "upcoming": "Nadchodzące"
+    },
+    "card": {
+      "mark_done": "Oznacz jako ukończone",
+      "more": "Więcej",
+      "change_status": "Zmień status",
+      "toasts": {
+        "marked_done": "Zadanie oznaczono jako ukończone",
+        "status_updated": "Status zaktualizowany",
+        "status_update_failed": "Nie udało się zaktualizować statusu",
+        "due_date_update_failed": "Nie udało się zaktualizować terminu"
+      },
+      "set_due_date": "Ustaw termin",
+      "remove_due_date": "Usuń termin"
+    },
+    "filter": {
+      "by_project": "Filtruj według projektu",
+      "all_projects": "Wszystkie projekty"
+    },
+    "header": {
+      "new_task": "Nowe zadanie"
+    },
+    "filters": {
+      "all": "Wszystkie",
+      "done": "Ukończone"
+    },
+    "priority": {
+      "urgent": "Priorytet pilny",
+      "high": "Priorytet wysoki"
+    },
+    "queue": {
+      "groups": {
+        "overdue": "Zaległe",
+        "today": "Termin dziś",
+        "this_week": "W tym tygodniu",
+        "later": "Później",
+        "no_date": "Bez terminu"
+      },
+      "empty": {
+        "all": {
+          "title": "Brak przypisanych zadań",
+          "description": "Zadania przypisane do Pana/Pani pojawią się tutaj."
+        },
+        "overdue": {
+          "title": "Nic zaległego",
+          "description": "Wszystko idzie zgodnie z planem."
+        },
+        "due_today": {
+          "title": "Nic nie ma terminu na dziś",
+          "description": "Żadne zadanie nie ma terminu na dziś."
+        },
+        "in_progress": {
+          "title": "Nic nie jest w trakcie",
+          "description": "Przenieś zadanie do stanu W trakcie, a pojawi się tutaj."
+        },
+        "upcoming": {
+          "title": "Nic nie ma terminu w tym tygodniu",
+          "description": "Żadne zadanie nie ma terminu w najbliższych 7 dniach."
+        },
+        "done": {
+          "title": "Nic jeszcze nie ukończono",
+          "description": "Ukończone zadania pojawią się tutaj."
+        }
+      },
+      "error": {
+        "title": "Nie udało się wczytać pracy",
+        "description": "Sprawdź połączenie i spróbuj ponownie.",
+        "retry": "Spróbuj ponownie"
+      }
+    },
+    "activity": {
+      "title": "Ostatnia aktywność",
+      "empty": "Brak ostatniej aktywności.",
+      "error": "Nie udało się wczytać aktywności.",
+      "completed": "Oznaczono jako ukończone",
+      "state": "Przeniesiono do: {state}",
+      "created": "Utworzono",
+      "commented": "Dodano komentarz",
+      "due_date": "Termin ustawiono na {date}",
+      "due_date_removed": "Usunięto termin",
+      "priority": "Priorytet ustawiono na {priority}",
+      "assignees": "Zaktualizowano osoby przypisane",
+      "labels": "Zaktualizowano etykiety",
+      "renamed": "Zmieniono nazwę",
+      "description": "Zaktualizowano opis",
+      "updated": "Zaktualizowano"
     }
   }
 }

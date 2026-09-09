@@ -99,7 +99,7 @@ export class AnalyticsService extends APIService {
     if (isPeekView && (tab === "work-items" || tab === "custom-work-items")) {
       const projectIds = params?.project_ids;
       if (typeof projectIds !== "string" || !projectIds.trim()) {
-        throw new Error("project_ids parameter is required for peek view of work items");
+        throw new Error("project_ids parameter is required for peek view of tasks");
       }
       const projectId = projectIds.split(",")[0];
       if (!projectId) {

@@ -24,30 +24,30 @@
     },
     "modals": {
       "decline": {
-        "title": "Rifiuta elemento di lavoro",
-        "content": "Sei sicuro di voler rifiutare l'elemento di lavoro {value}?"
+        "title": "Rifiuta attività",
+        "content": "Sei sicuro di voler rifiutare l'attività {value}?"
       },
       "delete": {
-        "title": "Elimina elemento di lavoro",
-        "content": "Sei sicuro di voler eliminare l'elemento di lavoro {value}?",
-        "success": "Elemento di lavoro eliminato con successo"
+        "title": "Elimina attività",
+        "content": "Sei sicuro di voler eliminare l'attività {value}?",
+        "success": "Attività eliminato con successo"
       }
     },
     "errors": {
-      "snooze_permission": "Solo gli amministratori del progetto possono snoozare/non snoozare gli elementi di lavoro",
-      "accept_permission": "Solo gli amministratori del progetto possono accettare gli elementi di lavoro",
-      "decline_permission": "Solo gli amministratori del progetto possono rifiutare gli elementi di lavoro"
+      "snooze_permission": "Solo gli amministratori del progetto possono snoozare/non snoozare le attività",
+      "accept_permission": "Solo gli amministratori del progetto possono accettare le attività",
+      "decline_permission": "Solo gli amministratori del progetto possono rifiutare le attività"
     },
     "actions": {
       "accept": "Accetta",
       "decline": "Rifiuta",
       "snooze": "Snoozed",
       "unsnooze": "Annulla snooze",
-      "copy": "Copia link dell'elemento di lavoro",
+      "copy": "Copia link dell'attività",
       "delete": "Elimina",
-      "open": "Apri elemento di lavoro",
+      "open": "Apri attività",
       "mark_as_duplicate": "Segna come duplicato",
-      "move": "Sposta {value} negli elementi di lavoro del progetto"
+      "move": "Sposta {value} nelle attività del progetto"
     },
     "source": {
       "in-app": "nell'app"
@@ -60,7 +60,7 @@
     "label": "Accoglienza",
     "page_label": "{workspace} - Accoglienza",
     "modal": {
-      "title": "Crea elemento di lavoro per l'accoglienza"
+      "title": "Crea attività per l'accoglienza"
     },
     "tabs": {
       "open": "Aperto",
@@ -68,19 +68,19 @@
     },
     "empty_state": {
       "sidebar_open_tab": {
-        "title": "Nessun elemento di lavoro aperto",
-        "description": "Trova qui gli elementi di lavoro aperti. Crea un nuovo elemento di lavoro."
+        "title": "Nessuna attività aperta",
+        "description": "Trova qui le attività aperte. Crea un nuova attività."
       },
       "sidebar_closed_tab": {
-        "title": "Nessun elemento di lavoro chiuso",
-        "description": "Tutti gli elementi di lavoro, siano essi accettati o rifiutati, possono essere trovati qui."
+        "title": "Nessuna attività chiusa",
+        "description": "Tutte le attività, siano essi accettati o rifiutati, possono essere trovati qui."
       },
       "sidebar_filter": {
-        "title": "Nessun elemento di lavoro corrispondente",
-        "description": "Nessun elemento di lavoro corrisponde al filtro applicato in accoglienza. Crea un nuovo elemento di lavoro."
+        "title": "Nessuna attività corrispondente",
+        "description": "Nessuna attività corrisponde al filtro applicato in accoglienza. Crea un nuova attività."
       },
       "detail": {
-        "title": "Seleziona un elemento di lavoro per visualizzarne i dettagli."
+        "title": "Seleziona un'attività per visualizzarne i dettagli."
       }
     }
   }

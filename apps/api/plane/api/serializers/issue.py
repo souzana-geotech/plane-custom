@@ -45,9 +45,9 @@ from django.core.validators import URLValidator
 
 class IssueSerializer(BaseSerializer):
     """
-    Comprehensive work item serializer with full relationship management.
+    Comprehensive task serializer with full relationship management.
 
-    Handles complete work item lifecycle including assignees, labels, validation,
+    Handles complete task lifecycle including assignees, labels, validation,
     and related model updates. Supports dynamic field expansion and HTML content
     processing.
     """
@@ -336,9 +336,9 @@ class IssueSerializer(BaseSerializer):
 
 class IssueLiteSerializer(BaseSerializer):
     """
-    Lightweight work item serializer for minimal data transfer.
+    Lightweight task serializer for minimal data transfer.
 
-    Provides essential work item identifiers optimized for list views,
+    Provides essential task identifiers optimized for list views,
     references, and performance-critical operations.
     """
 
@@ -350,10 +350,10 @@ class IssueLiteSerializer(BaseSerializer):
 
 class LabelCreateUpdateSerializer(BaseSerializer):
     """
-    Serializer for creating and updating work item labels.
+    Serializer for creating and updating task labels.
 
     Manages label metadata including colors, descriptions, hierarchy,
-    and sorting for work item categorization and filtering.
+    and sorting for task categorization and filtering.
     """
 
     class Meta:
@@ -381,10 +381,10 @@ class LabelCreateUpdateSerializer(BaseSerializer):
 
 class LabelSerializer(BaseSerializer):
     """
-    Full serializer for work item labels with complete metadata.
+    Full serializer for task labels with complete metadata.
 
     Provides comprehensive label information including hierarchical relationships,
-    visual properties, and organizational data for work item tagging.
+    visual properties, and organizational data for task tagging.
     """
 
     class Meta:
@@ -404,10 +404,10 @@ class LabelSerializer(BaseSerializer):
 
 class IssueLinkCreateSerializer(BaseSerializer):
     """
-    Serializer for creating work item external links with validation.
+    Serializer for creating task external links with validation.
 
     Handles URL validation, format checking, and duplicate prevention
-    for attaching external resources to work items.
+    for attaching external resources to tasks.
     """
 
     class Meta:
@@ -447,7 +447,7 @@ class IssueLinkCreateSerializer(BaseSerializer):
 
 class IssueLinkUpdateSerializer(IssueLinkCreateSerializer):
     """
-    Serializer for updating work item external links.
+    Serializer for updating task external links.
 
     Extends link creation with update-specific validation to prevent
     URL conflicts and maintain link integrity during modifications.
@@ -473,10 +473,10 @@ class IssueLinkUpdateSerializer(IssueLinkCreateSerializer):
 
 class IssueLinkSerializer(BaseSerializer):
     """
-    Full serializer for work item external links.
+    Full serializer for task external links.
 
     Provides complete link information including metadata and timestamps
-    for managing external resource associations with work items.
+    for managing external resource associations with tasks.
     """
 
     class Meta:
@@ -495,10 +495,10 @@ class IssueLinkSerializer(BaseSerializer):
 
 
 class IssueRelationRefSerializer(serializers.Serializer):
-    """Project-scoped reference to a related work item."""
+    """Project-scoped reference to a related task."""
 
-    project_id = serializers.UUIDField(help_text="Project containing the related work item")
-    issue_id = serializers.UUIDField(help_text="ID of the related work item")
+    project_id = serializers.UUIDField(help_text="Project containing the related task")
+    issue_id = serializers.UUIDField(help_text="ID of the related task")
 
 
 class IssueRelationResponseSerializer(serializers.Serializer):
@@ -511,35 +511,35 @@ class IssueRelationResponseSerializer(serializers.Serializer):
 
     blocking = serializers.ListField(
         child=IssueRelationRefSerializer(),
-        help_text="Work items blocking this issue",
+        help_text="Tasks blocking this issue",
     )
     blocked_by = serializers.ListField(
         child=IssueRelationRefSerializer(),
-        help_text="Work items this issue is blocked by",
+        help_text="Tasks this issue is blocked by",
     )
     duplicate = serializers.ListField(
         child=IssueRelationRefSerializer(),
-        help_text="Duplicate work items",
+        help_text="Duplicate tasks",
     )
     relates_to = serializers.ListField(
         child=IssueRelationRefSerializer(),
-        help_text="Related work items",
+        help_text="Related tasks",
     )
     start_after = serializers.ListField(
         child=IssueRelationRefSerializer(),
-        help_text="Work items that start after this issue",
+        help_text="Tasks that start after this issue",
     )
     start_before = serializers.ListField(
         child=IssueRelationRefSerializer(),
-        help_text="Work items that start before this issue",
+        help_text="Tasks that start before this issue",
     )
     finish_after = serializers.ListField(
         child=IssueRelationRefSerializer(),
-        help_text="Work items that finish after this issue",
+        help_text="Tasks that finish after this issue",
     )
     finish_before = serializers.ListField(
         child=IssueRelationRefSerializer(),
-        help_text="Work items that finish before this issue",
+        help_text="Tasks that finish before this issue",
     )
 
 
@@ -565,13 +565,13 @@ class IssueRelationCreateSerializer(serializers.Serializer):
     relation_type = serializers.ChoiceField(
         choices=RELATION_TYPE_CHOICES,
         required=True,
-        help_text="Type of relationship between work items",
+        help_text="Type of relationship between tasks",
     )
     issues = serializers.ListField(
         child=serializers.UUIDField(),
         required=True,
         min_length=1,
-        help_text="Array of work item IDs to create relations with",
+        help_text="Array of task IDs to create relations with",
     )
 
     def validate_issues(self, value):
@@ -585,12 +585,12 @@ class IssueRelationRemoveSerializer(serializers.Serializer):
     """
     Serializer for removing issue relations.
 
-    Removes existing relationships between work items by specifying
+    Removes existing relationships between tasks by specifying
     the related issue ID.
     """
 
     related_issue = serializers.UUIDField(
-        required=True, help_text="ID of the related work item to remove relation with"
+        required=True, help_text="ID of the related task to remove relation with"
     )
 
 
@@ -682,9 +682,9 @@ class RelatedIssueSerializer(BaseSerializer):
 
 class IssueAttachmentSerializer(BaseSerializer):
     """
-    Serializer for work item file attachments.
+    Serializer for task file attachments.
 
-    Manages file asset associations with work items including metadata,
+    Manages file asset associations with tasks including metadata,
     storage information, and access control for document management.
     """
 
@@ -703,7 +703,7 @@ class IssueAttachmentSerializer(BaseSerializer):
 
 class IssueCommentCreateSerializer(BaseSerializer):
     """
-    Serializer for creating work item comments.
+    Serializer for creating task comments.
 
     Handles comment creation with JSON and HTML content support,
     access control, and external integration tracking.
@@ -736,10 +736,10 @@ class IssueCommentCreateSerializer(BaseSerializer):
 
 class IssueCommentSerializer(BaseSerializer):
     """
-    Full serializer for work item comments with membership context.
+    Full serializer for task comments with membership context.
 
     Provides complete comment data including member status, content formatting,
-    and edit tracking for collaborative work item discussions.
+    and edit tracking for collaborative task discussions.
     """
 
     is_member = serializers.BooleanField(read_only=True)
@@ -770,9 +770,9 @@ class IssueCommentSerializer(BaseSerializer):
 
 class IssueActivitySerializer(BaseSerializer):
     """
-    Serializer for work item activity and change history.
+    Serializer for task activity and change history.
 
-    Tracks and represents work item modifications, state changes,
+    Tracks and represents task modifications, state changes,
     and user interactions for audit trails and activity feeds.
     """
 
@@ -783,9 +783,9 @@ class IssueActivitySerializer(BaseSerializer):
 
 class CycleIssueSerializer(BaseSerializer):
     """
-    Serializer for work items within cycles.
+    Serializer for tasks within cycles.
 
-    Provides cycle context for work items including cycle metadata
+    Provides cycle context for tasks including cycle metadata
     and timing information for sprint and iteration management.
     """
 
@@ -797,9 +797,9 @@ class CycleIssueSerializer(BaseSerializer):
 
 class ModuleIssueSerializer(BaseSerializer):
     """
-    Serializer for work items within modules.
+    Serializer for tasks within modules.
 
-    Provides module context for work items including module metadata
+    Provides module context for tasks including module metadata
     and organizational information for feature-based work grouping.
     """
 
@@ -824,9 +824,9 @@ class LabelLiteSerializer(BaseSerializer):
 
 class IssueExpandSerializer(BaseSerializer):
     """
-    Extended work item serializer with full relationship expansion.
+    Extended task serializer with full relationship expansion.
 
-    Provides work items with expanded related data including cycles, modules,
+    Provides tasks with expanded related data including cycles, modules,
     labels, assignees, and states for comprehensive data representation.
     """
 
@@ -868,10 +868,10 @@ class IssueExpandSerializer(BaseSerializer):
 
 class IssueAttachmentUploadSerializer(serializers.Serializer):
     """
-    Serializer for work item attachment upload request validation.
+    Serializer for task attachment upload request validation.
 
     Handles file upload metadata validation including size, type, and external
-    integration tracking for secure work item document attachment workflows.
+    integration tracking for secure task document attachment workflows.
     """
 
     name = serializers.CharField(help_text="Original filename of the asset")
@@ -888,9 +888,9 @@ class IssueAttachmentUploadSerializer(serializers.Serializer):
 
 class IssueSearchSerializer(serializers.Serializer):
     """
-    Serializer for work item search result data formatting.
+    Serializer for task search result data formatting.
 
-    Provides standardized search result structure including work item identifiers,
+    Provides standardized search result structure including task identifiers,
     project context, and workspace information for search API responses.
     """
 

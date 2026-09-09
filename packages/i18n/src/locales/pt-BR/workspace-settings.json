@@ -82,7 +82,7 @@
         "export_separate_files": "Exporte os dados em arquivos separados",
         "exporting_projects": "Exportando projeto",
         "format": "Formato",
-        "filters_info": "Aplique filtros para exportar itens de trabalho específicos com base em seus critérios.",
+        "filters_info": "Aplique filtros para exportar tarefas específicos com base em seus critérios.",
         "modal": {
           "title": "Exportar para",
           "toasts": {
@@ -272,12 +272,12 @@
       "templates": {
         "title": "Modelos",
         "heading": "Modelos",
-        "description": "Economize 80% do tempo gasto na criação de projetos, itens de trabalho e páginas quando você usar modelos."
+        "description": "Economize 80% do tempo gasto na criação de projetos, tarefas e páginas quando você usar modelos."
       },
       "relations": {
         "title": "Relações",
         "heading": "Relações",
-        "description": "Crie e gerencie tipos de relação que conectam itens de trabalho em todo o seu espaço de trabalho."
+        "description": "Crie e gerencie tipos de relação que conectam tarefas em todo o seu espaço de trabalho."
       },
       "cancel_trial": {
         "title": "Cancele seu período de teste primeiro.",
@@ -454,7 +454,7 @@
         "app_consent_unapproved_description": "Certifique-se de confiar neste aplicativo antes de conectá-lo ao seu espaço de trabalho.",
         "go_to_app": "Ir para o aplicativo",
         "enable_app_mentions": "Ativar menções do aplicativo",
-        "enable_app_mentions_tooltip": "Quando isso está ativado, os usuários podem mencionar ou atribuir Work Items a este aplicativo.",
+        "enable_app_mentions_tooltip": "Quando isso está ativado, os usuários podem mencionar ou atribuir Tasks a este aplicativo.",
         "scopes": "Escopos",
         "select_scopes": "Selecionar escopos",
         "read_access_to": "Acesso somente leitura a",

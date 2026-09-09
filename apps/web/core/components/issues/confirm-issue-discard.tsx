@@ -40,7 +40,7 @@ export function ConfirmIssueDiscard(props: Props) {
             <h3 className="text-16 leading-6 font-medium text-primary">Save this draft?</h3>
             <div className="mt-2">
               <p className="text-13 text-secondary">
-                You can save this work item to Drafts so you can come back to it later.{" "}
+                You can save this task to Drafts so you can come back to it later.{" "}
               </p>
             </div>
           </div>

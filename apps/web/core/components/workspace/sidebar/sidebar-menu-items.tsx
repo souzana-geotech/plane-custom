@@ -16,7 +16,6 @@ import {
   WORKSPACE_SIDEBAR_MANAGEMENT_NAVIGATION_ITEMS_LINKS,
   WORKSPACE_SIDEBAR_STATIC_NAVIGATION_ITEMS,
   WORKSPACE_SIDEBAR_STATIC_NAVIGATION_ITEMS_LINKS,
-  WORKSPACE_SIDEBAR_STATIC_PINNED_NAVIGATION_ITEMS_LINKS,
 } from "@plane/constants";
 import { useTranslation } from "@plane/i18n";
 import { EUserWorkspaceRoles } from "@plane/types";
@@ -102,11 +101,16 @@ export const SidebarMenuItems = observer(function SidebarMenuItems() {
 
   return (
     <>
-      <div className="flex flex-col gap-0.5">
-        {filteredStaticNavigationItems.map((item, _index) => (
-          // oxlint-disable-next-line react/no-array-index-key
-          <SidebarItemBase key={`static_${_index}`} item={item} />
-        ))}
+      <div className="flex flex-col">
+        <div className="flex w-full items-center rounded-sm px-2 py-1.5 text-placeholder">
+          <span className="text-13 font-semibold">{t("sidebar.your_work")}</span>
+        </div>
+        <div className="flex flex-col gap-0.5">
+          {filteredStaticNavigationItems.map((item, _index) => (
+            // oxlint-disable-next-line react/no-array-index-key
+            <SidebarItemBase key={`static_${_index}`} item={item} />
+          ))}
+        </div>
       </div>
       {isWorkspaceAdmin && (
         <div className="flex flex-col">
@@ -169,10 +173,6 @@ export const SidebarMenuItems = observer(function SidebarMenuItems() {
           {isWorkspaceMenuOpen && (
             <Disclosure.Panel as="div" className="flex flex-col gap-0.5" static>
               <>
-                {WORKSPACE_SIDEBAR_STATIC_PINNED_NAVIGATION_ITEMS_LINKS.map((item, _index) => (
-                  // oxlint-disable-next-line react/no-array-index-key
-                  <SidebarItemBase key={`static_${_index}`} item={item} />
-                ))}
                 {sortedNavigationItems.map((item, _index) => (
                   // oxlint-disable-next-line react/no-array-index-key
                   <SidebarItemBase key={`dynamic_${_index}`} item={item} />

@@ -26,10 +26,10 @@ type Props = {
 const DIGITS_ONLY = /^\d*$/;
 
 /**
- * Free text entry for the number of working days a work item should take.
+ * Free text entry for the number of working days a task should take.
  *
  * The value is committed on blur and on Enter rather than on every keystroke, so typing "12" does not
- * first schedule the work item for a single day.
+ * first schedule the task for a single day.
  */
 export const WorkingDaysInput = React.forwardRef(function WorkingDaysInput(
   props: Props,

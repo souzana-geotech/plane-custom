@@ -1,12 +1,12 @@
 {
   "power_k": {
     "actions_commands": {
-      "bulk_delete_work_items": "批量删除工作项"
+      "bulk_delete_work_items": "批量删除任务"
     },
     "contextual_actions": {
       "work_item": {
-        "title": "工作项操作",
-        "indicator": "工作项",
+        "title": "任务操作",
+        "indicator": "任务",
         "change_state": "更改状态",
         "change_priority": "更改优先级",
         "change_assignees": "分配给",
@@ -20,14 +20,14 @@
         "unsubscribe": "取消订阅通知",
         "delete": "删除",
         "copy_id": "复制 ID",
-        "copy_id_toast_success": "工作项 ID 已复制到剪贴板。",
-        "copy_id_toast_error": "复制工作项 ID 到剪贴板时出错。",
+        "copy_id_toast_success": "任务 ID 已复制到剪贴板。",
+        "copy_id_toast_error": "复制任务 ID 到剪贴板时出错。",
         "copy_title": "复制标题",
-        "copy_title_toast_success": "工作项标题已复制到剪贴板。",
-        "copy_title_toast_error": "复制工作项标题到剪贴板时出错。",
+        "copy_title_toast_success": "任务标题已复制到剪贴板。",
+        "copy_title_toast_error": "复制任务标题到剪贴板时出错。",
         "copy_url": "复制 URL",
-        "copy_url_toast_success": "工作项 URL 已复制到剪贴板。",
-        "copy_url_toast_error": "复制工作项 URL 到剪贴板时出错。"
+        "copy_url_toast_success": "任务 URL 已复制到剪贴板。",
+        "copy_url_toast_error": "复制任务 URL 到剪贴板时出错。"
       },
       "cycle": {
         "title": "周期操作",
@@ -66,7 +66,7 @@
       }
     },
     "creation_actions": {
-      "create_work_item": "新建工作项",
+      "create_work_item": "新建任务",
       "create_page": "新建页面",
       "create_view": "新建视图",
       "create_cycle": "新建周期",
@@ -83,16 +83,16 @@
       "nav_account_settings": "转到账号设置",
       "open_project": "打开项目",
       "nav_projects_list": "转到项目列表",
-      "nav_all_workspace_work_items": "转到所有工作项",
-      "nav_assigned_workspace_work_items": "转到已分配工作项",
-      "nav_created_workspace_work_items": "转到已创建工作项",
-      "nav_subscribed_workspace_work_items": "转到已订阅工作项",
+      "nav_all_workspace_work_items": "转到所有任务",
+      "nav_assigned_workspace_work_items": "转到已分配任务",
+      "nav_created_workspace_work_items": "转到已创建任务",
+      "nav_subscribed_workspace_work_items": "转到已订阅任务",
       "nav_workspace_analytics": "转到工作区分析",
       "nav_workspace_drafts": "转到工作区草稿",
       "nav_workspace_archives": "转到工作区归档",
       "open_workspace_setting": "打开工作区设置",
       "nav_workspace_settings": "转到工作区设置",
-      "nav_project_work_items": "转到工作项",
+      "nav_project_work_items": "转到任务",
       "open_project_cycle": "打开周期",
       "nav_project_cycles": "转到周期",
       "open_project_module": "打开模块",

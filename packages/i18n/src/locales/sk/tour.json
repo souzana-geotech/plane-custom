@@ -3,23 +3,23 @@
     "workitems": {
       "step_zero": {
         "title": "Vitajte vo vašom pracovnom priestore",
-        "description": "Aby sme vám pomohli začať, vytvorili sme pre vás Demo projekt. Pridajme vašu prvú pracovnú položku."
+        "description": "Aby sme vám pomohli začať, vytvorili sme pre vás Demo projekt. Pridajme vašu prvú úlohu."
       },
       "step_one": {
-        "title": "Kliknite na \"+ Pridať pracovnú položku\"",
-        "description": "Začnite kliknutím na tlačidlo \"+ Nová pracovná položka\". Môžete vytvoriť úlohy, chyby alebo vlastný typ, ktorý vyhovuje vašim potrebám."
+        "title": "Kliknite na \"+ Pridať úlohu\"",
+        "description": "Začnite kliknutím na tlačidlo \"+ Nová úloha\". Môžete vytvoriť úlohy, chyby alebo vlastný typ, ktorý vyhovuje vašim potrebám."
       },
       "step_two": {
-        "title": "Filtrujte svoje pracovné položky",
+        "title": "Filtrujte svoje úlohy",
         "description": "Použite filtre na rýchle zúženie zoznamu. Môžete filtrovať podľa stavu, priority alebo členov tímu. "
       },
       "step_three": {
-        "title": "Zobrazujte, zoskupujte a zoraďujte pracovné položky podľa potreby.",
-        "description": "Pozrite si požadované vlastnosti a zoskupte alebo zoraďte pracovné položky podľa svojich potrieb."
+        "title": "Zobrazujte, zoskupujte a zoraďujte úlohy podľa potreby.",
+        "description": "Pozrite si požadované vlastnosti a zoskupte alebo zoraďte úlohy podľa svojich potrieb."
       },
       "step_four": {
         "title": "Vizualizujte ako chcete",
-        "description": "Vyberte vlastnosti, ktoré chcete vidieť v zozname. Môžete tiež zoskupovať a triediť pracovné položky podľa seba."
+        "description": "Vyberte vlastnosti, ktoré chcete vidieť v zozname. Môžete tiež zoskupovať a triediť úlohy podľa seba."
       }
     },
     "cycle": {
@@ -33,29 +33,29 @@
       },
       "step_two": {
         "title": "Kliknite na \"+\"",
-        "description": "Začnite kliknutím na tlačidlo \"+\". Pridajte nové alebo existujúce pracovné položky priamo zo stránky Cyklu."
+        "description": "Začnite kliknutím na tlačidlo \"+\". Pridajte nové alebo existujúce úlohy priamo zo stránky Cyklu."
       },
       "step_three": {
         "title": "Súhrn cyklu",
         "description": "Sledujte priebeh cyklu, produktivitu tímu a priority—a zisťujte, či niečo zaostáva."
       },
       "step_four": {
-        "title": "Preniesť pracovné položky",
+        "title": "Preniesť úlohy",
         "description": "Po termíne sa cyklus automaticky dokončí. Presuňte nedokončenú prácu do iného cyklu."
       }
     },
     "module": {
       "step_zero": {
         "title": "Rozdeľte svoj projekt do Modulov",
-        "description": "Moduly sú menšie, zamerané projekty, ktoré pomáhajú používateľom zoskupovať a organizovať pracovné položky v špecifických časových rámcoch."
+        "description": "Moduly sú menšie, zamerané projekty, ktoré pomáhajú používateľom zoskupovať a organizovať úlohy v špecifických časových rámcoch."
       },
       "step_one": {
         "title": "Vytvoriť Modul",
-        "description": "Moduly sú menšie, zamerané projekty, ktoré pomáhajú používateľom zoskupovať a organizovať pracovné položky v špecifických časových rámcoch."
+        "description": "Moduly sú menšie, zamerané projekty, ktoré pomáhajú používateľom zoskupovať a organizovať úlohy v špecifických časových rámcoch."
       },
       "step_two": {
         "title": "Kliknite na \"+\"",
-        "description": "Začnite kliknutím na tlačidlo \"+\". Pridajte nové alebo existujúce pracovné položky priamo zo stránky Modulu."
+        "description": "Začnite kliknutím na tlačidlo \"+\". Pridajte nové alebo existujúce úlohy priamo zo stránky Modulu."
       },
       "step_three": {
         "title": "Stavy modulu",
@@ -95,7 +95,7 @@
     "intake": {
       "step_zero": {
         "title": "Zjednodušte žiadosti s príjmom",
-        "description": "Funkcia exkluzívne pre Plane, ktorá umožňuje Hostiam vytvárať pracovné položky pre chyby, žiadosti alebo tikety."
+        "description": "Funkcia exkluzívne pre Plane, ktorá umožňuje Hostiam vytvárať úlohy pre chyby, žiadosti alebo tikety."
       },
       "step_one": {
         "title": "Otvorené/zatvorené žiadosti o príjem",
@@ -103,11 +103,11 @@
       },
       "step_two": {
         "title": "Prijať/odmietnuť čakajúcu žiadosť",
-        "description": "Prijmite na úpravu a presunutie pracovnej položky do svojho projektu alebo odmiet nite na označenie ako Zrušené."
+        "description": "Prijmite na úpravu a presunutie úlohy do svojho projektu alebo odmiet nite na označenie ako Zrušené."
       },
       "step_three": {
         "title": "Odložiť zatiaľ",
-        "description": "Pracovná položka môže byť odložená na preskúmanie neskôr. Presunie sa na koniec vášho zoznamu otvorených žiadostí."
+        "description": "Úloha môže byť odložená na preskúmanie neskôr. Presunie sa na koniec vášho zoznamu otvorených žiadostí."
       }
     },
     "mcp_connectors": {
@@ -163,7 +163,7 @@
           "title": "Vytvoriť projekt"
         },
         "item_2": {
-          "title": "Vytvoriť pracovnú položku"
+          "title": "Vytvoriť úlohu"
         },
         "item_3": {
           "title": "Pozvať členov tímu"

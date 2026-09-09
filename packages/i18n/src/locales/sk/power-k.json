@@ -1,12 +1,12 @@
 {
   "power_k": {
     "actions_commands": {
-      "bulk_delete_work_items": "Hromadne odstrániť pracovné položky"
+      "bulk_delete_work_items": "Hromadne odstrániť úlohy"
     },
     "contextual_actions": {
       "work_item": {
-        "title": "Akcie pre pracovnú položku",
-        "indicator": "Pracovná položka",
+        "title": "Akcie pre úlohu",
+        "indicator": "Úloha",
         "change_state": "Zmeniť stav",
         "change_priority": "Zmeniť prioritu",
         "change_assignees": "Priradiť",
@@ -20,14 +20,14 @@
         "unsubscribe": "Zrušiť odber oznámení",
         "delete": "Odstrániť",
         "copy_id": "Kopírovať ID",
-        "copy_id_toast_success": "ID pracovnej položky bolo skopírované do schránky.",
-        "copy_id_toast_error": "Pri kopírovaní ID pracovnej položky do schránky sa vyskytla chyba.",
+        "copy_id_toast_success": "ID úlohy bolo skopírované do schránky.",
+        "copy_id_toast_error": "Pri kopírovaní ID úlohy do schránky sa vyskytla chyba.",
         "copy_title": "Kopírovať názov",
-        "copy_title_toast_success": "Názov pracovnej položky bol skopírovaný do schránky.",
-        "copy_title_toast_error": "Pri kopírovaní názvu pracovnej položky do schránky sa vyskytla chyba.",
+        "copy_title_toast_success": "Názov úlohy bol skopírovaný do schránky.",
+        "copy_title_toast_error": "Pri kopírovaní názvu úlohy do schránky sa vyskytla chyba.",
         "copy_url": "Kopírovať URL",
-        "copy_url_toast_success": "URL pracovnej položky bola skopírovaná do schránky.",
-        "copy_url_toast_error": "Pri kopírovaní URL pracovnej položky do schránky sa vyskytla chyba."
+        "copy_url_toast_success": "URL úlohy bola skopírovaná do schránky.",
+        "copy_url_toast_error": "Pri kopírovaní URL úlohy do schránky sa vyskytla chyba."
       },
       "cycle": {
         "title": "Akcie pre cyklus",
@@ -66,7 +66,7 @@
       }
     },
     "creation_actions": {
-      "create_work_item": "Nová pracovná položka",
+      "create_work_item": "Nová úloha",
       "create_page": "Nová stránka",
       "create_view": "Nový pohľad",
       "create_cycle": "Nový cyklus",
@@ -83,16 +83,16 @@
       "nav_account_settings": "Prejsť na nastavenia účtu",
       "open_project": "Otvoriť projekt",
       "nav_projects_list": "Prejsť na zoznam projektov",
-      "nav_all_workspace_work_items": "Prejsť na všetky pracovné položky",
-      "nav_assigned_workspace_work_items": "Prejsť na priradené pracovné položky",
-      "nav_created_workspace_work_items": "Prejsť na vytvorené pracovné položky",
-      "nav_subscribed_workspace_work_items": "Prejsť na odoberané pracovné položky",
+      "nav_all_workspace_work_items": "Prejsť na všetky úlohy",
+      "nav_assigned_workspace_work_items": "Prejsť na priradené úlohy",
+      "nav_created_workspace_work_items": "Prejsť na vytvorené úlohy",
+      "nav_subscribed_workspace_work_items": "Prejsť na odoberané úlohy",
       "nav_workspace_analytics": "Prejsť na analytiku pracovného priestoru",
       "nav_workspace_drafts": "Prejsť na koncepty pracovného priestoru",
       "nav_workspace_archives": "Prejsť na archívy pracovného priestoru",
       "open_workspace_setting": "Otvoriť nastavenie pracovného priestoru",
       "nav_workspace_settings": "Prejsť na nastavenia pracovného priestoru",
-      "nav_project_work_items": "Prejsť na pracovné položky",
+      "nav_project_work_items": "Prejsť na úlohy",
       "open_project_cycle": "Otvoriť cyklus",
       "nav_project_cycles": "Prejsť na cykly",
       "open_project_module": "Otvoriť modul",

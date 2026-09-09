@@ -82,7 +82,7 @@
         "export_separate_files": "Esporta i dati in file separati",
         "exporting_projects": "Esportazione del progetto",
         "format": "Formato",
-        "filters_info": "Applica filtri per esportare elementi di lavoro specifici in base ai tuoi criteri.",
+        "filters_info": "Applica filtri per esportare attività specifici in base ai tuoi criteri.",
         "modal": {
           "title": "Esporta in",
           "toasts": {
@@ -272,12 +272,12 @@
       "templates": {
         "title": "Modelli",
         "heading": "Modelli",
-        "description": "Risparmia l'80% del tempo dedicato alla creazione di progetti, elementi di lavoro e pagine quando usi i modelli."
+        "description": "Risparmia l'80% del tempo dedicato alla creazione di progetti, attività e pagine quando usi i modelli."
       },
       "relations": {
         "title": "Relazioni",
         "heading": "Relazioni",
-        "description": "Crea e gestisci tipi di relazione che collegano elementi di lavoro nel tuo spazio di lavoro."
+        "description": "Crea e gestisci tipi di relazione che collegano attività nel tuo spazio di lavoro."
       },
       "cancel_trial": {
         "title": "Cancella la tua prova prima.",
@@ -454,7 +454,7 @@
         "app_consent_unapproved_description": "Assicurati di fidarti di questa app prima di connetterla al tuo spazio di lavoro.",
         "go_to_app": "Vai all'app",
         "enable_app_mentions": "Abilita menzioni dell'app",
-        "enable_app_mentions_tooltip": "Quando è abilitato, gli utenti possono menzionare o assegnare Work Item a questa applicazione.",
+        "enable_app_mentions_tooltip": "Quando è abilitato, gli utenti possono menzionare o assegnare Task a questa applicazione.",
         "scopes": "Ambiti",
         "select_scopes": "Seleziona ambiti",
         "read_access_to": "Accesso in sola lettura a",

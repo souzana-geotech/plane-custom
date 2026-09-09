@@ -111,7 +111,7 @@ export const IssueDefaultProperties = observer(function IssueDefaultProperties(p
     useWorkItemWorkingDays({ startDate, targetDate, onDatesChange: handleDatesChange, resetKey: id });
 
   // the secondary properties stay collapsed so a routine task is title + save, but they must never
-  // hide data that is already there — editing a work item or applying a template fills these in
+  // hide data that is already there — editing a task or applying a template fills these in
   const watchedLabelIds = useWatch({ control, name: "label_ids" });
   const watchedCycleId = useWatch({ control, name: "cycle_id" });
   const watchedModuleIds = useWatch({ control, name: "module_ids" });

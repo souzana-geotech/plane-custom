@@ -11,14 +11,14 @@
     "your_work": "Công việc của tôi",
     "projects": "Dự án",
     "pages": "Trang",
-    "new_work_item": "Mục công việc mới",
+    "new_work_item": "Nhiệm vụ mới",
     "home": "Công việc của tôi",
     "inbox": "Hộp thư đến",
     "workspace": "Không gian làm việc",
     "management": "Quản lý",
     "views": "Chế độ xem",
     "analytics": "Phân tích",
-    "work_items": "Mục công việc",
+    "work_items": "Nhiệm vụ",
     "cycles": "Chu kỳ",
     "modules": "Mô-đun",
     "intake": "Thu thập",
@@ -30,6 +30,7 @@
     "epics": "Epics",
     "upgrade_plan": "Nâng cấp gói",
     "plane_pro": "Plane Pro",
-    "business": "Doanh nghiệp"
+    "business": "Doanh nghiệp",
+    "all_projects": "Tất cả dự án"
   }
 }

@@ -59,7 +59,7 @@ def outsider_user(db):
 @pytest.mark.contract
 class TestIssueAssigneeLabelValidationContract:
     """
-    Contract: creating/updating a work item through the external REST API
+    Contract: creating/updating a task through the external REST API
     (``/api/v1/...``) must reject assignee/label ids that don't belong to the
     project with a 400, instead of silently dropping them and returning
     200/201. See makeplane/plane#9517.

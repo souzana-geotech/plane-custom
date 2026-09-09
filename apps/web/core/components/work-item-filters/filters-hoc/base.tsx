@@ -29,7 +29,7 @@ type TWorkItemFiltersHOCProps = TSharedWorkItemFiltersHOCProps & TAdditionalWork
 export const WorkItemFiltersHOC = observer(function WorkItemFiltersHOC(props: TWorkItemFiltersHOCProps) {
   const { children, initialWorkItemFilters } = props;
 
-  // Only initialize filter instance when initial work item filters are defined
+  // Only initialize filter instance when initial task filters are defined
   if (!initialWorkItemFilters)
     return <>{typeof children === "function" ? children({ filter: undefined }) : children}</>;
 

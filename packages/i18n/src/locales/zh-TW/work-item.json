@@ -1,11 +1,11 @@
 {
   "issue": {
-    "label": "{count, plural, one {工作事項} other {工作事項}}",
-    "all": "所有工作事項",
-    "edit": "編輯工作事項",
+    "label": "{count, plural, one {任務} other {任務}}",
+    "all": "所有任務",
+    "edit": "編輯任務",
     "title": {
-      "label": "工作事項標題",
-      "required": "工作事項標題為必填。"
+      "label": "任務標題",
+      "required": "任務標題為必填。"
     },
     "form": {
       "title_placeholder": "需要做什麼？",
@@ -15,44 +15,44 @@
       "fewer_options": "收合選項"
     },
     "add": {
-      "press_enter": "按 'Enter' 以新增另一個工作事項",
-      "label": "新增工作事項",
+      "press_enter": "按 'Enter' 以新增另一個任務",
+      "label": "新增任務",
       "cycle": {
-        "failed": "無法將工作事項新增到週期。請再試一次。",
-        "success": "{count, plural, one {工作事項} other {工作事項}} 已成功新增到週期。",
-        "loading": "正在將 {count, plural, one {工作事項} other {工作事項}} 新增到週期"
+        "failed": "無法將任務新增到週期。請再試一次。",
+        "success": "{count, plural, one {任務} other {任務}} 已成功新增到週期。",
+        "loading": "正在將 {count, plural, one {任務} other {任務}} 新增到週期"
       },
       "assignee": "新增指派對象",
       "start_date": "新增開始日期",
       "due_date": "新增截止日期",
       "working_days": "新增工作日",
-      "parent": "新增父工作事項",
-      "sub_issue": "新增子工作事項",
+      "parent": "新增父任務",
+      "sub_issue": "新增子任務",
       "dependency": "新增相依性",
       "relation": "新增關聯",
       "link": "新增連結",
-      "existing": "新增現有工作事項"
+      "existing": "新增現有任務"
     },
     "remove": {
-      "label": "移除工作事項",
+      "label": "移除任務",
       "cycle": {
-        "loading": "正在從週期移除工作事項",
-        "success": "已成功從週期移除工作事項。",
-        "failed": "無法從週期移除工作事項。請再試一次。"
+        "loading": "正在從週期移除任務",
+        "success": "已成功從週期移除任務。",
+        "failed": "無法從週期移除任務。請再試一次。"
       },
       "module": {
-        "loading": "正在從模組移除工作事項",
-        "success": "已成功從模組移除工作事項。",
-        "failed": "無法從模組移除工作事項。請再試一次。"
+        "loading": "正在從模組移除任務",
+        "success": "已成功從模組移除任務。",
+        "failed": "無法從模組移除任務。請再試一次。"
       },
       "parent": {
-        "label": "移除父工作事項"
+        "label": "移除父任務"
       }
     },
-    "new": "新工作事項",
-    "adding": "新增工作事項中",
+    "new": "新任務",
+    "adding": "新增任務中",
     "create": {
-      "success": "工作事項建立成功"
+      "success": "任務建立成功"
     },
     "priority": {
       "urgent": "緊急",
@@ -64,15 +64,15 @@
       "properties": {
         "label": "顯示屬性",
         "id": "ID",
-        "issue_type": "工作事項類型",
-        "sub_issue_count": "子工作事項數量",
+        "issue_type": "任務類型",
+        "sub_issue_count": "子任務數量",
         "attachment_count": "附件數量",
         "created_on": "建立於",
-        "sub_issue": "子工作事項",
-        "work_item_count": "工作事項數量"
+        "sub_issue": "子任務",
+        "work_item_count": "任務數量"
       },
       "extra": {
-        "show_sub_issues": "顯示子工作事項",
+        "show_sub_issues": "顯示子任務",
         "show_empty_groups": "顯示空群組"
       }
     },
@@ -160,35 +160,35 @@
     },
     "empty_state": {
       "issue_detail": {
-        "title": "工作事項不存在",
-        "description": "您尋找的工作事項不存在、已封存或已刪除。",
+        "title": "任務不存在",
+        "description": "您尋找的任務不存在、已封存或已刪除。",
         "primary_button": {
-          "text": "檢視其他工作事項"
+          "text": "檢視其他任務"
         }
       }
     },
     "sibling": {
-      "label": "同層級工作事項"
+      "label": "同層級任務"
     },
     "archive": {
-      "description": "只有已完成或取消的\n工作事項可以封存",
-      "label": "封存工作事項",
-      "confirm_message": "您確定要封存工作事項嗎？所有已封存的工作事項稍後都可以還原。",
+      "description": "只有已完成或取消的\n任務可以封存",
+      "label": "封存任務",
+      "confirm_message": "您確定要封存任務嗎？所有已封存的任務稍後都可以還原。",
       "success": {
         "label": "封存成功",
         "message": "您的封存可以在專案封存中找到。"
       },
       "failed": {
-        "message": "無法封存工作事項。請再試一次。"
+        "message": "無法封存任務。請再試一次。"
       }
     },
     "restore": {
       "success": {
         "title": "還原成功",
-        "message": "您的工作事項可以在專案工作事項中找到。"
+        "message": "您的任務可以在專案任務中找到。"
       },
       "failed": {
-        "message": "無法還原工作事項。請再試一次。"
+        "message": "無法還原任務。請再試一次。"
       }
     },
     "relation": {
@@ -209,29 +209,29 @@
       "adjusted_dates": "調整後：{startDate} 至 {targetDate}",
       "adjusted_date": "調整後：{targetDate}"
     },
-    "copy_link": "複製工作事項連結",
+    "copy_link": "複製任務連結",
     "delete": {
-      "label": "刪除工作事項",
-      "error": "刪除工作事項時發生錯誤"
+      "label": "刪除任務",
+      "error": "刪除任務時發生錯誤"
     },
     "subscription": {
       "actions": {
-        "subscribed": "已成功訂閱工作事項",
-        "unsubscribed": "已成功取消訂閱工作事項"
+        "subscribed": "已成功訂閱任務",
+        "unsubscribed": "已成功取消訂閱任務"
       }
     },
     "select": {
-      "error": "請至少選擇一個工作事項",
-      "empty": "未選擇工作事項",
-      "add_selected": "新增已選取的工作事項",
+      "error": "請至少選擇一個任務",
+      "empty": "未選擇任務",
+      "add_selected": "新增已選取的任務",
       "select_all": "全選",
       "deselect_all": "取消全選"
     },
-    "open_in_full_screen": "以全螢幕開啟工作事項",
+    "open_in_full_screen": "以全螢幕開啟任務",
     "duplicate": {
       "modal": {
         "title": "複製到另一個專案",
-        "description1": "此操作將建立此工作事項的副本。",
+        "description1": "此操作將建立此任務的副本。",
         "description2": "複製時所有屬性資料都將被移除。",
         "placeholder": "選擇專案"
       }
@@ -239,10 +239,10 @@
     "toast": {
       "duplicate": {
         "success": {
-          "message": "工作事項複製成功"
+          "message": "任務複製成功"
         },
         "error": {
-          "message": "工作事項複製失敗"
+          "message": "任務複製失敗"
         }
       }
     },
@@ -284,22 +284,22 @@
   },
   "sub_work_item": {
     "update": {
-      "success": "子工作事項更新成功",
-      "error": "更新子工作事項時發生錯誤"
+      "success": "子任務更新成功",
+      "error": "更新子任務時發生錯誤"
     },
     "remove": {
-      "success": "子工作事項移除成功",
-      "error": "移除子工作事項時發生錯誤"
+      "success": "子任務移除成功",
+      "error": "移除子任務時發生錯誤"
     },
     "empty_state": {
       "sub_list_filters": {
-        "title": "您沒有符合您應用過的過濾器的子工作事項。",
-        "description": "要查看所有子工作事項，請清除所有應用過的過濾器。",
+        "title": "您沒有符合您應用過的過濾器的子任務。",
+        "description": "要查看所有子任務，請清除所有應用過的過濾器。",
         "action": "清除過濾器"
       },
       "list_filters": {
-        "title": "您沒有符合您應用過的過濾器的工作事項。",
-        "description": "要查看所有工作事項，請清除所有應用過的過濾器。",
+        "title": "您沒有符合您應用過的過濾器的任務。",
+        "description": "要查看所有任務，請清除所有應用過的過濾器。",
         "action": "清除過濾器"
       }
     }
@@ -307,10 +307,10 @@
   "issue_relation": {
     "empty_state": {
       "search": {
-        "title": "找不到符合的工作事項"
+        "title": "找不到符合的任務"
       },
       "no_issues": {
-        "title": "找不到工作事項"
+        "title": "找不到任務"
       }
     }
   },
@@ -318,7 +318,7 @@
     "empty_state": {
       "general": {
         "title": "尚無留言",
-        "description": "留言可用作工作事項的討論和後續追蹤空間"
+        "description": "留言可用作任務的討論和後續追蹤空間"
       }
     }
   },

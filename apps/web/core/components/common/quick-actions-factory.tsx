@@ -76,7 +76,7 @@ export const useQuickActionsFactory = () => {
       shouldRender,
     }),
 
-    // Layout-level actions (for work item list views)
+    // Layout-level actions (for task list views)
     createOpenInNewTab: (handler: () => void): TContextMenuItem => ({
       key: "open-in-new-tab",
       title: "Open in new tab",

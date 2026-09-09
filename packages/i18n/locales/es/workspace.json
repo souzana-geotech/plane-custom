@@ -53,7 +53,7 @@
   "workspace_dashboard": {
     "title": "Panel de operaciones",
     "subtitle": "Visibilidad de gestión sobre trabajos de clientes, tareas, departamentos y empleados",
-    "coverage_note": "Los entregables, las revisiones de clientes, los equipos y las ventas no se muestran porque este espacio de trabajo no tiene datos sobre ellos. Los conflictos de agenda de los empleados requieren horarios, que los elementos de trabajo no incluyen.",
+    "coverage_note": "Los entregables, las revisiones de clientes, los equipos y las ventas no se muestran porque este espacio de trabajo no tiene datos sobre ellos. Los conflictos de agenda de los empleados requieren horarios, que las tareas no incluyen.",
     "error": {
       "title": "No se pudo cargar el panel",
       "description": "Una o más solicitudes fallaron. Reintente o actualice la página.",
@@ -61,7 +61,7 @@
     },
     "empty": {
       "title": "Todavía no hay datos de operaciones",
-      "description": "Cree Módulos para los trabajos de clientes y elementos de trabajo para el trabajo real, y este panel se completará."
+      "description": "Cree Módulos para los trabajos de clientes y tareas para el trabajo real, y este panel se completará."
     },
     "filters": {
       "project": "Proyecto",
@@ -77,13 +77,13 @@
       "jobs_at_risk": "Trabajos que requieren atención",
       "jobs_at_risk_hint": "Trabajos activos en riesgo, retrasados o bloqueados",
       "overdue_tasks": "Tareas vencidas",
-      "overdue_tasks_hint": "Elementos de trabajo abiertos con la fecha límite superada",
+      "overdue_tasks_hint": "Tareas abiertos con la fecha límite superada",
       "due_this_week": "Vencen esta semana",
-      "due_this_week_hint": "Elementos de trabajo abiertos que vencen en los próximos 7 días",
+      "due_this_week_hint": "Tareas abiertos que vencen en los próximos 7 días",
       "blocked_tasks": "Tareas bloqueadas",
-      "blocked_tasks_hint": "Elementos de trabajo abiertos bloqueados por otro trabajo abierto",
+      "blocked_tasks_hint": "Tareas abiertos bloqueados por otro trabajo abierto",
       "no_due_date": "Sin fecha límite",
-      "no_due_date_hint": "Elementos de trabajo abiertos sin fecha límite"
+      "no_due_date_hint": "Tareas abiertos sin fecha límite"
     },
     "severity": {
       "critical": "Crítico",
@@ -137,7 +137,7 @@
     },
     "employees": {
       "title": "Carga de trabajo por empleado",
-      "description": "Elementos de trabajo abiertos por empleado. La capacidad no se registra, por lo que se muestran recuentos en lugar de utilización.",
+      "description": "Tareas abiertos por empleado. La capacidad no se registra, por lo que se muestran recuentos en lugar de utilización.",
       "empty": "No hay trabajo abierto asignado",
       "columns": {
         "employee": "Empleado",
@@ -150,8 +150,8 @@
     "pipeline": {
       "title": "Flujo de trabajo",
       "description": "Dónde se encuentra el trabajo en los estados del flujo",
-      "total": "{count, plural, one {# elemento de trabajo} other {# elementos de trabajo}}",
-      "empty": "Todavía no hay elementos de trabajo"
+      "total": "{count, plural, one {# tarea} other {# tareas}}",
+      "empty": "Todavía no hay tareas"
     },
     "departments": {
       "title": "Carga de trabajo por departamento",
@@ -168,7 +168,7 @@
     },
     "attention": {
       "title": "Trabajo que requiere atención",
-      "description": "Elementos de trabajo vencidos, bloqueados o que vencen pronto",
+      "description": "Tareas vencidos, bloqueados o que vencen pronto",
       "empty": "Nada requiere atención",
       "overdue_by": "{count, plural, one {Vencido hace # día} other {Vencido hace # días}}",
       "blocked": "Bloqueado",
@@ -179,7 +179,7 @@
     "empty_state": {
       "general": {
         "title": "Resumen de tus proyectos, actividad y métricas",
-        "description": "Bienvenido a Plane, estamos emocionados de tenerte aquí. Crea tu primer proyecto y rastrea tus elementos de trabajo, y esta página se transformará en un espacio que te ayuda a progresar. Los administradores también verán elementos que ayudan a su equipo a progresar.",
+        "description": "Bienvenido a Plane, estamos emocionados de tenerte aquí. Crea tu primer proyecto y rastrea tus tareas, y esta página se transformará en un espacio que te ayuda a progresar. Los administradores también verán elementos que ayudan a su equipo a progresar.",
         "primary_button": {
           "text": "Construye tu primer proyecto",
           "comic": {
@@ -198,7 +198,7 @@
       "busy": "Ocupado · {count}",
       "assigned": "Asignado · {count}",
       "available": "Disponible",
-      "tooltip": "{count, plural, one {# elemento de trabajo abierto programado} other {# elementos de trabajo abiertos programados}} para hoy"
+      "tooltip": "{count, plural, one {# tarea abierta programado} other {# tareas abiertas programados}} para hoy"
     },
     "summary": {
       "employees": "Empleados mostrados",
@@ -206,7 +206,7 @@
       "with_overlaps": "Con solapamientos",
       "available": "Libres hoy",
       "scheduled": "Asignaciones programadas",
-      "undated": "Elementos de trabajo sin fecha"
+      "undated": "Tareas sin fecha"
     },
     "filters": {
       "all": "Todos",
@@ -245,7 +245,7 @@
       "overlap_tooltip": "{count, plural, one {# periodo} other {# periodos}} con más de una asignación a la vez. Máximo: {peak} a la vez.",
       "overdue": "{count, plural, one {# vencido} other {# vencidos}}",
       "undated": "{count, plural, one {# sin fecha} other {# sin fecha}}",
-      "undated_tooltip": "Elementos de trabajo abiertos asignados a este empleado que no tienen fecha de inicio ni de vencimiento, por lo que no se pueden situar en la línea de tiempo.",
+      "undated_tooltip": "Tareas abiertos asignados a este empleado que no tienen fecha de inicio ni de vencimiento, por lo que no se pueden situar en la línea de tiempo.",
       "next": "Siguiente: {name} · {date}",
       "nothing_next": "Nada programado a continuación"
     },
@@ -260,12 +260,12 @@
     },
     "error": {
       "title": "No se pudo cargar el Gantt de empleados",
-      "description": "La solicitud de elementos de trabajo falló. Reintente o actualice la página.",
+      "description": "La solicitud de tareas falló. Reintente o actualice la página.",
       "retry": "Reintentar"
     },
     "empty": {
       "title": "Aún no hay trabajo programado",
-      "description": "Asigne a los elementos de trabajo una fecha de inicio y una de vencimiento, asígnelos a personas y esta vista se completará."
+      "description": "Asigne a las tareas una fecha de inicio y una de vencimiento, asígnelos a personas y esta vista se completará."
     },
     "empty_today": {
       "title": "Nadie tiene trabajo programado para hoy",
@@ -285,26 +285,26 @@
     "page_label": "{workspace} - Análisis",
     "open_tasks": "Total de tareas abiertas",
     "error": "Hubo un error al obtener los datos.",
-    "work_items_closed_in": "Elementos de trabajo cerrados en",
+    "work_items_closed_in": "Tareas cerrados en",
     "selected_projects": "Proyectos seleccionados",
     "total_members": "Total de miembros",
     "total_cycles": "Total de Ciclos",
     "total_modules": "Total de Módulos",
     "pending_work_items": {
-      "title": "Elementos de trabajo pendientes",
-      "empty_state": "El análisis de elementos de trabajo pendientes por compañeros aparece aquí."
+      "title": "Tareas pendientes",
+      "empty_state": "El análisis de tareas pendientes por compañeros aparece aquí."
     },
     "work_items_closed_in_a_year": {
-      "title": "Elementos de trabajo cerrados en un año",
-      "empty_state": "Cierra elementos de trabajo para ver su análisis en forma de gráfico."
+      "title": "Tareas cerrados en un año",
+      "empty_state": "Cierra tareas para ver su análisis en forma de gráfico."
     },
     "most_work_items_created": {
-      "title": "Más elementos de trabajo creados",
-      "empty_state": "Los compañeros y el número de elementos de trabajo creados por ellos aparecen aquí."
+      "title": "Más tareas creadas",
+      "empty_state": "Los compañeros y el número de tareas creadas por ellos aparecen aquí."
     },
     "most_work_items_closed": {
-      "title": "Más elementos de trabajo cerrados",
-      "empty_state": "Los compañeros y el número de elementos de trabajo cerrados por ellos aparecen aquí."
+      "title": "Más tareas cerradas",
+      "empty_state": "Los compañeros y el número de tareas cerradas por ellos aparecen aquí."
     },
     "tabs": {
       "scope_and_demand": "Alcance y Demanda",
@@ -325,15 +325,15 @@
     "empty_state": {
       "project_insights": {
         "title": "Aún no hay datos",
-        "description": "Los elementos de trabajo asignados a ti, desglosados por estado, aparecerán aquí."
+        "description": "Las tareas asignadas a ti, desglosados por estado, aparecerán aquí."
       },
       "created_vs_resolved": {
         "title": "Aún no hay datos",
-        "description": "Los elementos de trabajo creados y resueltos con el tiempo aparecerán aquí."
+        "description": "Las tareas creadas y resueltos con el tiempo aparecerán aquí."
       },
       "customized_insights": {
         "title": "Aún no hay datos",
-        "description": "Los elementos de trabajo asignados a ti, desglosados por estado, aparecerán aquí."
+        "description": "Las tareas asignadas a ti, desglosados por estado, aparecerán aquí."
       },
       "general": {
         "title": "Rastrea el progreso, las cargas de trabajo y las asignaciones. Identifica tendencias, elimina bloqueos y trabaja más rápido",
@@ -342,25 +342,25 @@
           "text": "Inicia tu primer proyecto",
           "comic": {
             "title": "Analytics funciona mejor con Ciclos + Módulos",
-            "description": "Primero, encuadra tus elementos de trabajo en Ciclos y, si puedes, agrupa elementos que abarcan más de un ciclo en Módulos. Revisa ambos en la navegación izquierda."
+            "description": "Primero, encuadra tus tareas en Ciclos y, si puedes, agrupa elementos que abarcan más de un ciclo en Módulos. Revisa ambos en la navegación izquierda."
           }
         }
       },
       "cycle_progress": {
         "title": "Aún no hay datos",
-        "description": "Los análisis de progreso del ciclo aparecerán aquí. Agrega elementos de trabajo a los ciclos para comenzar a rastrear el progreso."
+        "description": "Los análisis de progreso del ciclo aparecerán aquí. Agrega tareas a los ciclos para comenzar a rastrear el progreso."
       },
       "module_progress": {
         "title": "Aún no hay datos",
-        "description": "Los análisis de progreso del módulo aparecerán aquí. Agrega elementos de trabajo a los módulos para comenzar a rastrear el progreso."
+        "description": "Los análisis de progreso del módulo aparecerán aquí. Agrega tareas a los módulos para comenzar a rastrear el progreso."
       },
       "intake_trends": {
         "title": "Aún no hay datos",
-        "description": "Los análisis de tendencias de entrada aparecerán aquí. Agrega elementos de trabajo a la entrada para comenzar a rastrear tendencias."
+        "description": "Los análisis de tendencias de entrada aparecerán aquí. Agrega tareas a la entrada para comenzar a rastrear tendencias."
       }
     },
     "upgrade_to_plan": "Mejora a {plan} para desbloquear {tab}",
-    "workitem_resolved_vs_pending": "Elementos de trabajo resueltos vs pendientes",
+    "workitem_resolved_vs_pending": "Tareas resueltos vs pendientes",
     "projects_by_status": "Proyectos por estado",
     "active_users": "Usuarios activos",
     "intake_trends": "Tendencias de admisión"
@@ -385,7 +385,7 @@
       "permission": "No tienes permiso para realizar esta acción.",
       "cycle_delete": "Error al eliminar el ciclo",
       "module_delete": "Error al eliminar el módulo",
-      "issue_delete": "Error al eliminar el elemento de trabajo"
+      "issue_delete": "Error al eliminar la tarea"
     },
     "state": {
       "backlog": "Pendiente",
@@ -422,7 +422,7 @@
       },
       "no_projects": {
         "title": "Sin proyecto",
-        "description": "Para crear elementos de trabajo o gestionar tu trabajo, necesitas crear un proyecto o ser parte de uno.",
+        "description": "Para crear tareas o gestionar tu trabajo, necesitas crear un proyecto o ser parte de uno.",
         "primary_button": {
           "text": "Inicia tu primer proyecto",
           "comic": {
@@ -444,33 +444,33 @@
     "add_view": "Agregar vista",
     "empty_state": {
       "all-issues": {
-        "title": "No hay elementos de trabajo en el proyecto",
-        "description": "¡Primer proyecto completado! Ahora, divide tu trabajo en piezas rastreables con elementos de trabajo. ¡Vamos!",
+        "title": "No hay tareas en el proyecto",
+        "description": "¡Primer proyecto completado! Ahora, divide tu trabajo en piezas rastreables con tareas. ¡Vamos!",
         "primary_button": {
-          "text": "Crear nuevo elemento de trabajo"
+          "text": "Crear nueva tarea"
         }
       },
       "assigned": {
-        "title": "No hay elementos de trabajo aún",
-        "description": "Los elementos de trabajo asignados a ti se pueden rastrear desde aquí.",
+        "title": "No hay tareas aún",
+        "description": "Las tareas asignadas a ti se pueden rastrear desde aquí.",
         "primary_button": {
-          "text": "Crear nuevo elemento de trabajo"
+          "text": "Crear nueva tarea"
         }
       },
       "created": {
-        "title": "No hay elementos de trabajo aún",
-        "description": "Todos los elementos de trabajo creados por ti vienen aquí, rastréalos aquí directamente.",
+        "title": "No hay tareas aún",
+        "description": "Todas las tareas creadas por ti vienen aquí, rastréalos aquí directamente.",
         "primary_button": {
-          "text": "Crear nuevo elemento de trabajo"
+          "text": "Crear nueva tarea"
         }
       },
       "subscribed": {
-        "title": "No hay elementos de trabajo aún",
-        "description": "Suscríbete a los elementos de trabajo que te interesan, rastréalos todos aquí."
+        "title": "No hay tareas aún",
+        "description": "Suscríbete a las tareas que te interesan, rastréalos todos aquí."
       },
       "custom-view": {
-        "title": "No hay elementos de trabajo aún",
-        "description": "Elementos de trabajo que aplican a los filtros, rastréalos todos aquí."
+        "title": "No hay tareas aún",
+        "description": "Tareas que aplican a los filtros, rastréalos todos aquí."
       }
     },
     "delete_view": {
@@ -479,10 +479,10 @@
     }
   },
   "workspace_draft_issues": {
-    "draft_an_issue": "Borrador de elemento de trabajo",
+    "draft_an_issue": "Borrador de tarea",
     "empty_state": {
-      "title": "Los elementos de trabajo a medio escribir y pronto los comentarios aparecerán aquí.",
-      "description": "Para probar esto, comienza a agregar un elemento de trabajo y déjalo a medias o crea tu primer borrador a continuación. 😉",
+      "title": "Las tareas a medio escribir y pronto los comentarios aparecerán aquí.",
+      "description": "Para probar esto, comienza a agregar una tarea y déjalo a medias o crea tu primer borrador a continuación. 😉",
       "primary_button": {
         "text": "Crea tu primer borrador"
       }
@@ -494,7 +494,7 @@
     "toasts": {
       "created": {
         "success": "Borrador creado",
-        "error": "No se pudo crear el elemento de trabajo. Por favor, inténtalo de nuevo."
+        "error": "No se pudo crear la tarea. Por favor, inténtalo de nuevo."
       },
       "deleted": {
         "success": "Borrador eliminado"
@@ -505,7 +505,7 @@
     "empty_state": {
       "general": {
         "title": "Escribe una nota, un documento o una base de conocimiento completa. Obtén ayuda de Galileo, el asistente de IA de Plane, para comenzar",
-        "description": "Las Pages son espacios de pensamiento en Plane. Toma notas de reuniones, fórmalas fácilmente, integra elementos de trabajo, organízalas usando una biblioteca de componentes y mantenlas todas en el contexto de tu proyecto. Para hacer cualquier documento rápidamente, invoca a Galileo, la IA de Plane, con un atajo o el clic de un botón.",
+        "description": "Las Pages son espacios de pensamiento en Plane. Toma notas de reuniones, fórmalas fácilmente, integra tareas, organízalas usando una biblioteca de componentes y mantenlas todas en el contexto de tu proyecto. Para hacer cualquier documento rápidamente, invoca a Galileo, la IA de Plane, con un atajo o el clic de un botón.",
         "primary_button": {
           "text": "Crea tu primera Page"
         }

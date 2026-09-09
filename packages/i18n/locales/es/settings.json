@@ -45,7 +45,7 @@
     },
     "notifications": {
       "heading": "Notificaciones por correo electrónico",
-      "description": "Mantente al tanto de los elementos de trabajo a los que estás suscrito. Activa esto para recibir notificaciones.",
+      "description": "Mantente al tanto de las tareas a los que estás suscrito. Activa esto para recibir notificaciones.",
       "select_default_view": "Seleccionar vista predeterminada",
       "compact": "Compacto",
       "full": "Pantalla completa"
@@ -59,7 +59,7 @@
     },
     "activity": {
       "heading": "Actividad",
-      "description": "Realiza un seguimiento de tus acciones y cambios recientes en todos los proyectos y elementos de trabajo."
+      "description": "Realiza un seguimiento de tus acciones y cambios recientes en todos los proyectos y tareas."
     },
     "connections": {
       "title": "Conexiones",
@@ -78,16 +78,16 @@
     "stats": {
       "workload": "Carga de trabajo",
       "overview": "Resumen",
-      "created": "Elementos de trabajo creados",
-      "assigned": "Elementos de trabajo asignados",
-      "subscribed": "Elementos de trabajo suscritos",
+      "created": "Tareas creados",
+      "assigned": "Tareas asignados",
+      "subscribed": "Tareas suscritos",
       "state_distribution": {
-        "title": "Elementos de trabajo por estado",
-        "empty": "Crea elementos de trabajo para verlos por estados en el gráfico para un mejor análisis."
+        "title": "Tareas por estado",
+        "empty": "Crea tareas para verlos por estados en el gráfico para un mejor análisis."
       },
       "priority_distribution": {
-        "title": "Elementos de trabajo por Prioridad",
-        "empty": "Crea elementos de trabajo para verlos por prioridad en el gráfico para un mejor análisis."
+        "title": "Tareas por Prioridad",
+        "empty": "Crea tareas para verlos por prioridad en el gráfico para un mejor análisis."
       },
       "recent_activity": {
         "title": "Actividad reciente",
@@ -115,19 +115,19 @@
     "empty_state": {
       "activity": {
         "title": "Aún no hay actividades",
-        "description": "¡Comienza creando un nuevo elemento de trabajo! Agrégale detalles y propiedades. Explora más en Plane para ver tu actividad."
+        "description": "¡Comienza creando un nueva tarea! Agrégale detalles y propiedades. Explora más en Plane para ver tu actividad."
       },
       "assigned": {
-        "title": "No hay elementos de trabajo asignados a ti",
-        "description": "Los elementos de trabajo asignados a ti se pueden rastrear desde aquí."
+        "title": "No hay tareas asignadas a ti",
+        "description": "Las tareas asignadas a ti se pueden rastrear desde aquí."
       },
       "created": {
-        "title": "Aún no hay elementos de trabajo",
-        "description": "Todos los elementos de trabajo creados por ti aparecen aquí, rastréalos directamente aquí."
+        "title": "Aún no hay tareas",
+        "description": "Todas las tareas creadas por ti aparecen aquí, rastréalos directamente aquí."
       },
       "subscribed": {
-        "title": "Aún no hay elementos de trabajo",
-        "description": "Suscríbete a los elementos de trabajo que te interesen, rastréalos todos aquí."
+        "title": "Aún no hay tareas",
+        "description": "Suscríbete a las tareas que te interesen, rastréalos todos aquí."
       }
     }
   },

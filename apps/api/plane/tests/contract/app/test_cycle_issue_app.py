@@ -54,7 +54,7 @@ def attacker_cycle(db, workspace, attacker_project, create_user):
 
 @pytest.fixture
 def victim_tenant(db):
-    """A completely separate workspace/project/cycle owning a work item that is
+    """A completely separate workspace/project/cycle owning a task that is
     already assigned to the victim's own cycle."""
     uid = uuid4().hex[:8]
     victim_user = User.objects.create(

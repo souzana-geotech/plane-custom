@@ -22,10 +22,10 @@ const OVERLAY_HEIGHT = 32;
 /**
  * Additive dependency-delay layer for the main gantt.
  *
- * When a work item is pushed by a delayed `blocked_by` dependency, its projected
+ * When a task is pushed by a delayed `blocked_by` dependency, its projected
  * (adjusted) period is drawn as a dashed outline in the same row as the planned
  * bar. The overlay is never interactive and renders nothing for blocks without a
- * projection (module bars, on-time work items, or while the data is loading), so
+ * projection (module bars, on-time tasks, or while the data is loading), so
  * every existing gantt behavior — drag, resize, virtualization — is untouched.
  */
 export const GanttDependencyDelayOverlay = observer(function GanttDependencyDelayOverlay(props: { blockId: string }) {
@@ -34,7 +34,7 @@ export const GanttDependencyDelayOverlay = observer(function GanttDependencyDela
   const { workspaceSlug } = useParams();
   // store hooks
   const { getBlockById, getPositionFromDateOnGantt, currentViewData } = useTimeLineChartStore();
-  // block ids on the issue timeline are work item ids; other timelines simply miss
+  // block ids on the issue timeline are task ids; other timelines simply miss
   const schedules = useWorkspaceDependencySchedules(workspaceSlug?.toString());
   const schedule = schedules.get(blockId);
 
@@ -65,14 +65,14 @@ export const GanttDependencyDelayOverlay = observer(function GanttDependencyDela
   );
 });
 
-/** "GEOTE-10 Site Survey" — the upstream work item blamed for the delay. */
+/** "GEOTE-10 Site Survey" — the upstream task blamed for the delay. */
 const delayedByLabel = (schedule: TWorkspaceDependencySchedule): string =>
   `${schedule.delayed_by.project_identifier}-${schedule.delayed_by.sequence_id} ${schedule.delayed_by.name}`;
 
 /**
- * Dependency-delay lines for a work item's hover card on the gantt, e.g.
+ * Dependency-delay lines for a task's hover card on the gantt, e.g.
  * "Dependency Delayed — Delayed by: GEOTE-10 Site Survey — Adjusted: Sep 9 – Sep 10".
- * Renders nothing when the work item is not dependency delayed.
+ * Renders nothing when the task is not dependency delayed.
  */
 export const GanttDependencyDelayDetails = observer(function GanttDependencyDelayDetails(props: { issueId: string }) {
   const { issueId } = props;

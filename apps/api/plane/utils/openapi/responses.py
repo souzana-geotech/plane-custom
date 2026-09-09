@@ -210,11 +210,11 @@ ISSUE_NOT_FOUND_RESPONSE = OpenApiResponse(
 )
 
 WORK_ITEM_NOT_FOUND_RESPONSE = OpenApiResponse(
-    description="Work item not found",
+    description="Task not found",
     examples=[
         OpenApiExample(
-            name="Work Item Not Found",
-            value={"error": "Work item not found"},
+            name="Task Not Found",
+            value={"error": "Task not found"},
         )
     ],
 )

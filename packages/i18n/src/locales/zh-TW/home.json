@@ -43,15 +43,16 @@
       "empty": {
         "project": "一旦您造訪專案，您的最近專案就會出現在這裡。",
         "page": "一旦您造訪頁面，您的最近頁面就會出現在這裡。",
-        "issue": "一旦您造訪工作事項，您的最近工作事項就會出現在這裡。",
+        "issue": "一旦您造訪任務，您的最近任務就會出現在這裡。",
         "default": "您還沒有任何最近項目。"
       },
       "filters": {
         "all": "所有",
         "projects": "專案",
         "pages": "頁面",
-        "issues": "工作事項"
-      }
+        "issues": "任務"
+      },
+      "view_all": "檢視全部活動"
     },
     "new_at_plane": {
       "title": "Plane 新功能"
@@ -66,57 +67,21 @@
     "manage_widgets": "管理小工具",
     "title": "我的工作",
     "greeting": {
-      "subtitle": "這裡是需要您關注的內容。"
-    },
-    "due": {
-      "prefix": "截止",
-      "today": "今天",
-      "tomorrow": "明天"
+      "subtitle": "這是今天需要您關注的事項。"
     },
     "status": {
-      "not_started": "未開始",
       "in_progress": "進行中",
       "done": "已完成",
-      "cancelled": "已取消"
-    },
-    "today": {
-      "title": "今天",
-      "overdue": "已逾期",
-      "due_today": "今天到期",
-      "in_progress": "進行中",
-      "empty": {
-        "title": "全部完成 🎉",
-        "description": "今天沒有到期的任務。"
-      }
-    },
-    "upcoming": {
-      "title": "即將到來",
-      "tomorrow": "明天",
-      "empty": {
-        "title": "沒有即將到來的任務",
-        "description": "您目前沒有即將到來的任務。"
-      }
+      "cancelled": "已取消",
+      "to_do": "待辦",
+      "overdue": "已逾期"
     },
     "my_tasks": {
-      "title": "我的任務",
-      "tabs": {
-        "all": "全部",
-        "todo": "待辦",
-        "in_progress": "進行中",
-        "done": "已完成"
-      },
-      "open": "開啟",
-      "view_all": "檢視全部",
       "empty": {
-        "title": "尚無內容",
-        "description": "指派給您的任務將顯示在這裡。"
-      }
-    },
-    "quick_actions": {
-      "add_task": "新增任務",
-      "add_note": "新增筆記",
-      "search": "搜尋",
-      "search_placeholder": "搜尋任務、專案或成員"
+        "filtered": "沒有符合目前篩選條件的任務。"
+      },
+      "show_more": "再顯示 {count} 項",
+      "clear_filters": "清除篩選"
     },
     "star_us_on_github": "在 GitHub 上給我們星星",
     "business_trial_banner": {
@@ -126,6 +91,98 @@
       "trial_ends_in_days": "試用將在{days}天後結束",
       "start_subscription": "開始訂閱",
       "explore_business_features": "探索Business功能"
+    },
+    "summary": {
+      "aria_label": "工作概覽",
+      "overdue": "已逾期",
+      "due_today": "今天到期",
+      "in_progress": "進行中",
+      "upcoming": "即將到來"
+    },
+    "card": {
+      "mark_done": "標記為已完成",
+      "more": "更多",
+      "change_status": "變更狀態",
+      "toasts": {
+        "marked_done": "任務已標記為完成",
+        "status_updated": "狀態已更新",
+        "status_update_failed": "無法更新狀態",
+        "due_date_update_failed": "無法更新截止日期"
+      },
+      "set_due_date": "設定截止日期",
+      "remove_due_date": "移除截止日期"
+    },
+    "filter": {
+      "by_project": "依專案篩選",
+      "all_projects": "全部專案"
+    },
+    "header": {
+      "new_task": "新增任務"
+    },
+    "filters": {
+      "all": "全部",
+      "done": "已完成"
+    },
+    "priority": {
+      "urgent": "緊急優先順序",
+      "high": "高優先順序"
+    },
+    "queue": {
+      "groups": {
+        "overdue": "已逾期",
+        "today": "今天到期",
+        "this_week": "本週",
+        "later": "稍後",
+        "no_date": "無截止日期"
+      },
+      "empty": {
+        "all": {
+          "title": "沒有指派給您的任務",
+          "description": "指派給您的任務會顯示在這裡。"
+        },
+        "overdue": {
+          "title": "沒有逾期任務",
+          "description": "一切按計畫進行。"
+        },
+        "due_today": {
+          "title": "今天沒有到期任務",
+          "description": "沒有任務的截止日期是今天。"
+        },
+        "in_progress": {
+          "title": "沒有進行中的任務",
+          "description": "將任務移至進行中，它就會顯示在這裡。"
+        },
+        "upcoming": {
+          "title": "本週沒有到期任務",
+          "description": "未來 7 天內沒有到期的任務。"
+        },
+        "done": {
+          "title": "尚未完成任何任務",
+          "description": "您完成的任務會顯示在這裡。"
+        }
+      },
+      "error": {
+        "title": "無法載入您的工作",
+        "description": "請檢查網路連線後再試一次。",
+        "retry": "再試一次"
+      }
+    },
+    "activity": {
+      "title": "您的最近活動",
+      "empty": "沒有最近活動。",
+      "error": "無法載入活動。",
+      "completed": "已標記為完成",
+      "state": "已移至{state}",
+      "created": "已建立",
+      "commented": "已留言",
+      "due_date": "截止日期已設為 {date}",
+      "due_date_removed": "已移除截止日期",
+      "priority": "優先順序已設為{priority}",
+      "assignees": "已更新負責人",
+      "labels": "已更新標籤",
+      "renamed": "已重新命名",
+      "description": "已更新描述",
+      "updated": "已更新"
     }
   }
 }

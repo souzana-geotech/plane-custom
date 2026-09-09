@@ -213,9 +213,9 @@ class WorkspaceIssueAPIEndpoint(BaseAPIView):
 
     @extend_schema(
         operation_id="get_workspace_work_item",
-        summary="Retrieve work item by identifiers",
-        description="Retrieve a specific work item using workspace slug, project identifier, and issue identifier.",
-        tags=["Work Items"],
+        summary="Retrieve task by identifiers",
+        description="Retrieve a specific task using workspace slug, project identifier, and issue identifier.",
+        tags=["Tasks"],
         parameters=[
             WORKSPACE_SLUG_PARAMETER,
             PROJECT_IDENTIFIER_PARAMETER,
@@ -223,7 +223,7 @@ class WorkspaceIssueAPIEndpoint(BaseAPIView):
         ],
         responses={
             200: OpenApiResponse(
-                description="Work item details",
+                description="Task details",
                 response=IssueSerializer,
                 examples=[ISSUE_EXAMPLE],
             ),
@@ -231,10 +231,10 @@ class WorkspaceIssueAPIEndpoint(BaseAPIView):
         },
     )
     def get(self, request, slug, project_identifier=None, issue_identifier=None):
-        """Retrieve work item by identifiers
+        """Retrieve task by identifiers
 
-        Retrieve a specific work item using workspace slug, project identifier, and issue identifier.
-        This endpoint provides workspace-level access to work items.
+        Retrieve a specific task using workspace slug, project identifier, and issue identifier.
+        This endpoint provides workspace-level access to tasks.
         """
         if issue_identifier and project_identifier:
             issue = Issue.issue_objects.annotate(
@@ -285,8 +285,8 @@ class IssueListCreateAPIEndpoint(BaseAPIView):
 
     @work_item_docs(
         operation_id="list_work_items",
-        summary="List work items",
-        description="Retrieve a paginated list of all work items in a project. Supports filtering, ordering, and field selection through query parameters.",  # noqa: E501
+        summary="List tasks",
+        description="Retrieve a paginated list of all tasks in a project. Supports filtering, ordering, and field selection through query parameters.",  # noqa: E501
         parameters=[
             CURSOR_PARAMETER,
             PER_PAGE_PARAMETER,
@@ -300,17 +300,17 @@ class IssueListCreateAPIEndpoint(BaseAPIView):
             200: create_paginated_response(
                 IssueSerializer,
                 "PaginatedWorkItemResponse",
-                "Paginated list of work items",
-                "Paginated Work Items",
+                "Paginated list of tasks",
+                "Paginated Tasks",
             ),
             400: INVALID_REQUEST_RESPONSE,
             404: PROJECT_NOT_FOUND_RESPONSE,
         },
     )
     def get(self, request, slug, project_id):
-        """List work items
+        """List tasks
 
-        Retrieve a paginated list of all work items in a project.
+        Retrieve a paginated list of all tasks in a project.
         Supports filtering, ordering, and field selection through query parameters.
         """
 
@@ -321,7 +321,7 @@ class IssueListCreateAPIEndpoint(BaseAPIView):
                     "pql": (
                         "PQL and structured filters are not supported on this Plane edition. "
                         "Remove the pql/filters parameter and filter results client-side, or use "
-                        "a Plane edition that supports work item query filtering."
+                        "a Plane edition that supports task query filtering."
                     ),
                     "unsupported_parameters": unsupported_filters,
                 },
@@ -429,15 +429,15 @@ class IssueListCreateAPIEndpoint(BaseAPIView):
 
     @work_item_docs(
         operation_id="create_work_item",
-        summary="Create work item",
-        description="Create a new work item in the specified project with the provided details.",
+        summary="Create task",
+        description="Create a new task in the specified project with the provided details.",
         request=OpenApiRequest(
             request=IssueSerializer,
             examples=[ISSUE_CREATE_EXAMPLE],
         ),
         responses={
             201: OpenApiResponse(
-                description="Work Item created successfully",
+                description="Task created successfully",
                 response=IssueSerializer,
                 examples=[ISSUE_EXAMPLE],
             ),
@@ -447,9 +447,9 @@ class IssueListCreateAPIEndpoint(BaseAPIView):
         },
     )
     def post(self, request, slug, project_id):
-        """Create work item
+        """Create task
 
-        Create a new work item in the specified project with the provided details.
+        Create a new task in the specified project with the provided details.
         Supports external ID tracking for integration purposes.
         """
         project = Project.objects.get(pk=project_id)
@@ -552,8 +552,8 @@ class IssueDetailAPIEndpoint(BaseAPIView):
 
     @work_item_docs(
         operation_id="retrieve_work_item",
-        summary="Retrieve work item",
-        description="Retrieve details of a specific work item.",
+        summary="Retrieve task",
+        description="Retrieve details of a specific task.",
         parameters=[
             PROJECT_ID_PARAMETER,
             EXTERNAL_ID_PARAMETER,
@@ -573,9 +573,9 @@ class IssueDetailAPIEndpoint(BaseAPIView):
         },
     )
     def get(self, request, slug, project_id, pk):
-        """Retrieve work item
+        """Retrieve task
 
-        Retrieve details of a specific work item.
+        Retrieve details of a specific task.
         Supports filtering, ordering, and field selection through query parameters.
         """
 
@@ -592,20 +592,20 @@ class IssueDetailAPIEndpoint(BaseAPIView):
 
     @work_item_docs(
         operation_id="put_work_item",
-        summary="Update or create work item",
-        description="Update an existing work item identified by external ID and source, or create a new one if it doesn't exist. Requires external_id and external_source parameters for identification.",  # noqa: E501
+        summary="Update or create task",
+        description="Update an existing task identified by external ID and source, or create a new one if it doesn't exist. Requires external_id and external_source parameters for identification.",  # noqa: E501
         request=OpenApiRequest(
             request=IssueSerializer,
             examples=[ISSUE_UPSERT_EXAMPLE],
         ),
         responses={
             200: OpenApiResponse(
-                description="Work Item updated successfully",
+                description="Task updated successfully",
                 response=IssueSerializer,
                 examples=[ISSUE_EXAMPLE],
             ),
             201: OpenApiResponse(
-                description="Work Item created successfully",
+                description="Task created successfully",
                 response=IssueSerializer,
                 examples=[ISSUE_EXAMPLE],
             ),
@@ -614,9 +614,9 @@ class IssueDetailAPIEndpoint(BaseAPIView):
         },
     )
     def put(self, request, slug, project_id):
-        """Update or create work item
+        """Update or create task
 
-        Update an existing work item identified by external ID and source, or create a new one if it doesn't exist.
+        Update an existing task identified by external ID and source, or create a new one if it doesn't exist.
         Requires external_id and external_source parameters for identification.
         """
         # Get the entities required for putting the issue, external_id and
@@ -748,8 +748,8 @@ class IssueDetailAPIEndpoint(BaseAPIView):
 
     @work_item_docs(
         operation_id="update_work_item",
-        summary="Partially update work item",
-        description="Partially update an existing work item with the provided fields. Supports external ID validation to prevent conflicts.",  # noqa: E501
+        summary="Partially update task",
+        description="Partially update an existing task with the provided fields. Supports external ID validation to prevent conflicts.",  # noqa: E501
         parameters=[
             PROJECT_ID_PARAMETER,
         ],
@@ -759,7 +759,7 @@ class IssueDetailAPIEndpoint(BaseAPIView):
         ),
         responses={
             200: OpenApiResponse(
-                description="Work Item patched successfully",
+                description="Task patched successfully",
                 response=IssueSerializer,
                 examples=[ISSUE_EXAMPLE],
             ),
@@ -769,9 +769,9 @@ class IssueDetailAPIEndpoint(BaseAPIView):
         },
     )
     def patch(self, request, slug, project_id, pk):
-        """Update work item
+        """Update task
 
-        Partially update an existing work item with the provided fields.
+        Partially update an existing task with the provided fields.
         Supports external ID validation to prevent conflicts.
         """
         issue = Issue.objects.get(workspace__slug=slug, project_id=project_id, pk=pk)
@@ -830,8 +830,8 @@ class IssueDetailAPIEndpoint(BaseAPIView):
 
     @work_item_docs(
         operation_id="delete_work_item",
-        summary="Delete work item",
-        description="Permanently delete an existing work item from the project. Only admins or the item creator can perform this action.",  # noqa: E501
+        summary="Delete task",
+        description="Permanently delete an existing task from the project. Only admins or the item creator can perform this action.",  # noqa: E501
         parameters=[
             PROJECT_ID_PARAMETER,
         ],
@@ -842,9 +842,9 @@ class IssueDetailAPIEndpoint(BaseAPIView):
         },
     )
     def delete(self, request, slug, project_id, pk):
-        """Delete work item
+        """Delete task
 
-        Permanently delete an existing work item from the project.
+        Permanently delete an existing task from the project.
         Only admins or the item creator can perform this action.
         """
         issue = Issue.objects.get(workspace__slug=slug, project_id=project_id, pk=pk)
@@ -858,7 +858,7 @@ class IssueDetailAPIEndpoint(BaseAPIView):
             ).exists()
         ):
             return Response(
-                {"error": "Only admin or creator can delete the work item"},
+                {"error": "Only admin or creator can delete the task"},
                 status=status.HTTP_403_FORBIDDEN,
             )
         current_instance = json.dumps(IssueSerializer(issue).data, cls=DjangoJSONEncoder)
@@ -1111,7 +1111,7 @@ class LabelDetailAPIEndpoint(LabelListCreateAPIEndpoint):
 
 
 class IssueLinkListCreateAPIEndpoint(BaseAPIView):
-    """Work Item Link List and Create Endpoint"""
+    """Task Link List and Create Endpoint"""
 
     serializer_class = IssueLinkSerializer
     model = IssueLink
@@ -1134,7 +1134,7 @@ class IssueLinkListCreateAPIEndpoint(BaseAPIView):
 
     @issue_link_docs(
         operation_id="list_work_item_links",
-        description="Retrieve all links associated with a work item. Supports filtering by URL, title, and metadata.",
+        description="Retrieve all links associated with a task. Supports filtering by URL, title, and metadata.",
         parameters=[
             ISSUE_ID_PARAMETER,
             CURSOR_PARAMETER,
@@ -1147,17 +1147,17 @@ class IssueLinkListCreateAPIEndpoint(BaseAPIView):
             200: create_paginated_response(
                 IssueLinkSerializer,
                 "PaginatedIssueLinkResponse",
-                "Paginated list of work item links",
-                "Paginated Work Item Links",
+                "Paginated list of task links",
+                "Paginated Task Links",
             ),
             400: INVALID_REQUEST_RESPONSE,
             404: ISSUE_NOT_FOUND_RESPONSE,
         },
     )
     def get(self, request, slug, project_id, issue_id):
-        """List work item links
+        """List task links
 
-        Retrieve all links associated with a work item.
+        Retrieve all links associated with a task.
         """
         return self.paginate(
             request=request,
@@ -1169,7 +1169,7 @@ class IssueLinkListCreateAPIEndpoint(BaseAPIView):
 
     @issue_link_docs(
         operation_id="create_work_item_link",
-        description="Add a new external link to a work item with URL, title, and metadata.",
+        description="Add a new external link to a task with URL, title, and metadata.",
         parameters=[
             ISSUE_ID_PARAMETER,
         ],
@@ -1179,7 +1179,7 @@ class IssueLinkListCreateAPIEndpoint(BaseAPIView):
         ),
         responses={
             201: OpenApiResponse(
-                description="Work item link created successfully",
+                description="Task link created successfully",
                 response=IssueLinkSerializer,
                 examples=[ISSUE_LINK_EXAMPLE],
             ),
@@ -1190,7 +1190,7 @@ class IssueLinkListCreateAPIEndpoint(BaseAPIView):
     def post(self, request, slug, project_id, issue_id):
         """Create issue link
 
-        Add a new external link to a work item with URL, title, and metadata.
+        Add a new external link to a task with URL, title, and metadata.
         Automatically tracks link creation activity.
         """
         serializer = IssueLinkCreateSerializer(data=request.data)
@@ -1239,7 +1239,7 @@ class IssueLinkDetailAPIEndpoint(BaseAPIView):
 
     @issue_link_docs(
         operation_id="retrieve_work_item_link",
-        description="Retrieve details of a specific work item link.",
+        description="Retrieve details of a specific task link.",
         parameters=[
             ISSUE_ID_PARAMETER,
             LINK_ID_PARAMETER,
@@ -1252,16 +1252,16 @@ class IssueLinkDetailAPIEndpoint(BaseAPIView):
             200: create_paginated_response(
                 IssueLinkSerializer,
                 "PaginatedIssueLinkDetailResponse",
-                "Work item link details or paginated list",
-                "Work Item Link Details",
+                "Task link details or paginated list",
+                "Task Link Details",
             ),
             404: OpenApiResponse(description="Issue not found"),
         },
     )
     def get(self, request, slug, project_id, issue_id, pk):
-        """Retrieve work item link
+        """Retrieve task link
 
-        Retrieve details of a specific work item link.
+        Retrieve details of a specific task link.
         """
         if pk is None:
             issue_links = self.get_queryset()
@@ -1326,20 +1326,20 @@ class IssueLinkDetailAPIEndpoint(BaseAPIView):
 
     @issue_link_docs(
         operation_id="delete_work_item_link",
-        description="Permanently remove an external link from a work item.",
+        description="Permanently remove an external link from a task.",
         parameters=[
             ISSUE_ID_PARAMETER,
             LINK_ID_PARAMETER,
         ],
         responses={
-            204: OpenApiResponse(description="Work item link deleted successfully"),
-            404: OpenApiResponse(description="Work item link not found"),
+            204: OpenApiResponse(description="Task link deleted successfully"),
+            404: OpenApiResponse(description="Task link not found"),
         },
     )
     def delete(self, request, slug, project_id, issue_id, pk):
-        """Delete work item link
+        """Delete task link
 
-        Permanently remove an external link from a work item.
+        Permanently remove an external link from a task.
         Records deletion activity for audit purposes.
         """
         issue_link = IssueLink.objects.get(workspace__slug=slug, project_id=project_id, issue_id=issue_id, pk=pk)
@@ -1393,7 +1393,7 @@ class IssueCommentListCreateAPIEndpoint(BaseAPIView):
 
     @issue_comment_docs(
         operation_id="list_work_item_comments",
-        description="Retrieve all comments for a work item.",
+        description="Retrieve all comments for a task.",
         parameters=[
             ISSUE_ID_PARAMETER,
             CURSOR_PARAMETER,
@@ -1406,16 +1406,16 @@ class IssueCommentListCreateAPIEndpoint(BaseAPIView):
             200: create_paginated_response(
                 IssueCommentSerializer,
                 "PaginatedIssueCommentResponse",
-                "Paginated list of work item comments",
-                "Paginated Work Item Comments",
+                "Paginated list of task comments",
+                "Paginated Task Comments",
             ),
             404: OpenApiResponse(description="Issue not found"),
         },
     )
     def get(self, request, slug, project_id, issue_id):
-        """List work item comments
+        """List task comments
 
-        Retrieve all comments for a work item.
+        Retrieve all comments for a task.
         """
         return self.paginate(
             request=request,
@@ -1427,7 +1427,7 @@ class IssueCommentListCreateAPIEndpoint(BaseAPIView):
 
     @issue_comment_docs(
         operation_id="create_work_item_comment",
-        description="Add a new comment to a work item with HTML content.",
+        description="Add a new comment to a task with HTML content.",
         parameters=[
             ISSUE_ID_PARAMETER,
         ],
@@ -1437,7 +1437,7 @@ class IssueCommentListCreateAPIEndpoint(BaseAPIView):
         ),
         responses={
             201: OpenApiResponse(
-                description="Work item comment created successfully",
+                description="Task comment created successfully",
                 response=IssueCommentSerializer,
                 examples=[ISSUE_COMMENT_EXAMPLE],
             ),
@@ -1447,9 +1447,9 @@ class IssueCommentListCreateAPIEndpoint(BaseAPIView):
         },
     )
     def post(self, request, slug, project_id, issue_id):
-        """Create work item comment
+        """Create task comment
 
-        Add a new comment to a work item with HTML content.
+        Add a new comment to a task with HTML content.
         Supports external ID tracking for integration purposes.
         """
         # Validation check if the issue already exists
@@ -1471,7 +1471,7 @@ class IssueCommentListCreateAPIEndpoint(BaseAPIView):
             ).first()
             return Response(
                 {
-                    "error": "Work item comment with the same external id and external source already exists",
+                    "error": "Task comment with the same external id and external source already exists",
                     "id": str(issue_comment.id),
                 },
                 status=status.HTTP_409_CONFLICT,
@@ -1514,7 +1514,7 @@ class IssueCommentListCreateAPIEndpoint(BaseAPIView):
 
 
 class IssueCommentDetailAPIEndpoint(BaseAPIView):
-    """Work Item Comment Detail Endpoint"""
+    """Task Comment Detail Endpoint"""
 
     serializer_class = IssueCommentSerializer
     model = IssueComment
@@ -1556,7 +1556,7 @@ class IssueCommentDetailAPIEndpoint(BaseAPIView):
         ],
         responses={
             200: OpenApiResponse(
-                description="Work item comments",
+                description="Task comments",
                 response=IssueCommentSerializer,
                 examples=[ISSUE_COMMENT_EXAMPLE],
             ),
@@ -1575,7 +1575,7 @@ class IssueCommentDetailAPIEndpoint(BaseAPIView):
 
     @issue_comment_docs(
         operation_id="update_work_item_comment",
-        description="Modify the content of an existing comment on a work item.",
+        description="Modify the content of an existing comment on a task.",
         parameters=[
             ISSUE_ID_PARAMETER,
             COMMENT_ID_PARAMETER,
@@ -1586,7 +1586,7 @@ class IssueCommentDetailAPIEndpoint(BaseAPIView):
         ),
         responses={
             200: OpenApiResponse(
-                description="Work item comment updated successfully",
+                description="Task comment updated successfully",
                 response=IssueCommentSerializer,
                 examples=[ISSUE_COMMENT_EXAMPLE],
             ),
@@ -1596,9 +1596,9 @@ class IssueCommentDetailAPIEndpoint(BaseAPIView):
         },
     )
     def patch(self, request, slug, project_id, issue_id, pk):
-        """Update work item comment
+        """Update task comment
 
-        Modify the content of an existing comment on a work item.
+        Modify the content of an existing comment on a task.
         Validates external ID uniqueness if provided.
         """
         issue_comment = IssueComment.objects.get(workspace__slug=slug, project_id=project_id, issue_id=issue_id, pk=pk)
@@ -1618,7 +1618,7 @@ class IssueCommentDetailAPIEndpoint(BaseAPIView):
         ):
             return Response(
                 {
-                    "error": "Work item comment with the same external id and external source already exists",
+                    "error": "Task comment with the same external id and external source already exists",
                     "id": str(issue_comment.id),
                 },
                 status=status.HTTP_409_CONFLICT,
@@ -1654,20 +1654,20 @@ class IssueCommentDetailAPIEndpoint(BaseAPIView):
 
     @issue_comment_docs(
         operation_id="delete_work_item_comment",
-        description="Permanently remove a comment from a work item. Records deletion activity for audit purposes.",
+        description="Permanently remove a comment from a task. Records deletion activity for audit purposes.",
         parameters=[
             ISSUE_ID_PARAMETER,
             COMMENT_ID_PARAMETER,
         ],
         responses={
-            204: OpenApiResponse(description="Work item comment deleted successfully"),
+            204: OpenApiResponse(description="Task comment deleted successfully"),
             404: COMMENT_NOT_FOUND_RESPONSE,
         },
     )
     def delete(self, request, slug, project_id, issue_id, pk):
         """Delete issue comment
 
-        Permanently remove a comment from a work item.
+        Permanently remove a comment from a task.
         Records deletion activity for audit purposes.
         """
         issue_comment = IssueComment.objects.get(workspace__slug=slug, project_id=project_id, issue_id=issue_id, pk=pk)
@@ -1691,7 +1691,7 @@ class IssueActivityListAPIEndpoint(BaseAPIView):
 
     @issue_activity_docs(
         operation_id="list_work_item_activities",
-        description="Retrieve all activities for a work item. Supports filtering by activity type and date range.",
+        description="Retrieve all activities for a task. Supports filtering by activity type and date range.",
         parameters=[
             ISSUE_ID_PARAMETER,
             CURSOR_PARAMETER,
@@ -1761,8 +1761,8 @@ class IssueActivityDetailAPIEndpoint(BaseAPIView):
             200: create_paginated_response(
                 IssueActivitySerializer,
                 "PaginatedIssueActivityDetailResponse",
-                "Paginated list of work item activities",
-                "Work Item Activity Details",
+                "Paginated list of task activities",
+                "Task Activity Details",
             ),
             400: INVALID_REQUEST_RESPONSE,
             404: ISSUE_NOT_FOUND_RESPONSE,
@@ -1809,7 +1809,7 @@ class IssueAttachmentListCreateAPIEndpoint(BaseAPIView):
 
     @issue_attachment_docs(
         operation_id="create_work_item_attachment",
-        description="Generate presigned URL for uploading file attachments to a work item.",
+        description="Generate presigned URL for uploading file attachments to a task.",
         parameters=[
             ISSUE_ID_PARAMETER,
         ],
@@ -1822,7 +1822,7 @@ class IssueAttachmentListCreateAPIEndpoint(BaseAPIView):
                 description="Presigned download URL generated successfully",
                 examples=[
                     OpenApiExample(
-                        name="Work Item Attachment Response",
+                        name="Task Attachment Response",
                         value={
                             "upload_data": {
                                 "url": "https://s3.amazonaws.com/bucket/file.pdf?signed-url",
@@ -1878,9 +1878,9 @@ class IssueAttachmentListCreateAPIEndpoint(BaseAPIView):
         },
     )
     def post(self, request, slug, project_id, issue_id):
-        """Create work item attachment
+        """Create task attachment
 
-        Generate presigned URL for uploading file attachments to a work item.
+        Generate presigned URL for uploading file attachments to a task.
         Validates file type and size before creating the attachment record.
         """
         issue = Issue.objects.get(pk=issue_id, workspace__slug=slug, project_id=project_id)
@@ -1983,13 +1983,13 @@ class IssueAttachmentListCreateAPIEndpoint(BaseAPIView):
 
     @issue_attachment_docs(
         operation_id="list_work_item_attachments",
-        description="Retrieve all attachments for a work item.",
+        description="Retrieve all attachments for a task.",
         parameters=[
             ISSUE_ID_PARAMETER,
         ],
         responses={
             200: OpenApiResponse(
-                description="Work item attachment",
+                description="Task attachment",
                 response=IssueAttachmentSerializer,
                 examples=[ISSUE_ATTACHMENT_EXAMPLE],
             ),
@@ -2024,19 +2024,19 @@ class IssueAttachmentDetailAPIEndpoint(BaseAPIView):
 
     @issue_attachment_docs(
         operation_id="delete_work_item_attachment",
-        description="Permanently remove an attachment from a work item. Records deletion activity for audit purposes.",
+        description="Permanently remove an attachment from a task. Records deletion activity for audit purposes.",
         parameters=[
             ATTACHMENT_ID_PARAMETER,
         ],
         responses={
-            204: OpenApiResponse(description="Work item attachment deleted successfully"),
+            204: OpenApiResponse(description="Task attachment deleted successfully"),
             404: ATTACHMENT_NOT_FOUND_RESPONSE,
         },
     )
     def delete(self, request, slug, project_id, issue_id, pk):
-        """Delete work item attachment
+        """Delete task attachment
 
-        Soft delete an attachment from a work item by marking it as deleted.
+        Soft delete an attachment from a task by marking it as deleted.
         Records deletion activity and triggers metadata cleanup.
         """
         issue = Issue.objects.get(pk=issue_id, workspace__slug=slug, project_id=project_id)
@@ -2109,7 +2109,7 @@ class IssueAttachmentDetailAPIEndpoint(BaseAPIView):
         },
     )
     def get(self, request, slug, project_id, issue_id, pk):
-        """Retrieve work item attachment
+        """Retrieve task attachment
 
         Retrieve details of a specific attachment.
         """
@@ -2165,7 +2165,7 @@ class IssueAttachmentDetailAPIEndpoint(BaseAPIView):
             examples=[ATTACHMENT_UPLOAD_CONFIRM_EXAMPLE],
         ),
         responses={
-            204: OpenApiResponse(description="Work item attachment uploaded successfully"),
+            204: OpenApiResponse(description="Task attachment uploaded successfully"),
             400: INVALID_REQUEST_RESPONSE,
             404: ATTACHMENT_NOT_FOUND_RESPONSE,
         },
@@ -2226,7 +2226,7 @@ class IssueSearchEndpoint(BaseAPIView):
 
     @extend_schema(
         operation_id="search_work_items",
-        tags=["Work Items"],
+        tags=["Tasks"],
         description="Perform semantic search across issue names, sequence IDs, and project identifiers.",
         parameters=[
             WORKSPACE_SLUG_PARAMETER,
@@ -2237,7 +2237,7 @@ class IssueSearchEndpoint(BaseAPIView):
         ],
         responses={
             200: OpenApiResponse(
-                description="Work item search results",
+                description="Task search results",
                 response=IssueSearchSerializer,
                 examples=[ISSUE_SEARCH_EXAMPLE],
             ),
@@ -2248,9 +2248,9 @@ class IssueSearchEndpoint(BaseAPIView):
         },
     )
     def get(self, request, slug):
-        """Search work items
+        """Search tasks
 
-        Perform semantic search across work item names, sequence IDs, and project identifiers.
+        Perform semantic search across task names, sequence IDs, and project identifiers.
         Supports workspace-wide or project-specific search with configurable result limits.
         """
         query = request.query_params.get("search", False)
@@ -2309,8 +2309,8 @@ class IssueRelationListCreateAPIEndpoint(BaseAPIView):
 
     @work_item_relation_docs(
         operation_id="list_work_item_relations",
-        summary="List work item relations",
-        description="Retrieve all relationships for a work item including blocking, blocked_by, duplicate, relates_to, start_before, start_after, finish_before, and finish_after relations.",  # noqa E501
+        summary="List task relations",
+        description="Retrieve all relationships for a task including blocking, blocked_by, duplicate, relates_to, start_before, start_after, finish_before, and finish_after relations.",  # noqa E501
         parameters=[
             ISSUE_ID_PARAMETER,
             CURSOR_PARAMETER,
@@ -2321,11 +2321,11 @@ class IssueRelationListCreateAPIEndpoint(BaseAPIView):
         ],
         responses={
             200: OpenApiResponse(
-                description="Work item relations grouped by relation type",
+                description="Task relations grouped by relation type",
                 response=IssueRelationResponseSerializer,
                 examples=[
                     OpenApiExample(
-                        name="Work Item Relations Response",
+                        name="Task Relations Response",
                         value={
                             "blocking": [
                                 {
@@ -2368,9 +2368,9 @@ class IssueRelationListCreateAPIEndpoint(BaseAPIView):
         },
     )
     def get(self, request, slug, project_id, issue_id):
-        """List work item relations
+        """List task relations
 
-        Retrieve all relationships for a work item organized by relation type.
+        Retrieve all relationships for a task organized by relation type.
         Returns a structured response with relations grouped by type.
         """
         relations = IssueRelation.objects.filter(
@@ -2453,8 +2453,8 @@ class IssueRelationListCreateAPIEndpoint(BaseAPIView):
 
     @work_item_relation_docs(
         operation_id="create_work_item_relation",
-        summary="Create work item relation",
-        description="Create relationships between work items. Supports various relation types including blocking, blocked_by, duplicate, relates_to, start_before, start_after, finish_before, and finish_after.",  # noqa E501
+        summary="Create task relation",
+        description="Create relationships between tasks. Supports various relation types including blocking, blocked_by, duplicate, relates_to, start_before, start_after, finish_before, and finish_after.",  # noqa E501
         parameters=[
             ISSUE_ID_PARAMETER,
         ],
@@ -2475,7 +2475,7 @@ class IssueRelationListCreateAPIEndpoint(BaseAPIView):
         ),
         responses={
             201: OpenApiResponse(
-                description="Work item relations created successfully",
+                description="Task relations created successfully",
                 response=IssueRelationSerializer(many=True),
                 examples=[
                     OpenApiExample(
@@ -2503,9 +2503,9 @@ class IssueRelationListCreateAPIEndpoint(BaseAPIView):
         },
     )
     def post(self, request, slug, project_id, issue_id):
-        """Create work item relation
+        """Create task relation
 
-        Create relationships between work items with specified relation type.
+        Create relationships between tasks with specified relation type.
         Automatically tracks relation creation activity.
         """
         # Validate request data using serializer

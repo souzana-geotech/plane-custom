@@ -11,14 +11,14 @@
     "your_work": "Çalışmalarınız",
     "projects": "Projeler",
     "pages": "Sayfalar",
-    "new_work_item": "Yeni iş öğesi",
+    "new_work_item": "Yeni görev",
     "home": "Çalışmalarım",
     "inbox": "Gelen Kutusu",
     "workspace": "Çalışma Alanı",
     "management": "Yönetim",
     "views": "Görünümler",
     "analytics": "Analizler",
-    "work_items": "İş öğeleri",
+    "work_items": "Görevler",
     "cycles": "Döngüler",
     "modules": "Modüller",
     "intake": "Talep",
@@ -30,6 +30,7 @@
     "epics": "Epiks",
     "upgrade_plan": "Apgreyd plen",
     "plane_pro": "Pleyn Pro",
-    "business": "Biznis"
+    "business": "Biznis",
+    "all_projects": "Tüm projeler"
   }
 }

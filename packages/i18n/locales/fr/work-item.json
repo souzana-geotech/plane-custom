@@ -1,11 +1,11 @@
 {
   "issue": {
-    "label": "{count, plural, one {Élément de travail} other {Éléments de travail}}",
-    "all": "Tous les éléments de travail",
-    "edit": "Modifier l’élément de travail",
+    "label": "{count, plural, one {Tâche} other {Tâches}}",
+    "all": "Toutes les tâches",
+    "edit": "Modifier la tâche",
     "title": {
-      "label": "Titre de l’élément de travail",
-      "required": "Le titre de l’élément de travail est requis."
+      "label": "Titre de la tâche",
+      "required": "Le titre de la tâche est requis."
     },
     "form": {
       "title_placeholder": "Que faut-il faire ?",
@@ -15,44 +15,44 @@
       "fewer_options": "Moins d’options"
     },
     "add": {
-      "press_enter": "Appuyez sur 'Entrée' pour ajouter un autre élément de travail",
-      "label": "Ajouter un élément de travail",
+      "press_enter": "Appuyez sur 'Entrée' pour ajouter un autre tâche",
+      "label": "Ajouter une tâche",
       "cycle": {
-        "failed": "L’élément de travail n’a pas pu être ajouté au cycle. Veuillez réessayer.",
-        "success": "{count, plural, one {Élément de travail} other {Éléments de travail}} ajouté(s) au cycle avec succès.",
-        "loading": "Ajout de {count, plural, one {l’élément de travail} other {éléments de travail}} au cycle"
+        "failed": "La tâche n’a pas pu être ajouté au cycle. Veuillez réessayer.",
+        "success": "{count, plural, one {Tâche} other {Tâches}} ajouté(s) au cycle avec succès.",
+        "loading": "Ajout de {count, plural, one {la tâche} other {tâches}} au cycle"
       },
       "assignee": "Ajouter des assignés",
       "start_date": "Ajouter une date de début",
       "due_date": "Ajouter une date d’échéance",
       "working_days": "Ajouter des jours ouvrables",
-      "parent": "Ajouter un élément de travail parent",
-      "sub_issue": "Ajouter un sous-élément de travail",
+      "parent": "Ajouter une tâche parente",
+      "sub_issue": "Ajouter un sous-tâche",
       "dependency": "Ajouter une dépendance",
       "relation": "Ajouter une relation",
       "link": "Ajouter un lien",
-      "existing": "Ajouter un élément de travail existant"
+      "existing": "Ajouter une tâche existante"
     },
     "remove": {
-      "label": "Supprimer l’élément de travail",
+      "label": "Supprimer la tâche",
       "cycle": {
-        "loading": "Suppression de l’élément de travail du cycle",
-        "success": "Élément de travail supprimé du cycle avec succès.",
-        "failed": "L’élément de travail n’a pas pu être supprimé du cycle. Veuillez réessayer."
+        "loading": "Suppression de la tâche du cycle",
+        "success": "Tâche supprimé du cycle avec succès.",
+        "failed": "La tâche n’a pas pu être supprimé du cycle. Veuillez réessayer."
       },
       "module": {
-        "loading": "Suppression de l’élément de travail du module",
-        "success": "Élément de travail supprimé du module avec succès.",
-        "failed": "L’élément de travail n’a pas pu être supprimé du module. Veuillez réessayer."
+        "loading": "Suppression de la tâche du module",
+        "success": "Tâche supprimé du module avec succès.",
+        "failed": "La tâche n’a pas pu être supprimé du module. Veuillez réessayer."
       },
       "parent": {
-        "label": "Supprimer l’élément de travail parent"
+        "label": "Supprimer la tâche parente"
       }
     },
-    "new": "Nouvel élément de travail",
-    "adding": "Ajout d’un élément de travail",
+    "new": "Nouvelle tâche",
+    "adding": "Ajout d’une tâche",
     "create": {
-      "success": "Élément de travail créé avec succès"
+      "success": "Tâche créé avec succès"
     },
     "priority": {
       "urgent": "Urgent",
@@ -64,12 +64,12 @@
       "properties": {
         "label": "Propriétés d’affichage",
         "id": "ID",
-        "issue_type": "Type d’élément de travail",
+        "issue_type": "Type d’tâche",
         "sub_issue_count": "Nombre de sous-éléments",
         "attachment_count": "Nombre de pièces jointes",
         "created_on": "Créé le",
-        "sub_issue": "Sous-élément de travail",
-        "work_item_count": "Nombre d’éléments de travail"
+        "sub_issue": "Sous-tâche",
+        "work_item_count": "Nombre d’tâches"
       },
       "extra": {
         "show_sub_issues": "Afficher les sous-éléments",
@@ -160,35 +160,35 @@
     },
     "empty_state": {
       "issue_detail": {
-        "title": "L’élément de travail n’existe pas",
-        "description": "L’élément de travail que vous recherchez n’existe pas, a été archivé ou a été supprimé.",
+        "title": "La tâche n’existe pas",
+        "description": "La tâche que vous recherchez n’existe pas, a été archivé ou a été supprimé.",
         "primary_button": {
-          "text": "Voir les autres éléments de travail"
+          "text": "Voir les autres tâches"
         }
       }
     },
     "sibling": {
-      "label": "Éléments de travail frères"
+      "label": "Tâches frères"
     },
     "archive": {
-      "description": "Seuls les éléments de travail\nterminés ou annulés peuvent être archivés",
-      "label": "Archiver l’élément de travail",
-      "confirm_message": "Êtes-vous sûr de vouloir archiver l’élément de travail ? Tous vos éléments archivés peuvent être restaurés ultérieurement.",
+      "description": "Seuls les tâches\nterminés ou annulés peuvent être archivés",
+      "label": "Archiver la tâche",
+      "confirm_message": "Êtes-vous sûr de vouloir archiver la tâche ? Tous vos éléments archivés peuvent être restaurés ultérieurement.",
       "success": {
         "label": "Archivage réussi",
         "message": "Vos archives se trouvent dans les archives du projet."
       },
       "failed": {
-        "message": "L’élément de travail n’a pas pu être archivé. Veuillez réessayer."
+        "message": "La tâche n’a pas pu être archivé. Veuillez réessayer."
       }
     },
     "restore": {
       "success": {
         "title": "Restauration réussie",
-        "message": "Votre élément de travail se trouve dans les éléments de travail du projet."
+        "message": "Votre tâche se trouve dans les tâches du projet."
       },
       "failed": {
-        "message": "L’élément de travail n’a pas pu être restauré. Veuillez réessayer."
+        "message": "La tâche n’a pas pu être restauré. Veuillez réessayer."
       }
     },
     "relation": {
@@ -209,29 +209,29 @@
       "adjusted_dates": "Ajusté : {startDate} – {targetDate}",
       "adjusted_date": "Ajusté : {targetDate}"
     },
-    "copy_link": "Copier le lien de l’élément de travail",
+    "copy_link": "Copier le lien de la tâche",
     "delete": {
-      "label": "Supprimer l’élément de travail",
-      "error": "Erreur lors de la suppression de l’élément de travail"
+      "label": "Supprimer la tâche",
+      "error": "Erreur lors de la suppression de la tâche"
     },
     "subscription": {
       "actions": {
-        "subscribed": "Abonnement à l’élément de travail réussi",
-        "unsubscribed": "Désabonnement de l’élément de travail réussi"
+        "subscribed": "Abonnement à la tâche réussi",
+        "unsubscribed": "Désabonnement de la tâche réussi"
       }
     },
     "select": {
-      "error": "Veuillez sélectionner au moins un élément de travail",
-      "empty": "Aucun élément de travail sélectionné",
-      "add_selected": "Ajouter les éléments de travail sélectionnés",
+      "error": "Veuillez sélectionner au moins une tâche",
+      "empty": "Aucune tâche sélectionnée",
+      "add_selected": "Ajouter les tâches sélectionnées",
       "select_all": "Sélectionner tout",
       "deselect_all": "Tout désélectionner"
     },
-    "open_in_full_screen": "Ouvrir l’élément de travail en plein écran",
+    "open_in_full_screen": "Ouvrir la tâche en plein écran",
     "duplicate": {
       "modal": {
         "title": "Faire une copie vers un autre projet",
-        "description1": "Cela crée une copie de l’élément de travail.",
+        "description1": "Cela crée une copie de la tâche.",
         "description2": "Toutes les données de propriétés seront supprimées lors de la duplication.",
         "placeholder": "Sélectionner un projet"
       }
@@ -239,10 +239,10 @@
     "toast": {
       "duplicate": {
         "success": {
-          "message": "Élément de travail dupliqué avec succès"
+          "message": "Tâche dupliqué avec succès"
         },
         "error": {
-          "message": "Échec de la duplication de l’élément de travail"
+          "message": "Échec de la duplication de la tâche"
         }
       }
     },
@@ -284,22 +284,22 @@
   },
   "sub_work_item": {
     "update": {
-      "success": "Sous-élément de travail mis à jour avec succès",
-      "error": "Erreur lors de la mise à jour du sous-élément de travail"
+      "success": "Sous-tâche mise à jour avec succès",
+      "error": "Erreur lors de la mise à jour du sous-tâche"
     },
     "remove": {
-      "success": "Sous-élément de travail supprimé avec succès",
-      "error": "Erreur lors de la suppression du sous-élément de travail"
+      "success": "Sous-tâche supprimée avec succès",
+      "error": "Erreur lors de la suppression du sous-tâche"
     },
     "empty_state": {
       "sub_list_filters": {
-        "title": "Vous n’avez pas de sous-éléments de travail qui correspondent aux filtres que vous avez appliqués.",
-        "description": "Pour voir tous les sous-éléments de travail, effacer tous les filtres appliqués.",
+        "title": "Vous n’avez pas de sous-tâches qui correspondent aux filtres que vous avez appliqués.",
+        "description": "Pour voir tous les sous-tâches, effacer tous les filtres appliqués.",
         "action": "Effacer les filtres"
       },
       "list_filters": {
-        "title": "Vous n’avez pas d’éléments de travail qui correspondent aux filtres que vous avez appliqués.",
-        "description": "Pour voir tous les éléments de travail, effacer tous les filtres appliqués.",
+        "title": "Vous n’avez pas d’tâches qui correspondent aux filtres que vous avez appliqués.",
+        "description": "Pour voir toutes les tâches, effacer tous les filtres appliqués.",
         "action": "Effacer les filtres"
       }
     }
@@ -307,10 +307,10 @@
   "issue_relation": {
     "empty_state": {
       "search": {
-        "title": "Aucun élément de travail correspondant trouvé"
+        "title": "Aucune tâche correspondant trouvé"
       },
       "no_issues": {
-        "title": "Aucun élément de travail trouvé"
+        "title": "Aucune tâche trouvée"
       }
     }
   },
@@ -318,36 +318,36 @@
     "empty_state": {
       "general": {
         "title": "Pas encore de commentaires",
-        "description": "Les commentaires peuvent être utilisés comme espace de discussion et de suivi pour les éléments de travail"
+        "description": "Les commentaires peuvent être utilisés comme espace de discussion et de suivi pour les tâches"
       }
     }
   },
   "bulk_operations": {
     "error_details": {
       "invalid_archive_state_group": {
-        "title": "Impossible d'archiver les éléments de travail",
-        "message": "Seuls les éléments de travail appartenant aux groupes d'états Terminé ou Annulé peuvent être archivés."
+        "title": "Impossible d'archiver les tâches",
+        "message": "Seuls les tâches appartenant aux groupes d'états Terminé ou Annulé peuvent être archivés."
       },
       "invalid_issue_start_date": {
-        "title": "Impossible de mettre à jour les éléments de travail",
-        "message": "La date de début sélectionnée est postérieure à la date d'échéance pour certains éléments de travail. Assurez-vous que la date de début soit antérieure à la date d'échéance."
+        "title": "Impossible de mettre à jour les tâches",
+        "message": "La date de début sélectionnée est postérieure à la date d'échéance pour certaines tâches. Assurez-vous que la date de début soit antérieure à la date d'échéance."
       },
       "invalid_issue_target_date": {
-        "title": "Impossible de mettre à jour les éléments de travail",
-        "message": "La date d'échéance sélectionnée est antérieure à la date de début pour certains éléments de travail. Assurez-vous que la date d'échéance soit postérieure à la date de début."
+        "title": "Impossible de mettre à jour les tâches",
+        "message": "La date d'échéance sélectionnée est antérieure à la date de début pour certaines tâches. Assurez-vous que la date d'échéance soit postérieure à la date de début."
       },
       "invalid_state_transition": {
-        "title": "Impossible de mettre à jour les éléments de travail",
-        "message": "Le changement d'état n'est pas autorisé pour certains éléments de travail. Assurez-vous que le changement d'état est autorisé."
+        "title": "Impossible de mettre à jour les tâches",
+        "message": "Le changement d'état n'est pas autorisé pour certaines tâches. Assurez-vous que le changement d'état est autorisé."
       }
     }
   },
   "recurring_work_items": {
     "settings": {
-      "heading": "Éléments de travail récurrents",
+      "heading": "Tâches récurrents",
       "description": "Configurez votre travail récurrent une fois, et nous nous occuperons des répétitions. Vous verrez tout ici lorsque c'est le moment.",
-      "new_recurring_work_item": "Nouvel élément de travail récurrent",
-      "update_recurring_work_item": "Mettre à jour l'élément de travail récurrent",
+      "new_recurring_work_item": "Nouvelle tâche récurrent",
+      "update_recurring_work_item": "Mettre à jour la tâche récurrent",
       "form": {
         "interval": {
           "title": "Planification",
@@ -363,13 +363,13 @@
           }
         },
         "button": {
-          "create": "Créer un élément de travail récurrent",
-          "update": "Mettre à jour l'élément de travail récurrent"
+          "create": "Créer une tâche récurrent",
+          "update": "Mettre à jour la tâche récurrent"
         }
       },
       "create_button": {
-        "label": "Créer un élément de travail récurrent",
-        "no_permission": "Contactez votre administrateur de projet pour créer des éléments de travail récurrents"
+        "label": "Créer une tâche récurrent",
+        "no_permission": "Contactez votre administrateur de projet pour créer des tâches récurrents"
       }
     },
     "empty_state": {
@@ -378,46 +378,46 @@
         "description": "Configurez-le une fois. Nous vous le rappellerons quand il sera dû. Passez à Business pour rendre le travail récurrent sans effort."
       },
       "no_templates": {
-        "button": "Créez votre premier élément de travail récurrent"
+        "button": "Créez votre première tâche récurrent"
       }
     },
     "toasts": {
       "create": {
         "success": {
-          "title": "Élément de travail récurrent créé",
-          "message": "{name}, l'élément de travail récurrent, est maintenant disponible dans votre espace de travail."
+          "title": "Tâche récurrent créé",
+          "message": "{name}, la tâche récurrent, est maintenant disponible dans votre espace de travail."
         },
         "error": {
-          "title": "Nous n'avons pas pu créer cet élément de travail récurrent cette fois.",
-          "message": "Essayez d'enregistrer vos informations à nouveau ou copiez-les dans un nouvel élément de travail récurrent, de préférence dans un autre onglet."
+          "title": "Nous n'avons pas pu créer cette tâche récurrent cette fois.",
+          "message": "Essayez d'enregistrer vos informations à nouveau ou copiez-les dans un nouvelle tâche récurrent, de préférence dans un autre onglet."
         }
       },
       "update": {
         "success": {
-          "title": "Élément de travail récurrent modifié",
-          "message": "{name}, l'élément de travail récurrent, a été modifié."
+          "title": "Tâche récurrent modifié",
+          "message": "{name}, la tâche récurrent, a été modifié."
         },
         "error": {
-          "title": "Nous n'avons pas pu enregistrer les modifications de cet élément de travail récurrent.",
-          "message": "Essayez d'enregistrer vos informations à nouveau ou revenez à cet élément de travail récurrent plus tard. Si le problème persiste, contactez-nous."
+          "title": "Nous n'avons pas pu enregistrer les modifications de cette tâche récurrent.",
+          "message": "Essayez d'enregistrer vos informations à nouveau ou revenez à cette tâche récurrent plus tard. Si le problème persiste, contactez-nous."
         }
       },
       "delete": {
         "success": {
-          "title": "Élément de travail récurrent supprimé",
-          "message": "{name}, l'élément de travail récurrent, a été supprimé de votre espace de travail."
+          "title": "Tâche récurrent supprimé",
+          "message": "{name}, la tâche récurrent, a été supprimé de votre espace de travail."
         },
         "error": {
-          "title": "Nous n'avons pas pu supprimer cet élément de travail récurrent.",
+          "title": "Nous n'avons pas pu supprimer cette tâche récurrent.",
           "message": "Essayez de le supprimer à nouveau ou revenez plus tard. Si vous ne pouvez toujours pas le supprimer, contactez-nous."
         }
       }
     },
     "delete_confirmation": {
-      "title": "Supprimer l'élément de travail récurrent",
+      "title": "Supprimer la tâche récurrent",
       "description": {
-        "prefix": "Êtes-vous sûr de vouloir supprimer l'élément de travail récurrent-",
-        "suffix": "? Toutes les données liées à l'élément de travail récurrent seront définitivement supprimées. Cette action ne peut pas être annulée."
+        "prefix": "Êtes-vous sûr de vouloir supprimer la tâche récurrent-",
+        "suffix": "? Toutes les données liées à la tâche récurrent seront définitivement supprimées. Cette action ne peut pas être annulée."
       }
     }
   },

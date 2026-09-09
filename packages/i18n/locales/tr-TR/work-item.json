@@ -1,11 +1,11 @@
 {
   "issue": {
-    "label": "{count, plural, one {İş öğesi} other {İş öğeleri}}",
-    "all": "Tüm İş Öğeleri",
-    "edit": "İş öğesini düzenle",
+    "label": "{count, plural, one {Görev} other {Görevler}}",
+    "all": "Tüm Görevler",
+    "edit": "Görevi düzenle",
     "title": {
-      "label": "İş öğesi başlığı",
-      "required": "İş öğesi başlığı gereklidir."
+      "label": "Görev başlığı",
+      "required": "Görev başlığı gereklidir."
     },
     "form": {
       "title_placeholder": "Ne yapılması gerekiyor?",
@@ -15,44 +15,44 @@
       "fewer_options": "Daha az seçenek"
     },
     "add": {
-      "press_enter": "Başka bir iş öğesi eklemek için 'Enter'a basın",
-      "label": "İş öğesi ekle",
+      "press_enter": "Başka bir görev eklemek için 'Enter'a basın",
+      "label": "Görev ekle",
       "cycle": {
-        "failed": "İş öğesi döngüye eklenemedi. Lütfen tekrar deneyin.",
-        "success": "{count, plural, one {İş öğesi} other {İş öğeleri}} döngüye başarıyla eklendi.",
-        "loading": "{count, plural, one {İş öğesi} other {İş öğeleri}} döngüye ekleniyor"
+        "failed": "Görev döngüye eklenemedi. Lütfen tekrar deneyin.",
+        "success": "{count, plural, one {Görev} other {Görevler}} döngüye başarıyla eklendi.",
+        "loading": "{count, plural, one {Görev} other {Görevler}} döngüye ekleniyor"
       },
       "assignee": "Atanan ekle",
       "start_date": "Başlangıç tarihi ekle",
       "due_date": "Son tarih ekle",
       "working_days": "İş günü ekle",
-      "parent": "Üst iş öğesi ekle",
-      "sub_issue": "Alt iş öğesi ekle",
+      "parent": "Üst görev ekle",
+      "sub_issue": "Alt görev ekle",
       "dependency": "Bağımlılık ekle",
       "relation": "İlişki ekle",
       "link": "Bağlantı ekle",
-      "existing": "Varolan iş öğesi ekle"
+      "existing": "Varolan görev ekle"
     },
     "remove": {
-      "label": "İş öğesini kaldır",
+      "label": "Görevi kaldır",
       "cycle": {
-        "loading": "İş öğesi döngüden kaldırılıyor",
-        "success": "İş öğesi döngüden başarıyla kaldırıldı.",
-        "failed": "İş öğesi döngüden kaldırılamadı. Lütfen tekrar deneyin."
+        "loading": "Görev döngüden kaldırılıyor",
+        "success": "Görev döngüden başarıyla kaldırıldı.",
+        "failed": "Görev döngüden kaldırılamadı. Lütfen tekrar deneyin."
       },
       "module": {
-        "loading": "İş öğesi modülden kaldırılıyor",
-        "success": "İş öğesi modülden başarıyla kaldırıldı.",
-        "failed": "İş öğesi modülden kaldırılamadı. Lütfen tekrar deneyin."
+        "loading": "Görev modülden kaldırılıyor",
+        "success": "Görev modülden başarıyla kaldırıldı.",
+        "failed": "Görev modülden kaldırılamadı. Lütfen tekrar deneyin."
       },
       "parent": {
-        "label": "Üst iş öğesini kaldır"
+        "label": "Üst görevi kaldır"
       }
     },
-    "new": "Yeni İş Öğesi",
-    "adding": "İş öğesi ekleniyor",
+    "new": "Yeni Görev",
+    "adding": "Görev ekleniyor",
     "create": {
-      "success": "İş öğesi başarıyla oluşturuldu"
+      "success": "Görev başarıyla oluşturuldu"
     },
     "priority": {
       "urgent": "Acil",
@@ -64,15 +64,15 @@
       "properties": {
         "label": "Görünen Özellikler",
         "id": "ID",
-        "issue_type": "İş Öğesi Türü",
-        "sub_issue_count": "Alt iş öğesi sayısı",
+        "issue_type": "Görev Türü",
+        "sub_issue_count": "Alt görev sayısı",
         "attachment_count": "Ek sayısı",
         "created_on": "Oluşturulma tarihi",
-        "sub_issue": "Alt iş öğesi",
-        "work_item_count": "İş öğesi sayısı"
+        "sub_issue": "Alt görev",
+        "work_item_count": "Görev sayısı"
       },
       "extra": {
-        "show_sub_issues": "Alt iş öğelerini göster",
+        "show_sub_issues": "Alt görevleri göster",
         "show_empty_groups": "Boş grupları göster"
       }
     },
@@ -160,35 +160,35 @@
     },
     "empty_state": {
       "issue_detail": {
-        "title": "İş öğesi mevcut değil",
-        "description": "Aradığınız iş öğesi mevcut değil, arşivlenmiş veya silinmiş.",
+        "title": "Görev mevcut değil",
+        "description": "Aradığınız görev mevcut değil, arşivlenmiş veya silinmiş.",
         "primary_button": {
-          "text": "Diğer iş öğelerini görüntüle"
+          "text": "Diğer görevleri görüntüle"
         }
       }
     },
     "sibling": {
-      "label": "Kardeş iş öğeleri"
+      "label": "Kardeş görevler"
     },
     "archive": {
-      "description": "Yalnızca tamamlanmış veya iptal edilmiş\niş öğeleri arşivlenebilir",
-      "label": "İş Öğesini Arşivle",
-      "confirm_message": "Bu iş öğesini arşivlemek istediğinizden emin misiniz? Arşivlenen tüm iş öğelerinizi daha sonra geri yükleyebilirsiniz.",
+      "description": "Yalnızca tamamlanmış veya iptal edilmiş\ngörevler arşivlenebilir",
+      "label": "Görevi Arşivle",
+      "confirm_message": "Bu görevi arşivlemek istediğinizden emin misiniz? Arşivlenen tüm görevlerinizi daha sonra geri yükleyebilirsiniz.",
       "success": {
         "label": "Arşivleme başarılı",
         "message": "Arşivleriniz proje arşivlerinde bulunabilir."
       },
       "failed": {
-        "message": "İş öğesi arşivlenemedi. Lütfen tekrar deneyin."
+        "message": "Görev arşivlenemedi. Lütfen tekrar deneyin."
       }
     },
     "restore": {
       "success": {
         "title": "Geri yükleme başarılı",
-        "message": "İş öğeniz proje iş öğelerinde bulunabilir."
+        "message": "Göreviniz proje görevlerde bulunabilir."
       },
       "failed": {
-        "message": "İş öğesi geri yüklenemedi. Lütfen tekrar deneyin."
+        "message": "Görev geri yüklenemedi. Lütfen tekrar deneyin."
       }
     },
     "relation": {
@@ -209,29 +209,29 @@
       "adjusted_dates": "Ayarlanan: {startDate} – {targetDate}",
       "adjusted_date": "Ayarlanan: {targetDate}"
     },
-    "copy_link": "İş öğesi bağlantısını kopyala",
+    "copy_link": "Görev bağlantısını kopyala",
     "delete": {
-      "label": "İş öğesini sil",
-      "error": "İş öğesi silinirken hata oluştu"
+      "label": "Görevi sil",
+      "error": "Görev silinirken hata oluştu"
     },
     "subscription": {
       "actions": {
-        "subscribed": "İş öğesine abone olundu",
-        "unsubscribed": "İş öğesi aboneliği sonlandırıldı"
+        "subscribed": "Göreve abone olundu",
+        "unsubscribed": "Görev aboneliği sonlandırıldı"
       }
     },
     "select": {
-      "error": "Lütfen en az bir iş öğesi seçin",
-      "empty": "Hiç iş öğesi seçilmedi",
-      "add_selected": "Seçilen iş öğelerini ekle",
+      "error": "Lütfen en az bir görev seçin",
+      "empty": "Hiç görev seçilmedi",
+      "add_selected": "Seçilen görevleri ekle",
       "select_all": "Tümünü seç",
       "deselect_all": "Tümünü seçme"
     },
-    "open_in_full_screen": "İş öğesini tam ekranda aç",
+    "open_in_full_screen": "Görevi tam ekranda aç",
     "duplicate": {
       "modal": {
         "title": "Başka bir projeye kopya oluştur",
-        "description1": "Bu, iş öğesinin bir kopyasını oluşturur.",
+        "description1": "Bu, görevin bir kopyasını oluşturur.",
         "description2": "Çoğaltılırken tüm özellik verileri kaldırılacaktır.",
         "placeholder": "Bir proje seçin"
       }
@@ -239,10 +239,10 @@
     "toast": {
       "duplicate": {
         "success": {
-          "message": "İş öğesi başarıyla çoğaltıldı"
+          "message": "Görev başarıyla çoğaltıldı"
         },
         "error": {
-          "message": "İş öğesi çoğaltılamadı"
+          "message": "Görev çoğaltılamadı"
         }
       }
     },
@@ -284,22 +284,22 @@
   },
   "sub_work_item": {
     "update": {
-      "success": "Alt iş öğesi başarıyla güncellendi",
-      "error": "Alt iş öğesi güncellenirken hata oluştu"
+      "success": "Alt görev başarıyla güncellendi",
+      "error": "Alt görev güncellenirken hata oluştu"
     },
     "remove": {
-      "success": "Alt iş öğesi başarıyla kaldırıldı",
-      "error": "Alt iş öğesi kaldırılırken hata oluştu"
+      "success": "Alt görev başarıyla kaldırıldı",
+      "error": "Alt görev kaldırılırken hata oluştu"
     },
     "empty_state": {
       "sub_list_filters": {
-        "title": "Alt iş öğelerinizin filtreleriyle eşleşmiyor.",
-        "description": "Tüm alt iş öğelerini görmek için tüm uygulanan filtreleri temizleyin.",
+        "title": "Alt görev filtreleriyle eşleşmiyor.",
+        "description": "Tüm alt görevleri görmek için tüm uygulanan filtreleri temizleyin.",
         "action": "Filtreleri temizle"
       },
       "list_filters": {
-        "title": "İş öğelerinizin filtreleriyle eşleşmiyor.",
-        "description": "Tüm iş öğelerini görmek için tüm uygulanan filtreleri temizleyin.",
+        "title": "Görevlerinizin filtreleriyle eşleşmiyor.",
+        "description": "Tüm görevleri görmek için tüm uygulanan filtreleri temizleyin.",
         "action": "Filtreleri temizle"
       }
     }
@@ -307,10 +307,10 @@
   "issue_relation": {
     "empty_state": {
       "search": {
-        "title": "Eşleşen iş öğesi bulunamadı"
+        "title": "Eşleşen görev bulunamadı"
       },
       "no_issues": {
-        "title": "İş öğesi bulunamadı"
+        "title": "Görev bulunamadı"
       }
     }
   },
@@ -318,36 +318,36 @@
     "empty_state": {
       "general": {
         "title": "Henüz yorum yok",
-        "description": "Yorumlar, iş öğeleri için tartışma ve takip alanı olarak kullanılabilir"
+        "description": "Yorumlar, görevler için tartışma ve takip alanı olarak kullanılabilir"
       }
     }
   },
   "bulk_operations": {
     "error_details": {
       "invalid_archive_state_group": {
-        "title": "İş öğeleri arşivlenemiyor",
-        "message": "Yalnızca Tamamlanmış veya İptal Edilmiş durum gruplarına ait iş öğeleri arşivlenebilir."
+        "title": "Görevler arşivlenemiyor",
+        "message": "Yalnızca Tamamlanmış veya İptal Edilmiş durum gruplarına ait görevler arşivlenebilir."
       },
       "invalid_issue_start_date": {
-        "title": "İş öğeleri güncellenemiyor",
-        "message": "Seçilen başlangıç tarihi bazı iş öğeleri için bitiş tarihinden sonra geliyor. Başlangıç tarihinin bitiş tarihinden önce olduğundan emin olun."
+        "title": "Görevler güncellenemiyor",
+        "message": "Seçilen başlangıç tarihi bazı görevler için bitiş tarihinden sonra geliyor. Başlangıç tarihinin bitiş tarihinden önce olduğundan emin olun."
       },
       "invalid_issue_target_date": {
-        "title": "İş öğeleri güncellenemiyor",
-        "message": "Seçilen bitiş tarihi bazı iş öğeleri için başlangıç tarihinden önce geliyor. Bitiş tarihinin başlangıç tarihinden sonra olduğundan emin olun."
+        "title": "Görevler güncellenemiyor",
+        "message": "Seçilen bitiş tarihi bazı görevler için başlangıç tarihinden önce geliyor. Bitiş tarihinin başlangıç tarihinden sonra olduğundan emin olun."
       },
       "invalid_state_transition": {
-        "title": "İş öğeleri güncellenemiyor",
-        "message": "Bazı iş öğeleri için durum değişikliğine izin verilmiyor. Durum değişikliğine izin verildiğinden emin olun."
+        "title": "Görevler güncellenemiyor",
+        "message": "Bazı görevler için durum değişikliğine izin verilmiyor. Durum değişikliğine izin verildiğinden emin olun."
       }
     }
   },
   "recurring_work_items": {
     "settings": {
-      "heading": "Yinelenen iş öğeleri",
-      "description": "Yinelenen iş öğelerini bir kere ayarlayın, ve biz onları yöneteceğiz. Zamanı geldiğinde burada göreceksin.",
-      "new_recurring_work_item": "Yeni yinelenen iş öğesi",
-      "update_recurring_work_item": "Yinelenen iş öğesini güncelle",
+      "heading": "Yinelenen görevler",
+      "description": "Yinelenen görevleri bir kere ayarlayın, ve biz onları yöneteceğiz. Zamanı geldiğinde burada göreceksin.",
+      "new_recurring_work_item": "Yeni yinelenen görev",
+      "update_recurring_work_item": "Yinelenen görevi güncelle",
       "form": {
         "interval": {
           "title": "Zamanlama",
@@ -363,13 +363,13 @@
           }
         },
         "button": {
-          "create": "Yinelenen iş öğesi oluştur",
-          "update": "Yinelenen iş öğesini güncelle"
+          "create": "Yinelenen görev oluştur",
+          "update": "Yinelenen görevi güncelle"
         }
       },
       "create_button": {
-        "label": "Yinelenen iş öğesi oluştur",
-        "no_permission": "Yinelenen iş öğeleri oluşturmak için proje yöneticinizle iletişime geçin"
+        "label": "Yinelenen görev oluştur",
+        "no_permission": "Yinelenen görevler oluşturmak için proje yöneticinizle iletişime geçin"
       }
     },
     "empty_state": {
@@ -378,46 +378,46 @@
         "description": "Bir kez ayarlayın. Zamanı geldiğinde geri getireceğiz. Yinelenen işleri zahmetsiz hale getirmek için Business'a yükseltin."
       },
       "no_templates": {
-        "button": "İlk yinelenen iş öğenizi oluşturun"
+        "button": "İlk yinelenen görevinizi oluşturun"
       }
     },
     "toasts": {
       "create": {
         "success": {
-          "title": "Yinelenen iş öğesi oluşturuldu",
-          "message": "{name} adlı yinelenen iş öğesi artık çalışma alanınızda kullanılabilir."
+          "title": "Yinelenen görev oluşturuldu",
+          "message": "{name} adlı yinelenen görev artık çalışma alanınızda kullanılabilir."
         },
         "error": {
-          "title": "Bu sefer yinelenen iş öğesini oluşturamadık.",
-          "message": "Bilgilerinizi tekrar kaydetmeyi deneyin veya bunları yeni bir yinelenen iş öğesine, tercihen başka bir sekmede, kopyalayın."
+          "title": "Bu sefer yinelenen görevi oluşturamadık.",
+          "message": "Bilgilerinizi tekrar kaydetmeyi deneyin veya bunları yeni bir yinelenen göreve, tercihen başka bir sekmede, kopyalayın."
         }
       },
       "update": {
         "success": {
-          "title": "Yinelenen iş öğesi değiştirildi",
-          "message": "{name} adlı yinelenen iş öğesi değiştirildi."
+          "title": "Yinelenen görev değiştirildi",
+          "message": "{name} adlı yinelenen görev değiştirildi."
         },
         "error": {
-          "title": "Bu yinelenen iş öğesindeki değişiklikleri kaydedemedik.",
-          "message": "Bilgilerinizi tekrar kaydetmeyi deneyin veya bu yinelenen iş öğesine daha sonra geri dönün. Hala sorun yaşarsanız, bizimle iletişime geçin."
+          "title": "Bu yinelenen görevdeki değişiklikleri kaydedemedik.",
+          "message": "Bilgilerinizi tekrar kaydetmeyi deneyin veya bu yinelenen göreve daha sonra geri dönün. Hala sorun yaşarsanız, bizimle iletişime geçin."
         }
       },
       "delete": {
         "success": {
-          "title": "Yinelenen iş öğesi silindi",
-          "message": "{name} adlı yinelenen iş öğesi çalışma alanınızdan silindi."
+          "title": "Yinelenen görev silindi",
+          "message": "{name} adlı yinelenen görev çalışma alanınızdan silindi."
         },
         "error": {
-          "title": "Bu yinelenen iş öğesini silemedik.",
+          "title": "Bu yinelenen görevi silemedik.",
           "message": "Tekrar silmeyi deneyin veya daha sonra tekrar deneyin. Hala silemiyorsanız, bizimle iletişime geçin."
         }
       }
     },
     "delete_confirmation": {
-      "title": "Yinelenen iş öğesini sil",
+      "title": "Yinelenen görevi sil",
       "description": {
-        "prefix": "Yinelenen iş öğesini silmek istediğinizden emin misiniz-",
-        "suffix": "? Bu yinelenen iş öğesiyle ilgili tüm veriler kalıcı olarak silinecek. Bu işlem geri alınamaz."
+        "prefix": "Yinelenen görevi silmek istediğinizden emin misiniz-",
+        "suffix": "? Bu yinelenen görevle ilgili tüm veriler kalıcı olarak silinecek. Bu işlem geri alınamaz."
       }
     }
   },

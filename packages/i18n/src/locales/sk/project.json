@@ -19,9 +19,9 @@
     "start_date": "Dátum začiatku",
     "end_date": "Dátum konca",
     "in_your_timezone": "Váš časový pásmo",
-    "transfer_work_items": "Presunúť {count} pracovných položiek",
+    "transfer_work_items": "Presunúť {count} úloh",
     "transfer": {
-      "no_cycles_available": "Nie sú k dispozícii žiadne iné cykly na prenos pracovných položiek."
+      "no_cycles_available": "Nie sú k dispozícii žiadne iné cykly na prenos úloh."
     },
     "date_range": "Dátumový rozsah",
     "add_date": "Pridať dátum",
@@ -31,7 +31,7 @@
       "chart": "Burndown graf",
       "priority_issue": "Vysoko prioritné položky",
       "assignees": "Priradení",
-      "issue_burndown": "Burndown pracovných položiek",
+      "issue_burndown": "Burndown úloh",
       "ideal": "Ideálne",
       "current": "Aktuálne",
       "labels": "Štítky",
@@ -154,14 +154,14 @@
         }
       },
       "no_archived_issues": {
-        "title": "Zatiaľ žiadne archivované pracovné položky",
-        "description": "Manuálne alebo pomocou automatizácie môžete archivovať pracovné položky, ktoré sú dokončené alebo zrušené. Po archivácii ich nájdete tu.",
+        "title": "Zatiaľ žiadne archivované úlohy",
+        "description": "Manuálne alebo pomocou automatizácie môžete archivovať úlohy, ktoré sú dokončené alebo zrušené. Po archivácii ich nájdete tu.",
         "primary_button": {
           "text": "Nastaviť automatizáciu"
         }
       },
       "issues_empty_filter": {
-        "title": "Nenašli sa žiadne pracovné položky zodpovedajúce použitým filtrom",
+        "title": "Nenašli sa žiadne úlohy zodpovedajúce použitým filtrom",
         "secondary_button": {
           "text": "Zrušiť všetky filtre"
         }
@@ -190,7 +190,7 @@
   "project_issues": {
     "empty_state": {
       "no_issues": {
-        "title": "Vytvorte a priraďte pracovnú položku",
+        "title": "Vytvorte a priraďte úlohu",
         "description": "Položky sú úlohy, ktoré priraďujete sebe alebo tímu. Sledujte ich postup.",
         "primary_button": {
           "text": "Vytvoriť prvú položku",

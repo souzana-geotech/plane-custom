@@ -19,7 +19,7 @@
     "start_date": "Tanggal mulai",
     "end_date": "Tanggal akhir",
     "in_your_timezone": "Di zona waktu Anda",
-    "transfer_work_items": "Transfer {count} item kerja",
+    "transfer_work_items": "Transfer {count} tugas",
     "transfer": {
       "no_cycles_available": "Tidak ada siklus lain yang tersedia untuk mentransfer item pekerjaan."
     },
@@ -29,9 +29,9 @@
       "label": "Siklus aktif",
       "progress": "Kemajuan",
       "chart": "Grafik burndown",
-      "priority_issue": "Item kerja prioritas",
+      "priority_issue": "Tugas prioritas",
       "assignees": "Penugasan",
-      "issue_burndown": "Burndown item kerja",
+      "issue_burndown": "Burndown tugas",
       "ideal": "Ideal",
       "current": "Sekarang",
       "labels": "Label",
@@ -113,18 +113,18 @@
         }
       },
       "no_issues": {
-        "title": "Tidak ada item kerja yang ditambahkan ke siklus",
-        "description": "Tambahkan atau buat item kerja yang ingin Anda batasi waktu dan kirim dalam siklus ini",
+        "title": "Tidak ada tugas yang ditambahkan ke siklus",
+        "description": "Tambahkan atau buat tugas yang ingin Anda batasi waktu dan kirim dalam siklus ini",
         "primary_button": {
-          "text": "Buat item kerja baru"
+          "text": "Buat tugas baru"
         },
         "secondary_button": {
-          "text": "Tambah item kerja yang ada"
+          "text": "Tambah tugas yang ada"
         }
       },
       "completed_no_issues": {
-        "title": "Tidak ada item kerja dalam siklus",
-        "description": "Tidak ada item kerja dalam siklus. Item kerja baik ditransfer atau disembunyikan. Untuk melihat item kerja yang disembunyikan jika ada, perbarui properti tampilan Anda sesuai."
+        "title": "Tidak ada tugas dalam siklus",
+        "description": "Tidak ada tugas dalam siklus. Tugas baik ditransfer atau disembunyikan. Untuk melihat tugas yang disembunyikan jika ada, perbarui properti tampilan Anda sesuai."
       },
       "active": {
         "title": "Tidak ada siklus aktif",
@@ -144,7 +144,7 @@
         "primary_button": {
           "text": "Buat tampilan pertama Anda",
           "comic": {
-            "title": "Tampilan bekerja berdasarkan properti item kerja.",
+            "title": "Tampilan bekerja berdasarkan properti tugas.",
             "description": "Anda dapat membuat tampilan dari sini dengan sebanyak mungkin properti sebagai filter yang Anda anggap sesuai."
           }
         },
@@ -154,14 +154,14 @@
         }
       },
       "no_archived_issues": {
-        "title": "Belum ada item kerja yang diarsipkan",
-        "description": "Secara manual atau melalui otomatisasi, Anda dapat mengarsipkan item kerja yang selesai atau dibatalkan. Temukan di sini setelah diarsipkan.",
+        "title": "Belum ada tugas yang diarsipkan",
+        "description": "Secara manual atau melalui otomatisasi, Anda dapat mengarsipkan tugas yang selesai atau dibatalkan. Temukan di sini setelah diarsipkan.",
         "primary_button": {
           "text": "Atur otomatisasi"
         }
       },
       "issues_empty_filter": {
-        "title": "Tidak ada item kerja yang ditemukan cocok dengan filter yang diterapkan",
+        "title": "Tidak ada tugas yang ditemukan cocok dengan filter yang diterapkan",
         "secondary_button": {
           "text": "Hapus semua filter"
         }
@@ -190,25 +190,25 @@
   "project_issues": {
     "empty_state": {
       "no_issues": {
-        "title": "Buat item kerja dan tugaskan kepada seseorang, bahkan kepada diri Anda sendiri",
-        "description": "Anggap item kerja sebagai pekerjaan, tugas, atau JTBD. Yang kami suka. Item kerja dan sub-item kerjanya biasanya merupakan tindakan berbasis waktu yang ditugaskan kepada anggota tim Anda. Tim Anda membuat, menetapkan, dan menyelesaikan item kerja untuk memindahkan proyek Anda menuju tujuannya.",
+        "title": "Buat tugas dan tugaskan kepada seseorang, bahkan kepada diri Anda sendiri",
+        "description": "Anggap tugas sebagai pekerjaan, tugas, atau JTBD. Yang kami suka. Tugas dan subtugasnya biasanya merupakan tindakan berbasis waktu yang ditugaskan kepada anggota tim Anda. Tim Anda membuat, menetapkan, dan menyelesaikan tugas untuk memindahkan proyek Anda menuju tujuannya.",
         "primary_button": {
-          "text": "Buat item kerja pertama Anda",
+          "text": "Buat tugas pertama Anda",
           "comic": {
-            "title": "Item kerja adalah blok bangunan di Plane.",
-            "description": "Mendesain ulang UI Plane, Mengganti merek perusahaan, atau Meluncurkan sistem injeksi bahan bakar baru adalah contoh item kerja yang kemungkinan besar memiliki sub-item kerja."
+            "title": "Tugas adalah blok bangunan di Plane.",
+            "description": "Mendesain ulang UI Plane, Mengganti merek perusahaan, atau Meluncurkan sistem injeksi bahan bakar baru adalah contoh tugas yang kemungkinan besar memiliki subtugas."
           }
         }
       },
       "no_archived_issues": {
-        "title": "Belum ada item kerja yang diarsipkan",
-        "description": "Secara manual atau melalui otomatisasi, Anda dapat mengarsipkan item kerja yang telah selesai atau dibatalkan. Temukan di sini setelah diarsipkan.",
+        "title": "Belum ada tugas yang diarsipkan",
+        "description": "Secara manual atau melalui otomatisasi, Anda dapat mengarsipkan tugas yang telah selesai atau dibatalkan. Temukan di sini setelah diarsipkan.",
         "primary_button": {
           "text": "Tetapkan otomatisasi"
         }
       },
       "issues_empty_filter": {
-        "title": "Tidak ada item kerja ditemukan yang cocok dengan filter yang diterapkan",
+        "title": "Tidak ada tugas ditemukan yang cocok dengan filter yang diterapkan",
         "secondary_button": {
           "text": "Bersihkan semua filter"
         }
@@ -225,7 +225,7 @@
     "empty_state": {
       "general": {
         "title": "Peta tonggak proyek Anda ke Modul dan lacak pekerjaan terakumulasi dengan mudah.",
-        "description": "Sekelompok item kerja yang tergolong dalam induk yang logis dan hierarkis membentuk satu modul. Anggap saja mereka sebagai cara untuk melacak pekerjaan berdasarkan tonggak proyek. Mereka memiliki periode dan tenggat waktu sendiri serta analitik untuk membantu Anda melihat seberapa dekat atau jauh Anda dari tonggak tersebut.",
+        "description": "Sekelompok tugas yang tergolong dalam induk yang logis dan hierarkis membentuk satu modul. Anggap saja mereka sebagai cara untuk melacak pekerjaan berdasarkan tonggak proyek. Mereka memiliki periode dan tenggat waktu sendiri serta analitik untuk membantu Anda melihat seberapa dekat atau jauh Anda dari tonggak tersebut.",
         "primary_button": {
           "text": "Buat modul pertama Anda",
           "comic": {
@@ -235,13 +235,13 @@
         }
       },
       "no_issues": {
-        "title": "Tidak ada item kerja dalam modul",
-        "description": "Buat atau tambahkan item kerja yang ingin Anda capai sebagai bagian dari modul ini",
+        "title": "Tidak ada tugas dalam modul",
+        "description": "Buat atau tambahkan tugas yang ingin Anda capai sebagai bagian dari modul ini",
         "primary_button": {
-          "text": "Buat item kerja baru"
+          "text": "Buat tugas baru"
         },
         "secondary_button": {
-          "text": "Tambahkan item kerja yang ada"
+          "text": "Tambahkan tugas yang ada"
         }
       },
       "archived": {
@@ -272,7 +272,7 @@
     "empty_state": {
       "general": {
         "title": "Tulis catatan, dokumen, atau seluruh basis pengetahuan. Dapatkan Galileo, asisten AI Plane, untuk membantu Anda memulai",
-        "description": "Halaman adalah ruang pemikiran di Plane. Catat notul rapat, format dengan mudah, sertakan item kerja, tata letak menggunakan perpustakaan komponen, dan simpan semua di dalam konteks proyek Anda. Untuk menyelesaikan dokumen dengan cepat, panggil Galileo, AI Plane, dengan pintasan atau dengan mengklik tombol.",
+        "description": "Halaman adalah ruang pemikiran di Plane. Catat notul rapat, format dengan mudah, sertakan tugas, tata letak menggunakan perpustakaan komponen, dan simpan semua di dalam konteks proyek Anda. Untuk menyelesaikan dokumen dengan cepat, panggil Galileo, AI Plane, dengan pintasan atau dengan mengklik tombol.",
         "primary_button": {
           "text": "Buat halaman pertama Anda"
         }
@@ -301,7 +301,7 @@
     "empty_state": {
       "inbox": {
         "title": "Intake tidak diaktifkan untuk proyek ini.",
-        "description": "Intake membantu Anda mengelola permintaan yang masuk ke proyek Anda dan menambahkannya sebagai item kerja dalam alur kerja Anda. Aktifkan intake dari pengaturan proyek untuk mengelola permintaan.",
+        "description": "Intake membantu Anda mengelola permintaan yang masuk ke proyek Anda dan menambahkannya sebagai tugas dalam alur kerja Anda. Aktifkan intake dari pengaturan proyek untuk mengelola permintaan.",
         "primary_button": {
           "text": "Kelola fitur"
         }
@@ -353,7 +353,7 @@
     "order_by": {
       "name": "Nama",
       "progress": "Kemajuan",
-      "issues": "Jumlah item kerja",
+      "issues": "Jumlah tugas",
       "due_date": "Tanggal jatuh tempo",
       "created_at": "Tanggal dibuat",
       "manual": "Manual"

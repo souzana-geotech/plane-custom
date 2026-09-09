@@ -259,11 +259,11 @@
     },
     "workflows": {
       "title": "Brak przepływów pracy",
-      "description": "Utwórz przepływy pracy, aby zarządzać postępem elementów pracy.",
+      "description": "Utwórz przepływy pracy, aby zarządzać postępem zadań.",
       "cta_primary": "Dodaj nowy przepływ pracy",
       "states": {
         "title": "Dodaj stany",
-        "description": "Wybierz stany, przez które przechodzi element pracy."
+        "description": "Wybierz stany, przez które przechodzi zadanie."
       }
     }
   }

@@ -1,11 +1,11 @@
 {
   "issue": {
-    "label": "{count, plural, one {Element pracy} few {Elementy pracy} other {Elementów pracy}}",
-    "all": "Wszystkie elementy pracy",
-    "edit": "Edytuj element pracy",
+    "label": "{count, plural, one {Zadanie} few {Zadania} other {Zadań}}",
+    "all": "Wszystkie zadania",
+    "edit": "Edytuj zadanie",
     "title": {
-      "label": "Tytuł elementu pracy",
-      "required": "Tytuł elementu pracy jest wymagany."
+      "label": "Tytuł zadania",
+      "required": "Tytuł zadania jest wymagany."
     },
     "form": {
       "title_placeholder": "Co trzeba zrobić?",
@@ -15,44 +15,44 @@
       "fewer_options": "Mniej opcji"
     },
     "add": {
-      "press_enter": "Naciśnij 'Enter', aby dodać kolejny element pracy",
-      "label": "Dodaj element pracy",
+      "press_enter": "Naciśnij 'Enter', aby dodać kolejny zadanie",
+      "label": "Dodaj zadanie",
       "cycle": {
-        "failed": "Nie udało się dodać elementu pracy do cyklu. Spróbuj ponownie.",
-        "success": "{count, plural, one {Element pracy} few {Elementy pracy} other {Elementów pracy}} dodano do cyklu.",
-        "loading": "Dodawanie {count, plural, one {elementu pracy} few {elementów pracy} other {elementów pracy}} do cyklu"
+        "failed": "Nie udało się dodać zadania do cyklu. Spróbuj ponownie.",
+        "success": "{count, plural, one {Zadanie} few {Zadania} other {Zadań}} dodano do cyklu.",
+        "loading": "Dodawanie {count, plural, one {zadania} few {zadań} other {zadań}} do cyklu"
       },
       "assignee": "Dodaj przypisanego",
       "start_date": "Dodaj datę rozpoczęcia",
       "due_date": "Dodaj termin",
       "working_days": "Dodaj dni robocze",
       "parent": "Dodaj element nadrzędny",
-      "sub_issue": "Dodaj podrzędny element pracy",
+      "sub_issue": "Dodaj podrzędny zadanie",
       "dependency": "Dodaj zależność",
       "relation": "Dodaj relację",
       "link": "Dodaj link",
-      "existing": "Dodaj istniejący element pracy"
+      "existing": "Dodaj istniejące zadanie"
     },
     "remove": {
-      "label": "Usuń element pracy",
+      "label": "Usuń zadanie",
       "cycle": {
-        "loading": "Usuwanie elementu pracy z cyklu",
-        "success": "Element pracy usunięto z cyklu.",
-        "failed": "Nie udało się usunąć elementu pracy z cyklu. Spróbuj ponownie."
+        "loading": "Usuwanie zadania z cyklu",
+        "success": "Zadanie usunięto z cyklu.",
+        "failed": "Nie udało się usunąć zadania z cyklu. Spróbuj ponownie."
       },
       "module": {
-        "loading": "Usuwanie elementu pracy z modułu",
-        "success": "Element pracy usunięto z modułu.",
-        "failed": "Nie udało się usunąć elementu pracy z modułu. Spróbuj ponownie."
+        "loading": "Usuwanie zadania z modułu",
+        "success": "Zadanie usunięto z modułu.",
+        "failed": "Nie udało się usunąć zadania z modułu. Spróbuj ponownie."
       },
       "parent": {
         "label": "Usuń element nadrzędny"
       }
     },
-    "new": "Nowy element pracy",
-    "adding": "Dodawanie elementu pracy",
+    "new": "Nowe zadanie",
+    "adding": "Dodawanie zadania",
     "create": {
-      "success": "Element pracy utworzono pomyślnie"
+      "success": "Zadanie utworzono pomyślnie"
     },
     "priority": {
       "urgent": "Pilny",
@@ -64,12 +64,12 @@
       "properties": {
         "label": "Wyświetlane właściwości",
         "id": "ID",
-        "issue_type": "Typ elementu pracy",
+        "issue_type": "Typ zadania",
         "sub_issue_count": "Liczba elementów podrzędnych",
         "attachment_count": "Liczba załączników",
         "created_on": "Utworzono dnia",
         "sub_issue": "Element podrzędny",
-        "work_item_count": "Liczba elementów pracy"
+        "work_item_count": "Liczba zadań"
       },
       "extra": {
         "show_sub_issues": "Pokaż elementy podrzędne",
@@ -160,35 +160,35 @@
     },
     "empty_state": {
       "issue_detail": {
-        "title": "Element pracy nie istnieje",
-        "description": "Element pracy, którego szukasz, nie istnieje, został zarchiwizowany lub usunięty.",
+        "title": "Zadanie nie istnieje",
+        "description": "Zadanie, którego szukasz, nie istnieje, został zarchiwizowany lub usunięty.",
         "primary_button": {
-          "text": "Pokaż inne elementy pracy"
+          "text": "Pokaż inne zadania"
         }
       }
     },
     "sibling": {
-      "label": "Powiązane elementy pracy"
+      "label": "Powiązane zadania"
     },
     "archive": {
-      "description": "Można archiwizować tylko elementy pracy w stanie ukończonym lub anulowanym",
-      "label": "Archiwizuj element pracy",
-      "confirm_message": "Czy na pewno chcesz zarchiwizować ten element pracy? Wszystkie zarchiwizowane elementy można później przywrócić.",
+      "description": "Można archiwizować tylko zadania w stanie ukończonym lub anulowanym",
+      "label": "Archiwizuj zadanie",
+      "confirm_message": "Czy na pewno chcesz zarchiwizować to zadanie? Wszystkie zarchiwizowane elementy można później przywrócić.",
       "success": {
         "label": "Archiwizacja zakończona",
         "message": "Archiwa znajdziesz w archiwum projektu."
       },
       "failed": {
-        "message": "Nie udało się zarchiwizować elementu pracy. Spróbuj ponownie."
+        "message": "Nie udało się zarchiwizować zadania. Spróbuj ponownie."
       }
     },
     "restore": {
       "success": {
         "title": "Przywrócenie zakończone",
-        "message": "Twój element pracy można znaleźć w elementach pracy projektu."
+        "message": "Twoje zadanie można znaleźć w zadaniach projektu."
       },
       "failed": {
-        "message": "Nie udało się przywrócić elementu pracy. Spróbuj ponownie."
+        "message": "Nie udało się przywrócić zadania. Spróbuj ponownie."
       }
     },
     "relation": {
@@ -209,29 +209,29 @@
       "adjusted_dates": "Skorygowano: {startDate} – {targetDate}",
       "adjusted_date": "Skorygowano: {targetDate}"
     },
-    "copy_link": "Kopiuj link do elementu pracy",
+    "copy_link": "Kopiuj link do zadania",
     "delete": {
-      "label": "Usuń element pracy",
-      "error": "Błąd podczas usuwania elementu pracy"
+      "label": "Usuń zadanie",
+      "error": "Błąd podczas usuwania zadania"
     },
     "subscription": {
       "actions": {
-        "subscribed": "Subskrypcja elementu pracy powiodła się",
-        "unsubscribed": "Anulowano subskrypcję elementu pracy"
+        "subscribed": "Subskrypcja zadania powiodła się",
+        "unsubscribed": "Anulowano subskrypcję zadania"
       }
     },
     "select": {
-      "error": "Wybierz co najmniej jeden element pracy",
-      "empty": "Nie wybrano żadnych elementów pracy",
-      "add_selected": "Dodaj wybrane elementy pracy",
+      "error": "Wybierz co najmniej jedno zadanie",
+      "empty": "Nie wybrano żadnych zadań",
+      "add_selected": "Dodaj wybrane zadania",
       "select_all": "Wybierz wszystko",
       "deselect_all": "Odznacz wszystko"
     },
-    "open_in_full_screen": "Otwórz element pracy na pełnym ekranie",
+    "open_in_full_screen": "Otwórz zadanie na pełnym ekranie",
     "duplicate": {
       "modal": {
         "title": "Utwórz kopię w innym projekcie",
-        "description1": "Tworzy to kopię elementu pracy.",
+        "description1": "Tworzy to kopię zadania.",
         "description2": "Podczas duplikowania wszystkie dane właściwości zostaną usunięte.",
         "placeholder": "Wybierz projekt"
       }
@@ -239,10 +239,10 @@
     "toast": {
       "duplicate": {
         "success": {
-          "message": "Element pracy zduplikowano pomyślnie"
+          "message": "Zadanie zduplikowano pomyślnie"
         },
         "error": {
-          "message": "Nie udało się zduplikować elementu pracy"
+          "message": "Nie udało się zduplikować zadania"
         }
       }
     },
@@ -284,11 +284,11 @@
   },
   "sub_work_item": {
     "update": {
-      "success": "Podrzędny element pracy zaktualizowano pomyślnie",
+      "success": "Podrzędny zadanie zaktualizowano pomyślnie",
       "error": "Błąd podczas aktualizacji elementu podrzędnego"
     },
     "remove": {
-      "success": "Podrzędny element pracy usunięto pomyślnie",
+      "success": "Podrzędny zadanie usunięto pomyślnie",
       "error": "Błąd podczas usuwania elementu podrzędnego"
     },
     "empty_state": {
@@ -298,8 +298,8 @@
         "action": "Wyczyść filtry"
       },
       "list_filters": {
-        "title": "Nie masz elementów pracy, które pasują do filtrów, które zastosowałeś.",
-        "description": "Aby zobaczyć wszystkie elementy pracy, wyczyść wszystkie zastosowane filtry.",
+        "title": "Nie masz zadań, które pasują do filtrów, które zastosowałeś.",
+        "description": "Aby zobaczyć wszystkie zadania, wyczyść wszystkie zastosowane filtry.",
         "action": "Wyczyść filtry"
       }
     }
@@ -325,29 +325,29 @@
   "bulk_operations": {
     "error_details": {
       "invalid_archive_state_group": {
-        "title": "Nie można zarchiwizować elementów pracy",
-        "message": "Tylko elementy pracy należące do grup stanów Ukończone lub Anulowane mogą być archiwizowane."
+        "title": "Nie można zarchiwizować zadań",
+        "message": "Tylko zadania należące do grup stanów Ukończone lub Anulowane mogą być archiwizowane."
       },
       "invalid_issue_start_date": {
-        "title": "Nie można zaktualizować elementów pracy",
-        "message": "Wybrana data rozpoczęcia następuje po terminie zakończenia dla niektórych elementów pracy. Upewnij się, że data rozpoczęcia jest przed terminem zakończenia."
+        "title": "Nie można zaktualizować zadań",
+        "message": "Wybrana data rozpoczęcia następuje po terminie zakończenia dla niektórych zadań. Upewnij się, że data rozpoczęcia jest przed terminem zakończenia."
       },
       "invalid_issue_target_date": {
-        "title": "Nie można zaktualizować elementów pracy",
-        "message": "Wybrany termin zakończenia poprzedza datę rozpoczęcia dla niektórych elementów pracy. Upewnij się, że termin zakończenia jest po dacie rozpoczęcia."
+        "title": "Nie można zaktualizować zadań",
+        "message": "Wybrany termin zakończenia poprzedza datę rozpoczęcia dla niektórych zadań. Upewnij się, że termin zakończenia jest po dacie rozpoczęcia."
       },
       "invalid_state_transition": {
-        "title": "Nie można zaktualizować elementów pracy",
-        "message": "Zmiana stanu nie jest dozwolona dla niektórych elementów pracy. Upewnij się, że zmiana stanu jest dozwolona."
+        "title": "Nie można zaktualizować zadań",
+        "message": "Zmiana stanu nie jest dozwolona dla niektórych zadań. Upewnij się, że zmiana stanu jest dozwolona."
       }
     }
   },
   "recurring_work_items": {
     "settings": {
-      "heading": "Elementy pracy cykliczne",
+      "heading": "Zadania cykliczne",
       "description": "Ustaw swoją cykliczną pracę raz, a my zajmiemy się powtarzaniem. Wszystko będzie tutaj, gdy będzie to potrzebne.",
-      "new_recurring_work_item": "Nowy cykliczny element pracy",
-      "update_recurring_work_item": "Zaktualizuj cykliczny element pracy",
+      "new_recurring_work_item": "Nowy cykliczny zadanie",
+      "update_recurring_work_item": "Zaktualizuj cykliczny zadanie",
       "form": {
         "interval": {
           "title": "Harmonogram",
@@ -363,13 +363,13 @@
           }
         },
         "button": {
-          "create": "Utwórz cykliczny element pracy",
-          "update": "Zaktualizuj cykliczny element pracy"
+          "create": "Utwórz cykliczny zadanie",
+          "update": "Zaktualizuj cykliczny zadanie"
         }
       },
       "create_button": {
-        "label": "Utwórz cykliczny element pracy",
-        "no_permission": "Skontaktuj się z administratorem projektu, aby utworzyć cykliczne elementy pracy"
+        "label": "Utwórz cykliczny zadanie",
+        "no_permission": "Skontaktuj się z administratorem projektu, aby utworzyć cykliczne zadania"
       }
     },
     "empty_state": {
@@ -378,46 +378,46 @@
         "description": "Ustaw raz. Przywrócimy ją, gdy nadejdzie termin. Ulepsz do Business, aby cykliczna praca była bezwysiłkowa."
       },
       "no_templates": {
-        "button": "Utwórz swój pierwszy cykliczny element pracy"
+        "button": "Utwórz swój pierwszy cykliczny zadanie"
       }
     },
     "toasts": {
       "create": {
         "success": {
-          "title": "Cykliczny element pracy utworzony",
-          "message": "{name}, cykliczny element pracy, jest już dostępny w Twojej przestrzeni roboczej."
+          "title": "Cykliczny zadanie utworzone",
+          "message": "{name}, cykliczny zadanie, jest już dostępny w Twojej przestrzeni roboczej."
         },
         "error": {
-          "title": "Nie udało się utworzyć cyklicznego elementu pracy.",
-          "message": "Spróbuj ponownie zapisać dane lub skopiuj je do nowego cyklicznego elementu pracy, najlepiej w innej karcie."
+          "title": "Nie udało się utworzyć cyklicznego zadania.",
+          "message": "Spróbuj ponownie zapisać dane lub skopiuj je do nowego cyklicznego zadania, najlepiej w innej karcie."
         }
       },
       "update": {
         "success": {
-          "title": "Cykliczny element pracy zaktualizowany",
-          "message": "{name}, cykliczny element pracy, został zaktualizowany."
+          "title": "Cykliczny zadanie zaktualizowane",
+          "message": "{name}, cykliczny zadanie, został zaktualizowany."
         },
         "error": {
-          "title": "Nie udało się zapisać zmian w tym cyklicznym elemencie pracy.",
-          "message": "Spróbuj ponownie zapisać dane lub wróć do tego cyklicznego elementu pracy później. Jeśli problem będzie się powtarzał, skontaktuj się z nami."
+          "title": "Nie udało się zapisać zmian w tym cyklicznym zadaniu.",
+          "message": "Spróbuj ponownie zapisać dane lub wróć do tego cyklicznego zadania później. Jeśli problem będzie się powtarzał, skontaktuj się z nami."
         }
       },
       "delete": {
         "success": {
-          "title": "Cykliczny element pracy usunięty",
-          "message": "{name}, cykliczny element pracy, został usunięty z Twojej przestrzeni roboczej."
+          "title": "Cykliczny zadanie usunięte",
+          "message": "{name}, cykliczny zadanie, został usunięty z Twojej przestrzeni roboczej."
         },
         "error": {
-          "title": "Nie udało się usunąć cyklicznego elementu pracy.",
+          "title": "Nie udało się usunąć cyklicznego zadania.",
           "message": "Spróbuj usunąć go ponownie lub wróć do niego później. Jeśli nadal nie możesz go usunąć, skontaktuj się z nami."
         }
       }
     },
     "delete_confirmation": {
-      "title": "Usuń cykliczny element pracy",
+      "title": "Usuń cykliczny zadanie",
       "description": {
-        "prefix": "Czy na pewno chcesz usunąć cykliczny element pracy-",
-        "suffix": "? Wszystkie dane powiązane z cyklicznym elementem pracy zostaną trwale usunięte. Tej operacji nie można cofnąć."
+        "prefix": "Czy na pewno chcesz usunąć cykliczny zadanie-",
+        "suffix": "? Wszystkie dane powiązane z cyklicznym zadaniem zostaną trwale usunięte. Tej operacji nie można cofnąć."
       }
     }
   },

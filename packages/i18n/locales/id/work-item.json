@@ -1,11 +1,11 @@
 {
   "issue": {
-    "label": "{count, plural, one {Item Kerja} other {Item Kerja}}",
-    "all": "Semua Item Kerja",
-    "edit": "Edit item kerja",
+    "label": "{count, plural, one {Tugas} other {Tugas}}",
+    "all": "Semua Tugas",
+    "edit": "Edit tugas",
     "title": {
-      "label": "Judul item kerja",
-      "required": "Judul item kerja diperlukan."
+      "label": "Judul tugas",
+      "required": "Judul tugas diperlukan."
     },
     "form": {
       "title_placeholder": "Apa yang perlu dikerjakan?",
@@ -15,44 +15,44 @@
       "fewer_options": "Lebih sedikit opsi"
     },
     "add": {
-      "press_enter": "Tekan 'Enter' untuk menambahkan item kerja lainnya",
-      "label": "Tambah item kerja",
+      "press_enter": "Tekan 'Enter' untuk menambahkan tugas lainnya",
+      "label": "Tambah tugas",
       "cycle": {
-        "failed": "Item kerja tidak dapat ditambahkan ke siklus. Silakan coba lagi.",
-        "success": "{count, plural, one {Item Kerja} other {Item Kerja}} berhasil ditambahkan ke siklus.",
-        "loading": "Menambahkan {count, plural, one {item kerja} other {item kerja}} ke siklus"
+        "failed": "Tugas tidak dapat ditambahkan ke siklus. Silakan coba lagi.",
+        "success": "{count, plural, one {Tugas} other {Tugas}} berhasil ditambahkan ke siklus.",
+        "loading": "Menambahkan {count, plural, one {tugas} other {tugas}} ke siklus"
       },
       "assignee": "Tambah penugasan",
       "start_date": "Tambah tanggal mulai",
       "due_date": "Tambah tanggal jatuh tempo",
       "working_days": "Tambahkan hari kerja",
-      "parent": "Tambah item kerja induk",
-      "sub_issue": "Tambah sub-item kerja",
+      "parent": "Tambah tugas induk",
+      "sub_issue": "Tambah subtugas",
       "dependency": "Tambah ketergantungan",
       "relation": "Tambah hubungan",
       "link": "Tambah tautan",
-      "existing": "Tambah item kerja yang ada"
+      "existing": "Tambah tugas yang ada"
     },
     "remove": {
-      "label": "Hapus item kerja",
+      "label": "Hapus tugas",
       "cycle": {
-        "loading": "Menghapus item kerja dari siklus",
-        "success": "Item kerja berhasil dihapus dari siklus.",
-        "failed": "Item kerja tidak dapat dihapus dari siklus. Silakan coba lagi."
+        "loading": "Menghapus tugas dari siklus",
+        "success": "Tugas berhasil dihapus dari siklus.",
+        "failed": "Tugas tidak dapat dihapus dari siklus. Silakan coba lagi."
       },
       "module": {
-        "loading": "Menghapus item kerja dari modul",
-        "success": "Item kerja berhasil dihapus dari modul.",
-        "failed": "Item kerja tidak dapat dihapus dari modul. Silakan coba lagi."
+        "loading": "Menghapus tugas dari modul",
+        "success": "Tugas berhasil dihapus dari modul.",
+        "failed": "Tugas tidak dapat dihapus dari modul. Silakan coba lagi."
       },
       "parent": {
-        "label": "Hapus item kerja induk"
+        "label": "Hapus tugas induk"
       }
     },
-    "new": "Item Kerja Baru",
-    "adding": "Menambahkan item kerja",
+    "new": "Tugas Baru",
+    "adding": "Menambahkan tugas",
     "create": {
-      "success": "Item kerja berhasil dibuat"
+      "success": "Tugas berhasil dibuat"
     },
     "priority": {
       "urgent": "Mendesak",
@@ -64,15 +64,15 @@
       "properties": {
         "label": "Tampilkan Properti",
         "id": "ID",
-        "issue_type": "Tipe item kerja",
-        "sub_issue_count": "Jumlah sub-item kerja",
+        "issue_type": "Tipe tugas",
+        "sub_issue_count": "Jumlah subtugas",
         "attachment_count": "Jumlah lampiran",
         "created_on": "Dibuat pada",
-        "sub_issue": "Sub-item kerja",
-        "work_item_count": "Jumlah item kerja"
+        "sub_issue": "Subtugas",
+        "work_item_count": "Jumlah tugas"
       },
       "extra": {
-        "show_sub_issues": "Tampilkan sub-item kerja",
+        "show_sub_issues": "Tampilkan subtugas",
         "show_empty_groups": "Tampilkan grup kosong"
       }
     },
@@ -160,35 +160,35 @@
     },
     "empty_state": {
       "issue_detail": {
-        "title": "Item kerja tidak ada",
-        "description": "Item kerja yang Anda cari tidak ada, telah diarsipkan, atau telah dihapus.",
+        "title": "Tugas tidak ada",
+        "description": "Tugas yang Anda cari tidak ada, telah diarsipkan, atau telah dihapus.",
         "primary_button": {
-          "text": "Lihat item kerja lainnya"
+          "text": "Lihat tugas lainnya"
         }
       }
     },
     "sibling": {
-      "label": "Item kerja sejawat"
+      "label": "Tugas sejawat"
     },
     "archive": {
-      "description": "Hanya item kerja yang selesai atau dibatalkan\n yang dapat diarsipkan",
-      "label": "Arsip Item kerja",
-      "confirm_message": "Apakah Anda yakin ingin mengarsipkan item kerja ini? Semua item kerja yang diarsipkan dapat dipulihkan nanti.",
+      "description": "Hanya tugas yang selesai atau dibatalkan\n yang dapat diarsipkan",
+      "label": "Arsip Tugas",
+      "confirm_message": "Apakah Anda yakin ingin mengarsipkan tugas ini? Semua tugas yang diarsipkan dapat dipulihkan nanti.",
       "success": {
         "label": "Sukses mengarsipkan",
         "message": "Arsip Anda dapat ditemukan di arsip proyek."
       },
       "failed": {
-        "message": "Item kerja tidak dapat diarsipkan. Silakan coba lagi."
+        "message": "Tugas tidak dapat diarsipkan. Silakan coba lagi."
       }
     },
     "restore": {
       "success": {
         "title": "Sukses memulihkan",
-        "message": "Item kerja Anda dapat ditemukan di item kerja proyek."
+        "message": "Tugas Anda dapat ditemukan di tugas proyek."
       },
       "failed": {
-        "message": "Item kerja tidak dapat dipulihkan. Silakan coba lagi."
+        "message": "Tugas tidak dapat dipulihkan. Silakan coba lagi."
       }
     },
     "relation": {
@@ -209,29 +209,29 @@
       "adjusted_dates": "Disesuaikan: {startDate} – {targetDate}",
       "adjusted_date": "Disesuaikan: {targetDate}"
     },
-    "copy_link": "Salin tautan item kerja",
+    "copy_link": "Salin tautan tugas",
     "delete": {
-      "label": "Hapus item kerja",
-      "error": "Kesalahan saat menghapus item kerja"
+      "label": "Hapus tugas",
+      "error": "Kesalahan saat menghapus tugas"
     },
     "subscription": {
       "actions": {
-        "subscribed": "Item kerja telah berhasil disubscribe",
-        "unsubscribed": "Item kerja telah berhasil dibatalkan subscribe"
+        "subscribed": "Tugas telah berhasil disubscribe",
+        "unsubscribed": "Tugas telah berhasil dibatalkan subscribe"
       }
     },
     "select": {
-      "error": "Silakan pilih setidaknya satu item kerja",
-      "empty": "Tidak ada item kerja yang dipilih",
-      "add_selected": "Tambah item kerja yang dipilih",
-      "select_all": "Pilih semua item kerja",
-      "deselect_all": "Batalkan pilihan semua item kerja"
+      "error": "Silakan pilih setidaknya satu tugas",
+      "empty": "Tidak ada tugas yang dipilih",
+      "add_selected": "Tambah tugas yang dipilih",
+      "select_all": "Pilih semua tugas",
+      "deselect_all": "Batalkan pilihan semua tugas"
     },
-    "open_in_full_screen": "Buka item kerja dalam layar penuh",
+    "open_in_full_screen": "Buka tugas dalam layar penuh",
     "duplicate": {
       "modal": {
         "title": "Buat salinan ke proyek lain",
-        "description1": "Ini membuat salinan item kerja.",
+        "description1": "Ini membuat salinan tugas.",
         "description2": "Semua data properti akan dihapus saat menduplikasi.",
         "placeholder": "Pilih proyek"
       }
@@ -239,10 +239,10 @@
     "toast": {
       "duplicate": {
         "success": {
-          "message": "Item kerja berhasil diduplikasi"
+          "message": "Tugas berhasil diduplikasi"
         },
         "error": {
-          "message": "Gagal menduplikasi item kerja"
+          "message": "Gagal menduplikasi tugas"
         }
       }
     },
@@ -284,22 +284,22 @@
   },
   "sub_work_item": {
     "update": {
-      "success": "Sub-item kerja berhasil diperbarui",
-      "error": "Kesalahan saat memperbarui sub-item kerja"
+      "success": "Subtugas berhasil diperbarui",
+      "error": "Kesalahan saat memperbarui subtugas"
     },
     "remove": {
-      "success": "Sub-item kerja berhasil dihapus",
-      "error": "Kesalahan saat menghapus sub-item kerja"
+      "success": "Subtugas berhasil dihapus",
+      "error": "Kesalahan saat menghapus subtugas"
     },
     "empty_state": {
       "sub_list_filters": {
-        "title": "Anda tidak memiliki sub-item kerja yang cocok dengan filter yang Anda terapkan.",
-        "description": "Untuk melihat semua sub-item kerja, hapus semua filter yang diterapkan.",
+        "title": "Anda tidak memiliki subtugas yang cocok dengan filter yang Anda terapkan.",
+        "description": "Untuk melihat semua subtugas, hapus semua filter yang diterapkan.",
         "action": "Hapus filter"
       },
       "list_filters": {
-        "title": "Anda tidak memiliki item kerja yang cocok dengan filter yang Anda terapkan.",
-        "description": "Untuk melihat semua item kerja, hapus semua filter yang diterapkan.",
+        "title": "Anda tidak memiliki tugas yang cocok dengan filter yang Anda terapkan.",
+        "description": "Untuk melihat semua tugas, hapus semua filter yang diterapkan.",
         "action": "Hapus filter"
       }
     }
@@ -307,10 +307,10 @@
   "issue_relation": {
     "empty_state": {
       "search": {
-        "title": "Tidak ada item kerja yang cocok ditemukan"
+        "title": "Tidak ada tugas yang cocok ditemukan"
       },
       "no_issues": {
-        "title": "Tidak ada item kerja ditemukan"
+        "title": "Tidak ada tugas ditemukan"
       }
     }
   },
@@ -318,36 +318,36 @@
     "empty_state": {
       "general": {
         "title": "Belum ada komentar",
-        "description": "Komentar dapat digunakan sebagai ruang diskusi dan tindak lanjut untuk item kerja"
+        "description": "Komentar dapat digunakan sebagai ruang diskusi dan tindak lanjut untuk tugas"
       }
     }
   },
   "bulk_operations": {
     "error_details": {
       "invalid_archive_state_group": {
-        "title": "Tidak dapat mengarsipkan item kerja",
-        "message": "Hanya item kerja yang termasuk dalam kelompok status Selesai atau Dibatalkan yang dapat diarsipkan."
+        "title": "Tidak dapat mengarsipkan tugas",
+        "message": "Hanya tugas yang termasuk dalam kelompok status Selesai atau Dibatalkan yang dapat diarsipkan."
       },
       "invalid_issue_start_date": {
-        "title": "Tidak dapat memperbarui item kerja",
-        "message": "Tanggal mulai yang dipilih melebihi tanggal jatuh tempo untuk beberapa item kerja. Pastikan tanggal mulai sebelum tanggal jatuh tempo."
+        "title": "Tidak dapat memperbarui tugas",
+        "message": "Tanggal mulai yang dipilih melebihi tanggal jatuh tempo untuk beberapa tugas. Pastikan tanggal mulai sebelum tanggal jatuh tempo."
       },
       "invalid_issue_target_date": {
-        "title": "Tidak dapat memperbarui item kerja",
-        "message": "Tanggal jatuh tempo yang dipilih mendahului tanggal mulai untuk beberapa item kerja. Pastikan tanggal jatuh tempo setelah tanggal mulai."
+        "title": "Tidak dapat memperbarui tugas",
+        "message": "Tanggal jatuh tempo yang dipilih mendahului tanggal mulai untuk beberapa tugas. Pastikan tanggal jatuh tempo setelah tanggal mulai."
       },
       "invalid_state_transition": {
-        "title": "Tidak dapat memperbarui item kerja",
-        "message": "Perubahan status tidak diizinkan untuk beberapa item kerja. Pastikan perubahan status diizinkan."
+        "title": "Tidak dapat memperbarui tugas",
+        "message": "Perubahan status tidak diizinkan untuk beberapa tugas. Pastikan perubahan status diizinkan."
       }
     }
   },
   "recurring_work_items": {
     "settings": {
-      "heading": "Item kerja berulang",
+      "heading": "Tugas berulang",
       "description": "Atur pekerjaan berulang sekali, dan kami akan mengurus ulangannya. Anda akan melihat semuanya di sini ketika waktunya tiba.",
-      "new_recurring_work_item": "Item kerja berulang baru",
-      "update_recurring_work_item": "Perbarui item kerja berulang",
+      "new_recurring_work_item": "Tugas berulang baru",
+      "update_recurring_work_item": "Perbarui tugas berulang",
       "form": {
         "interval": {
           "title": "Jadwal",
@@ -363,13 +363,13 @@
           }
         },
         "button": {
-          "create": "Buat item kerja berulang",
-          "update": "Perbarui item kerja berulang"
+          "create": "Buat tugas berulang",
+          "update": "Perbarui tugas berulang"
         }
       },
       "create_button": {
-        "label": "Buat item kerja berulang",
-        "no_permission": "Hubungi admin proyek Anda untuk membuat item kerja berulang"
+        "label": "Buat tugas berulang",
+        "no_permission": "Hubungi admin proyek Anda untuk membuat tugas berulang"
       }
     },
     "empty_state": {
@@ -378,46 +378,46 @@
         "description": "Atur sekali saja. Kami akan mengingatkannya saat waktunya tiba. Tingkatkan ke Bisnis untuk membuat pekerjaan berulang terasa mudah."
       },
       "no_templates": {
-        "button": "Buat item kerja berulang pertama Anda"
+        "button": "Buat tugas berulang pertama Anda"
       }
     },
     "toasts": {
       "create": {
         "success": {
-          "title": "Item kerja berulang berhasil dibuat",
-          "message": "{name}, item kerja berulang, sekarang tersedia di ruang kerja Anda."
+          "title": "Tugas berulang berhasil dibuat",
+          "message": "{name}, tugas berulang, sekarang tersedia di ruang kerja Anda."
         },
         "error": {
-          "title": "Kami tidak dapat membuat item kerja berulang kali ini.",
-          "message": "Coba simpan detail Anda lagi atau salin ke item kerja berulang baru, sebaiknya di tab lain."
+          "title": "Kami tidak dapat membuat tugas berulang kali ini.",
+          "message": "Coba simpan detail Anda lagi atau salin ke tugas berulang baru, sebaiknya di tab lain."
         }
       },
       "update": {
         "success": {
-          "title": "Item kerja berulang berhasil diubah",
-          "message": "{name}, item kerja berulang, telah diubah."
+          "title": "Tugas berulang berhasil diubah",
+          "message": "{name}, tugas berulang, telah diubah."
         },
         "error": {
-          "title": "Kami tidak dapat menyimpan perubahan pada item kerja berulang ini.",
-          "message": "Coba simpan detail Anda lagi atau kembali ke item kerja berulang ini nanti. Jika masih ada masalah, hubungi kami."
+          "title": "Kami tidak dapat menyimpan perubahan pada tugas berulang ini.",
+          "message": "Coba simpan detail Anda lagi atau kembali ke tugas berulang ini nanti. Jika masih ada masalah, hubungi kami."
         }
       },
       "delete": {
         "success": {
-          "title": "Item kerja berulang berhasil dihapus",
-          "message": "{name}, item kerja berulang, telah dihapus dari ruang kerja Anda."
+          "title": "Tugas berulang berhasil dihapus",
+          "message": "{name}, tugas berulang, telah dihapus dari ruang kerja Anda."
         },
         "error": {
-          "title": "Kami tidak dapat menghapus item kerja berulang ini.",
+          "title": "Kami tidak dapat menghapus tugas berulang ini.",
           "message": "Coba hapus lagi atau kembali nanti. Jika Anda masih tidak bisa menghapusnya, hubungi kami."
         }
       }
     },
     "delete_confirmation": {
-      "title": "Hapus item kerja berulang",
+      "title": "Hapus tugas berulang",
       "description": {
-        "prefix": "Apakah Anda yakin ingin menghapus item kerja berulang-",
-        "suffix": "? Semua data terkait item kerja berulang akan dihapus secara permanen. Tindakan ini tidak dapat dibatalkan."
+        "prefix": "Apakah Anda yakin ingin menghapus tugas berulang-",
+        "suffix": "? Semua data terkait tugas berulang akan dihapus secara permanen. Tindakan ini tidak dapat dibatalkan."
       }
     }
   },

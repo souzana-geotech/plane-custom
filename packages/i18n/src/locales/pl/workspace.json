@@ -53,7 +53,7 @@
   "workspace_dashboard": {
     "title": "Panel operacyjny",
     "subtitle": "Widok zarządczy zleceń klientów, pracy, działów i pracowników",
-    "coverage_note": "Produkty do dostarczenia, przeglądy klientów, sprzęt i sprzedaż nie są wyświetlane, ponieważ ten obszar roboczy nie zawiera takich danych. Wykrywanie konfliktów w harmonogramach pracowników wymaga godzin, których elementy pracy nie zawierają.",
+    "coverage_note": "Produkty do dostarczenia, przeglądy klientów, sprzęt i sprzedaż nie są wyświetlane, ponieważ ten obszar roboczy nie zawiera takich danych. Wykrywanie konfliktów w harmonogramach pracowników wymaga godzin, których zadania nie zawierają.",
     "error": {
       "title": "Nie udało się wczytać panelu",
       "description": "Co najmniej jedno żądanie nie powiodło się. Spróbuj ponownie lub odśwież stronę.",
@@ -61,7 +61,7 @@
     },
     "empty": {
       "title": "Brak danych operacyjnych",
-      "description": "Utwórz Moduły dla zleceń klientów i elementy pracy dla faktycznej pracy, a ten panel się wypełni."
+      "description": "Utwórz Moduły dla zleceń klientów i zadania dla faktycznej pracy, a ten panel się wypełni."
     },
     "filters": {
       "project": "Projekt",
@@ -77,13 +77,13 @@
       "jobs_at_risk": "Zlecenia wymagające uwagi",
       "jobs_at_risk_hint": "Aktywne zlecenia zagrożone, opóźnione lub zablokowane",
       "overdue_tasks": "Zaległe zadania",
-      "overdue_tasks_hint": "Otwarte elementy pracy po terminie",
+      "overdue_tasks_hint": "Otwarte zadania po terminie",
       "due_this_week": "Termin w tym tygodniu",
-      "due_this_week_hint": "Otwarte elementy pracy z terminem w ciągu najbliższych 7 dni",
+      "due_this_week_hint": "Otwarte zadania z terminem w ciągu najbliższych 7 dni",
       "blocked_tasks": "Zablokowane zadania",
-      "blocked_tasks_hint": "Otwarte elementy pracy zablokowane przez inną otwartą pracę",
+      "blocked_tasks_hint": "Otwarte zadania zablokowane przez inną otwartą pracę",
       "no_due_date": "Bez terminu",
-      "no_due_date_hint": "Otwarte elementy pracy bez terminu"
+      "no_due_date_hint": "Otwarte zadania bez terminu"
     },
     "severity": {
       "critical": "Krytyczne",
@@ -137,7 +137,7 @@
     },
     "employees": {
       "title": "Obciążenie pracowników",
-      "description": "Otwarte elementy pracy na pracownika. Pojemność nie jest śledzona, dlatego zamiast wykorzystania pokazywane są liczby.",
+      "description": "Otwarte zadania na pracownika. Pojemność nie jest śledzona, dlatego zamiast wykorzystania pokazywane są liczby.",
       "empty": "Brak przypisanej otwartej pracy",
       "columns": {
         "employee": "Pracownik",
@@ -150,8 +150,8 @@
     "pipeline": {
       "title": "Przepływ pracy",
       "description": "Rozkład pracy między stanami przepływu",
-      "total": "{count, plural, one {# element pracy} few {# elementy pracy} many {# elementów pracy} other {# elementu pracy}}",
-      "empty": "Brak elementów pracy"
+      "total": "{count, plural, one {# zadanie} few {# zadania} many {# zadań} other {# zadania}}",
+      "empty": "Brak zadań"
     },
     "departments": {
       "title": "Obciążenie działów",
@@ -168,7 +168,7 @@
     },
     "attention": {
       "title": "Praca wymagająca uwagi",
-      "description": "Zaległe, zablokowane i wkrótce wymagalne elementy pracy",
+      "description": "Zaległe, zablokowane i wkrótce wymagalne zadania",
       "empty": "Nic nie wymaga uwagi",
       "overdue_by": "{count, plural, one {Zaległe od # dnia} few {Zaległe od # dni} many {Zaległe od # dni} other {Zaległe od # dnia}}",
       "blocked": "Zablokowane",
@@ -179,7 +179,7 @@
     "empty_state": {
       "general": {
         "title": "Podgląd projektów, aktywności i metryk",
-        "description": "Witaj w Plane, cieszymy się, że jesteś. Utwórz pierwszy projekt, śledź elementy pracy, a ta strona stanie się centrum Twojego postępu. Administratorzy zobaczą tu również elementy pomocne zespołowi.",
+        "description": "Witaj w Plane, cieszymy się, że jesteś. Utwórz pierwszy projekt, śledź zadania, a ta strona stanie się centrum Twojego postępu. Administratorzy zobaczą tu również elementy pomocne zespołowi.",
         "primary_button": {
           "text": "Utwórz pierwszy projekt",
           "comic": {
@@ -198,7 +198,7 @@
       "busy": "Zajęty · {count}",
       "assigned": "Przypisany · {count}",
       "available": "Dostępny",
-      "tooltip": "{count, plural, one {# otwarty element pracy zaplanowany} few {# otwarte elementy pracy zaplanowane} many {# otwartych elementów pracy zaplanowanych} other {# otwartego elementu pracy zaplanowanego}} na dziś"
+      "tooltip": "{count, plural, one {# otwarty zadanie zaplanowany} few {# otwarte zadania zaplanowane} many {# otwartych zadań zaplanowanych} other {# otwartego zadania zaplanowanego}} na dziś"
     },
     "summary": {
       "employees": "Wyświetleni pracownicy",
@@ -206,7 +206,7 @@
       "with_overlaps": "Z nakładaniem",
       "available": "Dziś wolni",
       "scheduled": "Zaplanowane przydziały",
-      "undated": "Elementy pracy bez daty"
+      "undated": "Zadania bez daty"
     },
     "filters": {
       "all": "Wszystkie",
@@ -245,7 +245,7 @@
       "overlap_tooltip": "{count, plural, one {# okres} few {# okresy} many {# okresów} other {# okresu}} z więcej niż jednym przydziałem naraz. Maksimum: {peak} jednocześnie.",
       "overdue": "{count, plural, one {# po terminie} few {# po terminie} many {# po terminie} other {# po terminie}}",
       "undated": "{count, plural, one {# bez daty} few {# bez daty} many {# bez daty} other {# bez daty}}",
-      "undated_tooltip": "Otwarte elementy pracy przypisane temu pracownikowi, które nie mają daty rozpoczęcia ani terminu, więc nie można ich umieścić na osi czasu.",
+      "undated_tooltip": "Otwarte zadania przypisane temu pracownikowi, które nie mają daty rozpoczęcia ani terminu, więc nie można ich umieścić na osi czasu.",
       "next": "Następne: {name} · {date}",
       "nothing_next": "Nic nie zaplanowano dalej"
     },
@@ -260,12 +260,12 @@
     },
     "error": {
       "title": "Nie udało się wczytać Gantta pracowników",
-      "description": "Żądanie elementów pracy nie powiodło się. Proszę spróbować ponownie lub odświeżyć stronę.",
+      "description": "Żądanie zadań nie powiodło się. Proszę spróbować ponownie lub odświeżyć stronę.",
       "retry": "Spróbuj ponownie"
     },
     "empty": {
       "title": "Brak zaplanowanej pracy",
-      "description": "Proszę nadać elementom pracy datę rozpoczęcia i termin oraz przypisać je do osób, a ten widok się wypełni."
+      "description": "Proszę nadać zadaniom datę rozpoczęcia i termin oraz przypisać je do osób, a ten widok się wypełni."
     },
     "empty_today": {
       "title": "Nikt nie ma pracy zaplanowanej na dziś",
@@ -285,18 +285,18 @@
     "page_label": "{workspace} - Analizy",
     "open_tasks": "Łączna liczba otwartych zadań",
     "error": "Wystąpił błąd podczas wczytywania danych.",
-    "work_items_closed_in": "Elementy pracy zamknięte w",
+    "work_items_closed_in": "Zadania zamknięte w",
     "selected_projects": "Wybrane projekty",
     "total_members": "Łączna liczba członków",
     "total_cycles": "Łączna liczba cykli",
     "total_modules": "Łączna liczba modułów",
     "pending_work_items": {
-      "title": "Oczekujące elementy pracy",
-      "empty_state": "Tutaj zobaczysz analizę oczekujących elementów pracy według współpracowników."
+      "title": "Oczekujące zadania",
+      "empty_state": "Tutaj zobaczysz analizę oczekujących zadań według współpracowników."
     },
     "work_items_closed_in_a_year": {
-      "title": "Elementy pracy zamknięte w ciągu roku",
-      "empty_state": "Zamykaj elementy pracy, aby zobaczyć analizę w wykresie."
+      "title": "Zadania zamknięte w ciągu roku",
+      "empty_state": "Zamykaj zadania, aby zobaczyć analizę w wykresie."
     },
     "most_work_items_created": {
       "title": "Najwięcej utworzonych elementów",
@@ -325,15 +325,15 @@
     "empty_state": {
       "project_insights": {
         "title": "Brak danych",
-        "description": "Przypisane do Ciebie elementy pracy, podzielone według stanu, pojawią się tutaj."
+        "description": "Przypisane do Ciebie zadania, podzielone według stanu, pojawią się tutaj."
       },
       "created_vs_resolved": {
         "title": "Brak danych",
-        "description": "Elementy pracy utworzone i rozwiązane w czasie pojawią się tutaj."
+        "description": "Zadania utworzone i rozwiązane w czasie pojawią się tutaj."
       },
       "customized_insights": {
         "title": "Brak danych",
-        "description": "Przypisane do Ciebie elementy pracy, podzielone według stanu, pojawią się tutaj."
+        "description": "Przypisane do Ciebie zadania, podzielone według stanu, pojawią się tutaj."
       },
       "general": {
         "title": "Śledź postęp, obciążenie pracą i alokacje. Wykrywaj trendy, usuwaj blokady i pracuj szybciej",
@@ -342,25 +342,25 @@
           "text": "Rozpocznij swój pierwszy projekt",
           "comic": {
             "title": "Analityka działa najlepiej z Cyklami + Modułami",
-            "description": "Najpierw umieść swoje elementy pracy w Cyklach, a jeśli można, pogrupuj elementy obejmujące więcej niż jeden cykl w Moduły. Sprawdź oba w lewej nawigacji."
+            "description": "Najpierw umieść swoje zadania w Cyklach, a jeśli można, pogrupuj elementy obejmujące więcej niż jeden cykl w Moduły. Sprawdź oba w lewej nawigacji."
           }
         }
       },
       "cycle_progress": {
         "title": "Brak danych",
-        "description": "Analiza postępu cyklu pojawi się tutaj. Dodaj elementy pracy do cykli, aby rozpocząć śledzenie postępów."
+        "description": "Analiza postępu cyklu pojawi się tutaj. Dodaj zadania do cykli, aby rozpocząć śledzenie postępów."
       },
       "module_progress": {
         "title": "Brak danych",
-        "description": "Analiza postępu modułu pojawi się tutaj. Dodaj elementy pracy do modułów, aby rozpocząć śledzenie postępów."
+        "description": "Analiza postępu modułu pojawi się tutaj. Dodaj zadania do modułów, aby rozpocząć śledzenie postępów."
       },
       "intake_trends": {
         "title": "Brak danych",
-        "description": "Analiza trendów przyjęć pojawi się tutaj. Dodaj elementy pracy do przyjęć, aby rozpocząć śledzenie trendów."
+        "description": "Analiza trendów przyjęć pojawi się tutaj. Dodaj zadania do przyjęć, aby rozpocząć śledzenie trendów."
       }
     },
     "upgrade_to_plan": "Ulepsz do {plan}, aby odblokować {tab}",
-    "workitem_resolved_vs_pending": "Rozwiązane vs oczekujące elementy pracy",
+    "workitem_resolved_vs_pending": "Rozwiązane vs oczekujące zadania",
     "projects_by_status": "Projekty według statusu",
     "active_users": "Aktywni użytkownicy",
     "intake_trends": "Trendy przyjęć"
@@ -385,7 +385,7 @@
       "permission": "Nie masz uprawnień do wykonania tej akcji.",
       "cycle_delete": "Nie udało się usunąć cyklu",
       "module_delete": "Nie udało się usunąć modułu",
-      "issue_delete": "Nie udało się usunąć elementu pracy"
+      "issue_delete": "Nie udało się usunąć zadania"
     },
     "state": {
       "backlog": "Backlog",
@@ -422,7 +422,7 @@
       },
       "no_projects": {
         "title": "Brak projektów",
-        "description": "Aby tworzyć elementy pracy, musisz utworzyć lub dołączyć do projektu.",
+        "description": "Aby tworzyć zadania, musisz utworzyć lub dołączyć do projektu.",
         "primary_button": {
           "text": "Rozpocznij pierwszy projekt",
           "comic": {
@@ -444,24 +444,24 @@
     "add_view": "Dodaj widok",
     "empty_state": {
       "all-issues": {
-        "title": "Brak elementów pracy w projekcie",
+        "title": "Brak zadań w projekcie",
         "description": "Utwórz pierwszy element i śledź postępy!",
         "primary_button": {
-          "text": "Utwórz element pracy"
+          "text": "Utwórz zadanie"
         }
       },
       "assigned": {
         "title": "Brak przypisanych elementów",
         "description": "Tutaj zobaczysz elementy przypisane Tobie.",
         "primary_button": {
-          "text": "Utwórz element pracy"
+          "text": "Utwórz zadanie"
         }
       },
       "created": {
         "title": "Brak utworzonych elementów",
         "description": "Tutaj pojawiają się elementy, które utworzyłeś(aś).",
         "primary_button": {
-          "text": "Utwórz element pracy"
+          "text": "Utwórz zadanie"
         }
       },
       "subscribed": {
@@ -479,10 +479,10 @@
     }
   },
   "workspace_draft_issues": {
-    "draft_an_issue": "Utwórz szkic elementu pracy",
+    "draft_an_issue": "Utwórz szkic zadania",
     "empty_state": {
-      "title": "Robocze elementy pracy i komentarze pojawią się tutaj.",
-      "description": "Rozpocznij tworzenie elementu pracy i zostaw go w formie szkicu.",
+      "title": "Robocze zadania i komentarze pojawią się tutaj.",
+      "description": "Rozpocznij tworzenie zadania i zostaw go w formie szkicu.",
       "primary_button": {
         "text": "Utwórz pierwszy szkic"
       }
@@ -505,7 +505,7 @@
     "empty_state": {
       "general": {
         "title": "Napisz notatkę, dokument lub pełną bazę wiedzy. Niech Galileo, asystent AI Plane, pomoże Ci zacząć",
-        "description": "Strony to przestrzeń do przechowywania myśli w Plane. Sporządzaj notatki ze spotkań, formatuj je łatwo, osadzaj elementy pracy, układaj je za pomocą biblioteki komponentów i trzymaj je wszystkie w kontekście projektu. Aby szybko wykonać dowolny dokument, wywołaj Galileo, AI Plane, za pomocą skrótu lub kliknięcia przycisku.",
+        "description": "Strony to przestrzeń do przechowywania myśli w Plane. Sporządzaj notatki ze spotkań, formatuj je łatwo, osadzaj zadania, układaj je za pomocą biblioteki komponentów i trzymaj je wszystkie w kontekście projektu. Aby szybko wykonać dowolny dokument, wywołaj Galileo, AI Plane, za pomocą skrótu lub kliknięcia przycisku.",
         "primary_button": {
           "text": "Utwórz swoją pierwszą stronę"
         }

@@ -38,7 +38,7 @@
     },
     "states": {
       "heading": "Stavy",
-      "description": "Definujte a přizpůsobte stavy workflow pro sledování průběhu vašich pracovních položek.",
+      "description": "Definujte a přizpůsobte stavy workflow pro sledování průběhu vašich úkolů.",
       "describe_this_state_for_your_members": "Popište tento stav členům.",
       "empty_state": {
         "title": "Žádné stavy pro skupinu {groupKey}",
@@ -47,7 +47,7 @@
     },
     "labels": {
       "heading": "Štítky",
-      "description": "Vytvářejte vlastní štítky pro kategorizaci a organizaci vašich pracovních položek",
+      "description": "Vytvářejte vlastní štítky pro kategorizaci a organizaci vašich úkolů",
       "label_title": "Název štítku",
       "label_title_is_required": "Název štítku je povinný",
       "label_max_char": "Název štítku nesmí přesáhnout 255 znaků",
@@ -57,7 +57,7 @@
     },
     "estimates": {
       "heading": "Odhady",
-      "description": "Nastavte systémy odhadů pro sledování a komunikaci úsilí potřebného pro každou pracovní položku.",
+      "description": "Nastavte systémy odhadů pro sledování a komunikaci úsilí potřebného pro každý úkol.",
       "label": "Odhady",
       "title": "Povolit odhady pro můj projekt",
       "enable_description": "Pomáhají vám komunikovat složitost a pracovní zátěž týmu.",
@@ -181,14 +181,14 @@
       "heading": "Automatizace",
       "description": "Konfigurujte automatické akce pro zefektivnění procesu řízení projektu a snížení manuálních úkolů.",
       "auto-archive": {
-        "title": "Automaticky archivovat uzavřené pracovní položky",
-        "description": "Plane bude automaticky archivovat pracovní položky, které byly dokončeny nebo zrušeny.",
-        "duration": "Automaticky archivovat pracovní položky, které jsou uzavřené po dobu"
+        "title": "Automaticky archivovat uzavřené úkoly",
+        "description": "Plane bude automaticky archivovat úkoly, které byly dokončeny nebo zrušeny.",
+        "duration": "Automaticky archivovat úkoly, které jsou uzavřené po dobu"
       },
       "auto-close": {
-        "title": "Automaticky uzavírat pracovní položky",
-        "description": "Plane automaticky uzavře pracovní položky, které nebyly dokončeny nebo zrušeny.",
-        "duration": "Automaticky uzavřít pracovní položky, které jsou neaktivní po dobu",
+        "title": "Automaticky uzavírat úkoly",
+        "description": "Plane automaticky uzavře úkoly, které nebyly dokončeny nebo zrušeny.",
+        "duration": "Automaticky uzavřít úkoly, které jsou neaktivní po dobu",
         "auto_close_status": "Stav automatického uzavření"
       },
       "auto-remind": {
@@ -200,25 +200,25 @@
     "empty_state": {
       "labels": {
         "title": "Zatím žádné štítky",
-        "description": "Vytvořte štítky pro organizaci a filtrování pracovních položek ve vašem projektu."
+        "description": "Vytvořte štítky pro organizaci a filtrování úkolů ve vašem projektu."
       },
       "estimates": {
         "title": "Zatím žádné systémy odhadů",
-        "description": "Vytvořte sadu odhadů pro komunikaci množství práce na pracovní položku.",
+        "description": "Vytvořte sadu odhadů pro komunikaci množství práce na úkol.",
         "primary_button": "Přidat systém odhadů"
       },
       "integrations": {
         "title": "Žádné integrace nejsou nakonfigurovány",
-        "description": "Nakonfigurujte GitHub a další integrace pro synchronizaci vašich pracovních položek projektu."
+        "description": "Nakonfigurujte GitHub a další integrace pro synchronizaci vašich úkolů projektu."
       }
     },
     "workflows": {
       "toggle": {
         "title": "Povolit workflow",
-        "description": "Nastavte workflow pro řízení pohybu pracovních položek",
+        "description": "Nastavte workflow pro řízení pohybu úkolů",
         "no_states_tooltip": "Do workflow nejsou přidány žádné stavy.",
-        "no_work_item_types_tooltip": "Do workflow nejsou přidány žádné typy pracovních položek.",
-        "no_states_or_work_item_types_tooltip": "Do workflow nejsou přidány žádné stavy nebo typy pracovních položek.",
+        "no_work_item_types_tooltip": "Do workflow nejsou přidány žádné typy úkolů.",
+        "no_states_or_work_item_types_tooltip": "Do workflow nejsou přidány žádné stavy nebo typy úkolů.",
         "toast": {
           "loading": {
             "enabling": "Povolování workflow",
@@ -235,7 +235,7 @@
         }
       },
       "heading": "Workflow",
-      "description": "Automatizujte přechody pracovních položek a nastavte pravidla pro řízení toho, jak se úkoly pohybují vaším projektem.",
+      "description": "Automatizujte přechody úkolů a nastavte pravidla pro řízení toho, jak se úkoly pohybují vaším projektem.",
       "add_button": "Přidat nové workflow",
       "search": "Hledat workflow",
       "detail": {
@@ -243,10 +243,10 @@
         "add_states": "Přidat stavy",
         "unmapped_states": {
           "title": "Detekovány nenamapované stavy",
-          "description": "Některé pracovní položky vybraných typů jsou aktuálně ve stavech, které v tomto workflow neexistují.",
+          "description": "Některé úkoly vybraných typů jsou aktuálně ve stavech, které v tomto workflow neexistují.",
           "note": "Pokud toto workflow povolíte, budou tyto položky automaticky přesunuty do počátečního stavu tohoto workflow.",
           "label": "Chybějící stavy",
-          "tooltip": "Některé pracovní položky jsou ve stavech, které nejsou namapovány do tohoto workflow. Otevřete workflow pro kontrolu."
+          "tooltip": "Některé úkoly jsou ve stavech, které nejsou namapovány do tohoto workflow. Otevřete workflow pro kontrolu."
         }
       },
       "select_states": {
@@ -256,7 +256,7 @@
         }
       },
       "default_footer": {
-        "fallback_message": "Toto workflow se vztahuje na jakýkoli typ pracovní položky, který není přiřazen k workflow."
+        "fallback_message": "Toto workflow se vztahuje na jakýkoli typ úkolu, který není přiřazen k workflow."
       },
       "create": {
         "heading": "Vytvořit nové workflow",
@@ -275,7 +275,7 @@
           }
         },
         "work_item_type": {
-          "label": "Typ pracovní položky"
+          "label": "Typ úkolu"
         },
         "success": {
           "title": "Úspěch!",
@@ -319,8 +319,8 @@
       }
     },
     "work_item_types": {
-      "heading": "Typy pracovních položek",
-      "description": "Vytvářejte a přizpůsobujte různé typy pracovních položek s jedinečnými vlastnostmi"
+      "heading": "Typy úkolů",
+      "description": "Vytvářejte a přizpůsobujte různé typy úkolů s jedinečnými vlastnostmi"
     },
     "features": {
       "cycles": {
@@ -367,25 +367,25 @@
         },
         "in_app": {
           "title": "V aplikaci",
-          "description": "Získejte nové pracovní položky od členů a hostů ve vašem pracovním prostoru bez narušení stávajících."
+          "description": "Získejte nové úkoly od členů a hostů ve vašem pracovním prostoru bez narušení stávajících."
         },
         "email": {
           "title": "E-mail",
-          "description": "Sbírejte nové pracovní položky od kohokoli, kdo pošle e-mail na adresu Plane.",
+          "description": "Sbírejte nové úkoly od kohokoli, kdo pošle e-mail na adresu Plane.",
           "fieldName": "ID e-mailu"
         },
         "form": {
           "title": "Formuláře",
-          "description": "Umožněte lidem mimo váš pracovní prostor vytvářet potenciální nové pracovní položky prostřednictvím vyhrazeného a zabezpečeného formuláře.",
+          "description": "Umožněte lidem mimo váš pracovní prostor vytvářet potenciální nové úkoly prostřednictvím vyhrazeného a zabezpečeného formuláře.",
           "fieldName": "Výchozí URL formuláře",
-          "create_forms": "Vytvářejte formuláře pomocí typů pracovních položek",
+          "create_forms": "Vytvářejte formuláře pomocí typů úkolů",
           "manage_forms": "Spravovat formuláře",
           "manage_forms_tooltip": "Požádejte správce pracovního prostoru o správu.",
           "create_form": "Vytvořit formulář",
           "edit_form": "Upravit podrobnosti formuláře",
           "form_title": "Název formuláře",
           "form_title_required": "Název formuláře je povinný",
-          "work_item_type": "Typ pracovní položky",
+          "work_item_type": "Typ úkolu",
           "remove_property": "Odebrat vlastnost",
           "select_properties": "Vybrat vlastnosti",
           "search_placeholder": "Hledat vlastnosti",
@@ -413,16 +413,16 @@
       "time_tracking": {
         "title": "Sledování času",
         "short_title": "Sledování času",
-        "description": "Zaznamenávejte čas strávený na pracovních položkách a projektech.",
+        "description": "Zaznamenávejte čas strávený na úkolech a projektech.",
         "toggle_title": "Povolit sledování času",
         "toggle_description": "Členové projektu budou moci zaznamenávat odpracovaný čas."
       },
       "milestones": {
         "title": "Milníky",
         "short_title": "Milníky",
-        "description": "Milníky poskytují vrstvu pro sladění pracovních položek směrem ke sdíleným termínům dokončení.",
+        "description": "Milníky poskytují vrstvu pro sladění úkolů směrem ke sdíleným termínům dokončení.",
         "toggle_title": "Povolit milníky",
-        "toggle_description": "Organizujte pracovní položky podle termínů milníků."
+        "toggle_description": "Organizujte úkoly podle termínů milníků."
       },
       "toasts": {
         "loading": "Aktualizace funkce projektu...",
@@ -436,7 +436,7 @@
     },
     "templates": {
       "heading": "Šablony",
-      "description": "Ušetřete 80 % času stráveného vytvářením projektů, pracovních položek a stránek, když použijete šablony."
+      "description": "Ušetřete 80 % času stráveného vytvářením projektů, úkolů a stránek, když použijete šablony."
     },
     "cycles": {
       "auto_schedule": {
@@ -489,8 +489,8 @@
             }
           },
           "auto_rollover": {
-            "label": "Automatický převod pracovních položek",
-            "tooltip": "V den dokončení cyklu přesunout všechny nedokončené pracovní položky do dalšího cyklu."
+            "label": "Automatický převod úkolů",
+            "tooltip": "V den dokončení cyklu přesunout všechny nedokončené úkoly do dalšího cyklu."
           }
         },
         "toast": {

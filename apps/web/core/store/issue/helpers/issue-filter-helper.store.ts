@@ -114,7 +114,7 @@ export class IssueFilterHelperStore implements IIssueFilterHelperStore {
           : nonEmptyArrayValue;
     });
 
-    // work item filters
+    // task filters
     if (richFilters) issueFiltersParams.filters = JSON.stringify(richFilters);
 
     if (displayFilters?.layout) issueFiltersParams.layout = displayFilters?.layout;

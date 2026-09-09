@@ -43,11 +43,11 @@ export type TAssignmentDependencyDelay = {
 };
 
 /**
- * One work item assigned to one employee, resolved onto the timeline.
- * Work items without any date never become an assignment; they are counted separately.
+ * One task assigned to one employee, resolved onto the timeline.
+ * Tasks without any date never become an assignment; they are counted separately.
  */
 export type TEmployeeAssignment = {
-  /** work item id */
+  /** task id */
   id: string;
   name: string;
   sequenceId: number;
@@ -124,7 +124,7 @@ export type TEmployeeGanttFilters = {
    * work, since none of it is scheduled for today.
    */
   todayOnly: boolean;
-  /** include completed and cancelled work items in the chart */
+  /** include completed and cancelled tasks in the chart */
   includeCompleted: boolean;
   /** hide employees that have no scheduled assignment at all */
   hideEmptyEmployees: boolean;

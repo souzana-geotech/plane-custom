@@ -3,23 +3,23 @@
     "workitems": {
       "step_zero": {
         "title": "Benvenuto nel tuo spazio di lavoro",
-        "description": "Per aiutarti a iniziare, abbiamo creato un Progetto Demo per te. Aggiungiamo il tuo primo elemento di lavoro."
+        "description": "Per aiutarti a iniziare, abbiamo creato un Progetto Demo per te. Aggiungiamo il tuo prima attività."
       },
       "step_one": {
-        "title": "Fai clic su \"+ Aggiungi elemento di lavoro\"",
-        "description": "Inizia facendo clic sul pulsante \"+ Nuovo elemento di lavoro\". Puoi creare attività, bug o un tipo personalizzato che si adatta alle tue esigenze."
+        "title": "Fai clic su \"+ Aggiungi attività\"",
+        "description": "Inizia facendo clic sul pulsante \"+ Nuova attività\". Puoi creare attività, bug o un tipo personalizzato che si adatta alle tue esigenze."
       },
       "step_two": {
-        "title": "Filtra i tuoi elementi di lavoro",
+        "title": "Filtra le tue attività",
         "description": "Usa i filtri per restringere rapidamente il tuo elenco. Puoi filtrare per stato, priorità o membri del team. "
       },
       "step_three": {
-        "title": "Visualizza, raggruppa e ordina gli elementi di lavoro secondo necessità.",
-        "description": "Vedi le proprietà richieste e raggruppa o ordina gli elementi di lavoro in base alle tue esigenze."
+        "title": "Visualizza, raggruppa e ordina le attività secondo necessità.",
+        "description": "Vedi le proprietà richieste e raggruppa o ordina le attività in base alle tue esigenze."
       },
       "step_four": {
         "title": "Visualizza come vuoi",
-        "description": "Seleziona quali proprietà vuoi vedere nell elenco. Puoi anche raggruppare e ordinare gli elementi di lavoro a modo tuo."
+        "description": "Seleziona quali proprietà vuoi vedere nell elenco. Puoi anche raggruppare e ordinare le attività a modo tuo."
       }
     },
     "cycle": {
@@ -33,29 +33,29 @@
       },
       "step_two": {
         "title": "Fai clic su \"+\"",
-        "description": "Inizia facendo clic sul pulsante \"+\". Aggiungi elementi di lavoro nuovi o esistenti direttamente dalla pagina Ciclo."
+        "description": "Inizia facendo clic sul pulsante \"+\". Aggiungi attività nuove o esistenti direttamente dalla pagina Ciclo."
       },
       "step_three": {
         "title": "Riepilogo del ciclo",
         "description": "Traccia i progressi del ciclo, la produttività del team e le priorità—e indaga se qualcosa è in ritardo."
       },
       "step_four": {
-        "title": "Trasferisci elementi di lavoro",
+        "title": "Trasferisci attività",
         "description": "Dopo la data di scadenza, un ciclo si completa automaticamente. Sposta il lavoro non finito in un altro ciclo."
       }
     },
     "module": {
       "step_zero": {
         "title": "Dividi il tuo progetto in Moduli",
-        "description": "I moduli sono progetti più piccoli e focalizzati che aiutano gli utenti a raggruppare e organizzare gli elementi di lavoro entro tempi specifici."
+        "description": "I moduli sono progetti più piccoli e focalizzati che aiutano gli utenti a raggruppare e organizzare le attività entro tempi specifici."
       },
       "step_one": {
         "title": "Crea Modulo",
-        "description": "I moduli sono progetti più piccoli e focalizzati che aiutano gli utenti a raggruppare e organizzare gli elementi di lavoro entro tempi specifici."
+        "description": "I moduli sono progetti più piccoli e focalizzati che aiutano gli utenti a raggruppare e organizzare le attività entro tempi specifici."
       },
       "step_two": {
         "title": "Fai clic su \"+\"",
-        "description": "Inizia facendo clic sul pulsante \"+\". Aggiungi elementi di lavoro nuovi o esistenti direttamente dalla pagina Modulo."
+        "description": "Inizia facendo clic sul pulsante \"+\". Aggiungi attività nuove o esistenti direttamente dalla pagina Modulo."
       },
       "step_three": {
         "title": "Stati del modulo",
@@ -95,7 +95,7 @@
     "intake": {
       "step_zero": {
         "title": "Semplifica le richieste con l intake",
-        "description": "Una funzionalità esclusiva di Plane che consente agli Ospiti di creare elementi di lavoro per bug, richieste o ticket."
+        "description": "Una funzionalità esclusiva di Plane che consente agli Ospiti di creare attività per bug, richieste o ticket."
       },
       "step_one": {
         "title": "Richieste di intake aperte/chiuse",
@@ -103,11 +103,11 @@
       },
       "step_two": {
         "title": "Accetta/rifiuta una richiesta in sospeso",
-        "description": "Accetta per modificare e spostare l elemento di lavoro nel tuo progetto, o rifiutalo per contrassegnarlo come Annullato."
+        "description": "Accetta per modificare e spostare l attività nel tuo progetto, o rifiutalo per contrassegnarlo come Annullato."
       },
       "step_three": {
         "title": "Posponi per ora",
-        "description": "Un elemento di lavoro può essere posticipato per rivederlo in un secondo momento. Verrà spostato in fondo all elenco delle richieste aperte."
+        "description": "Un'attività può essere posticipato per rivederlo in un secondo momento. Verrà spostato in fondo all elenco delle richieste aperte."
       }
     },
     "mcp_connectors": {
@@ -163,7 +163,7 @@
           "title": "Crea un progetto"
         },
         "item_2": {
-          "title": "Crea un elemento di lavoro"
+          "title": "Crea un'attività"
         },
         "item_3": {
           "title": "Invita membri del team"

@@ -29,12 +29,12 @@
         "title": "Chọn để xem chi tiết."
       },
       "all": {
-        "title": "Không có mục công việc được giao",
-        "description": "Xem cập nhật về mục công việc được giao cho bạn tại đây"
+        "title": "Không có nhiệm vụ được giao",
+        "description": "Xem cập nhật về nhiệm vụ được giao cho bạn tại đây"
       },
       "mentions": {
-        "title": "Không có mục công việc được giao",
-        "description": "Xem cập nhật về mục công việc được giao cho bạn tại đây"
+        "title": "Không có nhiệm vụ được giao",
+        "description": "Xem cập nhật về nhiệm vụ được giao cho bạn tại đây"
       }
     },
     "tabs": {

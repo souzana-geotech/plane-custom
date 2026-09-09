@@ -45,7 +45,7 @@
     },
     "notifications": {
       "heading": "Notifiche via email",
-      "description": "Rimani aggiornato sugli elementi di lavoro a cui sei iscritto. Abilita questa opzione per ricevere notifiche.",
+      "description": "Rimani aggiornato sulle attività a cui sei iscritto. Abilita questa opzione per ricevere notifiche.",
       "select_default_view": "Seleziona vista predefinita",
       "compact": "Compatto",
       "full": "Schermo intero"
@@ -59,7 +59,7 @@
     },
     "activity": {
       "heading": "Attività",
-      "description": "Traccia le tue azioni e modifiche recenti su tutti i progetti ed elementi di lavoro."
+      "description": "Traccia le tue azioni e modifiche recenti su tutti i progetti ed attività."
     },
     "connections": {
       "title": "Connessioni",
@@ -78,16 +78,16 @@
     "stats": {
       "workload": "Carico di lavoro",
       "overview": "Panoramica",
-      "created": "Elementi di lavoro creati",
-      "assigned": "Elementi di lavoro assegnati",
-      "subscribed": "Elementi di lavoro iscritti",
+      "created": "Attività creati",
+      "assigned": "Attività assegnati",
+      "subscribed": "Attività iscritti",
       "state_distribution": {
-        "title": "Elementi di lavoro per stato",
-        "empty": "Crea elementi di lavoro per visualizzarli per stato nel grafico per un'analisi migliore."
+        "title": "Attività per stato",
+        "empty": "Crea attività per visualizzarli per stato nel grafico per un'analisi migliore."
       },
       "priority_distribution": {
-        "title": "Elementi di lavoro per priorità",
-        "empty": "Crea elementi di lavoro per visualizzarli per priorità nel grafico per un'analisi migliore."
+        "title": "Attività per priorità",
+        "empty": "Crea attività per visualizzarli per priorità nel grafico per un'analisi migliore."
       },
       "recent_activity": {
         "title": "Attività recente",
@@ -115,19 +115,19 @@
     "empty_state": {
       "activity": {
         "title": "Nessuna attività ancora",
-        "description": "Inizia creando un nuovo elemento di lavoro! Aggiungi dettagli e proprietà ad esso. Esplora Plane per vedere la tua attività."
+        "description": "Inizia creando un nuova attività! Aggiungi dettagli e proprietà ad esso. Esplora Plane per vedere la tua attività."
       },
       "assigned": {
-        "title": "Nessun elemento di lavoro assegnato a te",
-        "description": "Gli elementi di lavoro assegnati a te possono essere tracciati da qui."
+        "title": "Nessuna attività assegnata a te",
+        "description": "Le attività assegnate a te possono essere tracciati da qui."
       },
       "created": {
-        "title": "Nessun elemento di lavoro ancora",
-        "description": "Tutti gli elementi di lavoro creati da te appariranno qui. Tracciali direttamente da qui."
+        "title": "Nessuna attività ancora",
+        "description": "Tutte le attività create da te appariranno qui. Tracciali direttamente da qui."
       },
       "subscribed": {
-        "title": "Nessun elemento di lavoro ancora",
-        "description": "Iscriviti agli elementi di lavoro che ti interessano, tracciali tutti qui."
+        "title": "Nessuna attività ancora",
+        "description": "Iscriviti alle attività che ti interessano, tracciali tutti qui."
       }
     }
   },

@@ -3,23 +3,23 @@
     "workitems": {
       "step_zero": {
         "title": "Willkommen in Ihrem Arbeitsbereich",
-        "description": "Um Ihnen den Einstieg zu erleichtern, haben wir ein Demo-Projekt für Sie erstellt. Fügen wir Ihr erstes Arbeitselement hinzu."
+        "description": "Um Ihnen den Einstieg zu erleichtern, haben wir ein Demo-Projekt für Sie erstellt. Fügen wir Ihr erste Aufgabe hinzu."
       },
       "step_one": {
-        "title": "Klicken Sie auf \"+ Arbeitselement hinzufügen\"",
-        "description": "Beginnen Sie, indem Sie auf die Schaltfläche \"+ Neues Arbeitselement\" klicken. Sie können Aufgaben, Fehler oder einen benutzerdefinierten Typ erstellen, der Ihren Anforderungen entspricht."
+        "title": "Klicken Sie auf \"+ Aufgabe hinzufügen\"",
+        "description": "Beginnen Sie, indem Sie auf die Schaltfläche \"+ Neue Aufgabe\" klicken. Sie können Aufgaben, Fehler oder einen benutzerdefinierten Typ erstellen, der Ihren Anforderungen entspricht."
       },
       "step_two": {
-        "title": "Filtern Sie Ihre Arbeitselemente",
+        "title": "Filtern Sie Ihre Aufgaben",
         "description": "Verwenden Sie Filter, um Ihre Liste schnell einzugrenzen. Sie können nach Status, Priorität oder Teammitgliedern filtern. "
       },
       "step_three": {
-        "title": "Anzeigen, gruppieren und sortieren Sie Arbeitselemente nach Bedarf.",
-        "description": "Sehen Sie erforderliche Eigenschaften und gruppieren oder sortieren Sie Arbeitselemente nach Ihren Bedürfnissen."
+        "title": "Anzeigen, gruppieren und sortieren Sie Aufgaben nach Bedarf.",
+        "description": "Sehen Sie erforderliche Eigenschaften und gruppieren oder sortieren Sie Aufgaben nach Ihren Bedürfnissen."
       },
       "step_four": {
         "title": "Visualisieren Sie, wie Sie möchten",
-        "description": "Wählen Sie aus, welche Eigenschaften Sie in der Liste sehen möchten. Sie können Arbeitselemente auch auf Ihre Weise gruppieren und sortieren."
+        "description": "Wählen Sie aus, welche Eigenschaften Sie in der Liste sehen möchten. Sie können Aufgaben auch auf Ihre Weise gruppieren und sortieren."
       }
     },
     "cycle": {
@@ -33,29 +33,29 @@
       },
       "step_two": {
         "title": "Klicken Sie auf \"+\"",
-        "description": "Beginnen Sie, indem Sie auf die Schaltfläche \"+\" klicken. Fügen Sie neue oder vorhandene Arbeitselemente direkt von der Zyklus-Seite hinzu."
+        "description": "Beginnen Sie, indem Sie auf die Schaltfläche \"+\" klicken. Fügen Sie neue oder vorhandene Aufgaben direkt von der Zyklus-Seite hinzu."
       },
       "step_three": {
         "title": "Zyklus-Zusammenfassung",
         "description": "Verfolgen Sie den Zyklusfortschritt, die Teamproduktivität und Prioritäten—und untersuchen Sie, ob etwas zurückfällt."
       },
       "step_four": {
-        "title": "Arbeitselemente übertragen",
+        "title": "Aufgaben übertragen",
         "description": "Nach dem Fälligkeitsdatum wird ein Zyklus automatisch abgeschlossen. Verschieben Sie unfertige Arbeit in einen anderen Zyklus."
       }
     },
     "module": {
       "step_zero": {
         "title": "Teilen Sie Ihr Projekt in Module auf",
-        "description": "Module sind kleinere, fokussierte Projekte, die Benutzern helfen, Arbeitselemente innerhalb bestimmter Zeitrahmen zu gruppieren und zu organisieren."
+        "description": "Module sind kleinere, fokussierte Projekte, die Benutzern helfen, Aufgaben innerhalb bestimmter Zeitrahmen zu gruppieren und zu organisieren."
       },
       "step_one": {
         "title": "Modul erstellen",
-        "description": "Module sind kleinere, fokussierte Projekte, die Benutzern helfen, Arbeitselemente innerhalb bestimmter Zeitrahmen zu gruppieren und zu organisieren."
+        "description": "Module sind kleinere, fokussierte Projekte, die Benutzern helfen, Aufgaben innerhalb bestimmter Zeitrahmen zu gruppieren und zu organisieren."
       },
       "step_two": {
         "title": "Klicken Sie auf \"+\"",
-        "description": "Beginnen Sie, indem Sie auf die Schaltfläche \"+\" klicken. Fügen Sie neue oder vorhandene Arbeitselemente direkt von der Modul-Seite hinzu."
+        "description": "Beginnen Sie, indem Sie auf die Schaltfläche \"+\" klicken. Fügen Sie neue oder vorhandene Aufgaben direkt von der Modul-Seite hinzu."
       },
       "step_three": {
         "title": "Modulzustände",
@@ -95,7 +95,7 @@
     "intake": {
       "step_zero": {
         "title": "Anfragen mit Intake optimieren",
-        "description": "Eine Plane-exklusive Funktion, mit der Gäste Arbeitselemente für Fehler, Anfragen oder Tickets erstellen können."
+        "description": "Eine Plane-exklusive Funktion, mit der Gäste Aufgaben für Fehler, Anfragen oder Tickets erstellen können."
       },
       "step_one": {
         "title": "Offene/geschlossene Intake-Anfragen",
@@ -103,11 +103,11 @@
       },
       "step_two": {
         "title": "Ausstehende Anfrage annehmen/ablehnen",
-        "description": "Annehmen, um das Arbeitselement zu bearbeiten und in Ihr Projekt zu verschieben, oder ablehnen, um es als Abgebrochen zu markieren."
+        "description": "Annehmen, um die Aufgabe zu bearbeiten und in Ihr Projekt zu verschieben, oder ablehnen, um es als Abgebrochen zu markieren."
       },
       "step_three": {
         "title": "Vorerst zurückstellen",
-        "description": "Ein Arbeitselement kann zurückgestellt werden, um es zu einem späteren Zeitpunkt zu überprüfen. Es wird an das Ende Ihrer offenen Anfragenliste verschoben."
+        "description": "Eine Aufgabe kann zurückgestellt werden, um es zu einem späteren Zeitpunkt zu überprüfen. Es wird an das Ende Ihrer offenen Anfragenliste verschoben."
       }
     },
     "mcp_connectors": {
@@ -163,7 +163,7 @@
           "title": "Projekt erstellen"
         },
         "item_2": {
-          "title": "Arbeitselement erstellen"
+          "title": "Aufgabe erstellen"
         },
         "item_3": {
           "title": "Teammitglieder einladen"

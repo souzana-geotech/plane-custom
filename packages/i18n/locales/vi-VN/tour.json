@@ -3,23 +3,23 @@
     "workitems": {
       "step_zero": {
         "title": "Chào mừng đến với không gian làm việc của bạn",
-        "description": "Để giúp bạn bắt đầu, chúng tôi đã tạo một Dự án Demo cho bạn. Hãy thêm mục công việc đầu tiên của bạn."
+        "description": "Để giúp bạn bắt đầu, chúng tôi đã tạo một Dự án Demo cho bạn. Hãy thêm nhiệm vụ đầu tiên của bạn."
       },
       "step_one": {
-        "title": "Nhấp vào \"+ Thêm mục công việc\"",
-        "description": "Bắt đầu bằng cách nhấp vào nút \"+ Mục công việc mới\". Bạn có thể tạo nhiệm vụ, lỗi hoặc loại tùy chỉnh phù hợp với nhu cầu của bạn."
+        "title": "Nhấp vào \"+ Thêm nhiệm vụ\"",
+        "description": "Bắt đầu bằng cách nhấp vào nút \"+ Nhiệm vụ mới\". Bạn có thể tạo nhiệm vụ, lỗi hoặc loại tùy chỉnh phù hợp với nhu cầu của bạn."
       },
       "step_two": {
-        "title": "Lọc các mục công việc của bạn",
+        "title": "Lọc các nhiệm vụ của bạn",
         "description": "Sử dụng bộ lọc để thu hẹp danh sách của bạn một cách nhanh chóng. Bạn có thể lọc theo trạng thái, mức độ ưu tiên hoặc thành viên trong nhóm. "
       },
       "step_three": {
-        "title": "Xem, nhóm và sắp xếp các mục công việc theo nhu cầu.",
-        "description": "Xem các thuộc tính cần thiết và nhóm hoặc sắp xếp các mục công việc theo nhu cầu của bạn."
+        "title": "Xem, nhóm và sắp xếp các nhiệm vụ theo nhu cầu.",
+        "description": "Xem các thuộc tính cần thiết và nhóm hoặc sắp xếp các nhiệm vụ theo nhu cầu của bạn."
       },
       "step_four": {
         "title": "Trực quan hóa theo cách bạn muốn",
-        "description": "Chọn thuộc tính nào bạn muốn xem trong danh sách. Bạn cũng có thể nhóm và sắp xếp các mục công việc theo cách của mình."
+        "description": "Chọn thuộc tính nào bạn muốn xem trong danh sách. Bạn cũng có thể nhóm và sắp xếp các nhiệm vụ theo cách của mình."
       }
     },
     "cycle": {
@@ -33,29 +33,29 @@
       },
       "step_two": {
         "title": "Nhấp vào \"+\"",
-        "description": "Bắt đầu bằng cách nhấp vào nút \"+\". Thêm các mục công việc mới hoặc hiện có trực tiếp từ trang Chu kỳ."
+        "description": "Bắt đầu bằng cách nhấp vào nút \"+\". Thêm các nhiệm vụ mới hoặc hiện có trực tiếp từ trang Chu kỳ."
       },
       "step_three": {
         "title": "Tóm tắt chu kỳ",
         "description": "Theo dõi tiến độ chu kỳ, năng suất của nhóm và các ưu tiên—và điều tra nếu có gì tụt hậu."
       },
       "step_four": {
-        "title": "Chuyển các mục công việc",
+        "title": "Chuyển các nhiệm vụ",
         "description": "Sau ngày đáo hạn, chu kỳ tự động hoàn thành. Di chuyển công việc chưa hoàn thành sang chu kỳ khác."
       }
     },
     "module": {
       "step_zero": {
         "title": "Chia dự án của bạn thành các Mô-đun",
-        "description": "Mô-đun là các dự án nhỏ hơn, tập trung giúp người dùng nhóm và tổ chức các mục công việc trong khung thời gian cụ thể."
+        "description": "Mô-đun là các dự án nhỏ hơn, tập trung giúp người dùng nhóm và tổ chức các nhiệm vụ trong khung thời gian cụ thể."
       },
       "step_one": {
         "title": "Tạo Mô-đun",
-        "description": "Mô-đun là các dự án nhỏ hơn, tập trung giúp người dùng nhóm và tổ chức các mục công việc trong khung thời gian cụ thể."
+        "description": "Mô-đun là các dự án nhỏ hơn, tập trung giúp người dùng nhóm và tổ chức các nhiệm vụ trong khung thời gian cụ thể."
       },
       "step_two": {
         "title": "Nhấp vào \"+\"",
-        "description": "Bắt đầu bằng cách nhấp vào nút \"+\". Thêm các mục công việc mới hoặc hiện có trực tiếp từ trang Mô-đun."
+        "description": "Bắt đầu bằng cách nhấp vào nút \"+\". Thêm các nhiệm vụ mới hoặc hiện có trực tiếp từ trang Mô-đun."
       },
       "step_three": {
         "title": "Trạng thái mô-đun",
@@ -95,7 +95,7 @@
     "intake": {
       "step_zero": {
         "title": "Đơn giản hóa yêu cầu với tiếp nhận",
-        "description": "Tính năng chỉ dành cho Plane cho phép Khách tạo các mục công việc cho lỗi, yêu cầu hoặc vé."
+        "description": "Tính năng chỉ dành cho Plane cho phép Khách tạo các nhiệm vụ cho lỗi, yêu cầu hoặc vé."
       },
       "step_one": {
         "title": "Yêu cầu tiếp nhận mở/đóng",
@@ -103,11 +103,11 @@
       },
       "step_two": {
         "title": "Chấp nhận/từ chối yêu cầu đang chờ",
-        "description": "Chấp nhận để chỉnh sửa và di chuyển mục công việc vào dự án của bạn, hoặc từ chối để đánh dấu là Đã hủy."
+        "description": "Chấp nhận để chỉnh sửa và di chuyển nhiệm vụ vào dự án của bạn, hoặc từ chối để đánh dấu là Đã hủy."
       },
       "step_three": {
         "title": "Hoãn lại bây giờ",
-        "description": "Một mục công việc có thể được hoãn lại để xem xét sau. Nó sẽ được di chuyển xuống cuối danh sách yêu cầu mở của bạn."
+        "description": "Một nhiệm vụ có thể được hoãn lại để xem xét sau. Nó sẽ được di chuyển xuống cuối danh sách yêu cầu mở của bạn."
       }
     },
     "mcp_connectors": {
@@ -163,7 +163,7 @@
           "title": "Tạo dự án"
         },
         "item_2": {
-          "title": "Tạo mục công việc"
+          "title": "Tạo nhiệm vụ"
         },
         "item_3": {
           "title": "Mời thành viên nhóm"

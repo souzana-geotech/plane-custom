@@ -2,19 +2,19 @@
   "active_cycle": {
     "empty_state": {
       "progress": {
-        "title": "დაამატეთ სამუშაო ელემენტები ციკლში მისი პროგრესის სანახავად"
+        "title": "დაამატეთ დავალებები ციკლში მისი პროგრესის სანახავად"
       },
       "chart": {
-        "title": "დაამატეთ სამუშაო ელემენტები ციკლში burn-down გრაფიკის სანახავად."
+        "title": "დაამატეთ დავალებები ციკლში burn-down გრაფიკის სანახავად."
       },
       "priority_issue": {
-        "title": "ნახეთ მაღალი პრიორიტეტის სამუშაო ელემენტები, რომლებიც ციკლში მოგვარებულია ერთი შეხედვით."
+        "title": "ნახეთ მაღალი პრიორიტეტის დავალებები, რომლებიც ციკლში მოგვარებულია ერთი შეხედვით."
       },
       "assignee": {
-        "title": "დაამატეთ მინიჭებულები სამუშაო ელემენტებზე სამუშაოს განაწილების სანახავად მინიჭებულების მიხედვით."
+        "title": "დაამატეთ მინიჭებულები დავალებებზე სამუშაოს განაწილების სანახავად მინიჭებულების მიხედვით."
       },
       "label": {
-        "title": "დაამატეთ იარლიყები სამუშაო ელემენტებზე სამუშაოს განაწილების სანახავად იარლიყების მიხედვით."
+        "title": "დაამატეთ იარლიყები დავალებებზე სამუშაოს განაწილების სანახავად იარლიყების მიხედვით."
       }
     }
   },
@@ -25,16 +25,16 @@
   "active_cycle_analytics": {
     "empty_state": {
       "progress": {
-        "title": "Add work items to the cycle to view it's\n progress"
+        "title": "Add tasks to the cycle to view it's\n progress"
       },
       "priority": {
-        "title": "Observe high priority work items tackled in\n the cycle at a glance."
+        "title": "Observe high priority tasks tackled in\n the cycle at a glance."
       },
       "assignee": {
-        "title": "Add assignees to work items to see a\n breakdown of work by assignees."
+        "title": "Add assignees to tasks to see a\n breakdown of work by assignees."
       },
       "label": {
-        "title": "Add labels to work items to see the\n breakdown of work by labels."
+        "title": "Add labels to tasks to see the\n breakdown of work by labels."
       }
     }
   }

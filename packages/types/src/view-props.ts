@@ -91,7 +91,7 @@ export type TIssueParams =
 export type TCalendarLayouts = "month" | "week";
 
 /**
- * Keys for the work item filter properties
+ * Keys for the task filter properties
  */
 export const WORK_ITEM_FILTER_PROPERTY_KEYS = [
   "state_group",

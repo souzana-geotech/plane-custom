@@ -2,16 +2,16 @@
   "templates": {
     "settings": {
       "title": "Template",
-      "description": "Hemat 80% waktu yang dihabiskan untuk membuat proyek, item kerja, dan halaman ketika Anda menggunakan template.",
+      "description": "Hemat 80% waktu yang dihabiskan untuk membuat proyek, tugas, dan halaman ketika Anda menggunakan template.",
       "new_project_template": "Template proyek baru",
-      "new_work_item_template": "Template item kerja baru",
+      "new_work_item_template": "Template tugas baru",
       "new_page_template": "Template halaman baru",
       "options": {
         "project": {
           "label": "Template proyek"
         },
         "work_item": {
-          "label": "Template item kerja"
+          "label": "Template tugas"
         },
         "page": {
           "label": "Template halaman"
@@ -70,7 +70,7 @@
         "work_item": {
           "template": {
             "name": {
-              "placeholder": "Beri nama template item kerja Anda.",
+              "placeholder": "Beri nama template tugas Anda.",
               "validation": {
                 "required": "Nama template diperlukan",
                 "maxLength": "Nama template harus kurang dari 255 karakter"
@@ -81,18 +81,18 @@
             }
           },
           "name": {
-            "placeholder": "Beri judul untuk item kerja ini.",
+            "placeholder": "Beri judul untuk tugas ini.",
             "validation": {
-              "required": "Judul item kerja diperlukan",
-              "maxLength": "Judul item kerja harus kurang dari 255 karakter"
+              "required": "Judul tugas diperlukan",
+              "maxLength": "Judul tugas harus kurang dari 255 karakter"
             }
           },
           "description": {
-            "placeholder": "Jelaskan item kerja ini sehingga jelas apa yang akan Anda capai ketika Anda menyelesaikannya."
+            "placeholder": "Jelaskan tugas ini sehingga jelas apa yang akan Anda capai ketika Anda menyelesaikannya."
           },
           "button": {
-            "create": "Buat template item kerja",
-            "update": "Perbarui template item kerja"
+            "create": "Buat template tugas",
+            "update": "Perbarui template tugas"
           }
         },
         "page": {
@@ -227,23 +227,23 @@
     "empty_state": {
       "upgrade": {
         "title": "Template",
-        "description": "Dengan template proyek, item kerja, dan halaman di Plane, Anda tidak perlu membuat proyek dari awal atau mengatur properti item kerja secara manual.",
+        "description": "Dengan template proyek, tugas, dan halaman di Plane, Anda tidak perlu membuat proyek dari awal atau mengatur properti tugas secara manual.",
         "sub_description": "Dapatkan kembali 80% waktu administrasi Anda saat menggunakan Template."
       },
       "no_templates": {
         "button": "Buat template pertama Anda"
       },
       "no_labels": {
-        "description": " Belum ada label. Buat label untuk membantu mengatur dan memfilter item kerja dalam proyek Anda."
+        "description": " Belum ada label. Buat label untuk membantu mengatur dan memfilter tugas dalam proyek Anda."
       },
       "no_modules": {
         "description": "Belum ada modul. Atur pekerjaan ke dalam sub-proyek dengan pemimpin dan penanggung jawab khusus."
       },
       "no_work_items": {
-        "description": "Belum ada item kerja. Tambahkan satu untuk membantu mengatur pekerjaan Anda lebih baik."
+        "description": "Belum ada tugas. Tambahkan satu untuk membantu mengatur pekerjaan Anda lebih baik."
       },
       "no_sub_work_items": {
-        "description": "Belum ada sub-item kerja. Tambahkan satu untuk membantu mengatur pekerjaan Anda lebih baik."
+        "description": "Belum ada subtugas. Tambahkan satu untuk membantu mengatur pekerjaan Anda lebih baik."
       },
       "page": {
         "no_templates": {
@@ -322,7 +322,7 @@
         "page": "Pilih template"
       },
       "tooltip": {
-        "work_item": "Pilih template item kerja"
+        "work_item": "Pilih template tugas"
       },
       "no_results": {
         "work_item": "Tidak ada template ditemukan.",

@@ -3,23 +3,23 @@
     "workitems": {
       "step_zero": {
         "title": "Vítejte ve vašem pracovním prostoru",
-        "description": "Abychom vám pomohli začít, vytvořili jsme pro vás Demo projekt. Přidejme vaši první pracovní položku."
+        "description": "Abychom vám pomohli začít, vytvořili jsme pro vás Demo projekt. Přidejme vaši první úkol."
       },
       "step_one": {
-        "title": "Klikněte na \"+ Přidat pracovní položku\"",
-        "description": "Začněte kliknutím na tlačítko \"+ Nová pracovní položka\". Můžete vytvářet úkoly, chyby nebo vlastní typ podle vašich potřeb."
+        "title": "Klikněte na \"+ Přidat úkol\"",
+        "description": "Začněte kliknutím na tlačítko \"+ Nový úkol\". Můžete vytvářet úkoly, chyby nebo vlastní typ podle vašich potřeb."
       },
       "step_two": {
-        "title": "Filtrujte své pracovní položky",
+        "title": "Filtrujte své úkolu",
         "description": "Použijte filtry k rychlému zúžení seznamu. Můžete filtrovat podle stavu, priority nebo členů týmu. "
       },
       "step_three": {
-        "title": "Prohlížejte, seskupujte a řaďte pracovní položky podle potřeby.",
-        "description": "Zobrazte požadované vlastnosti a seskupte nebo seřaďte pracovní položky podle svých potřeb."
+        "title": "Prohlížejte, seskupujte a řaďte úkoly podle potřeby.",
+        "description": "Zobrazte požadované vlastnosti a seskupte nebo seřaďte úkoly podle svých potřeb."
       },
       "step_four": {
         "title": "Vizualizujte podle libosti",
-        "description": "Vyberte, které vlastnosti chcete v seznamu vidět. Můžete také seskupit a seřadit pracovní položky podle svého."
+        "description": "Vyberte, které vlastnosti chcete v seznamu vidět. Můžete také seskupit a seřadit úkoly podle svého."
       }
     },
     "cycle": {
@@ -33,29 +33,29 @@
       },
       "step_two": {
         "title": "Klikněte na \"+\"",
-        "description": "Začněte kliknutím na tlačítko \"+\". Přidejte nové nebo existující pracovní položky přímo ze stránky Cyklu."
+        "description": "Začněte kliknutím na tlačítko \"+\". Přidejte nové nebo existující úkoly přímo ze stránky Cyklu."
       },
       "step_three": {
         "title": "Souhrn cyklu",
         "description": "Sledujte průběh cyklu, produktivitu týmu a priority—a zjistěte, jestli něco zaostává."
       },
       "step_four": {
-        "title": "Přenos pracovních položek",
+        "title": "Přenos úkolů",
         "description": "Po termínu dokončení se cyklus automaticky dokončí. Přesuňte nedokončenou práci do jiného cyklu."
       }
     },
     "module": {
       "step_zero": {
         "title": "Rozdělte svůj projekt do Modulů",
-        "description": "Moduly jsou menší, zaměřené projekty, které pomáhají uživatelům seskupovat a organizovat pracovní položky v určitých časových rámcích."
+        "description": "Moduly jsou menší, zaměřené projekty, které pomáhají uživatelům seskupovat a organizovat úkoly v určitých časových rámcích."
       },
       "step_one": {
         "title": "Vytvořit Modul",
-        "description": "Moduly jsou menší, zaměřené projekty, které pomáhají uživatelům seskupovat a organizovat pracovní položky v určitých časových rámcích."
+        "description": "Moduly jsou menší, zaměřené projekty, které pomáhají uživatelům seskupovat a organizovat úkoly v určitých časových rámcích."
       },
       "step_two": {
         "title": "Klikněte na \"+\"",
-        "description": "Začněte kliknutím na tlačítko \"+\". Přidejte nové nebo existující pracovní položky přímo ze stránky Modulu."
+        "description": "Začněte kliknutím na tlačítko \"+\". Přidejte nové nebo existující úkoly přímo ze stránky Modulu."
       },
       "step_three": {
         "title": "Stavy modulu",
@@ -95,7 +95,7 @@
     "intake": {
       "step_zero": {
         "title": "Zefektivněte požadavky s příjmem",
-        "description": "Funkce pouze v Plane, která umožňuje hostům vytvářet pracovní položky pro chyby, požadavky nebo tikety."
+        "description": "Funkce pouze v Plane, která umožňuje hostům vytvářet úkoly pro chyby, požadavky nebo tikety."
       },
       "step_one": {
         "title": "Otevřené/uzavřené požadavky příjmu",
@@ -103,11 +103,11 @@
       },
       "step_two": {
         "title": "Přijměte/odmítněte čekající požadavek",
-        "description": "Přijměte pro úpravu a přesunutí pracovní položky do vašeho projektu nebo ji odmítněte a označte ji jako Zrušenou."
+        "description": "Přijměte pro úpravu a přesunutí úkolu do vašeho projektu nebo ji odmítněte a označte ji jako Zrušenou."
       },
       "step_three": {
         "title": "Odložit prozatím",
-        "description": "Pracovní položku lze odložit, abyste ji zkontrolovali později. Přesune se na konec seznamu otevřených požadavků."
+        "description": "Úkol lze odložit, abyste ji zkontrolovali později. Přesune se na konec seznamu otevřených požadavků."
       }
     },
     "mcp_connectors": {
@@ -163,7 +163,7 @@
           "title": "Vytvořit projekt"
         },
         "item_2": {
-          "title": "Vytvořit pracovní položku"
+          "title": "Vytvořit úkol"
         },
         "item_3": {
           "title": "Pozvat členy týmu"

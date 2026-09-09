@@ -82,7 +82,7 @@
         "export_separate_files": "将数据导出为单独的文件",
         "exporting_projects": "正在导出项目",
         "format": "格式",
-        "filters_info": "应用筛选器以根据您的条件导出特定工作项。",
+        "filters_info": "应用筛选器以根据您的条件导出特定任务。",
         "modal": {
           "title": "导出到",
           "toasts": {
@@ -272,12 +272,12 @@
       "templates": {
         "title": "模板",
         "heading": "模板",
-        "description": "使用模板可节省 80% 创建项目、工作项和页面的时间。"
+        "description": "使用模板可节省 80% 创建项目、任务和页面的时间。"
       },
       "relations": {
         "title": "关系",
         "heading": "关系",
-        "description": "创建和管理连接工作区中工作项的关系类型。"
+        "description": "创建和管理连接工作区中任务的关系类型。"
       },
       "cancel_trial": {
         "title": "请先取消试用期。",
@@ -454,7 +454,7 @@
         "app_consent_unapproved_description": "在将此应用连接到您的工作区之前，请确保您信任此应用。",
         "go_to_app": "前往应用",
         "enable_app_mentions": "启用应用提及",
-        "enable_app_mentions_tooltip": "启用此功能后，用户可以提及或分配工作项到此应用。",
+        "enable_app_mentions_tooltip": "启用此功能后，用户可以提及或分配任务到此应用。",
         "scopes": "范围",
         "select_scopes": "选择范围",
         "read_access_to": "只读访问",

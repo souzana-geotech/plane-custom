@@ -82,7 +82,7 @@
         "export_separate_files": "Xuất dữ liệu thành các tệp riêng biệt",
         "exporting_projects": "Đang xuất dự án",
         "format": "Định dạng",
-        "filters_info": "Áp dụng bộ lọc để xuất các mục công việc cụ thể dựa trên tiêu chí của bạn.",
+        "filters_info": "Áp dụng bộ lọc để xuất các nhiệm vụ cụ thể dựa trên tiêu chí của bạn.",
         "modal": {
           "title": "Xuất đến",
           "toasts": {
@@ -272,12 +272,12 @@
       "templates": {
         "title": "Mẫu",
         "heading": "Mẫu",
-        "description": "Tiết kiệm 80% thời gian dành cho việc tạo dự án, mục công việc và trang khi bạn sử dụng mẫu."
+        "description": "Tiết kiệm 80% thời gian dành cho việc tạo dự án, nhiệm vụ và trang khi bạn sử dụng mẫu."
       },
       "relations": {
         "title": "Quan hệ",
         "heading": "Quan hệ",
-        "description": "Tạo và quản lý các loại quan hệ kết nối các mục công việc trong không gian làm việc của bạn."
+        "description": "Tạo và quản lý các loại quan hệ kết nối các nhiệm vụ trong không gian làm việc của bạn."
       },
       "cancel_trial": {
         "title": "Hủy bỏ dùng thử trước.",
@@ -454,7 +454,7 @@
         "app_consent_unapproved_description": "Hãy chắc chắn rằng bạn tin tưởng ứng dụng này trước khi kết nối nó với không gian làm việc của bạn.",
         "go_to_app": "Đi đến ứng dụng",
         "enable_app_mentions": "Bật đề cập ứng dụng",
-        "enable_app_mentions_tooltip": "Khi bật tính năng này, người dùng có thể đề cập hoặc gán Work Items cho ứng dụng này.",
+        "enable_app_mentions_tooltip": "Khi bật tính năng này, người dùng có thể đề cập hoặc gán Tasks cho ứng dụng này.",
         "scopes": "Phạm vi",
         "select_scopes": "Chọn phạm vi",
         "read_access_to": "Quyền truy cập chỉ đọc tới",

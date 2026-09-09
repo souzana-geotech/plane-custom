@@ -38,7 +38,7 @@
     },
     "states": {
       "heading": "Stany",
-      "description": "Definiuj i dostosowuj stany przepływu pracy, aby śledzić postęp elementów pracy.",
+      "description": "Definiuj i dostosowuj stany przepływu pracy, aby śledzić postęp zadań.",
       "describe_this_state_for_your_members": "Opisz ten stan członkom projektu.",
       "empty_state": {
         "title": "Brak stanów w grupie {groupKey}",
@@ -47,7 +47,7 @@
     },
     "labels": {
       "heading": "Etykiety",
-      "description": "Twórz niestandardowe etykiety, aby kategoryzować i organizować swoje elementy pracy",
+      "description": "Twórz niestandardowe etykiety, aby kategoryzować i organizować swoje zadania",
       "label_title": "Nazwa etykiety",
       "label_title_is_required": "Nazwa etykiety jest wymagana",
       "label_max_char": "Nazwa etykiety nie może mieć więcej niż 255 znaków",
@@ -57,7 +57,7 @@
     },
     "estimates": {
       "heading": "Szacunki",
-      "description": "Skonfiguruj systemy szacowania, aby śledzić i komunikować nakład pracy wymagany dla każdego elementu pracy.",
+      "description": "Skonfiguruj systemy szacowania, aby śledzić i komunikować nakład pracy wymagany dla każdego zadania.",
       "label": "Szacunki",
       "title": "Włącz szacunki dla mojego projektu",
       "enable_description": "Pomagają w komunikacji o złożoności i obciążeniu zespołu.",
@@ -200,7 +200,7 @@
     "empty_state": {
       "labels": {
         "title": "Brak etykiet",
-        "description": "Utwórz etykiety, aby organizować elementy pracy."
+        "description": "Utwórz etykiety, aby organizować zadania."
       },
       "estimates": {
         "title": "Brak systemów szacowania",
@@ -209,16 +209,16 @@
       },
       "integrations": {
         "title": "Brak skonfigurowanych integracji",
-        "description": "Skonfiguruj GitHub i inne integracje, aby synchronizować elementy pracy projektu."
+        "description": "Skonfiguruj GitHub i inne integracje, aby synchronizować zadania projektu."
       }
     },
     "workflows": {
       "toggle": {
         "title": "Włącz przepływy pracy",
-        "description": "Ustaw przepływy pracy, aby kontrolować przemieszczanie się elementów pracy",
+        "description": "Ustaw przepływy pracy, aby kontrolować przemieszczanie się zadań",
         "no_states_tooltip": "Do przepływu pracy nie dodano żadnych stanów.",
-        "no_work_item_types_tooltip": "Do przepływu pracy nie dodano żadnych typów elementów pracy.",
-        "no_states_or_work_item_types_tooltip": "Do przepływu pracy nie dodano żadnych stanów ani typów elementów pracy.",
+        "no_work_item_types_tooltip": "Do przepływu pracy nie dodano żadnych typów zadań.",
+        "no_states_or_work_item_types_tooltip": "Do przepływu pracy nie dodano żadnych stanów ani typów zadań.",
         "toast": {
           "loading": {
             "enabling": "Włączanie przepływów pracy",
@@ -235,7 +235,7 @@
         }
       },
       "heading": "Przepływy pracy",
-      "description": "Automatyzuj przejścia elementów pracy i ustaw reguły kontrolujące, jak zadania przechodzą przez potok projektu.",
+      "description": "Automatyzuj przejścia zadań i ustaw reguły kontrolujące, jak zadania przechodzą przez potok projektu.",
       "add_button": "Dodaj nowy przepływ pracy",
       "search": "Szukaj przepływów pracy",
       "detail": {
@@ -243,10 +243,10 @@
         "add_states": "Dodaj stany",
         "unmapped_states": {
           "title": "Wykryto niezmapowane stany",
-          "description": "Niektóre elementy pracy dla wybranych typów znajdują się obecnie w stanach, które nie istnieją w tym przepływie pracy.",
+          "description": "Niektóre zadania dla wybranych typów znajdują się obecnie w stanach, które nie istnieją w tym przepływie pracy.",
           "note": "Jeśli włączysz ten przepływ pracy, te elementy zostaną automatycznie przeniesione do stanu początkowego tego przepływu pracy.",
           "label": "Brakujące stany",
-          "tooltip": "Niektóre elementy pracy znajdują się w stanach, które nie są zmapowane do tego przepływu pracy. Otwórz przepływ pracy, aby sprawdzić."
+          "tooltip": "Niektóre zadania znajdują się w stanach, które nie są zmapowane do tego przepływu pracy. Otwórz przepływ pracy, aby sprawdzić."
         }
       },
       "select_states": {
@@ -256,7 +256,7 @@
         }
       },
       "default_footer": {
-        "fallback_message": "Ten przepływ pracy stosuje się do każdego typu elementu pracy, który nie jest przypisany do przepływu pracy."
+        "fallback_message": "Ten przepływ pracy stosuje się do każdego typu zadania, który nie jest przypisany do przepływu pracy."
       },
       "create": {
         "heading": "Utwórz nowy przepływ pracy",
@@ -275,7 +275,7 @@
           }
         },
         "work_item_type": {
-          "label": "Typ elementu pracy"
+          "label": "Typ zadania"
         },
         "success": {
           "title": "Sukces!",
@@ -319,8 +319,8 @@
       }
     },
     "work_item_types": {
-      "heading": "Typy elementów pracy",
-      "description": "Twórz i dostosowuj różne typy elementów pracy z unikalnymi właściwościami"
+      "heading": "Typy zadań",
+      "description": "Twórz i dostosowuj różne typy zadań z unikalnymi właściwościami"
     },
     "features": {
       "cycles": {
@@ -367,25 +367,25 @@
         },
         "in_app": {
           "title": "W aplikacji",
-          "description": "Otrzymuj nowe elementy pracy od członków i gości w obszarze roboczym bez zakłócania istniejących."
+          "description": "Otrzymuj nowe zadania od członków i gości w obszarze roboczym bez zakłócania istniejących."
         },
         "email": {
           "title": "E-mail",
-          "description": "Zbieraj nowe elementy pracy od każdego, kto wyśle e-mail na adres Plane.",
+          "description": "Zbieraj nowe zadania od każdego, kto wyśle e-mail na adres Plane.",
           "fieldName": "ID e-mail"
         },
         "form": {
           "title": "Formularze",
-          "description": "Pozwól osobom spoza obszaru roboczego tworzyć potencjalne nowe elementy pracy przez dedykowany i bezpieczny formularz.",
+          "description": "Pozwól osobom spoza obszaru roboczego tworzyć potencjalne nowe zadania przez dedykowany i bezpieczny formularz.",
           "fieldName": "Domyślny URL formularza",
-          "create_forms": "Twórz formularze przy użyciu typów elementów pracy",
+          "create_forms": "Twórz formularze przy użyciu typów zadań",
           "manage_forms": "Zarządzaj formularzami",
           "manage_forms_tooltip": "Poproś administratora obszaru roboczego o zarządzanie.",
           "create_form": "Utwórz formularz",
           "edit_form": "Edytuj szczegóły formularza",
           "form_title": "Tytuł formularza",
           "form_title_required": "Tytuł formularza jest wymagany",
-          "work_item_type": "Typ elementu pracy",
+          "work_item_type": "Typ zadania",
           "remove_property": "Usuń właściwość",
           "select_properties": "Wybierz właściwości",
           "search_placeholder": "Szukaj właściwości",
@@ -413,16 +413,16 @@
       "time_tracking": {
         "title": "Śledzenie czasu",
         "short_title": "Śledzenie czasu",
-        "description": "Rejestruj czas spędzony nad elementami pracy i projektami.",
+        "description": "Rejestruj czas spędzony nad zadaniami i projektami.",
         "toggle_title": "Włącz śledzenie czasu",
         "toggle_description": "Członkowie projektu będą mogli rejestrować przepracowany czas."
       },
       "milestones": {
         "title": "Kamienie milowe",
         "short_title": "Kamienie milowe",
-        "description": "Kamienie milowe zapewniają warstwę do wyrównania elementów pracy w kierunku wspólnych dat zakończenia.",
+        "description": "Kamienie milowe zapewniają warstwę do wyrównania zadań w kierunku wspólnych dat zakończenia.",
         "toggle_title": "Włącz kamienie milowe",
-        "toggle_description": "Organizuj elementy pracy według terminów kamieni milowych."
+        "toggle_description": "Organizuj zadania według terminów kamieni milowych."
       },
       "toasts": {
         "loading": "Aktualizowanie funkcji projektu...",
@@ -436,7 +436,7 @@
     },
     "templates": {
       "heading": "Szablony",
-      "description": "Zaoszczędź 80% czasu poświęcanego na tworzenie projektów, elementów pracy i stron, gdy używasz szablonów."
+      "description": "Zaoszczędź 80% czasu poświęcanego na tworzenie projektów, zadań i stron, gdy używasz szablonów."
     },
     "cycles": {
       "auto_schedule": {
@@ -489,8 +489,8 @@
             }
           },
           "auto_rollover": {
-            "label": "Automatyczne przenoszenie elementów pracy",
-            "tooltip": "W dniu zakończenia cyklu przenieś wszystkie niedokończone elementy pracy do następnego cyklu."
+            "label": "Automatyczne przenoszenie zadań",
+            "tooltip": "W dniu zakończenia cyklu przenieś wszystkie niedokończone zadania do następnego cyklu."
           }
         },
         "toast": {

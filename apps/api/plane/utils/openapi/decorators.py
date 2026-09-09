@@ -91,7 +91,7 @@ def cycle_docs(**kwargs):
 def issue_docs(**kwargs):
     """Decorator for issue-related endpoints"""
     defaults = {
-        "tags": ["Work Items"],
+        "tags": ["Tasks"],
         "parameters": [WORKSPACE_SLUG_PARAMETER, PROJECT_ID_PARAMETER],
         "responses": {
             401: UNAUTHORIZED_RESPONSE,
@@ -134,9 +134,9 @@ def asset_docs(**kwargs):
 
 # Issue-related decorators for specific tags
 def work_item_docs(**kwargs):
-    """Decorator for work item endpoints (main issue operations)"""
+    """Decorator for task endpoints (main issue operations)"""
     defaults = {
-        "tags": ["Work Items"],
+        "tags": ["Tasks"],
         "parameters": [WORKSPACE_SLUG_PARAMETER, PROJECT_ID_PARAMETER],
         "responses": {
             401: UNAUTHORIZED_RESPONSE,
@@ -166,7 +166,7 @@ def label_docs(**kwargs):
 def issue_link_docs(**kwargs):
     """Decorator for issue link endpoints"""
     defaults = {
-        "tags": ["Work Item Links"],
+        "tags": ["Task Links"],
         "parameters": [WORKSPACE_SLUG_PARAMETER, PROJECT_ID_PARAMETER],
         "responses": {
             401: UNAUTHORIZED_RESPONSE,
@@ -181,7 +181,7 @@ def issue_link_docs(**kwargs):
 def issue_comment_docs(**kwargs):
     """Decorator for issue comment endpoints"""
     defaults = {
-        "tags": ["Work Item Comments"],
+        "tags": ["Task Comments"],
         "parameters": [WORKSPACE_SLUG_PARAMETER, PROJECT_ID_PARAMETER],
         "responses": {
             401: UNAUTHORIZED_RESPONSE,
@@ -196,7 +196,7 @@ def issue_comment_docs(**kwargs):
 def issue_activity_docs(**kwargs):
     """Decorator for issue activity/search endpoints"""
     defaults = {
-        "tags": ["Work Item Activity"],
+        "tags": ["Task Activity"],
         "parameters": [WORKSPACE_SLUG_PARAMETER, PROJECT_ID_PARAMETER],
         "responses": {
             401: UNAUTHORIZED_RESPONSE,
@@ -211,7 +211,7 @@ def issue_activity_docs(**kwargs):
 def issue_attachment_docs(**kwargs):
     """Decorator for issue attachment endpoints"""
     defaults = {
-        "tags": ["Work Item Attachments"],
+        "tags": ["Task Attachments"],
         "parameters": [WORKSPACE_SLUG_PARAMETER, PROJECT_ID_PARAMETER],
         "responses": {
             401: UNAUTHORIZED_RESPONSE,
@@ -224,9 +224,9 @@ def issue_attachment_docs(**kwargs):
 
 
 def work_item_relation_docs(**kwargs):
-    """Decorator for work item relation endpoints"""
+    """Decorator for task relation endpoints"""
     defaults = {
-        "tags": ["Work Item Relations"],
+        "tags": ["Task Relations"],
         "parameters": [WORKSPACE_SLUG_PARAMETER, PROJECT_ID_PARAMETER],
         "responses": {
             401: UNAUTHORIZED_RESPONSE,

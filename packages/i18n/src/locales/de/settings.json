@@ -45,7 +45,7 @@
     },
     "notifications": {
       "heading": "E-Mail-Benachrichtigungen",
-      "description": "Bleiben Sie bei Arbeitselementen auf dem Laufenden, die Sie abonniert haben. Aktivieren Sie dies, um benachrichtigt zu werden.",
+      "description": "Bleiben Sie bei Aufgaben auf dem Laufenden, die Sie abonniert haben. Aktivieren Sie dies, um benachrichtigt zu werden.",
       "select_default_view": "Standardansicht auswählen",
       "compact": "Kompakt",
       "full": "Vollbild"
@@ -59,7 +59,7 @@
     },
     "activity": {
       "heading": "Aktivität",
-      "description": "Verfolgen Sie Ihre letzten Aktionen und Änderungen über alle Projekte und Arbeitselemente hinweg."
+      "description": "Verfolgen Sie Ihre letzten Aktionen und Änderungen über alle Projekte und Aufgaben hinweg."
     },
     "connections": {
       "title": "Verbindungen",
@@ -83,11 +83,11 @@
       "subscribed": "Abonnierte Elemente",
       "state_distribution": {
         "title": "Elemente nach Status",
-        "empty": "Erstellen Sie Arbeitselemente, um eine Statusanalyse zu sehen."
+        "empty": "Erstellen Sie Aufgaben, um eine Statusanalyse zu sehen."
       },
       "priority_distribution": {
         "title": "Elemente nach Priorität",
-        "empty": "Erstellen Sie Arbeitselemente, um eine Prioritätsanalyse zu sehen."
+        "empty": "Erstellen Sie Aufgaben, um eine Prioritätsanalyse zu sehen."
       },
       "recent_activity": {
         "title": "Letzte Aktivität",
@@ -115,19 +115,19 @@
     "empty_state": {
       "activity": {
         "title": "Keine Aktivität",
-        "description": "Erstellen Sie ein Arbeitselement, um zu beginnen."
+        "description": "Erstellen Sie eine Aufgabe, um zu beginnen."
       },
       "assigned": {
-        "title": "Keine zugewiesenen Arbeitselemente",
-        "description": "Hier werden Ihnen zugewiesene Arbeitselemente angezeigt."
+        "title": "Keine zugewiesenen Aufgaben",
+        "description": "Hier werden Ihnen zugewiesene Aufgaben angezeigt."
       },
       "created": {
-        "title": "Keine erstellten Arbeitselemente",
-        "description": "Hier werden von Ihnen erstellte Arbeitselemente angezeigt."
+        "title": "Keine erstellten Aufgaben",
+        "description": "Hier werden von Ihnen erstellte Aufgaben angezeigt."
       },
       "subscribed": {
-        "title": "Keine abonnierten Arbeitselemente",
-        "description": "Abonnieren Sie die Arbeitselemente, die Sie interessieren, und verfolgen Sie sie hier."
+        "title": "Keine abonnierten Aufgaben",
+        "description": "Abonnieren Sie die Aufgaben, die Sie interessieren, und verfolgen Sie sie hier."
       }
     }
   },

@@ -1,9 +1,9 @@
 {
   "workflows": {
     "workflow_states": {
-      "work_item_creation": "Zezwalaj na nowe elementy pracy",
-      "work_item_creation_disable_tooltip": "Tworzenie elementów pracy jest wyłączone dla tego stanu",
-      "default_state": "Stan domyślny pozwala wszystkim członkom tworzyć nowe elementy pracy. Nie można tego zmienić",
+      "work_item_creation": "Zezwalaj na nowe zadania",
+      "work_item_creation_disable_tooltip": "Tworzenie zadań jest wyłączone dla tego stanu",
+      "default_state": "Stan domyślny pozwala wszystkim członkom tworzyć nowe zadania. Nie można tego zmienić",
       "state_change_count": "{count, plural, one {1 dozwolona zmiana stanu} other {{count} dozwolone zmiany stanu}}",
       "movers_count": "{count, plural, one {1 wymieniony recenzent} other {{count} wymienionych recenzentów}}",
       "state_changes": {
@@ -14,19 +14,19 @@
         "move_to": "Zmień stan na",
         "movers": {
           "label": "Gdy zrecenzowane przez",
-          "tooltip": "Recenzenci to osoby, które mają pozwolenie na przenoszenie elementów pracy z jednego stanu do drugiego.",
+          "tooltip": "Recenzenci to osoby, które mają pozwolenie na przenoszenie zadań z jednego stanu do drugiego.",
           "add": "Dodaj recenzentów"
         }
       }
     },
     "workflow_disabled": {
-      "title": "Nie możesz przenieść tego elementu pracy tutaj."
+      "title": "Nie możesz przenieść tego zadania tutaj."
     },
     "workflow_enabled": {
       "label": "Zmiana stanu"
     },
     "workflow_tree": {
-      "label": "Dla elementów pracy w",
+      "label": "Dla zadań w",
       "state_change_label": "może przenieść to do"
     },
     "empty_state": {

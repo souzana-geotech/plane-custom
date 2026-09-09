@@ -11,14 +11,14 @@
     "your_work": "나의 작업",
     "projects": "프로젝트",
     "pages": "페이지",
-    "new_work_item": "새 작업 항목",
+    "new_work_item": "새 작업",
     "home": "내 업무",
     "inbox": "받은 편지함",
     "workspace": "작업 공간",
     "management": "관리",
     "views": "보기",
     "analytics": "분석",
-    "work_items": "작업 항목",
+    "work_items": "작업",
     "cycles": "주기",
     "modules": "모듈",
     "intake": "접수",
@@ -30,6 +30,7 @@
     "epics": "에픽스",
     "upgrade_plan": "업그레이드 플랜",
     "plane_pro": "플레인 프로",
-    "business": "비즈니스"
+    "business": "비즈니스",
+    "all_projects": "모든 프로젝트"
   }
 }

@@ -1,21 +1,21 @@
 {
   "work_item_types": {
-    "label": "工作项类型",
-    "label_lowercase": "工作项类型",
+    "label": "任务类型",
+    "label_lowercase": "任务类型",
     "settings": {
       "description": "自定义并添加您自己的属性以适应团队需求。",
-      "cant_delete_default_message": "无法删除此工作项类型，因为它已设置为该项目的默认类型。",
+      "cant_delete_default_message": "无法删除此任务类型，因为它已设置为该项目的默认类型。",
       "set_as_default": "设为默认",
       "cant_set_default_inactive_message": "请先激活此类型再将其设为默认",
       "set_default_confirmation": {
-        "title": "设为默认工作项类型",
-        "description": "将 {name} 设为默认后，它将被导入到此工作区的所有项目中。所有新工作项将默认使用此类型。",
+        "title": "设为默认任务类型",
+        "description": "将 {name} 设为默认后，它将被导入到此工作区的所有项目中。所有新任务将默认使用此类型。",
         "confirm_button": "设为默认"
       },
       "properties": {
         "title": "属性",
         "description": "创建和自定义属性。",
-        "tooltip": "每种工作项类型都带有一组默认属性，如标题、描述、负责人、状态、优先级、开始日期、截止日期、模块、周期等。您还可以自定义并添加自己的属性以满足团队需求。",
+        "tooltip": "每种任务类型都带有一组默认属性，如标题、描述、负责人、状态、优先级、开始日期、截止日期、模块、周期等。您还可以自定义并添加自己的属性以满足团队需求。",
         "add_button": "添加新属性",
         "project": {
           "add_button": {
@@ -195,7 +195,7 @@
           "validation_success_with_refs": "公式有效！返回 {resultType}（引用了 {count} 个字段）",
           "error": {
             "empty": "请输入公式",
-            "missing_context": "缺少工作空间、项目或工作项类型上下文",
+            "missing_context": "缺少工作空间、项目或任务类型上下文",
             "validation_failed": "验证失败"
           },
           "picker": {
@@ -228,12 +228,12 @@
         },
         "empty_state": {
           "title": "添加自定义属性",
-          "description": "您为此工作项类型添加的新属性将显示在此处。"
+          "description": "您为此任务类型添加的新属性将显示在此处。"
         }
       },
       "types": {
         "title": "类型",
-        "description": "使用属性创建和自定义工作项类型。",
+        "description": "使用属性创建和自定义任务类型。",
         "sort_options": {
           "project_count": "所属项目数量"
         },
@@ -247,8 +247,8 @@
             "import_from_workspace": "从工作区导入"
           },
           "banner": {
-            "with_access": "启用工作项类型以从工作区级别导入类型",
-            "without_access": "工作项类型已禁用。请联系工作区管理员在工作区设置中启用。"
+            "with_access": "启用任务类型以从工作区级别导入类型",
+            "without_access": "任务类型已禁用。请联系工作区管理员在工作区设置中启用。"
           }
         }
       },
@@ -264,7 +264,7 @@
         },
         "unlink_confirmation": {
           "title": "取消关联属性",
-          "description": "取消关联此属性将永久删除使用此类型的所有工作项中该属性的所有值。此操作无法撤销。",
+          "description": "取消关联此属性将永久删除使用此类型的所有任务中该属性的所有值。此操作无法撤销。",
           "input_label": "输入",
           "input_label_suffix": "以继续：",
           "confirm": "取消关联属性",
@@ -279,48 +279,48 @@
         "toast": {
           "success": {
             "title": "成功！",
-            "message": "工作项类型已成功删除。"
+            "message": "任务类型已成功删除。"
           },
           "error": {
             "title": "错误！",
-            "message": "删除工作项类型失败。请再试一次！"
+            "message": "删除任务类型失败。请再试一次！"
           }
         },
         "errors": {
-          "cannot_delete_default_work_item_type": "无法删除默认工作项类型",
-          "cannot_delete_work_item_type_with_associated_work_items": "无法删除有关联工作项的工作项类型"
+          "cannot_delete_default_work_item_type": "无法删除默认任务类型",
+          "cannot_delete_work_item_type_with_associated_work_items": "无法删除有关联任务的任务类型"
         }
       }
     },
     "create": {
-      "title": "创建工作项类型",
-      "button": "添加工作项类型",
+      "title": "创建任务类型",
+      "button": "添加任务类型",
       "toast": {
         "success": {
           "title": "成功！",
-          "message": "工作项类型创建成功。"
+          "message": "任务类型创建成功。"
         },
         "error": {
           "title": "错误！",
           "message": {
-            "default": "创建工作项类型失败。请重试！",
+            "default": "创建任务类型失败。请重试！",
             "conflict": "{name} 类型已存在。请选择其他名称。"
           }
         }
       }
     },
     "update": {
-      "title": "更新工作项类型",
-      "button": "更新工作项类型",
+      "title": "更新任务类型",
+      "button": "更新任务类型",
       "toast": {
         "success": {
           "title": "成功！",
-          "message": "工作项类型 {name} 更新成功。"
+          "message": "任务类型 {name} 更新成功。"
         },
         "error": {
           "title": "错误！",
           "message": {
-            "default": "更新工作项类型失败。请重试！",
+            "default": "更新任务类型失败。请重试！",
             "conflict": "{name} 类型已存在。请选择其他名称。"
           }
         }
@@ -329,30 +329,30 @@
     "create_update": {
       "form": {
         "name": {
-          "placeholder": "为此工作项类型取一个独特的名称"
+          "placeholder": "为此任务类型取一个独特的名称"
         },
         "description": {
-          "placeholder": "描述此工作项类型的用途和使用时机。"
+          "placeholder": "描述此任务类型的用途和使用时机。"
         }
       }
     },
     "enable_disable": {
       "toast": {
-        "loading": "{action} {name} 工作项类型",
+        "loading": "{action} {name} 任务类型",
         "success": {
           "title": "成功！",
-          "message": "工作项类型 {name} {action} 成功。"
+          "message": "任务类型 {name} {action} 成功。"
         },
         "error": {
           "title": "错误！",
-          "message": "{action} 工作项类型失败。请重试！"
+          "message": "{action} 任务类型失败。请重试！"
         }
       },
       "tooltip": "点击 {action}"
     },
     "change_confirmation": {
-      "title": "更改工作项类型？",
-      "description": "更改工作项类型可能会导致丢失特定于当前类型的自定义属性值。此操作无法撤销。",
+      "title": "更改任务类型？",
+      "description": "更改任务类型可能会导致丢失特定于当前类型的自定义属性值。此操作无法撤销。",
       "button": {
         "loading": "更改中",
         "default": "更改类型"
@@ -360,14 +360,14 @@
     },
     "empty_state": {
       "enable": {
-        "title": "启用工作项类型",
-        "description": "使用工作项类型塑造您的工作项。使用图标、背景和属性进行自定义，并为此项目配置它们。",
+        "title": "启用任务类型",
+        "description": "使用任务类型塑造您的任务。使用图标、背景和属性进行自定义，并为此项目配置它们。",
         "primary_button": {
           "text": "启用"
         },
         "confirmation": {
-          "title": "一旦启用，工作项类型将无法禁用。",
-          "description": "Plane的工作项将成为此项目的默认工作项类型，并将在此项目中显示其图标和背景。",
+          "title": "一旦启用，任务类型将无法禁用。",
+          "description": "Plane的任务将成为此项目的默认任务类型，并将在此项目中显示其图标和背景。",
           "button": {
             "default": "启用",
             "loading": "正在设置"
@@ -375,15 +375,15 @@
         }
       },
       "get_pro": {
-        "title": "获取 Pro 版以启用工作项类型。",
-        "description": "使用工作项类型塑造您的工作项。使用图标、背景和属性进行自定义，并为此项目配置它们。",
+        "title": "获取 Pro 版以启用任务类型。",
+        "description": "使用任务类型塑造您的任务。使用图标、背景和属性进行自定义，并为此项目配置它们。",
         "primary_button": {
           "text": "获取 Pro 版"
         }
       },
       "upgrade": {
-        "title": "升级以启用工作项类型。",
-        "description": "使用工作项类型塑造您的工作项。使用图标、背景和属性进行自定义，并为此项目配置它们。",
+        "title": "升级以启用任务类型。",
+        "description": "使用任务类型塑造您的任务。使用图标、背景和属性进行自定义，并为此项目配置它们。",
         "primary_button": {
           "text": "升级"
         }
@@ -398,17 +398,17 @@
       "sidebar_label": "层级",
       "enable_control": {
         "title": "启用层级",
-        "description": "在不同工作项类型之间建立父子关系。",
+        "description": "在不同任务类型之间建立父子关系。",
         "tooltip": "层级一旦启用便无法停用。"
       },
       "workspace_work_item_types_disabled_banner": {
-        "content": "请先定义工作项类型，再创建新的层级。",
-        "cta": "工作项类型设置"
+        "content": "请先定义任务类型，再创建新的层级。",
+        "cta": "任务类型设置"
       }
     },
     "levels": {
       "max_level_placeholder": "拖放类型以添加新的层级",
-      "empty_level_placeholder": "将工作项类型拖放到第 {level} 层",
+      "empty_level_placeholder": "将任务类型拖放到第 {level} 层",
       "drag_tooltip": "拖动以更改层级",
       "quick_actions": {
         "set_as_default": {
@@ -437,11 +437,11 @@
     "break_hierarchy_modal": {
       "title": "保存后将断开现有链接",
       "content": {
-        "intro": "工作项类型 {workItemTypeName} 包含：",
+        "intro": "任务类型 {workItemTypeName} 包含：",
         "parent_items": "{count, plural, other {将清除 # 个父级链接}}。",
-        "child_items": "{count, plural, other {个子工作项}}",
+        "child_items": "{count, plural, other {个子任务}}",
         "parent_line_suffix_when_also_children": "，以及 ",
-        "footer": "此变更将从 {workItemTypeName} 工作项类型的现有工作项中移除父子关系。"
+        "footer": "此变更将从 {workItemTypeName} 任务类型的现有任务中移除父子关系。"
       },
       "confirm_input": {
         "label": "请输入「确认」以继续。",
@@ -459,18 +459,18 @@
     "work_item_modal": {
       "invalid_work_item_type_create_toast": {
         "title": "错误！",
-        "message": "所选工作项类型违反层级规则，无法用于创建新的工作项。"
+        "message": "所选任务类型违反层级规则，无法用于创建新的任务。"
       },
       "invalid_work_item_type_update_toast": {
         "title": "错误！",
-        "message": "工作项类型因违反层级规则而无法更新。"
+        "message": "任务类型因违反层级规则而无法更新。"
       }
     },
     "work_item_type_modal": {
       "level": "层级",
       "invalid_level_toast": {
         "title": "错误！",
-        "message": "工作项类型无法更新，因为它违反了层级规则。"
+        "message": "任务类型无法更新，因为它违反了层级规则。"
       }
     }
   }

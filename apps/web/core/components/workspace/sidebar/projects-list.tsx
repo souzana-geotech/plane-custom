@@ -8,8 +8,14 @@ import { useState, useRef, useEffect } from "react";
 import { combine } from "@atlaskit/pragmatic-drag-and-drop/combine";
 import { autoScrollForElements } from "@atlaskit/pragmatic-drag-and-drop-auto-scroll/element";
 import { observer } from "mobx-react";
+import Link from "next/link";
 import { useParams, usePathname } from "next/navigation";
-import { AddOutline, ChevronRightOutline, MoreHorizontalOutline } from "@makeplane/propel/icons";
+import {
+  AddOutline,
+  ArrowNarrowRightOutline,
+  ChevronRightOutline,
+  MoreHorizontalOutline,
+} from "@makeplane/propel/icons";
 import { Disclosure, Transition } from "@headlessui/react";
 // plane imports
 import { EUserPermissions, EUserPermissionsLevel } from "@plane/constants";
@@ -184,6 +190,15 @@ export const SidebarProjectsList = observer(function SidebarProjectsList() {
               >
                 <span className="text-13 font-semibold">{t("projects")}</span>
               </Disclosure.Button>
+              <Tooltip label={t("sidebar.all_projects")}>
+                <Link
+                  href={`/${workspaceSlug}/projects/`}
+                  aria-label={t("sidebar.all_projects")}
+                  className="hidden flex-shrink-0 rounded-sm p-0.5 text-placeholder group-hover:inline-flex hover:bg-layer-1"
+                >
+                  <ArrowNarrowRightOutline className="size-3.5" />
+                </Link>
+              </Tooltip>
               <div className="flex items-center gap-1">
                 {isAuthorizedUser && (
                   <Tooltip label={t("create_project")}>

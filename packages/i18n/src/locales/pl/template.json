@@ -2,16 +2,16 @@
   "templates": {
     "settings": {
       "title": "Szablony",
-      "description": "Zaoszczędź 80% czasu spędzonego na tworzeniu projektów, elementów pracy i stron, korzystając z szablonów.",
+      "description": "Zaoszczędź 80% czasu spędzonego na tworzeniu projektów, zadań i stron, korzystając z szablonów.",
       "new_project_template": "Nowy szablon projektu",
-      "new_work_item_template": "Nowy szablon elementu pracy",
+      "new_work_item_template": "Nowy szablon zadania",
       "new_page_template": "Nowy szablon strony",
       "options": {
         "project": {
           "label": "Szablony projektów"
         },
         "work_item": {
-          "label": "Szablony elementów pracy"
+          "label": "Szablony zadań"
         },
         "page": {
           "label": "Szablony stron"
@@ -70,7 +70,7 @@
         "work_item": {
           "template": {
             "name": {
-              "placeholder": "Nazwij swój szablon elementu pracy.",
+              "placeholder": "Nazwij swój szablon zadania.",
               "validation": {
                 "required": "Nazwa szablonu jest wymagana",
                 "maxLength": "Nazwa szablonu powinna mieć mniej niż 255 znaków"
@@ -81,18 +81,18 @@
             }
           },
           "name": {
-            "placeholder": "Nadaj tytuł temu elementowi pracy.",
+            "placeholder": "Nadaj tytuł temu zadaniu.",
             "validation": {
-              "required": "Tytuł elementu pracy jest wymagany",
-              "maxLength": "Tytuł elementu pracy powinien mieć mniej niż 255 znaków"
+              "required": "Tytuł zadania jest wymagany",
+              "maxLength": "Tytuł zadania powinien mieć mniej niż 255 znaków"
             }
           },
           "description": {
-            "placeholder": "Opisz ten element pracy, aby było jasne, co osiągniesz po jego ukończeniu."
+            "placeholder": "Opisz to zadanie, aby było jasne, co osiągniesz po jego ukończeniu."
           },
           "button": {
-            "create": "Utwórz szablon elementu pracy",
-            "update": "Aktualizuj szablon elementu pracy"
+            "create": "Utwórz szablon zadania",
+            "update": "Aktualizuj szablon zadania"
           }
         },
         "page": {
@@ -227,23 +227,23 @@
     "empty_state": {
       "upgrade": {
         "title": "Szablony",
-        "description": "Dzięki szablonom projektów, elementów pracy i stron w Plane nie musisz tworzyć projektu od podstaw ani ręcznie ustawiać właściwości elementów pracy.",
+        "description": "Dzięki szablonom projektów, zadań i stron w Plane nie musisz tworzyć projektu od podstaw ani ręcznie ustawiać właściwości zadań.",
         "sub_description": "Odzyskaj 80% czasu administracyjnego, korzystając z Szablonów."
       },
       "no_templates": {
         "button": "Utwórz swój pierwszy szablon"
       },
       "no_labels": {
-        "description": " Brak etykiet. Utwórz etykiety, aby pomóc zorganizować i filtrować elementy pracy w Twoim projekcie."
+        "description": " Brak etykiet. Utwórz etykiety, aby pomóc zorganizować i filtrować zadania w Twoim projekcie."
       },
       "no_modules": {
         "description": "Brak modułów. Organizuj pracę w podprojekty z dedykowanymi liderami i przypisanymi osobami."
       },
       "no_work_items": {
-        "description": "Brak elementów pracy. Dodaj jeden, aby lepiej zorganizować swoją pracę."
+        "description": "Brak zadań. Dodaj jeden, aby lepiej zorganizować swoją pracę."
       },
       "no_sub_work_items": {
-        "description": "Brak pod-elementów pracy. Dodaj jeden, aby lepiej zorganizować swoją pracę."
+        "description": "Brak pod-zadań. Dodaj jeden, aby lepiej zorganizować swoją pracę."
       },
       "page": {
         "no_templates": {
@@ -322,7 +322,7 @@
         "page": "Wybierz szablon"
       },
       "tooltip": {
-        "work_item": "Wybierz szablon elementu pracy"
+        "work_item": "Wybierz szablon zadania"
       },
       "no_results": {
         "work_item": "Nie znaleziono szablonów.",

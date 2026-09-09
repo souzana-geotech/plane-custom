@@ -24,30 +24,30 @@
     },
     "modals": {
       "decline": {
-        "title": "İş öğesini reddet",
-        "content": "{value} iş öğesini reddetmek istediğinizden emin misiniz?"
+        "title": "Görevi reddet",
+        "content": "{value} görevi reddetmek istediğinizden emin misiniz?"
       },
       "delete": {
-        "title": "İş öğesini sil",
-        "content": "{value} iş öğesini silmek istediğinizden emin misiniz?",
-        "success": "İş öğesi başarıyla silindi"
+        "title": "Görevi sil",
+        "content": "{value} görevi silmek istediğinizden emin misiniz?",
+        "success": "Görev başarıyla silindi"
       }
     },
     "errors": {
-      "snooze_permission": "Yalnızca proje yöneticileri iş öğelerini erteleyebilir/ertelemeyi kaldırabilir",
-      "accept_permission": "Yalnızca proje yöneticileri iş öğelerini kabul edebilir",
-      "decline_permission": "Yalnızca proje yöneticileri iş öğelerini reddedebilir"
+      "snooze_permission": "Yalnızca proje yöneticileri görevleri erteleyebilir/ertelemeyi kaldırabilir",
+      "accept_permission": "Yalnızca proje yöneticileri görevleri kabul edebilir",
+      "decline_permission": "Yalnızca proje yöneticileri görevleri reddedebilir"
     },
     "actions": {
       "accept": "Kabul Et",
       "decline": "Reddet",
       "snooze": "Ertele",
       "unsnooze": "Ertelemeyi Kaldır",
-      "copy": "İş öğesi bağlantısını kopyala",
+      "copy": "Görev bağlantısını kopyala",
       "delete": "Sil",
-      "open": "İş öğesini aç",
+      "open": "Görevi aç",
       "mark_as_duplicate": "Kopya olarak işaretle",
-      "move": "{value} proje iş öğelerine taşı"
+      "move": "{value} proje görevlere taşı"
     },
     "source": {
       "in-app": "uygulama içi"
@@ -60,7 +60,7 @@
     "label": "Talep",
     "page_label": "{workspace} - Talep",
     "modal": {
-      "title": "Talep iş öğesi oluştur"
+      "title": "Talep görev oluştur"
     },
     "tabs": {
       "open": "Açık",
@@ -68,19 +68,19 @@
     },
     "empty_state": {
       "sidebar_open_tab": {
-        "title": "Açık iş öğesi yok",
-        "description": "Açık iş öğelerini burada bulabilirsiniz. Yeni iş öğesi oluşturun."
+        "title": "Açık görev yok",
+        "description": "Açık görevleri burada bulabilirsiniz. Yeni görev oluşturun."
       },
       "sidebar_closed_tab": {
-        "title": "Kapalı iş öğesi yok",
-        "description": "Kabul edilen veya reddedilen tüm iş öğeleri burada bulunabilir."
+        "title": "Kapalı görev yok",
+        "description": "Kabul edilen veya reddedilen tüm görevler burada bulunabilir."
       },
       "sidebar_filter": {
-        "title": "Eşleşen iş öğesi yok",
-        "description": "Talep bölümünde uygulanan filtreyle eşleşen iş öğesi yok. Yeni bir iş öğesi oluşturun."
+        "title": "Eşleşen görev yok",
+        "description": "Talep bölümünde uygulanan filtreyle eşleşen görev yok. Yeni bir görev oluşturun."
       },
       "detail": {
-        "title": "Detaylarını görüntülemek için bir iş öğesi seçin."
+        "title": "Detaylarını görüntülemek için bir görev seçin."
       }
     }
   }

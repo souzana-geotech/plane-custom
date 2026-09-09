@@ -17,12 +17,12 @@ from plane.db.models import IssueDependencySchedule
 
 class IssueDependencyScheduleEndpoint(BaseAPIView):
     """
-    Read-only projection of the dependency-aware schedule for one work item.
+    Read-only projection of the dependency-aware schedule for one task.
 
-    Returns whether the work item is *dependency delayed* — pushed forward by a
+    Returns whether the task is *dependency delayed* — pushed forward by a
     delayed ``blocked_by`` dependency — together with the adjusted dates and the
-    upstream work item causing the delay. The projection is maintained by
-    ``plane.bgtasks.dependency_schedule_task``; the work item's own dates are
+    upstream task causing the delay. The projection is maintained by
+    ``plane.bgtasks.dependency_schedule_task``; the task's own dates are
     never modified.
     """
 
@@ -65,9 +65,9 @@ class WorkspaceDependencyScheduleEndpoint(BaseAPIView):
     in a workspace. Powers cross-project surfaces such as the employee resource
     gantt, which would otherwise have to call the per-issue endpoint once per bar.
 
-    Visibility mirrors the workspace work item list: full members see every
+    Visibility mirrors the workspace task list: full members see every
     project they belong to; guests see projects with ``guest_view_all_features``
-    or only work items they created.
+    or only tasks they created.
     """
 
     permission_classes = [WorkspaceEntityPermission]

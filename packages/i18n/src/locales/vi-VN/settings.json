@@ -45,7 +45,7 @@
     },
     "notifications": {
       "heading": "Thông báo qua email",
-      "description": "Cập nhật những mục công việc bạn đã đăng ký. Bật tính năng này để nhận thông báo.",
+      "description": "Cập nhật những nhiệm vụ bạn đã đăng ký. Bật tính năng này để nhận thông báo.",
       "select_default_view": "Chọn chế độ xem mặc định",
       "compact": "Gọn",
       "full": "Toàn màn hình"
@@ -59,7 +59,7 @@
     },
     "activity": {
       "heading": "Hoạt động",
-      "description": "Theo dõi các hành động và thay đổi gần đây của bạn trong tất cả dự án và mục công việc."
+      "description": "Theo dõi các hành động và thay đổi gần đây của bạn trong tất cả dự án và nhiệm vụ."
     },
     "connections": {
       "title": "Kết nối",
@@ -78,16 +78,16 @@
     "stats": {
       "workload": "Khối lượng công việc",
       "overview": "Tổng quan",
-      "created": "Mục công việc đã tạo",
-      "assigned": "Mục công việc đã giao",
-      "subscribed": "Mục công việc đã đăng ký",
+      "created": "Nhiệm vụ đã tạo",
+      "assigned": "Nhiệm vụ đã giao",
+      "subscribed": "Nhiệm vụ đã đăng ký",
       "state_distribution": {
-        "title": "Mục công việc theo trạng thái",
-        "empty": "Tạo mục công việc để xem phân loại theo trạng thái trong biểu đồ để phân tích tốt hơn."
+        "title": "Nhiệm vụ theo trạng thái",
+        "empty": "Tạo nhiệm vụ để xem phân loại theo trạng thái trong biểu đồ để phân tích tốt hơn."
       },
       "priority_distribution": {
-        "title": "Mục công việc theo mức độ ưu tiên",
-        "empty": "Tạo mục công việc để xem phân loại theo mức độ ưu tiên trong biểu đồ để phân tích tốt hơn."
+        "title": "Nhiệm vụ theo mức độ ưu tiên",
+        "empty": "Tạo nhiệm vụ để xem phân loại theo mức độ ưu tiên trong biểu đồ để phân tích tốt hơn."
       },
       "recent_activity": {
         "title": "Hoạt động gần đây",
@@ -115,19 +115,19 @@
     "empty_state": {
       "activity": {
         "title": "Chưa có hoạt động",
-        "description": "Bắt đầu bằng cách tạo mục công việc mới! Thêm chi tiết và thuộc tính cho nó. Khám phá thêm trong Plane để xem hoạt động của bạn."
+        "description": "Bắt đầu bằng cách tạo nhiệm vụ mới! Thêm chi tiết và thuộc tính cho nó. Khám phá thêm trong Plane để xem hoạt động của bạn."
       },
       "assigned": {
-        "title": "Không có mục công việc nào được giao cho bạn",
-        "description": "Có thể theo dõi mục công việc được giao cho bạn từ đây."
+        "title": "Không có nhiệm vụ nào được giao cho bạn",
+        "description": "Có thể theo dõi nhiệm vụ được giao cho bạn từ đây."
       },
       "created": {
-        "title": "Chưa có mục công việc",
-        "description": "Tất cả mục công việc bạn tạo sẽ xuất hiện ở đây, theo dõi chúng trực tiếp tại đây."
+        "title": "Chưa có nhiệm vụ",
+        "description": "Tất cả nhiệm vụ bạn tạo sẽ xuất hiện ở đây, theo dõi chúng trực tiếp tại đây."
       },
       "subscribed": {
-        "title": "Chưa có mục công việc",
-        "description": "Đăng ký mục công việc bạn quan tâm, theo dõi tất cả chúng tại đây."
+        "title": "Chưa có nhiệm vụ",
+        "description": "Đăng ký nhiệm vụ bạn quan tâm, theo dõi tất cả chúng tại đây."
       }
     }
   },

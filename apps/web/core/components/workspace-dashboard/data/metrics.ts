@@ -8,11 +8,11 @@
  * Pure, deterministic metric calculations for the Geotech3D operations dashboard.
  *
  * Business mapping (see README.md in the parent folder):
- *   Module   = client job          Work item = actual work
+ *   Module   = client job          Task = actual work
  *   Label    = department          Assignee  = employee
  *
  * Every number shown on the dashboard is derived here from real workspace data
- * (modules, work items, states). Nothing is estimated or fabricated; where the data
+ * (modules, tasks, states). Nothing is estimated or fabricated; where the data
  * model cannot support a metric the metric is omitted rather than approximated.
  */
 
@@ -30,7 +30,7 @@ import type {
   TWorkspaceDashboardMetrics,
 } from "./types";
 
-/** A work item is "open" while its state belongs to one of these groups. */
+/** A task is "open" while its state belongs to one of these groups. */
 export const OPEN_STATE_GROUPS: TStateGroups[] = ["backlog", "unstarted", "started"];
 
 /** "Due soon" / "due this week" = due date within today .. today + this many days. */
@@ -38,7 +38,7 @@ export const DUE_SOON_WINDOW_DAYS = 7;
 
 /**
  * A job is "at risk" when the share of its timeline that has elapsed exceeds the share of
- * its work items that are completed by more than this many percentage points.
+ * its tasks that are completed by more than this many percentage points.
  */
 export const SCHEDULE_GAP_THRESHOLD = 20;
 
@@ -71,8 +71,8 @@ export const isActiveModule = (module: IModule): boolean =>
 
 /**
  * Adds the derived flags every widget relies on.
- * A work item is blocked when it has a `blocked_by` relation to a work item that is still open.
- * If the blocking work item's state cannot be resolved it is conservatively treated as open.
+ * A task is blocked when it has a `blocked_by` relation to a task that is still open.
+ * If the blocking task's state cannot be resolved it is conservatively treated as open.
  */
 export const enrichWorkItems = (
   workItems: TWorkspaceDashboardWorkItem[],
@@ -129,8 +129,8 @@ export const applyModuleFilters = (modules: IModule[], filters: TWorkspaceDashbo
 /**
  * Job health, evaluated in this order (first match wins):
  *   delayed  - the module's due date has passed and the module is not marked completed
- *   blocked  - at least one open work item in the job is blocked
- *   at_risk  - at least one open work item is overdue, or the elapsed share of the
+ *   blocked  - at least one open task in the job is blocked
+ *   at_risk  - at least one open task is overdue, or the elapsed share of the
  *              module timeline is more than SCHEDULE_GAP_THRESHOLD points ahead of completion
  *   on_track - everything else (including jobs without dates, which cannot be late)
  */

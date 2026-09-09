@@ -1,12 +1,12 @@
 {
   "power_k": {
     "actions_commands": {
-      "bulk_delete_work_items": "Arbeitselemente massenweise löschen"
+      "bulk_delete_work_items": "Aufgaben massenweise löschen"
     },
     "contextual_actions": {
       "work_item": {
-        "title": "Arbeitselement-Aktionen",
-        "indicator": "Arbeitselement",
+        "title": "Aufgabenaktionen",
+        "indicator": "Aufgabe",
         "change_state": "Status ändern",
         "change_priority": "Priorität ändern",
         "change_assignees": "Zuweisen an",
@@ -20,14 +20,14 @@
         "unsubscribe": "Benachrichtigungen abbestellen",
         "delete": "Löschen",
         "copy_id": "ID kopieren",
-        "copy_id_toast_success": "Arbeitselement-ID in die Zwischenablage kopiert.",
-        "copy_id_toast_error": "Fehler beim Kopieren der Arbeitselement-ID in die Zwischenablage.",
+        "copy_id_toast_success": "Aufgaben-ID in die Zwischenablage kopiert.",
+        "copy_id_toast_error": "Fehler beim Kopieren der Aufgaben-ID in die Zwischenablage.",
         "copy_title": "Titel kopieren",
-        "copy_title_toast_success": "Arbeitselement-Titel in die Zwischenablage kopiert.",
-        "copy_title_toast_error": "Fehler beim Kopieren des Arbeitselement-Titels in die Zwischenablage.",
+        "copy_title_toast_success": "Aufgabentitel in die Zwischenablage kopiert.",
+        "copy_title_toast_error": "Fehler beim Kopieren des Aufgabentitels in die Zwischenablage.",
         "copy_url": "URL kopieren",
-        "copy_url_toast_success": "Arbeitselement-URL in die Zwischenablage kopiert.",
-        "copy_url_toast_error": "Fehler beim Kopieren der Arbeitselement-URL in die Zwischenablage."
+        "copy_url_toast_success": "Aufgaben-URL in die Zwischenablage kopiert.",
+        "copy_url_toast_error": "Fehler beim Kopieren der Aufgaben-URL in die Zwischenablage."
       },
       "cycle": {
         "title": "Zyklus-Aktionen",
@@ -66,7 +66,7 @@
       }
     },
     "creation_actions": {
-      "create_work_item": "Neues Arbeitselement",
+      "create_work_item": "Neue Aufgabe",
       "create_page": "Neue Seite",
       "create_view": "Neue Ansicht",
       "create_cycle": "Neuer Zyklus",
@@ -83,16 +83,16 @@
       "nav_account_settings": "Zu Kontoeinstellungen",
       "open_project": "Projekt öffnen",
       "nav_projects_list": "Zur Projektliste",
-      "nav_all_workspace_work_items": "Zu allen Arbeitselementen",
-      "nav_assigned_workspace_work_items": "Zu zugewiesenen Arbeitselementen",
-      "nav_created_workspace_work_items": "Zu erstellten Arbeitselementen",
-      "nav_subscribed_workspace_work_items": "Zu abonnierten Arbeitselementen",
+      "nav_all_workspace_work_items": "Zu allen Aufgaben",
+      "nav_assigned_workspace_work_items": "Zu zugewiesenen Aufgaben",
+      "nav_created_workspace_work_items": "Zu erstellten Aufgaben",
+      "nav_subscribed_workspace_work_items": "Zu abonnierten Aufgaben",
       "nav_workspace_analytics": "Zu Arbeitsbereich-Analysen",
       "nav_workspace_drafts": "Zu Arbeitsbereich-Entwürfen",
       "nav_workspace_archives": "Zu Arbeitsbereich-Archiven",
       "open_workspace_setting": "Arbeitsbereichseinstellung öffnen",
       "nav_workspace_settings": "Zu Arbeitsbereichseinstellungen",
-      "nav_project_work_items": "Zu Arbeitselementen",
+      "nav_project_work_items": "Zu Aufgaben",
       "open_project_cycle": "Zyklus öffnen",
       "nav_project_cycles": "Zu Zyklen",
       "open_project_module": "Modul öffnen",

@@ -15,7 +15,7 @@ export type TExternalFilter = Record<string, unknown> | undefined | null;
 /**
  * Adapter for converting between internal filter trees and external formats.
  * @template P - Filter property type (e.g., 'state_id', 'priority', 'assignee')
- * @template E - External filter format type (e.g., work item filters, automation filters)
+ * @template E - External filter format type (e.g., task filters, automation filters)
  */
 export interface IFilterAdapter<P extends TFilterProperty, E extends TExternalFilter> {
   /**

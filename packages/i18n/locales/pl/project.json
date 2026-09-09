@@ -19,9 +19,9 @@
     "start_date": "Data początku",
     "end_date": "Data końca",
     "in_your_timezone": "W Twojej strefie czasowej",
-    "transfer_work_items": "Przenieś {count} elementów pracy",
+    "transfer_work_items": "Przenieś {count} zadań",
     "transfer": {
-      "no_cycles_available": "Brak innych cykli dostępnych do przeniesienia elementów pracy."
+      "no_cycles_available": "Brak innych cykli dostępnych do przeniesienia zadań."
     },
     "date_range": "Zakres dat",
     "add_date": "Dodaj datę",
@@ -31,7 +31,7 @@
       "chart": "Wykres burndown",
       "priority_issue": "Elementy o wysokim priorytecie",
       "assignees": "Przypisani",
-      "issue_burndown": "Burndown elementów pracy",
+      "issue_burndown": "Burndown zadań",
       "ideal": "Idealny",
       "current": "Obecny",
       "labels": "Etykiety",
@@ -144,7 +144,7 @@
         "primary_button": {
           "text": "Utwórz pierwszy widok",
           "comic": {
-            "title": "Widoki działają z właściwościami elementów pracy.",
+            "title": "Widoki działają z właściwościami zadań.",
             "description": "Utwórz widok z żądanymi filtrami."
           }
         },
@@ -154,14 +154,14 @@
         }
       },
       "no_archived_issues": {
-        "title": "Brak zarchiwizowanych elementów pracy",
-        "description": "Ręcznie lub przez automatyzację możesz archiwizować elementy pracy, które są ukończone lub anulowane. Znajdziesz je tutaj po zarchiwizowaniu.",
+        "title": "Brak zarchiwizowanych zadań",
+        "description": "Ręcznie lub przez automatyzację możesz archiwizować zadania, które są ukończone lub anulowane. Znajdziesz je tutaj po zarchiwizowaniu.",
         "primary_button": {
           "text": "Ustaw automatyzację"
         }
       },
       "issues_empty_filter": {
-        "title": "Nie znaleziono elementów pracy pasujących do zastosowanych filtrów",
+        "title": "Nie znaleziono zadań pasujących do zastosowanych filtrów",
         "secondary_button": {
           "text": "Wyczyść wszystkie filtry"
         }
@@ -190,7 +190,7 @@
   "project_issues": {
     "empty_state": {
       "no_issues": {
-        "title": "Utwórz i przypisz element pracy",
+        "title": "Utwórz i przypisz zadanie",
         "description": "Elementy to zadania, które przypisujesz sobie lub zespołowi. Śledź ich postęp.",
         "primary_button": {
           "text": "Utwórz pierwszy element",

@@ -4,12 +4,12 @@
     "label_lowercase": "arbeitsaufgabentypen",
     "settings": {
       "description": "Passen Sie eigene Eigenschaften an und fügen Sie sie hinzu, um sie an die Bedürfnisse Ihres Teams anzupassen.",
-      "cant_delete_default_message": "Dieser Arbeitselementtyp kann nicht gelöscht werden, da er als Standard für dieses Projekt festgelegt ist.",
+      "cant_delete_default_message": "Dieser Aufgabentyp kann nicht gelöscht werden, da er als Standard für dieses Projekt festgelegt ist.",
       "set_as_default": "Als Standard festlegen",
       "cant_set_default_inactive_message": "Aktivieren Sie diesen Typ, bevor Sie ihn als Standard festlegen",
       "set_default_confirmation": {
-        "title": "Als Standard-Arbeitselementtyp festlegen",
-        "description": "Wenn Sie {name} als Standard festlegen, wird er in alle Projekte in diesem Arbeitsbereich importiert. Alle neuen Arbeitselemente verwenden dann standardmäßig diesen Typ.",
+        "title": "Als Standard-Aufgabentyp festlegen",
+        "description": "Wenn Sie {name} als Standard festlegen, wird er in alle Projekte in diesem Arbeitsbereich importiert. Alle neuen Aufgaben verwenden dann standardmäßig diesen Typ.",
         "confirm_button": "Als Standard festlegen"
       },
       "properties": {
@@ -233,7 +233,7 @@
       },
       "types": {
         "title": "Typen",
-        "description": "Erstellen und passen Sie Arbeitselementtypen mit Eigenschaften an.",
+        "description": "Erstellen und passen Sie Aufgabentypen mit Eigenschaften an.",
         "sort_options": {
           "project_count": "Anzahl der zugehörigen Projekte"
         },
@@ -264,7 +264,7 @@
         },
         "unlink_confirmation": {
           "title": "Eigenschaft trennen",
-          "description": "Das Trennen dieser Eigenschaft löscht dauerhaft alle ihre Werte in jedem Arbeitselement dieses Typs. Diese Aktion kann nicht rückgängig gemacht werden.",
+          "description": "Das Trennen dieser Eigenschaft löscht dauerhaft alle ihre Werte in jeder Aufgabe dieses Typs. Diese Aktion kann nicht rückgängig gemacht werden.",
           "input_label": "Geben Sie",
           "input_label_suffix": "zum Fortfahren ein:",
           "confirm": "Eigenschaft trennen",
@@ -279,16 +279,16 @@
         "toast": {
           "success": {
             "title": "Erfolg!",
-            "message": "Arbeitselementtyp wurde erfolgreich gelöscht."
+            "message": "Aufgabentyp wurde erfolgreich gelöscht."
           },
           "error": {
             "title": "Fehler!",
-            "message": "Löschen des Arbeitselementtyps fehlgeschlagen. Bitte versuchen Sie es erneut!"
+            "message": "Löschen des Aufgabentyps fehlgeschlagen. Bitte versuchen Sie es erneut!"
           }
         },
         "errors": {
-          "cannot_delete_default_work_item_type": "Der Standard-Arbeitselementtyp kann nicht gelöscht werden",
-          "cannot_delete_work_item_type_with_associated_work_items": "Arbeitselementtyp mit zugeordneten Arbeitselementen kann nicht gelöscht werden"
+          "cannot_delete_default_work_item_type": "Der Standard-Aufgabentyp kann nicht gelöscht werden",
+          "cannot_delete_work_item_type_with_associated_work_items": "Aufgabentyp mit zugeordneten Aufgaben kann nicht gelöscht werden"
         }
       }
     },
@@ -303,7 +303,7 @@
         "error": {
           "title": "Fehler!",
           "message": {
-            "default": "Arbeitselementtyp konnte nicht erstellt werden. Bitte versuchen Sie es erneut!",
+            "default": "Aufgabentyp konnte nicht erstellt werden. Bitte versuchen Sie es erneut!",
             "conflict": "Der Typ {name} existiert bereits. Bitte wählen Sie einen anderen Namen."
           }
         }
@@ -320,7 +320,7 @@
         "error": {
           "title": "Fehler!",
           "message": {
-            "default": "Arbeitselementtyp konnte nicht aktualisiert werden. Bitte versuchen Sie es erneut!",
+            "default": "Aufgabentyp konnte nicht aktualisiert werden. Bitte versuchen Sie es erneut!",
             "conflict": "Der Typ {name} existiert bereits. Bitte wählen Sie einen anderen Namen."
           }
         }
@@ -398,17 +398,17 @@
       "sidebar_label": "Hierarchie",
       "enable_control": {
         "title": "Hierarchie aktivieren",
-        "description": "Erstellen Sie Eltern-Kind-Beziehungen zwischen verschiedenen Arbeitselement-Typen.",
+        "description": "Erstellen Sie Eltern-Kind-Beziehungen zwischen verschiedenen Aufgabentypen.",
         "tooltip": "Sie können die Hierarchie nach der Aktivierung nicht mehr deaktivieren."
       },
       "workspace_work_item_types_disabled_banner": {
-        "content": "Definieren Sie zuerst Arbeitselement-Typen, um eine neue Hierarchie zu erstellen.",
-        "cta": "Einstellungen für Arbeitselement-Typen"
+        "content": "Definieren Sie zuerst Aufgabentypen, um eine neue Hierarchie zu erstellen.",
+        "cta": "Einstellungen für Aufgabentypen"
       }
     },
     "levels": {
       "max_level_placeholder": "Ziehen Sie einen Typ hierher, um eine neue Hierarchieebene hinzuzufügen",
-      "empty_level_placeholder": "Ziehen Sie einen Arbeitselement-Typ auf Ebene {level}",
+      "empty_level_placeholder": "Ziehen Sie einen Aufgabentyp auf Ebene {level}",
       "drag_tooltip": "Ziehen zum Ändern der Ebene",
       "quick_actions": {
         "set_as_default": {
@@ -437,11 +437,11 @@
     "break_hierarchy_modal": {
       "title": "Speichern trennt bestehende Verknüpfungen",
       "content": {
-        "intro": "Der Arbeitselement-Typ „{workItemTypeName}“ umfasst:",
+        "intro": "Der Aufgabentyp „{workItemTypeName}“ umfasst:",
         "parent_items": "{count, plural, one {# übergeordnete Verknüpfung wird} other {# übergeordnete Verknüpfungen werden}} entfernt.",
-        "child_items": "{count, plural, one {Unterarbeitselement} other {Unterarbeitselemente}}",
+        "child_items": "{count, plural, one {Unteraufgabe} other {Unteraufgaben}}",
         "parent_line_suffix_when_also_children": ", und ",
-        "footer": "Diese Änderung entfernt übergeordnete und untergeordnete Beziehungen bei vorhandenen Arbeitselementen des Typs {workItemTypeName}."
+        "footer": "Diese Änderung entfernt übergeordnete und untergeordnete Beziehungen bei vorhandenen Aufgaben des Typs {workItemTypeName}."
       },
       "confirm_input": {
         "label": "Geben Sie „bestätigen“ ein, um fortzufahren.",
@@ -459,18 +459,18 @@
     "work_item_modal": {
       "invalid_work_item_type_create_toast": {
         "title": "Fehler!",
-        "message": "Der ausgewählte Arbeitselement-Typ kann nicht zum Erstellen eines neuen Arbeitselements verwendet werden, da dies die Hierarchieregeln verletzt."
+        "message": "Der ausgewählte Aufgabentyp kann nicht zum Erstellen eines neuen Aufgabe verwendet werden, da dies die Hierarchieregeln verletzt."
       },
       "invalid_work_item_type_update_toast": {
         "title": "Fehler!",
-        "message": "Der Arbeitselement-Typ kann nicht aktualisiert werden, da dies die Hierarchieregeln verletzt."
+        "message": "Der Aufgabentyp kann nicht aktualisiert werden, da dies die Hierarchieregeln verletzt."
       }
     },
     "work_item_type_modal": {
       "level": "Hierarchieebene",
       "invalid_level_toast": {
         "title": "Fehler!",
-        "message": "Der Arbeitselement-Typ kann nicht aktualisiert werden, da dies die Hierarchieregeln verletzt."
+        "message": "Der Aufgabentyp kann nicht aktualisiert werden, da dies die Hierarchieregeln verletzt."
       }
     }
   }

@@ -38,7 +38,7 @@
     "select_issue_sync_direction": "Richtung der Issue-Synchronisierung auswählen",
     "allow_bidirectional_sync": "Bidirektional – Synchronisieren Sie Issues und Kommentare in beide Richtungen zwischen GitHub und Plane",
     "allow_unidirectional_sync": "Unidirektional – Synchronisieren Sie Issues und Kommentare nur von GitHub zu Plane",
-    "allow_unidirectional_sync_warning": "Daten aus GitHub Issue ersetzen Daten im verknüpften Plane-Arbeitselement (GitHub → Plane nur)",
+    "allow_unidirectional_sync_warning": "Daten aus GitHub Issue ersetzen Daten im verknüpften Plane-Aufgabe (GitHub → Plane nur)",
     "remove_project_issue_sync": "Diese Projekt-Issue-Synchronisierung entfernen",
     "remove_project_issue_sync_confirmation": "Sind Sie sicher, dass Sie diese Projekt-Issue-Synchronisierung entfernen möchten?",
     "add_pr_state_mapping": "Pull-Request-Status-Mapping für Plane-Projekt hinzufügen",
@@ -96,7 +96,7 @@
     "select_issue_sync_direction": "Issue-Synchronisierungsrichtung auswählen",
     "allow_bidirectional_sync": "Bidirektional - Issues und Kommentare in beide Richtungen zwischen Gitlab und Plane synchronisieren",
     "allow_unidirectional_sync": "Unidirektional - Issues und Kommentare nur von Gitlab zu Plane synchronisieren",
-    "allow_unidirectional_sync_warning": "Daten vom Gitlab Issue ersetzen Daten im verknüpften Plane-Arbeitselement (nur Gitlab → Plane)",
+    "allow_unidirectional_sync_warning": "Daten vom Gitlab Issue ersetzen Daten im verknüpften Plane-Aufgabe (nur Gitlab → Plane)",
     "remove_project_issue_sync": "Diese Projekt-Issue-Synchronisierung entfernen",
     "remove_project_issue_sync_confirmation": "Sind Sie sicher, dass Sie diese Projekt-Issue-Synchronisierung entfernen möchten?",
     "ISSUE_OPEN": "Issue Offen",
@@ -150,7 +150,7 @@
       "project_updates_empty_state": "Mit Slack-Kanälen verbundene Projekte werden hier angezeigt.",
       "project_updates_form": {
         "title": "Projekt-Updates konfigurieren",
-        "description": "Erhalten Sie Projekt-Update-Benachrichtigungen in Slack, wenn Arbeitselemente erstellt werden",
+        "description": "Erhalten Sie Projekt-Update-Benachrichtigungen in Slack, wenn Aufgaben erstellt werden",
         "failed_to_load_channels": "Fehler beim Laden von Kanälen aus Slack",
         "project_dropdown": {
           "placeholder": "Wählen Sie ein Projekt",

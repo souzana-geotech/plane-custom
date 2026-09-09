@@ -2,7 +2,7 @@
   "common_empty_state": {
     "progress": {
       "title": "Belum ada metrik progres untuk ditampilkan.",
-      "description": "Mulai mengatur nilai properti dalam item kerja untuk melihat metrik progres di sini."
+      "description": "Mulai mengatur nilai properti dalam tugas untuk melihat metrik progres di sini."
     },
     "updates": {
       "title": "Belum ada pembaruan.",
@@ -36,9 +36,9 @@
       "description": "Proyek yang Anda cari tidak ada."
     },
     "work_items": {
-      "title": "Mulai dengan item kerja pertama Anda.",
-      "description": "Item kerja adalah blok bangunan proyek Anda — tetapkan pemilik, atur prioritas, dan lacak kemajuan dengan mudah.",
-      "cta_primary": "Buat item kerja pertama Anda"
+      "title": "Mulai dengan tugas pertama Anda.",
+      "description": "Tugas adalah blok bangunan proyek Anda — tetapkan pemilik, atur prioritas, dan lacak kemajuan dengan mudah.",
+      "cta_primary": "Buat tugas pertama Anda"
     },
     "cycles": {
       "title": "Kelompokkan dan batasi waktu pekerjaan Anda dalam Siklus.",
@@ -46,21 +46,21 @@
       "cta_primary": "Atur siklus pertama Anda"
     },
     "cycle_work_items": {
-      "title": "Tidak ada item kerja untuk ditampilkan dalam siklus ini",
-      "description": "Buat item kerja untuk mulai memantau kemajuan tim Anda dalam siklus ini dan capai tujuan Anda tepat waktu.",
-      "cta_primary": "Buat item kerja",
-      "cta_secondary": "Tambahkan item kerja yang ada"
+      "title": "Tidak ada tugas untuk ditampilkan dalam siklus ini",
+      "description": "Buat tugas untuk mulai memantau kemajuan tim Anda dalam siklus ini dan capai tujuan Anda tepat waktu.",
+      "cta_primary": "Buat tugas",
+      "cta_secondary": "Tambahkan tugas yang ada"
     },
     "modules": {
       "title": "Petakan tujuan proyek Anda ke Modul dan lacak dengan mudah.",
-      "description": "Modul terdiri dari item kerja yang saling berhubungan. Mereka membantu dalam memantau kemajuan melalui fase proyek, masing-masing dengan tenggat waktu dan analitik khusus untuk menunjukkan seberapa dekat Anda dengan mencapai fase tersebut.",
+      "description": "Modul terdiri dari tugas yang saling berhubungan. Mereka membantu dalam memantau kemajuan melalui fase proyek, masing-masing dengan tenggat waktu dan analitik khusus untuk menunjukkan seberapa dekat Anda dengan mencapai fase tersebut.",
       "cta_primary": "Atur modul pertama Anda"
     },
     "module_work_items": {
-      "title": "Tidak ada item kerja untuk ditampilkan dalam Modul ini",
-      "description": "Buat item kerja untuk mulai memantau modul ini.",
-      "cta_primary": "Buat item kerja",
-      "cta_secondary": "Tambahkan item kerja yang ada"
+      "title": "Tidak ada tugas untuk ditampilkan dalam Modul ini",
+      "description": "Buat tugas untuk mulai memantau modul ini.",
+      "cta_primary": "Buat tugas",
+      "cta_secondary": "Tambahkan tugas yang ada"
     },
     "views": {
       "title": "Simpan tampilan kustom untuk proyek Anda",
@@ -68,18 +68,18 @@
       "cta_primary": "Buat tampilan"
     },
     "no_work_items_in_project": {
-      "title": "Belum ada item kerja dalam proyek",
-      "description": "Tambahkan item kerja ke proyek Anda dan potong pekerjaan Anda menjadi bagian yang dapat dilacak dengan tampilan.",
-      "cta_primary": "Tambahkan item kerja"
+      "title": "Belum ada tugas dalam proyek",
+      "description": "Tambahkan tugas ke proyek Anda dan potong pekerjaan Anda menjadi bagian yang dapat dilacak dengan tampilan.",
+      "cta_primary": "Tambahkan tugas"
     },
     "work_item_filter": {
-      "title": "Tidak ada item kerja yang ditemukan",
+      "title": "Tidak ada tugas yang ditemukan",
       "description": "Filter Anda saat ini tidak mengembalikan hasil apapun. Coba ubah filter.",
-      "cta_primary": "Tambahkan item kerja"
+      "cta_primary": "Tambahkan tugas"
     },
     "pages": {
       "title": "Dokumentasikan segalanya — dari catatan hingga PRD",
-      "description": "Halaman memungkinkan Anda menangkap dan mengorganisir informasi di satu tempat. Tulis catatan rapat, dokumentasi proyek, dan PRD, sematkan item kerja, dan strukturkan dengan komponen siap pakai.",
+      "description": "Halaman memungkinkan Anda menangkap dan mengorganisir informasi di satu tempat. Tulis catatan rapat, dokumentasi proyek, dan PRD, sematkan tugas, dan strukturkan dengan komponen siap pakai.",
       "cta_primary": "Buat Halaman pertama Anda"
     },
     "archive_pages": {
@@ -92,7 +92,7 @@
       "cta_primary": "Buat permintaan Masuk"
     },
     "intake_main": {
-      "title": "Pilih item kerja Masuk untuk melihat detailnya"
+      "title": "Pilih tugas Masuk untuk melihat detailnya"
     },
     "epics": {
       "title": "Ubah proyek kompleks menjadi epik terstruktur.",
@@ -101,9 +101,9 @@
       "cta_secondary": "Dokumentasi"
     },
     "epic_work_items": {
-      "title": "Anda belum menambahkan item kerja ke epik ini.",
-      "description": "Mulai dengan menambahkan beberapa item kerja ke epik ini dan lacak di sini.",
-      "cta_secondary": "Tambahkan item kerja"
+      "title": "Anda belum menambahkan tugas ke epik ini.",
+      "description": "Mulai dengan menambahkan beberapa tugas ke epik ini dan lacak di sini.",
+      "cta_secondary": "Tambahkan tugas"
     }
   },
   "workspace_empty_state": {
@@ -112,8 +112,8 @@
       "description": "Anda dapat mengarsipkan epik yang selesai atau dibatalkan. Temukan di sini setelah diarsipkan."
     },
     "archive_work_items": {
-      "title": "Belum ada item kerja yang diarsipkan",
-      "description": "Secara manual atau melalui otomasi, Anda dapat mengarsipkan item kerja yang selesai atau dibatalkan. Temukan di sini setelah diarsipkan.",
+      "title": "Belum ada tugas yang diarsipkan",
+      "description": "Secara manual atau melalui otomasi, Anda dapat mengarsipkan tugas yang selesai atau dibatalkan. Temukan di sini setelah diarsipkan.",
       "cta_primary": "Atur otomasi"
     },
     "archive_cycles": {
@@ -128,26 +128,26 @@
       "title": "Simpan referensi penting, sumber daya, atau dokumen untuk pekerjaan Anda"
     },
     "inbox_sidebar_all": {
-      "title": "Pembaruan untuk item kerja yang Anda langgani akan muncul di sini"
+      "title": "Pembaruan untuk tugas yang Anda langgani akan muncul di sini"
     },
     "inbox_sidebar_mentions": {
-      "title": "Penyebutan untuk item kerja Anda akan muncul di sini"
+      "title": "Penyebutan untuk tugas Anda akan muncul di sini"
     },
     "your_work_by_priority": {
-      "title": "Belum ada item kerja yang ditugaskan"
+      "title": "Belum ada tugas yang ditugaskan"
     },
     "your_work_by_state": {
-      "title": "Belum ada item kerja yang ditugaskan"
+      "title": "Belum ada tugas yang ditugaskan"
     },
     "views": {
       "title": "Belum ada Tampilan",
-      "description": "Tambahkan item kerja ke proyek Anda dan gunakan tampilan untuk memfilter, mengurutkan, dan memantau kemajuan dengan mudah.",
-      "cta_primary": "Tambahkan item kerja"
+      "description": "Tambahkan tugas ke proyek Anda dan gunakan tampilan untuk memfilter, mengurutkan, dan memantau kemajuan dengan mudah.",
+      "cta_primary": "Tambahkan tugas"
     },
     "drafts": {
-      "title": "Item kerja setengah jadi",
-      "description": "Untuk mencoba ini, mulai menambahkan item kerja dan tinggalkan di tengah jalan atau buat draf pertama Anda di bawah ini. 😉",
-      "cta_primary": "Buat item kerja draf"
+      "title": "Tugas setengah jadi",
+      "description": "Untuk mencoba ini, mulai menambahkan tugas dan tinggalkan di tengah jalan atau buat draf pertama Anda di bawah ini. 😉",
+      "cta_primary": "Buat tugas draf"
     },
     "projects_archived": {
       "title": "Tidak ada proyek yang diarsipkan",
@@ -157,7 +157,7 @@
       "title": "Buat proyek untuk memvisualisasikan metrik proyek di sini."
     },
     "analytics_work_items": {
-      "title": "Buat proyek dengan item kerja dan penerima tugas untuk mulai melacak kinerja, kemajuan, dan dampak tim di sini."
+      "title": "Buat proyek dengan tugas dan penerima tugas untuk mulai melacak kinerja, kemajuan, dan dampak tim di sini."
     },
     "analytics_no_cycle": {
       "title": "Buat siklus untuk mengorganisir pekerjaan ke dalam fase berbatas waktu dan melacak kemajuan di seluruh sprint."
@@ -188,7 +188,7 @@
     },
     "wiki": {
       "title": "Tulis catatan, dokumen, atau basis pengetahuan lengkap.",
-      "description": "Halaman adalah ruang penangkapan pemikiran di Plane. Catat catatan rapat, format dengan mudah, sematkan item kerja, tata menggunakan perpustakaan komponen, dan simpan semuanya dalam konteks proyek Anda.",
+      "description": "Halaman adalah ruang penangkapan pemikiran di Plane. Catat catatan rapat, format dengan mudah, sematkan tugas, tata menggunakan perpustakaan komponen, dan simpan semuanya dalam konteks proyek Anda.",
       "cta_primary": "Buat halaman Anda"
     },
     "project_overview_state_sidebar": {
@@ -199,12 +199,12 @@
   "settings_empty_state": {
     "estimates": {
       "title": "Belum ada estimasi",
-      "description": "Tentukan bagaimana tim Anda mengukur upaya dan lacak secara konsisten di semua item kerja.",
+      "description": "Tentukan bagaimana tim Anda mengukur upaya dan lacak secara konsisten di semua tugas.",
       "cta_primary": "Tambahkan sistem estimasi"
     },
     "labels": {
       "title": "Belum ada label",
-      "description": "Buat label yang dipersonalisasi untuk mengkategorikan dan mengelola item kerja Anda secara efektif.",
+      "description": "Buat label yang dipersonalisasi untuk mengkategorikan dan mengelola tugas Anda secara efektif.",
       "cta_primary": "Buat label pertama Anda"
     },
     "exports": {
@@ -227,43 +227,43 @@
       "cta_primary": "Tambahkan webhook"
     },
     "work_item_types": {
-      "title": "Buat dan sesuaikan jenis item kerja",
-      "description": "Tentukan jenis item kerja unik untuk proyek Anda. Setiap jenis dapat memiliki properti, alur kerja, dan bidangnya sendiri - disesuaikan dengan kebutuhan proyek dan tim Anda.",
+      "title": "Buat dan sesuaikan jenis tugas",
+      "description": "Tentukan jenis tugas unik untuk proyek Anda. Setiap jenis dapat memiliki properti, alur kerja, dan bidangnya sendiri - disesuaikan dengan kebutuhan proyek dan tim Anda.",
       "cta_primary": "Aktifkan"
     },
     "work_item_type_properties": {
-      "title": "Tentukan properti dan detail yang ingin Anda tangkap untuk jenis item kerja ini. Sesuaikan agar sesuai dengan alur kerja proyek Anda.",
+      "title": "Tentukan properti dan detail yang ingin Anda tangkap untuk jenis tugas ini. Sesuaikan agar sesuai dengan alur kerja proyek Anda.",
       "cta_secondary": "Tambahkan properti"
     },
     "templates": {
       "title": "Belum ada templat",
-      "description": "Kurangi waktu pengaturan dengan membuat templat untuk item kerja, dan halaman — dan mulai pekerjaan baru dalam hitungan detik.",
+      "description": "Kurangi waktu pengaturan dengan membuat templat untuk tugas, dan halaman — dan mulai pekerjaan baru dalam hitungan detik.",
       "cta_primary": "Buat templat pertama Anda"
     },
     "recurring_work_items": {
-      "title": "Belum ada item kerja berulang",
-      "description": "Siapkan item kerja berulang untuk mengotomatisasi tugas yang berulang dan tetap sesuai jadwal dengan mudah.",
-      "cta_primary": "Buat item kerja berulang"
+      "title": "Belum ada tugas berulang",
+      "description": "Siapkan tugas berulang untuk mengotomatisasi tugas yang berulang dan tetap sesuai jadwal dengan mudah.",
+      "cta_primary": "Buat tugas berulang"
     },
     "worklogs": {
       "title": "Lacak lembar waktu untuk semua anggota",
-      "description": "Catat waktu pada item kerja untuk melihat lembar waktu terperinci untuk anggota tim mana pun di seluruh proyek."
+      "description": "Catat waktu pada tugas untuk melihat lembar waktu terperinci untuk anggota tim mana pun di seluruh proyek."
     },
     "group_syncing": {
       "title": "Belum ada pemetaan grup"
     },
     "template_setting": {
       "title": "Belum ada templat",
-      "description": "Kurangi waktu pengaturan dengan membuat templat untuk proyek, item kerja, dan halaman — dan mulai pekerjaan baru dalam hitungan detik.",
+      "description": "Kurangi waktu pengaturan dengan membuat templat untuk proyek, tugas, dan halaman — dan mulai pekerjaan baru dalam hitungan detik.",
       "cta_primary": "Buat templat"
     },
     "workflows": {
       "title": "Belum ada alur kerja",
-      "description": "Buat alur kerja untuk mengelola kemajuan item kerja Anda.",
+      "description": "Buat alur kerja untuk mengelola kemajuan tugas Anda.",
       "cta_primary": "Tambah alur kerja baru",
       "states": {
         "title": "Tambah status",
-        "description": "Pilih status yang dilalui item kerja."
+        "description": "Pilih status yang dilalui tugas."
       }
     }
   }

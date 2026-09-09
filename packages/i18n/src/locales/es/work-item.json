@@ -1,11 +1,11 @@
 {
   "issue": {
-    "label": "{count, plural, one {Elemento de trabajo} other {Elementos de trabajo}}",
-    "all": "Todos los elementos de trabajo",
-    "edit": "Editar elemento de trabajo",
+    "label": "{count, plural, one {Tarea} other {Tareas}}",
+    "all": "Todas las tareas",
+    "edit": "Editar tarea",
     "title": {
-      "label": "Título del elemento de trabajo",
-      "required": "El título del elemento de trabajo es obligatorio."
+      "label": "Título de la tarea",
+      "required": "El título de la tarea es obligatorio."
     },
     "form": {
       "title_placeholder": "¿Qué hay que hacer?",
@@ -15,44 +15,44 @@
       "fewer_options": "Menos opciones"
     },
     "add": {
-      "press_enter": "Presiona 'Enter' para agregar otro elemento de trabajo",
-      "label": "Agregar elemento de trabajo",
+      "press_enter": "Presiona 'Enter' para agregar otra tarea",
+      "label": "Agregar tarea",
       "cycle": {
-        "failed": "No se pudo agregar el elemento de trabajo al ciclo. Por favor, inténtalo de nuevo.",
-        "success": "{count, plural, one {Elemento de trabajo agregado} other {Elementos de trabajo agregados}} al ciclo correctamente.",
-        "loading": "Agregando {count, plural, one {elemento de trabajo} other {elementos de trabajo}} al ciclo"
+        "failed": "No se pudo agregar la tarea al ciclo. Por favor, inténtalo de nuevo.",
+        "success": "{count, plural, one {Tarea agregado} other {Tareas agregados}} al ciclo correctamente.",
+        "loading": "Agregando {count, plural, one {tarea} other {tareas}} al ciclo"
       },
       "assignee": "Agregar asignados",
       "start_date": "Agregar fecha de inicio",
       "due_date": "Agregar fecha de vencimiento",
       "working_days": "Añadir días laborables",
-      "parent": "Agregar elemento de trabajo padre",
-      "sub_issue": "Agregar sub-elemento de trabajo",
+      "parent": "Agregar tarea padre",
+      "sub_issue": "Agregar sub-tarea",
       "dependency": "Agregar dependencia",
       "relation": "Agregar relación",
       "link": "Agregar enlace",
-      "existing": "Agregar elemento de trabajo existente"
+      "existing": "Agregar tarea existente"
     },
     "remove": {
-      "label": "Eliminar elemento de trabajo",
+      "label": "Eliminar tarea",
       "cycle": {
-        "loading": "Eliminando elemento de trabajo del ciclo",
-        "success": "Elemento de trabajo eliminado del ciclo correctamente.",
-        "failed": "No se pudo eliminar el elemento de trabajo del ciclo. Por favor, inténtalo de nuevo."
+        "loading": "Eliminando tarea del ciclo",
+        "success": "Tarea eliminado del ciclo correctamente.",
+        "failed": "No se pudo eliminar la tarea del ciclo. Por favor, inténtalo de nuevo."
       },
       "module": {
-        "loading": "Eliminando elemento de trabajo del módulo",
-        "success": "Elemento de trabajo eliminado del módulo correctamente.",
-        "failed": "No se pudo eliminar el elemento de trabajo del módulo. Por favor, inténtalo de nuevo."
+        "loading": "Eliminando tarea del módulo",
+        "success": "Tarea eliminado del módulo correctamente.",
+        "failed": "No se pudo eliminar la tarea del módulo. Por favor, inténtalo de nuevo."
       },
       "parent": {
-        "label": "Eliminar elemento de trabajo padre"
+        "label": "Eliminar tarea padre"
       }
     },
-    "new": "Nuevo elemento de trabajo",
-    "adding": "Agregando elemento de trabajo",
+    "new": "Nueva tarea",
+    "adding": "Agregando tarea",
     "create": {
-      "success": "Elemento de trabajo creado correctamente"
+      "success": "Tarea creado correctamente"
     },
     "priority": {
       "urgent": "Urgente",
@@ -64,12 +64,12 @@
       "properties": {
         "label": "Mostrar propiedades",
         "id": "ID",
-        "issue_type": "Tipo de elemento de trabajo",
+        "issue_type": "Tipo de tarea",
         "sub_issue_count": "Cantidad de sub-elementos",
         "attachment_count": "Cantidad de archivos adjuntos",
         "created_on": "Creado el",
-        "sub_issue": "Sub-elemento de trabajo",
-        "work_item_count": "Recuento de elementos de trabajo"
+        "sub_issue": "Sub-tarea",
+        "work_item_count": "Recuento de tareas"
       },
       "extra": {
         "show_sub_issues": "Mostrar sub-elementos",
@@ -160,35 +160,35 @@
     },
     "empty_state": {
       "issue_detail": {
-        "title": "El elemento de trabajo no existe",
-        "description": "El elemento de trabajo que buscas no existe, ha sido archivado o ha sido eliminado.",
+        "title": "La tarea no existe",
+        "description": "La tarea que buscas no existe, ha sido archivado o ha sido eliminado.",
         "primary_button": {
-          "text": "Ver otros elementos de trabajo"
+          "text": "Ver otras tareas"
         }
       }
     },
     "sibling": {
-      "label": "Elementos de trabajo hermanos"
+      "label": "Tareas hermanos"
     },
     "archive": {
-      "description": "Solo los elementos de trabajo completados\no cancelados pueden ser archivados",
-      "label": "Archivar elemento de trabajo",
-      "confirm_message": "¿Estás seguro de que quieres archivar el elemento de trabajo? Todos tus elementos archivados pueden ser restaurados más tarde.",
+      "description": "Solo las tareas completadas\no cancelados pueden ser archivados",
+      "label": "Archivar tarea",
+      "confirm_message": "¿Estás seguro de que quieres archivar la tarea? Todos tus elementos archivados pueden ser restaurados más tarde.",
       "success": {
         "label": "Archivo exitoso",
         "message": "Tus archivos se pueden encontrar en los archivos del proyecto."
       },
       "failed": {
-        "message": "No se pudo archivar el elemento de trabajo. Por favor, inténtalo de nuevo."
+        "message": "No se pudo archivar la tarea. Por favor, inténtalo de nuevo."
       }
     },
     "restore": {
       "success": {
         "title": "Restauración exitosa",
-        "message": "Tu elemento de trabajo se puede encontrar en los elementos de trabajo del proyecto."
+        "message": "Tu tarea se puede encontrar en las tareas del proyecto."
       },
       "failed": {
-        "message": "No se pudo restaurar el elemento de trabajo. Por favor, inténtalo de nuevo."
+        "message": "No se pudo restaurar la tarea. Por favor, inténtalo de nuevo."
       }
     },
     "relation": {
@@ -209,29 +209,29 @@
       "adjusted_dates": "Ajustado: {startDate} – {targetDate}",
       "adjusted_date": "Ajustado: {targetDate}"
     },
-    "copy_link": "Copiar enlace del elemento de trabajo",
+    "copy_link": "Copiar enlace de la tarea",
     "delete": {
-      "label": "Eliminar elemento de trabajo",
-      "error": "Error al eliminar el elemento de trabajo"
+      "label": "Eliminar tarea",
+      "error": "Error al eliminar la tarea"
     },
     "subscription": {
       "actions": {
-        "subscribed": "Suscrito al elemento de trabajo correctamente",
-        "unsubscribed": "Desuscrito del elemento de trabajo correctamente"
+        "subscribed": "Suscrito a la tarea correctamente",
+        "unsubscribed": "Desuscrito de la tarea correctamente"
       }
     },
     "select": {
-      "error": "Por favor selecciona al menos un elemento de trabajo",
-      "empty": "No hay elementos de trabajo seleccionados",
+      "error": "Por favor selecciona al menos una tarea",
+      "empty": "No hay tareas seleccionadas",
       "add_selected": "Agregar elementos seleccionados",
       "select_all": "Seleccionar todo",
       "deselect_all": "Deseleccionar todo"
     },
-    "open_in_full_screen": "Abrir elemento de trabajo en pantalla completa",
+    "open_in_full_screen": "Abrir tarea en pantalla completa",
     "duplicate": {
       "modal": {
         "title": "Hacer una copia a otro proyecto",
-        "description1": "Esto crea una copia del elemento de trabajo.",
+        "description1": "Esto crea una copia de la tarea.",
         "description2": "Todos los datos de propiedades se eliminarán al duplicar.",
         "placeholder": "Selecciona un proyecto"
       }
@@ -239,10 +239,10 @@
     "toast": {
       "duplicate": {
         "success": {
-          "message": "Elemento de trabajo duplicado correctamente"
+          "message": "Tarea duplicado correctamente"
         },
         "error": {
-          "message": "Error al duplicar el elemento de trabajo"
+          "message": "Error al duplicar la tarea"
         }
       }
     },
@@ -293,13 +293,13 @@
     },
     "empty_state": {
       "sub_list_filters": {
-        "title": "No tienes sub-elementos de trabajo que coincidan con los filtros que has aplicado.",
-        "description": "Para ver todos los sub-elementos de trabajo, elimina todos los filtros aplicados.",
+        "title": "No tienes sub-tareas que coincidan con los filtros que has aplicado.",
+        "description": "Para ver todos los sub-tareas, elimina todos los filtros aplicados.",
         "action": "Eliminar filtros"
       },
       "list_filters": {
-        "title": "No tienes elementos de trabajo que coincidan con los filtros que has aplicado.",
-        "description": "Para ver todos los elementos de trabajo, elimina todos los filtros aplicados.",
+        "title": "No tienes tareas que coincidan con los filtros que has aplicado.",
+        "description": "Para ver todas las tareas, elimina todos los filtros aplicados.",
         "action": "Eliminar filtros"
       }
     }
@@ -307,10 +307,10 @@
   "issue_relation": {
     "empty_state": {
       "search": {
-        "title": "No se encontraron elementos de trabajo coincidentes"
+        "title": "No se encontraron tareas coincidentes"
       },
       "no_issues": {
-        "title": "No se encontraron elementos de trabajo"
+        "title": "No se encontraron tareas"
       }
     }
   },
@@ -318,27 +318,27 @@
     "empty_state": {
       "general": {
         "title": "Aún no hay comentarios",
-        "description": "Los comentarios pueden usarse como un espacio de discusión y seguimiento para los elementos de trabajo"
+        "description": "Los comentarios pueden usarse como un espacio de discusión y seguimiento para las tareas"
       }
     }
   },
   "bulk_operations": {
     "error_details": {
       "invalid_archive_state_group": {
-        "title": "No se pueden archivar elementos de trabajo",
-        "message": "Solo los elementos de trabajo pertenecientes a grupos de estado Completado o Cancelado pueden ser archivados."
+        "title": "No se pueden archivar tareas",
+        "message": "Solo las tareas pertenecientes a grupos de estado Completado o Cancelado pueden ser archivados."
       },
       "invalid_issue_start_date": {
-        "title": "No se pueden actualizar elementos de trabajo",
-        "message": "La fecha de inicio seleccionada es posterior a la fecha de vencimiento de algunos elementos de trabajo. Asegúrese de que la fecha de inicio sea anterior a la fecha de vencimiento."
+        "title": "No se pueden actualizar tareas",
+        "message": "La fecha de inicio seleccionada es posterior a la fecha de vencimiento de algunas tareas. Asegúrese de que la fecha de inicio sea anterior a la fecha de vencimiento."
       },
       "invalid_issue_target_date": {
-        "title": "No se pueden actualizar elementos de trabajo",
-        "message": "La fecha de vencimiento seleccionada es anterior a la fecha de inicio de algunos elementos de trabajo. Asegúrese de que la fecha de vencimiento sea posterior a la fecha de inicio."
+        "title": "No se pueden actualizar tareas",
+        "message": "La fecha de vencimiento seleccionada es anterior a la fecha de inicio de algunas tareas. Asegúrese de que la fecha de vencimiento sea posterior a la fecha de inicio."
       },
       "invalid_state_transition": {
-        "title": "No se pueden actualizar elementos de trabajo",
-        "message": "El cambio de estado no está permitido para algunos elementos de trabajo. Asegúrese de que el cambio de estado esté permitido."
+        "title": "No se pueden actualizar tareas",
+        "message": "El cambio de estado no está permitido para algunas tareas. Asegúrese de que el cambio de estado esté permitido."
       }
     }
   },

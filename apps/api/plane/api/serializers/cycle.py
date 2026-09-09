@@ -116,7 +116,7 @@ class CycleSerializer(BaseSerializer):
     """
     Cycle serializer with comprehensive project metrics and time tracking.
 
-    Provides cycle details including work item counts by status, progress estimates,
+    Provides cycle details including task counts by status, progress estimates,
     and time-bound iteration data for project management and sprint planning.
     """
 
@@ -150,8 +150,8 @@ class CycleIssueSerializer(BaseSerializer):
     """
     Serializer for cycle-issue relationships with sub-issue counting.
 
-    Manages the association between cycles and work items, including
-    hierarchical issue tracking for nested work item structures.
+    Manages the association between cycles and tasks, including
+    hierarchical issue tracking for nested task structures.
     """
 
     sub_issues_count = serializers.IntegerField(read_only=True)
@@ -177,9 +177,9 @@ class CycleLiteSerializer(BaseSerializer):
 
 class CycleIssueRequestSerializer(serializers.Serializer):
     """
-    Serializer for bulk work item assignment to cycles.
+    Serializer for bulk task assignment to cycles.
 
-    Validates work item ID lists for batch operations including
+    Validates task ID lists for batch operations including
     cycle assignment and sprint planning workflows.
     """
 
@@ -188,9 +188,9 @@ class CycleIssueRequestSerializer(serializers.Serializer):
 
 class TransferCycleIssueRequestSerializer(serializers.Serializer):
     """
-    Serializer for transferring work items between cycles.
+    Serializer for transferring tasks between cycles.
 
-    Handles work item migration between cycles including validation
+    Handles task migration between cycles including validation
     and relationship updates for sprint reallocation workflows.
     """
 

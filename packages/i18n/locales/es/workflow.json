@@ -1,9 +1,9 @@
 {
   "workflows": {
     "workflow_states": {
-      "work_item_creation": "Permitir nuevos elementos de trabajo",
-      "work_item_creation_disable_tooltip": "La creación de elementos de trabajo está deshabilitada para este estado",
-      "default_state": "El estado predeterminado permite que todos los miembros creen nuevos elementos de trabajo. Esto no se puede cambiar",
+      "work_item_creation": "Permitir nuevas tareas",
+      "work_item_creation_disable_tooltip": "La creación de tareas está deshabilitada para este estado",
+      "default_state": "El estado predeterminado permite que todos los miembros creen nuevas tareas. Esto no se puede cambiar",
       "state_change_count": "{count, plural, one {1 cambio de estado permitido} other {{count} cambios de estado permitidos}}",
       "movers_count": "{count, plural, one {1 revisor listado} other {{count} revisores listados}}",
       "state_changes": {
@@ -14,19 +14,19 @@
         "move_to": "Cambiar estado a",
         "movers": {
           "label": "Cuando se revisa por",
-          "tooltip": "Los revisores son personas que están permitidas para mover elementos de trabajo de un estado a otro.",
+          "tooltip": "Los revisores son personas que están permitidas para mover tareas de un estado a otro.",
           "add": "Agregar revisores"
         }
       }
     },
     "workflow_disabled": {
-      "title": "No puedes mover este elemento de trabajo aquí."
+      "title": "No puedes mover esta tarea aquí."
     },
     "workflow_enabled": {
       "label": "Cambio de estado"
     },
     "workflow_tree": {
-      "label": "Para elementos de trabajo en",
+      "label": "Para tareas en",
       "state_change_label": "pueden moverlo a"
     },
     "empty_state": {

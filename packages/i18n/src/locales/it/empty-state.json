@@ -2,7 +2,7 @@
   "common_empty_state": {
     "progress": {
       "title": "Non ci sono ancora metriche di progresso da mostrare.",
-      "description": "Inizia a impostare i valori delle proprietà negli elementi di lavoro per vedere qui le metriche di progresso."
+      "description": "Inizia a impostare i valori delle proprietà nelle attività per vedere qui le metriche di progresso."
     },
     "updates": {
       "title": "Nessun aggiornamento ancora.",
@@ -36,9 +36,9 @@
       "description": "Il progetto che stai cercando non esiste."
     },
     "work_items": {
-      "title": "Inizia con il tuo primo elemento di lavoro.",
-      "description": "Gli elementi di lavoro sono i mattoni del tuo progetto — assegna proprietari, imposta priorità e traccia facilmente i progressi.",
-      "cta_primary": "Crea il tuo primo elemento di lavoro"
+      "title": "Inizia con il tuo prima attività.",
+      "description": "Le attività sono i mattoni del tuo progetto — assegna proprietari, imposta priorità e traccia facilmente i progressi.",
+      "cta_primary": "Crea il tuo prima attività"
     },
     "cycles": {
       "title": "Raggruppa e delimita temporalmente il tuo lavoro in Cicli.",
@@ -46,21 +46,21 @@
       "cta_primary": "Imposta il tuo primo ciclo"
     },
     "cycle_work_items": {
-      "title": "Nessun elemento di lavoro da mostrare in questo ciclo",
-      "description": "Crea elementi di lavoro per iniziare a monitorare il progresso del tuo team in questo ciclo e raggiungere i tuoi obiettivi in tempo.",
-      "cta_primary": "Crea elemento di lavoro",
-      "cta_secondary": "Aggiungi elemento di lavoro esistente"
+      "title": "Nessuna attività da mostrare in questo ciclo",
+      "description": "Crea attività per iniziare a monitorare il progresso del tuo team in questo ciclo e raggiungere i tuoi obiettivi in tempo.",
+      "cta_primary": "Crea attività",
+      "cta_secondary": "Aggiungi attività esistente"
     },
     "modules": {
       "title": "Mappa gli obiettivi del tuo progetto ai Moduli e traccia facilmente.",
-      "description": "I moduli sono costituiti da elementi di lavoro interconnessi. Aiutano a monitorare i progressi attraverso le fasi del progetto, ciascuna con scadenze specifiche e analitiche per indicare quanto sei vicino al raggiungimento di quelle fasi.",
+      "description": "I moduli sono costituiti da attività interconnessi. Aiutano a monitorare i progressi attraverso le fasi del progetto, ciascuna con scadenze specifiche e analitiche per indicare quanto sei vicino al raggiungimento di quelle fasi.",
       "cta_primary": "Imposta il tuo primo modulo"
     },
     "module_work_items": {
-      "title": "Nessun elemento di lavoro da mostrare in questo Modulo",
-      "description": "Crea elementi di lavoro per iniziare a monitorare questo modulo.",
-      "cta_primary": "Crea elemento di lavoro",
-      "cta_secondary": "Aggiungi elemento di lavoro esistente"
+      "title": "Nessuna attività da mostrare in questo Modulo",
+      "description": "Crea attività per iniziare a monitorare questo modulo.",
+      "cta_primary": "Crea attività",
+      "cta_secondary": "Aggiungi attività esistente"
     },
     "views": {
       "title": "Salva viste personalizzate per il tuo progetto",
@@ -68,18 +68,18 @@
       "cta_primary": "Crea vista"
     },
     "no_work_items_in_project": {
-      "title": "Nessun elemento di lavoro nel progetto ancora",
-      "description": "Aggiungi elementi di lavoro al tuo progetto e suddividi il lavoro in pezzi tracciabili con le viste.",
-      "cta_primary": "Aggiungi elemento di lavoro"
+      "title": "Nessuna attività nel progetto ancora",
+      "description": "Aggiungi attività al tuo progetto e suddividi il lavoro in pezzi tracciabili con le viste.",
+      "cta_primary": "Aggiungi attività"
     },
     "work_item_filter": {
-      "title": "Nessun elemento di lavoro trovato",
+      "title": "Nessuna attività trovata",
       "description": "Il filtro attuale non ha restituito risultati. Prova a modificare i filtri.",
-      "cta_primary": "Aggiungi elemento di lavoro"
+      "cta_primary": "Aggiungi attività"
     },
     "pages": {
       "title": "Documenta tutto — dalle note ai PRD",
-      "description": "Le pagine ti permettono di catturare e organizzare informazioni in un unico posto. Scrivi note di riunioni, documentazione di progetto e PRD, incorpora elementi di lavoro e strutturali con componenti pronti all'uso.",
+      "description": "Le pagine ti permettono di catturare e organizzare informazioni in un unico posto. Scrivi note di riunioni, documentazione di progetto e PRD, incorpora attività e strutturali con componenti pronti all'uso.",
       "cta_primary": "Crea la tua prima Pagina"
     },
     "archive_pages": {
@@ -92,7 +92,7 @@
       "cta_primary": "Crea richiesta di Intake"
     },
     "intake_main": {
-      "title": "Seleziona un elemento di lavoro di Intake per visualizzarne i dettagli"
+      "title": "Seleziona un'attività di Intake per visualizzarne i dettagli"
     },
     "epics": {
       "title": "Trasforma progetti complessi in epiche strutturate.",
@@ -101,9 +101,9 @@
       "cta_secondary": "Documentazione"
     },
     "epic_work_items": {
-      "title": "Non hai ancora aggiunto elementi di lavoro a questa epica.",
-      "description": "Inizia aggiungendo alcuni elementi di lavoro a questa epica e tracciandoli qui.",
-      "cta_secondary": "Aggiungi elementi di lavoro"
+      "title": "Non hai ancora aggiunto attività a questa epica.",
+      "description": "Inizia aggiungendo alcune attività a questa epica e tracciandoli qui.",
+      "cta_secondary": "Aggiungi attività"
     }
   },
   "workspace_empty_state": {
@@ -112,8 +112,8 @@
       "description": "Puoi archiviare le epiche completate o annullate. Trovalle qui una volta archiviate."
     },
     "archive_work_items": {
-      "title": "Nessun elemento di lavoro archiviato ancora",
-      "description": "Manualmente o tramite automazione, puoi archiviare elementi di lavoro completati o annullati. Trovali qui una volta archiviati.",
+      "title": "Nessuna attività archiviata ancora",
+      "description": "Manualmente o tramite automazione, puoi archiviare attività completate o annullati. Trovali qui una volta archiviati.",
       "cta_primary": "Imposta automazione"
     },
     "archive_cycles": {
@@ -128,26 +128,26 @@
       "title": "Mantieni a portata di mano riferimenti importanti, risorse o documenti per il tuo lavoro"
     },
     "inbox_sidebar_all": {
-      "title": "Gli aggiornamenti per i tuoi elementi di lavoro sottoscritti appariranno qui"
+      "title": "Gli aggiornamenti per le tue attività sottoscritti appariranno qui"
     },
     "inbox_sidebar_mentions": {
-      "title": "Le menzioni per i tuoi elementi di lavoro appariranno qui"
+      "title": "Le menzioni per le tue attività appariranno qui"
     },
     "your_work_by_priority": {
-      "title": "Nessun elemento di lavoro assegnato ancora"
+      "title": "Nessuna attività assegnata ancora"
     },
     "your_work_by_state": {
-      "title": "Nessun elemento di lavoro assegnato ancora"
+      "title": "Nessuna attività assegnata ancora"
     },
     "views": {
       "title": "Nessuna Vista ancora",
-      "description": "Aggiungi elementi di lavoro al tuo progetto e usa le viste per filtrare, ordinare e monitorare i progressi senza sforzo.",
-      "cta_primary": "Aggiungi elemento di lavoro"
+      "description": "Aggiungi attività al tuo progetto e usa le viste per filtrare, ordinare e monitorare i progressi senza sforzo.",
+      "cta_primary": "Aggiungi attività"
     },
     "drafts": {
-      "title": "Elementi di lavoro semi-scritti",
-      "description": "Per provare questo, inizia ad aggiungere un elemento di lavoro e lascialo a metà o crea la tua prima bozza qui sotto. 😉",
-      "cta_primary": "Crea elemento di lavoro bozza"
+      "title": "Attività semi-scritti",
+      "description": "Per provare questo, inizia ad aggiungere un'attività e lascialo a metà o crea la tua prima bozza qui sotto. 😉",
+      "cta_primary": "Crea attività bozza"
     },
     "projects_archived": {
       "title": "Nessun progetto archiviato",
@@ -157,7 +157,7 @@
       "title": "Crea progetti per visualizzare qui le metriche del progetto."
     },
     "analytics_work_items": {
-      "title": "Crea progetti con elementi di lavoro e assegnatari per iniziare a tracciare prestazioni, progressi e impatto del team qui."
+      "title": "Crea progetti con attività e assegnatari per iniziare a tracciare prestazioni, progressi e impatto del team qui."
     },
     "analytics_no_cycle": {
       "title": "Crea cicli per organizzare il lavoro in fasi temporali e tracciare i progressi attraverso gli sprint."
@@ -188,7 +188,7 @@
     },
     "wiki": {
       "title": "Scrivi una nota, un documento o un'intera base di conoscenza.",
-      "description": "Le pagine sono spazi per catturare pensieri in Plane. Prendi note di riunioni, formattale facilmente, incorpora elementi di lavoro, organizzali usando una libreria di componenti e mantienili tutti nel contesto del tuo progetto.",
+      "description": "Le pagine sono spazi per catturare pensieri in Plane. Prendi note di riunioni, formattale facilmente, incorpora attività, organizzali usando una libreria di componenti e mantienili tutti nel contesto del tuo progetto.",
       "cta_primary": "Crea la tua pagina"
     },
     "project_overview_state_sidebar": {
@@ -199,12 +199,12 @@
   "settings_empty_state": {
     "estimates": {
       "title": "Nessuna stima ancora",
-      "description": "Definisci come il tuo team misura lo sforzo e traccialo in modo coerente su tutti gli elementi di lavoro.",
+      "description": "Definisci come il tuo team misura lo sforzo e traccialo in modo coerente su tutte le attività.",
       "cta_primary": "Aggiungi sistema di stima"
     },
     "labels": {
       "title": "Nessuna etichetta ancora",
-      "description": "Crea etichette personalizzate per categorizzare e gestire efficacemente i tuoi elementi di lavoro.",
+      "description": "Crea etichette personalizzate per categorizzare e gestire efficacemente le tue attività.",
       "cta_primary": "Crea la tua prima etichetta"
     },
     "exports": {
@@ -227,43 +227,43 @@
       "cta_primary": "Aggiungi webhook"
     },
     "work_item_types": {
-      "title": "Crea e personalizza tipi di elementi di lavoro",
-      "description": "Definisci tipi di elementi di lavoro unici per il tuo progetto. Ogni tipo può avere le proprie proprietà, flussi di lavoro e campi - personalizzati per le esigenze del tuo progetto e team.",
+      "title": "Crea e personalizza tipi di attività",
+      "description": "Definisci tipi di attività unici per il tuo progetto. Ogni tipo può avere le proprie proprietà, flussi di lavoro e campi - personalizzati per le esigenze del tuo progetto e team.",
       "cta_primary": "Abilita"
     },
     "work_item_type_properties": {
-      "title": "Definisci la proprietà e i dettagli che vuoi catturare per questo tipo di elemento di lavoro. Personalizzalo per adattarlo al flusso di lavoro del tuo progetto.",
+      "title": "Definisci la proprietà e i dettagli che vuoi catturare per questo tipo di attività. Personalizzalo per adattarlo al flusso di lavoro del tuo progetto.",
       "cta_secondary": "Aggiungi proprietà"
     },
     "templates": {
       "title": "Nessun modello ancora",
-      "description": "Riduci i tempi di configurazione creando modelli per elementi di lavoro e pagine — e inizia nuovi lavori in pochi secondi.",
+      "description": "Riduci i tempi di configurazione creando modelli per attività e pagine — e inizia nuovi lavori in pochi secondi.",
       "cta_primary": "Crea il tuo primo modello"
     },
     "recurring_work_items": {
-      "title": "Nessun elemento di lavoro ricorrente ancora",
-      "description": "Configura elementi di lavoro ricorrenti per automatizzare attività ripetute e rispettare facilmente la pianificazione.",
-      "cta_primary": "Crea elemento di lavoro ricorrente"
+      "title": "Nessuna attività ricorrente ancora",
+      "description": "Configura attività ricorrenti per automatizzare attività ripetute e rispettare facilmente la pianificazione.",
+      "cta_primary": "Crea attività ricorrente"
     },
     "worklogs": {
       "title": "Traccia i fogli ore per tutti i membri",
-      "description": "Registra il tempo sugli elementi di lavoro per visualizzare fogli ore dettagliati per qualsiasi membro del team attraverso i progetti."
+      "description": "Registra il tempo sulle attività per visualizzare fogli ore dettagliati per qualsiasi membro del team attraverso i progetti."
     },
     "group_syncing": {
       "title": "Nessuna mappatura di gruppi ancora"
     },
     "template_setting": {
       "title": "Nessun modello ancora",
-      "description": "Riduci i tempi di configurazione creando modelli per progetti, elementi di lavoro e pagine — e inizia nuovi lavori in pochi secondi.",
+      "description": "Riduci i tempi di configurazione creando modelli per progetti, attività e pagine — e inizia nuovi lavori in pochi secondi.",
       "cta_primary": "Crea modello"
     },
     "workflows": {
       "title": "Nessun flusso di lavoro ancora",
-      "description": "Crea flussi di lavoro per gestire lo stato di avanzamento dei tuoi elementi di lavoro.",
+      "description": "Crea flussi di lavoro per gestire lo stato di avanzamento dei tue attività.",
       "cta_primary": "Aggiungi nuovo flusso di lavoro",
       "states": {
         "title": "Aggiungi stati",
-        "description": "Seleziona gli stati attraverso i quali avanza l'elemento di lavoro."
+        "description": "Seleziona gli stati attraverso i quali avanza l'attività."
       }
     }
   }

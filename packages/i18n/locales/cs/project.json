@@ -19,9 +19,9 @@
     "start_date": "Začátek data",
     "end_date": "Konec data",
     "in_your_timezone": "V časovém pásmu",
-    "transfer_work_items": "Převést {count} pracovních položek",
+    "transfer_work_items": "Převést {count} úkolů",
     "transfer": {
-      "no_cycles_available": "Žádné jiné cykly nejsou k dispozici pro přenos pracovních položek."
+      "no_cycles_available": "Žádné jiné cykly nejsou k dispozici pro přenos úkolů."
     },
     "date_range": "Období data",
     "add_date": "Přidat datum",
@@ -31,7 +31,7 @@
       "chart": "Burndown graf",
       "priority_issue": "Vysoce prioritní položky",
       "assignees": "Přiřazení",
-      "issue_burndown": "Burndown pracovních položek",
+      "issue_burndown": "Burndown úkolů",
       "ideal": "Ideální",
       "current": "Aktuální",
       "labels": "Štítky",
@@ -154,14 +154,14 @@
         }
       },
       "no_archived_issues": {
-        "title": "Zatím žádné archivované pracovní položky",
-        "description": "Ručně nebo pomocí automatizace můžete archivovat pracovní položky, které jsou dokončené nebo zrušené. Jakmile budou archivovány, najdete je zde.",
+        "title": "Zatím žádné archivované úkoly",
+        "description": "Ručně nebo pomocí automatizace můžete archivovat úkoly, které jsou dokončené nebo zrušené. Jakmile budou archivovány, najdete je zde.",
         "primary_button": {
           "text": "Nastavit automatizaci"
         }
       },
       "issues_empty_filter": {
-        "title": "Nebyly nalezeny žádné pracovní položky odpovídající použitým filtrům",
+        "title": "Nebyly nalezeny žádné úkoly odpovídající použitým filtrům",
         "secondary_button": {
           "text": "Vymazat všechny filtry"
         }
@@ -190,7 +190,7 @@
   "project_issues": {
     "empty_state": {
       "no_issues": {
-        "title": "Vytvořte a přiřaďte pracovní položku",
+        "title": "Vytvořte a přiřaďte úkol",
         "description": "Položky jsou úkoly, které přiřazujete sobě nebo týmu. Sledujte jejich postup.",
         "primary_button": {
           "text": "Vytvořit první položku",

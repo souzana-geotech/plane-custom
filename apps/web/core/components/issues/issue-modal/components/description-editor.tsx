@@ -122,7 +122,7 @@ export const IssueDescriptionEditor = observer(function IssueDescriptionEditor(p
     aiService
       .createGptTask(workspaceSlug.toString(), {
         prompt: issueName,
-        task: "Generate a proper description for this work item.",
+        task: "Generate a proper description for this task.",
       })
       .then((res) => {
         if (res.response === "")
@@ -130,7 +130,7 @@ export const IssueDescriptionEditor = observer(function IssueDescriptionEditor(p
             type: TOAST_TYPE.ERROR,
             title: "Error!",
             message:
-              "Work item title isn't informative enough to generate the description. Please try with a different title.",
+              "Task title isn't informative enough to generate the description. Please try with a different title.",
           });
         return handleAiAssistance(res.response_html);
       })
@@ -198,7 +198,7 @@ export const IssueDescriptionEditor = observer(function IssueDescriptionEditor(p
                 tabIndex={getIndex("description_html")}
                 placeholder={(isFocused, description) => {
                   // the shared helper's empty-state string ("Click to add description") is also used
-                  // by the work item detail view; here the first-time user needs to know *what* to
+                  // by the task detail view; here the first-time user needs to know *what* to
                   // write, so only the create/update modal gets the more specific prompt
                   const placeholderI18nKey = getDescriptionPlaceholderI18n(isFocused, description);
                   return placeholderI18nKey === "common.click_to_add_description"

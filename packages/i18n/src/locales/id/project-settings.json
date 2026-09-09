@@ -27,8 +27,8 @@
       "project_subscribers": "Pelanggan proyek",
       "project_subscribers_description": "Pilih anggota yang akan menerima notifikasi untuk proyek ini.",
       "guest_super_permissions": {
-        "title": "Beri akses tampilan untuk semua item kerja untuk pengguna tamu:",
-        "sub_heading": "Ini akan memungkinkan tamu untuk memiliki akses tampilan ke semua item kerja proyek."
+        "title": "Beri akses tampilan untuk semua tugas untuk pengguna tamu:",
+        "sub_heading": "Ini akan memungkinkan tamu untuk memiliki akses tampilan ke semua tugas proyek."
       },
       "invite_members": {
         "title": "Undang anggota",
@@ -38,7 +38,7 @@
     },
     "states": {
       "heading": "Status",
-      "description": "Tentukan dan sesuaikan status alur kerja untuk melacak kemajuan item kerja Anda.",
+      "description": "Tentukan dan sesuaikan status alur kerja untuk melacak kemajuan tugas Anda.",
       "describe_this_state_for_your_members": "Jelaskan status ini untuk anggota Anda.",
       "empty_state": {
         "title": "Tidak ada status yang tersedia untuk grup {groupKey}",
@@ -47,7 +47,7 @@
     },
     "labels": {
       "heading": "Label",
-      "description": "Buat label kustom untuk mengkategorikan dan mengatur item kerja Anda",
+      "description": "Buat label kustom untuk mengkategorikan dan mengatur tugas Anda",
       "label_title": "Judul label",
       "label_title_is_required": "Judul label diperlukan",
       "label_max_char": "Nama label tidak boleh lebih dari 255 karakter",
@@ -181,14 +181,14 @@
       "heading": "Otomatisasi",
       "description": "Konfigurasikan aksi otomatis untuk menyederhanakan alur kerja manajemen proyek Anda dan mengurangi tugas manual.",
       "auto-archive": {
-        "title": "Arsip otomatis item kerja yang ditutup",
-        "description": "Plane akan mengarsipkan secara otomatis item kerja yang telah selesai atau dibatalkan.",
-        "duration": "Arsip otomatis item kerja yang ditutup selama"
+        "title": "Arsip otomatis tugas yang ditutup",
+        "description": "Plane akan mengarsipkan secara otomatis tugas yang telah selesai atau dibatalkan.",
+        "duration": "Arsip otomatis tugas yang ditutup selama"
       },
       "auto-close": {
-        "title": "Tutup otomatis item kerja",
-        "description": "Plane akan menutup secara otomatis item kerja yang belum selesai atau dibatalkan.",
-        "duration": "Tutup otomatis item kerja yang tidak aktif selama",
+        "title": "Tutup otomatis tugas",
+        "description": "Plane akan menutup secara otomatis tugas yang belum selesai atau dibatalkan.",
+        "duration": "Tutup otomatis tugas yang tidak aktif selama",
         "auto_close_status": "Status penutupan otomatis"
       },
       "auto-remind": {
@@ -200,25 +200,25 @@
     "empty_state": {
       "labels": {
         "title": "Belum ada label",
-        "description": "Buat label untuk membantu mengatur dan memfilter item kerja dalam proyek Anda."
+        "description": "Buat label untuk membantu mengatur dan memfilter tugas dalam proyek Anda."
       },
       "estimates": {
         "title": "Belum ada sistem perkiraan",
-        "description": "Buat serangkaian perkiraan untuk mengkomunikasikan jumlah pekerjaan per item kerja.",
+        "description": "Buat serangkaian perkiraan untuk mengkomunikasikan jumlah pekerjaan per tugas.",
         "primary_button": "Tambah sistem perkiraan"
       },
       "integrations": {
         "title": "Tidak ada integrasi yang dikonfigurasi",
-        "description": "Konfigurasikan GitHub dan integrasi lainnya untuk menyinkronkan item kerja proyek Anda."
+        "description": "Konfigurasikan GitHub dan integrasi lainnya untuk menyinkronkan tugas proyek Anda."
       }
     },
     "workflows": {
       "toggle": {
         "title": "Aktifkan alur kerja",
-        "description": "Atur alur kerja untuk mengontrol pergerakan item kerja",
+        "description": "Atur alur kerja untuk mengontrol pergerakan tugas",
         "no_states_tooltip": "Tidak ada status yang ditambahkan ke alur kerja.",
-        "no_work_item_types_tooltip": "Tidak ada tipe item kerja yang ditambahkan ke alur kerja.",
-        "no_states_or_work_item_types_tooltip": "Tidak ada status atau tipe item kerja yang ditambahkan ke alur kerja.",
+        "no_work_item_types_tooltip": "Tidak ada tipe tugas yang ditambahkan ke alur kerja.",
+        "no_states_or_work_item_types_tooltip": "Tidak ada status atau tipe tugas yang ditambahkan ke alur kerja.",
         "toast": {
           "loading": {
             "enabling": "Mengaktifkan alur kerja",
@@ -235,7 +235,7 @@
         }
       },
       "heading": "Alur Kerja",
-      "description": "Otomatisasi transisi item kerja dan tetapkan aturan untuk mengontrol bagaimana tugas berpindah melalui pipeline proyek Anda.",
+      "description": "Otomatisasi transisi tugas dan tetapkan aturan untuk mengontrol bagaimana tugas berpindah melalui pipeline proyek Anda.",
       "add_button": "Tambah alur kerja baru",
       "search": "Cari alur kerja",
       "detail": {
@@ -243,10 +243,10 @@
         "add_states": "Tambah status",
         "unmapped_states": {
           "title": "Status tak terpetakan terdeteksi",
-          "description": "Beberapa item kerja untuk tipe yang dipilih saat ini berada dalam status yang tidak ada dalam alur kerja ini.",
+          "description": "Beberapa tugas untuk tipe yang dipilih saat ini berada dalam status yang tidak ada dalam alur kerja ini.",
           "note": "Jika Anda mengaktifkan alur kerja ini, item ini akan otomatis dipindahkan ke status awal untuk alur kerja ini.",
           "label": "Status hilang",
-          "tooltip": "Beberapa item kerja berada dalam status yang tidak dipetakan ke alur kerja ini. Buka alur kerja untuk meninjau."
+          "tooltip": "Beberapa tugas berada dalam status yang tidak dipetakan ke alur kerja ini. Buka alur kerja untuk meninjau."
         }
       },
       "select_states": {
@@ -256,7 +256,7 @@
         }
       },
       "default_footer": {
-        "fallback_message": "Alur kerja ini berlaku untuk tipe item kerja apa pun yang tidak ditetapkan ke alur kerja."
+        "fallback_message": "Alur kerja ini berlaku untuk tipe tugas apa pun yang tidak ditetapkan ke alur kerja."
       },
       "create": {
         "heading": "Buat alur kerja baru",
@@ -275,7 +275,7 @@
           }
         },
         "work_item_type": {
-          "label": "Tipe item kerja"
+          "label": "Tipe tugas"
         },
         "success": {
           "title": "Berhasil!",
@@ -319,8 +319,8 @@
       }
     },
     "work_item_types": {
-      "heading": "Tipe item kerja",
-      "description": "Buat dan sesuaikan berbagai tipe item kerja dengan properti unik"
+      "heading": "Tipe tugas",
+      "description": "Buat dan sesuaikan berbagai tipe tugas dengan properti unik"
     },
     "features": {
       "cycles": {
@@ -367,25 +367,25 @@
         },
         "in_app": {
           "title": "Dalam aplikasi",
-          "description": "Dapatkan item kerja baru dari Anggota dan Tamu di ruang kerja Anda tanpa mengganggu item kerja yang ada."
+          "description": "Dapatkan tugas baru dari Anggota dan Tamu di ruang kerja Anda tanpa mengganggu tugas yang ada."
         },
         "email": {
           "title": "Email",
-          "description": "Kumpulkan item kerja baru dari siapa saja yang mengirim email ke alamat email Plane.",
+          "description": "Kumpulkan tugas baru dari siapa saja yang mengirim email ke alamat email Plane.",
           "fieldName": "ID Email"
         },
         "form": {
           "title": "Formulir",
-          "description": "Izinkan orang di luar ruang kerja Anda membuat item kerja baru potensial melalui formulir khusus dan aman.",
+          "description": "Izinkan orang di luar ruang kerja Anda membuat tugas baru potensial melalui formulir khusus dan aman.",
           "fieldName": "URL formulir default",
-          "create_forms": "Buat Formulir menggunakan jenis item kerja",
+          "create_forms": "Buat Formulir menggunakan jenis tugas",
           "manage_forms": "Kelola formulir",
           "manage_forms_tooltip": "Minta Admin Ruang Kerja untuk mengelola ini.",
           "create_form": "Buat formulir",
           "edit_form": "Edit detail formulir",
           "form_title": "Judul formulir",
           "form_title_required": "Judul formulir wajib diisi",
-          "work_item_type": "Jenis item kerja",
+          "work_item_type": "Jenis tugas",
           "remove_property": "Hapus properti",
           "select_properties": "Pilih properti",
           "search_placeholder": "Cari properti",
@@ -413,16 +413,16 @@
       "time_tracking": {
         "title": "Pelacakan waktu",
         "short_title": "Pelacakan waktu",
-        "description": "Catat waktu yang dihabiskan untuk item kerja dan proyek.",
+        "description": "Catat waktu yang dihabiskan untuk tugas dan proyek.",
         "toggle_title": "Aktifkan pelacakan waktu",
         "toggle_description": "Anggota proyek akan dapat mencatat waktu yang dikerjakan."
       },
       "milestones": {
         "title": "Tonggak",
         "short_title": "Tonggak",
-        "description": "Tonggak menyediakan lapisan untuk menyelaraskan item kerja menuju tanggal penyelesaian bersama.",
+        "description": "Tonggak menyediakan lapisan untuk menyelaraskan tugas menuju tanggal penyelesaian bersama.",
         "toggle_title": "Aktifkan tonggak",
-        "toggle_description": "Organisir item kerja berdasarkan tenggat tonggak."
+        "toggle_description": "Organisir tugas berdasarkan tenggat tonggak."
       },
       "toasts": {
         "loading": "Memperbarui fitur proyek...",
@@ -436,7 +436,7 @@
     },
     "templates": {
       "heading": "Templat",
-      "description": "Hemat 80% waktu yang dihabiskan untuk membuat proyek, item kerja, dan halaman saat Anda menggunakan templat."
+      "description": "Hemat 80% waktu yang dihabiskan untuk membuat proyek, tugas, dan halaman saat Anda menggunakan templat."
     },
     "cycles": {
       "auto_schedule": {

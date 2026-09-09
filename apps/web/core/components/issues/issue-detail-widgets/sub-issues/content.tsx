@@ -91,7 +91,7 @@ export const SubIssuesCollapsibleContent = observer(function SubIssuesCollapsibl
         await subIssueOperations.fetchSubIssues(workspaceSlug, projectId, parentIssueId);
         setSubIssueHelpers(`${parentIssueId}_root`, "issue_visibility", parentIssueId);
       } catch (error) {
-        console.error("Error fetching sub-work items:", error);
+        console.error("Error fetching subtasks:", error);
       } finally {
         setSubIssueHelpers(`${parentIssueId}_root`, "preview_loader", "");
       }

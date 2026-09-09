@@ -38,7 +38,7 @@
     },
     "states": {
       "heading": "Status",
-      "description": "Definieren und passen Sie Workflow-Status an, um den Fortschritt Ihrer Arbeitselemente zu verfolgen.",
+      "description": "Definieren und passen Sie Workflow-Status an, um den Fortschritt Ihrer Aufgaben zu verfolgen.",
       "describe_this_state_for_your_members": "Beschreiben Sie diesen Status für Ihre Mitglieder.",
       "empty_state": {
         "title": "Keine Status für die Gruppe {groupKey}",
@@ -47,7 +47,7 @@
     },
     "labels": {
       "heading": "Labels",
-      "description": "Erstellen Sie benutzerdefinierte Labels, um Ihre Arbeitselemente zu kategorisieren und zu organisieren",
+      "description": "Erstellen Sie benutzerdefinierte Labels, um Ihre Aufgaben zu kategorisieren und zu organisieren",
       "label_title": "Labelname",
       "label_title_is_required": "Ein Labelname ist erforderlich",
       "label_max_char": "Der Labelname darf nicht mehr als 255 Zeichen enthalten",
@@ -181,14 +181,14 @@
       "heading": "Automatisierungen",
       "description": "Konfigurieren Sie automatisierte Aktionen, um Ihren Projektmanagement-Workflow zu optimieren und manuelle Aufgaben zu reduzieren.",
       "auto-archive": {
-        "title": "Geschlossene Arbeitselemente automatisch archivieren",
-        "description": "Plane archiviert automatisch Arbeitselemente, die abgeschlossen oder abgebrochen wurden.",
-        "duration": "Arbeitselemente automatisch archivieren, die geschlossen sind seit"
+        "title": "Geschlossene Aufgaben automatisch archivieren",
+        "description": "Plane archiviert automatisch Aufgaben, die abgeschlossen oder abgebrochen wurden.",
+        "duration": "Aufgaben automatisch archivieren, die geschlossen sind seit"
       },
       "auto-close": {
-        "title": "Arbeitselemente automatisch schließen",
-        "description": "Plane schließt automatisch Arbeitselemente, die nicht abgeschlossen oder abgebrochen wurden.",
-        "duration": "Arbeitselemente automatisch schließen, die inaktiv sind seit",
+        "title": "Aufgaben automatisch schließen",
+        "description": "Plane schließt automatisch Aufgaben, die nicht abgeschlossen oder abgebrochen wurden.",
+        "duration": "Aufgaben automatisch schließen, die inaktiv sind seit",
         "auto_close_status": "Auto-Schließ-Status"
       },
       "auto-remind": {
@@ -215,7 +215,7 @@
     "workflows": {
       "toggle": {
         "title": "Workflows aktivieren",
-        "description": "Legen Sie Workflows fest, um die Bewegung von Arbeitselementen zu steuern",
+        "description": "Legen Sie Workflows fest, um die Bewegung von Aufgaben zu steuern",
         "no_states_tooltip": "Keine Status wurden dem Workflow hinzugefügt.",
         "no_work_item_types_tooltip": "Keine Arbeitsaufgabentypen wurden dem Workflow hinzugefügt.",
         "no_states_or_work_item_types_tooltip": "Keine Status oder Arbeitsaufgabentypen wurden dem Workflow hinzugefügt.",
@@ -235,7 +235,7 @@
         }
       },
       "heading": "Workflows",
-      "description": "Automatisieren Sie Übergänge von Arbeitselementen und legen Sie Regeln fest, um zu steuern, wie Aufgaben durch Ihre Projektpipeline fließen.",
+      "description": "Automatisieren Sie Übergänge von Aufgaben und legen Sie Regeln fest, um zu steuern, wie Aufgaben durch Ihre Projektpipeline fließen.",
       "add_button": "Neuen Workflow hinzufügen",
       "search": "Workflows suchen",
       "detail": {
@@ -243,10 +243,10 @@
         "add_states": "Status hinzufügen",
         "unmapped_states": {
           "title": "Nicht zugeordnete Status erkannt",
-          "description": "Einige Arbeitselemente der ausgewählten Typen befinden sich derzeit in Status, die in diesem Workflow nicht vorhanden sind.",
+          "description": "Einige Aufgaben der ausgewählten Typen befinden sich derzeit in Status, die in diesem Workflow nicht vorhanden sind.",
           "note": "Wenn Sie diesen Workflow aktivieren, werden diese Elemente automatisch in den Anfangsstatus dieses Workflows verschoben.",
           "label": "Fehlende Status",
-          "tooltip": "Einige Arbeitselemente befinden sich in Status, die diesem Workflow nicht zugeordnet sind. Öffnen Sie den Workflow zur Überprüfung."
+          "tooltip": "Einige Aufgaben befinden sich in Status, die diesem Workflow nicht zugeordnet sind. Öffnen Sie den Workflow zur Überprüfung."
         }
       },
       "select_states": {
@@ -256,7 +256,7 @@
         }
       },
       "default_footer": {
-        "fallback_message": "Dieser Workflow gilt für jeden Arbeitselementtyp, der keinem Workflow zugeordnet ist."
+        "fallback_message": "Dieser Workflow gilt für jeden Aufgabentyp, der keinem Workflow zugeordnet ist."
       },
       "create": {
         "heading": "Neuen Workflow erstellen",
@@ -275,7 +275,7 @@
           }
         },
         "work_item_type": {
-          "label": "Arbeitselementtyp"
+          "label": "Aufgabentyp"
         },
         "success": {
           "title": "Erfolg!",
@@ -319,8 +319,8 @@
       }
     },
     "work_item_types": {
-      "heading": "Arbeitselementtypen",
-      "description": "Erstellen und passen Sie verschiedene Typen von Arbeitselementen mit einzigartigen Eigenschaften an"
+      "heading": "Aufgabentypen",
+      "description": "Erstellen und passen Sie verschiedene Typen von Aufgaben mit einzigartigen Eigenschaften an"
     },
     "features": {
       "cycles": {
@@ -367,25 +367,25 @@
         },
         "in_app": {
           "title": "In der App",
-          "description": "Erhalten Sie neue Arbeitselemente von Mitgliedern und Gästen in Ihrem Arbeitsbereich, ohne Ihre bestehenden Arbeitselemente zu stören."
+          "description": "Erhalten Sie neue Aufgaben von Mitgliedern und Gästen in Ihrem Arbeitsbereich, ohne Ihre bestehenden Aufgaben zu stören."
         },
         "email": {
           "title": "E-Mail",
-          "description": "Sammeln Sie neue Arbeitselemente von allen, die eine E-Mail an eine Plane-E-Mail-Adresse senden.",
+          "description": "Sammeln Sie neue Aufgaben von allen, die eine E-Mail an eine Plane-E-Mail-Adresse senden.",
           "fieldName": "E-Mail-ID"
         },
         "form": {
           "title": "Formulare",
-          "description": "Ermöglichen Sie Personen außerhalb Ihres Arbeitsbereichs, über ein dediziertes und sicheres Formular potenzielle neue Arbeitselemente zu erstellen.",
+          "description": "Ermöglichen Sie Personen außerhalb Ihres Arbeitsbereichs, über ein dediziertes und sicheres Formular potenzielle neue Aufgaben zu erstellen.",
           "fieldName": "Standard-Formular-URL",
-          "create_forms": "Formulare mit Arbeitselementtypen erstellen",
+          "create_forms": "Formulare mit Aufgabentypen erstellen",
           "manage_forms": "Formulare verwalten",
           "manage_forms_tooltip": "Bitten Sie Ihren Arbeitsbereichs-Admin, dies zu verwalten.",
           "create_form": "Formular erstellen",
           "edit_form": "Formulardetails bearbeiten",
           "form_title": "Formulartitel",
           "form_title_required": "Formulartitel ist erforderlich",
-          "work_item_type": "Arbeitselementtyp",
+          "work_item_type": "Aufgabentyp",
           "remove_property": "Eigenschaft entfernen",
           "select_properties": "Eigenschaften auswählen",
           "search_placeholder": "Nach Eigenschaften suchen",
@@ -413,16 +413,16 @@
       "time_tracking": {
         "title": "Zeiterfassung",
         "short_title": "Zeiterfassung",
-        "description": "Erfassen Sie die für Arbeitselemente und Projekte aufgewendete Zeit.",
+        "description": "Erfassen Sie die für Aufgaben und Projekte aufgewendete Zeit.",
         "toggle_title": "Zeiterfassung aktivieren",
         "toggle_description": "Projektmitglieder können die geleistete Arbeit protokollieren."
       },
       "milestones": {
         "title": "Meilensteine",
         "short_title": "Meilensteine",
-        "description": "Meilensteine bieten eine Ebene, um Arbeitselemente auf gemeinsame Fertigstellungstermine auszurichten.",
+        "description": "Meilensteine bieten eine Ebene, um Aufgaben auf gemeinsame Fertigstellungstermine auszurichten.",
         "toggle_title": "Meilensteine aktivieren",
-        "toggle_description": "Organisieren Sie Arbeitselemente nach Meilenstein-Fristen."
+        "toggle_description": "Organisieren Sie Aufgaben nach Meilenstein-Fristen."
       },
       "toasts": {
         "loading": "Projektfunktion wird aktualisiert...",
@@ -436,7 +436,7 @@
     },
     "templates": {
       "heading": "Vorlagen",
-      "description": "Sparen Sie 80% der Zeit beim Erstellen von Projekten, Arbeitselementen und Seiten, wenn Sie Vorlagen verwenden."
+      "description": "Sparen Sie 80% der Zeit beim Erstellen von Projekten, Aufgaben und Seiten, wenn Sie Vorlagen verwenden."
     },
     "cycles": {
       "auto_schedule": {
@@ -489,8 +489,8 @@
             }
           },
           "auto_rollover": {
-            "label": "Automatische Übertragung von Arbeitselementen",
-            "tooltip": "Am Tag der Zyklusbeendigung werden alle unvollendeten Arbeitselemente in den nächsten Zyklus verschoben."
+            "label": "Automatische Übertragung von Aufgaben",
+            "tooltip": "Am Tag der Zyklusbeendigung werden alle unvollendeten Aufgaben in den nächsten Zyklus verschoben."
           }
         },
         "toast": {

@@ -53,7 +53,7 @@
   "workspace_dashboard": {
     "title": "Operations dashboard",
     "subtitle": "Management visibility across client jobs, work, departments and employees",
-    "coverage_note": "Deliverables, client reviews, equipment and sales are not shown because this workspace has no data for them. Employee scheduling conflicts need time-of-day scheduling, which work items do not carry.",
+    "coverage_note": "Deliverables, client reviews, equipment and sales are not shown because this workspace has no data for them. Employee scheduling conflicts need time-of-day scheduling, which tasks do not carry.",
     "error": {
       "title": "Could not load the dashboard",
       "description": "One or more requests failed. Retry, or refresh the page.",
@@ -61,7 +61,7 @@
     },
     "empty": {
       "title": "No operations data yet",
-      "description": "Create modules for client jobs and work items for the actual work, and this dashboard will fill in."
+      "description": "Create modules for client jobs and tasks for the actual work, and this dashboard will fill in."
     },
     "filters": {
       "project": "Project",
@@ -77,13 +77,13 @@
       "jobs_at_risk": "Jobs needing attention",
       "jobs_at_risk_hint": "Active jobs that are at risk, delayed or blocked",
       "overdue_tasks": "Overdue tasks",
-      "overdue_tasks_hint": "Open work items past their due date",
+      "overdue_tasks_hint": "Open tasks past their due date",
       "due_this_week": "Due this week",
-      "due_this_week_hint": "Open work items due within the next 7 days",
+      "due_this_week_hint": "Open tasks due within the next 7 days",
       "blocked_tasks": "Blocked tasks",
-      "blocked_tasks_hint": "Open work items blocked by other open work",
+      "blocked_tasks_hint": "Open tasks blocked by other open work",
       "no_due_date": "No due date",
-      "no_due_date_hint": "Open work items without a due date"
+      "no_due_date_hint": "Open tasks without a due date"
     },
     "severity": {
       "critical": "Critical",
@@ -137,7 +137,7 @@
     },
     "employees": {
       "title": "Employee workload",
-      "description": "Open work items per employee. Capacity is not tracked, so counts are shown instead of utilisation.",
+      "description": "Open tasks per employee. Capacity is not tracked, so counts are shown instead of utilisation.",
       "empty": "No open work is assigned",
       "columns": {
         "employee": "Employee",
@@ -150,8 +150,8 @@
     "pipeline": {
       "title": "Work pipeline",
       "description": "Where work sits across the workflow states",
-      "total": "{count, plural, one {# work item} other {# work items}}",
-      "empty": "No work items yet"
+      "total": "{count, plural, one {# task} other {# tasks}}",
+      "empty": "No tasks yet"
     },
     "departments": {
       "title": "Department workload",
@@ -168,7 +168,7 @@
     },
     "attention": {
       "title": "Work needing attention",
-      "description": "Overdue, blocked and due-soon work items",
+      "description": "Overdue, blocked and due-soon tasks",
       "empty": "Nothing needs attention",
       "overdue_by": "{count, plural, one {Overdue by # day} other {Overdue by # days}}",
       "blocked": "Blocked",
@@ -179,7 +179,7 @@
     "empty_state": {
       "general": {
         "title": "Overview of your projects, activity, and metrics",
-        "description": "Welcome to Plane, we are excited to have you here. Create your first project and track your work items, and this page will transform into a space that helps you progress. Admins will also see items which help their team progress.",
+        "description": "Welcome to Plane, we are excited to have you here. Create your first project and track your tasks, and this page will transform into a space that helps you progress. Admins will also see items which help their team progress.",
         "primary_button": {
           "text": "Build your first project",
           "comic": {
@@ -198,7 +198,7 @@
       "busy": "Busy · {count}",
       "assigned": "Assigned · {count}",
       "available": "Available",
-      "tooltip": "{count, plural, one {# open work item} other {# open work items}} scheduled for today"
+      "tooltip": "{count, plural, one {# open task} other {# open tasks}} scheduled for today"
     },
     "summary": {
       "employees": "Employees shown",
@@ -206,7 +206,7 @@
       "with_overlaps": "With overlaps",
       "available": "Free today",
       "scheduled": "Scheduled assignments",
-      "undated": "Undated work items"
+      "undated": "Undated tasks"
     },
     "filters": {
       "all": "All",
@@ -245,7 +245,7 @@
       "overlap_tooltip": "{count, plural, one {# period} other {# periods}} with more than one assignment at a time. Peak: {peak} at once.",
       "overdue": "{count, plural, one {# overdue} other {# overdue}}",
       "undated": "{count, plural, one {# undated} other {# undated}}",
-      "undated_tooltip": "Open work items assigned to this employee that have no start or due date, so they cannot be placed on the timeline.",
+      "undated_tooltip": "Open tasks assigned to this employee that have no start or due date, so they cannot be placed on the timeline.",
       "next": "Next: {name} · {date}",
       "nothing_next": "Nothing scheduled next"
     },
@@ -260,12 +260,12 @@
     },
     "error": {
       "title": "Could not load the employee Gantt",
-      "description": "The work item request failed. Retry, or refresh the page.",
+      "description": "The task request failed. Retry, or refresh the page.",
       "retry": "Retry"
     },
     "empty": {
       "title": "No scheduled work yet",
-      "description": "Give work items a start date and a due date, and assign them to people, and this view will fill in."
+      "description": "Give tasks a start date and a due date, and assign them to people, and this view will fill in."
     },
     "empty_today": {
       "title": "No one has work scheduled for today",
@@ -285,26 +285,26 @@
     "page_label": "{workspace} - Analytics",
     "open_tasks": "Total open tasks",
     "error": "There was some error in fetching the data.",
-    "work_items_closed_in": "Work items closed in",
+    "work_items_closed_in": "Tasks closed in",
     "selected_projects": "Selected projects",
     "total_members": "Total members",
     "total_cycles": "Total cycles",
     "total_modules": "Total modules",
     "pending_work_items": {
-      "title": "Pending work items",
-      "empty_state": "Analysis of pending work items by co-workers appears here."
+      "title": "Pending tasks",
+      "empty_state": "Analysis of pending tasks by co-workers appears here."
     },
     "work_items_closed_in_a_year": {
-      "title": "Work items closed in a year",
-      "empty_state": "Close work items to view analysis of the same in the form of a graph."
+      "title": "Tasks closed in a year",
+      "empty_state": "Close tasks to view analysis of the same in the form of a graph."
     },
     "most_work_items_created": {
-      "title": "Most work items created",
-      "empty_state": "Co-workers and the number of work items created by them appears here."
+      "title": "Most tasks created",
+      "empty_state": "Co-workers and the number of tasks created by them appears here."
     },
     "most_work_items_closed": {
-      "title": "Most work items closed",
-      "empty_state": "Co-workers and the number of work items closed by them appears here."
+      "title": "Most tasks closed",
+      "empty_state": "Co-workers and the number of tasks closed by them appears here."
     },
     "tabs": {
       "scope_and_demand": "Scope and Demand",
@@ -325,15 +325,15 @@
     "empty_state": {
       "project_insights": {
         "title": "No data yet",
-        "description": "Work items assigned to you, broken down by state, will show up here."
+        "description": "Tasks assigned to you, broken down by state, will show up here."
       },
       "created_vs_resolved": {
         "title": "No data yet",
-        "description": "Work items created and resolved over time will show up here."
+        "description": "Tasks created and resolved over time will show up here."
       },
       "customized_insights": {
         "title": "No data yet",
-        "description": "Work items assigned to you, broken down by state, will show up here."
+        "description": "Tasks assigned to you, broken down by state, will show up here."
       },
       "general": {
         "title": "Track progress, workloads, and allocations. Spot trends, remove blockers, and move work faster",
@@ -348,19 +348,19 @@
       },
       "cycle_progress": {
         "title": "No data yet",
-        "description": "Cycle progress analytics will appear here. Add work items to cycles to start tracking progress."
+        "description": "Cycle progress analytics will appear here. Add tasks to cycles to start tracking progress."
       },
       "module_progress": {
         "title": "No data yet",
-        "description": "Module progress analytics will appear here. Add work items to modules to start tracking progress."
+        "description": "Module progress analytics will appear here. Add tasks to modules to start tracking progress."
       },
       "intake_trends": {
         "title": "No data yet",
-        "description": "Intake trends analytics will appear here. Add work items to intake to start tracking trends."
+        "description": "Intake trends analytics will appear here. Add tasks to intake to start tracking trends."
       }
     },
     "upgrade_to_plan": "Upgrade to {plan} to unlock {tab}",
-    "workitem_resolved_vs_pending": "Work items resolved vs pending",
+    "workitem_resolved_vs_pending": "Tasks resolved vs pending",
     "projects_by_status": "Projects by status",
     "active_users": "Active users",
     "intake_trends": "Intake Trends"
@@ -385,7 +385,7 @@
       "permission": "You don't have permission to perform this action.",
       "cycle_delete": "Failed to delete cycle",
       "module_delete": "Failed to delete module",
-      "issue_delete": "Failed to delete work item"
+      "issue_delete": "Failed to delete task"
     },
     "state": {
       "backlog": "Backlog",
@@ -422,7 +422,7 @@
       },
       "no_projects": {
         "title": "No project",
-        "description": "To create work items or manage your work, you need to create a project or be a part of one.",
+        "description": "To create tasks or manage your work, you need to create a project or be a part of one.",
         "primary_button": {
           "text": "Start your first project",
           "comic": {
@@ -444,33 +444,33 @@
     "add_view": "Add view",
     "empty_state": {
       "all-issues": {
-        "title": "No work items in the project",
-        "description": "First project done! Now, slice your work into trackable pieces with work items. Let's go!",
+        "title": "No tasks in the project",
+        "description": "First project done! Now, slice your work into trackable pieces with tasks. Let's go!",
         "primary_button": {
-          "text": "Create new work item"
+          "text": "Create new task"
         }
       },
       "assigned": {
-        "title": "No work items yet",
-        "description": "Work items assigned to you can be tracked from here.",
+        "title": "No tasks yet",
+        "description": "Tasks assigned to you can be tracked from here.",
         "primary_button": {
-          "text": "Create new work item"
+          "text": "Create new task"
         }
       },
       "created": {
-        "title": "No work items yet",
-        "description": "All work items created by you come here, track them here directly.",
+        "title": "No tasks yet",
+        "description": "All tasks created by you come here, track them here directly.",
         "primary_button": {
-          "text": "Create new work item"
+          "text": "Create new task"
         }
       },
       "subscribed": {
-        "title": "No work items yet",
-        "description": "Subscribe to work items you are interested in, track all of them here."
+        "title": "No tasks yet",
+        "description": "Subscribe to tasks you are interested in, track all of them here."
       },
       "custom-view": {
-        "title": "No work items yet",
-        "description": "Work items that applies to the filters, track all of them here."
+        "title": "No tasks yet",
+        "description": "Tasks that applies to the filters, track all of them here."
       }
     },
     "delete_view": {
@@ -479,10 +479,10 @@
     }
   },
   "workspace_draft_issues": {
-    "draft_an_issue": "Draft a work item",
+    "draft_an_issue": "Draft a task",
     "empty_state": {
-      "title": "Half-written work items, and soon, comments will show up here.",
-      "description": "To try this out, start adding a work item and leave it mid-way or create your first draft below. 😉",
+      "title": "Half-written tasks, and soon, comments will show up here.",
+      "description": "To try this out, start adding a task and leave it mid-way or create your first draft below. 😉",
       "primary_button": {
         "text": "Create your first draft"
       }
@@ -494,7 +494,7 @@
     "toasts": {
       "created": {
         "success": "Draft created",
-        "error": "Work item could not be created. Please try again."
+        "error": "Task could not be created. Please try again."
       },
       "deleted": {
         "success": "Draft deleted"
@@ -505,7 +505,7 @@
     "empty_state": {
       "general": {
         "title": "Write a note, a doc, or a full knowledge base. Get Galileo, Plane's AI assistant, to help you get started",
-        "description": "Pages are thoughts potting space in Plane. Take down meeting notes, format them easily, embed work items, lay them out using a library of components, and keep them all in your project's context. To make short work of any doc, invoke Galileo, Plane's AI, with a shortcut or the click of a button.",
+        "description": "Pages are thoughts potting space in Plane. Take down meeting notes, format them easily, embed tasks, lay them out using a library of components, and keep them all in your project's context. To make short work of any doc, invoke Galileo, Plane's AI, with a shortcut or the click of a button.",
         "primary_button": {
           "text": "Create your first page"
         }

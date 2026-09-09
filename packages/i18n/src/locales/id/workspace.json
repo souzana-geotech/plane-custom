@@ -179,7 +179,7 @@
     "empty_state": {
       "general": {
         "title": "Ikhtisar proyek, aktivitas, dan metrik Anda",
-        "description": "Selamat datang di Plane, kami sangat senang memiliki Anda di sini. Buat proyek pertama Anda dan lacak item kerja Anda, dan halaman ini akan berubah menjadi ruang yang membantu Anda berkembang. Admin juga akan melihat item yang membantu tim mereka berkembang.",
+        "description": "Selamat datang di Plane, kami sangat senang memiliki Anda di sini. Buat proyek pertama Anda dan lacak tugas Anda, dan halaman ini akan berubah menjadi ruang yang membantu Anda berkembang. Admin juga akan melihat item yang membantu tim mereka berkembang.",
         "primary_button": {
           "text": "Bangun proyek pertama Anda",
           "comic": {
@@ -198,7 +198,7 @@
       "busy": "Sibuk · {count}",
       "assigned": "Ditugaskan · {count}",
       "available": "Tersedia",
-      "tooltip": "{count, plural, one {# item kerja terbuka} other {# item kerja terbuka}} dijadwalkan untuk hari ini"
+      "tooltip": "{count, plural, one {# tugas terbuka} other {# tugas terbuka}} dijadwalkan untuk hari ini"
     },
     "summary": {
       "employees": "Karyawan ditampilkan",
@@ -206,7 +206,7 @@
       "with_overlaps": "Dengan tumpang tindih",
       "available": "Luang hari ini",
       "scheduled": "Penugasan terjadwal",
-      "undated": "Item kerja tanpa tanggal"
+      "undated": "Tugas tanpa tanggal"
     },
     "filters": {
       "all": "Semua",
@@ -245,7 +245,7 @@
       "overlap_tooltip": "{count, plural, one {# periode} other {# periode}} dengan lebih dari satu penugasan sekaligus. Puncak: {peak} bersamaan.",
       "overdue": "{count, plural, one {# terlambat} other {# terlambat}}",
       "undated": "{count, plural, one {# tanpa tanggal} other {# tanpa tanggal}}",
-      "undated_tooltip": "Item kerja terbuka yang ditugaskan kepada karyawan ini tanpa tanggal mulai maupun tanggal jatuh tempo, sehingga tidak dapat ditempatkan pada lini masa.",
+      "undated_tooltip": "Tugas terbuka yang ditugaskan kepada karyawan ini tanpa tanggal mulai maupun tanggal jatuh tempo, sehingga tidak dapat ditempatkan pada lini masa.",
       "next": "Berikutnya: {name} · {date}",
       "nothing_next": "Tidak ada jadwal berikutnya"
     },
@@ -260,12 +260,12 @@
     },
     "error": {
       "title": "Tidak dapat memuat Gantt Karyawan",
-      "description": "Permintaan item kerja gagal. Coba lagi atau muat ulang halaman.",
+      "description": "Permintaan tugas gagal. Coba lagi atau muat ulang halaman.",
       "retry": "Coba lagi"
     },
     "empty": {
       "title": "Belum ada pekerjaan terjadwal",
-      "description": "Beri item kerja tanggal mulai dan tanggal jatuh tempo, tugaskan kepada orang, dan tampilan ini akan terisi."
+      "description": "Beri tugas tanggal mulai dan tanggal jatuh tempo, tugaskan kepada orang, dan tampilan ini akan terisi."
     },
     "empty_today": {
       "title": "Tidak ada yang punya pekerjaan terjadwal hari ini",
@@ -285,26 +285,26 @@
     "page_label": "{workspace} - Analitik",
     "open_tasks": "Jumlah tugas terbuka",
     "error": "Terjadi kesalahan dalam mengambil data.",
-    "work_items_closed_in": "Item kerja yang ditutup dalam",
+    "work_items_closed_in": "Tugas yang ditutup dalam",
     "selected_projects": "Proyek yang dipilih",
     "total_members": "Jumlah anggota total",
     "total_cycles": "Jumlah siklus total",
     "total_modules": "Jumlah modul total",
     "pending_work_items": {
-      "title": "Item kerja yang menunggu",
-      "empty_state": "Analisis item kerja yang menunggu oleh rekan kerja muncul di sini."
+      "title": "Tugas yang menunggu",
+      "empty_state": "Analisis tugas yang menunggu oleh rekan kerja muncul di sini."
     },
     "work_items_closed_in_a_year": {
-      "title": "Item kerja yang ditutup dalam setahun",
-      "empty_state": "Tutup item kerja untuk melihat analisis dari item kerja tersebut dalam bentuk grafik."
+      "title": "Tugas yang ditutup dalam setahun",
+      "empty_state": "Tutup tugas untuk melihat analisis dari tugas tersebut dalam bentuk grafik."
     },
     "most_work_items_created": {
-      "title": "Paling banyak item kerja yang dibuat",
-      "empty_state": "Rekan kerja dan jumlah item kerja yang mereka buat muncul di sini."
+      "title": "Paling banyak tugas yang dibuat",
+      "empty_state": "Rekan kerja dan jumlah tugas yang mereka buat muncul di sini."
     },
     "most_work_items_closed": {
-      "title": "Paling banyak item kerja yang ditutup",
-      "empty_state": "Rekan kerja dan jumlah item kerja yang mereka tutup muncul di sini."
+      "title": "Paling banyak tugas yang ditutup",
+      "empty_state": "Rekan kerja dan jumlah tugas yang mereka tutup muncul di sini."
     },
     "tabs": {
       "scope_and_demand": "Lingkup dan Permintaan",
@@ -348,19 +348,19 @@
       },
       "cycle_progress": {
         "title": "Belum ada data",
-        "description": "Analitik kemajuan siklus akan muncul di sini. Tambahkan item kerja ke siklus untuk mulai melacak kemajuan."
+        "description": "Analitik kemajuan siklus akan muncul di sini. Tambahkan tugas ke siklus untuk mulai melacak kemajuan."
       },
       "module_progress": {
         "title": "Belum ada data",
-        "description": "Analitik kemajuan modul akan muncul di sini. Tambahkan item kerja ke modul untuk mulai melacak kemajuan."
+        "description": "Analitik kemajuan modul akan muncul di sini. Tambahkan tugas ke modul untuk mulai melacak kemajuan."
       },
       "intake_trends": {
         "title": "Belum ada data",
-        "description": "Analitik tren intake akan muncul di sini. Tambahkan item kerja ke intake untuk mulai melacak tren."
+        "description": "Analitik tren intake akan muncul di sini. Tambahkan tugas ke intake untuk mulai melacak tren."
       }
     },
     "upgrade_to_plan": "Tingkatkan ke {plan} untuk membuka {tab}",
-    "workitem_resolved_vs_pending": "Item kerja yang diselesaikan vs tertunda",
+    "workitem_resolved_vs_pending": "Tugas yang diselesaikan vs tertunda",
     "projects_by_status": "Proyek berdasarkan status",
     "active_users": "Pengguna aktif",
     "intake_trends": "Tren Penerimaan"
@@ -385,7 +385,7 @@
       "permission": "Anda tidak memiliki izin untuk melakukan tindakan ini.",
       "cycle_delete": "Gagal menghapus siklus",
       "module_delete": "Gagal menghapus modul",
-      "issue_delete": "Gagal menghapus item kerja"
+      "issue_delete": "Gagal menghapus tugas"
     },
     "state": {
       "backlog": "Backlog",
@@ -422,7 +422,7 @@
       },
       "no_projects": {
         "title": "Tidak ada proyek",
-        "description": "Untuk membuat item kerja atau mengelola pekerjaan Anda, Anda perlu membuat proyek atau menjadi bagian dari salah satunya.",
+        "description": "Untuk membuat tugas atau mengelola pekerjaan Anda, Anda perlu membuat proyek atau menjadi bagian dari salah satunya.",
         "primary_button": {
           "text": "Mulai proyek pertama Anda",
           "comic": {
@@ -444,33 +444,33 @@
     "add_view": "Tambah tampilan",
     "empty_state": {
       "all-issues": {
-        "title": "Tidak ada item kerja dalam proyek",
-        "description": "Proyek pertama sudah selesai! Sekarang, bagi pekerjaan Anda menjadi bagian yang dapat dilacak dengan item kerja. Mari kita mulai!",
+        "title": "Tidak ada tugas dalam proyek",
+        "description": "Proyek pertama sudah selesai! Sekarang, bagi pekerjaan Anda menjadi bagian yang dapat dilacak dengan tugas. Mari kita mulai!",
         "primary_button": {
-          "text": "Buat item kerja baru"
+          "text": "Buat tugas baru"
         }
       },
       "assigned": {
-        "title": "Belum ada item kerja",
-        "description": "Item kerja yang ditugaskan kepada Anda dapat dilacak dari sini.",
+        "title": "Belum ada tugas",
+        "description": "Tugas yang ditugaskan kepada Anda dapat dilacak dari sini.",
         "primary_button": {
-          "text": "Buat item kerja baru"
+          "text": "Buat tugas baru"
         }
       },
       "created": {
-        "title": "Belum ada item kerja",
-        "description": "Semua item kerja yang dibuat oleh Anda akan muncul di sini, lacak mereka langsung di sini.",
+        "title": "Belum ada tugas",
+        "description": "Semua tugas yang dibuat oleh Anda akan muncul di sini, lacak mereka langsung di sini.",
         "primary_button": {
-          "text": "Buat item kerja baru"
+          "text": "Buat tugas baru"
         }
       },
       "subscribed": {
-        "title": "Belum ada item kerja",
-        "description": "Langgan item kerja yang Anda minati, lacak semuanya di sini."
+        "title": "Belum ada tugas",
+        "description": "Langgan tugas yang Anda minati, lacak semuanya di sini."
       },
       "custom-view": {
-        "title": "Belum ada item kerja",
-        "description": "Item kerja yang menerapkan filter ini, lacak semuanya di sini."
+        "title": "Belum ada tugas",
+        "description": "Tugas yang menerapkan filter ini, lacak semuanya di sini."
       }
     },
     "delete_view": {
@@ -479,10 +479,10 @@
     }
   },
   "workspace_draft_issues": {
-    "draft_an_issue": "Draf item kerja",
+    "draft_an_issue": "Draf tugas",
     "empty_state": {
-      "title": "Item kerja setengah jadi, dan segera, komentar akan muncul di sini.",
-      "description": "Untuk mencoba ini, mulai dengan menambahkan item kerja dan tinggalkan di tengah jalan atau buat draf pertama Anda di bawah ini. 😉",
+      "title": "Tugas setengah jadi, dan segera, komentar akan muncul di sini.",
+      "description": "Untuk mencoba ini, mulai dengan menambahkan tugas dan tinggalkan di tengah jalan atau buat draf pertama Anda di bawah ini. 😉",
       "primary_button": {
         "text": "Buat draf pertama Anda"
       }
@@ -494,7 +494,7 @@
     "toasts": {
       "created": {
         "success": "Draf berhasil dibuat",
-        "error": "Item kerja tidak dapat dibuat. Silakan coba lagi."
+        "error": "Tugas tidak dapat dibuat. Silakan coba lagi."
       },
       "deleted": {
         "success": "Draf berhasil dihapus"
@@ -505,7 +505,7 @@
     "empty_state": {
       "general": {
         "title": "Tulis catatan, dokumen, atau basis pengetahuan lengkap. Dapatkan Galileo, asisten AI Plane, untuk membantu Anda memulai",
-        "description": "Halaman adalah ruang pemikiran di Plane. Catat catatan rapat, format dengan mudah, sematkan item kerja, tata menggunakan perpustakaan komponen, dan simpan semuanya dalam konteks proyek Anda. Untuk mempersingkat pekerjaan dokumen apa pun, panggil Galileo, AI Plane, dengan pintasan atau klik tombol.",
+        "description": "Halaman adalah ruang pemikiran di Plane. Catat catatan rapat, format dengan mudah, sematkan tugas, tata menggunakan perpustakaan komponen, dan simpan semuanya dalam konteks proyek Anda. Untuk mempersingkat pekerjaan dokumen apa pun, panggil Galileo, AI Plane, dengan pintasan atau klik tombol.",
         "primary_button": {
           "text": "Buat halaman pertama Anda"
         }

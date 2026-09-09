@@ -454,7 +454,7 @@
         "app_consent_unapproved_description": "Asigură-te că ai încredere în această aplicație înainte de a o conecta la spațiul tău de lucru.",
         "go_to_app": "Mergi la aplicație",
         "enable_app_mentions": "Activează mențiunile aplicației",
-        "enable_app_mentions_tooltip": "Când aceasta este activată, utilizatorii pot menționa sau atribui Work Items acestei aplicații.",
+        "enable_app_mentions_tooltip": "Când aceasta este activată, utilizatorii pot menționa sau atribui Tasks acestei aplicații.",
         "scopes": "Domenii",
         "select_scopes": "Selectați domeniile",
         "read_access_to": "Acces doar citire la",

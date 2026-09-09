@@ -32,7 +32,7 @@
       }
     },
     "quick_links": {
-      "empty": "Salva link a elementi di lavoro che ti servono.",
+      "empty": "Salva link a attività che ti servono.",
       "add": "Aggiungi link rapido",
       "title": "Link rapido",
       "title_plural": "Link rapidi",
@@ -43,15 +43,16 @@
       "empty": {
         "project": "I tuoi progetti recenti appariranno qui una volta visitati.",
         "page": "Le tue pagine recenti appariranno qui una volta visitate.",
-        "issue": "I tuoi elementi di lavoro recenti appariranno qui una volta visitati.",
+        "issue": "Le tue attività recenti appariranno qui una volta visitati.",
         "default": "Non hai ancora elementi recenti."
       },
       "filters": {
         "all": "Tutti",
         "projects": "Progetti",
         "pages": "Pagine",
-        "issues": "Elementi di lavoro"
-      }
+        "issues": "Attività"
+      },
+      "view_all": "Vedi tutta l'attività"
     },
     "new_at_plane": {
       "title": "Novità su Plane"
@@ -66,57 +67,21 @@
     "manage_widgets": "Gestisci widget",
     "title": "Il mio lavoro",
     "greeting": {
-      "subtitle": "Ecco cosa richiede la tua attenzione."
-    },
-    "due": {
-      "prefix": "In scadenza",
-      "today": "oggi",
-      "tomorrow": "domani"
+      "subtitle": "Ecco cosa richiede la Sua attenzione oggi."
     },
     "status": {
-      "not_started": "Non iniziato",
       "in_progress": "In corso",
       "done": "Completato",
-      "cancelled": "Annullato"
-    },
-    "today": {
-      "title": "Oggi",
-      "overdue": "In ritardo",
-      "due_today": "In scadenza oggi",
-      "in_progress": "In corso",
-      "empty": {
-        "title": "Sei in pari 🎉",
-        "description": "Nessuna scadenza per oggi."
-      }
-    },
-    "upcoming": {
-      "title": "Prossimamente",
-      "tomorrow": "Domani",
-      "empty": {
-        "title": "Niente in arrivo",
-        "description": "Non hai attività in programma."
-      }
+      "cancelled": "Annullato",
+      "to_do": "Da fare",
+      "overdue": "In ritardo"
     },
     "my_tasks": {
-      "title": "Le mie attività",
-      "tabs": {
-        "all": "Tutti",
-        "todo": "Da fare",
-        "in_progress": "In corso",
-        "done": "Completato"
-      },
-      "open": "Apri",
-      "view_all": "Vedi tutto",
       "empty": {
-        "title": "Niente qui",
-        "description": "Le attività a te assegnate appariranno qui."
-      }
-    },
-    "quick_actions": {
-      "add_task": "Aggiungi un'attività",
-      "add_note": "Aggiungi una nota",
-      "search": "Cerca",
-      "search_placeholder": "Cerca attività, progetti o persone"
+        "filtered": "Nessuna attività corrisponde al filtro attuale."
+      },
+      "show_more": "Mostra altre {count}",
+      "clear_filters": "Cancella filtri"
     },
     "star_us_on_github": "Metti una stella su GitHub",
     "business_trial_banner": {
@@ -126,6 +91,98 @@
       "trial_ends_in_days": "La prova scade tra {days, plural, one {# giorno} other {# giorni}}",
       "start_subscription": "Avvia abbonamento",
       "explore_business_features": "Esplora funzionalità Business"
+    },
+    "summary": {
+      "aria_label": "Riepilogo del lavoro",
+      "overdue": "In ritardo",
+      "due_today": "In scadenza oggi",
+      "in_progress": "In corso",
+      "upcoming": "Prossimamente"
+    },
+    "card": {
+      "mark_done": "Segna come completata",
+      "more": "Altro",
+      "change_status": "Cambia stato",
+      "toasts": {
+        "marked_done": "Attività segnata come completata",
+        "status_updated": "Stato aggiornato",
+        "status_update_failed": "Impossibile aggiornare lo stato",
+        "due_date_update_failed": "Impossibile aggiornare la scadenza"
+      },
+      "set_due_date": "Imposta scadenza",
+      "remove_due_date": "Rimuovi scadenza"
+    },
+    "filter": {
+      "by_project": "Filtra per progetto",
+      "all_projects": "Tutti i progetti"
+    },
+    "header": {
+      "new_task": "Nuova attività"
+    },
+    "filters": {
+      "all": "Tutte",
+      "done": "Completate"
+    },
+    "priority": {
+      "urgent": "Priorità urgente",
+      "high": "Priorità alta"
+    },
+    "queue": {
+      "groups": {
+        "overdue": "In ritardo",
+        "today": "In scadenza oggi",
+        "this_week": "Questa settimana",
+        "later": "Più avanti",
+        "no_date": "Senza scadenza"
+      },
+      "empty": {
+        "all": {
+          "title": "Nessuna attività assegnata a Lei",
+          "description": "Le attività assegnate a Lei appariranno qui."
+        },
+        "overdue": {
+          "title": "Niente in ritardo",
+          "description": "È in linea con i tempi."
+        },
+        "due_today": {
+          "title": "Niente in scadenza oggi",
+          "description": "Nessuna attività ha scadenza oggi."
+        },
+        "in_progress": {
+          "title": "Niente in corso",
+          "description": "Sposti un'attività in corso per vederla qui."
+        },
+        "upcoming": {
+          "title": "Niente in scadenza questa settimana",
+          "description": "Nessuna attività scade nei prossimi 7 giorni."
+        },
+        "done": {
+          "title": "Ancora niente di completato",
+          "description": "Le attività che completa appariranno qui."
+        }
+      },
+      "error": {
+        "title": "Impossibile caricare il Suo lavoro",
+        "description": "Controlli la connessione e riprovi.",
+        "retry": "Riprova"
+      }
+    },
+    "activity": {
+      "title": "La Sua attività recente",
+      "empty": "Nessuna attività recente.",
+      "error": "Impossibile caricare l'attività.",
+      "completed": "Segnata come completata",
+      "state": "Spostata in {state}",
+      "created": "Creata",
+      "commented": "Commento aggiunto",
+      "due_date": "Scadenza impostata al {date}",
+      "due_date_removed": "Scadenza rimossa",
+      "priority": "Priorità impostata su {priority}",
+      "assignees": "Assegnatari aggiornati",
+      "labels": "Etichette aggiornate",
+      "renamed": "Rinominata",
+      "description": "Descrizione aggiornata",
+      "updated": "Aggiornata"
     }
   }
 }

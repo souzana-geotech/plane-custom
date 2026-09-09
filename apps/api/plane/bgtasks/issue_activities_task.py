@@ -1585,7 +1585,7 @@ def issue_activity(
         issue_activities_created = IssueActivity.objects.bulk_create(issue_activities)
 
         # Dependency-aware scheduling: date, state, relation and deletion changes may
-        # shift the projected dates of dependent (blocked) work items. The handler is
+        # shift the projected dates of dependent (blocked) tasks. The handler is
         # additive and never raises; it only dispatches async recalculation/auto-shift.
         handle_issue_activity_for_dependencies(
             type, issue_id, project_id, requested_data, current_instance=current_instance, actor_id=actor_id

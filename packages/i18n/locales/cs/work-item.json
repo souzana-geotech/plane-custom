@@ -1,11 +1,11 @@
 {
   "issue": {
-    "label": "{count, plural, one {Pracovní položka} few {Pracovní položky} other {Pracovních položek}}",
-    "all": "Všechny pracovní položky",
-    "edit": "Upravit pracovní položku",
+    "label": "{count, plural, one {Úkol} few {Úkoly} other {Úkolů}}",
+    "all": "Všechny úkoly",
+    "edit": "Upravit úkol",
     "title": {
-      "label": "Název pracovní položky",
-      "required": "Název pracovní položky je povinný."
+      "label": "Název úkolu",
+      "required": "Název úkolu je povinný."
     },
     "form": {
       "title_placeholder": "Co je potřeba udělat?",
@@ -15,44 +15,44 @@
       "fewer_options": "Méně možností"
     },
     "add": {
-      "press_enter": "Stiskněte 'Enter' pro přidání další pracovní položky",
-      "label": "Přidat pracovní položku",
+      "press_enter": "Stiskněte 'Enter' pro přidání další úkoly",
+      "label": "Přidat úkol",
       "cycle": {
-        "failed": "Přidání pracovní položky do cyklu se nezdařilo. Zkuste to prosím znovu.",
-        "success": "{count, plural, one {Pracovní položka} few {Pracovní položky} other {Pracovních položek}} přidána do cyklu.",
-        "loading": "Přidávání {count, plural, one {pracovní položky} few {pracovních položek} other {pracovních položek}} do cyklu"
+        "failed": "Přidání úkoly do cyklu se nezdařilo. Zkuste to prosím znovu.",
+        "success": "{count, plural, one {Úkol} few {Úkoly} other {Úkolů}} přidána do cyklu.",
+        "loading": "Přidávání {count, plural, one {úkoly} few {úkolů} other {úkolů}} do cyklu"
       },
       "assignee": "Přidat přiřazené",
       "start_date": "Přidat datum začátku",
       "due_date": "Přidat termín",
       "working_days": "Přidat pracovní dny",
-      "parent": "Přidat nadřazenou pracovní položku",
-      "sub_issue": "Přidat podřízenou pracovní položku",
+      "parent": "Přidat nadřazený úkol",
+      "sub_issue": "Přidat podřízený úkol",
       "dependency": "Přidat závislost",
       "relation": "Přidat vztah",
       "link": "Přidat odkaz",
-      "existing": "Přidat existující pracovní položku"
+      "existing": "Přidat existující úkol"
     },
     "remove": {
-      "label": "Odebrat pracovní položku",
+      "label": "Odebrat úkol",
       "cycle": {
-        "loading": "Odebírání pracovní položky z cyklu",
-        "success": "Pracovní položka odebrána z cyklu.",
-        "failed": "Odebrání pracovní položky z cyklu se nezdařilo. Zkuste to prosím znovu."
+        "loading": "Odebírání úkoly z cyklu",
+        "success": "Úkol odebrán z cyklu.",
+        "failed": "Odebrání úkoly z cyklu se nezdařilo. Zkuste to prosím znovu."
       },
       "module": {
-        "loading": "Odebírání pracovní položky z modulu",
-        "success": "Pracovní položka odebrána z modulu.",
-        "failed": "Odebrání pracovní položky z modulu se nezdařilo. Zkuste to prosím znovu."
+        "loading": "Odebírání úkoly z modulu",
+        "success": "Úkol odebrán z modulu.",
+        "failed": "Odebrání úkoly z modulu se nezdařilo. Zkuste to prosím znovu."
       },
       "parent": {
-        "label": "Odebrat nadřazenou pracovní položku"
+        "label": "Odebrat nadřazený úkol"
       }
     },
-    "new": "Nová pracovní položka",
-    "adding": "Přidávání pracovní položky",
+    "new": "Nový úkol",
+    "adding": "Přidávání úkoly",
     "create": {
-      "success": "Pracovní položka úspěšně vytvořena"
+      "success": "Úkol úspěšně vytvořena"
     },
     "priority": {
       "urgent": "Naléhavá",
@@ -64,12 +64,12 @@
       "properties": {
         "label": "Zobrazované vlastnosti",
         "id": "ID",
-        "issue_type": "Typ pracovní položky",
+        "issue_type": "Typ úkolu",
         "sub_issue_count": "Počet podřízených položek",
         "attachment_count": "Počet příloh",
         "created_on": "Vytvořeno dne",
         "sub_issue": "Podřízená položka",
-        "work_item_count": "Počet pracovních položek"
+        "work_item_count": "Počet úkolů"
       },
       "extra": {
         "show_sub_issues": "Zobrazit podřízené položky",
@@ -160,35 +160,35 @@
     },
     "empty_state": {
       "issue_detail": {
-        "title": "Pracovní položka neexistuje",
-        "description": "Pracovní položka, kterou hledáte, neexistuje, byla archivována nebo smazána.",
+        "title": "Úkol neexistuje",
+        "description": "Úkol, který hledáte, neexistuje, byla archivována nebo smazána.",
         "primary_button": {
-          "text": "Zobrazit další pracovní položky"
+          "text": "Zobrazit další úkoly"
         }
       }
     },
     "sibling": {
-      "label": "Související pracovní položky"
+      "label": "Související úkoly"
     },
     "archive": {
-      "description": "Lze archivovat pouze dokončené nebo zrušené\npracovní položky",
-      "label": "Archivovat pracovní položku",
-      "confirm_message": "Opravdu chcete archivovat tuto pracovní položku? Všechny archivované položky lze později obnovit.",
+      "description": "Lze archivovat pouze dokončené nebo zrušené\núkoly",
+      "label": "Archivovat úkol",
+      "confirm_message": "Opravdu chcete archivovat tento úkol? Všechny archivované položky lze později obnovit.",
       "success": {
         "label": "Archivace úspěšná",
         "message": "Vaše archivy najdete v archivech projektu."
       },
       "failed": {
-        "message": "Archivace pracovní položky se nezdařila. Zkuste to prosím znovu."
+        "message": "Archivace úkolu se nezdařila. Zkuste to prosím znovu."
       }
     },
     "restore": {
       "success": {
         "title": "Obnovení úspěšné",
-        "message": "Vaše pracovní položka je k nalezení v pracovních položkách projektu."
+        "message": "Váš úkol je k nalezení v úkolech projektu."
       },
       "failed": {
-        "message": "Obnovení pracovní položky se nezdařilo. Zkuste to prosím znovu."
+        "message": "Obnovení úkolu se nezdařilo. Zkuste to prosím znovu."
       }
     },
     "relation": {
@@ -209,29 +209,29 @@
       "adjusted_dates": "Upraveno: {startDate} – {targetDate}",
       "adjusted_date": "Upraveno: {targetDate}"
     },
-    "copy_link": "Kopírovat odkaz na pracovní položku",
+    "copy_link": "Kopírovat odkaz na úkol",
     "delete": {
-      "label": "Smazat pracovní položku",
-      "error": "Chyba při mazání pracovní položky"
+      "label": "Smazat úkol",
+      "error": "Chyba při mazání úkoly"
     },
     "subscription": {
       "actions": {
-        "subscribed": "Pracovní položka úspěšně přihlášena k odběru",
-        "unsubscribed": "Odběr pracovní položky zrušen"
+        "subscribed": "Úkol úspěšně přihlášena k odběru",
+        "unsubscribed": "Odběr úkoly zrušen"
       }
     },
     "select": {
-      "error": "Vyberte alespoň jednu pracovní položku",
-      "empty": "Nevybrány žádné pracovní položky",
-      "add_selected": "Přidat vybrané pracovní položky",
+      "error": "Vyberte alespoň jeden úkol",
+      "empty": "Nevybrány žádné úkoly",
+      "add_selected": "Přidat vybrané úkoly",
       "select_all": "Vybrat vše",
       "deselect_all": "Zrušit výběr všeho"
     },
-    "open_in_full_screen": "Otevřít pracovní položku na celou obrazovku",
+    "open_in_full_screen": "Otevřít úkol na celou obrazovku",
     "duplicate": {
       "modal": {
         "title": "Vytvořit kopii do jiného projektu",
-        "description1": "Toto vytvoří kopii pracovní položky.",
+        "description1": "Toto vytvoří kopii úkolu.",
         "description2": "Při duplikování budou odstraněna všechna data vlastností.",
         "placeholder": "Vyberte projekt"
       }
@@ -239,10 +239,10 @@
     "toast": {
       "duplicate": {
         "success": {
-          "message": "Pracovní položka úspěšně duplikována"
+          "message": "Úkol úspěšně duplikována"
         },
         "error": {
-          "message": "Duplikování pracovní položky se nezdařilo"
+          "message": "Duplikování úkoly se nezdařilo"
         }
       }
     },
@@ -284,22 +284,22 @@
   },
   "sub_work_item": {
     "update": {
-      "success": "Podřízená pracovní položka úspěšně aktualizována",
+      "success": "Podřízený úkol úspěšně aktualizována",
       "error": "Chyba při aktualizaci podřízené položky"
     },
     "remove": {
-      "success": "Podřízená pracovní položka úspěšně odebrána",
+      "success": "Podřízený úkol úspěšně odebrána",
       "error": "Chyba při odebírání podřízené položky"
     },
     "empty_state": {
       "sub_list_filters": {
-        "title": "Nemáte podřízené pracovní položky, které odpovídají použitým filtrům.",
-        "description": "Chcete-li zobrazit všechny podřízené pracovní položky, odstraňte všechny použité filtry.",
+        "title": "Nemáte podřízené úkoly, které odpovídají použitým filtrům.",
+        "description": "Chcete-li zobrazit všechny podřízené úkoly, odstraňte všechny použité filtry.",
         "action": "Odstranit filtry"
       },
       "list_filters": {
-        "title": "Nemáte pracovní položky, které odpovídají použitým filtrům.",
-        "description": "Chcete-li zobrazit všechny pracovní položky, odstraňte všechny použité filtry.",
+        "title": "Nemáte úkoly, které odpovídají použitým filtrům.",
+        "description": "Chcete-li zobrazit všechny úkoly, odstraňte všechny použité filtry.",
         "action": "Odstranit filtry"
       }
     }
@@ -325,29 +325,29 @@
   "bulk_operations": {
     "error_details": {
       "invalid_archive_state_group": {
-        "title": "Nelze archivovat pracovní položky",
-        "message": "Archivovat lze pouze pracovní položky patřící do skupin stavů Dokončeno nebo Zrušeno."
+        "title": "Nelze archivovat úkoly",
+        "message": "Archivovat lze pouze úkoly patřící do skupin stavů Dokončeno nebo Zrušeno."
       },
       "invalid_issue_start_date": {
-        "title": "Nelze aktualizovat pracovní položky",
-        "message": "Vybrané datum zahájení přesahuje datum splatnosti pro některé pracovní položky. Ujistěte se, že datum zahájení je před datem splatnosti."
+        "title": "Nelze aktualizovat úkoly",
+        "message": "Vybrané datum zahájení přesahuje datum splatnosti pro některé úkoly. Ujistěte se, že datum zahájení je před datem splatnosti."
       },
       "invalid_issue_target_date": {
-        "title": "Nelze aktualizovat pracovní položky",
-        "message": "Vybrané datum splatnosti předchází datu zahájení pro některé pracovní položky. Ujistěte se, že datum splatnosti je po datu zahájení."
+        "title": "Nelze aktualizovat úkoly",
+        "message": "Vybrané datum splatnosti předchází datu zahájení pro některé úkoly. Ujistěte se, že datum splatnosti je po datu zahájení."
       },
       "invalid_state_transition": {
-        "title": "Nelze aktualizovat pracovní položky",
-        "message": "Změna stavu není povolena pro některé pracovní položky. Ujistěte se, že je změna stavu povolena."
+        "title": "Nelze aktualizovat úkoly",
+        "message": "Změna stavu není povolena pro některé úkoly. Ujistěte se, že je změna stavu povolena."
       }
     }
   },
   "recurring_work_items": {
     "settings": {
-      "heading": "Opakující se pracovní položky",
+      "heading": "Opakující se úkoly",
       "description": "Nastavte to jednou. Připomeneme vám to, až bude čas. Upgradujte na Business a opakující se práce bude bez námahy.",
-      "new_recurring_work_item": "Nová opakující se pracovní položka",
-      "update_recurring_work_item": "Upravit opakující se pracovní položku",
+      "new_recurring_work_item": "Nová opakující se úkol",
+      "update_recurring_work_item": "Upravit opakující se úkol",
       "form": {
         "interval": {
           "title": "Plán",
@@ -363,13 +363,13 @@
           }
         },
         "button": {
-          "create": "Vytvořit opakující se pracovní položku",
-          "update": "Upravit opakující se pracovní položku"
+          "create": "Vytvořit opakující se úkol",
+          "update": "Upravit opakující se úkol"
         }
       },
       "create_button": {
-        "label": "Vytvořit opakující se pracovní položku",
-        "no_permission": "Kontaktujte správce projektu pro vytvoření opakujících se pracovních položek"
+        "label": "Vytvořit opakující se úkol",
+        "no_permission": "Kontaktujte správce projektu pro vytvoření opakujících se úkolů"
       }
     },
     "empty_state": {
@@ -378,46 +378,46 @@
         "description": "Nastavte to jednou. Připomeneme vám to, až bude čas. Upgradujte na Business a opakující se práce bude bez námahy."
       },
       "no_templates": {
-        "button": "Vytvořte svou první opakující se pracovní položku"
+        "button": "Vytvořte svou první opakující se úkol"
       }
     },
     "toasts": {
       "create": {
         "success": {
-          "title": "Opakující se pracovní položka vytvořena",
-          "message": "{name}, opakující se pracovní položka, je nyní dostupná pro váš pracovní prostor."
+          "title": "Opakující se úkol vytvořen",
+          "message": "{name}, opakující se úkol, je nyní dostupná pro váš pracovní prostor."
         },
         "error": {
-          "title": "Tuto opakující se pracovní položku se tentokrát nepodařilo vytvořit.",
-          "message": "Zkuste znovu uložit své údaje nebo je zkopírujte do nové opakující se pracovní položky, ideálně v jiném panelu."
+          "title": "Tuto opakující se úkol se tentokrát nepodařilo vytvořit.",
+          "message": "Zkuste znovu uložit své údaje nebo je zkopírujte do nové opakující se úkoly, ideálně v jiném panelu."
         }
       },
       "update": {
         "success": {
-          "title": "Opakující se pracovní položka změněna",
-          "message": "{name}, opakující se pracovní položka, byla změněna."
+          "title": "Opakující se úkol změněn",
+          "message": "{name}, opakující se úkol, byla změněna."
         },
         "error": {
-          "title": "Změny této opakující se pracovní položky se nepodařilo uložit.",
-          "message": "Zkuste znovu uložit své údaje nebo se k této opakující se pracovní položce vraťte později. Pokud potíže přetrvávají, kontaktujte nás."
+          "title": "Změny této opakující se úkoly se nepodařilo uložit.",
+          "message": "Zkuste znovu uložit své údaje nebo se k této opakující se úkolu vraťte později. Pokud potíže přetrvávají, kontaktujte nás."
         }
       },
       "delete": {
         "success": {
-          "title": "Opakující se pracovní položka smazána",
-          "message": "{name}, opakující se pracovní položka, byla nyní odstraněna z vašeho pracovního prostoru."
+          "title": "Opakující se úkol smazán",
+          "message": "{name}, opakující se úkol, byla nyní odstraněna z vašeho pracovního prostoru."
         },
         "error": {
-          "title": "Tuto opakující se pracovní položku se nepodařilo smazat.",
+          "title": "Tuto opakující se úkol se nepodařilo smazat.",
           "message": "Zkuste ji smazat znovu nebo se k ní vraťte později. Pokud ji stále nemůžete smazat, kontaktujte nás."
         }
       }
     },
     "delete_confirmation": {
-      "title": "Smazat opakující se pracovní položku",
+      "title": "Smazat opakující se úkol",
       "description": {
-        "prefix": "Opravdu chcete smazat opakující se pracovní položku-",
-        "suffix": "? Všechna data související s touto opakující se pracovní položkou budou trvale odstraněna. Tuto akci nelze vrátit zpět."
+        "prefix": "Opravdu chcete smazat opakující se úkol-",
+        "suffix": "? Všechna data související s touto opakující se úkolem budou trvale odstraněna. Tuto akci nelze vrátit zpět."
       }
     }
   },

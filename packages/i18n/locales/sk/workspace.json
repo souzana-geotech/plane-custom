@@ -53,7 +53,7 @@
   "workspace_dashboard": {
     "title": "Prevádzkový panel",
     "subtitle": "Manažérsky prehľad zákaziek klientov, práce, oddelení a zamestnancov",
-    "coverage_note": "Dodávky, kontroly klientov, vybavenie a predaj sa nezobrazujú, pretože tento pracovný priestor o nich nemá žiadne údaje. Zisťovanie konfliktov v rozvrhu zamestnancov vyžaduje časy, ktoré pracovné položky neobsahujú.",
+    "coverage_note": "Dodávky, kontroly klientov, vybavenie a predaj sa nezobrazujú, pretože tento pracovný priestor o nich nemá žiadne údaje. Zisťovanie konfliktov v rozvrhu zamestnancov vyžaduje časy, ktoré úlohy neobsahujú.",
     "error": {
       "title": "Panel sa nepodarilo načítať",
       "description": "Jedna alebo viac požiadaviek zlyhalo. Skúste to znova alebo obnovte stránku.",
@@ -61,7 +61,7 @@
     },
     "empty": {
       "title": "Zatiaľ žiadne prevádzkové údaje",
-      "description": "Vytvorte Moduly pre zákazky klientov a pracovné položky pre skutočnú prácu a tento panel sa naplní."
+      "description": "Vytvorte Moduly pre zákazky klientov a úlohy pre skutočnú prácu a tento panel sa naplní."
     },
     "filters": {
       "project": "Projekt",
@@ -77,13 +77,13 @@
       "jobs_at_risk": "Zákazky vyžadujúce pozornosť",
       "jobs_at_risk_hint": "Aktívne zákazky, ktoré sú ohrozené, oneskorené alebo blokované",
       "overdue_tasks": "Úlohy po termíne",
-      "overdue_tasks_hint": "Otvorené pracovné položky po termíne dokončenia",
+      "overdue_tasks_hint": "Otvorené úlohy po termíne dokončenia",
       "due_this_week": "Termín tento týždeň",
-      "due_this_week_hint": "Otvorené pracovné položky s termínom v najbližších 7 dňoch",
+      "due_this_week_hint": "Otvorené úlohy s termínom v najbližších 7 dňoch",
       "blocked_tasks": "Blokované úlohy",
-      "blocked_tasks_hint": "Otvorené pracovné položky blokované inou otvorenou prácou",
+      "blocked_tasks_hint": "Otvorené úlohy blokované inou otvorenou prácou",
       "no_due_date": "Bez termínu",
-      "no_due_date_hint": "Otvorené pracovné položky bez termínu dokončenia"
+      "no_due_date_hint": "Otvorené úlohy bez termínu dokončenia"
     },
     "severity": {
       "critical": "Kritické",
@@ -137,7 +137,7 @@
     },
     "employees": {
       "title": "Vyťaženie zamestnancov",
-      "description": "Otvorené pracovné položky na zamestnanca. Kapacita sa nesleduje, preto sa namiesto využitia zobrazujú počty.",
+      "description": "Otvorené úlohy na zamestnanca. Kapacita sa nesleduje, preto sa namiesto využitia zobrazujú počty.",
       "empty": "Nie je priradená žiadna otvorená práca",
       "columns": {
         "employee": "Zamestnanec",
@@ -150,8 +150,8 @@
     "pipeline": {
       "title": "Tok práce",
       "description": "Kde sa práca nachádza naprieč stavmi pracovného postupu",
-      "total": "{count, plural, one {# pracovná položka} few {# pracovné položky} many {# pracovnej položky} other {# pracovných položiek}}",
-      "empty": "Zatiaľ žiadne pracovné položky"
+      "total": "{count, plural, one {# úloha} few {# úlohy} many {# úlohy} other {# úloh}}",
+      "empty": "Zatiaľ žiadne úlohy"
     },
     "departments": {
       "title": "Vyťaženie oddelení",
@@ -168,7 +168,7 @@
     },
     "attention": {
       "title": "Práca vyžadujúca pozornosť",
-      "description": "Pracovné položky po termíne, blokované a s blízkym termínom",
+      "description": "Úlohy po termíne, blokované a s blízkym termínom",
       "empty": "Nič nevyžaduje pozornosť",
       "overdue_by": "{count, plural, one {Po termíne o # deň} few {Po termíne o # dni} many {Po termíne o # dňa} other {Po termíne o # dní}}",
       "blocked": "Blokovaná",
@@ -179,7 +179,7 @@
     "empty_state": {
       "general": {
         "title": "Prehľad projektov, aktivít a metrík",
-        "description": "Vitajte v Plane, teší nás, že ste tu. Vytvorte prvý projekt, sledujte pracovné položky a táto stránka sa zmení na priestor pre váš pokrok. Správcovia tu uvidia aj položky pomáhajúce tímu.",
+        "description": "Vitajte v Plane, teší nás, že ste tu. Vytvorte prvý projekt, sledujte úlohy a táto stránka sa zmení na priestor pre váš pokrok. Správcovia tu uvidia aj položky pomáhajúce tímu.",
         "primary_button": {
           "text": "Vytvorte prvý projekt",
           "comic": {
@@ -198,7 +198,7 @@
       "busy": "Vyťažený · {count}",
       "assigned": "Priradené · {count}",
       "available": "Voľný",
-      "tooltip": "{count, plural, one {# otvorená pracovná položka} few {# otvorené pracovné položky} many {# otvorenej pracovnej položky} other {# otvorených pracovných položiek}} naplánovaná na dnes"
+      "tooltip": "{count, plural, one {# otvorená úloha} few {# otvorené úlohy} many {# otvorenej úlohy} other {# otvorených úloh}} naplánovaná na dnes"
     },
     "summary": {
       "employees": "Zobrazení zamestnanci",
@@ -206,7 +206,7 @@
       "with_overlaps": "S prekrytiami",
       "available": "Dnes voľní",
       "scheduled": "Naplánované priradenia",
-      "undated": "Pracovné položky bez dátumu"
+      "undated": "Úlohy bez dátumu"
     },
     "filters": {
       "all": "Všetko",
@@ -245,7 +245,7 @@
       "overlap_tooltip": "{count, plural, one {# obdobie} few {# obdobia} many {# obdobia} other {# období}} s viac ako jedným priradením naraz. Maximum: {peak} súčasne.",
       "overdue": "{count, plural, one {# po termíne} few {# po termíne} many {# po termíne} other {# po termíne}}",
       "undated": "{count, plural, one {# bez dátumu} few {# bez dátumu} many {# bez dátumu} other {# bez dátumu}}",
-      "undated_tooltip": "Otvorené pracovné položky priradené tomuto zamestnancovi, ktoré nemajú dátum začiatku ani termín, a preto ich nemožno umiestniť na časovú os.",
+      "undated_tooltip": "Otvorené úlohy priradené tomuto zamestnancovi, ktoré nemajú dátum začiatku ani termín, a preto ich nemožno umiestniť na časovú os.",
       "next": "Ďalšie: {name} · {date}",
       "nothing_next": "Nič ďalšie naplánované"
     },
@@ -260,12 +260,12 @@
     },
     "error": {
       "title": "Zamestnanecký Gantt sa nepodarilo načítať",
-      "description": "Požiadavka na pracovné položky zlyhala. Skúste to znova alebo obnovte stránku.",
+      "description": "Požiadavka na úlohy zlyhala. Skúste to znova alebo obnovte stránku.",
       "retry": "Skúsiť znova"
     },
     "empty": {
       "title": "Zatiaľ žiadna naplánovaná práca",
-      "description": "Pridajte pracovným položkám dátum začiatku a termín a priraďte ich ľuďom, a toto zobrazenie sa naplní."
+      "description": "Pridajte úlohám dátum začiatku a termín a priraďte ich ľuďom, a toto zobrazenie sa naplní."
     },
     "empty_today": {
       "title": "Na dnes nemá naplánovanú prácu nikto",
@@ -285,17 +285,17 @@
     "page_label": "{workspace} - Analytika",
     "open_tasks": "Celkovo otvorených úloh",
     "error": "Pri načítaní dát došlo k chybe.",
-    "work_items_closed_in": "Pracovné položky uzavreté v",
+    "work_items_closed_in": "Úlohy uzavreté v",
     "selected_projects": "Vybrané projekty",
     "total_members": "Celkovo členov",
     "total_cycles": "Celkovo cyklov",
     "total_modules": "Celkovo modulov",
     "pending_work_items": {
-      "title": "Čakajúce pracovné položky",
+      "title": "Čakajúce úlohy",
       "empty_state": "Tu sa zobrazí analýza čakajúcich položiek podľa spolupracovníkov."
     },
     "work_items_closed_in_a_year": {
-      "title": "Pracovné položky uzavreté v roku",
+      "title": "Úlohy uzavreté v roku",
       "empty_state": "Uzatvárajte položky, aby ste videli analýzu stavov v grafe."
     },
     "most_work_items_created": {
@@ -325,15 +325,15 @@
     "empty_state": {
       "project_insights": {
         "title": "Zatiaľ žiadne údaje",
-        "description": "Pracovné položky priradené vám, rozdelené podľa stavu, sa zobrazia tu."
+        "description": "Úlohy priradené vám, rozdelené podľa stavu, sa zobrazia tu."
       },
       "created_vs_resolved": {
         "title": "Zatiaľ žiadne údaje",
-        "description": "Pracovné položky vytvorené a vyriešené v priebehu času sa zobrazia tu."
+        "description": "Úlohy vytvorené a vyriešené v priebehu času sa zobrazia tu."
       },
       "customized_insights": {
         "title": "Zatiaľ žiadne údaje",
-        "description": "Pracovné položky priradené vám, rozdelené podľa stavu, sa zobrazia tu."
+        "description": "Úlohy priradené vám, rozdelené podľa stavu, sa zobrazia tu."
       },
       "general": {
         "title": "Sledujte pokrok, pracovné zaťaženie a alokácie. Identifikujte trendy, odstráňte prekážky a urýchlite prácu",
@@ -348,19 +348,19 @@
       },
       "cycle_progress": {
         "title": "Zatiaľ žiadne údaje",
-        "description": "Analýza postupu cyklu sa zobrazí tu. Pridajte pracovné položky do cyklov, aby ste mohli začať sledovať postup."
+        "description": "Analýza postupu cyklu sa zobrazí tu. Pridajte úlohy do cyklov, aby ste mohli začať sledovať postup."
       },
       "module_progress": {
         "title": "Zatiaľ žiadne údaje",
-        "description": "Analýza postupu modulu sa zobrazí tu. Pridajte pracovné položky do modulov, aby ste mohli začať sledovať postup."
+        "description": "Analýza postupu modulu sa zobrazí tu. Pridajte úlohy do modulov, aby ste mohli začať sledovať postup."
       },
       "intake_trends": {
         "title": "Zatiaľ žiadne údaje",
-        "description": "Analýza trendov príjmu sa zobrazí tu. Pridajte pracovné položky do príjmu, aby ste mohli sledovať trendy."
+        "description": "Analýza trendov príjmu sa zobrazí tu. Pridajte úlohy do príjmu, aby ste mohli sledovať trendy."
       }
     },
     "upgrade_to_plan": "Inovujte na {plan}, aby ste odomkli kartu {tab}",
-    "workitem_resolved_vs_pending": "Vyriešené vs. čakajúce pracovné položky",
+    "workitem_resolved_vs_pending": "Vyriešené vs. čakajúce úlohy",
     "projects_by_status": "Projekty podľa stavu",
     "active_users": "Aktívni používatelia",
     "intake_trends": "Trendy prijímania"
@@ -385,7 +385,7 @@
       "permission": "Nemáte oprávnenie na túto akciu.",
       "cycle_delete": "Odstránenie cyklu zlyhalo",
       "module_delete": "Odstránenie modulu zlyhalo",
-      "issue_delete": "Odstránenie pracovnej položky zlyhalo"
+      "issue_delete": "Odstránenie úlohy zlyhalo"
     },
     "state": {
       "backlog": "Backlog",
@@ -422,7 +422,7 @@
       },
       "no_projects": {
         "title": "Žiadne projekty",
-        "description": "Na vytváranie pracovných položiek potrebujete vytvoriť alebo byť súčasťou projektu.",
+        "description": "Na vytváranie úloh potrebujete vytvoriť alebo byť súčasťou projektu.",
         "primary_button": {
           "text": "Začnite prvý projekt",
           "comic": {
@@ -444,24 +444,24 @@
     "add_view": "Pridať pohľad",
     "empty_state": {
       "all-issues": {
-        "title": "Žiadne pracovné položky v projekte",
+        "title": "Žiadne úlohy v projekte",
         "description": "Vytvorte prvú položku a sledujte svoj pokrok!",
         "primary_button": {
-          "text": "Vytvoriť pracovnú položku"
+          "text": "Vytvoriť úlohu"
         }
       },
       "assigned": {
         "title": "Žiadne priradené položky",
         "description": "Tu uvidíte položky priradené vám.",
         "primary_button": {
-          "text": "Vytvoriť pracovnú položku"
+          "text": "Vytvoriť úlohu"
         }
       },
       "created": {
         "title": "Žiadne vytvorené položky",
         "description": "Tu sú položky, ktoré ste vytvorili.",
         "primary_button": {
-          "text": "Vytvoriť pracovnú položku"
+          "text": "Vytvoriť úlohu"
         }
       },
       "subscribed": {
@@ -505,7 +505,7 @@
     "empty_state": {
       "general": {
         "title": "Napíšte poznámku, dokument alebo úplnú znalostnej bázu. Nechajte Galilea, Plenovho AI asistenta, aby vám pomohol začať",
-        "description": "Stránky sú priestor pre myšlienky v Plene. Zapíšte si poznámky zo stretnutí, jednoducho ich formátujte, vložte pracovné položky, rozložte ich pomocou knižnice komponentov a uchovajte ich všetky v kontexte vášho projektu. Aby ste skrátili prácu na akomkoľvek dokumente, vyvolajte Galilea, AI Plena, pomocou skratky alebo kliknutia na tlačidlo.",
+        "description": "Stránky sú priestor pre myšlienky v Plene. Zapíšte si poznámky zo stretnutí, jednoducho ich formátujte, vložte úlohy, rozložte ich pomocou knižnice komponentov a uchovajte ich všetky v kontexte vášho projektu. Aby ste skrátili prácu na akomkoľvek dokumente, vyvolajte Galilea, AI Plena, pomocou skratky alebo kliknutia na tlačidlo.",
         "primary_button": {
           "text": "Vytvorte svoju prvú stránku"
         }

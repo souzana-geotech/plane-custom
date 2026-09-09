@@ -20,7 +20,7 @@ export const useActiveTab = ({ navigationItems, pathname, workItemId, workItem, 
   // Check if a navigation item is active
   const isActive = useCallback(
     (item: TNavigationItem) => {
-      // Work item condition
+      // Task condition
       const workItemCondition = workItemId && workItem && !workItem?.is_epic && workItem?.project_id === projectId;
       // Epic condition
       const epicCondition = workItemId && workItem && workItem?.is_epic && workItem?.project_id === projectId;

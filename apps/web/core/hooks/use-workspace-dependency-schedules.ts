@@ -14,7 +14,7 @@ import { IssueDependencyScheduleService } from "@/services/issue/issue_dependenc
 const issueDependencyScheduleService = new IssueDependencyScheduleService();
 
 /**
- * Dependency-delay projections of the workspace, keyed by work item id.
+ * Dependency-delay projections of the workspace, keyed by task id.
  *
  * Purely decorative data: consumers render identically with an empty map, so the
  * request never retries on error and a failure degrades silently. The SWR key is

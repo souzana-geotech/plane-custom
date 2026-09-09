@@ -57,7 +57,7 @@ export const DraftIssueLayout = observer(function DraftIssueLayout(props: DraftI
   };
 
   const handleClose = () => {
-    // If the user is updating an existing work item, we don't need to show the discard modal
+    // If the user is updating an existing task, we don't need to show the discard modal
     if (data?.id) {
       onClose();
       setIssueDiscardModal(false);

@@ -21,10 +21,10 @@ type Props = {
 };
 
 /**
- * Minimal indicator for work items whose schedule is pushed forward by a delayed
+ * Minimal indicator for tasks whose schedule is pushed forward by a delayed
  * `blocked_by` dependency. Renders nothing unless the backend scheduling service
- * reports the work item as dependency delayed. The delay is inherited from the
- * upstream work item — distinct from the work item being overdue by itself.
+ * reports the task as dependency delayed. The delay is inherited from the
+ * upstream task — distinct from the task being overdue by itself.
  */
 export function IssueDependencyDelayIndicator(props: Props) {
   const { workspaceSlug, projectId, issueId } = props;

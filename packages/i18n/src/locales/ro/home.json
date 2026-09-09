@@ -51,7 +51,8 @@
         "projects": "Proiecte",
         "pages": "Documentație",
         "issues": "Activități"
-      }
+      },
+      "view_all": "Vezi toată activitatea"
     },
     "new_at_plane": {
       "title": "Noutăți în Plane"
@@ -66,57 +67,21 @@
     "manage_widgets": "Gestionează mini-aplicațiile",
     "title": "Munca mea",
     "greeting": {
-      "subtitle": "Iată ce are nevoie de atenția ta."
-    },
-    "due": {
-      "prefix": "Scadent",
-      "today": "azi",
-      "tomorrow": "mâine"
+      "subtitle": "Iată ce necesită atenția dumneavoastră astăzi."
     },
     "status": {
-      "not_started": "Neînceput",
       "in_progress": "În curs",
       "done": "Finalizat",
-      "cancelled": "Anulat"
-    },
-    "today": {
-      "title": "Azi",
-      "overdue": "Întârziate",
-      "due_today": "Scadent azi",
-      "in_progress": "În curs",
-      "empty": {
-        "title": "Ești la zi 🎉",
-        "description": "Nu ai nimic scadent azi."
-      }
-    },
-    "upcoming": {
-      "title": "În curând",
-      "tomorrow": "Mâine",
-      "empty": {
-        "title": "Nimic în curând",
-        "description": "Nu ai nicio sarcină viitoare."
-      }
+      "cancelled": "Anulat",
+      "to_do": "De făcut",
+      "overdue": "Întârziat"
     },
     "my_tasks": {
-      "title": "Sarcinile mele",
-      "tabs": {
-        "all": "Toate",
-        "todo": "De făcut",
-        "in_progress": "În curs",
-        "done": "Finalizate"
-      },
-      "open": "Deschide",
-      "view_all": "Vezi toate",
       "empty": {
-        "title": "Nimic aici",
-        "description": "Sarcinile atribuite ție vor apărea aici."
-      }
-    },
-    "quick_actions": {
-      "add_task": "Adaugă o sarcină",
-      "add_note": "Adaugă o notiță",
-      "search": "Caută",
-      "search_placeholder": "Caută sarcini, proiecte sau persoane"
+        "filtered": "Nicio sarcină nu corespunde filtrului curent."
+      },
+      "show_more": "Afișează încă {count}",
+      "clear_filters": "Șterge filtrele"
     },
     "star_us_on_github": "Dă-ne o stea pe GitHub",
     "business_trial_banner": {
@@ -126,6 +91,98 @@
       "trial_ends_in_days": "Perioada de probă se încheie în {days, plural, one {# zi} other {# zile}}",
       "start_subscription": "Începe abonamentul",
       "explore_business_features": "Explorează funcțiile Business"
+    },
+    "summary": {
+      "aria_label": "Rezumatul lucrului",
+      "overdue": "Întârziate",
+      "due_today": "Scadente azi",
+      "in_progress": "În curs",
+      "upcoming": "În curând"
+    },
+    "card": {
+      "mark_done": "Marchează ca finalizată",
+      "more": "Mai multe",
+      "change_status": "Schimbă starea",
+      "toasts": {
+        "marked_done": "Sarcina a fost marcată ca finalizată",
+        "status_updated": "Starea a fost actualizată",
+        "status_update_failed": "Starea nu a putut fi actualizată",
+        "due_date_update_failed": "Termenul nu a putut fi actualizat"
+      },
+      "set_due_date": "Setează termenul",
+      "remove_due_date": "Elimină termenul"
+    },
+    "filter": {
+      "by_project": "Filtrează după proiect",
+      "all_projects": "Toate proiectele"
+    },
+    "header": {
+      "new_task": "Sarcină nouă"
+    },
+    "filters": {
+      "all": "Toate",
+      "done": "Finalizate"
+    },
+    "priority": {
+      "urgent": "Prioritate urgentă",
+      "high": "Prioritate ridicată"
+    },
+    "queue": {
+      "groups": {
+        "overdue": "Întârziate",
+        "today": "Scadente azi",
+        "this_week": "Săptămâna aceasta",
+        "later": "Mai târziu",
+        "no_date": "Fără termen"
+      },
+      "empty": {
+        "all": {
+          "title": "Nu aveți sarcini atribuite",
+          "description": "Sarcinile atribuite dumneavoastră vor apărea aici."
+        },
+        "overdue": {
+          "title": "Nimic întârziat",
+          "description": "Sunteți în grafic."
+        },
+        "due_today": {
+          "title": "Nimic scadent azi",
+          "description": "Nicio sarcină nu are termenul azi."
+        },
+        "in_progress": {
+          "title": "Nimic în curs",
+          "description": "Mutați o sarcină în starea În curs și va apărea aici."
+        },
+        "upcoming": {
+          "title": "Nimic scadent săptămâna aceasta",
+          "description": "Nicio sarcină nu are termen în următoarele 7 zile."
+        },
+        "done": {
+          "title": "Nimic finalizat încă",
+          "description": "Sarcinile finalizate vor apărea aici."
+        }
+      },
+      "error": {
+        "title": "Lucrul dumneavoastră nu a putut fi încărcat",
+        "description": "Verificați conexiunea și încercați din nou.",
+        "retry": "Încearcă din nou"
+      }
+    },
+    "activity": {
+      "title": "Activitatea dumneavoastră recentă",
+      "empty": "Nicio activitate recentă.",
+      "error": "Activitatea nu a putut fi încărcată.",
+      "completed": "Marcată ca finalizată",
+      "state": "Mutată în {state}",
+      "created": "Creată",
+      "commented": "Comentariu adăugat",
+      "due_date": "Termen setat pentru {date}",
+      "due_date_removed": "Termen eliminat",
+      "priority": "Prioritate setată la {priority}",
+      "assignees": "Responsabili actualizați",
+      "labels": "Etichete actualizate",
+      "renamed": "Redenumită",
+      "description": "Descriere actualizată",
+      "updated": "Actualizată"
     }
   }
 }

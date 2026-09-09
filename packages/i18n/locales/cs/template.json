@@ -2,16 +2,16 @@
   "templates": {
     "settings": {
       "title": "Šablony",
-      "description": "Ušetřete 80 % času stráveného vytvářením projektů, pracovních položek a stránek, když používáte šablony.",
+      "description": "Ušetřete 80 % času stráveného vytvářením projektů, úkolů a stránek, když používáte šablony.",
       "new_project_template": "Nová šablona projektu",
-      "new_work_item_template": "Nová šablona pracovní položky",
+      "new_work_item_template": "Nová šablona úkolu",
       "new_page_template": "Nová šablona stránky",
       "options": {
         "project": {
           "label": "Šablony projektů"
         },
         "work_item": {
-          "label": "Šablony pracovních položek"
+          "label": "Šablony úkolů"
         },
         "page": {
           "label": "Šablony stránek"
@@ -70,7 +70,7 @@
         "work_item": {
           "template": {
             "name": {
-              "placeholder": "Pojmenujte svou šablonu pracovních položek.",
+              "placeholder": "Pojmenujte svou šablonu úkolů.",
               "validation": {
                 "required": "Název šablony je povinný",
                 "maxLength": "Název šablony by měl být kratší než 255 znaků"
@@ -81,18 +81,18 @@
             }
           },
           "name": {
-            "placeholder": "Dejte této pracovní položce název.",
+            "placeholder": "Dejte tomuto úkolu název.",
             "validation": {
-              "required": "Název pracovní položky je povinný",
-              "maxLength": "Název pracovní položky by měl být kratší než 255 znaků"
+              "required": "Název úkolu je povinný",
+              "maxLength": "Název úkolu by měl být kratší než 255 znaků"
             }
           },
           "description": {
-            "placeholder": "Popište tuto pracovní položku, aby bylo jasné, co dosáhnete, když ji dokončíte."
+            "placeholder": "Popište tento úkol, aby bylo jasné, co dosáhnete, když ji dokončíte."
           },
           "button": {
-            "create": "Vytvořit šablonu pracovní položky",
-            "update": "Aktualizovat šablonu pracovní položky"
+            "create": "Vytvořit šablonu úkolu",
+            "update": "Aktualizovat šablonu úkolu"
           }
         },
         "page": {
@@ -227,23 +227,23 @@
     "empty_state": {
       "upgrade": {
         "title": "Šablony",
-        "description": "S šablonami projektů, pracovních položek a stránek v Plane nemusíte vytvářet projekt od nuly nebo nastavovat vlastnosti pracovních položek ručně.",
+        "description": "S šablonami projektů, úkolů a stránek v Plane nemusíte vytvářet projekt od nuly nebo nastavovat vlastnosti úkolů ručně.",
         "sub_description": "Získejte 80 % svého administrativního času zpět, když používáte šablony."
       },
       "no_templates": {
         "button": "Vytvořte svou první šablonu"
       },
       "no_labels": {
-        "description": "Zatím žádné štítky. Vytvořte štítky, abyste pomohli organizovat a filtrovat pracovní položky v projektu."
+        "description": "Zatím žádné štítky. Vytvořte štítky, abyste pomohli organizovat a filtrovat úkoly v projektu."
       },
       "no_modules": {
         "description": "Zatím žádné moduly. Organizujte práci do dílčích projektů s vyhrazenými vedoucími a přiřazenými osobami."
       },
       "no_work_items": {
-        "description": "Zatím žádné pracovní položky. Přidejte jednu, abyste strukturovali svou práci lépe."
+        "description": "Zatím žádné úkoly. Přidejte jednu, abyste strukturovali svou práci lépe."
       },
       "no_sub_work_items": {
-        "description": "Zatím žádné podpracovní položky. Přidejte jednu, abyste strukturovali svou práci lépe."
+        "description": "Zatím žádné podúkoly. Přidejte jednu, abyste strukturovali svou práci lépe."
       },
       "page": {
         "no_templates": {
@@ -260,7 +260,7 @@
       "create": {
         "success": {
           "title": "Šablona byla úspěšně vytvořena",
-          "message": "{templateName} byla úspěšně vytvořena a je nyní k dispozici pro váš workspace. Můžete ji nyní použít k vytvoření nových pracovních položek."
+          "message": "{templateName} byla úspěšně vytvořena a je nyní k dispozici pro váš workspace. Můžete ji nyní použít k vytvoření nových úkolů."
         },
         "error": {
           "title": "Chyba!",
@@ -270,7 +270,7 @@
       "update": {
         "success": {
           "title": "Šablona byla úspěšně aktualizována",
-          "message": "{templateName} byla úspěšně aktualizována. Můžete ji nyní použít k vytvoření nových pracovních položek."
+          "message": "{templateName} byla úspěšně aktualizována. Můžete ji nyní použít k vytvoření nových úkolů."
         },
         "error": {
           "title": "Chyba!",
@@ -322,7 +322,7 @@
         "page": "Vybrat šablonu"
       },
       "tooltip": {
-        "work_item": "Vybrat šablonu pracovní položky"
+        "work_item": "Vybrat šablonu úkolu"
       },
       "no_results": {
         "work_item": "Nebyly nalezeny žádné šablony.",

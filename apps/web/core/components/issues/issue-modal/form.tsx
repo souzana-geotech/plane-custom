@@ -162,7 +162,7 @@ export const IssueFormRoot = observer(function IssueFormRoot(props: IssueFormPro
   useEffect(() => {
     if (isDirty) {
       if (workItemTemplateId) {
-        // reset work item template id
+        // reset task template id
         setWorkItemTemplateId(null);
         reset({ ...DEFAULT_WORK_ITEM_FORM_VALUES, project_id: projectId });
         editorRef.current?.clearEditor();
@@ -287,7 +287,7 @@ export const IssueFormRoot = observer(function IssueFormRoot(props: IssueFormPro
       setToast({
         type: TOAST_TYPE.ERROR,
         title: "Error!",
-        message: "Failed to move work item to project. Please try again.",
+        message: "Failed to move task to project. Please try again.",
       });
     } finally {
       setIsMoving(false);

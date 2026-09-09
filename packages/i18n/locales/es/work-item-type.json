@@ -1,21 +1,21 @@
 {
   "work_item_types": {
-    "label": "Tipos de elementos de trabajo",
-    "label_lowercase": "tipos de elementos de trabajo",
+    "label": "Tipos de tareas",
+    "label_lowercase": "tipos de tareas",
     "settings": {
       "description": "Personaliza y agrega tus propias propiedades para adaptarlo a las necesidades de tu equipo.",
-      "cant_delete_default_message": "No se puede eliminar este tipo de elemento de trabajo porque está establecido como el tipo predeterminado para este proyecto.",
+      "cant_delete_default_message": "No se puede eliminar este tipo de tarea porque está establecido como el tipo predeterminado para este proyecto.",
       "set_as_default": "Establecer como predeterminado",
       "cant_set_default_inactive_message": "Activa este tipo antes de establecerlo como predeterminado",
       "set_default_confirmation": {
-        "title": "Establecer como tipo de elemento de trabajo predeterminado",
-        "description": "Al establecer {name} como predeterminado, se importará a todos los proyectos de este espacio de trabajo. Todos los nuevos elementos de trabajo usarán este tipo de forma predeterminada.",
+        "title": "Establecer como tipo de tarea predeterminado",
+        "description": "Al establecer {name} como predeterminado, se importará a todos los proyectos de este espacio de trabajo. Todos los nuevas tareas usarán este tipo de forma predeterminada.",
         "confirm_button": "Establecer como predeterminado"
       },
       "properties": {
-        "title": "Propiedades personalizadas del elemento de trabajo",
+        "title": "Propiedades personalizadas de la tarea",
         "description": "Crea y personaliza propiedades.",
-        "tooltip": "Cada tipo de elemento de trabajo viene con un conjunto predeterminado de propiedades como Título, Descripción, Asignado, Estado, Prioridad, Fecha de inicio, Fecha de vencimiento, Module, Cycle, etc. También puedes personalizar y agregar tus propias propiedades para adaptarlo a las necesidades de tu equipo.",
+        "tooltip": "Cada tipo de tarea viene con un conjunto predeterminado de propiedades como Título, Descripción, Asignado, Estado, Prioridad, Fecha de inicio, Fecha de vencimiento, Module, Cycle, etc. También puedes personalizar y agregar tus propias propiedades para adaptarlo a las necesidades de tu equipo.",
         "add_button": "Agregar nueva propiedad",
         "project": {
           "add_button": {
@@ -195,7 +195,7 @@
           "validation_success_with_refs": "¡La fórmula es válida! Devuelve {resultType} ({count} campo(s) referenciado(s))",
           "error": {
             "empty": "Por favor ingrese una fórmula",
-            "missing_context": "Falta el contexto de espacio de trabajo, proyecto o tipo de elemento de trabajo",
+            "missing_context": "Falta el contexto de espacio de trabajo, proyecto o tipo de tarea",
             "validation_failed": "La validación falló"
           },
           "picker": {
@@ -228,12 +228,12 @@
         },
         "empty_state": {
           "title": "Agregar propiedades personalizadas",
-          "description": "Las nuevas propiedades que agregues para este tipo de elemento de trabajo aparecerán aquí."
+          "description": "Las nuevas propiedades que agregues para este tipo de tarea aparecerán aquí."
         }
       },
       "types": {
         "title": "Tipos",
-        "description": "Crea y personaliza tipos de elementos de trabajo con propiedades.",
+        "description": "Crea y personaliza tipos de tareas con propiedades.",
         "sort_options": {
           "project_count": "Número de proyectos que forma parte"
         },
@@ -247,8 +247,8 @@
             "import_from_workspace": "Importar desde el espacio de trabajo"
           },
           "banner": {
-            "with_access": "Habilita los tipos de elementos de trabajo para importar tipos desde el nivel del espacio de trabajo",
-            "without_access": "Los tipos de elementos de trabajo están deshabilitados. Contacta al administrador del espacio de trabajo para habilitarlos en la configuración del espacio de trabajo."
+            "with_access": "Habilita los tipos de tareas para importar tipos desde el nivel del espacio de trabajo",
+            "without_access": "Los tipos de tareas están deshabilitados. Contacta al administrador del espacio de trabajo para habilitarlos en la configuración del espacio de trabajo."
           }
         }
       },
@@ -264,7 +264,7 @@
         },
         "unlink_confirmation": {
           "title": "Desvincular propiedad",
-          "description": "Al desvincular esta propiedad se eliminarán permanentemente todos sus valores en cada elemento de trabajo que use este tipo. Esta acción no se puede deshacer.",
+          "description": "Al desvincular esta propiedad se eliminarán permanentemente todos sus valores en cada tarea que use este tipo. Esta acción no se puede deshacer.",
           "input_label": "Escribe",
           "input_label_suffix": "para continuar:",
           "confirm": "Desvincular propiedad",
@@ -279,48 +279,48 @@
         "toast": {
           "success": {
             "title": "¡Éxito!",
-            "message": "Tipo de elemento de trabajo eliminado con éxito."
+            "message": "Tipo de tarea eliminada con éxito."
           },
           "error": {
             "title": "¡Error!",
-            "message": "No se pudo eliminar el tipo de elemento de trabajo. ¡Inténtalo de nuevo!"
+            "message": "No se pudo eliminar el tipo de tarea. ¡Inténtalo de nuevo!"
           }
         },
         "errors": {
-          "cannot_delete_default_work_item_type": "No se puede eliminar el tipo de elemento de trabajo predeterminado",
-          "cannot_delete_work_item_type_with_associated_work_items": "No se puede eliminar el tipo de elemento de trabajo con elementos de trabajo asociados"
+          "cannot_delete_default_work_item_type": "No se puede eliminar el tipo de tarea predeterminado",
+          "cannot_delete_work_item_type_with_associated_work_items": "No se puede eliminar el tipo de tarea con tareas asociados"
         }
       }
     },
     "create": {
-      "title": "Crear tipo de elemento de trabajo",
-      "button": "Agregar tipo de elemento de trabajo",
+      "title": "Crear tipo de tarea",
+      "button": "Agregar tipo de tarea",
       "toast": {
         "success": {
           "title": "¡Éxito!",
-          "message": "Tipo de elemento de trabajo creado exitosamente."
+          "message": "Tipo de tarea creada exitosamente."
         },
         "error": {
           "title": "¡Error!",
           "message": {
-            "default": "Error al crear el tipo de elemento de trabajo. ¡Por favor intente nuevamente!",
+            "default": "Error al crear el tipo de tarea. ¡Por favor intente nuevamente!",
             "conflict": "El tipo {name} ya existe. Elige un nombre diferente."
           }
         }
       }
     },
     "update": {
-      "title": "Actualizar tipo de elemento de trabajo",
-      "button": "Actualizar tipo de elemento de trabajo",
+      "title": "Actualizar tipo de tarea",
+      "button": "Actualizar tipo de tarea",
       "toast": {
         "success": {
           "title": "¡Éxito!",
-          "message": "Tipo de elemento de trabajo {name} actualizado exitosamente."
+          "message": "Tipo de tarea {name} actualizado exitosamente."
         },
         "error": {
           "title": "¡Error!",
           "message": {
-            "default": "Error al actualizar el tipo de elemento de trabajo. ¡Por favor intente nuevamente!",
+            "default": "Error al actualizar el tipo de tarea. ¡Por favor intente nuevamente!",
             "conflict": "El tipo {name} ya existe. Elige un nombre diferente."
           }
         }
@@ -329,30 +329,30 @@
     "create_update": {
       "form": {
         "name": {
-          "placeholder": "Dale a este tipo de elemento de trabajo un nombre único"
+          "placeholder": "Dale a este tipo de tarea un nombre único"
         },
         "description": {
-          "placeholder": "Describe para qué está destinado este tipo de elemento de trabajo y cuándo debe usarse."
+          "placeholder": "Describe para qué está destinado este tipo de tarea y cuándo debe usarse."
         }
       }
     },
     "enable_disable": {
       "toast": {
-        "loading": "{action} tipo de elemento de trabajo {name}",
+        "loading": "{action} tipo de tarea {name}",
         "success": {
           "title": "¡Éxito!",
-          "message": "Tipo de elemento de trabajo {name} {action} exitosamente."
+          "message": "Tipo de tarea {name} {action} exitosamente."
         },
         "error": {
           "title": "¡Error!",
-          "message": "Error al {action} el tipo de elemento de trabajo. ¡Por favor intente nuevamente!"
+          "message": "Error al {action} el tipo de tarea. ¡Por favor intente nuevamente!"
         }
       },
       "tooltip": "Clic para {action}"
     },
     "change_confirmation": {
-      "title": "¿Cambiar tipo de elemento de trabajo?",
-      "description": "Cambiar el tipo de elemento de trabajo puede resultar en la pérdida de valores de propiedades personalizadas que son específicas del tipo actual. Esta acción no se puede deshacer.",
+      "title": "¿Cambiar tipo de tarea?",
+      "description": "Cambiar el tipo de tarea puede resultar en la pérdida de valores de propiedades personalizadas que son específicas del tipo actual. Esta acción no se puede deshacer.",
       "button": {
         "loading": "Cambiando",
         "default": "Cambiar tipo"
@@ -360,14 +360,14 @@
     },
     "empty_state": {
       "enable": {
-        "title": "Habilitar tipos de elementos de trabajo",
-        "description": "Da forma a los elementos de trabajo con tipos de elementos de trabajo. Personaliza con iconos, fondos y propiedades y configúralos para este proyecto.",
+        "title": "Habilitar tipos de tareas",
+        "description": "Da forma a las tareas con tipos de tareas. Personaliza con iconos, fondos y propiedades y configúralos para este proyecto.",
         "primary_button": {
           "text": "Habilitar"
         },
         "confirmation": {
-          "title": "Una vez habilitados, los tipos de elementos de trabajo no se pueden deshabilitar.",
-          "description": "El elemento de trabajo de Plane se convertirá en el tipo de elemento de trabajo predeterminado para este proyecto y aparecerá con su icono y fondo en este proyecto.",
+          "title": "Una vez habilitados, los tipos de tareas no se pueden deshabilitar.",
+          "description": "La tarea de Plane se convertirá en el tipo de tarea predeterminado para este proyecto y aparecerá con su icono y fondo en este proyecto.",
           "button": {
             "default": "Habilitar",
             "loading": "Configurando"
@@ -375,15 +375,15 @@
         }
       },
       "get_pro": {
-        "title": "Obtén Pro para habilitar tipos de elementos de trabajo.",
-        "description": "Da forma a los elementos de trabajo con tipos de elementos de trabajo. Personaliza con iconos, fondos y propiedades y configúralos para este proyecto.",
+        "title": "Obtén Pro para habilitar tipos de tareas.",
+        "description": "Da forma a las tareas con tipos de tareas. Personaliza con iconos, fondos y propiedades y configúralos para este proyecto.",
         "primary_button": {
           "text": "Obtener Pro"
         }
       },
       "upgrade": {
-        "title": "Actualiza para habilitar tipos de elementos de trabajo.",
-        "description": "Da forma a los elementos de trabajo con tipos de elementos de trabajo. Personaliza con iconos, fondos y propiedades y configúralos para este proyecto.",
+        "title": "Actualiza para habilitar tipos de tareas.",
+        "description": "Da forma a las tareas con tipos de tareas. Personaliza con iconos, fondos y propiedades y configúralos para este proyecto.",
         "primary_button": {
           "text": "Actualizar"
         }
@@ -398,17 +398,17 @@
       "sidebar_label": "Jerarquía",
       "enable_control": {
         "title": "Habilitar jerarquía",
-        "description": "Crea relaciones padre-hijo entre diferentes tipos de elementos de trabajo.",
+        "description": "Crea relaciones padre-hijo entre diferentes tipos de tareas.",
         "tooltip": "No puedes deshabilitar la jerarquía una vez que está habilitada."
       },
       "workspace_work_item_types_disabled_banner": {
-        "content": "Define primero los tipos de elementos de trabajo para crear una nueva jerarquía.",
-        "cta": "Configuración de tipos de elementos de trabajo"
+        "content": "Define primero los tipos de tareas para crear una nueva jerarquía.",
+        "cta": "Configuración de tipos de tareas"
       }
     },
     "levels": {
       "max_level_placeholder": "Arrastra y suelta un tipo para añadir un nuevo nivel de jerarquía",
-      "empty_level_placeholder": "Arrastra y suelta un tipo de elemento de trabajo al nivel {level}",
+      "empty_level_placeholder": "Arrastra y suelta un tipo de tarea al nivel {level}",
       "drag_tooltip": "Arrastrar para cambiar de nivel",
       "quick_actions": {
         "set_as_default": {
@@ -437,11 +437,11 @@
     "break_hierarchy_modal": {
       "title": "Guardar romperá los enlaces existentes",
       "content": {
-        "intro": "El tipo de elemento de trabajo {workItemTypeName} tiene:",
+        "intro": "El tipo de tarea {workItemTypeName} tiene:",
         "parent_items": "{count, plural, one {Se eliminará # enlace principal} other {Se eliminarán # enlaces principales}}.",
-        "child_items": "{count, plural, one {subelemento de trabajo} other {subelementos de trabajo}}",
+        "child_items": "{count, plural, one {subtarea} other {subtareas}}",
         "parent_line_suffix_when_also_children": ", y ",
-        "footer": "Este cambio eliminará las relaciones padre-hijo de los elementos de trabajo existentes del tipo {workItemTypeName}."
+        "footer": "Este cambio eliminará las relaciones padre-hijo de las tareas existentes del tipo {workItemTypeName}."
       },
       "confirm_input": {
         "label": "Escribe «confirmar» para continuar.",
@@ -459,18 +459,18 @@
     "work_item_modal": {
       "invalid_work_item_type_create_toast": {
         "title": "¡Error!",
-        "message": "El tipo de elemento de trabajo seleccionado no se puede usar para crear un nuevo elemento de trabajo ya que rompe las reglas de jerarquía."
+        "message": "El tipo de tarea seleccionada no se puede usar para crear un nueva tarea ya que rompe las reglas de jerarquía."
       },
       "invalid_work_item_type_update_toast": {
         "title": "¡Error!",
-        "message": "El tipo de elemento de trabajo no se puede actualizar ya que rompe las reglas de jerarquía."
+        "message": "El tipo de tarea no se puede actualizar ya que rompe las reglas de jerarquía."
       }
     },
     "work_item_type_modal": {
       "level": "Nivel de jerarquía",
       "invalid_level_toast": {
         "title": "¡Error!",
-        "message": "El tipo de elemento de trabajo no se puede actualizar ya que rompe las reglas de jerarquía."
+        "message": "El tipo de tarea no se puede actualizar ya que rompe las reglas de jerarquía."
       }
     }
   }

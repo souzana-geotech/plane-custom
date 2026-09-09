@@ -1,21 +1,21 @@
 {
   "work_item_types": {
-    "label": "Typy pracovných položiek",
-    "label_lowercase": "typy pracovných položiek",
+    "label": "Typy úloh",
+    "label_lowercase": "typy úloh",
     "settings": {
       "description": "Prispôsobte a pridajte si vlastné vlastnosti, aby zodpovedali potrebám vášho tímu.",
-      "cant_delete_default_message": "Tento typ pracovnej položky nie je možné odstrániť, pretože je nastavený ako predvolený pre tento projekt.",
+      "cant_delete_default_message": "Tento typ úlohy nie je možné odstrániť, pretože je nastavený ako predvolený pre tento projekt.",
       "set_as_default": "Nastaviť ako predvolený",
       "cant_set_default_inactive_message": "Pred nastavením ako predvolený tento typ aktivujte",
       "set_default_confirmation": {
-        "title": "Nastaviť ako predvolený typ pracovnej položky",
-        "description": "Nastavením {name} ako predvoleného sa tento typ importuje do všetkých projektov v tomto pracovnom priestore. Všetky nové pracovné položky budú štandardne používať tento typ.",
+        "title": "Nastaviť ako predvolený typ úlohy",
+        "description": "Nastavením {name} ako predvoleného sa tento typ importuje do všetkých projektov v tomto pracovnom priestore. Všetky nové úlohy budú štandardne používať tento typ.",
         "confirm_button": "Nastaviť ako predvolený"
       },
       "properties": {
         "title": "Vlastné vlastnosti",
         "description": "Vytvárajte a prispôsobujte vlastnosti.",
-        "tooltip": "Každý typ pracovnej položky je dodávaný s predvolenou sadou vlastností ako Názov, Popis, Priradený používateľ, Stav, Priorita, Dátum začiatku, Termín dokončenia, Modul, Cyklus atď. Môžete si tiež prispôsobiť a pridať vlastné vlastnosti, aby vyhovovali potrebám vášho tímu.",
+        "tooltip": "Každý typ úlohy je dodávaný s predvolenou sadou vlastností ako Názov, Popis, Priradený používateľ, Stav, Priorita, Dátum začiatku, Termín dokončenia, Modul, Cyklus atď. Môžete si tiež prispôsobiť a pridať vlastné vlastnosti, aby vyhovovali potrebám vášho tímu.",
         "add_button": "Pridať novú vlastnosť",
         "project": {
           "add_button": {
@@ -195,7 +195,7 @@
           "validation_success_with_refs": "Vzorec je platný! Vracia {resultType} ({count} odkazovaných polí)",
           "error": {
             "empty": "Zadajte prosím vzorec",
-            "missing_context": "Chýba kontext pracovného priestoru, projektu alebo typu pracovnej položky",
+            "missing_context": "Chýba kontext pracovného priestoru, projektu alebo typu úlohy",
             "validation_failed": "Overenie zlyhalo"
           },
           "picker": {
@@ -228,12 +228,12 @@
         },
         "empty_state": {
           "title": "Pridať vlastné vlastnosti",
-          "description": "Nové vlastnosti, ktoré pridáte pre tento typ pracovnej položky, sa zobrazia tu."
+          "description": "Nové vlastnosti, ktoré pridáte pre tento typ úlohy, sa zobrazia tu."
         }
       },
       "types": {
         "title": "Typy",
-        "description": "Vytvárajte a prispôsobujte typy pracovných položiek s vlastnosťami.",
+        "description": "Vytvárajte a prispôsobujte typy úloh s vlastnosťami.",
         "sort_options": {
           "project_count": "Počet projektov, v ktorých je súčasťou"
         },
@@ -247,8 +247,8 @@
             "import_from_workspace": "Importovať z pracovného priestoru"
           },
           "banner": {
-            "with_access": "Povoľte typy pracovných položiek, aby bolo možné importovať typy z úrovne pracovného priestoru",
-            "without_access": "Typy pracovných položiek sú zakázané. Kontaktujte správcu pracovného priestoru, aby ich povolil v nastaveniach pracovného priestoru."
+            "with_access": "Povoľte typy úloh, aby bolo možné importovať typy z úrovne pracovného priestoru",
+            "without_access": "Typy úloh sú zakázané. Kontaktujte správcu pracovného priestoru, aby ich povolil v nastaveniach pracovného priestoru."
           }
         }
       },
@@ -264,7 +264,7 @@
         },
         "unlink_confirmation": {
           "title": "Odpojiť vlastnosť",
-          "description": "Odpojením tejto vlastnosti sa natrvalo odstránia všetky jej hodnoty vo všetkých pracovných položkách používajúcich tento typ. Túto akciu nie je možné vrátiť späť.",
+          "description": "Odpojením tejto vlastnosti sa natrvalo odstránia všetky jej hodnoty vo všetkých úlohách používajúcich tento typ. Túto akciu nie je možné vrátiť späť.",
           "input_label": "Napíšte",
           "input_label_suffix": "pre pokračovanie:",
           "confirm": "Odpojiť vlastnosť",
@@ -279,48 +279,48 @@
         "toast": {
           "success": {
             "title": "Úspech!",
-            "message": "Typ pracovnej položky bol úspešne odstránený."
+            "message": "Typ úlohy bol úspešne odstránený."
           },
           "error": {
             "title": "Chyba!",
-            "message": "Nepodarilo sa odstrániť typ pracovnej položky. Skúste to znova!"
+            "message": "Nepodarilo sa odstrániť typ úlohy. Skúste to znova!"
           }
         },
         "errors": {
-          "cannot_delete_default_work_item_type": "Predvolený typ pracovnej položky nie je možné odstrániť",
-          "cannot_delete_work_item_type_with_associated_work_items": "Typ pracovnej položky s priradenými pracovnými položkami nie je možné odstrániť"
+          "cannot_delete_default_work_item_type": "Predvolený typ úlohy nie je možné odstrániť",
+          "cannot_delete_work_item_type_with_associated_work_items": "Typ úlohy s priradenými úlohami nie je možné odstrániť"
         }
       }
     },
     "create": {
-      "title": "Vytvoriť typ pracovnej položky",
-      "button": "Pridať typ pracovnej položky",
+      "title": "Vytvoriť typ úlohy",
+      "button": "Pridať typ úlohy",
       "toast": {
         "success": {
           "title": "Úspech!",
-          "message": "Typ pracovnej položky bol úspešne vytvorený."
+          "message": "Typ úlohy bol úspešne vytvorený."
         },
         "error": {
           "title": "Chyba!",
           "message": {
-            "default": "Vytvorenie typu pracovnej položky zlyhalo. Skúste to prosím znova!",
+            "default": "Vytvorenie typu úlohy zlyhalo. Skúste to prosím znova!",
             "conflict": "Typ {name} už existuje. Zvoľte iný názov."
           }
         }
       }
     },
     "update": {
-      "title": "Aktualizovať typ pracovnej položky",
-      "button": "Aktualizovať typ pracovnej položky",
+      "title": "Aktualizovať typ úlohy",
+      "button": "Aktualizovať typ úlohy",
       "toast": {
         "success": {
           "title": "Úspech!",
-          "message": "Typ pracovnej položky {name} bol úspešne aktualizovaný."
+          "message": "Typ úlohy {name} bol úspešne aktualizovaný."
         },
         "error": {
           "title": "Chyba!",
           "message": {
-            "default": "Aktualizácia typu pracovnej položky zlyhala. Skúste to prosím znova!",
+            "default": "Aktualizácia typu úlohy zlyhala. Skúste to prosím znova!",
             "conflict": "Typ {name} už existuje. Zvoľte iný názov."
           }
         }
@@ -329,30 +329,30 @@
     "create_update": {
       "form": {
         "name": {
-          "placeholder": "Dajte tomuto typu pracovnej položky jedinečný názov"
+          "placeholder": "Dajte tomuto typu úlohy jedinečný názov"
         },
         "description": {
-          "placeholder": "Popíšte, na čo je tento typ pracovnej položky určený a kedy sa má používať."
+          "placeholder": "Popíšte, na čo je tento typ úlohy určený a kedy sa má používať."
         }
       }
     },
     "enable_disable": {
       "toast": {
-        "loading": "{action} typu pracovnej položky {name}",
+        "loading": "{action} typu úlohy {name}",
         "success": {
           "title": "Úspech!",
-          "message": "Typ pracovnej položky {name} bol úspešne {action}."
+          "message": "Typ úlohy {name} bol úspešne {action}."
         },
         "error": {
           "title": "Chyba!",
-          "message": "Nepodarilo sa {action} typ pracovnej položky. Skúste to znova!"
+          "message": "Nepodarilo sa {action} typ úlohy. Skúste to znova!"
         }
       },
       "tooltip": "Kliknite pre {action}"
     },
     "change_confirmation": {
-      "title": "Zmeniť typ pracovnej položky?",
-      "description": "Zmena typu pracovnej položky môže viesť k strate hodnôt vlastných vlastností, ktoré sú špecifické pre aktuálny typ. Túto akciu nie je možné vrátiť späť.",
+      "title": "Zmeniť typ úlohy?",
+      "description": "Zmena typu úlohy môže viesť k strate hodnôt vlastných vlastností, ktoré sú špecifické pre aktuálny typ. Túto akciu nie je možné vrátiť späť.",
       "button": {
         "loading": "Mení sa",
         "default": "Zmeniť typ"
@@ -360,14 +360,14 @@
     },
     "empty_state": {
       "enable": {
-        "title": "Povoliť Typy pracovných položiek",
-        "description": "Formujte pracovné položky podľa vašej práce pomocou Typov pracovných položiek. Prispôsobte ich ikonami, pozadiami a vlastnosťami a nakonfigurujte ich pre tento projekt.",
+        "title": "Povoliť Typy úloh",
+        "description": "Formujte úlohy podľa vašej práce pomocou Typov úloh. Prispôsobte ich ikonami, pozadiami a vlastnosťami a nakonfigurujte ich pre tento projekt.",
         "primary_button": {
           "text": "Povoliť"
         },
         "confirmation": {
-          "title": "Po povolení nemožno Typy pracovných položiek zakázať.",
-          "description": "Pracovná položka Plane sa stane predvoleným typom pracovnej položky pre tento projekt a zobrazí sa so svojou ikonou a pozadím v tomto projekte.",
+          "title": "Po povolení nemožno Typy úloh zakázať.",
+          "description": "Úloha Plane sa stane predvoleným typom úlohy pre tento projekt a zobrazí sa so svojou ikonou a pozadím v tomto projekte.",
           "button": {
             "default": "Povoliť",
             "loading": "Nastavuje sa"
@@ -375,15 +375,15 @@
         }
       },
       "get_pro": {
-        "title": "Získajte Pro pre povolenie Typov pracovných položiek.",
-        "description": "Formujte pracovné položky podľa vašej práce pomocou Typov pracovných položiek. Prispôsobte ich ikonami, pozadiami a vlastnosťami a nakonfigurujte ich pre tento projekt.",
+        "title": "Získajte Pro pre povolenie Typov úloh.",
+        "description": "Formujte úlohy podľa vašej práce pomocou Typov úloh. Prispôsobte ich ikonami, pozadiami a vlastnosťami a nakonfigurujte ich pre tento projekt.",
         "primary_button": {
           "text": "Získať Pro"
         }
       },
       "upgrade": {
-        "title": "Inovácia pre povolenie Typov pracovných položiek.",
-        "description": "Formujte pracovné položky podľa vašej práce pomocou Typov pracovných položiek. Prispôsobte ich ikonami, pozadiami a vlastnosťami a nakonfigurujte ich pre tento projekt.",
+        "title": "Inovácia pre povolenie Typov úloh.",
+        "description": "Formujte úlohy podľa vašej práce pomocou Typov úloh. Prispôsobte ich ikonami, pozadiami a vlastnosťami a nakonfigurujte ich pre tento projekt.",
         "primary_button": {
           "text": "Inovovať"
         }
@@ -398,17 +398,17 @@
       "sidebar_label": "Hierarchia",
       "enable_control": {
         "title": "Povoliť hierarchiu",
-        "description": "Vytvorte vzťahy rodič-potomok medzi rôznymi typmi pracovných položiek.",
+        "description": "Vytvorte vzťahy rodič-potomok medzi rôznymi typmi úloh.",
         "tooltip": "Hierarchiu nemôžete deaktivovať po jej aktivácii."
       },
       "workspace_work_item_types_disabled_banner": {
-        "content": "Najprv definujte typy pracovných položiek na vytvorenie novej hierarchie.",
-        "cta": "Nastavenia typov pracovných položiek"
+        "content": "Najprv definujte typy úloh na vytvorenie novej hierarchie.",
+        "cta": "Nastavenia typov úloh"
       }
     },
     "levels": {
       "max_level_placeholder": "Presuňte typ a pridajte novú úroveň hierarchie",
-      "empty_level_placeholder": "Presuňte typ pracovnej položky na úroveň {level}",
+      "empty_level_placeholder": "Presuňte typ úlohy na úroveň {level}",
       "drag_tooltip": "Ťahaním zmeňte úroveň",
       "quick_actions": {
         "set_as_default": {
@@ -437,11 +437,11 @@
     "break_hierarchy_modal": {
       "title": "Uloženie zruší existujúce väzby",
       "content": {
-        "intro": "Typ pracovnej položky {workItemTypeName} obsahuje:",
+        "intro": "Typ úlohy {workItemTypeName} obsahuje:",
         "parent_items": "{count, plural, one {Bude odstránené # nadradené prepojenie} few {Budú odstránené # nadradené prepojenia} other {Bude odstránených # nadradených prepojení}}.",
-        "child_items": "{count, plural, one {podradenú pracovnú položku} few {podradené pracovné položky} other {podradených pracovných položiek}}",
+        "child_items": "{count, plural, one {podradenú úlohu} few {podradené úlohy} other {podradených úloh}}",
         "parent_line_suffix_when_also_children": ", a ",
-        "footer": "Táto zmena odstráni nadradené a podradené vzťahy u existujúcich pracovných položiek typu {workItemTypeName}."
+        "footer": "Táto zmena odstráni nadradené a podradené vzťahy u existujúcich úloh typu {workItemTypeName}."
       },
       "confirm_input": {
         "label": "Pre pokračovanie napíšte „potvrdiť“.",
@@ -459,18 +459,18 @@
     "work_item_modal": {
       "invalid_work_item_type_create_toast": {
         "title": "Chyba!",
-        "message": "Vybraný typ pracovnej položky nie je možné použiť na vytvorenie novej pracovnej položky, pretože porušuje pravidlá hierarchie."
+        "message": "Vybraný typ úlohy nie je možné použiť na vytvorenie novej úlohy, pretože porušuje pravidlá hierarchie."
       },
       "invalid_work_item_type_update_toast": {
         "title": "Chyba!",
-        "message": "Typ pracovnej položky nie je možné aktualizovať, pretože porušuje pravidlá hierarchie."
+        "message": "Typ úlohy nie je možné aktualizovať, pretože porušuje pravidlá hierarchie."
       }
     },
     "work_item_type_modal": {
       "level": "Úroveň hierarchie",
       "invalid_level_toast": {
         "title": "Chyba!",
-        "message": "Typ pracovnej položky nie je možné aktualizovať, pretože to porušuje pravidlá hierarchie."
+        "message": "Typ úlohy nie je možné aktualizovať, pretože to porušuje pravidlá hierarchie."
       }
     }
   }

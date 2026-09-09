@@ -43,15 +43,16 @@
       "empty": {
         "project": "Proyek terbaru Anda akan muncul di sini setelah Anda mengunjunginya.",
         "page": "Halaman terbaru Anda akan muncul di sini setelah Anda mengunjunginya.",
-        "issue": "Item kerja terbaru Anda akan muncul di sini setelah Anda mengunjunginya.",
+        "issue": "Tugas terbaru Anda akan muncul di sini setelah Anda mengunjunginya.",
         "default": "Anda belum memiliki yang terbaru."
       },
       "filters": {
         "all": "Semua",
         "projects": "Proyek",
         "pages": "Halaman",
-        "issues": "Item kerja"
-      }
+        "issues": "Tugas"
+      },
+      "view_all": "Lihat semua aktivitas"
     },
     "new_at_plane": {
       "title": "Baru di Plane"
@@ -66,57 +67,21 @@
     "manage_widgets": "Kelola widget",
     "title": "Pekerjaan Saya",
     "greeting": {
-      "subtitle": "Berikut hal-hal yang membutuhkan perhatian Anda."
-    },
-    "due": {
-      "prefix": "Jatuh tempo",
-      "today": "hari ini",
-      "tomorrow": "besok"
+      "subtitle": "Inilah yang perlu Anda perhatikan hari ini."
     },
     "status": {
-      "not_started": "Belum dimulai",
       "in_progress": "Sedang berlangsung",
       "done": "Selesai",
-      "cancelled": "Dibatalkan"
-    },
-    "today": {
-      "title": "Hari ini",
-      "overdue": "Terlambat",
-      "due_today": "Jatuh tempo hari ini",
-      "in_progress": "Sedang berlangsung",
-      "empty": {
-        "title": "Semua sudah beres 🎉",
-        "description": "Tidak ada yang jatuh tempo hari ini."
-      }
-    },
-    "upcoming": {
-      "title": "Akan Datang",
-      "tomorrow": "Besok",
-      "empty": {
-        "title": "Tidak ada yang akan datang",
-        "description": "Anda tidak memiliki tugas mendatang."
-      }
+      "cancelled": "Dibatalkan",
+      "to_do": "Belum dikerjakan",
+      "overdue": "Terlambat"
     },
     "my_tasks": {
-      "title": "Tugas Saya",
-      "tabs": {
-        "all": "Semua",
-        "todo": "Belum dikerjakan",
-        "in_progress": "Sedang berlangsung",
-        "done": "Selesai"
-      },
-      "open": "Buka",
-      "view_all": "Lihat semua",
       "empty": {
-        "title": "Tidak ada apa-apa di sini",
-        "description": "Tugas yang ditugaskan kepada Anda akan muncul di sini."
-      }
-    },
-    "quick_actions": {
-      "add_task": "Tambah tugas",
-      "add_note": "Tambah catatan",
-      "search": "Cari",
-      "search_placeholder": "Cari tugas, proyek, atau orang"
+        "filtered": "Tidak ada tugas yang cocok dengan filter saat ini."
+      },
+      "show_more": "Tampilkan {count} lagi",
+      "clear_filters": "Hapus filter"
     },
     "star_us_on_github": "Bintang kami di GitHub",
     "business_trial_banner": {
@@ -126,6 +91,98 @@
       "trial_ends_in_days": "Uji coba berakhir dalam {days} hari",
       "start_subscription": "Mulai berlangganan",
       "explore_business_features": "Jelajahi fitur Business"
+    },
+    "summary": {
+      "aria_label": "Ringkasan pekerjaan",
+      "overdue": "Terlambat",
+      "due_today": "Jatuh tempo hari ini",
+      "in_progress": "Sedang berlangsung",
+      "upcoming": "Akan datang"
+    },
+    "card": {
+      "mark_done": "Tandai selesai",
+      "more": "Lainnya",
+      "change_status": "Ubah status",
+      "toasts": {
+        "marked_done": "Tugas ditandai selesai",
+        "status_updated": "Status diperbarui",
+        "status_update_failed": "Status tidak dapat diperbarui",
+        "due_date_update_failed": "Tenggat tidak dapat diperbarui"
+      },
+      "set_due_date": "Atur tenggat",
+      "remove_due_date": "Hapus tenggat"
+    },
+    "filter": {
+      "by_project": "Filter berdasarkan proyek",
+      "all_projects": "Semua proyek"
+    },
+    "header": {
+      "new_task": "Tugas baru"
+    },
+    "filters": {
+      "all": "Semua",
+      "done": "Selesai"
+    },
+    "priority": {
+      "urgent": "Prioritas mendesak",
+      "high": "Prioritas tinggi"
+    },
+    "queue": {
+      "groups": {
+        "overdue": "Terlambat",
+        "today": "Jatuh tempo hari ini",
+        "this_week": "Minggu ini",
+        "later": "Nanti",
+        "no_date": "Tanpa tenggat"
+      },
+      "empty": {
+        "all": {
+          "title": "Tidak ada tugas untuk Anda",
+          "description": "Tugas yang ditugaskan kepada Anda akan muncul di sini."
+        },
+        "overdue": {
+          "title": "Tidak ada yang terlambat",
+          "description": "Anda sesuai jadwal."
+        },
+        "due_today": {
+          "title": "Tidak ada yang jatuh tempo hari ini",
+          "description": "Tidak ada tugas dengan tenggat hari ini."
+        },
+        "in_progress": {
+          "title": "Tidak ada yang sedang berlangsung",
+          "description": "Pindahkan tugas ke Sedang berlangsung agar muncul di sini."
+        },
+        "upcoming": {
+          "title": "Tidak ada yang jatuh tempo minggu ini",
+          "description": "Tidak ada tugas yang jatuh tempo dalam 7 hari ke depan."
+        },
+        "done": {
+          "title": "Belum ada yang selesai",
+          "description": "Tugas yang Anda selesaikan akan muncul di sini."
+        }
+      },
+      "error": {
+        "title": "Pekerjaan Anda tidak dapat dimuat",
+        "description": "Periksa koneksi Anda dan coba lagi.",
+        "retry": "Coba lagi"
+      }
+    },
+    "activity": {
+      "title": "Aktivitas terbaru Anda",
+      "empty": "Tidak ada aktivitas terbaru.",
+      "error": "Aktivitas tidak dapat dimuat.",
+      "completed": "Ditandai selesai",
+      "state": "Dipindahkan ke {state}",
+      "created": "Dibuat",
+      "commented": "Dikomentari",
+      "due_date": "Tenggat diatur ke {date}",
+      "due_date_removed": "Tenggat dihapus",
+      "priority": "Prioritas diatur ke {priority}",
+      "assignees": "Penanggung jawab diperbarui",
+      "labels": "Label diperbarui",
+      "renamed": "Diganti nama",
+      "description": "Deskripsi diperbarui",
+      "updated": "Diperbarui"
     }
   }
 }

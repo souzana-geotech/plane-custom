@@ -82,7 +82,7 @@
         "export_separate_files": "Exportovat data do samostatných souborů",
         "exporting_projects": "Export projektu",
         "format": "Formát",
-        "filters_info": "Použijte filtry k exportu konkrétních pracovních položek podle vašich kritérií.",
+        "filters_info": "Použijte filtry k exportu konkrétních úkolů podle vašich kritérií.",
         "modal": {
           "title": "Exportovat do",
           "toasts": {
@@ -272,12 +272,12 @@
       "templates": {
         "title": "Šablony",
         "heading": "Šablony",
-        "description": "Ušetřete 80 % času stráveného vytvářením projektů, pracovních položek a stránek, když použijete šablony."
+        "description": "Ušetřete 80 % času stráveného vytvářením projektů, úkolů a stránek, když použijete šablony."
       },
       "relations": {
         "title": "Vztahy",
         "heading": "Vztahy",
-        "description": "Vytvářejte a spravujte typy vztahů, které propojují pracovní položky napříč vaším pracovním prostorem."
+        "description": "Vytvářejte a spravujte typy vztahů, které propojují úkoly napříč vaším pracovním prostorem."
       },
       "cancel_trial": {
         "title": "Nejprve zrušte svou zkušební verzi.",
@@ -454,7 +454,7 @@
         "app_consent_unapproved_description": "Před připojením této aplikace k vašemu pracovnímu prostoru se ujistěte, že jí důvěřujete.",
         "go_to_app": "Přejít na aplikaci",
         "enable_app_mentions": "Povolit zmínky o aplikaci",
-        "enable_app_mentions_tooltip": "Když je tato možnost povolena, uživatelé mohou zmínit nebo přiřadit pracovní položky této aplikaci.",
+        "enable_app_mentions_tooltip": "Když je tato možnost povolena, uživatelé mohou zmínit nebo přiřadit úkoly této aplikaci.",
         "scopes": "Rozsahy",
         "select_scopes": "Vybrat rozsahy",
         "read_access_to": "Přístup pouze pro čtení k",

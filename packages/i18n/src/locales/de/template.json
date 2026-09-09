@@ -4,7 +4,7 @@
       "title": "Vorlagen",
       "description": "Sparen Sie 80% der Zeit, die für die Erstellung von Projekten, Arbeitsaufgaben und Seiten aufgewendet wird, wenn Sie Vorlagen verwenden.",
       "new_project_template": "Neue Projektvorlage",
-      "new_work_item_template": "Neue Arbeitselementvorlage",
+      "new_work_item_template": "Neue Aufgabenvorlage",
       "new_page_template": "Neue Seitenvorlage",
       "options": {
         "project": {
@@ -322,7 +322,7 @@
         "page": "Aus Vorlage wählen"
       },
       "tooltip": {
-        "work_item": "Arbeitselement-Vorlage auswählen"
+        "work_item": "Aufgabenvorlage auswählen"
       },
       "no_results": {
         "work_item": "Keine Vorlagen gefunden.",

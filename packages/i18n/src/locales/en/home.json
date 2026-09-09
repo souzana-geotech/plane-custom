@@ -43,15 +43,16 @@
       "empty": {
         "project": "Your recent projects will appear here once you visit one.",
         "page": "Your recent pages will appear here once you visit one.",
-        "issue": "Your recent work items will appear here once you visit one.",
+        "issue": "Your recent tasks will appear here once you visit one.",
         "default": "You don't have any recents yet."
       },
       "filters": {
         "all": "All",
         "projects": "Projects",
         "pages": "Pages",
-        "issues": "Work items"
-      }
+        "issues": "Tasks"
+      },
+      "view_all": "View all activity"
     },
     "new_at_plane": {
       "title": "New at Plane"
@@ -66,57 +67,21 @@
     "manage_widgets": "Manage widgets",
     "title": "My Work",
     "greeting": {
-      "subtitle": "Here's what needs your attention."
-    },
-    "due": {
-      "prefix": "Due",
-      "today": "today",
-      "tomorrow": "tomorrow"
+      "subtitle": "Here's what needs your attention today."
     },
     "status": {
-      "not_started": "Not started",
       "in_progress": "In progress",
       "done": "Done",
-      "cancelled": "Cancelled"
-    },
-    "today": {
-      "title": "Today",
-      "overdue": "Overdue",
-      "due_today": "Due today",
-      "in_progress": "In progress",
-      "empty": {
-        "title": "You're all caught up 🎉",
-        "description": "Nothing is due today."
-      }
-    },
-    "upcoming": {
-      "title": "Coming Up",
-      "tomorrow": "Tomorrow",
-      "empty": {
-        "title": "Nothing coming up",
-        "description": "You have no upcoming tasks."
-      }
+      "cancelled": "Cancelled",
+      "to_do": "To do",
+      "overdue": "Overdue"
     },
     "my_tasks": {
-      "title": "My Tasks",
-      "tabs": {
-        "all": "All",
-        "todo": "To Do",
-        "in_progress": "In Progress",
-        "done": "Done"
-      },
-      "open": "Open",
-      "view_all": "View all",
       "empty": {
-        "title": "Nothing here",
-        "description": "Tasks assigned to you will show up here."
-      }
-    },
-    "quick_actions": {
-      "add_task": "Add a task",
-      "add_note": "Add a note",
-      "search": "Search",
-      "search_placeholder": "Search tasks, projects, or people"
+        "filtered": "No tasks match the current filter."
+      },
+      "show_more": "Show {count} more",
+      "clear_filters": "Clear filters"
     },
     "star_us_on_github": "Star us on GitHub",
     "business_trial_banner": {
@@ -126,6 +91,98 @@
       "trial_ends_in_days": "Trial ends in {days, plural, one {# day} other {# days}}",
       "start_subscription": "Start subscription",
       "explore_business_features": "Explore Business features"
+    },
+    "summary": {
+      "aria_label": "Work summary",
+      "overdue": "Overdue",
+      "due_today": "Due today",
+      "in_progress": "In progress",
+      "upcoming": "Upcoming"
+    },
+    "card": {
+      "mark_done": "Mark done",
+      "more": "More",
+      "change_status": "Change status",
+      "toasts": {
+        "marked_done": "Task marked as done",
+        "status_updated": "Status updated",
+        "status_update_failed": "Couldn't update the status",
+        "due_date_update_failed": "Couldn't update the due date"
+      },
+      "set_due_date": "Set due date",
+      "remove_due_date": "Remove due date"
+    },
+    "filter": {
+      "by_project": "Filter by project",
+      "all_projects": "All projects"
+    },
+    "header": {
+      "new_task": "New task"
+    },
+    "filters": {
+      "all": "All",
+      "done": "Done"
+    },
+    "priority": {
+      "urgent": "Urgent priority",
+      "high": "High priority"
+    },
+    "queue": {
+      "groups": {
+        "overdue": "Overdue",
+        "today": "Due today",
+        "this_week": "This week",
+        "later": "Later",
+        "no_date": "No due date"
+      },
+      "empty": {
+        "all": {
+          "title": "Nothing assigned to you",
+          "description": "Tasks assigned to you will show up here."
+        },
+        "overdue": {
+          "title": "Nothing overdue",
+          "description": "You're on track."
+        },
+        "due_today": {
+          "title": "Nothing due today",
+          "description": "No tasks have today as their due date."
+        },
+        "in_progress": {
+          "title": "Nothing in progress",
+          "description": "Move a task to In progress and it will appear here."
+        },
+        "upcoming": {
+          "title": "Nothing due this week",
+          "description": "No tasks are due in the next 7 days."
+        },
+        "done": {
+          "title": "Nothing completed yet",
+          "description": "Tasks you complete will appear here."
+        }
+      },
+      "error": {
+        "title": "Couldn't load your work",
+        "description": "Check your connection and try again.",
+        "retry": "Try again"
+      }
+    },
+    "activity": {
+      "title": "Your recent activity",
+      "empty": "No recent activity.",
+      "error": "Couldn't load activity.",
+      "completed": "Marked as done",
+      "state": "Moved to {state}",
+      "created": "Created",
+      "commented": "Commented",
+      "due_date": "Due date set to {date}",
+      "due_date_removed": "Due date removed",
+      "priority": "Priority set to {priority}",
+      "assignees": "Assignees updated",
+      "labels": "Labels updated",
+      "renamed": "Renamed",
+      "description": "Description updated",
+      "updated": "Updated"
     }
   }
 }

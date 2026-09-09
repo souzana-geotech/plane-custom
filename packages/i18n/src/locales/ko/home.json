@@ -43,15 +43,16 @@
       "empty": {
         "project": "최근 방문한 프로젝트가 여기에 표시됩니다.",
         "page": "최근 방문한 페이지가 여기에 표시됩니다.",
-        "issue": "최근 방문한 작업 항목이 여기에 표시됩니다.",
+        "issue": "최근 방문한 작업이 여기에 표시됩니다.",
         "default": "아직 최근 항목이 없습니다."
       },
       "filters": {
         "all": "모든",
         "projects": "프로젝트",
         "pages": "페이지",
-        "issues": "작업 항목"
-      }
+        "issues": "작업"
+      },
+      "view_all": "모든 활동 보기"
     },
     "new_at_plane": {
       "title": "Plane의 새로운 기능"
@@ -66,57 +67,21 @@
     "manage_widgets": "위젯 관리",
     "title": "내 업무",
     "greeting": {
-      "subtitle": "지금 확인이 필요한 항목이에요."
-    },
-    "due": {
-      "prefix": "마감:",
-      "today": "오늘",
-      "tomorrow": "내일"
+      "subtitle": "오늘 확인이 필요한 항목입니다."
     },
     "status": {
-      "not_started": "시작 전",
       "in_progress": "진행 중",
       "done": "완료",
-      "cancelled": "취소됨"
-    },
-    "today": {
-      "title": "오늘",
-      "overdue": "기한 초과",
-      "due_today": "오늘 마감",
-      "in_progress": "진행 중",
-      "empty": {
-        "title": "모두 처리했어요 🎉",
-        "description": "오늘 마감인 작업이 없어요."
-      }
-    },
-    "upcoming": {
-      "title": "다가오는 작업",
-      "tomorrow": "내일",
-      "empty": {
-        "title": "다가오는 작업이 없어요",
-        "description": "예정된 작업이 아직 없어요."
-      }
+      "cancelled": "취소됨",
+      "to_do": "할 일",
+      "overdue": "기한 초과"
     },
     "my_tasks": {
-      "title": "내 작업",
-      "tabs": {
-        "all": "전체",
-        "todo": "할 일",
-        "in_progress": "진행 중",
-        "done": "완료"
-      },
-      "open": "열기",
-      "view_all": "전체 보기",
       "empty": {
-        "title": "아직 아무것도 없어요",
-        "description": "할당된 작업이 여기에 표시돼요."
-      }
-    },
-    "quick_actions": {
-      "add_task": "작업 추가",
-      "add_note": "메모 추가",
-      "search": "검색",
-      "search_placeholder": "작업, 프로젝트, 사람 검색"
+        "filtered": "현재 필터와 일치하는 작업이 없습니다."
+      },
+      "show_more": "{count}개 더 보기",
+      "clear_filters": "필터 지우기"
     },
     "star_us_on_github": "GitHub에서 별표",
     "business_trial_banner": {
@@ -126,6 +91,98 @@
       "trial_ends_in_days": "체험판 종료까지 {days}일 남음",
       "start_subscription": "구독 시작",
       "explore_business_features": "Business 기능 살펴보기"
+    },
+    "summary": {
+      "aria_label": "작업 요약",
+      "overdue": "기한 초과",
+      "due_today": "오늘 마감",
+      "in_progress": "진행 중",
+      "upcoming": "예정"
+    },
+    "card": {
+      "mark_done": "완료로 표시",
+      "more": "더보기",
+      "change_status": "상태 변경",
+      "toasts": {
+        "marked_done": "작업을 완료로 표시했습니다",
+        "status_updated": "상태가 업데이트되었습니다",
+        "status_update_failed": "상태를 업데이트하지 못했습니다",
+        "due_date_update_failed": "마감일을 업데이트하지 못했습니다"
+      },
+      "set_due_date": "마감일 설정",
+      "remove_due_date": "마감일 제거"
+    },
+    "filter": {
+      "by_project": "프로젝트별 필터",
+      "all_projects": "모든 프로젝트"
+    },
+    "header": {
+      "new_task": "새 작업"
+    },
+    "filters": {
+      "all": "전체",
+      "done": "완료"
+    },
+    "priority": {
+      "urgent": "긴급 우선순위",
+      "high": "높은 우선순위"
+    },
+    "queue": {
+      "groups": {
+        "overdue": "기한 초과",
+        "today": "오늘 마감",
+        "this_week": "이번 주",
+        "later": "이후",
+        "no_date": "마감일 없음"
+      },
+      "empty": {
+        "all": {
+          "title": "할당된 작업이 없습니다",
+          "description": "나에게 할당된 작업이 여기에 표시됩니다."
+        },
+        "overdue": {
+          "title": "기한을 넘긴 작업이 없습니다",
+          "description": "일정대로 진행 중입니다."
+        },
+        "due_today": {
+          "title": "오늘 마감인 작업이 없습니다",
+          "description": "오늘이 마감일인 작업이 없습니다."
+        },
+        "in_progress": {
+          "title": "진행 중인 작업이 없습니다",
+          "description": "작업을 진행 중으로 옮기면 여기에 표시됩니다."
+        },
+        "upcoming": {
+          "title": "이번 주 마감인 작업이 없습니다",
+          "description": "앞으로 7일 안에 마감되는 작업이 없습니다."
+        },
+        "done": {
+          "title": "아직 완료한 작업이 없습니다",
+          "description": "완료한 작업이 여기에 표시됩니다."
+        }
+      },
+      "error": {
+        "title": "작업을 불러오지 못했습니다",
+        "description": "연결 상태를 확인하고 다시 시도하세요.",
+        "retry": "다시 시도"
+      }
+    },
+    "activity": {
+      "title": "내 최근 활동",
+      "empty": "최근 활동이 없습니다.",
+      "error": "활동을 불러오지 못했습니다.",
+      "completed": "완료로 표시함",
+      "state": "{state}(으)로 이동함",
+      "created": "생성함",
+      "commented": "댓글 작성함",
+      "due_date": "마감일을 {date}(으)로 설정함",
+      "due_date_removed": "마감일 제거함",
+      "priority": "우선순위를 {priority}(으)로 설정함",
+      "assignees": "담당자 업데이트함",
+      "labels": "라벨 업데이트함",
+      "renamed": "이름 변경함",
+      "description": "설명 업데이트함",
+      "updated": "업데이트함"
     }
   }
 }

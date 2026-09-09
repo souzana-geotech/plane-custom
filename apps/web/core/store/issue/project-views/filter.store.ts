@@ -184,9 +184,9 @@ export class ProjectViewIssuesFilter extends IssueFilterHelperStore implements I
   };
 
   /**
-   * NOTE: This method is designed as a fallback function for the work item filter store.
+   * NOTE: This method is designed as a fallback function for the task filter store.
    * Only use this method directly when initializing filter instances.
-   * For regular filter updates, use this method as a fallback function for the work item filter store methods instead.
+   * For regular filter updates, use this method as a fallback function for the task filter store methods instead.
    */
   updateFilterExpression: IProjectViewIssuesFilter["updateFilterExpression"] = async (
     workspaceSlug,

@@ -272,12 +272,12 @@
       "templates": {
         "title": "Szablony",
         "heading": "Szablony",
-        "description": "Zaoszczędź 80% czasu poświęcanego na tworzenie projektów, elementów pracy i stron, gdy używasz szablonów."
+        "description": "Zaoszczędź 80% czasu poświęcanego na tworzenie projektów, zadań i stron, gdy używasz szablonów."
       },
       "relations": {
         "title": "Relacje",
         "heading": "Relacje",
-        "description": "Twórz typy relacji i zarządzaj nimi, które łączą elementy pracy w całej przestrzeni roboczej."
+        "description": "Twórz typy relacji i zarządzaj nimi, które łączą zadania w całej przestrzeni roboczej."
       },
       "cancel_trial": {
         "title": "Najpierw anuluj swój okres próbny.",
@@ -454,7 +454,7 @@
         "app_consent_unapproved_description": "Upewnij się, że ufasz tej aplikacji, zanim połączysz ją ze swoją przestrzenią roboczą.",
         "go_to_app": "Przejdź do aplikacji",
         "enable_app_mentions": "Włącz wzmianki o aplikacji",
-        "enable_app_mentions_tooltip": "Po włączeniu tej opcji użytkownicy mogą wspominać lub przypisywać elementy pracy do tej aplikacji.",
+        "enable_app_mentions_tooltip": "Po włączeniu tej opcji użytkownicy mogą wspominać lub przypisywać zadania do tej aplikacji.",
         "scopes": "Zakresy",
         "select_scopes": "Wybierz zakresy",
         "read_access_to": "Dostęp tylko do odczytu do",

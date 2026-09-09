@@ -11,14 +11,14 @@
     "your_work": "Vaša práca",
     "projects": "Projekty",
     "pages": "Stránky",
-    "new_work_item": "Nová pracovná položka",
+    "new_work_item": "Nová úloha",
     "home": "Moja práca",
     "inbox": "Doručená pošta",
     "workspace": "Pracovný priestor",
     "management": "Správa",
     "views": "Pohľady",
     "analytics": "Analytika",
-    "work_items": "Pracovné položky",
+    "work_items": "Úlohy",
     "cycles": "Cykly",
     "modules": "Moduly",
     "intake": "Príjem",
@@ -30,6 +30,7 @@
     "epics": "Epiky",
     "upgrade_plan": "Apgrejd plán",
     "plane_pro": "Plejn Pro",
-    "business": "Biznis"
+    "business": "Biznis",
+    "all_projects": "Všetky projekty"
   }
 }

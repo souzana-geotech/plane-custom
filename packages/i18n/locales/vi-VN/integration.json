@@ -19,7 +19,7 @@
   },
   "github_integration": {
     "name": "GitHub",
-    "description": "Kết nối và đồng bộ các mục công việc GitHub của bạn với Plane",
+    "description": "Kết nối và đồng bộ các nhiệm vụ GitHub của bạn với Plane",
     "connect_org": "Kết nối tổ chức",
     "connect_org_description": "Kết nối tổ chức GitHub của bạn với Plane",
     "processing": "Đang xử lý",
@@ -85,7 +85,7 @@
     "MR_READY_FOR_MERGE": "Khi MR sẵn sàng để hợp nhất, đặt trạng thái thành",
     "MR_MERGED": "Khi MR được hợp nhất, đặt trạng thái thành",
     "MR_CLOSED": "Khi MR đóng, đặt trạng thái thành",
-    "integration_enabled_text": "Với tích hợp Gitlab được Kích hoạt, bạn có thể tự động hóa quy trình làm việc của mục công việc",
+    "integration_enabled_text": "Với tích hợp Gitlab được Kích hoạt, bạn có thể tự động hóa quy trình làm việc của nhiệm vụ",
     "choose_entity": "Chọn thực thể",
     "choose_project": "Chọn dự án",
     "link_plane_project": "Liên kết dự án Plane",
@@ -96,7 +96,7 @@
     "select_issue_sync_direction": "Chọn hướng đồng bộ vấn đề",
     "allow_bidirectional_sync": "Hai chiều - Đồng bộ vấn đề và bình luận cả hai chiều giữa Gitlab và Plane",
     "allow_unidirectional_sync": "Một chiều - Chỉ đồng bộ vấn đề và bình luận từ Gitlab sang Plane",
-    "allow_unidirectional_sync_warning": "Dữ liệu từ Gitlab Issue sẽ thay thế dữ liệu trong Mục công việc Plane được liên kết (chỉ Gitlab → Plane)",
+    "allow_unidirectional_sync_warning": "Dữ liệu từ Gitlab Issue sẽ thay thế dữ liệu trong Nhiệm vụ Plane được liên kết (chỉ Gitlab → Plane)",
     "remove_project_issue_sync": "Xóa đồng bộ vấn đề dự án này",
     "remove_project_issue_sync_confirmation": "Bạn có chắc muốn xóa đồng bộ vấn đề dự án này không?",
     "ISSUE_OPEN": "Vấn đề mở",
@@ -150,7 +150,7 @@
       "project_updates_empty_state": "Các dự án kết nối với Kênh Slack sẽ xuất hiện ở đây.",
       "project_updates_form": {
         "title": "Cấu Hình Cập Nhật Dự Án",
-        "description": "Nhận thông báo cập nhật dự án trong Slack khi các mục công việc được tạo",
+        "description": "Nhận thông báo cập nhật dự án trong Slack khi các nhiệm vụ được tạo",
         "failed_to_load_channels": "Không thể tải kênh từ Slack",
         "project_dropdown": {
           "placeholder": "Chọn dự án",

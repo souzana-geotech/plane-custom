@@ -2,16 +2,16 @@
   "templates": {
     "settings": {
       "title": "Mẫu",
-      "description": "Lưu 80% thời gian đã tiêu tốn trong việc tạo dự án, mục công việc và trang khi bạn sử dụng các mẫu.",
+      "description": "Lưu 80% thời gian đã tiêu tốn trong việc tạo dự án, nhiệm vụ và trang khi bạn sử dụng các mẫu.",
       "new_project_template": "Mẫu dự án mới",
-      "new_work_item_template": "Mẫu mục công việc mới",
+      "new_work_item_template": "Mẫu nhiệm vụ mới",
       "new_page_template": "Mẫu trang mới",
       "options": {
         "project": {
           "label": "Mẫu dự án"
         },
         "work_item": {
-          "label": "Mẫu mục công việc"
+          "label": "Mẫu nhiệm vụ"
         },
         "page": {
           "label": "Mẫu trang"
@@ -70,7 +70,7 @@
         "work_item": {
           "template": {
             "name": {
-              "placeholder": "Đặt tên cho mẫu mục công việc của bạn.",
+              "placeholder": "Đặt tên cho mẫu nhiệm vụ của bạn.",
               "validation": {
                 "required": "Tên mẫu là bắt buộc",
                 "maxLength": "Tên mẫu không nên vượt quá 255 ký tự"
@@ -81,18 +81,18 @@
             }
           },
           "name": {
-            "placeholder": "Đặt tên cho mục công việc của bạn.",
+            "placeholder": "Đặt tên cho nhiệm vụ của bạn.",
             "validation": {
-              "required": "Tên mục công việc là bắt buộc",
-              "maxLength": "Tên mục công việc không nên vượt quá 255 ký tự"
+              "required": "Tên nhiệm vụ là bắt buộc",
+              "maxLength": "Tên nhiệm vụ không nên vượt quá 255 ký tự"
             }
           },
           "description": {
-            "placeholder": "Mô tả mục công việc này để rõ ràng những gì bạn sẽ hoàn thành khi hoàn tất điều này."
+            "placeholder": "Mô tả nhiệm vụ này để rõ ràng những gì bạn sẽ hoàn thành khi hoàn tất điều này."
           },
           "button": {
-            "create": "Tạo mẫu mục công việc",
-            "update": "Cập nhật mẫu mục công việc"
+            "create": "Tạo mẫu nhiệm vụ",
+            "update": "Cập nhật mẫu nhiệm vụ"
           }
         },
         "page": {
@@ -227,23 +227,23 @@
     "empty_state": {
       "upgrade": {
         "title": "Mẫu",
-        "description": "Với mẫu dự án, mẫu mục công việc và mẫu trang trong Plane, bạn không phải tạo dự án từ đầu hoặc thiết lập thuộc tính mục công việc theo cách thủ công.",
+        "description": "Với mẫu dự án, mẫu nhiệm vụ và mẫu trang trong Plane, bạn không phải tạo dự án từ đầu hoặc thiết lập thuộc tính nhiệm vụ theo cách thủ công.",
         "sub_description": "Nhận lại 80% thời gian quản lý của bạn khi bạn sử dụng Mẫu."
       },
       "no_templates": {
         "button": "Tạo mẫu của bạn"
       },
       "no_labels": {
-        "description": "Chưa có nhãn nào. Tạo nhãn để giúp tổ chức và lọc mục công việc trong dự án của bạn."
+        "description": "Chưa có nhãn nào. Tạo nhãn để giúp tổ chức và lọc nhiệm vụ trong dự án của bạn."
       },
       "no_modules": {
         "description": "Chưa có mô-đun nào. Tổ chức công việc thành các dự án phụ với người dẫn đầu và người được phân công chuyên trách."
       },
       "no_work_items": {
-        "description": "Chưa có mục công việc nào. Thêm một để cấu trúc công việc của bạn tốt hơn."
+        "description": "Chưa có nhiệm vụ nào. Thêm một để cấu trúc công việc của bạn tốt hơn."
       },
       "no_sub_work_items": {
-        "description": "Chưa có mục công việc con. Thêm một để cấu trúc công việc của bạn tốt hơn."
+        "description": "Chưa có nhiệm vụ con. Thêm một để cấu trúc công việc của bạn tốt hơn."
       },
       "page": {
         "no_templates": {
@@ -322,7 +322,7 @@
         "page": "Chọn từ mẫu"
       },
       "tooltip": {
-        "work_item": "Chọn mẫu mục công việc"
+        "work_item": "Chọn mẫu nhiệm vụ"
       },
       "no_results": {
         "work_item": "Không tìm thấy mẫu.",

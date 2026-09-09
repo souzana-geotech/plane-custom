@@ -1,12 +1,12 @@
 {
   "power_k": {
     "actions_commands": {
-      "bulk_delete_work_items": "Masowo usuń elementy pracy"
+      "bulk_delete_work_items": "Masowo usuń zadania"
     },
     "contextual_actions": {
       "work_item": {
-        "title": "Akcje elementu pracy",
-        "indicator": "Element pracy",
+        "title": "Akcje zadania",
+        "indicator": "Zadanie",
         "change_state": "Zmień stan",
         "change_priority": "Zmień priorytet",
         "change_assignees": "Przypisz do",
@@ -20,14 +20,14 @@
         "unsubscribe": "Anuluj subskrypcję powiadomień",
         "delete": "Usuń",
         "copy_id": "Kopiuj ID",
-        "copy_id_toast_success": "ID elementu pracy skopiowano do schowka.",
-        "copy_id_toast_error": "Wystąpił błąd podczas kopiowania ID elementu pracy do schowka.",
+        "copy_id_toast_success": "ID zadania skopiowano do schowka.",
+        "copy_id_toast_error": "Wystąpił błąd podczas kopiowania ID zadania do schowka.",
         "copy_title": "Kopiuj tytuł",
-        "copy_title_toast_success": "Tytuł elementu pracy skopiowano do schowka.",
-        "copy_title_toast_error": "Wystąpił błąd podczas kopiowania tytułu elementu pracy do schowka.",
+        "copy_title_toast_success": "Tytuł zadania skopiowano do schowka.",
+        "copy_title_toast_error": "Wystąpił błąd podczas kopiowania tytułu zadania do schowka.",
         "copy_url": "Kopiuj URL",
-        "copy_url_toast_success": "URL elementu pracy skopiowano do schowka.",
-        "copy_url_toast_error": "Wystąpił błąd podczas kopiowania URL elementu pracy do schowka."
+        "copy_url_toast_success": "URL zadania skopiowano do schowka.",
+        "copy_url_toast_error": "Wystąpił błąd podczas kopiowania URL zadania do schowka."
       },
       "cycle": {
         "title": "Akcje cyklu",
@@ -66,7 +66,7 @@
       }
     },
     "creation_actions": {
-      "create_work_item": "Nowy element pracy",
+      "create_work_item": "Nowe zadanie",
       "create_page": "Nowa strona",
       "create_view": "Nowy widok",
       "create_cycle": "Nowy cykl",
@@ -83,16 +83,16 @@
       "nav_account_settings": "Przejdź do ustawień konta",
       "open_project": "Otwórz projekt",
       "nav_projects_list": "Przejdź do listy projektów",
-      "nav_all_workspace_work_items": "Przejdź do wszystkich elementów pracy",
-      "nav_assigned_workspace_work_items": "Przejdź do przypisanych elementów pracy",
-      "nav_created_workspace_work_items": "Przejdź do utworzonych elementów pracy",
-      "nav_subscribed_workspace_work_items": "Przejdź do subskrybowanych elementów pracy",
+      "nav_all_workspace_work_items": "Przejdź do wszystkich zadań",
+      "nav_assigned_workspace_work_items": "Przejdź do przypisanych zadań",
+      "nav_created_workspace_work_items": "Przejdź do utworzonych zadań",
+      "nav_subscribed_workspace_work_items": "Przejdź do subskrybowanych zadań",
       "nav_workspace_analytics": "Przejdź do analiz przestrzeni roboczej",
       "nav_workspace_drafts": "Przejdź do szkiców przestrzeni roboczej",
       "nav_workspace_archives": "Przejdź do archiwów przestrzeni roboczej",
       "open_workspace_setting": "Otwórz ustawienie przestrzeni roboczej",
       "nav_workspace_settings": "Przejdź do ustawień przestrzeni roboczej",
-      "nav_project_work_items": "Przejdź do elementów pracy",
+      "nav_project_work_items": "Przejdź do zadań",
       "open_project_cycle": "Otwórz cykl",
       "nav_project_cycles": "Przejdź do cykli",
       "open_project_module": "Otwórz moduł",

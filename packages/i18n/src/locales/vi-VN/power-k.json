@@ -1,12 +1,12 @@
 {
   "power_k": {
     "actions_commands": {
-      "bulk_delete_work_items": "Xóa hàng loạt mục công việc"
+      "bulk_delete_work_items": "Xóa hàng loạt nhiệm vụ"
     },
     "contextual_actions": {
       "work_item": {
-        "title": "Hành động mục công việc",
-        "indicator": "Mục công việc",
+        "title": "Hành động nhiệm vụ",
+        "indicator": "Nhiệm vụ",
         "change_state": "Đổi trạng thái",
         "change_priority": "Đổi mức độ ưu tiên",
         "change_assignees": "Giao cho",
@@ -20,14 +20,14 @@
         "unsubscribe": "Hủy đăng ký thông báo",
         "delete": "Xóa",
         "copy_id": "Sao chép ID",
-        "copy_id_toast_success": "Đã sao chép ID mục công việc vào bảng tạm.",
-        "copy_id_toast_error": "Đã xảy ra lỗi khi sao chép ID mục công việc vào bảng tạm.",
+        "copy_id_toast_success": "Đã sao chép ID nhiệm vụ vào bảng tạm.",
+        "copy_id_toast_error": "Đã xảy ra lỗi khi sao chép ID nhiệm vụ vào bảng tạm.",
         "copy_title": "Sao chép tiêu đề",
-        "copy_title_toast_success": "Đã sao chép tiêu đề mục công việc vào bảng tạm.",
-        "copy_title_toast_error": "Đã xảy ra lỗi khi sao chép tiêu đề mục công việc vào bảng tạm.",
+        "copy_title_toast_success": "Đã sao chép tiêu đề nhiệm vụ vào bảng tạm.",
+        "copy_title_toast_error": "Đã xảy ra lỗi khi sao chép tiêu đề nhiệm vụ vào bảng tạm.",
         "copy_url": "Sao chép URL",
-        "copy_url_toast_success": "Đã sao chép URL mục công việc vào bảng tạm.",
-        "copy_url_toast_error": "Đã xảy ra lỗi khi sao chép URL mục công việc vào bảng tạm."
+        "copy_url_toast_success": "Đã sao chép URL nhiệm vụ vào bảng tạm.",
+        "copy_url_toast_error": "Đã xảy ra lỗi khi sao chép URL nhiệm vụ vào bảng tạm."
       },
       "cycle": {
         "title": "Hành động chu kỳ",
@@ -66,7 +66,7 @@
       }
     },
     "creation_actions": {
-      "create_work_item": "Mục công việc mới",
+      "create_work_item": "Nhiệm vụ mới",
       "create_page": "Trang mới",
       "create_view": "Chế độ xem mới",
       "create_cycle": "Chu kỳ mới",
@@ -83,16 +83,16 @@
       "nav_account_settings": "Đi đến cài đặt tài khoản",
       "open_project": "Mở một dự án",
       "nav_projects_list": "Đi đến danh sách dự án",
-      "nav_all_workspace_work_items": "Đi đến tất cả mục công việc",
-      "nav_assigned_workspace_work_items": "Đi đến mục công việc đã giao",
-      "nav_created_workspace_work_items": "Đi đến mục công việc đã tạo",
-      "nav_subscribed_workspace_work_items": "Đi đến mục công việc đã đăng ký",
+      "nav_all_workspace_work_items": "Đi đến tất cả nhiệm vụ",
+      "nav_assigned_workspace_work_items": "Đi đến nhiệm vụ đã giao",
+      "nav_created_workspace_work_items": "Đi đến nhiệm vụ đã tạo",
+      "nav_subscribed_workspace_work_items": "Đi đến nhiệm vụ đã đăng ký",
       "nav_workspace_analytics": "Đi đến phân tích không gian làm việc",
       "nav_workspace_drafts": "Đi đến bản nháp không gian làm việc",
       "nav_workspace_archives": "Đi đến lưu trữ không gian làm việc",
       "open_workspace_setting": "Mở một cài đặt không gian làm việc",
       "nav_workspace_settings": "Đi đến cài đặt không gian làm việc",
-      "nav_project_work_items": "Đi đến mục công việc",
+      "nav_project_work_items": "Đi đến nhiệm vụ",
       "open_project_cycle": "Mở một chu kỳ",
       "nav_project_cycles": "Đi đến chu kỳ",
       "open_project_module": "Mở một mô-đun",

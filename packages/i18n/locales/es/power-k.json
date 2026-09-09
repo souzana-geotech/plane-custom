@@ -1,12 +1,12 @@
 {
   "power_k": {
     "actions_commands": {
-      "bulk_delete_work_items": "Eliminar elementos de trabajo en lote"
+      "bulk_delete_work_items": "Eliminar tareas en lote"
     },
     "contextual_actions": {
       "work_item": {
-        "title": "Acciones del elemento de trabajo",
-        "indicator": "Elemento de trabajo",
+        "title": "Acciones de la tarea",
+        "indicator": "Tarea",
         "change_state": "Cambiar estado",
         "change_priority": "Cambiar prioridad",
         "change_assignees": "Asignar a",
@@ -20,14 +20,14 @@
         "unsubscribe": "Cancelar suscripción a notificaciones",
         "delete": "Eliminar",
         "copy_id": "Copiar ID",
-        "copy_id_toast_success": "ID del elemento de trabajo copiado al portapapeles.",
-        "copy_id_toast_error": "Ocurrió un error al copiar el ID del elemento de trabajo al portapapeles.",
+        "copy_id_toast_success": "ID de la tarea copiada al portapapeles.",
+        "copy_id_toast_error": "Ocurrió un error al copiar el ID de la tarea al portapapeles.",
         "copy_title": "Copiar título",
-        "copy_title_toast_success": "Título del elemento de trabajo copiado al portapapeles.",
-        "copy_title_toast_error": "Ocurrió un error al copiar el título del elemento de trabajo al portapapeles.",
+        "copy_title_toast_success": "Título de la tarea copiada al portapapeles.",
+        "copy_title_toast_error": "Ocurrió un error al copiar el título de la tarea al portapapeles.",
         "copy_url": "Copiar URL",
-        "copy_url_toast_success": "URL del elemento de trabajo copiada al portapapeles.",
-        "copy_url_toast_error": "Ocurrió un error al copiar la URL del elemento de trabajo al portapapeles."
+        "copy_url_toast_success": "URL de la tarea copiada al portapapeles.",
+        "copy_url_toast_error": "Ocurrió un error al copiar la URL de la tarea al portapapeles."
       },
       "cycle": {
         "title": "Acciones del ciclo",
@@ -66,7 +66,7 @@
       }
     },
     "creation_actions": {
-      "create_work_item": "Nuevo elemento de trabajo",
+      "create_work_item": "Nueva tarea",
       "create_page": "Nueva página",
       "create_view": "Nueva vista",
       "create_cycle": "Nuevo ciclo",
@@ -83,16 +83,16 @@
       "nav_account_settings": "Ir a la configuración de la cuenta",
       "open_project": "Abrir un proyecto",
       "nav_projects_list": "Ir a la lista de proyectos",
-      "nav_all_workspace_work_items": "Ir a todos los elementos de trabajo",
-      "nav_assigned_workspace_work_items": "Ir a los elementos de trabajo asignados",
-      "nav_created_workspace_work_items": "Ir a los elementos de trabajo creados",
-      "nav_subscribed_workspace_work_items": "Ir a los elementos de trabajo suscritos",
+      "nav_all_workspace_work_items": "Ir a todas las tareas",
+      "nav_assigned_workspace_work_items": "Ir a las tareas asignadas",
+      "nav_created_workspace_work_items": "Ir a las tareas creadas",
+      "nav_subscribed_workspace_work_items": "Ir a las tareas suscritos",
       "nav_workspace_analytics": "Ir a análisis del espacio de trabajo",
       "nav_workspace_drafts": "Ir a borradores del espacio de trabajo",
       "nav_workspace_archives": "Ir a archivos del espacio de trabajo",
       "open_workspace_setting": "Abrir una configuración del espacio de trabajo",
       "nav_workspace_settings": "Ir a la configuración del espacio de trabajo",
-      "nav_project_work_items": "Ir a elementos de trabajo",
+      "nav_project_work_items": "Ir a tareas",
       "open_project_cycle": "Abrir un ciclo",
       "nav_project_cycles": "Ir a ciclos",
       "open_project_module": "Abrir un módulo",

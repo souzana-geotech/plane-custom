@@ -24,30 +24,30 @@
     },
     "modals": {
       "decline": {
-        "title": "Rechazar elemento de trabajo",
-        "content": "¿Estás seguro de que quieres rechazar el elemento de trabajo {value}?"
+        "title": "Rechazar tarea",
+        "content": "¿Estás seguro de que quieres rechazar la tarea {value}?"
       },
       "delete": {
-        "title": "Eliminar elemento de trabajo",
-        "content": "¿Estás seguro de que quieres eliminar el elemento de trabajo {value}?",
-        "success": "Elemento de trabajo eliminado correctamente"
+        "title": "Eliminar tarea",
+        "content": "¿Estás seguro de que quieres eliminar la tarea {value}?",
+        "success": "Tarea eliminado correctamente"
       }
     },
     "errors": {
-      "snooze_permission": "Solo los administradores del proyecto pueden posponer/desposponer elementos de trabajo",
-      "accept_permission": "Solo los administradores del proyecto pueden aceptar elementos de trabajo",
-      "decline_permission": "Solo los administradores del proyecto pueden rechazar elementos de trabajo"
+      "snooze_permission": "Solo los administradores del proyecto pueden posponer/desposponer tareas",
+      "accept_permission": "Solo los administradores del proyecto pueden aceptar tareas",
+      "decline_permission": "Solo los administradores del proyecto pueden rechazar tareas"
     },
     "actions": {
       "accept": "Aceptar",
       "decline": "Rechazar",
       "snooze": "Posponer",
       "unsnooze": "Desposponer",
-      "copy": "Copiar enlace del elemento de trabajo",
+      "copy": "Copiar enlace de la tarea",
       "delete": "Eliminar",
-      "open": "Abrir elemento de trabajo",
+      "open": "Abrir tarea",
       "mark_as_duplicate": "Marcar como duplicado",
-      "move": "Mover {value} a elementos de trabajo del proyecto"
+      "move": "Mover {value} a tareas del proyecto"
     },
     "source": {
       "in-app": "en-app"
@@ -60,7 +60,7 @@
     "label": "Intake",
     "page_label": "{workspace} - Intake",
     "modal": {
-      "title": "Crear elemento de trabajo de intake"
+      "title": "Crear tarea de intake"
     },
     "tabs": {
       "open": "Abiertos",
@@ -68,19 +68,19 @@
     },
     "empty_state": {
       "sidebar_open_tab": {
-        "title": "No hay elementos de trabajo abiertos",
-        "description": "Encuentra elementos de trabajo abiertos aquí. Crea un nuevo elemento de trabajo."
+        "title": "No hay tareas abiertas",
+        "description": "Encuentra tareas abiertas aquí. Crea un nueva tarea."
       },
       "sidebar_closed_tab": {
-        "title": "No hay elementos de trabajo cerrados",
-        "description": "Todos los elementos de trabajo, ya sean aceptados o rechazados, se pueden encontrar aquí."
+        "title": "No hay tareas cerradas",
+        "description": "Todas las tareas, ya sean aceptados o rechazados, se pueden encontrar aquí."
       },
       "sidebar_filter": {
-        "title": "No hay elementos de trabajo coincidentes",
-        "description": "Ningún elemento de trabajo coincide con el filtro aplicado en intake. Crea un nuevo elemento de trabajo."
+        "title": "No hay tareas coincidentes",
+        "description": "Ninguna tarea coincide con el filtro aplicado en intake. Crea un nueva tarea."
       },
       "detail": {
-        "title": "Selecciona un elemento de trabajo para ver sus detalles."
+        "title": "Selecciona una tarea para ver sus detalles."
       }
     }
   }

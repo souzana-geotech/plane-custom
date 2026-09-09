@@ -11,7 +11,7 @@ from .project import ProjectBaseModel
 
 class IssueDependencySchedule(ProjectBaseModel):
     """
-    Derived scheduling projection for a work item whose plan is pushed forward by a
+    Derived scheduling projection for a task whose plan is pushed forward by a
     delayed ``blocked_by`` dependency.
 
     A row exists if and only if the issue is currently *dependency delayed*: at least

@@ -45,7 +45,7 @@
     },
     "notifications": {
       "heading": "邮件通知",
-      "description": "及时了解您订阅的工作项。启用此功能以接收通知。",
+      "description": "及时了解您订阅的任务。启用此功能以接收通知。",
       "select_default_view": "选择默认视图",
       "compact": "紧凑",
       "full": "全屏"
@@ -59,7 +59,7 @@
     },
     "activity": {
       "heading": "活动",
-      "description": "跟踪您在所有项目和工作项中的最近操作和更改。"
+      "description": "跟踪您在所有项目和任务中的最近操作和更改。"
     },
     "connections": {
       "title": "连接",
@@ -78,16 +78,16 @@
     "stats": {
       "workload": "工作量",
       "overview": "概览",
-      "created": "已创建的工作项",
-      "assigned": "已分配的工作项",
-      "subscribed": "已订阅的工作项",
+      "created": "已创建的任务",
+      "assigned": "已分配的任务",
+      "subscribed": "已订阅的任务",
       "state_distribution": {
-        "title": "按状态分类的工作项",
-        "empty": "创建工作项以在图表中查看按状态分类的工作项，以便更好地分析。"
+        "title": "按状态分类的任务",
+        "empty": "创建任务以在图表中查看按状态分类的任务，以便更好地分析。"
       },
       "priority_distribution": {
-        "title": "按优先级分类的工作项",
-        "empty": "创建工作项以在图表中查看按优先级分类的工作项，以便更好地分析。"
+        "title": "按优先级分类的任务",
+        "empty": "创建任务以在图表中查看按优先级分类的任务，以便更好地分析。"
       },
       "recent_activity": {
         "title": "最近活动",
@@ -115,19 +115,19 @@
     "empty_state": {
       "activity": {
         "title": "尚无活动",
-        "description": "通过创建新工作项开始！为其添加详细信息和属性。在 Plane 中探索更多内容以查看您的活动。"
+        "description": "通过创建新任务开始！为其添加详细信息和属性。在 Plane 中探索更多内容以查看您的活动。"
       },
       "assigned": {
-        "title": "没有分配给您的工作项",
-        "description": "可以从这里跟踪分配给您的工作项。"
+        "title": "没有分配给您的任务",
+        "description": "可以从这里跟踪分配给您的任务。"
       },
       "created": {
-        "title": "尚无工作项",
-        "description": "您创建的所有工作项都会出现在这里，直接在这里跟踪它们。"
+        "title": "尚无任务",
+        "description": "您创建的所有任务都会出现在这里，直接在这里跟踪它们。"
       },
       "subscribed": {
-        "title": "尚无工作项",
-        "description": "订阅您感兴趣的工作项，在这里跟踪所有这些工作项。"
+        "title": "尚无任务",
+        "description": "订阅您感兴趣的任务，在这里跟踪所有这些任务。"
       }
     }
   },

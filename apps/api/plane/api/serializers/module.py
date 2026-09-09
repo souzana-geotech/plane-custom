@@ -168,9 +168,9 @@ class ModuleUpdateSerializer(ModuleCreateSerializer):
 
 class ModuleSerializer(BaseSerializer):
     """
-    Comprehensive module serializer with work item metrics and member management.
+    Comprehensive module serializer with task metrics and member management.
 
-    Provides complete module data including work item counts by status, member
+    Provides complete module data including task counts by status, member
     relationships, and progress tracking for feature-based project organization.
     """
 
@@ -208,10 +208,10 @@ class ModuleSerializer(BaseSerializer):
 
 class ModuleIssueSerializer(BaseSerializer):
     """
-    Serializer for module-work item relationships with sub-item counting.
+    Serializer for module-task relationships with sub-item counting.
 
-    Manages the association between modules and work items, including
-    hierarchical issue tracking for nested work item structures.
+    Manages the association between modules and tasks, including
+    hierarchical issue tracking for nested task structures.
     """
 
     sub_issues_count = serializers.IntegerField(read_only=True)
@@ -273,10 +273,10 @@ class ModuleLiteSerializer(BaseSerializer):
 
 class ModuleIssueRequestSerializer(serializers.Serializer):
     """
-    Serializer for bulk work item assignment to modules.
+    Serializer for bulk task assignment to modules.
 
-    Validates work item ID lists for batch operations including
-    module assignment and work item organization workflows.
+    Validates task ID lists for batch operations including
+    module assignment and task organization workflows.
     """
 
     issues = serializers.ListField(

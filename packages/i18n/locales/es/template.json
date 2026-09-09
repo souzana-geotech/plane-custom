@@ -2,16 +2,16 @@
   "templates": {
     "settings": {
       "title": "Plantillas",
-      "description": "Ahorra un 80% del tiempo dedicado a crear proyectos, elementos de trabajo y páginas cuando utilizas plantillas.",
+      "description": "Ahorra un 80% del tiempo dedicado a crear proyectos, tareas y páginas cuando utilizas plantillas.",
       "new_project_template": "Nueva plantilla de proyecto",
-      "new_work_item_template": "Nueva plantilla de elemento de trabajo",
+      "new_work_item_template": "Nueva plantilla de tarea",
       "new_page_template": "Nueva plantilla de página",
       "options": {
         "project": {
           "label": "Plantillas de proyecto"
         },
         "work_item": {
-          "label": "Plantillas de elementos de trabajo"
+          "label": "Plantillas de tareas"
         },
         "page": {
           "label": "Plantillas de página"
@@ -70,7 +70,7 @@
         "work_item": {
           "template": {
             "name": {
-              "placeholder": "Nombra tu plantilla de elemento de trabajo.",
+              "placeholder": "Nombra tu plantilla de tarea.",
               "validation": {
                 "required": "El nombre de la plantilla es obligatorio",
                 "maxLength": "El nombre de la plantilla debe tener menos de 255 caracteres"
@@ -81,18 +81,18 @@
             }
           },
           "name": {
-            "placeholder": "Dale un título a este elemento de trabajo.",
+            "placeholder": "Dale un título a esta tarea.",
             "validation": {
-              "required": "El título del elemento de trabajo es obligatorio",
-              "maxLength": "El título del elemento de trabajo debe tener menos de 255 caracteres"
+              "required": "El título de la tarea es obligatorio",
+              "maxLength": "El título de la tarea debe tener menos de 255 caracteres"
             }
           },
           "description": {
-            "placeholder": "Describe este elemento de trabajo para que quede claro lo que conseguirás cuando lo completes."
+            "placeholder": "Describe esta tarea para que quede claro lo que conseguirás cuando lo completes."
           },
           "button": {
-            "create": "Crear plantilla de elemento de trabajo",
-            "update": "Actualizar plantilla de elemento de trabajo"
+            "create": "Crear plantilla de tarea",
+            "update": "Actualizar plantilla de tarea"
           }
         },
         "page": {
@@ -227,23 +227,23 @@
     "empty_state": {
       "upgrade": {
         "title": "Plantillas",
-        "description": "Con las plantillas de proyectos, elementos de trabajo y páginas en Plane, no tienes que crear un proyecto desde cero ni configurar manualmente las propiedades de los elementos de trabajo.",
+        "description": "Con las plantillas de proyectos, tareas y páginas en Plane, no tienes que crear un proyecto desde cero ni configurar manualmente las propiedades de las tareas.",
         "sub_description": "Recupera el 80% de tu tiempo de administración cuando utilizas Plantillas."
       },
       "no_templates": {
         "button": "Crea tu primera plantilla"
       },
       "no_labels": {
-        "description": " Aún no hay etiquetas. Crea etiquetas para ayudar a organizar y filtrar elementos de trabajo en tu proyecto."
+        "description": " Aún no hay etiquetas. Crea etiquetas para ayudar a organizar y filtrar tareas en tu proyecto."
       },
       "no_modules": {
         "description": "Aún no hay módulos. Organiza el trabajo en subproyectos con líderes y responsables dedicados."
       },
       "no_work_items": {
-        "description": "Aún no hay elementos de trabajo. Añade uno para estructurar tu trabajo mejor."
+        "description": "Aún no hay tareas. Añade uno para estructurar tu trabajo mejor."
       },
       "no_sub_work_items": {
-        "description": "No hay sub-elementos de trabajo aún. Añade uno para estructurar tu trabajo mejor."
+        "description": "No hay sub-tareas aún. Añade uno para estructurar tu trabajo mejor."
       },
       "page": {
         "no_templates": {
@@ -322,7 +322,7 @@
         "page": "Elegir desde plantilla"
       },
       "tooltip": {
-        "work_item": "Seleccionar una plantilla de elemento de trabajo"
+        "work_item": "Seleccionar una plantilla de tarea"
       },
       "no_results": {
         "work_item": "No se encontraron plantillas.",

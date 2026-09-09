@@ -43,15 +43,16 @@
       "empty": {
         "project": "Bir projeyi ziyaret ettikten sonra son projeleriniz burada görünecek.",
         "page": "Bir sayfayı ziyaret ettikten sonra son sayfalarınız burada görünecek.",
-        "issue": "Bir iş öğesini ziyaret ettikten sonra son iş öğeleriniz burada görünecek.",
+        "issue": "Bir görevi ziyaret ettikten sonra son görevleriniz burada görünecek.",
         "default": "Henüz hiç sonunuz yok."
       },
       "filters": {
         "all": "Tüm öğeler",
         "projects": "Projeler",
         "pages": "Sayfalar",
-        "issues": "İş öğeleri"
-      }
+        "issues": "Görevler"
+      },
+      "view_all": "Tüm etkinliği görüntüle"
     },
     "new_at_plane": {
       "title": "Plane'de Yenilikler"
@@ -66,57 +67,21 @@
     "manage_widgets": "Widget'ları yönet",
     "title": "Çalışmalarım",
     "greeting": {
-      "subtitle": "İşte dikkatinizi bekleyenler."
-    },
-    "due": {
-      "prefix": "Bitiş tarihi",
-      "today": "bugün",
-      "tomorrow": "yarın"
+      "subtitle": "Bugün dikkatinizi gerektiren işler burada."
     },
     "status": {
-      "not_started": "Başlamadı",
       "in_progress": "Devam ediyor",
       "done": "Yapıldı",
-      "cancelled": "İptal Edildi"
-    },
-    "today": {
-      "title": "Bugün",
-      "overdue": "Gecikmiş",
-      "due_today": "Bitiş tarihi bugün",
-      "in_progress": "Devam ediyor",
-      "empty": {
-        "title": "Her şey tamam 🎉",
-        "description": "Bugün bitiş tarihi olan bir şey yok."
-      }
-    },
-    "upcoming": {
-      "title": "Yaklaşanlar",
-      "tomorrow": "Yarın",
-      "empty": {
-        "title": "Yaklaşan bir şey yok",
-        "description": "Yaklaşan göreviniz yok."
-      }
+      "cancelled": "İptal Edildi",
+      "to_do": "Yapılacak",
+      "overdue": "Gecikmiş"
     },
     "my_tasks": {
-      "title": "Görevlerim",
-      "tabs": {
-        "all": "Tümü",
-        "todo": "Yapılacak",
-        "in_progress": "Devam ediyor",
-        "done": "Yapıldı"
-      },
-      "open": "Aç",
-      "view_all": "Tümünü görüntüle",
       "empty": {
-        "title": "Burada bir şey yok",
-        "description": "Size atanan görevler burada görünecek."
-      }
-    },
-    "quick_actions": {
-      "add_task": "Görev ekle",
-      "add_note": "Not ekle",
-      "search": "Ara",
-      "search_placeholder": "Görev, proje veya kişi ara"
+        "filtered": "Geçerli filtreyle eşleşen görev yok."
+      },
+      "show_more": "{count} tane daha göster",
+      "clear_filters": "Filtreleri temizle"
     },
     "star_us_on_github": "Bizi GitHub'da yıldızlayın",
     "business_trial_banner": {
@@ -126,6 +91,98 @@
       "trial_ends_in_days": "Deneme {days} gün içinde sona eriyor",
       "start_subscription": "Aboneliği başlat",
       "explore_business_features": "Business özelliklerini keşfet"
+    },
+    "summary": {
+      "aria_label": "İş özeti",
+      "overdue": "Gecikmiş",
+      "due_today": "Bugün bitiyor",
+      "in_progress": "Devam ediyor",
+      "upcoming": "Yaklaşanlar"
+    },
+    "card": {
+      "mark_done": "Yapıldı olarak işaretle",
+      "more": "Daha fazla",
+      "change_status": "Durumu değiştir",
+      "toasts": {
+        "marked_done": "Görev yapıldı olarak işaretlendi",
+        "status_updated": "Durum güncellendi",
+        "status_update_failed": "Durum güncellenemedi",
+        "due_date_update_failed": "Bitiş tarihi güncellenemedi"
+      },
+      "set_due_date": "Bitiş tarihi belirle",
+      "remove_due_date": "Bitiş tarihini kaldır"
+    },
+    "filter": {
+      "by_project": "Projeye göre filtrele",
+      "all_projects": "Tüm projeler"
+    },
+    "header": {
+      "new_task": "Yeni görev"
+    },
+    "filters": {
+      "all": "Tümü",
+      "done": "Yapıldı"
+    },
+    "priority": {
+      "urgent": "Acil öncelik",
+      "high": "Yüksek öncelik"
+    },
+    "queue": {
+      "groups": {
+        "overdue": "Gecikmiş",
+        "today": "Bugün bitiyor",
+        "this_week": "Bu hafta",
+        "later": "Daha sonra",
+        "no_date": "Bitiş tarihi yok"
+      },
+      "empty": {
+        "all": {
+          "title": "Size atanmış görev yok",
+          "description": "Size atanan görevler burada görünecek."
+        },
+        "overdue": {
+          "title": "Gecikmiş görev yok",
+          "description": "Planınıza uygun ilerliyorsunuz."
+        },
+        "due_today": {
+          "title": "Bugün biten görev yok",
+          "description": "Bitiş tarihi bugün olan görev yok."
+        },
+        "in_progress": {
+          "title": "Devam eden görev yok",
+          "description": "Bir görevi Devam ediyor durumuna alın; burada görünecek."
+        },
+        "upcoming": {
+          "title": "Bu hafta biten görev yok",
+          "description": "Önümüzdeki 7 gün içinde biten görev yok."
+        },
+        "done": {
+          "title": "Henüz tamamlanan görev yok",
+          "description": "Tamamladığınız görevler burada görünecek."
+        }
+      },
+      "error": {
+        "title": "İşleriniz yüklenemedi",
+        "description": "Bağlantınızı kontrol edip yeniden deneyin.",
+        "retry": "Yeniden dene"
+      }
+    },
+    "activity": {
+      "title": "Son etkinliğiniz",
+      "empty": "Son etkinlik yok.",
+      "error": "Etkinlik yüklenemedi.",
+      "completed": "Yapıldı olarak işaretlendi",
+      "state": "{state} durumuna taşındı",
+      "created": "Oluşturuldu",
+      "commented": "Yorum yapıldı",
+      "due_date": "Bitiş tarihi {date} olarak belirlendi",
+      "due_date_removed": "Bitiş tarihi kaldırıldı",
+      "priority": "Öncelik {priority} olarak belirlendi",
+      "assignees": "Atananlar güncellendi",
+      "labels": "Etiketler güncellendi",
+      "renamed": "Yeniden adlandırıldı",
+      "description": "Açıklama güncellendi",
+      "updated": "Güncellendi"
     }
   }
 }

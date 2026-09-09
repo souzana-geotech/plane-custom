@@ -24,30 +24,30 @@
     },
     "modals": {
       "decline": {
-        "title": "Odrzuć element pracy",
-        "content": "Czy na pewno chcesz odrzucić element pracy {value}?"
+        "title": "Odrzuć zadanie",
+        "content": "Czy na pewno chcesz odrzucić zadanie {value}?"
       },
       "delete": {
-        "title": "Usuń element pracy",
-        "content": "Czy na pewno chcesz usunąć element pracy {value}?",
-        "success": "Element pracy usunięto pomyślnie"
+        "title": "Usuń zadanie",
+        "content": "Czy na pewno chcesz usunąć zadanie {value}?",
+        "success": "Zadanie usunięto pomyślnie"
       }
     },
     "errors": {
-      "snooze_permission": "Tylko administratorzy projektu mogą odkładać/odkładać ponownie elementy pracy",
-      "accept_permission": "Tylko administratorzy projektu mogą akceptować elementy pracy",
-      "decline_permission": "Tylko administratorzy projektu mogą odrzucać elementy pracy"
+      "snooze_permission": "Tylko administratorzy projektu mogą odkładać/odkładać ponownie zadania",
+      "accept_permission": "Tylko administratorzy projektu mogą akceptować zadania",
+      "decline_permission": "Tylko administratorzy projektu mogą odrzucać zadania"
     },
     "actions": {
       "accept": "Zaakceptuj",
       "decline": "Odrzuć",
       "snooze": "Odłóż",
       "unsnooze": "Anuluj odłożenie",
-      "copy": "Kopiuj link do elementu pracy",
+      "copy": "Kopiuj link do zadania",
       "delete": "Usuń",
-      "open": "Otwórz element pracy",
+      "open": "Otwórz zadanie",
       "mark_as_duplicate": "Oznacz jako duplikat",
-      "move": "Przenieś {value} do elementów pracy projektu"
+      "move": "Przenieś {value} do zadań projektu"
     },
     "source": {
       "in-app": "w aplikacji"
@@ -60,7 +60,7 @@
     "label": "Zgłoszenia",
     "page_label": "{workspace} - Zgłoszenia",
     "modal": {
-      "title": "Utwórz przyjęty element pracy"
+      "title": "Utwórz przyjęty zadanie"
     },
     "tabs": {
       "open": "Otwarte",
@@ -68,19 +68,19 @@
     },
     "empty_state": {
       "sidebar_open_tab": {
-        "title": "Brak otwartych elementów pracy",
-        "description": "Tutaj znajdziesz otwarte elementy pracy. Utwórz nowy."
+        "title": "Brak otwartych zadań",
+        "description": "Tutaj znajdziesz otwarte zadania. Utwórz nowy."
       },
       "sidebar_closed_tab": {
-        "title": "Brak zamkniętych elementów pracy",
-        "description": "Wszystkie zaakceptowane lub odrzucone elementy pracy pojawią się tutaj."
+        "title": "Brak zamkniętych zadań",
+        "description": "Wszystkie zaakceptowane lub odrzucone zadania pojawią się tutaj."
       },
       "sidebar_filter": {
-        "title": "Brak pasujących elementów pracy",
+        "title": "Brak pasujących zadań",
         "description": "Żaden element nie pasuje do filtra w zgłoszeniach. Utwórz nowy."
       },
       "detail": {
-        "title": "Wybierz element pracy, aby zobaczyć szczegóły."
+        "title": "Wybierz zadanie, aby zobaczyć szczegóły."
       }
     }
   }

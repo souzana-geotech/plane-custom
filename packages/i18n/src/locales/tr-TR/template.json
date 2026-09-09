@@ -2,16 +2,16 @@
   "templates": {
     "settings": {
       "title": "Şablonlar",
-      "description": "Şablonları kullandığınızda projeler, iş öğeleri ve sayfalar oluşturmak için harcanan zamanın %80'ini tasarruf edin.",
+      "description": "Şablonları kullandığınızda projeler, görevler ve sayfalar oluşturmak için harcanan zamanın %80'ini tasarruf edin.",
       "new_project_template": "Yeni proje şablonu",
-      "new_work_item_template": "Yeni iş öğesi şablonu",
+      "new_work_item_template": "Yeni görev şablonu",
       "new_page_template": "Yeni sayfa şablonu",
       "options": {
         "project": {
           "label": "Proje şablonları"
         },
         "work_item": {
-          "label": "İş öğesi şablonları"
+          "label": "Görev şablonları"
         },
         "page": {
           "label": "Sayfa şablonları"
@@ -81,14 +81,14 @@
             }
           },
           "name": {
-            "placeholder": "Bu iş öğesine bir başlık verin.",
+            "placeholder": "Bu göreve bir başlık verin.",
             "validation": {
-              "required": "İş öğesi başlığı gereklidir",
-              "maxLength": "İş öğesi başlığı 255 karakterden az olmalıdır"
+              "required": "Görev başlığı gereklidir",
+              "maxLength": "Görev başlığı 255 karakterden az olmalıdır"
             }
           },
           "description": {
-            "placeholder": "Bu iş öğesini, tamamladığınızda ne başaracağınız açık olacak şekilde açıklayın."
+            "placeholder": "Bu görevi, tamamladığınızda ne başaracağınız açık olacak şekilde açıklayın."
           },
           "button": {
             "create": "İş-öğesi şablonu oluştur",
@@ -227,23 +227,23 @@
     "empty_state": {
       "upgrade": {
         "title": "Şablonlar",
-        "description": "Plane'deki proje, iş-öğesi ve sayfa şablonlarıyla, bir projeyi sıfırdan oluşturmanız veya iş öğesi özelliklerini manuel olarak ayarlamanız gerekmez.",
+        "description": "Plane'deki proje, iş-öğesi ve sayfa şablonlarıyla, bir projeyi sıfırdan oluşturmanız veya görev özelliklerini manuel olarak ayarlamanız gerekmez.",
         "sub_description": "Şablonları kullandığınızda admin zamanınızın %80'ini geri kazanın."
       },
       "no_templates": {
         "button": "İlk şablonunuzu oluşturun"
       },
       "no_labels": {
-        "description": "Henüz etiket yok. Projenizde iş öğelerini düzenlemek ve filtrelemek için etiketler oluşturun."
+        "description": "Henüz etiket yok. Projenizde görevleri düzenlemek ve filtrelemek için etiketler oluşturun."
       },
       "no_modules": {
         "description": "Henüz modül yok. Özel liderler ve atananlarla işleri alt projelere organize edin."
       },
       "no_work_items": {
-        "description": "Henüz iş öğesi yok. Bir tane ekleyin, işinizi daha iyi yapılandırın."
+        "description": "Henüz görev yok. Bir tane ekleyin, işinizi daha iyi yapılandırın."
       },
       "no_sub_work_items": {
-        "description": "Henüz alt iş öğesi yok. Bir tane ekleyin, işinizi daha iyi yapılandırın."
+        "description": "Henüz alt görev yok. Bir tane ekleyin, işinizi daha iyi yapılandırın."
       },
       "page": {
         "no_templates": {
@@ -322,7 +322,7 @@
         "page": "Şablon seç"
       },
       "tooltip": {
-        "work_item": "Bir iş öğesi şablonu seçin"
+        "work_item": "Bir görev şablonu seçin"
       },
       "no_results": {
         "work_item": "Şablon bulunamadı.",

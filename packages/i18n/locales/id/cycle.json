@@ -2,19 +2,19 @@
   "active_cycle": {
     "empty_state": {
       "progress": {
-        "title": "Tambahkan item kerja ke siklus untuk melihat kemajuannya"
+        "title": "Tambahkan tugas ke siklus untuk melihat kemajuannya"
       },
       "chart": {
-        "title": "Tambahkan item kerja ke siklus untuk melihat grafik burndown."
+        "title": "Tambahkan tugas ke siklus untuk melihat grafik burndown."
       },
       "priority_issue": {
-        "title": "Amati item kerja prioritas yang ditangani dalam siklus pada pandangan pertama."
+        "title": "Amati tugas prioritas yang ditangani dalam siklus pada pandangan pertama."
       },
       "assignee": {
-        "title": "Tambahkan penugasan ke item kerja untuk melihat pembagian kerja berdasarkan penugasan."
+        "title": "Tambahkan penugasan ke tugas untuk melihat pembagian kerja berdasarkan penugasan."
       },
       "label": {
-        "title": "Tambahkan label ke item kerja untuk melihat pembagian kerja berdasarkan label."
+        "title": "Tambahkan label ke tugas untuk melihat pembagian kerja berdasarkan label."
       }
     }
   },
@@ -25,16 +25,16 @@
   "active_cycle_analytics": {
     "empty_state": {
       "progress": {
-        "title": "Tambahkan item kerja ke siklus untuk melihat\n kemajuannya"
+        "title": "Tambahkan tugas ke siklus untuk melihat\n kemajuannya"
       },
       "priority": {
-        "title": "Amati item kerja prioritas tinggi yang ditangani dalam\n siklus secara sekilas."
+        "title": "Amati tugas prioritas tinggi yang ditangani dalam\n siklus secara sekilas."
       },
       "assignee": {
-        "title": "Tambahkan penanggung jawab ke item kerja untuk melihat\n pembagian pekerjaan berdasarkan penanggung jawab."
+        "title": "Tambahkan penanggung jawab ke tugas untuk melihat\n pembagian pekerjaan berdasarkan penanggung jawab."
       },
       "label": {
-        "title": "Tambahkan label ke item kerja untuk melihat\n pembagian pekerjaan berdasarkan label."
+        "title": "Tambahkan label ke tugas untuk melihat\n pembagian pekerjaan berdasarkan label."
       }
     }
   }

@@ -17,13 +17,13 @@ import {
 export type { TWorkItemDatesUpdate };
 
 type TUseWorkItemWorkingDaysProps = {
-  /** current start date of the work item, in the `yyyy-mm-dd` payload format */
+  /** current start date of the task, in the `yyyy-mm-dd` payload format */
   startDate: string | null | undefined;
-  /** current due date of the work item, in the `yyyy-mm-dd` payload format */
+  /** current due date of the task, in the `yyyy-mm-dd` payload format */
   targetDate: string | null | undefined;
-  /** applies a date update, either to the form state or straight to the work item */
+  /** applies a date update, either to the form state or straight to the task */
   onDatesChange: (update: TWorkItemDatesUpdate) => void;
-  /** changing this drops the duration driven mode, e.g. when a different work item is shown */
+  /** changing this drops the duration driven mode, e.g. when a different task is shown */
   resetKey?: string;
 };
 
@@ -38,11 +38,11 @@ type TUseWorkItemWorkingDaysReturn = {
 };
 
 /**
- * Keeps a work item's start date, due date and working days in sync.
+ * Keeps a task's start date, due date and working days in sync.
  *
  * Working days are never stored: they are derived from the two dates that Plane already persists, so
- * existing work items show a working days value without any migration. Entering a value switches the
- * work item into a duration driven schedule for the current editing session, where the due date is
+ * existing tasks show a working days value without any migration. Entering a value switches the
+ * task into a duration driven schedule for the current editing session, where the due date is
  * recalculated whenever the start date or the working days change. Picking a due date by hand always
  * wins and hands control back to the plain start date + due date workflow.
  */
@@ -54,7 +54,7 @@ export const useWorkItemWorkingDays = (props: TUseWorkItemWorkingDaysProps): TUs
   const onDatesChangeRef = useRef(onDatesChange);
   onDatesChangeRef.current = onDatesChange;
 
-  // a different work item starts from the plain start date + due date workflow again
+  // a different task starts from the plain start date + due date workflow again
   useEffect(() => {
     setEnteredWorkingDays(null);
   }, [resetKey]);

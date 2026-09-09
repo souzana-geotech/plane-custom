@@ -27,8 +27,8 @@
       "project_subscribers": "Proje aboneleri",
       "project_subscribers_description": "Bu proje için bildirim alacak üyeleri seçin.",
       "guest_super_permissions": {
-        "title": "Misafir kullanıcılara tüm iş öğelerini görüntüleme izni ver:",
-        "sub_heading": "Bu, misafirlerin tüm proje iş öğelerini görüntülemesine izin verecektir."
+        "title": "Misafir kullanıcılara tüm görevleri görüntüleme izni ver:",
+        "sub_heading": "Bu, misafirlerin tüm proje görevleri görüntülemesine izin verecektir."
       },
       "invite_members": {
         "title": "Üyeleri davet et",
@@ -38,7 +38,7 @@
     },
     "states": {
       "heading": "Durumlar",
-      "description": "İş öğelerinizin ilerlemesini izlemek için iş akışı durumlarını tanımlayın ve özelleştirin.",
+      "description": "Görevlerinizin ilerlemesini izlemek için iş akışı durumlarını tanımlayın ve özelleştirin.",
       "describe_this_state_for_your_members": "Bu durumu üyeleriniz için açıklayın.",
       "empty_state": {
         "title": "{groupKey} grubu için durum yok",
@@ -47,7 +47,7 @@
     },
     "labels": {
       "heading": "Etiketler",
-      "description": "İş öğelerinizi kategorize etmek ve düzenlemek için özel etiketler oluşturun",
+      "description": "Görevlerinizi kategorize etmek ve düzenlemek için özel etiketler oluşturun",
       "label_title": "Etiket başlığı",
       "label_title_is_required": "Etiket başlığı gereklidir",
       "label_max_char": "Etiket adı 255 karakteri geçmemeli",
@@ -181,14 +181,14 @@
       "heading": "Otomasyonlar",
       "description": "Proje yönetimi iş akışınızı kolaylaştırmak ve manuel görevleri azaltmak için otomatik eylemleri yapılandırın.",
       "auto-archive": {
-        "title": "Tamamlanan iş öğelerini otomatik arşivle",
-        "description": "Plane, tamamlanan veya iptal edilen iş öğelerini otomatik arşivleyecek.",
-        "duration": "Şu süre kapalı kalan iş öğelerini otomatik arşivle"
+        "title": "Tamamlanan görevleri otomatik arşivle",
+        "description": "Plane, tamamlanan veya iptal edilen görevleri otomatik arşivleyecek.",
+        "duration": "Şu süre kapalı kalan görevleri otomatik arşivle"
       },
       "auto-close": {
-        "title": "İş öğelerini otomatik kapat",
-        "description": "Plane, tamamlanmamış veya iptal edilmemiş iş öğelerini otomatik kapatacak.",
-        "duration": "Şu süre etkin olmayan iş öğelerini otomatik kapat",
+        "title": "Görevleri otomatik kapat",
+        "description": "Plane, tamamlanmamış veya iptal edilmemiş görevleri otomatik kapatacak.",
+        "duration": "Şu süre etkin olmayan görevleri otomatik kapat",
         "auto_close_status": "Otomatik kapatma durumu"
       },
       "auto-remind": {
@@ -200,25 +200,25 @@
     "empty_state": {
       "labels": {
         "title": "Henüz etiket yok",
-        "description": "Projenizdeki iş öğelerini düzenlemek ve filtrelemek için etiketler oluşturun."
+        "description": "Projenizdeki görevleri düzenlemek ve filtrelemek için etiketler oluşturun."
       },
       "estimates": {
         "title": "Henüz tahmin sistemi yok",
-        "description": "İş öğesi başına çalışma miktarını iletişim kurmak için bir tahmin seti oluşturun.",
+        "description": "Görev başına çalışma miktarını iletişim kurmak için bir tahmin seti oluşturun.",
         "primary_button": "Tahmin sistemi ekle"
       },
       "integrations": {
         "title": "Konfigüre edilmiş entegrasyon yok",
-        "description": "Proje iş öğelerinizi senkronize etmek için GitHub ve diğer entegrasyonları konfigüre edin."
+        "description": "Proje görevlerinizi senkronize etmek için GitHub ve diğer entegrasyonları konfigüre edin."
       }
     },
     "workflows": {
       "toggle": {
         "title": "İş akışlarını etkinleştir",
-        "description": "İş öğesi hareketini kontrol etmek için iş akışları ayarlayın",
+        "description": "Görev hareketini kontrol etmek için iş akışları ayarlayın",
         "no_states_tooltip": "İş akışına durum eklenmemiş.",
-        "no_work_item_types_tooltip": "İş akışına iş öğesi türü eklenmemiş.",
-        "no_states_or_work_item_types_tooltip": "İş akışına durum veya iş öğesi türü eklenmemiş.",
+        "no_work_item_types_tooltip": "İş akışına görev türü eklenmemiş.",
+        "no_states_or_work_item_types_tooltip": "İş akışına durum veya görev türü eklenmemiş.",
         "toast": {
           "loading": {
             "enabling": "İş akışları etkinleştiriliyor",
@@ -235,7 +235,7 @@
         }
       },
       "heading": "İş Akışları",
-      "description": "İş öğesi geçişlerini otomatikleştirin ve görevlerin proje süreciniz boyunca nasıl hareket ettiğini kontrol etmek için kurallar belirleyin.",
+      "description": "Görev geçişlerini otomatikleştirin ve görevlerin proje süreciniz boyunca nasıl hareket ettiğini kontrol etmek için kurallar belirleyin.",
       "add_button": "Yeni iş akışı ekle",
       "search": "İş akışlarında ara",
       "detail": {
@@ -243,10 +243,10 @@
         "add_states": "Durum ekle",
         "unmapped_states": {
           "title": "Eşlenmemiş durumlar tespit edildi",
-          "description": "Seçili türlerdeki bazı iş öğeleri şu anda bu iş akışında bulunmayan durumlarda.",
+          "description": "Seçili türlerdeki bazı görevler şu anda bu iş akışında bulunmayan durumlarda.",
           "note": "Bu iş akışını etkinleştirirseniz, bu öğeler otomatik olarak bu iş akışının başlangıç durumuna taşınır.",
           "label": "Eksik durumlar",
-          "tooltip": "Bazı iş öğeleri bu iş akışına eşlenmemiş durumlarda. İncelemek için iş akışını açın."
+          "tooltip": "Bazı görevler bu iş akışına eşlenmemiş durumlarda. İncelemek için iş akışını açın."
         }
       },
       "select_states": {
@@ -256,7 +256,7 @@
         }
       },
       "default_footer": {
-        "fallback_message": "Bu iş akışı, bir iş akışına atanmamış herhangi bir iş öğesi türüne uygulanır."
+        "fallback_message": "Bu iş akışı, bir iş akışına atanmamış herhangi bir görev türüne uygulanır."
       },
       "create": {
         "heading": "Yeni iş akışı oluştur",
@@ -275,7 +275,7 @@
           }
         },
         "work_item_type": {
-          "label": "İş öğesi türü"
+          "label": "Görev türü"
         },
         "success": {
           "title": "Başarılı!",
@@ -319,8 +319,8 @@
       }
     },
     "work_item_types": {
-      "heading": "İş öğesi Türleri",
-      "description": "Benzersiz özelliklere sahip farklı iş öğesi türleri oluşturun ve özelleştirin"
+      "heading": "Görev Türleri",
+      "description": "Benzersiz özelliklere sahip farklı görev türleri oluşturun ve özelleştirin"
     },
     "features": {
       "cycles": {
@@ -367,25 +367,25 @@
         },
         "in_app": {
           "title": "Uygulama içi",
-          "description": "Mevcut iş öğelerinizi bozmadan çalışma alanınızdaki Üyeler ve Konuklardan yeni iş öğeleri alın."
+          "description": "Mevcut görevlerinizi bozmadan çalışma alanınızdaki Üyeler ve Konuklardan yeni görevler alın."
         },
         "email": {
           "title": "E-posta",
-          "description": "Plane e-posta adresine e-posta gönderen herkesten yeni iş öğeleri toplayın.",
+          "description": "Plane e-posta adresine e-posta gönderen herkesten yeni görevler toplayın.",
           "fieldName": "E-posta ID"
         },
         "form": {
           "title": "Formlar",
-          "description": "Çalışma alanınızın dışındaki kişilerin özel ve güvenli bir form aracılığıyla sizin için potansiyel yeni iş öğeleri oluşturmasına izin verin.",
+          "description": "Çalışma alanınızın dışındaki kişilerin özel ve güvenli bir form aracılığıyla sizin için potansiyel yeni görevler oluşturmasına izin verin.",
           "fieldName": "Varsayılan form URL'si",
-          "create_forms": "İş öğesi türlerini kullanarak form oluşturun",
+          "create_forms": "Görev türlerini kullanarak form oluşturun",
           "manage_forms": "Formları yönet",
           "manage_forms_tooltip": "Çalışma Alanı Yöneticinizden bunu yönetmesini isteyin.",
           "create_form": "Form oluştur",
           "edit_form": "Form ayrıntılarını düzenle",
           "form_title": "Form başlığı",
           "form_title_required": "Form başlığı zorunludur",
-          "work_item_type": "İş öğesi türü",
+          "work_item_type": "Görev türü",
           "remove_property": "Özelliği kaldır",
           "select_properties": "Özellikleri seç",
           "search_placeholder": "Özelliklerde ara",
@@ -413,16 +413,16 @@
       "time_tracking": {
         "title": "Zaman takibi",
         "short_title": "Zaman takibi",
-        "description": "İş öğelerine ve projelere harcanan zamanı kaydedin.",
+        "description": "Görevlere ve projelere harcanan zamanı kaydedin.",
         "toggle_title": "Zaman takibini etkinleştir",
         "toggle_description": "Proje üyeleri çalışılan zamanı kaydedebilecektir."
       },
       "milestones": {
         "title": "Kilometre taşları",
         "short_title": "Kilometre taşları",
-        "description": "Kilometre taşları, iş öğelerini ortak tamamlanma tarihlerine doğru hizalamak için bir katman sağlar.",
+        "description": "Kilometre taşları, görevleri ortak tamamlanma tarihlerine doğru hizalamak için bir katman sağlar.",
         "toggle_title": "Kilometre taşlarını etkinleştir",
-        "toggle_description": "İş öğelerini kilometre taşı son tarihleri ile organize edin."
+        "toggle_description": "Görevleri kilometre taşı son tarihleri ile organize edin."
       },
       "toasts": {
         "loading": "Proje özelliği güncelleniyor...",
@@ -436,7 +436,7 @@
     },
     "templates": {
       "heading": "Şablonlar",
-      "description": "Şablonları kullandığınızda projeler, iş öğeleri ve sayfalar oluşturmaya harcanan zamanın %80'ini tasarruf edin."
+      "description": "Şablonları kullandığınızda projeler, görevler ve sayfalar oluşturmaya harcanan zamanın %80'ini tasarruf edin."
     },
     "cycles": {
       "auto_schedule": {
@@ -489,8 +489,8 @@
             }
           },
           "auto_rollover": {
-            "label": "İş öğelerini otomatik devret",
-            "tooltip": "Bir döngünün tamamlandığı gün, tüm bitmemiş iş öğelerini bir sonraki döngüye taşıyın."
+            "label": "Görevleri otomatik devret",
+            "tooltip": "Bir döngünün tamamlandığı gün, tüm bitmemiş görevleri bir sonraki döngüye taşıyın."
           }
         },
         "toast": {

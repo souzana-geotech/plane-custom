@@ -32,7 +32,7 @@ export type TWorkspaceDashboardFilters = {
   assigneeId: string | null;
 };
 
-/** A work item enriched with the derived flags every widget needs. */
+/** A task enriched with the derived flags every widget needs. */
 export type TDashboardWorkItem = TWorkspaceDashboardWorkItem & {
   /** state group resolved through the workspace state store (`null` when the state is unknown) */
   stateGroup: IState["group"] | null;
@@ -42,7 +42,7 @@ export type TDashboardWorkItem = TWorkspaceDashboardWorkItem & {
   isOverdue: boolean;
   /** open and due date within today .. today + 7 days */
   isDueSoon: boolean;
-  /** open and blocked by at least one work item that is still open */
+  /** open and blocked by at least one task that is still open */
   isBlocked: boolean;
   /** days past the due date (positive) or until it (negative); undefined without a due date */
   daysFromDue: number | undefined;

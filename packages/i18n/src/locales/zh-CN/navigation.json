@@ -11,14 +11,14 @@
     "your_work": "我的工作",
     "projects": "项目",
     "pages": "页面",
-    "new_work_item": "新工作项",
+    "new_work_item": "新任务",
     "home": "我的工作",
     "inbox": "收件箱",
     "workspace": "工作区",
     "management": "管理",
     "views": "视图",
     "analytics": "分析",
-    "work_items": "工作项",
+    "work_items": "任务",
     "cycles": "周期",
     "modules": "模块",
     "intake": "收集",
@@ -30,6 +30,7 @@
     "epics": "史诗",
     "upgrade_plan": "升级计划",
     "plane_pro": "Plane Pro",
-    "business": "商业版"
+    "business": "商业版",
+    "all_projects": "全部项目"
   }
 }

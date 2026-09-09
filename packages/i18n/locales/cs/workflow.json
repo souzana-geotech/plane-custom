@@ -1,9 +1,9 @@
 {
   "workflows": {
     "workflow_states": {
-      "work_item_creation": "Povolit nové pracovní položky",
-      "work_item_creation_disable_tooltip": "Vytváření pracovních položek je pro tento stav zakázáno",
-      "default_state": "Výchozí stav umožňuje všem členům vytvářet nové pracovní položky. To nelze změnit",
+      "work_item_creation": "Povolit nové úkoly",
+      "work_item_creation_disable_tooltip": "Vytváření úkolů je pro tento stav zakázáno",
+      "default_state": "Výchozí stav umožňuje všem členům vytvářet nové úkoly. To nelze změnit",
       "state_change_count": "{count, plural, one {1 povolená změna stavu} other {{count} povolené změny stavu}}",
       "movers_count": "{count, plural, one {1 uvedený recenzent} other {{count} uvedení recenzenti}}",
       "state_changes": {
@@ -14,19 +14,19 @@
         "move_to": "Změnit stav na",
         "movers": {
           "label": "Když je recenzováno",
-          "tooltip": "Recenzenti jsou lidé, kteří mají povolení přesunout pracovní položky z jednoho stavu do druhého.",
+          "tooltip": "Recenzenti jsou lidé, kteří mají povolení přesunout úkoly z jednoho stavu do druhého.",
           "add": "Přidat recenzenty"
         }
       }
     },
     "workflow_disabled": {
-      "title": "Nemůžete přesunout tuto pracovní položku sem."
+      "title": "Nemůžete přesunout tento úkol sem."
     },
     "workflow_enabled": {
       "label": "Změna stavu"
     },
     "workflow_tree": {
-      "label": "Pro pracovní položky v",
+      "label": "Pro úkoly v",
       "state_change_label": "může ji přesunout na"
     },
     "empty_state": {

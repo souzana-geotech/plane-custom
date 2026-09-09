@@ -24,30 +24,30 @@
     },
     "modals": {
       "decline": {
-        "title": "拒绝工作项",
-        "content": "您确定要拒绝工作项 {value} 吗？"
+        "title": "拒绝任务",
+        "content": "您确定要拒绝任务 {value} 吗？"
       },
       "delete": {
-        "title": "删除工作项",
-        "content": "您确定要删除工作项 {value} 吗？",
-        "success": "工作项删除成功"
+        "title": "删除任务",
+        "content": "您确定要删除任务 {value} 吗？",
+        "success": "任务删除成功"
       }
     },
     "errors": {
-      "snooze_permission": "只有项目管理员可以暂停/取消暂停工作项",
-      "accept_permission": "只有项目管理员可以接受工作项",
-      "decline_permission": "只有项目管理员可以拒绝工作项"
+      "snooze_permission": "只有项目管理员可以暂停/取消暂停任务",
+      "accept_permission": "只有项目管理员可以接受任务",
+      "decline_permission": "只有项目管理员可以拒绝任务"
     },
     "actions": {
       "accept": "接受",
       "decline": "拒绝",
       "snooze": "暂停",
       "unsnooze": "取消暂停",
-      "copy": "复制工作项链接",
+      "copy": "复制任务链接",
       "delete": "删除",
-      "open": "打开工作项",
+      "open": "打开任务",
       "mark_as_duplicate": "标记为重复",
-      "move": "将 {value} 移至项目工作项"
+      "move": "将 {value} 移至项目任务"
     },
     "source": {
       "in-app": "应用内"
@@ -60,7 +60,7 @@
     "label": "收集",
     "page_label": "{workspace} - 收集",
     "modal": {
-      "title": "创建收集工作项"
+      "title": "创建收集任务"
     },
     "tabs": {
       "open": "未处理",
@@ -68,19 +68,19 @@
     },
     "empty_state": {
       "sidebar_open_tab": {
-        "title": "没有未处理的工作项",
-        "description": "在此处查找未处理的工作项。创建新工作项。"
+        "title": "没有未处理的任务",
+        "description": "在此处查找未处理的任务。创建新任务。"
       },
       "sidebar_closed_tab": {
-        "title": "没有已处理的工作项",
-        "description": "所有已接受或已拒绝的工作项都可以在这里找到。"
+        "title": "没有已处理的任务",
+        "description": "所有已接受或已拒绝的任务都可以在这里找到。"
       },
       "sidebar_filter": {
-        "title": "没有匹配的工作项",
-        "description": "收集中没有符合筛选条件的工作项。创建新工作项。"
+        "title": "没有匹配的任务",
+        "description": "收集中没有符合筛选条件的任务。创建新任务。"
       },
       "detail": {
-        "title": "选择一个工作项以查看其详细信息。"
+        "title": "选择一个任务以查看其详细信息。"
       }
     }
   }

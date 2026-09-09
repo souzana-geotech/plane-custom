@@ -45,7 +45,7 @@
     },
     "notifications": {
       "heading": "Notifikasi email",
-      "description": "Tetap terupdate tentang item kerja yang Anda langgani. Aktifkan ini untuk mendapatkan notifikasi.",
+      "description": "Tetap terupdate tentang tugas yang Anda langgani. Aktifkan ini untuk mendapatkan notifikasi.",
       "select_default_view": "Pilih tampilan default",
       "compact": "Ringkas",
       "full": "Layar penuh"
@@ -59,7 +59,7 @@
     },
     "activity": {
       "heading": "Aktivitas",
-      "description": "Lacak tindakan dan perubahan terkini Anda di semua proyek dan item kerja."
+      "description": "Lacak tindakan dan perubahan terkini Anda di semua proyek dan tugas."
     },
     "connections": {
       "title": "Koneksi",
@@ -78,16 +78,16 @@
     "stats": {
       "workload": "Beban kerja",
       "overview": "Ikhtisar",
-      "created": "Item kerja yang dibuat",
-      "assigned": "Item kerja yang ditugaskan",
-      "subscribed": "Item kerja yang disubscribe",
+      "created": "Tugas yang dibuat",
+      "assigned": "Tugas yang ditugaskan",
+      "subscribed": "Tugas yang disubscribe",
       "state_distribution": {
-        "title": "Item kerja berdasarkan status",
-        "empty": "Buat item kerja untuk melihatnya berdasarkan status dalam grafik untuk analisis yang lebih baik."
+        "title": "Tugas berdasarkan status",
+        "empty": "Buat tugas untuk melihatnya berdasarkan status dalam grafik untuk analisis yang lebih baik."
       },
       "priority_distribution": {
-        "title": "Item kerja berdasarkan Prioritas",
-        "empty": "Buat item kerja untuk melihatnya berdasarkan prioritas dalam grafik untuk analisis yang lebih baik."
+        "title": "Tugas berdasarkan Prioritas",
+        "empty": "Buat tugas untuk melihatnya berdasarkan prioritas dalam grafik untuk analisis yang lebih baik."
       },
       "recent_activity": {
         "title": "Aktivitas terkini",
@@ -115,19 +115,19 @@
     "empty_state": {
       "activity": {
         "title": "Belum ada aktivitas",
-        "description": "Mulai dengan membuat item kerja baru! Tambahkan detail dan properti. Jelajahi lebih lanjut di Plane untuk melihat aktivitas Anda."
+        "description": "Mulai dengan membuat tugas baru! Tambahkan detail dan properti. Jelajahi lebih lanjut di Plane untuk melihat aktivitas Anda."
       },
       "assigned": {
-        "title": "Tidak ada item kerja yang ditugaskan kepada Anda",
-        "description": "Item kerja yang ditugaskan kepada Anda dapat dilacak dari sini."
+        "title": "Tidak ada tugas yang ditugaskan kepada Anda",
+        "description": "Tugas yang ditugaskan kepada Anda dapat dilacak dari sini."
       },
       "created": {
-        "title": "Belum ada item kerja",
-        "description": "Semua item kerja yang dibuat oleh Anda hadir di sini, dan lacak langsung di sini."
+        "title": "Belum ada tugas",
+        "description": "Semua tugas yang dibuat oleh Anda hadir di sini, dan lacak langsung di sini."
       },
       "subscribed": {
-        "title": "Belum ada item kerja",
-        "description": "Langganan item kerja yang Anda minati, lacak semuanya di sini."
+        "title": "Belum ada tugas",
+        "description": "Langganan tugas yang Anda minati, lacak semuanya di sini."
       }
     }
   },

@@ -19,9 +19,9 @@
     "start_date": "Startdatum",
     "end_date": "Enddatum",
     "in_your_timezone": "In Ihrer Zeitzone",
-    "transfer_work_items": "Übertragen von {count} Arbeitselementen",
+    "transfer_work_items": "Übertragen von {count} Aufgaben",
     "transfer": {
-      "no_cycles_available": "Keine anderen Zyklen verfügbar, um Arbeitselemente zu übertragen."
+      "no_cycles_available": "Keine anderen Zyklen verfügbar, um Aufgaben zu übertragen."
     },
     "date_range": "Datumsbereich",
     "add_date": "Datum hinzufügen",
@@ -31,7 +31,7 @@
       "chart": "Burndown-Diagramm",
       "priority_issue": "Hochpriorisierte Elemente",
       "assignees": "Zuweisungen",
-      "issue_burndown": "Burndown für Arbeitselemente",
+      "issue_burndown": "Burndown für Aufgaben",
       "ideal": "Ideal",
       "current": "Aktuell",
       "labels": "Labels",
@@ -144,7 +144,7 @@
         "primary_button": {
           "text": "Erste Ansicht erstellen",
           "comic": {
-            "title": "Ansichten funktionieren mit den Eigenschaften der Arbeitselemente.",
+            "title": "Ansichten funktionieren mit den Eigenschaften der Aufgaben.",
             "description": "Erstellen Sie eine Ansicht mit den gewünschten Filtern."
           }
         },
@@ -154,14 +154,14 @@
         }
       },
       "no_archived_issues": {
-        "title": "Noch keine archivierten Arbeitselemente",
-        "description": "Manuell oder durch Automatisierung können Sie abgeschlossene oder abgebrochene Arbeitselemente archivieren. Finden Sie sie hier, sobald sie archiviert sind.",
+        "title": "Noch keine archivierten Aufgaben",
+        "description": "Manuell oder durch Automatisierung können Sie abgeschlossene oder abgebrochene Aufgaben archivieren. Finden Sie sie hier, sobald sie archiviert sind.",
         "primary_button": {
           "text": "Automatisierung einrichten"
         }
       },
       "issues_empty_filter": {
-        "title": "Keine Arbeitselemente gefunden, die den angewendeten Filtern entsprechen",
+        "title": "Keine Aufgaben gefunden, die den angewendeten Filtern entsprechen",
         "secondary_button": {
           "text": "Alle Filter löschen"
         }
@@ -190,12 +190,12 @@
   "project_issues": {
     "empty_state": {
       "no_issues": {
-        "title": "Erstellen und zuweisen eines Arbeitselements",
-        "description": "Arbeitselemente sind Aufgaben, die Sie sich selbst oder dem Team zuweisen. Verfolgen Sie deren Fortschritt.",
+        "title": "Erstellen und zuweisen einer Aufgabe",
+        "description": "Aufgaben sind Aufgaben, die Sie sich selbst oder dem Team zuweisen. Verfolgen Sie deren Fortschritt.",
         "primary_button": {
           "text": "Erstes Element erstellen",
           "comic": {
-            "title": "Arbeitselemente sind die Bausteine",
+            "title": "Aufgaben sind die Bausteine",
             "description": "Beispiele: UI-Redesign, Rebranding, neues System."
           }
         }
@@ -272,7 +272,7 @@
     "empty_state": {
       "general": {
         "title": "Notieren Sie Ideen, Dokumente oder Wissensdatenbanken. Nutzen Sie AI Galileo.",
-        "description": "Seiten sind Orte für Ihre Gedanken. Schreiben, formatieren, fügen Sie Arbeitselemente ein und verwenden Sie Komponenten.",
+        "description": "Seiten sind Orte für Ihre Gedanken. Schreiben, formatieren, fügen Sie Aufgaben ein und verwenden Sie Komponenten.",
         "primary_button": {
           "text": "Erste Seite erstellen"
         }

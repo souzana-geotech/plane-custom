@@ -11,9 +11,9 @@ from rest_framework import serializers
 
 class IssueForIntakeSerializer(BaseSerializer):
     """
-    Serializer for work item data within intake submissions.
+    Serializer for task data within intake submissions.
 
-    Handles essential work item fields for intake processing including
+    Handles essential task fields for intake processing including
     content validation and priority assignment for triage workflows.
     """
 
@@ -41,9 +41,9 @@ class IssueForIntakeSerializer(BaseSerializer):
 
 class IntakeIssueCreateSerializer(BaseSerializer):
     """
-    Serializer for creating intake work items with embedded issue data.
+    Serializer for creating intake tasks with embedded issue data.
 
-    Manages intake work item creation including nested issue creation,
+    Manages intake task creation including nested issue creation,
     status assignment, and source tracking for issue queue management.
     """
 
@@ -56,9 +56,9 @@ class IntakeIssueCreateSerializer(BaseSerializer):
 
 class IntakeIssueSerializer(BaseSerializer):
     """
-    Comprehensive serializer for intake work items with expanded issue details.
+    Comprehensive serializer for intake tasks with expanded issue details.
 
-    Provides full intake work item data including embedded issue information,
+    Provides full intake task data including embedded issue information,
     status tracking, and triage metadata for issue queue management.
     """
 
@@ -82,9 +82,9 @@ class IntakeIssueSerializer(BaseSerializer):
 
 class IntakeIssueUpdateSerializer(BaseSerializer):
     """
-    Serializer for updating intake work items and their associated issues.
+    Serializer for updating intake tasks and their associated issues.
 
-    Handles intake work item modifications including status changes, triage decisions,
+    Handles intake task modifications including status changes, triage decisions,
     and embedded issue updates for issue queue processing workflows.
     """
 
@@ -159,9 +159,9 @@ class IntakeIssueUpdateSerializer(BaseSerializer):
 
 class IssueDataSerializer(serializers.Serializer):
     """
-    Serializer for nested work item data in intake request payloads.
+    Serializer for nested task data in intake request payloads.
 
-    Validates core work item fields within intake requests including
+    Validates core task fields within intake requests including
     content formatting, priority levels, and metadata for issue creation.
     """
 

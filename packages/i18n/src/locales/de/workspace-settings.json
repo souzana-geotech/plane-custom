@@ -82,7 +82,7 @@
         "export_separate_files": "Daten in separaten Dateien exportieren",
         "exporting_projects": "Projekt wird exportiert",
         "format": "Format",
-        "filters_info": "Wenden Sie Filter an, um bestimmte Arbeitselemente basierend auf Ihren Kriterien zu exportieren.",
+        "filters_info": "Wenden Sie Filter an, um bestimmte Aufgaben basierend auf Ihren Kriterien zu exportieren.",
         "modal": {
           "title": "Exportieren nach",
           "toasts": {
@@ -272,12 +272,12 @@
       "templates": {
         "title": "Vorlagen",
         "heading": "Vorlagen",
-        "description": "Sparen Sie 80% der Zeit beim Erstellen von Projekten, Arbeitselementen und Seiten, wenn Sie Vorlagen verwenden."
+        "description": "Sparen Sie 80% der Zeit beim Erstellen von Projekten, Aufgaben und Seiten, wenn Sie Vorlagen verwenden."
       },
       "relations": {
         "title": "Beziehungen",
         "heading": "Beziehungen",
-        "description": "Erstellen und verwalten Sie Beziehungstypen, die Arbeitselemente in Ihrem Arbeitsbereich verbinden."
+        "description": "Erstellen und verwalten Sie Beziehungstypen, die Aufgaben in Ihrem Arbeitsbereich verbinden."
       },
       "cancel_trial": {
         "title": "Kündigen Sie zuerst Ihre Testphase.",

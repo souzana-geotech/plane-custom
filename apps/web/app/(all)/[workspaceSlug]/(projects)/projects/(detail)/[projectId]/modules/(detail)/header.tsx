@@ -162,7 +162,7 @@ export const ModuleIssuesHeader = observer(function ModuleIssuesHeader() {
             </Breadcrumbs>
             {workItemsCount && workItemsCount > 0 ? (
               <Tooltip
-                label={`There are ${workItemsCount} ${workItemsCount > 1 ? "work items" : "work item"} in this module`}
+                label={`There are ${workItemsCount} ${workItemsCount > 1 ? "tasks" : "task"} in this module`}
                 layout="stacked"
                 side="bottom"
                 disabled={isMobile}
@@ -239,7 +239,7 @@ export const ModuleIssuesHeader = observer(function ModuleIssuesHeader() {
                   toggleCreateIssueModal(true, EIssuesStoreType.MODULE);
                 }}
               >
-                Add work item
+                Add task
               </Button>
             </>
           ) : (

@@ -78,6 +78,34 @@
   }
 }
 
+/*
+ * Brand greys -- the neutrals from the logo lockup (#626366 / #929497 / #231F20).
+ * These are additive accent tokens for small brand touches (icon wells, "to do"
+ * chips, timeline rails); they do NOT replace propel's --neutral-* surfaces.
+ * Light and dark swap the mid/light pair so text stays >= 4.5:1 on both canvases.
+ */
+:root,
+:host {
+  --geo-grey: #626366;
+  --geo-grey-light: #929497;
+  --geo-grey-dark: #231f20;
+  --geo-grey-subtle: color-mix(in oklch, #626366 10%, transparent);
+
+  @variant dark {
+    --geo-grey: #929497;
+    --geo-grey-light: #626366;
+    --geo-grey-dark: #e4e4e5;
+    --geo-grey-subtle: color-mix(in oklch, #929497 16%, transparent);
+  }
+}
+
+@theme inline {
+  --color-geo-grey: var(--geo-grey);
+  --color-geo-grey-light: var(--geo-grey-light);
+  --color-geo-grey-dark: var(--geo-grey-dark);
+  --color-geo-grey-subtle: var(--geo-grey-subtle);
+}
+
 @theme {
   /*
    * Typography. Graphik is the brand face, self-hosted from the licensed desktop

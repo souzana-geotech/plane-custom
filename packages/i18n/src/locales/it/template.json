@@ -2,16 +2,16 @@
   "templates": {
     "settings": {
       "title": "Modelli",
-      "description": "Risparmia l'80% del tempo dedicato alla creazione di progetti, elementi di lavoro e pagine quando utilizzi i modelli.",
+      "description": "Risparmia l'80% del tempo dedicato alla creazione di progetti, attività e pagine quando utilizzi i modelli.",
       "new_project_template": "Nuovo modello di progetto",
-      "new_work_item_template": "Nuovo modello di elemento di lavoro",
+      "new_work_item_template": "Nuovo modello di attività",
       "new_page_template": "Nuovo modello di pagina",
       "options": {
         "project": {
           "label": "Modelli di progetto"
         },
         "work_item": {
-          "label": "Modelli di elementi di lavoro"
+          "label": "Modelli di attività"
         },
         "page": {
           "label": "Modelli di pagina"
@@ -70,7 +70,7 @@
         "work_item": {
           "template": {
             "name": {
-              "placeholder": "Dai un nome al tuo modello di elemento di lavoro.",
+              "placeholder": "Dai un nome al tuo modello di attività.",
               "validation": {
                 "required": "Il nome del modello è obbligatorio",
                 "maxLength": "Il nome del modello deve contenere meno di 255 caratteri"
@@ -81,18 +81,18 @@
             }
           },
           "name": {
-            "placeholder": "Dai un titolo a questo elemento di lavoro.",
+            "placeholder": "Dai un titolo a questa attività.",
             "validation": {
-              "required": "Il titolo dell'elemento di lavoro è obbligatorio",
-              "maxLength": "Il titolo dell'elemento di lavoro deve contenere meno di 255 caratteri"
+              "required": "Il titolo dell'attività è obbligatorio",
+              "maxLength": "Il titolo dell'attività deve contenere meno di 255 caratteri"
             }
           },
           "description": {
-            "placeholder": "Descrivi questo elemento di lavoro in modo che sia chiaro cosa otterrai quando lo completerai."
+            "placeholder": "Descrivi questa attività in modo che sia chiaro cosa otterrai quando lo completerai."
           },
           "button": {
-            "create": "Crea modello di elemento di lavoro",
-            "update": "Aggiorna modello di elemento di lavoro"
+            "create": "Crea modello di attività",
+            "update": "Aggiorna modello di attività"
           }
         },
         "page": {
@@ -227,23 +227,23 @@
     "empty_state": {
       "upgrade": {
         "title": "Modelli",
-        "description": "Con i modelli di progetto, elemento di lavoro e pagina in Plane, non devi creare un progetto da zero o impostare manualmente le proprietà degli elementi di lavoro.",
+        "description": "Con i modelli di progetto, attività e pagina in Plane, non devi creare un progetto da zero o impostare manualmente le proprietà delle attività.",
         "sub_description": "Recupera l'80% del tuo tempo di amministrazione quando utilizzi i Modelli."
       },
       "no_templates": {
         "button": "Crea il tuo primo modello"
       },
       "no_labels": {
-        "description": " Nessuna etichetta ancora. Crea etichette per aiutare a organizzare e filtrare gli elementi di lavoro nel tuo progetto."
+        "description": " Nessuna etichetta ancora. Crea etichette per aiutare a organizzare e filtrare le attività nel tuo progetto."
       },
       "no_modules": {
         "description": "Nessun modulo ancora. Organizza il lavoro in sotto-progetti con responsabili e assegnatari dedicati."
       },
       "no_work_items": {
-        "description": "Nessun elemento di lavoro ancora. Aggiungi uno per strutturare il tuo lavoro meglio."
+        "description": "Nessuna attività ancora. Aggiungi uno per strutturare il tuo lavoro meglio."
       },
       "no_sub_work_items": {
-        "description": "Nessun sotto-elemento di lavoro ancora. Aggiungi uno per strutturare il tuo lavoro meglio."
+        "description": "Nessun sottoattività ancora. Aggiungi uno per strutturare il tuo lavoro meglio."
       },
       "page": {
         "no_templates": {
@@ -322,7 +322,7 @@
         "page": "Scegli dal modello"
       },
       "tooltip": {
-        "work_item": "Scegli un modello di elemento di lavoro"
+        "work_item": "Scegli un modello di attività"
       },
       "no_results": {
         "work_item": "Nessun modello trovato.",

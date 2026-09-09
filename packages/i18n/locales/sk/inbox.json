@@ -24,30 +24,30 @@
     },
     "modals": {
       "decline": {
-        "title": "Odmietnuť pracovnú položku",
-        "content": "Naozaj chcete odmietnuť pracovnú položku {value}?"
+        "title": "Odmietnuť úlohu",
+        "content": "Naozaj chcete odmietnuť úlohu {value}?"
       },
       "delete": {
-        "title": "Zmazať pracovnú položku",
-        "content": "Naozaj chcete zmazať pracovnú položku {value}?",
-        "success": "Pracovná položka bola úspešne zmazaná"
+        "title": "Zmazať úlohu",
+        "content": "Naozaj chcete zmazať úlohu {value}?",
+        "success": "Úloha bola úspešne zmazaná"
       }
     },
     "errors": {
-      "snooze_permission": "Iba správcovia projektu môžu odkladať/zrušiť odloženie pracovných položiek",
-      "accept_permission": "Iba správcovia projektu môžu prijímať pracovné položky",
-      "decline_permission": "Iba správcovia projektu môžu odmietnuť pracovné položky"
+      "snooze_permission": "Iba správcovia projektu môžu odkladať/zrušiť odloženie úloh",
+      "accept_permission": "Iba správcovia projektu môžu prijímať úlohy",
+      "decline_permission": "Iba správcovia projektu môžu odmietnuť úlohy"
     },
     "actions": {
       "accept": "Prijať",
       "decline": "Odmietnuť",
       "snooze": "Odložiť",
       "unsnooze": "Zrušiť odloženie",
-      "copy": "Kopírovať odkaz na pracovnú položku",
+      "copy": "Kopírovať odkaz na úlohu",
       "delete": "Zmazať",
-      "open": "Otvoriť pracovnú položku",
+      "open": "Otvoriť úlohu",
       "mark_as_duplicate": "Označiť ako duplikát",
-      "move": "Presunúť {value} do pracovných položiek projektu"
+      "move": "Presunúť {value} do úloh projektu"
     },
     "source": {
       "in-app": "v aplikácii"
@@ -60,7 +60,7 @@
     "label": "Príjem",
     "page_label": "{workspace} - Príjem",
     "modal": {
-      "title": "Vytvoriť prijatú pracovnú položku"
+      "title": "Vytvoriť prijatú úlohu"
     },
     "tabs": {
       "open": "Otvorené",
@@ -68,19 +68,19 @@
     },
     "empty_state": {
       "sidebar_open_tab": {
-        "title": "Žiadne otvorené pracovné položky",
-        "description": "Tu nájdete otvorené pracovné položky. Vytvorte novú."
+        "title": "Žiadne otvorené úlohy",
+        "description": "Tu nájdete otvorené úlohy. Vytvorte novú."
       },
       "sidebar_closed_tab": {
-        "title": "Žiadne uzavreté pracovné položky",
-        "description": "Všetky prijaté alebo odmietnuté pracovné položky nájdete tu."
+        "title": "Žiadne uzavreté úlohy",
+        "description": "Všetky prijaté alebo odmietnuté úlohy nájdete tu."
       },
       "sidebar_filter": {
-        "title": "Žiadne zodpovedajúce pracovné položky",
+        "title": "Žiadne zodpovedajúce úlohy",
         "description": "Žiadna položka nezodpovedá filtru v príjme. Vytvorte novú."
       },
       "detail": {
-        "title": "Vyberte pracovnú položku pre zobrazenie detailov."
+        "title": "Vyberte úlohu pre zobrazenie detailov."
       }
     }
   }

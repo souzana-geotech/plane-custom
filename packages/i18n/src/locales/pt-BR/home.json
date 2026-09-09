@@ -32,7 +32,7 @@
       }
     },
     "quick_links": {
-      "empty": "Salve links para os itens de trabalho que você gostaria de ter à mão.",
+      "empty": "Salve links para as tarefas que você gostaria de ter à mão.",
       "add": "Adicionar link rápido",
       "title": "Link rápido",
       "title_plural": "Links rápidos",
@@ -43,15 +43,16 @@
       "empty": {
         "project": "Seus projetos recentes aparecerão aqui quando você visitar um.",
         "page": "Suas páginas recentes aparecerão aqui quando você visitar uma.",
-        "issue": "Seus itens de trabalho recentes aparecerão aqui quando você visitar um.",
+        "issue": "Seus tarefas recentes aparecerão aqui quando você visitar um.",
         "default": "Você não tem nenhum item recente ainda."
       },
       "filters": {
         "all": "Todos",
         "projects": "Projetos",
         "pages": "Páginas",
-        "issues": "Itens de trabalho"
-      }
+        "issues": "Tarefas"
+      },
+      "view_all": "Ver toda a atividade"
     },
     "new_at_plane": {
       "title": "Novidades no Plane"
@@ -66,57 +67,21 @@
     "manage_widgets": "Gerenciar widgets",
     "title": "Meu Trabalho",
     "greeting": {
-      "subtitle": "Aqui está o que precisa da sua atenção."
-    },
-    "due": {
-      "prefix": "Vence",
-      "today": "hoje",
-      "tomorrow": "amanhã"
+      "subtitle": "Aqui está o que precisa da sua atenção hoje."
     },
     "status": {
-      "not_started": "Não iniciado",
       "in_progress": "Em andamento",
       "done": "Concluído",
-      "cancelled": "Cancelado"
-    },
-    "today": {
-      "title": "Hoje",
-      "overdue": "Atrasado",
-      "due_today": "Vence hoje",
-      "in_progress": "Em andamento",
-      "empty": {
-        "title": "Você está em dia 🎉",
-        "description": "Nada vence hoje."
-      }
-    },
-    "upcoming": {
-      "title": "Em breve",
-      "tomorrow": "Amanhã",
-      "empty": {
-        "title": "Nada em breve",
-        "description": "Você não tem tarefas futuras."
-      }
+      "cancelled": "Cancelado",
+      "to_do": "A fazer",
+      "overdue": "Atrasado"
     },
     "my_tasks": {
-      "title": "Minhas tarefas",
-      "tabs": {
-        "all": "Todas",
-        "todo": "A fazer",
-        "in_progress": "Em andamento",
-        "done": "Concluídas"
-      },
-      "open": "Abrir",
-      "view_all": "Ver todas",
       "empty": {
-        "title": "Nada por aqui",
-        "description": "As tarefas atribuídas a você aparecerão aqui."
-      }
-    },
-    "quick_actions": {
-      "add_task": "Adicionar uma tarefa",
-      "add_note": "Adicionar uma nota",
-      "search": "Pesquisar",
-      "search_placeholder": "Pesquisar tarefas, projetos ou pessoas"
+        "filtered": "Nenhuma tarefa corresponde ao filtro atual."
+      },
+      "show_more": "Mostrar mais {count}",
+      "clear_filters": "Limpar filtros"
     },
     "star_us_on_github": "Nos dê uma estrela no GitHub",
     "business_trial_banner": {
@@ -126,6 +91,98 @@
       "trial_ends_in_days": "O teste termina em {days, plural, one {# dia} other {# dias}}",
       "start_subscription": "Iniciar assinatura",
       "explore_business_features": "Explorar recursos Business"
+    },
+    "summary": {
+      "aria_label": "Resumo do trabalho",
+      "overdue": "Atrasadas",
+      "due_today": "Vencem hoje",
+      "in_progress": "Em andamento",
+      "upcoming": "Em breve"
+    },
+    "card": {
+      "mark_done": "Marcar como concluída",
+      "more": "Mais",
+      "change_status": "Alterar status",
+      "toasts": {
+        "marked_done": "Tarefa marcada como concluída",
+        "status_updated": "Status atualizado",
+        "status_update_failed": "Não foi possível atualizar o status",
+        "due_date_update_failed": "Não foi possível atualizar o prazo"
+      },
+      "set_due_date": "Definir prazo",
+      "remove_due_date": "Remover prazo"
+    },
+    "filter": {
+      "by_project": "Filtrar por projeto",
+      "all_projects": "Todos os projetos"
+    },
+    "header": {
+      "new_task": "Nova tarefa"
+    },
+    "filters": {
+      "all": "Todas",
+      "done": "Concluídas"
+    },
+    "priority": {
+      "urgent": "Prioridade urgente",
+      "high": "Prioridade alta"
+    },
+    "queue": {
+      "groups": {
+        "overdue": "Atrasadas",
+        "today": "Vencem hoje",
+        "this_week": "Esta semana",
+        "later": "Mais tarde",
+        "no_date": "Sem prazo"
+      },
+      "empty": {
+        "all": {
+          "title": "Nada atribuído a você",
+          "description": "As tarefas atribuídas a você aparecerão aqui."
+        },
+        "overdue": {
+          "title": "Nada atrasado",
+          "description": "Você está em dia."
+        },
+        "due_today": {
+          "title": "Nada vence hoje",
+          "description": "Nenhuma tarefa tem prazo para hoje."
+        },
+        "in_progress": {
+          "title": "Nada em andamento",
+          "description": "Mova uma tarefa para Em andamento e ela aparecerá aqui."
+        },
+        "upcoming": {
+          "title": "Nada vence esta semana",
+          "description": "Nenhuma tarefa vence nos próximos 7 dias."
+        },
+        "done": {
+          "title": "Nada concluído ainda",
+          "description": "As tarefas que você concluir aparecerão aqui."
+        }
+      },
+      "error": {
+        "title": "Não foi possível carregar seu trabalho",
+        "description": "Verifique sua conexão e tente novamente.",
+        "retry": "Tentar novamente"
+      }
+    },
+    "activity": {
+      "title": "Sua atividade recente",
+      "empty": "Nenhuma atividade recente.",
+      "error": "Não foi possível carregar a atividade.",
+      "completed": "Marcada como concluída",
+      "state": "Movida para {state}",
+      "created": "Criada",
+      "commented": "Comentário adicionado",
+      "due_date": "Prazo definido para {date}",
+      "due_date_removed": "Prazo removido",
+      "priority": "Prioridade definida como {priority}",
+      "assignees": "Responsáveis atualizados",
+      "labels": "Etiquetas atualizadas",
+      "renamed": "Renomeada",
+      "description": "Descrição atualizada",
+      "updated": "Atualizada"
     }
   }
 }

@@ -26,7 +26,7 @@ import "@fontsource/ibm-plex-mono";
 
 const APP_TITLE = "Geotech3D Admin | Geospatial Services";
 const APP_DESCRIPTION =
-  "Open-source project management tool to manage work items, sprints, and product roadmaps with peace of mind.";
+  "Open-source project management tool to manage tasks, sprints, and product roadmaps with peace of mind.";
 
 export const links: LinksFunction = () => [
   { rel: "apple-touch-icon", sizes: "180x180", href: appleTouchIcon },
@@ -70,7 +70,7 @@ export const meta: Route.MetaFunction = () => [
   {
     name: "keywords",
     content:
-      "software development, customer feedback, software, accelerate, code management, release management, project management, work items tracking, agile, scrum, kanban, collaboration",
+      "software development, customer feedback, software, accelerate, code management, release management, project management, tasks tracking, agile, scrum, kanban, collaboration",
   },
   { name: "twitter:site", content: "@planepowers" },
 ];

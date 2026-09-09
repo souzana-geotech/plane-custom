@@ -1,9 +1,9 @@
 {
   "workflows": {
     "workflow_states": {
-      "work_item_creation": "Izinkan item kerja baru",
-      "work_item_creation_disable_tooltip": "Pembuatan item kerja dinonaktifkan untuk status ini",
-      "default_state": "Status default memungkinkan semua anggota membuat item kerja baru. Ini tidak dapat diubah",
+      "work_item_creation": "Izinkan tugas baru",
+      "work_item_creation_disable_tooltip": "Pembuatan tugas dinonaktifkan untuk status ini",
+      "default_state": "Status default memungkinkan semua anggota membuat tugas baru. Ini tidak dapat diubah",
       "state_change_count": "{count, plural, one {1 perubahan status diizinkan} other {{count} perubahan status diizinkan}}",
       "movers_count": "{count, plural, one {1 reviewer terdaftar} other {{count} reviewer terdaftar}}",
       "state_changes": {
@@ -14,19 +14,19 @@
         "move_to": "Ubah status ke",
         "movers": {
           "label": "Ketika ditinjau oleh",
-          "tooltip": "Reviewer adalah orang yang diizinkan untuk memindahkan item kerja dari satu status ke status lain.",
+          "tooltip": "Reviewer adalah orang yang diizinkan untuk memindahkan tugas dari satu status ke status lain.",
           "add": "Tambah reviewer"
         }
       }
     },
     "workflow_disabled": {
-      "title": "Anda tidak dapat memindahkan item kerja ini ke sini."
+      "title": "Anda tidak dapat memindahkan tugas ini ke sini."
     },
     "workflow_enabled": {
       "label": "Perubahan status"
     },
     "workflow_tree": {
-      "label": "Untuk item kerja di",
+      "label": "Untuk tugas di",
       "state_change_label": "dapat memindahkannya ke"
     },
     "empty_state": {

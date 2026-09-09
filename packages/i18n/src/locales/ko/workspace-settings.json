@@ -82,7 +82,7 @@
         "export_separate_files": "데이터를 별도의 파일로 내보내기",
         "exporting_projects": "프로젝트 내보내는 중",
         "format": "포맷",
-        "filters_info": "기준에 따라 특정 작업 항목을 내보내려면 필터를 적용하세요.",
+        "filters_info": "기준에 따라 특정 작업을 내보내려면 필터를 적용하세요.",
         "modal": {
           "title": "내보내기",
           "toasts": {
@@ -272,12 +272,12 @@
       "templates": {
         "title": "템플릿",
         "heading": "템플릿",
-        "description": "템플릿을 사용하면 프로젝트, 작업 항목, 페이지를 생성하는 데 걸리는 시간을 80% 절약할 수 있습니다."
+        "description": "템플릿을 사용하면 프로젝트, 작업, 페이지를 생성하는 데 걸리는 시간을 80% 절약할 수 있습니다."
       },
       "relations": {
         "title": "관계",
         "heading": "관계",
-        "description": "작업 공간 전반의 작업 항목을 연결하는 관계 타입을 생성하고 관리하세요."
+        "description": "작업 공간 전반의 작업을 연결하는 관계 타입을 생성하고 관리하세요."
       },
       "cancel_trial": {
         "title": "먼저 트라이얼을 취소하세요.",

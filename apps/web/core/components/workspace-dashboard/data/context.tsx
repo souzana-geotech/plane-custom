@@ -10,7 +10,7 @@ import type { TDashboardWorkItem, TWorkspaceDashboardFilters, TWorkspaceDashboar
 
 export type TWorkspaceDashboardContext = {
   workspaceSlug: string;
-  /** true until modules, work items and labels have all loaded for the first time */
+  /** true until modules, tasks and labels have all loaded for the first time */
   isLoading: boolean;
   /** set when any of the underlying requests failed */
   error: unknown;
@@ -18,7 +18,7 @@ export type TWorkspaceDashboardContext = {
   retry: () => void;
   /** every active module of the joined projects, before filters */
   allModules: IModule[];
-  /** every work item of the joined projects, before filters */
+  /** every task of the joined projects, before filters */
   allWorkItems: TDashboardWorkItem[];
   filters: TWorkspaceDashboardFilters;
   updateFilters: (patch: Partial<TWorkspaceDashboardFilters>) => void;

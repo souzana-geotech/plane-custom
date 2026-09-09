@@ -27,8 +27,8 @@
       "project_subscribers": "项目订阅者",
       "project_subscribers_description": "请选择将接收该项目通知的成员。",
       "guest_super_permissions": {
-        "title": "为访客用户授予查看所有工作项的权限：",
-        "sub_heading": "这将允许访客查看所有项目工作项。"
+        "title": "为访客用户授予查看所有任务的权限：",
+        "sub_heading": "这将允许访客查看所有项目任务。"
       },
       "invite_members": {
         "title": "邀请成员",
@@ -38,7 +38,7 @@
     },
     "states": {
       "heading": "状态",
-      "description": "定义和自定义工作流状态以跟踪工作项的进度。",
+      "description": "定义和自定义工作流状态以跟踪任务的进度。",
       "describe_this_state_for_your_members": "为您的成员描述此状态。",
       "empty_state": {
         "title": "{groupKey} 组中没有状态",
@@ -47,7 +47,7 @@
     },
     "labels": {
       "heading": "标签",
-      "description": "创建自定义标签以分类和组织您的工作项",
+      "description": "创建自定义标签以分类和组织您的任务",
       "label_title": "标签标题",
       "label_title_is_required": "标签标题为必填项",
       "label_max_char": "标签名称不应超过255个字符",
@@ -57,7 +57,7 @@
     },
     "estimates": {
       "heading": "估算",
-      "description": "设置估算系统以跟踪和传达每个工作项所需的工作量。",
+      "description": "设置估算系统以跟踪和传达每个任务所需的工作量。",
       "label": "估算",
       "title": "为我的项目启用估算",
       "enable_description": "它们有助于您传达团队的复杂性和工作量。",
@@ -181,13 +181,13 @@
       "heading": "自动化",
       "description": "配置自动化操作以简化项目管理工作流并减少手动任务。",
       "auto-archive": {
-        "title": "自动归档已关闭的工作项",
-        "description": "Plane 将自动归档已完成或已取消的工作项。",
+        "title": "自动归档已关闭的任务",
+        "description": "Plane 将自动归档已完成或已取消的任务。",
         "duration": "自动归档已关闭"
       },
       "auto-close": {
-        "title": "自动关闭工作项",
-        "description": "Plane 将自动关闭尚未完成或取消的工作项。",
+        "title": "自动关闭任务",
+        "description": "Plane 将自动关闭尚未完成或取消的任务。",
         "duration": "自动关闭不活跃",
         "auto_close_status": "自动关闭状态"
       },
@@ -200,25 +200,25 @@
     "empty_state": {
       "labels": {
         "title": "尚无标签",
-        "description": "创建标签以帮助组织和筛选项目中的工作项。"
+        "description": "创建标签以帮助组织和筛选项目中的任务。"
       },
       "estimates": {
         "title": "尚无估算系统",
-        "description": "创建一组估算以传达每个工作项的工作量。",
+        "description": "创建一组估算以传达每个任务的工作量。",
         "primary_button": "添加估算系统"
       },
       "integrations": {
         "title": "未配置集成",
-        "description": "配置 GitHub 和其他集成以同步您的项目工作项。"
+        "description": "配置 GitHub 和其他集成以同步您的项目任务。"
       }
     },
     "workflows": {
       "toggle": {
         "title": "启用工作流",
-        "description": "设置工作流以控制工作项的流转",
+        "description": "设置工作流以控制任务的流转",
         "no_states_tooltip": "该工作流中尚未添加任何状态。",
-        "no_work_item_types_tooltip": "该工作流中尚未添加任何工作项类型。",
-        "no_states_or_work_item_types_tooltip": "该工作流中尚未添加任何状态或工作项类型。",
+        "no_work_item_types_tooltip": "该工作流中尚未添加任何任务类型。",
+        "no_states_or_work_item_types_tooltip": "该工作流中尚未添加任何状态或任务类型。",
         "toast": {
           "loading": {
             "enabling": "正在启用工作流",
@@ -235,7 +235,7 @@
         }
       },
       "heading": "工作流",
-      "description": "自动化工作项流转，并设置规则来控制任务如何在项目流程中推进。",
+      "description": "自动化任务流转，并设置规则来控制任务如何在项目流程中推进。",
       "add_button": "添加新工作流",
       "search": "搜索工作流",
       "detail": {
@@ -243,10 +243,10 @@
         "add_states": "添加状态",
         "unmapped_states": {
           "title": "检测到未映射的状态",
-          "description": "所选类型的一些工作项当前处于该工作流中不存在的状态。",
-          "note": "如果启用该工作流，这些工作项将自动移动到该工作流的初始状态。",
+          "description": "所选类型的一些任务当前处于该工作流中不存在的状态。",
+          "note": "如果启用该工作流，这些任务将自动移动到该工作流的初始状态。",
           "label": "缺失的状态",
-          "tooltip": "一些工作项处于未映射到该工作流的状态。打开工作流进行查看。"
+          "tooltip": "一些任务处于未映射到该工作流的状态。打开工作流进行查看。"
         }
       },
       "select_states": {
@@ -256,7 +256,7 @@
         }
       },
       "default_footer": {
-        "fallback_message": "该工作流适用于未分配给任何工作流的任何工作项类型。"
+        "fallback_message": "该工作流适用于未分配给任何工作流的任何任务类型。"
       },
       "create": {
         "heading": "创建新工作流",
@@ -275,7 +275,7 @@
           }
         },
         "work_item_type": {
-          "label": "工作项类型"
+          "label": "任务类型"
         },
         "success": {
           "title": "成功！",
@@ -319,8 +319,8 @@
       }
     },
     "work_item_types": {
-      "heading": "工作项类型",
-      "description": "创建和自定义具有独特属性的不同类型工作项"
+      "heading": "任务类型",
+      "description": "创建和自定义具有独特属性的不同类型任务"
     },
     "features": {
       "cycles": {
@@ -367,25 +367,25 @@
         },
         "in_app": {
           "title": "应用内",
-          "description": "从工作区成员和访客获取新的工作项，不影响现有工作项。"
+          "description": "从工作区成员和访客获取新的任务，不影响现有任务。"
         },
         "email": {
           "title": "电子邮件",
-          "description": "从任何向 Plane 邮箱地址发送邮件的人收集新的工作项。",
+          "description": "从任何向 Plane 邮箱地址发送邮件的人收集新的任务。",
           "fieldName": "电子邮件 ID"
         },
         "form": {
           "title": "表单",
-          "description": "让工作区外的人通过专用安全表单为您创建潜在的新工作项。",
+          "description": "让工作区外的人通过专用安全表单为您创建潜在的新任务。",
           "fieldName": "默认表单 URL",
-          "create_forms": "使用工作项类型创建表单",
+          "create_forms": "使用任务类型创建表单",
           "manage_forms": "管理表单",
           "manage_forms_tooltip": "请工作区管理员代为管理。",
           "create_form": "创建表单",
           "edit_form": "编辑表单详情",
           "form_title": "表单标题",
           "form_title_required": "表单标题为必填",
-          "work_item_type": "工作项类型",
+          "work_item_type": "任务类型",
           "remove_property": "移除属性",
           "select_properties": "选择属性",
           "search_placeholder": "搜索属性",
@@ -413,16 +413,16 @@
       "time_tracking": {
         "title": "时间跟踪",
         "short_title": "时间跟踪",
-        "description": "记录在工作项和项目上花费的时间。",
+        "description": "记录在任务和项目上花费的时间。",
         "toggle_title": "启用时间跟踪",
         "toggle_description": "项目成员将能够记录工作时间。"
       },
       "milestones": {
         "title": "里程碑",
         "short_title": "里程碑",
-        "description": "里程碑提供了一个层，用于将工作项对齐到共享的完成日期。",
+        "description": "里程碑提供了一个层，用于将任务对齐到共享的完成日期。",
         "toggle_title": "启用里程碑",
-        "toggle_description": "按里程碑截止日期组织工作项。"
+        "toggle_description": "按里程碑截止日期组织任务。"
       },
       "toasts": {
         "loading": "正在更新项目功能...",
@@ -436,7 +436,7 @@
     },
     "templates": {
       "heading": "模板",
-      "description": "使用模板可节省 80% 创建项目、工作项和页面的时间。"
+      "description": "使用模板可节省 80% 创建项目、任务和页面的时间。"
     },
     "cycles": {
       "auto_schedule": {
@@ -489,8 +489,8 @@
             }
           },
           "auto_rollover": {
-            "label": "工作项自动结转",
-            "tooltip": "在周期完成的当天，将所有未完成的工作项移至下一个周期。"
+            "label": "任务自动结转",
+            "tooltip": "在周期完成的当天，将所有未完成的任务移至下一个周期。"
           }
         },
         "toast": {

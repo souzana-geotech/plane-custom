@@ -20,11 +20,11 @@ import type {
 } from "./types";
 
 /**
- * Turns the flat cross-project work item list into one lane per employee.
+ * Turns the flat cross-project task list into one lane per employee.
  *
  * Everything here is pure so the rules are testable and obvious:
- *  - a work item becomes one assignment per assignee (that is what puts the same job on two lanes)
- *  - only work items with at least one date can be placed on the timeline
+ *  - a task becomes one assignment per assignee (that is what puts the same job on two lanes)
+ *  - only tasks with at least one date can be placed on the timeline
  *  - "open" means the state group is not completed and not cancelled
  */
 
@@ -40,7 +40,7 @@ const isCancelledItem = (item: TEmployeeGanttWorkItem): boolean => item.state__g
 export const isOpenItem = (item: TEmployeeGanttWorkItem): boolean => !isCompletedItem(item) && !isCancelledItem(item);
 
 /**
- * Resolves the inclusive day range of a work item.
+ * Resolves the inclusive day range of a task.
  * Returns `null` when the item carries no date at all and therefore cannot be scheduled.
  */
 export const resolveRange = (
@@ -113,7 +113,7 @@ export const findOverlapWindows = (assignments: TEmployeeAssignment[]): TOverlap
 };
 
 /**
- * Resolves a dependency-schedule row onto the timeline for an open work item.
+ * Resolves a dependency-schedule row onto the timeline for an open task.
  * Returns `null` when the adjusted period carries no resolvable date, so the caller
  * can treat "no projection" and "unusable projection" the same way.
  */
@@ -155,7 +155,7 @@ type TBuildInput = {
   filters: TEmployeeGanttFilters;
   today: number;
   /**
-   * Dependency-delay projections keyed by work item id. Optional and purely
+   * Dependency-delay projections keyed by task id. Optional and purely
    * decorative: when absent (not loaded, or the request failed) the chart renders
    * exactly as before.
    */

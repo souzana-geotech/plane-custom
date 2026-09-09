@@ -11,9 +11,9 @@ import type { TIssueRelationTypes, TIssuesResponse } from "@plane/types";
 import { APIService } from "./api.service";
 
 /**
- * Relation entry returned by the project work item list when `expand=issue_relation` is requested.
- * `relation_type` describes how the listed work item relates to `id` (e.g. `blocked_by` = the listed
- * work item is blocked by `id`).
+ * Relation entry returned by the project task list when `expand=issue_relation` is requested.
+ * `relation_type` describes how the listed task relates to `id` (e.g. `blocked_by` = the listed
+ * task is blocked by `id`).
  */
 export type TWorkspaceDashboardRelation = {
   id: string;
@@ -26,7 +26,7 @@ export type TWorkspaceDashboardRelation = {
 };
 
 /**
- * Work item shape consumed by the workspace dashboard. It mirrors the fields the existing
+ * Task shape consumed by the workspace dashboard. It mirrors the fields the existing
  * project-level `issues-detail` endpoint already returns; nothing here is dashboard specific.
  */
 export type TWorkspaceDashboardWorkItem = {
@@ -61,7 +61,7 @@ export class WorkspaceDashboardService extends APIService {
   }
 
   /**
-   * Fetches every non-archived, non-draft work item of a project together with its relations,
+   * Fetches every non-archived, non-draft task of a project together with its relations,
    * paging through the existing `issues-detail` endpoint until it reports no further pages.
    */
   async getProjectWorkItems(workspaceSlug: string, projectId: string): Promise<TWorkspaceDashboardWorkItem[]> {

@@ -11,14 +11,14 @@
     "your_work": "Ваша работа",
     "projects": "Проекты",
     "pages": "Страницы",
-    "new_work_item": "Новый рабочий элемент",
+    "new_work_item": "Новый задача",
     "home": "Моя работа",
     "inbox": "Входящие",
     "workspace": "Рабочие пространства",
     "management": "Управление",
     "views": "Представления",
     "analytics": "Аналитика",
-    "work_items": "Рабочие элементы",
+    "work_items": "Задачи",
     "cycles": "Циклы",
     "modules": "Модули",
     "intake": "Предложения",
@@ -30,6 +30,7 @@
     "epics": "Эпики",
     "upgrade_plan": "Апгрейд план",
     "plane_pro": "Плейн Про",
-    "business": "Бизнес"
+    "business": "Бизнес",
+    "all_projects": "Все проекты"
   }
 }

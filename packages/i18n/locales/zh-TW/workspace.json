@@ -179,7 +179,7 @@
     "empty_state": {
       "general": {
         "title": "您的專案、活動和指標概覽",
-        "description": "歡迎使用 Plane，我們很高興您在這裡。建立您的第一個專案並追蹤您的工作事項，這個頁面將會變成一個協助您進展的空間。管理員也會看到協助他們團隊進展的項目。",
+        "description": "歡迎使用 Plane，我們很高興您在這裡。建立您的第一個專案並追蹤您的任務，這個頁面將會變成一個協助您進展的空間。管理員也會看到協助他們團隊進展的項目。",
         "primary_button": {
           "text": "建立您的第一個專案",
           "comic": {
@@ -198,7 +198,7 @@
       "busy": "繁忙 · {count}",
       "assigned": "已指派 · {count}",
       "available": "有空",
-      "tooltip": "今天安排了 {count, plural, one {# 個未完成的工作事項} other {# 個未完成的工作事項}}"
+      "tooltip": "今天安排了 {count, plural, one {# 個未完成的任務} other {# 個未完成的任務}}"
     },
     "summary": {
       "employees": "顯示的員工",
@@ -206,7 +206,7 @@
       "with_overlaps": "有重疊",
       "available": "今日有空",
       "scheduled": "已排程的指派",
-      "undated": "無日期的工作事項"
+      "undated": "無日期的任務"
     },
     "filters": {
       "all": "全部",
@@ -245,7 +245,7 @@
       "overlap_tooltip": "有 {count, plural, one {# 個時段} other {# 個時段}} 同時存在多項指派。尖峰：同時 {peak} 項。",
       "overdue": "{count, plural, one {# 項逾期} other {# 項逾期}}",
       "undated": "{count, plural, one {# 項無日期} other {# 項無日期}}",
-      "undated_tooltip": "指派給該員工的未完成工作事項，因缺少開始日期與到期日而無法放置在時間軸上。",
+      "undated_tooltip": "指派給該員工的未完成任務，因缺少開始日期與到期日而無法放置在時間軸上。",
       "next": "下一項：{name} · {date}",
       "nothing_next": "接下來沒有安排"
     },
@@ -260,12 +260,12 @@
     },
     "error": {
       "title": "無法載入員工甘特圖",
-      "description": "工作事項請求失敗。請重試或重新整理頁面。",
+      "description": "任務請求失敗。請重試或重新整理頁面。",
       "retry": "重試"
     },
     "empty": {
       "title": "尚無已排程的工作",
-      "description": "為工作事項設定開始日期與到期日並指派給成員，此檢視即會填入內容。"
+      "description": "為任務設定開始日期與到期日並指派給成員，此檢視即會填入內容。"
     },
     "empty_today": {
       "title": "今天沒有人有排程的工作",
@@ -285,26 +285,26 @@
     "page_label": "{workspace} - 分析",
     "open_tasks": "開啟任務總數",
     "error": "取得資料時發生錯誤。",
-    "work_items_closed_in": "已完成的工作事項數量在",
+    "work_items_closed_in": "已完成的任務數量在",
     "selected_projects": "已選取的專案",
     "total_members": "成員總數",
     "total_cycles": "週期總數",
     "total_modules": "模組總數",
     "pending_work_items": {
-      "title": "待處理工作事項",
-      "empty_state": "在此顯示同事待處理工作事項的分析。"
+      "title": "待處理任務",
+      "empty_state": "在此顯示同事待處理任務的分析。"
     },
     "work_items_closed_in_a_year": {
-      "title": "年度完成工作事項",
-      "empty_state": "完成工作事項以圖表形式檢視分析。"
+      "title": "年度完成任務",
+      "empty_state": "完成任務以圖表形式檢視分析。"
     },
     "most_work_items_created": {
-      "title": "最多工作事項建立者",
-      "empty_state": "在此顯示同事及其建立的工作事項數量。"
+      "title": "最多任務建立者",
+      "empty_state": "在此顯示同事及其建立的任務數量。"
     },
     "most_work_items_closed": {
-      "title": "最多工作事項完成者",
-      "empty_state": "在此顯示同事及其完成的工作事項數量。"
+      "title": "最多任務完成者",
+      "empty_state": "在此顯示同事及其完成的任務數量。"
     },
     "tabs": {
       "scope_and_demand": "範圍與需求",
@@ -385,7 +385,7 @@
       "permission": "您沒有執行此操作的權限。",
       "cycle_delete": "無法刪除週期",
       "module_delete": "無法刪除模組",
-      "issue_delete": "無法刪除工作事項"
+      "issue_delete": "無法刪除任務"
     },
     "state": {
       "backlog": "待辦事項",
@@ -422,7 +422,7 @@
       },
       "no_projects": {
         "title": "沒有專案",
-        "description": "若要建立工作事項或管理您的工作，您需要建立專案或成為專案的一部分。",
+        "description": "若要建立任務或管理您的工作，您需要建立專案或成為專案的一部分。",
         "primary_button": {
           "text": "開始您的第一個專案",
           "comic": {
@@ -444,33 +444,33 @@
     "add_view": "新增檢視",
     "empty_state": {
       "all-issues": {
-        "title": "專案中沒有工作事項",
-        "description": "第一個專案完成！現在，將您的工作分割成可追蹤的工作事項。讓我們開始吧！",
+        "title": "專案中沒有任務",
+        "description": "第一個專案完成！現在，將您的工作分割成可追蹤的任務。讓我們開始吧！",
         "primary_button": {
-          "text": "建立新工作事項"
+          "text": "建立新任務"
         }
       },
       "assigned": {
-        "title": "尚無工作事項",
-        "description": "從這裡可以追蹤指派給您的工作事項。",
+        "title": "尚無任務",
+        "description": "從這裡可以追蹤指派給您的任務。",
         "primary_button": {
-          "text": "建立新工作事項"
+          "text": "建立新任務"
         }
       },
       "created": {
-        "title": "尚無工作事項",
-        "description": "您建立的所有工作事項都會出現在這裡，直接在這裡追蹤它們。",
+        "title": "尚無任務",
+        "description": "您建立的所有任務都會出現在這裡，直接在這裡追蹤它們。",
         "primary_button": {
-          "text": "建立新工作事項"
+          "text": "建立新任務"
         }
       },
       "subscribed": {
-        "title": "尚無工作事項",
-        "description": "訂閱您感興趣的工作事項，在這裡追蹤它們。"
+        "title": "尚無任務",
+        "description": "訂閱您感興趣的任務，在這裡追蹤它們。"
       },
       "custom-view": {
-        "title": "尚無工作事項",
-        "description": "符合篩選條件的工作事項，在這裡追蹤它們。"
+        "title": "尚無任務",
+        "description": "符合篩選條件的任務，在這裡追蹤它們。"
       }
     },
     "delete_view": {
@@ -479,10 +479,10 @@
     }
   },
   "workspace_draft_issues": {
-    "draft_an_issue": "建立工作事項草稿",
+    "draft_an_issue": "建立任務草稿",
     "empty_state": {
-      "title": "寫到一半的工作事項，以及即將推出的留言會出現在這裡。",
-      "description": "若要試用此功能，請開始新增工作事項並中途離開，或在下方建立您的第一個草稿。😉",
+      "title": "寫到一半的任務，以及即將推出的留言會出現在這裡。",
+      "description": "若要試用此功能，請開始新增任務並中途離開，或在下方建立您的第一個草稿。😉",
       "primary_button": {
         "text": "建立您的第一個草稿"
       }
@@ -494,7 +494,7 @@
     "toasts": {
       "created": {
         "success": "草稿已建立",
-        "error": "無法建立工作事項。請再試一次。"
+        "error": "無法建立任務。請再試一次。"
       },
       "deleted": {
         "success": "草稿已刪除"

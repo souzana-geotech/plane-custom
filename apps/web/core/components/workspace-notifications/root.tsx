@@ -42,7 +42,7 @@ export const NotificationsRoot = observer(function NotificationsRoot({ workspace
   const { workspace_slug, project_id, issue_id, is_inbox_issue } =
     notificationLiteByNotificationId(currentSelectedNotificationId);
 
-  // fetching workspace work item properties
+  // fetching workspace task properties
   useWorkspaceIssueProperties(workspaceSlug);
 
   // fetch workspace notifications

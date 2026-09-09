@@ -1,11 +1,11 @@
 {
   "issue": {
-    "label": "{count, plural, one {工作项} other {工作项}}",
-    "all": "所有工作项",
-    "edit": "编辑工作项",
+    "label": "{count, plural, one {任务} other {任务}}",
+    "all": "所有任务",
+    "edit": "编辑任务",
     "title": {
-      "label": "工作项标题",
-      "required": "工作项标题为必填项"
+      "label": "任务标题",
+      "required": "任务标题为必填项"
     },
     "form": {
       "title_placeholder": "需要做什么？",
@@ -15,44 +15,44 @@
       "fewer_options": "收起选项"
     },
     "add": {
-      "press_enter": "按'Enter'添加另一个工作项",
-      "label": "添加工作项",
+      "press_enter": "按'Enter'添加另一个任务",
+      "label": "添加任务",
       "cycle": {
-        "failed": "无法将工作项添加到周期。请重试。",
-        "success": "{count, plural, one {工作项} other {工作项}}已成功添加到周期。",
-        "loading": "正在将{count, plural, one {工作项} other {工作项}}添加到周期"
+        "failed": "无法将任务添加到周期。请重试。",
+        "success": "{count, plural, one {任务} other {任务}}已成功添加到周期。",
+        "loading": "正在将{count, plural, one {任务} other {任务}}添加到周期"
       },
       "assignee": "添加负责人",
       "start_date": "添加开始日期",
       "due_date": "添加截止日期",
       "working_days": "添加工作日",
-      "parent": "添加父工作项",
-      "sub_issue": "添加子工作项",
+      "parent": "添加父任务",
+      "sub_issue": "添加子任务",
       "dependency": "添加依赖",
       "relation": "添加关系",
       "link": "添加链接",
-      "existing": "添加现有工作项"
+      "existing": "添加现有任务"
     },
     "remove": {
-      "label": "移除工作项",
+      "label": "移除任务",
       "cycle": {
-        "loading": "正在从周期中移除工作项",
-        "success": "已成功从周期中移除工作项。",
-        "failed": "无法从周期中移除工作项。请重试。"
+        "loading": "正在从周期中移除任务",
+        "success": "已成功从周期中移除任务。",
+        "failed": "无法从周期中移除任务。请重试。"
       },
       "module": {
-        "loading": "正在从模块中移除工作项",
-        "success": "已成功从模块中移除工作项。",
-        "failed": "无法从模块中移除工作项。请重试。"
+        "loading": "正在从模块中移除任务",
+        "success": "已成功从模块中移除任务。",
+        "failed": "无法从模块中移除任务。请重试。"
       },
       "parent": {
-        "label": "移除父工作项"
+        "label": "移除父任务"
       }
     },
-    "new": "新建工作项",
-    "adding": "正在添加工作项",
+    "new": "新建任务",
+    "adding": "正在添加任务",
     "create": {
-      "success": "工作项创建成功"
+      "success": "任务创建成功"
     },
     "priority": {
       "urgent": "紧急",
@@ -64,15 +64,15 @@
       "properties": {
         "label": "显示属性",
         "id": "ID",
-        "issue_type": "工作项类型",
-        "sub_issue_count": "子工作项数量",
+        "issue_type": "任务类型",
+        "sub_issue_count": "子任务数量",
         "attachment_count": "附件数量",
         "created_on": "创建于",
-        "sub_issue": "子工作项",
-        "work_item_count": "工作项数量"
+        "sub_issue": "子任务",
+        "work_item_count": "任务数量"
       },
       "extra": {
-        "show_sub_issues": "显示子工作项",
+        "show_sub_issues": "显示子任务",
         "show_empty_groups": "显示空组"
       }
     },
@@ -160,35 +160,35 @@
     },
     "empty_state": {
       "issue_detail": {
-        "title": "工作项不存在",
-        "description": "您查找的工作项不存在、已归档或已删除。",
+        "title": "任务不存在",
+        "description": "您查找的任务不存在、已归档或已删除。",
         "primary_button": {
-          "text": "查看其他工作项"
+          "text": "查看其他任务"
         }
       }
     },
     "sibling": {
-      "label": "同级工作项"
+      "label": "同级任务"
     },
     "archive": {
-      "description": "只有已完成或已取消的\n工作项可以归档",
-      "label": "归档工作项",
-      "confirm_message": "您确定要归档此工作项吗？所有已归档的工作项稍后可以恢复。",
+      "description": "只有已完成或已取消的\n任务可以归档",
+      "label": "归档任务",
+      "confirm_message": "您确定要归档此任务吗？所有已归档的任务稍后可以恢复。",
       "success": {
         "label": "归档成功",
         "message": "您的归档可以在项目归档中找到。"
       },
       "failed": {
-        "message": "无法归档工作项。请重试。"
+        "message": "无法归档任务。请重试。"
       }
     },
     "restore": {
       "success": {
         "title": "恢复成功",
-        "message": "您的工作项可以在项目工作项中找到。"
+        "message": "您的任务可以在项目任务中找到。"
       },
       "failed": {
-        "message": "无法恢复工作项。请重试。"
+        "message": "无法恢复任务。请重试。"
       }
     },
     "relation": {
@@ -209,29 +209,29 @@
       "adjusted_dates": "调整后：{startDate} 至 {targetDate}",
       "adjusted_date": "调整后：{targetDate}"
     },
-    "copy_link": "复制工作项链接",
+    "copy_link": "复制任务链接",
     "delete": {
-      "label": "删除工作项",
-      "error": "删除工作项时出错"
+      "label": "删除任务",
+      "error": "删除任务时出错"
     },
     "subscription": {
       "actions": {
-        "subscribed": "工作项订阅成功",
-        "unsubscribed": "工作项取消订阅成功"
+        "subscribed": "任务订阅成功",
+        "unsubscribed": "任务取消订阅成功"
       }
     },
     "select": {
-      "error": "请至少选择一个工作项",
-      "empty": "未选择工作项",
-      "add_selected": "添加所选工作项",
+      "error": "请至少选择一个任务",
+      "empty": "未选择任务",
+      "add_selected": "添加所选任务",
       "select_all": "全选",
       "deselect_all": "取消全选"
     },
-    "open_in_full_screen": "在全屏中打开工作项",
+    "open_in_full_screen": "在全屏中打开任务",
     "duplicate": {
       "modal": {
         "title": "复制到另一个项目",
-        "description1": "这将创建工作项的副本。",
+        "description1": "这将创建任务的副本。",
         "description2": "复制时将移除所有属性数据。",
         "placeholder": "选择一个项目"
       }
@@ -239,10 +239,10 @@
     "toast": {
       "duplicate": {
         "success": {
-          "message": "工作项复制成功"
+          "message": "任务复制成功"
         },
         "error": {
-          "message": "工作项复制失败"
+          "message": "任务复制失败"
         }
       }
     },
@@ -284,22 +284,22 @@
   },
   "sub_work_item": {
     "update": {
-      "success": "子工作项更新成功",
-      "error": "更新子工作项时出错"
+      "success": "子任务更新成功",
+      "error": "更新子任务时出错"
     },
     "remove": {
-      "success": "子工作项移除成功",
-      "error": "移除子工作项时出错"
+      "success": "子任务移除成功",
+      "error": "移除子任务时出错"
     },
     "empty_state": {
       "sub_list_filters": {
-        "title": "您没有符合您应用的过滤器的子工作项。",
-        "description": "要查看所有子工作项，请清除所有应用的过滤器。",
+        "title": "您没有符合您应用的过滤器的子任务。",
+        "description": "要查看所有子任务，请清除所有应用的过滤器。",
         "action": "清除过滤器"
       },
       "list_filters": {
-        "title": "您没有符合您应用的过滤器的工作项。",
-        "description": "要查看所有工作项，请清除所有应用的过滤器。",
+        "title": "您没有符合您应用的过滤器的任务。",
+        "description": "要查看所有任务，请清除所有应用的过滤器。",
         "action": "清除过滤器"
       }
     }
@@ -307,10 +307,10 @@
   "issue_relation": {
     "empty_state": {
       "search": {
-        "title": "未找到匹配的工作项"
+        "title": "未找到匹配的任务"
       },
       "no_issues": {
-        "title": "未找到工作项"
+        "title": "未找到任务"
       }
     }
   },
@@ -318,36 +318,36 @@
     "empty_state": {
       "general": {
         "title": "尚无评论",
-        "description": "评论可用作工作项的讨论和跟进空间"
+        "description": "评论可用作任务的讨论和跟进空间"
       }
     }
   },
   "bulk_operations": {
     "error_details": {
       "invalid_archive_state_group": {
-        "title": "无法归档工作项",
-        "message": "只有属于已完成或已取消状态组的工作项才能被归档。"
+        "title": "无法归档任务",
+        "message": "只有属于已完成或已取消状态组的任务才能被归档。"
       },
       "invalid_issue_start_date": {
-        "title": "无法更新工作项",
-        "message": "所选开始日期晚于某些工作项的截止日期。请确保开始日期在截止日期之前。"
+        "title": "无法更新任务",
+        "message": "所选开始日期晚于某些任务的截止日期。请确保开始日期在截止日期之前。"
       },
       "invalid_issue_target_date": {
-        "title": "无法更新工作项",
-        "message": "所选截止日期早于某些工作项的开始日期。请确保截止日期在开始日期之后。"
+        "title": "无法更新任务",
+        "message": "所选截止日期早于某些任务的开始日期。请确保截止日期在开始日期之后。"
       },
       "invalid_state_transition": {
-        "title": "无法更新工作项",
-        "message": "某些工作项的状态更改不被允许。请确保状态更改是被允许的。"
+        "title": "无法更新任务",
+        "message": "某些任务的状态更改不被允许。请确保状态更改是被允许的。"
       }
     }
   },
   "recurring_work_items": {
     "settings": {
-      "heading": "重复工作项",
+      "heading": "重复任务",
       "description": "设置一次重复工作，我们将处理重复。当需要时，您将在这里看到所有内容。",
-      "new_recurring_work_item": "创建新的重复工作项",
-      "update_recurring_work_item": "更新重复工作项",
+      "new_recurring_work_item": "创建新的重复任务",
+      "update_recurring_work_item": "更新重复任务",
       "form": {
         "interval": {
           "title": "计划",
@@ -363,13 +363,13 @@
           }
         },
         "button": {
-          "create": "创建重复工作项",
-          "update": "更新重复工作项"
+          "create": "创建重复任务",
+          "update": "更新重复任务"
         }
       },
       "create_button": {
-        "label": "创建重复工作项",
-        "no_permission": "请联系您的项目管理员以创建重复工作项"
+        "label": "创建重复任务",
+        "no_permission": "请联系您的项目管理员以创建重复任务"
       }
     },
     "empty_state": {
@@ -378,46 +378,46 @@
         "description": "只需设置一次，到期时我们会自动为您生成。升级到商业版，让重复工作变得轻松无忧。"
       },
       "no_templates": {
-        "button": "创建您的第一个重复工作项"
+        "button": "创建您的第一个重复任务"
       }
     },
     "toasts": {
       "create": {
         "success": {
-          "title": "重复工作项已创建",
-          "message": "{name}，该重复工作项，现已在您的工作区中可用。"
+          "title": "重复任务已创建",
+          "message": "{name}，该重复任务，现已在您的工作区中可用。"
         },
         "error": {
-          "title": "本次无法创建该重复工作项。",
-          "message": "请重试保存您的信息，或将其复制到新的重复工作项中，建议在其他标签页操作。"
+          "title": "本次无法创建该重复任务。",
+          "message": "请重试保存您的信息，或将其复制到新的重复任务中，建议在其他标签页操作。"
         }
       },
       "update": {
         "success": {
-          "title": "重复工作项已更改",
-          "message": "{name}，该重复工作项，已被更改。"
+          "title": "重复任务已更改",
+          "message": "{name}，该重复任务，已被更改。"
         },
         "error": {
-          "title": "无法保存该重复工作项的更改。",
-          "message": "请重试保存您的信息，或稍后再回来更改该重复工作项。如果仍有问题，请联系我们。"
+          "title": "无法保存该重复任务的更改。",
+          "message": "请重试保存您的信息，或稍后再回来更改该重复任务。如果仍有问题，请联系我们。"
         }
       },
       "delete": {
         "success": {
-          "title": "重复工作项已删除",
-          "message": "{name}，该重复工作项，已从您的工作区中删除。"
+          "title": "重复任务已删除",
+          "message": "{name}，该重复任务，已从您的工作区中删除。"
         },
         "error": {
-          "title": "无法删除该重复工作项。",
+          "title": "无法删除该重复任务。",
           "message": "请重试删除，或稍后再试。如果仍无法删除，请联系我们。"
         }
       }
     },
     "delete_confirmation": {
-      "title": "删除重复工作项",
+      "title": "删除重复任务",
       "description": {
-        "prefix": "您确定要删除重复工作项-",
-        "suffix": "吗？与该重复工作项相关的所有数据将被永久删除。此操作无法撤销。"
+        "prefix": "您确定要删除重复任务-",
+        "suffix": "吗？与该重复任务相关的所有数据将被永久删除。此操作无法撤销。"
       }
     }
   },

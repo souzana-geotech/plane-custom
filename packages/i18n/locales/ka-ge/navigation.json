@@ -11,14 +11,14 @@
     "your_work": "შენი სამუშაო",
     "projects": "პროექტები",
     "pages": "გვერდები",
-    "new_work_item": "ახალი სამუშაო ელემენტი",
+    "new_work_item": "ახალი დავალება",
     "home": "ჩემი სამუშაო",
     "inbox": "შეტყობინებები",
     "workspace": "სამუშაო სივრცე",
     "management": "მართვა",
     "views": "ხილვები",
     "analytics": "ანალიტიკა",
-    "work_items": "სამუშაო ელემენტები",
+    "work_items": "დავალებები",
     "cycles": "ციკლები",
     "modules": "მოდულები",
     "intake": "Intake",
@@ -30,6 +30,7 @@
     "epics": "Epics",
     "upgrade_plan": "Upgrade plan",
     "plane_pro": "Plane Pro",
-    "business": "Business"
+    "business": "Business",
+    "all_projects": "ყველა პროექტი"
   }
 }

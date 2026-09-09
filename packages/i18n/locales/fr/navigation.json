@@ -11,14 +11,14 @@
     "your_work": "Votre travail",
     "projects": "Projets",
     "pages": "Pages",
-    "new_work_item": "Nouvel élément de travail",
+    "new_work_item": "Nouvelle tâche",
     "home": "Mon travail",
     "inbox": "Boîte de réception",
     "workspace": "Espace de travail",
     "management": "Gestion",
     "views": "Vues",
     "analytics": "Analyses",
-    "work_items": "Éléments de travail",
+    "work_items": "Tâches",
     "cycles": "Cycles",
     "modules": "Modules",
     "intake": "Intake",
@@ -30,6 +30,7 @@
     "epics": "Epics",
     "upgrade_plan": "Mettre à niveau",
     "plane_pro": "Plane Pro",
-    "business": "Business"
+    "business": "Business",
+    "all_projects": "Tous les projets"
   }
 }

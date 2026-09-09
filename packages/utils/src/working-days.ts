@@ -148,7 +148,7 @@ export const getWorkingDaysBetweenDates = (
   return workingDays;
 };
 
-/** partial date payload for a work item, matching the fields Plane already persists */
+/** partial date payload for a task, matching the fields Plane already persists */
 export type TWorkItemDatesUpdate = {
   start_date?: string | null;
   target_date?: string | null;
@@ -182,7 +182,7 @@ export const resolveStartDateChange = (
  * null when there is nothing to apply
  * @description Without a start date there is nothing to count from, so the due date is left alone and
  * follows once a start date is picked.
- * @param {Date | string | null | undefined} startDate the work item's current start date
+ * @param {Date | string | null | undefined} startDate the task's current start date
  * @param {number} workingDays the newly entered working days count
  */
 export const resolveWorkingDaysChange = (

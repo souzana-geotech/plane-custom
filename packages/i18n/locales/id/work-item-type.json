@@ -1,21 +1,21 @@
 {
   "work_item_types": {
-    "label": "Tipe Item Kerja",
-    "label_lowercase": "tipe item kerja",
+    "label": "Tipe Tugas",
+    "label_lowercase": "tipe tugas",
     "settings": {
       "description": "Sesuaikan dan tambahkan properti Anda sendiri untuk menyesuaikannya dengan kebutuhan tim Anda.",
-      "cant_delete_default_message": "Jenis item kerja ini tidak dapat dihapus karena diatur sebagai default untuk proyek ini.",
+      "cant_delete_default_message": "Jenis tugas ini tidak dapat dihapus karena diatur sebagai default untuk proyek ini.",
       "set_as_default": "Atur sebagai default",
       "cant_set_default_inactive_message": "Aktifkan tipe ini sebelum mengaturnya sebagai default",
       "set_default_confirmation": {
-        "title": "Atur sebagai tipe item kerja default",
-        "description": "Mengatur {name} sebagai default akan mengimpornya ke semua proyek di ruang kerja ini. Semua item kerja baru akan menggunakan tipe ini secara default.",
+        "title": "Atur sebagai tipe tugas default",
+        "description": "Mengatur {name} sebagai default akan mengimpornya ke semua proyek di ruang kerja ini. Semua tugas baru akan menggunakan tipe ini secara default.",
         "confirm_button": "Atur sebagai default"
       },
       "properties": {
         "title": "Properti kustom",
         "description": "Buat dan sesuaikan properti.",
-        "tooltip": "Setiap tipe item kerja dilengkapi dengan serangkaian properti default seperti Judul, Deskripsi, Penerima tugas, Status, Prioritas, Tanggal mulai, Tanggal jatuh tempo, Modul, Siklus, dll. Anda juga dapat menyesuaikan dan menambahkan properti Anda sendiri untuk menyesuaikannya dengan kebutuhan tim Anda.",
+        "tooltip": "Setiap tipe tugas dilengkapi dengan serangkaian properti default seperti Judul, Deskripsi, Penerima tugas, Status, Prioritas, Tanggal mulai, Tanggal jatuh tempo, Modul, Siklus, dll. Anda juga dapat menyesuaikan dan menambahkan properti Anda sendiri untuk menyesuaikannya dengan kebutuhan tim Anda.",
         "add_button": "Tambah properti baru",
         "project": {
           "add_button": {
@@ -195,7 +195,7 @@
           "validation_success_with_refs": "Rumus valid! Mengembalikan {resultType} ({count} kolom direferensikan)",
           "error": {
             "empty": "Silakan masukkan rumus",
-            "missing_context": "Konteks ruang kerja, proyek, atau tipe item kerja tidak ditemukan",
+            "missing_context": "Konteks ruang kerja, proyek, atau tipe tugas tidak ditemukan",
             "validation_failed": "Validasi gagal"
           },
           "picker": {
@@ -228,12 +228,12 @@
         },
         "empty_state": {
           "title": "Tambahkan properti kustom",
-          "description": "Properti baru yang Anda tambahkan untuk tipe item kerja ini akan ditampilkan di sini."
+          "description": "Properti baru yang Anda tambahkan untuk tipe tugas ini akan ditampilkan di sini."
         }
       },
       "types": {
         "title": "Tipe",
-        "description": "Buat dan sesuaikan tipe item kerja dengan properti.",
+        "description": "Buat dan sesuaikan tipe tugas dengan properti.",
         "sort_options": {
           "project_count": "Jumlah proyek yang menjadi bagian"
         },
@@ -247,8 +247,8 @@
             "import_from_workspace": "Impor dari ruang kerja"
           },
           "banner": {
-            "with_access": "Aktifkan tipe item kerja untuk mengimpor tipe dari level ruang kerja",
-            "without_access": "Tipe item kerja dinonaktifkan. Hubungi admin ruang kerja untuk mengaktifkannya di pengaturan ruang kerja."
+            "with_access": "Aktifkan tipe tugas untuk mengimpor tipe dari level ruang kerja",
+            "without_access": "Tipe tugas dinonaktifkan. Hubungi admin ruang kerja untuk mengaktifkannya di pengaturan ruang kerja."
           }
         }
       },
@@ -264,7 +264,7 @@
         },
         "unlink_confirmation": {
           "title": "Lepas tautan properti",
-          "description": "Melepas tautan properti ini akan menghapus secara permanen semua nilainya di setiap item kerja yang menggunakan tipe ini. Tindakan ini tidak dapat dibatalkan.",
+          "description": "Melepas tautan properti ini akan menghapus secara permanen semua nilainya di setiap tugas yang menggunakan tipe ini. Tindakan ini tidak dapat dibatalkan.",
           "input_label": "Ketik",
           "input_label_suffix": "untuk melanjutkan:",
           "confirm": "Lepas tautan properti",
@@ -279,48 +279,48 @@
         "toast": {
           "success": {
             "title": "Berhasil!",
-            "message": "Jenis item kerja berhasil dihapus."
+            "message": "Jenis tugas berhasil dihapus."
           },
           "error": {
             "title": "Kesalahan!",
-            "message": "Gagal menghapus jenis item kerja. Silakan coba lagi!"
+            "message": "Gagal menghapus jenis tugas. Silakan coba lagi!"
           }
         },
         "errors": {
-          "cannot_delete_default_work_item_type": "Tidak dapat menghapus jenis item kerja default",
-          "cannot_delete_work_item_type_with_associated_work_items": "Tidak dapat menghapus jenis item kerja yang memiliki item kerja terkait"
+          "cannot_delete_default_work_item_type": "Tidak dapat menghapus jenis tugas default",
+          "cannot_delete_work_item_type_with_associated_work_items": "Tidak dapat menghapus jenis tugas yang memiliki tugas terkait"
         }
       }
     },
     "create": {
-      "title": "Buat tipe item kerja",
-      "button": "Tambah tipe item kerja",
+      "title": "Buat tipe tugas",
+      "button": "Tambah tipe tugas",
       "toast": {
         "success": {
           "title": "Berhasil!",
-          "message": "Tipe item kerja berhasil dibuat."
+          "message": "Tipe tugas berhasil dibuat."
         },
         "error": {
           "title": "Kesalahan!",
           "message": {
-            "default": "Gagal membuat tipe item kerja. Silakan coba lagi!",
+            "default": "Gagal membuat tipe tugas. Silakan coba lagi!",
             "conflict": "Tipe {name} sudah ada. Pilih nama lain."
           }
         }
       }
     },
     "update": {
-      "title": "Perbarui tipe item kerja",
-      "button": "Perbarui tipe item kerja",
+      "title": "Perbarui tipe tugas",
+      "button": "Perbarui tipe tugas",
       "toast": {
         "success": {
           "title": "Berhasil!",
-          "message": "Tipe item kerja {name} berhasil diperbarui."
+          "message": "Tipe tugas {name} berhasil diperbarui."
         },
         "error": {
           "title": "Kesalahan!",
           "message": {
-            "default": "Gagal memperbarui tipe item kerja. Silakan coba lagi!",
+            "default": "Gagal memperbarui tipe tugas. Silakan coba lagi!",
             "conflict": "Tipe {name} sudah ada. Pilih nama lain."
           }
         }
@@ -329,30 +329,30 @@
     "create_update": {
       "form": {
         "name": {
-          "placeholder": "Berikan nama unik untuk tipe item kerja ini"
+          "placeholder": "Berikan nama unik untuk tipe tugas ini"
         },
         "description": {
-          "placeholder": "Jelaskan untuk apa tipe item kerja ini dimaksudkan dan kapan akan digunakan."
+          "placeholder": "Jelaskan untuk apa tipe tugas ini dimaksudkan dan kapan akan digunakan."
         }
       }
     },
     "enable_disable": {
       "toast": {
-        "loading": "{action} tipe item kerja {name}",
+        "loading": "{action} tipe tugas {name}",
         "success": {
           "title": "Berhasil!",
-          "message": "Tipe item kerja {name} berhasil {action}."
+          "message": "Tipe tugas {name} berhasil {action}."
         },
         "error": {
           "title": "Kesalahan!",
-          "message": "Gagal {action} tipe item kerja. Silakan coba lagi!"
+          "message": "Gagal {action} tipe tugas. Silakan coba lagi!"
         }
       },
       "tooltip": "Klik untuk {action}"
     },
     "change_confirmation": {
-      "title": "Ubah tipe item kerja?",
-      "description": "Mengubah tipe item kerja dapat mengakibatkan hilangnya nilai properti kustom yang spesifik untuk tipe saat ini. Tindakan ini tidak dapat dibatalkan.",
+      "title": "Ubah tipe tugas?",
+      "description": "Mengubah tipe tugas dapat mengakibatkan hilangnya nilai properti kustom yang spesifik untuk tipe saat ini. Tindakan ini tidak dapat dibatalkan.",
       "button": {
         "loading": "Mengubah",
         "default": "Ubah tipe"
@@ -360,14 +360,14 @@
     },
     "empty_state": {
       "enable": {
-        "title": "Aktifkan Tipe Item Kerja",
-        "description": "Bentuk item kerja sesuai dengan pekerjaan Anda dengan Tipe item kerja. Sesuaikan dengan ikon, latar belakang, dan properti dan konfigurasikan untuk proyek ini.",
+        "title": "Aktifkan Tipe Tugas",
+        "description": "Bentuk tugas sesuai dengan pekerjaan Anda dengan Tipe tugas. Sesuaikan dengan ikon, latar belakang, dan properti dan konfigurasikan untuk proyek ini.",
         "primary_button": {
           "text": "Aktifkan"
         },
         "confirmation": {
-          "title": "Setelah diaktifkan, Tipe Item Kerja tidak dapat dinonaktifkan.",
-          "description": "Item Kerja Plane akan menjadi tipe item kerja default untuk proyek ini dan akan muncul dengan ikon dan latar belakangnya di proyek ini.",
+          "title": "Setelah diaktifkan, Tipe Tugas tidak dapat dinonaktifkan.",
+          "description": "Tugas Plane akan menjadi tipe tugas default untuk proyek ini dan akan muncul dengan ikon dan latar belakangnya di proyek ini.",
           "button": {
             "default": "Aktifkan",
             "loading": "Menyiapkan"
@@ -375,15 +375,15 @@
         }
       },
       "get_pro": {
-        "title": "Dapatkan Pro untuk mengaktifkan Tipe item kerja.",
-        "description": "Bentuk item kerja sesuai dengan pekerjaan Anda dengan Tipe item kerja. Sesuaikan dengan ikon, latar belakang, dan properti dan konfigurasikan untuk proyek ini.",
+        "title": "Dapatkan Pro untuk mengaktifkan Tipe tugas.",
+        "description": "Bentuk tugas sesuai dengan pekerjaan Anda dengan Tipe tugas. Sesuaikan dengan ikon, latar belakang, dan properti dan konfigurasikan untuk proyek ini.",
         "primary_button": {
           "text": "Dapatkan Pro"
         }
       },
       "upgrade": {
-        "title": "Tingkatkan untuk mengaktifkan Tipe item kerja.",
-        "description": "Bentuk item kerja sesuai dengan pekerjaan Anda dengan Tipe item kerja. Sesuaikan dengan ikon, latar belakang, dan properti dan konfigurasikan untuk proyek ini.",
+        "title": "Tingkatkan untuk mengaktifkan Tipe tugas.",
+        "description": "Bentuk tugas sesuai dengan pekerjaan Anda dengan Tipe tugas. Sesuaikan dengan ikon, latar belakang, dan properti dan konfigurasikan untuk proyek ini.",
         "primary_button": {
           "text": "Tingkatkan"
         }
@@ -470,7 +470,7 @@
       "level": "Tingkat hierarki",
       "invalid_level_toast": {
         "title": "Kesalahan!",
-        "message": "Jenis item kerja tidak dapat diperbarui karena melanggar aturan hierarki."
+        "message": "Jenis tugas tidak dapat diperbarui karena melanggar aturan hierarki."
       }
     }
   }

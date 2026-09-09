@@ -33,7 +33,7 @@ export function TransferIssues(props: Props) {
             onClick={handleClick}
             disabled={disabled}
           >
-            Transfer work items
+            Transfer tasks
           </Button>
         </div>
       )}

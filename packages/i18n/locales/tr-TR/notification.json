@@ -29,12 +29,12 @@
         "title": "Detayları görüntülemek için seçin."
       },
       "all": {
-        "title": "Atanan iş öğesi yok",
-        "description": "Size atanan iş öğelerinin güncellemelerini\n burada görebilirsiniz"
+        "title": "Atanan görev yok",
+        "description": "Size atanan görevlerin güncellemelerini\n burada görebilirsiniz"
       },
       "mentions": {
-        "title": "Atanan iş öğesi yok",
-        "description": "Size atanan iş öğelerinin güncellemelerini\n burada görebilirsiniz"
+        "title": "Atanan görev yok",
+        "description": "Size atanan görevlerin güncellemelerini\n burada görebilirsiniz"
       }
     },
     "tabs": {

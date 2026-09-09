@@ -2,16 +2,16 @@
   "templates": {
     "settings": {
       "title": "Šablóny",
-      "description": "Ušetríte 80% času stráveného vytváraním projektov, pracovných položiek a stránok, keď použijete šablóny.",
+      "description": "Ušetríte 80% času stráveného vytváraním projektov, úloh a stránok, keď použijete šablóny.",
       "new_project_template": "Nová šablóna projektu",
-      "new_work_item_template": "Nová šablóna pracovnej položky",
+      "new_work_item_template": "Nová šablóna úlohy",
       "new_page_template": "Nová šablóna stránky",
       "options": {
         "project": {
           "label": "Šablóny projektov"
         },
         "work_item": {
-          "label": "Šablóny pracovných položiek"
+          "label": "Šablóny úloh"
         },
         "page": {
           "label": "Šablóny stránok"
@@ -70,7 +70,7 @@
         "work_item": {
           "template": {
             "name": {
-              "placeholder": "Pomenujte svoju šablónu pracovnej položky.",
+              "placeholder": "Pomenujte svoju šablónu úlohy.",
               "validation": {
                 "required": "Názov šablóny je povinný",
                 "maxLength": "Názov šablóny by nemal presiahnuť 255 znakov"
@@ -81,18 +81,18 @@
             }
           },
           "name": {
-            "placeholder": "Pomenujte túto pracovnú položku.",
+            "placeholder": "Pomenujte túto úlohu.",
             "validation": {
-              "required": "Názov pracovnej položky je povinný",
-              "maxLength": "Názov pracovnej položky by nemal presiahnuť 255 znakov"
+              "required": "Názov úlohy je povinný",
+              "maxLength": "Názov úlohy by nemal presiahnuť 255 znakov"
             }
           },
           "description": {
-            "placeholder": "Popíšte, čo chcete dosiahnuť, keď dokončíte túto pracovnú položku."
+            "placeholder": "Popíšte, čo chcete dosiahnuť, keď dokončíte túto úlohu."
           },
           "button": {
-            "create": "Vytvoriť šablónu pracovnej položky",
-            "update": "Aktualizovať šablónu pracovnej položky"
+            "create": "Vytvoriť šablónu úlohy",
+            "update": "Aktualizovať šablónu úlohy"
           }
         },
         "page": {
@@ -227,23 +227,23 @@
     "empty_state": {
       "upgrade": {
         "title": "Šablóny",
-        "description": "S projektmi, pracovnými položkami a stránkami v Plane, nemusíte vytvárať projekty od začiatku alebo nastavovať vlastnosti pracovných položiek ručne.",
+        "description": "S projektmi, úlohami a stránkami v Plane, nemusíte vytvárať projekty od začiatku alebo nastavovať vlastnosti úloh ručne.",
         "sub_description": "Ušetríte 80% času, keď použijete šablóny."
       },
       "no_templates": {
         "button": "Vytvoriť svoju prvú šablónu"
       },
       "no_labels": {
-        "description": "Žiadne štítky ešte neexistujú. Vytvorte štítky na pomoc organizácii a filtrovaniu pracovných položiek v projekte."
+        "description": "Žiadne štítky ešte neexistujú. Vytvorte štítky na pomoc organizácii a filtrovaniu úloh v projekte."
       },
       "no_modules": {
         "description": "Zatiaľ žiadne moduly. Zorganizujte prácu do podprojektov s vyhradenými vedúcimi a priradenými."
       },
       "no_work_items": {
-        "description": "Ešte nemáte pracovné položky. Pridajte jednu, aby ste lepšie struktúrovali svoju prácu."
+        "description": "Ešte nemáte úlohy. Pridajte jednu, aby ste lepšie struktúrovali svoju prácu."
       },
       "no_sub_work_items": {
-        "description": "Ešte nemáte pod-pracovné položky. Pridajte jednu, aby ste lepšie struktúrovali svoju prácu."
+        "description": "Ešte nemáte pod-úlohy. Pridajte jednu, aby ste lepšie struktúrovali svoju prácu."
       },
       "page": {
         "no_templates": {
@@ -322,7 +322,7 @@
         "page": "Vybrať šablónu"
       },
       "tooltip": {
-        "work_item": "Vybrať šablónu pracovnej položky"
+        "work_item": "Vybrať šablónu úlohy"
       },
       "no_results": {
         "work_item": "Žiadne šablóny neboli nájdené.",

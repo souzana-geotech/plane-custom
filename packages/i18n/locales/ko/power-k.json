@@ -1,12 +1,12 @@
 {
   "power_k": {
     "actions_commands": {
-      "bulk_delete_work_items": "작업 항목 일괄 삭제"
+      "bulk_delete_work_items": "작업 일괄 삭제"
     },
     "contextual_actions": {
       "work_item": {
-        "title": "작업 항목 액션",
-        "indicator": "작업 항목",
+        "title": "작업 액션",
+        "indicator": "작업",
         "change_state": "상태 변경",
         "change_priority": "우선순위 변경",
         "change_assignees": "담당자 지정",
@@ -20,14 +20,14 @@
         "unsubscribe": "알림 구독 취소",
         "delete": "삭제",
         "copy_id": "ID 복사",
-        "copy_id_toast_success": "작업 항목 ID가 클립보드에 복사되었습니다.",
-        "copy_id_toast_error": "작업 항목 ID를 클립보드에 복사하는 중 오류가 발생했습니다.",
+        "copy_id_toast_success": "작업 ID가 클립보드에 복사되었습니다.",
+        "copy_id_toast_error": "작업 ID를 클립보드에 복사하는 중 오류가 발생했습니다.",
         "copy_title": "제목 복사",
-        "copy_title_toast_success": "작업 항목 제목이 클립보드에 복사되었습니다.",
-        "copy_title_toast_error": "작업 항목 제목을 클립보드에 복사하는 중 오류가 발생했습니다.",
+        "copy_title_toast_success": "작업 제목이 클립보드에 복사되었습니다.",
+        "copy_title_toast_error": "작업 제목을 클립보드에 복사하는 중 오류가 발생했습니다.",
         "copy_url": "URL 복사",
-        "copy_url_toast_success": "작업 항목 URL이 클립보드에 복사되었습니다.",
-        "copy_url_toast_error": "작업 항목 URL을 클립보드에 복사하는 중 오류가 발생했습니다."
+        "copy_url_toast_success": "작업 URL이 클립보드에 복사되었습니다.",
+        "copy_url_toast_error": "작업 URL을 클립보드에 복사하는 중 오류가 발생했습니다."
       },
       "cycle": {
         "title": "주기 액션",
@@ -66,7 +66,7 @@
       }
     },
     "creation_actions": {
-      "create_work_item": "새 작업 항목",
+      "create_work_item": "새 작업",
       "create_page": "새 페이지",
       "create_view": "새 보기",
       "create_cycle": "새 주기",
@@ -83,16 +83,16 @@
       "nav_account_settings": "계정 설정으로 이동",
       "open_project": "프로젝트 열기",
       "nav_projects_list": "프로젝트 목록으로 이동",
-      "nav_all_workspace_work_items": "모든 작업 항목으로 이동",
-      "nav_assigned_workspace_work_items": "할당된 작업 항목으로 이동",
-      "nav_created_workspace_work_items": "생성한 작업 항목으로 이동",
-      "nav_subscribed_workspace_work_items": "구독한 작업 항목으로 이동",
+      "nav_all_workspace_work_items": "모든 작업으로 이동",
+      "nav_assigned_workspace_work_items": "할당된 작업으로 이동",
+      "nav_created_workspace_work_items": "생성한 작업으로 이동",
+      "nav_subscribed_workspace_work_items": "구독한 작업으로 이동",
       "nav_workspace_analytics": "작업 공간 분석으로 이동",
       "nav_workspace_drafts": "작업 공간 초안으로 이동",
       "nav_workspace_archives": "작업 공간 아카이브로 이동",
       "open_workspace_setting": "작업 공간 설정 열기",
       "nav_workspace_settings": "작업 공간 설정으로 이동",
-      "nav_project_work_items": "작업 항목으로 이동",
+      "nav_project_work_items": "작업으로 이동",
       "open_project_cycle": "주기 열기",
       "nav_project_cycles": "주기로 이동",
       "open_project_module": "모듈 열기",

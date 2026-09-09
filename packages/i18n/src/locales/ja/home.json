@@ -43,15 +43,16 @@
       "empty": {
         "project": "プロジェクトを訪問すると、最近のプロジェクトがここに表示されます。",
         "page": "ページを訪問すると、最近のページがここに表示されます。",
-        "issue": "作業項目を訪問すると、最近の作業項目がここに表示されます。",
+        "issue": "タスクを訪問すると、最近のタスクがここに表示されます。",
         "default": "まだ最近の項目がありません。"
       },
       "filters": {
         "all": "すべて",
         "projects": "プロジェクト",
         "pages": "ページ",
-        "issues": "作業項目"
-      }
+        "issues": "タスク"
+      },
+      "view_all": "すべてのアクティビティを表示"
     },
     "new_at_plane": {
       "title": "Planeの新機能"
@@ -66,57 +67,21 @@
     "manage_widgets": "ウィジェットを管理",
     "title": "マイワーク",
     "greeting": {
-      "subtitle": "確認が必要な項目はこちらです。"
-    },
-    "due": {
-      "prefix": "期限：",
-      "today": "今日",
-      "tomorrow": "明日"
+      "subtitle": "今日注意が必要な項目です。"
     },
     "status": {
-      "not_started": "未開始",
       "in_progress": "進行中",
       "done": "完了",
-      "cancelled": "キャンセル"
-    },
-    "today": {
-      "title": "今日",
-      "overdue": "期限超過",
-      "due_today": "今日期限",
-      "in_progress": "進行中",
-      "empty": {
-        "title": "すべて完了しました 🎉",
-        "description": "本日期限のタスクはありません。"
-      }
-    },
-    "upcoming": {
-      "title": "今後の予定",
-      "tomorrow": "明日",
-      "empty": {
-        "title": "予定はありません",
-        "description": "今後のタスクはありません。"
-      }
+      "cancelled": "キャンセル",
+      "to_do": "未着手",
+      "overdue": "期限超過"
     },
     "my_tasks": {
-      "title": "マイタスク",
-      "tabs": {
-        "all": "すべて",
-        "todo": "やること",
-        "in_progress": "進行中",
-        "done": "完了"
-      },
-      "open": "開く",
-      "view_all": "すべて表示",
       "empty": {
-        "title": "ここにはまだ何もありません",
-        "description": "あなたに割り当てられたタスクがここに表示されます。"
-      }
-    },
-    "quick_actions": {
-      "add_task": "タスクを追加",
-      "add_note": "メモを追加",
-      "search": "検索",
-      "search_placeholder": "タスク、プロジェクト、メンバーを検索"
+        "filtered": "現在のフィルターに一致するタスクはありません。"
+      },
+      "show_more": "さらに{count}件を表示",
+      "clear_filters": "フィルターをクリア"
     },
     "star_us_on_github": "GitHubでスターをつける",
     "business_trial_banner": {
@@ -126,6 +91,98 @@
       "trial_ends_in_days": "トライアル終了まであと{days}日",
       "start_subscription": "サブスクリプションを開始",
       "explore_business_features": "Business機能を探索"
+    },
+    "summary": {
+      "aria_label": "作業の概要",
+      "overdue": "期限超過",
+      "due_today": "今日期限",
+      "in_progress": "進行中",
+      "upcoming": "今後の予定"
+    },
+    "card": {
+      "mark_done": "完了にする",
+      "more": "その他",
+      "change_status": "ステータスを変更",
+      "toasts": {
+        "marked_done": "タスクを完了にしました",
+        "status_updated": "ステータスを更新しました",
+        "status_update_failed": "ステータスを更新できませんでした",
+        "due_date_update_failed": "期限を更新できませんでした"
+      },
+      "set_due_date": "期限を設定",
+      "remove_due_date": "期限を削除"
+    },
+    "filter": {
+      "by_project": "プロジェクトで絞り込む",
+      "all_projects": "すべてのプロジェクト"
+    },
+    "header": {
+      "new_task": "新しいタスク"
+    },
+    "filters": {
+      "all": "すべて",
+      "done": "完了"
+    },
+    "priority": {
+      "urgent": "優先度：緊急",
+      "high": "優先度：高"
+    },
+    "queue": {
+      "groups": {
+        "overdue": "期限超過",
+        "today": "今日期限",
+        "this_week": "今週",
+        "later": "それ以降",
+        "no_date": "期限なし"
+      },
+      "empty": {
+        "all": {
+          "title": "割り当てられたタスクはありません",
+          "description": "あなたに割り当てられたタスクがここに表示されます。"
+        },
+        "overdue": {
+          "title": "期限超過のタスクはありません",
+          "description": "順調に進んでいます。"
+        },
+        "due_today": {
+          "title": "今日期限のタスクはありません",
+          "description": "今日が期限のタスクはありません。"
+        },
+        "in_progress": {
+          "title": "進行中のタスクはありません",
+          "description": "タスクを進行中にすると、ここに表示されます。"
+        },
+        "upcoming": {
+          "title": "今週期限のタスクはありません",
+          "description": "今後7日間に期限を迎えるタスクはありません。"
+        },
+        "done": {
+          "title": "完了したタスクはまだありません",
+          "description": "完了したタスクがここに表示されます。"
+        }
+      },
+      "error": {
+        "title": "作業を読み込めませんでした",
+        "description": "接続を確認して、もう一度お試しください。",
+        "retry": "再試行"
+      }
+    },
+    "activity": {
+      "title": "最近のアクティビティ",
+      "empty": "最近のアクティビティはありません。",
+      "error": "アクティビティを読み込めませんでした。",
+      "completed": "完了にしました",
+      "state": "{state}に移動しました",
+      "created": "作成しました",
+      "commented": "コメントしました",
+      "due_date": "期限を{date}に設定しました",
+      "due_date_removed": "期限を削除しました",
+      "priority": "優先度を{priority}に設定しました",
+      "assignees": "担当者を更新しました",
+      "labels": "ラベルを更新しました",
+      "renamed": "名前を変更しました",
+      "description": "説明を更新しました",
+      "updated": "更新しました"
     }
   }
 }

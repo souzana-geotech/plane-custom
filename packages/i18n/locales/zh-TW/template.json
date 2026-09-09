@@ -4,7 +4,7 @@
       "title": "模板",
       "description": "使用模板可節省80%的專案、工作項目和頁面創建時間。",
       "new_project_template": "新專案模板",
-      "new_work_item_template": "新工作事項模板",
+      "new_work_item_template": "新任務模板",
       "new_page_template": "新頁面模板",
       "options": {
         "project": {

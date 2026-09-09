@@ -3,23 +3,23 @@
     "workitems": {
       "step_zero": {
         "title": "Bem-vindo ao seu espaço de trabalho",
-        "description": "Para ajudá-lo a começar, criamos um Projeto Demo para você. Vamos adicionar seu primeiro item de trabalho."
+        "description": "Para ajudá-lo a começar, criamos um Projeto Demo para você. Vamos adicionar seu primeira tarefa."
       },
       "step_one": {
-        "title": "Clique em \"+ Adicionar item de trabalho\"",
-        "description": "Comece clicando no botão \"+ Novo item de trabalho\". Você pode criar tarefas, bugs ou um tipo personalizado que atenda às suas necessidades."
+        "title": "Clique em \"+ Adicionar tarefa\"",
+        "description": "Comece clicando no botão \"+ Nova tarefa\". Você pode criar tarefas, bugs ou um tipo personalizado que atenda às suas necessidades."
       },
       "step_two": {
-        "title": "Filtre seus itens de trabalho",
+        "title": "Filtre suas tarefas",
         "description": "Use filtros para restringir rapidamente sua lista. Você pode filtrar por status, prioridade ou membros da equipe. "
       },
       "step_three": {
-        "title": "Visualize, agrupe e ordene itens de trabalho conforme necessário.",
-        "description": "Veja as propriedades necessárias e agrupe ou ordene itens de trabalho conforme suas necessidades."
+        "title": "Visualize, agrupe e ordene tarefas conforme necessário.",
+        "description": "Veja as propriedades necessárias e agrupe ou ordene tarefas conforme suas necessidades."
       },
       "step_four": {
         "title": "Visualize como quiser",
-        "description": "Selecione quais propriedades você deseja ver na lista. Você também pode agrupar e classificar itens de trabalho do seu jeito."
+        "description": "Selecione quais propriedades você deseja ver na lista. Você também pode agrupar e classificar tarefas do seu jeito."
       }
     },
     "cycle": {
@@ -33,29 +33,29 @@
       },
       "step_two": {
         "title": "Clique em \"+\"",
-        "description": "Comece clicando no botão \"+\". Adicione itens de trabalho novos ou existentes diretamente da página Ciclo."
+        "description": "Comece clicando no botão \"+\". Adicione tarefas novas ou existentes diretamente da página Ciclo."
       },
       "step_three": {
         "title": "Resumo do ciclo",
         "description": "Acompanhe o progresso do ciclo, a produtividade da equipe e as prioridades—e investigue se algo está atrasado."
       },
       "step_four": {
-        "title": "Transferir itens de trabalho",
+        "title": "Transferir tarefas",
         "description": "Após a data de vencimento, um ciclo é concluído automaticamente. Mova o trabalho não concluído para outro ciclo."
       }
     },
     "module": {
       "step_zero": {
         "title": "Divida seu projeto em Módulos",
-        "description": "Módulos são projetos menores e focados que ajudam os usuários a agrupar e organizar itens de trabalho dentro de prazos específicos."
+        "description": "Módulos são projetos menores e focados que ajudam os usuários a agrupar e organizar tarefas dentro de prazos específicos."
       },
       "step_one": {
         "title": "Criar Módulo",
-        "description": "Módulos são projetos menores e focados que ajudam os usuários a agrupar e organizar itens de trabalho dentro de prazos específicos."
+        "description": "Módulos são projetos menores e focados que ajudam os usuários a agrupar e organizar tarefas dentro de prazos específicos."
       },
       "step_two": {
         "title": "Clique em \"+\"",
-        "description": "Comece clicando no botão \"+\". Adicione itens de trabalho novos ou existentes diretamente da página Módulo."
+        "description": "Comece clicando no botão \"+\". Adicione tarefas novas ou existentes diretamente da página Módulo."
       },
       "step_three": {
         "title": "Estados do módulo",
@@ -95,7 +95,7 @@
     "intake": {
       "step_zero": {
         "title": "Simplifique solicitações com entrada",
-        "description": "Um recurso exclusivo do Plane que permite aos Convidados criar itens de trabalho para bugs, solicitações ou tickets."
+        "description": "Um recurso exclusivo do Plane que permite aos Convidados criar tarefas para bugs, solicitações ou tickets."
       },
       "step_one": {
         "title": "Solicitações de entrada abertas/fechadas",
@@ -103,11 +103,11 @@
       },
       "step_two": {
         "title": "Aceitar/recusar uma solicitação pendente",
-        "description": "Aceite para editar e mover o item de trabalho para seu projeto ou recuse para marcá-lo como Cancelado."
+        "description": "Aceite para editar e mover a tarefa para seu projeto ou recuse para marcá-lo como Cancelado."
       },
       "step_three": {
         "title": "Adiar por enquanto",
-        "description": "Um item de trabalho pode ser adiado para revisá-lo mais tarde. Ele será movido para o final da sua lista de solicitações abertas."
+        "description": "Uma tarefa pode ser adiado para revisá-lo mais tarde. Ele será movido para o final da sua lista de solicitações abertas."
       }
     },
     "mcp_connectors": {
@@ -163,7 +163,7 @@
           "title": "Criar um projeto"
         },
         "item_2": {
-          "title": "Criar um item de trabalho"
+          "title": "Criar uma tarefa"
         },
         "item_3": {
           "title": "Convidar membros da equipe"

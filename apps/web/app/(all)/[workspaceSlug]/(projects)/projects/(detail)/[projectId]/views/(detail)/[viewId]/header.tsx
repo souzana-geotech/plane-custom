@@ -203,7 +203,7 @@ export const ProjectViewIssuesHeader = observer(function ProjectViewIssuesHeader
               toggleCreateIssueModal(true, EIssuesStoreType.PROJECT_VIEW);
             }}
           >
-            Add work item
+            Add task
           </Button>
         )}
         <div className="hidden md:block">

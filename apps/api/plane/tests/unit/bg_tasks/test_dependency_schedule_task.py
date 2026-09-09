@@ -49,7 +49,7 @@ class Env:
         self.project = project
         self.states = states
 
-    def issue(self, name="Work Item", start=None, target=None, state="open"):
+    def issue(self, name="Task", start=None, target=None, state="open"):
         return Issue.objects.create(
             project=self.project,
             name=name,

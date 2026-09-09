@@ -1,11 +1,11 @@
 {
   "issue": {
-    "label": "{count, plural, one {Work item} other {Work items}}",
-    "all": "All Work items",
-    "edit": "Edit work item",
+    "label": "{count, plural, one {Task} other {Tasks}}",
+    "all": "All Tasks",
+    "edit": "Edit task",
     "title": {
-      "label": "Work item title",
-      "required": "Work item title is required."
+      "label": "Task title",
+      "required": "Task title is required."
     },
     "form": {
       "title_placeholder": "What needs to be done?",
@@ -15,44 +15,44 @@
       "fewer_options": "Fewer options"
     },
     "add": {
-      "press_enter": "Press 'Enter' to add another work item",
-      "label": "Add work item",
+      "press_enter": "Press 'Enter' to add another task",
+      "label": "Add task",
       "cycle": {
-        "failed": "Work item could not be added to the cycle. Please try again.",
-        "success": "{count, plural, one {Work item} other {Work items}} added to the cycle successfully.",
-        "loading": "Adding {count, plural, one {work item} other {work items}} to the cycle"
+        "failed": "Task could not be added to the cycle. Please try again.",
+        "success": "{count, plural, one {Task} other {Tasks}} added to the cycle successfully.",
+        "loading": "Adding {count, plural, one {task} other {tasks}} to the cycle"
       },
       "assignee": "Add assignees",
       "start_date": "Add start date",
       "due_date": "Add due date",
       "working_days": "Add working days",
-      "parent": "Add parent work item",
-      "sub_issue": "Add sub-work item",
+      "parent": "Add parent task",
+      "sub_issue": "Add subtask",
       "dependency": "Add dependency",
       "relation": "Add relation",
       "link": "Add link",
-      "existing": "Add existing work item"
+      "existing": "Add existing task"
     },
     "remove": {
-      "label": "Remove work item",
+      "label": "Remove task",
       "cycle": {
-        "loading": "Removing work item from the cycle",
-        "success": "Work item removed from the cycle successfully.",
-        "failed": "Work item could not be removed from the cycle. Please try again."
+        "loading": "Removing task from the cycle",
+        "success": "Task removed from the cycle successfully.",
+        "failed": "Task could not be removed from the cycle. Please try again."
       },
       "module": {
-        "loading": "Removing work item from the module",
-        "success": "Work item removed from the module successfully.",
-        "failed": "Work item could not be removed from the module. Please try again."
+        "loading": "Removing task from the module",
+        "success": "Task removed from the module successfully.",
+        "failed": "Task could not be removed from the module. Please try again."
       },
       "parent": {
-        "label": "Remove parent work item"
+        "label": "Remove parent task"
       }
     },
-    "new": "New work item",
-    "adding": "Adding work item",
+    "new": "New task",
+    "adding": "Adding task",
     "create": {
-      "success": "Work item created successfully"
+      "success": "Task created successfully"
     },
     "priority": {
       "urgent": "Urgent",
@@ -64,15 +64,15 @@
       "properties": {
         "label": "Display Properties",
         "id": "ID",
-        "issue_type": "Work item Type",
-        "sub_issue_count": "Sub-work item count",
+        "issue_type": "Task Type",
+        "sub_issue_count": "Subtask count",
         "attachment_count": "Attachment count",
         "created_on": "Created on",
-        "sub_issue": "Sub-work item",
-        "work_item_count": "Work item count"
+        "sub_issue": "Subtask",
+        "work_item_count": "Task count"
       },
       "extra": {
-        "show_sub_issues": "Show sub-work items",
+        "show_sub_issues": "Show subtasks",
         "show_empty_groups": "Show empty groups"
       }
     },
@@ -160,35 +160,35 @@
     },
     "empty_state": {
       "issue_detail": {
-        "title": "Work item does not exist",
-        "description": "The work item you are looking for does not exist, has been archived, or has been deleted.",
+        "title": "Task does not exist",
+        "description": "The task you are looking for does not exist, has been archived, or has been deleted.",
         "primary_button": {
-          "text": "View other work items"
+          "text": "View other tasks"
         }
       }
     },
     "sibling": {
-      "label": "Sibling work items"
+      "label": "Sibling tasks"
     },
     "archive": {
-      "description": "Only completed or canceled work items can be archived",
-      "label": "Archive Work item",
-      "confirm_message": "Are you sure you want to archive the work item? All your archived work items can be restored later.",
+      "description": "Only completed or canceled tasks can be archived",
+      "label": "Archive Task",
+      "confirm_message": "Are you sure you want to archive the task? All your archived tasks can be restored later.",
       "success": {
         "label": "Archive success",
         "message": "Your archives can be found in project archives."
       },
       "failed": {
-        "message": "Work item could not be archived. Please try again."
+        "message": "Task could not be archived. Please try again."
       }
     },
     "restore": {
       "success": {
         "title": "Restore success",
-        "message": "Your work item can be found in project work items."
+        "message": "Your task can be found in project tasks."
       },
       "failed": {
-        "message": "Work item could not be restored. Please try again."
+        "message": "Task could not be restored. Please try again."
       }
     },
     "relation": {
@@ -209,29 +209,29 @@
       "adjusted_dates": "Adjusted: {startDate} – {targetDate}",
       "adjusted_date": "Adjusted: {targetDate}"
     },
-    "copy_link": "Copy work item link",
+    "copy_link": "Copy task link",
     "delete": {
-      "label": "Delete work item",
-      "error": "Error deleting work item"
+      "label": "Delete task",
+      "error": "Error deleting task"
     },
     "subscription": {
       "actions": {
-        "subscribed": "Work item subscribed successfully",
-        "unsubscribed": "Work item unsubscribed successfully"
+        "subscribed": "Task subscribed successfully",
+        "unsubscribed": "Task unsubscribed successfully"
       }
     },
     "select": {
-      "error": "Please select at least one work item",
-      "empty": "No work items selected",
-      "add_selected": "Add selected work items",
+      "error": "Please select at least one task",
+      "empty": "No tasks selected",
+      "add_selected": "Add selected tasks",
       "select_all": "Select all",
       "deselect_all": "Deselect all"
     },
-    "open_in_full_screen": "Open work item in full screen",
+    "open_in_full_screen": "Open task in full screen",
     "duplicate": {
       "modal": {
         "title": "Make a copy to another project",
-        "description1": "This creates a copy of the work item.",
+        "description1": "This creates a copy of the task.",
         "description2": "All property data will be removed while duplicating.",
         "placeholder": "Select a project"
       }
@@ -239,10 +239,10 @@
     "toast": {
       "duplicate": {
         "success": {
-          "message": "Work item duplicated successfully"
+          "message": "Task duplicated successfully"
         },
         "error": {
-          "message": "Failed to duplicate work item"
+          "message": "Failed to duplicate task"
         }
       }
     },
@@ -284,22 +284,22 @@
   },
   "sub_work_item": {
     "update": {
-      "success": "Sub-work item updated successfully",
-      "error": "Error updating sub-work item"
+      "success": "Subtask updated successfully",
+      "error": "Error updating subtask"
     },
     "remove": {
-      "success": "Sub-work item removed successfully",
-      "error": "Error removing sub-work item"
+      "success": "Subtask removed successfully",
+      "error": "Error removing subtask"
     },
     "empty_state": {
       "sub_list_filters": {
-        "title": "You don't have sub-work items that match the filters you've applied.",
-        "description": "To see all sub-work items, clear all applied filters.",
+        "title": "You don't have subtasks that match the filters you've applied.",
+        "description": "To see all subtasks, clear all applied filters.",
         "action": "Clear filters"
       },
       "list_filters": {
-        "title": "You don't have work items that match the filters you've applied.",
-        "description": "To see all work items, clear all applied filters.",
+        "title": "You don't have tasks that match the filters you've applied.",
+        "description": "To see all tasks, clear all applied filters.",
         "action": "Clear filters"
       }
     }
@@ -307,10 +307,10 @@
   "issue_relation": {
     "empty_state": {
       "search": {
-        "title": "No matching work items found"
+        "title": "No matching tasks found"
       },
       "no_issues": {
-        "title": "No work items found"
+        "title": "No tasks found"
       }
     }
   },
@@ -318,36 +318,36 @@
     "empty_state": {
       "general": {
         "title": "No comments yet",
-        "description": "Comments can be used as a discussion and follow-up space for the work items"
+        "description": "Comments can be used as a discussion and follow-up space for the tasks"
       }
     }
   },
   "bulk_operations": {
     "error_details": {
       "invalid_archive_state_group": {
-        "title": "Unable to archive work items",
-        "message": "Only work items belonging to Completed or Canceled state groups can be archived."
+        "title": "Unable to archive tasks",
+        "message": "Only tasks belonging to Completed or Canceled state groups can be archived."
       },
       "invalid_issue_start_date": {
-        "title": "Unable to update work items",
-        "message": "Start date selected succeeds the due date for some work items. Ensure start date to be before the due date."
+        "title": "Unable to update tasks",
+        "message": "Start date selected succeeds the due date for some tasks. Ensure start date to be before the due date."
       },
       "invalid_issue_target_date": {
-        "title": "Unable to update work items",
-        "message": "Due date selected precedes the start date for some work items. Ensure due date to be after the start date."
+        "title": "Unable to update tasks",
+        "message": "Due date selected precedes the start date for some tasks. Ensure due date to be after the start date."
       },
       "invalid_state_transition": {
-        "title": "Unable to update work items",
-        "message": "State change is not allowed for some work items. Ensure the state change is allowed."
+        "title": "Unable to update tasks",
+        "message": "State change is not allowed for some tasks. Ensure the state change is allowed."
       }
     }
   },
   "recurring_work_items": {
     "settings": {
-      "heading": "Recurring work items",
+      "heading": "Recurring tasks",
       "description": "Set your repeatable work once, and we’ll take care of the repeats. You’ll see everything right here when it’s time.",
-      "new_recurring_work_item": "New recurring work item",
-      "update_recurring_work_item": "Update recurring work item",
+      "new_recurring_work_item": "New recurring task",
+      "update_recurring_work_item": "Update recurring task",
       "form": {
         "interval": {
           "title": "Schedule",
@@ -363,13 +363,13 @@
           }
         },
         "button": {
-          "create": "Create recurring work item",
-          "update": "Update recurring work item"
+          "create": "Create recurring task",
+          "update": "Update recurring task"
         }
       },
       "create_button": {
-        "label": "Create recurring work item",
-        "no_permission": "Contact your project admin to create recurring work items"
+        "label": "Create recurring task",
+        "no_permission": "Contact your project admin to create recurring tasks"
       }
     },
     "empty_state": {
@@ -378,46 +378,46 @@
         "description": "Set it once. We’ll bring it back when it’s due. Upgrade to Business to make recurring work feel effortless."
       },
       "no_templates": {
-        "button": "Create your first recurring work item"
+        "button": "Create your first recurring task"
       }
     },
     "toasts": {
       "create": {
         "success": {
-          "title": "Recurring work item created",
-          "message": "{name}, the recurring work item, is now available for your workspace."
+          "title": "Recurring task created",
+          "message": "{name}, the recurring task, is now available for your workspace."
         },
         "error": {
-          "title": "We couldn't create that recurring work item this time.",
-          "message": "Try saving your details again or copy them over to a new recurring work item, preferably in another tab."
+          "title": "We couldn't create that recurring task this time.",
+          "message": "Try saving your details again or copy them over to a new recurring task, preferably in another tab."
         }
       },
       "update": {
         "success": {
-          "title": "Recurring work item changed",
-          "message": "{name}, the recurring work item, was changed."
+          "title": "Recurring task changed",
+          "message": "{name}, the recurring task, was changed."
         },
         "error": {
-          "title": "We couldn't save changes to this recurring work item.",
-          "message": "Try saving your details again or come back to this recurring work item later. If there's trouble still, reach out to us."
+          "title": "We couldn't save changes to this recurring task.",
+          "message": "Try saving your details again or come back to this recurring task later. If there's trouble still, reach out to us."
         }
       },
       "delete": {
         "success": {
-          "title": "Recurring work item deleted",
-          "message": "{name}, the recurring work item, has now been deleted from your workspace."
+          "title": "Recurring task deleted",
+          "message": "{name}, the recurring task, has now been deleted from your workspace."
         },
         "error": {
-          "title": "We couldn't delete that recurring work item this.",
+          "title": "We couldn't delete that recurring task this.",
           "message": "Try deleting it again or come back to it later. If you can't delete it then, reach out to us."
         }
       }
     },
     "delete_confirmation": {
-      "title": "Delete recurring work item",
+      "title": "Delete recurring task",
       "description": {
-        "prefix": "Are you sure you want to delete recurring work item-",
-        "suffix": "? All of the data related to the recurring work item will be permanently removed. This action cannot be undone."
+        "prefix": "Are you sure you want to delete recurring task-",
+        "suffix": "? All of the data related to the recurring task will be permanently removed. This action cannot be undone."
       }
     }
   },

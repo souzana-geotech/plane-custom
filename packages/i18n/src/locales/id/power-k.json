@@ -1,12 +1,12 @@
 {
   "power_k": {
     "actions_commands": {
-      "bulk_delete_work_items": "Hapus item kerja secara massal"
+      "bulk_delete_work_items": "Hapus tugas secara massal"
     },
     "contextual_actions": {
       "work_item": {
-        "title": "Aksi item kerja",
-        "indicator": "Item kerja",
+        "title": "Aksi tugas",
+        "indicator": "Tugas",
         "change_state": "Ubah status",
         "change_priority": "Ubah prioritas",
         "change_assignees": "Tugaskan ke",
@@ -20,14 +20,14 @@
         "unsubscribe": "Berhenti berlangganan notifikasi",
         "delete": "Hapus",
         "copy_id": "Salin ID",
-        "copy_id_toast_success": "ID item kerja disalin ke clipboard.",
-        "copy_id_toast_error": "Terjadi kesalahan saat menyalin ID item kerja ke clipboard.",
+        "copy_id_toast_success": "ID tugas disalin ke clipboard.",
+        "copy_id_toast_error": "Terjadi kesalahan saat menyalin ID tugas ke clipboard.",
         "copy_title": "Salin judul",
-        "copy_title_toast_success": "Judul item kerja disalin ke clipboard.",
-        "copy_title_toast_error": "Terjadi kesalahan saat menyalin judul item kerja ke clipboard.",
+        "copy_title_toast_success": "Judul tugas disalin ke clipboard.",
+        "copy_title_toast_error": "Terjadi kesalahan saat menyalin judul tugas ke clipboard.",
         "copy_url": "Salin URL",
-        "copy_url_toast_success": "URL item kerja disalin ke clipboard.",
-        "copy_url_toast_error": "Terjadi kesalahan saat menyalin URL item kerja ke clipboard."
+        "copy_url_toast_success": "URL tugas disalin ke clipboard.",
+        "copy_url_toast_error": "Terjadi kesalahan saat menyalin URL tugas ke clipboard."
       },
       "cycle": {
         "title": "Aksi siklus",
@@ -66,7 +66,7 @@
       }
     },
     "creation_actions": {
-      "create_work_item": "Item kerja baru",
+      "create_work_item": "Tugas baru",
       "create_page": "Halaman baru",
       "create_view": "Tampilan baru",
       "create_cycle": "Siklus baru",
@@ -83,16 +83,16 @@
       "nav_account_settings": "Ke pengaturan akun",
       "open_project": "Buka proyek",
       "nav_projects_list": "Ke daftar proyek",
-      "nav_all_workspace_work_items": "Ke semua item kerja",
-      "nav_assigned_workspace_work_items": "Ke item kerja yang ditugaskan",
-      "nav_created_workspace_work_items": "Ke item kerja yang dibuat",
-      "nav_subscribed_workspace_work_items": "Ke item kerja yang dilanggan",
+      "nav_all_workspace_work_items": "Ke semua tugas",
+      "nav_assigned_workspace_work_items": "Ke tugas yang ditugaskan",
+      "nav_created_workspace_work_items": "Ke tugas yang dibuat",
+      "nav_subscribed_workspace_work_items": "Ke tugas yang dilanggan",
       "nav_workspace_analytics": "Ke analitik ruang kerja",
       "nav_workspace_drafts": "Ke draf ruang kerja",
       "nav_workspace_archives": "Ke arsip ruang kerja",
       "open_workspace_setting": "Buka pengaturan ruang kerja",
       "nav_workspace_settings": "Ke pengaturan ruang kerja",
-      "nav_project_work_items": "Ke item kerja",
+      "nav_project_work_items": "Ke tugas",
       "open_project_cycle": "Buka siklus",
       "nav_project_cycles": "Ke siklus",
       "open_project_module": "Buka modul",

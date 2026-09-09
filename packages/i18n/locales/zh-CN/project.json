@@ -19,9 +19,9 @@
     "start_date": "开始日期",
     "end_date": "结束日期",
     "in_your_timezone": "在您的时区",
-    "transfer_work_items": "转移 {count} 工作项",
+    "transfer_work_items": "转移 {count} 任务",
     "transfer": {
-      "no_cycles_available": "没有其他可用的周期来转移工作项。"
+      "no_cycles_available": "没有其他可用的周期来转移任务。"
     },
     "date_range": "日期范围",
     "add_date": "添加日期",
@@ -29,9 +29,9 @@
       "label": "活动周期",
       "progress": "进度",
       "chart": "燃尽图",
-      "priority_issue": "优先工作项",
+      "priority_issue": "优先任务",
       "assignees": "受理人",
-      "issue_burndown": "工作项燃尽",
+      "issue_burndown": "任务燃尽",
       "ideal": "理想",
       "current": "当前",
       "labels": "标签",
@@ -113,18 +113,18 @@
         }
       },
       "no_issues": {
-        "title": "尚未向周期添加工作项",
-        "description": "添加或创建您希望在此周期内时间框定和交付的工作项",
+        "title": "尚未向周期添加任务",
+        "description": "添加或创建您希望在此周期内时间框定和交付的任务",
         "primary_button": {
-          "text": "创建新工作项"
+          "text": "创建新任务"
         },
         "secondary_button": {
-          "text": "添加现有工作项"
+          "text": "添加现有任务"
         }
       },
       "completed_no_issues": {
-        "title": "周期中没有工作项",
-        "description": "周期中没有工作项。工作项已被转移或隐藏。要查看隐藏的工作项（如果有），请相应更新您的显示属性。"
+        "title": "周期中没有任务",
+        "description": "周期中没有任务。任务已被转移或隐藏。要查看隐藏的任务（如果有），请相应更新您的显示属性。"
       },
       "active": {
         "title": "没有活动周期",
@@ -144,7 +144,7 @@
         "primary_button": {
           "text": "创建您的第一个视图",
           "comic": {
-            "title": "视图基于工作项属性运作。",
+            "title": "视图基于任务属性运作。",
             "description": "您可以在此处创建一个视图，根据需要使用任意数量的属性作为筛选条件。"
           }
         },
@@ -154,14 +154,14 @@
         }
       },
       "no_archived_issues": {
-        "title": "尚无已归档的工作项",
-        "description": "通过手动或自动化方式，您可以归档已完成或已取消的工作项。归档后可以在这里找到它们。",
+        "title": "尚无已归档的任务",
+        "description": "通过手动或自动化方式，您可以归档已完成或已取消的任务。归档后可以在这里找到它们。",
         "primary_button": {
           "text": "设置自动化"
         }
       },
       "issues_empty_filter": {
-        "title": "未找到符合筛选条件的工作项",
+        "title": "未找到符合筛选条件的任务",
         "secondary_button": {
           "text": "清除所有筛选条件"
         }
@@ -190,25 +190,25 @@
   "project_issues": {
     "empty_state": {
       "no_issues": {
-        "title": "创建工作项并将其分配给某人，甚至是您自己",
-        "description": "将工作项视为工作、任务或待完成的工作。工作项及其子工作项通常是基于时间的、分配给团队成员的可执行项。您的团队通过创建、分配和完成工作项来推动项目实现其目标。",
+        "title": "创建任务并将其分配给某人，甚至是您自己",
+        "description": "将任务视为工作、任务或待完成的工作。任务及其子任务通常是基于时间的、分配给团队成员的可执行项。您的团队通过创建、分配和完成任务来推动项目实现其目标。",
         "primary_button": {
-          "text": "创建您的第一个工作项",
+          "text": "创建您的第一个任务",
           "comic": {
-            "title": "工作项是 Plane 中的基本构建块。",
-            "description": "重新设计 Plane 界面、重塑公司品牌或启动新的燃料喷射系统都是可能包含子工作项的工作项示例。"
+            "title": "任务是 Plane 中的基本构建块。",
+            "description": "重新设计 Plane 界面、重塑公司品牌或启动新的燃料喷射系统都是可能包含子任务的任务示例。"
           }
         }
       },
       "no_archived_issues": {
-        "title": "尚无已归档的工作项",
-        "description": "通过手动或自动化方式，您可以归档已完成或已取消的工作项。归档后可以在这里找到它们。",
+        "title": "尚无已归档的任务",
+        "description": "通过手动或自动化方式，您可以归档已完成或已取消的任务。归档后可以在这里找到它们。",
         "primary_button": {
           "text": "设置自动化"
         }
       },
       "issues_empty_filter": {
-        "title": "未找到符合筛选条件的工作项",
+        "title": "未找到符合筛选条件的任务",
         "secondary_button": {
           "text": "清除所有筛选条件"
         }
@@ -225,7 +225,7 @@
     "empty_state": {
       "general": {
         "title": "将项目里程碑映射到模块，轻松跟踪汇总工作。",
-        "description": "属于逻辑层次结构父级的一组工作项形成一个模块。将其视为按项目里程碑跟踪工作的方式。它们有自己的周期和截止日期以及分析功能，帮助您了解距离里程碑的远近。",
+        "description": "属于逻辑层次结构父级的一组任务形成一个模块。将其视为按项目里程碑跟踪工作的方式。它们有自己的周期和截止日期以及分析功能，帮助您了解距离里程碑的远近。",
         "primary_button": {
           "text": "构建您的第一个模块",
           "comic": {
@@ -235,13 +235,13 @@
         }
       },
       "no_issues": {
-        "title": "模块中没有工作项",
-        "description": "创建或添加您想作为此模块一部分完成的工作项",
+        "title": "模块中没有任务",
+        "description": "创建或添加您想作为此模块一部分完成的任务",
         "primary_button": {
-          "text": "创建新工作项"
+          "text": "创建新任务"
         },
         "secondary_button": {
-          "text": "添加现有工作项"
+          "text": "添加现有任务"
         }
       },
       "archived": {
@@ -272,7 +272,7 @@
     "empty_state": {
       "general": {
         "title": "写笔记、文档或完整的知识库。让 Plane 的 AI 助手 Galileo 帮助您开始",
-        "description": "页面是 Plane 中的思维记录空间。记录会议笔记，轻松格式化，嵌入工作项，使用组件库进行布局，并将它们全部保存在项目上下文中。要快速完成任何文档，可以通过快捷键或点击按钮调用 Plane 的 AI Galileo。",
+        "description": "页面是 Plane 中的思维记录空间。记录会议笔记，轻松格式化，嵌入任务，使用组件库进行布局，并将它们全部保存在项目上下文中。要快速完成任何文档，可以通过快捷键或点击按钮调用 Plane 的 AI Galileo。",
         "primary_button": {
           "text": "创建您的第一个页面"
         }
@@ -301,7 +301,7 @@
     "empty_state": {
       "inbox": {
         "title": "项目未启用收集功能。",
-        "description": "收集功能帮助您管理项目的传入请求，并将其添加为工作流中的工作项。从项目设置启用收集功能以管理请求。",
+        "description": "收集功能帮助您管理项目的传入请求，并将其添加为工作流中的任务。从项目设置启用收集功能以管理请求。",
         "primary_button": {
           "text": "管理功能"
         }
@@ -353,7 +353,7 @@
     "order_by": {
       "name": "名称",
       "progress": "进度",
-      "issues": "工作项数量",
+      "issues": "任务数量",
       "due_date": "截止日期",
       "created_at": "创建日期",
       "manual": "手动"

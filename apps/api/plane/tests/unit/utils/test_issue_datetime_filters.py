@@ -12,7 +12,7 @@ midnight, so:
 * ``created_at__range=<a>,<b>`` capped the upper bound at ``b`` 00:00:00 -> silently
   dropped every row created during the final day of the range.
 
-Both surfaced as "filter returns no work items". The filters now compare the date
+Both surfaced as "filter returns no tasks". The filters now compare the date
 component (``date`` / ``date__range``) so a calendar date means the whole day.
 """
 

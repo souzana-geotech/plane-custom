@@ -47,8 +47,8 @@ export const BASE_NOTIFICATION_CONTENT_MAP: TNotificationContentMap = {
   duplicate: ({ verb }) => ({
     action:
       verb === "created"
-        ? "marked that this work item is a duplicate of"
-        : "marked that this work item is not a duplicate",
+        ? "marked that this task is a duplicate of"
+        : "marked that this task is not a duplicate",
     value: null,
     showConnector: false,
   }),
@@ -72,7 +72,7 @@ export const BASE_NOTIFICATION_CONTENT_MAP: TNotificationContentMap = {
     const days = Number(oldValue) || 0;
     const when = days <= 0 ? "today" : days === 1 ? "tomorrow" : `in ${days} days`;
     return {
-      action: `Reminder: this work item is due ${when},`,
+      action: `Reminder: this task is due ${when},`,
       value: renderFormattedDate(newValue),
       showConnector: false,
     };
@@ -80,7 +80,7 @@ export const BASE_NOTIFICATION_CONTENT_MAP: TNotificationContentMap = {
   overdue: ({ newValue, oldValue }) => {
     const days = Number(oldValue) || 0;
     return {
-      action: `This work item is overdue by ${days} ${days === 1 ? "day" : "days"}, it was due`,
+      action: `This task is overdue by ${days} ${days === 1 ? "day" : "days"}, it was due`,
       value: renderFormattedDate(newValue),
       showConnector: false,
     };
@@ -96,7 +96,7 @@ export const BASE_NOTIFICATION_CONTENT_MAP: TNotificationContentMap = {
     showConnector: false,
   }),
   relates_to: () => ({
-    action: "marked that this work item is related to",
+    action: "marked that this task is related to",
     value: null,
     showConnector: true,
   }),
@@ -106,19 +106,19 @@ export const BASE_NOTIFICATION_CONTENT_MAP: TNotificationContentMap = {
     showConnector: false,
   }),
   archived_at: ({ newValue }) => ({
-    action: newValue === "restore" ? "restored the work item" : "archived the work item",
+    action: newValue === "restore" ? "restored the task" : "archived the task",
     value: null,
     showConnector: false,
   }),
   None: () => ({
     action: null,
-    value: "the work item and assigned it to you.",
+    value: "the task and assigned it to you.",
     showConnector: false,
   }),
   // Fields below only define value - action falls through to default handler
   attachment: () => ({
     action: null,
-    value: "the work item",
+    value: "the task",
     showConnector: true,
   }),
   description: ({ newValue }) => ({

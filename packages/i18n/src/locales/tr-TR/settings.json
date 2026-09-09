@@ -45,7 +45,7 @@
     },
     "notifications": {
       "heading": "E-posta bildirimleri",
-      "description": "Abone olduğunuz İş öğelerinden haberdar olun. Bildirim almak için bunu etkinleştirin.",
+      "description": "Abone olduğunuz Görevlerden haberdar olun. Bildirim almak için bunu etkinleştirin.",
       "select_default_view": "Varsayılan görünümü seç",
       "compact": "Kompakt",
       "full": "Tam ekran"
@@ -59,7 +59,7 @@
     },
     "activity": {
       "heading": "Aktivite",
-      "description": "Tüm projeler ve iş öğeleri genelinde son eylemlerinizi ve değişikliklerinizi izleyin."
+      "description": "Tüm projeler ve görevler genelinde son eylemlerinizi ve değişikliklerinizi izleyin."
     },
     "connections": {
       "title": "Bağlantılar",
@@ -78,16 +78,16 @@
     "stats": {
       "workload": "İş Yükü",
       "overview": "Genel Bakış",
-      "created": "Oluşturulan iş öğeleri",
-      "assigned": "Atanan iş öğeleri",
-      "subscribed": "Abone olunan iş öğeleri",
+      "created": "Oluşturulan görevler",
+      "assigned": "Atanan görevler",
+      "subscribed": "Abone olunan görevler",
       "state_distribution": {
-        "title": "Duruma göre iş öğeleri",
-        "empty": "Daha iyi analiz için durumlarına göre iş öğelerini görmek üzere iş öğesi oluşturun."
+        "title": "Duruma göre görevler",
+        "empty": "Daha iyi analiz için durumlarına göre görevleri görmek üzere görev oluşturun."
       },
       "priority_distribution": {
-        "title": "Önceliğe göre iş öğeleri",
-        "empty": "Daha iyi analiz için önceliklerine göre iş öğelerini görmek üzere iş öğesi oluşturun."
+        "title": "Önceliğe göre görevler",
+        "empty": "Daha iyi analiz için önceliklerine göre görevleri görmek üzere görev oluşturun."
       },
       "recent_activity": {
         "title": "Son aktiviteler",
@@ -115,19 +115,19 @@
     "empty_state": {
       "activity": {
         "title": "Henüz aktivite yok",
-        "description": "Yeni bir iş öğesi oluşturarak başlayın! Detaylar ve özellikler ekleyin. Aktivitenizi görmek için Plane'de daha fazlasını keşfedin."
+        "description": "Yeni bir görev oluşturarak başlayın! Detaylar ve özellikler ekleyin. Aktivitenizi görmek için Plane'de daha fazlasını keşfedin."
       },
       "assigned": {
-        "title": "Size atanan iş öğesi yok",
-        "description": "Size atanan iş öğeleri buradan takip edilebilir."
+        "title": "Size atanan görev yok",
+        "description": "Size atanan görevler buradan takip edilebilir."
       },
       "created": {
-        "title": "Henüz iş öğesi yok",
-        "description": "Sizin oluşturduğunuz tüm iş öğeleri burada görünecek, doğrudan buradan takip edin."
+        "title": "Henüz görev yok",
+        "description": "Sizin oluşturduğunuz tüm görevler burada görünecek, doğrudan buradan takip edin."
       },
       "subscribed": {
-        "title": "Henüz iş öğesi yok",
-        "description": "İlgilendiğiniz iş öğelerine abone olun, hepsini buradan takip edin."
+        "title": "Henüz görev yok",
+        "description": "İlgilendiğiniz görevlere abone olun, hepsini buradan takip edin."
       }
     }
   },

@@ -1,12 +1,12 @@
 {
   "power_k": {
     "actions_commands": {
-      "bulk_delete_work_items": "Массовое удаление рабочих элементов"
+      "bulk_delete_work_items": "Массовое удаление задач"
     },
     "contextual_actions": {
       "work_item": {
-        "title": "Действия с рабочим элементом",
-        "indicator": "Рабочий элемент",
+        "title": "Действия с задачей",
+        "indicator": "Задача",
         "change_state": "Изменить состояние",
         "change_priority": "Изменить приоритет",
         "change_assignees": "Назначить",
@@ -20,14 +20,14 @@
         "unsubscribe": "Отписаться от уведомлений",
         "delete": "Удалить",
         "copy_id": "Копировать ID",
-        "copy_id_toast_success": "ID рабочего элемента скопирован в буфер обмена.",
-        "copy_id_toast_error": "Произошла ошибка при копировании ID рабочего элемента в буфер обмена.",
+        "copy_id_toast_success": "ID задачи скопирован в буфер обмена.",
+        "copy_id_toast_error": "Произошла ошибка при копировании ID задачи в буфер обмена.",
         "copy_title": "Копировать название",
-        "copy_title_toast_success": "Название рабочего элемента скопировано в буфер обмена.",
-        "copy_title_toast_error": "Произошла ошибка при копировании названия рабочего элемента в буфер обмена.",
+        "copy_title_toast_success": "Название задачи скопировано в буфер обмена.",
+        "copy_title_toast_error": "Произошла ошибка при копировании названия задачи в буфер обмена.",
         "copy_url": "Копировать URL",
-        "copy_url_toast_success": "URL рабочего элемента скопирован в буфер обмена.",
-        "copy_url_toast_error": "Произошла ошибка при копировании URL рабочего элемента в буфер обмена."
+        "copy_url_toast_success": "URL задачи скопирован в буфер обмена.",
+        "copy_url_toast_error": "Произошла ошибка при копировании URL задачи в буфер обмена."
       },
       "cycle": {
         "title": "Действия с циклом",
@@ -66,7 +66,7 @@
       }
     },
     "creation_actions": {
-      "create_work_item": "Новый рабочий элемент",
+      "create_work_item": "Новый задача",
       "create_page": "Новая страница",
       "create_view": "Новое представление",
       "create_cycle": "Новый цикл",
@@ -83,16 +83,16 @@
       "nav_account_settings": "Перейти в настройки аккаунта",
       "open_project": "Открыть проект",
       "nav_projects_list": "Перейти к списку проектов",
-      "nav_all_workspace_work_items": "Перейти ко всем рабочим элементам",
-      "nav_assigned_workspace_work_items": "Перейти к назначенным рабочим элементам",
-      "nav_created_workspace_work_items": "Перейти к созданным рабочим элементам",
-      "nav_subscribed_workspace_work_items": "Перейти к рабочим элементам с подпиской",
+      "nav_all_workspace_work_items": "Перейти ко всем задачам",
+      "nav_assigned_workspace_work_items": "Перейти к назначенным задачам",
+      "nav_created_workspace_work_items": "Перейти к созданным задачам",
+      "nav_subscribed_workspace_work_items": "Перейти к задачам с подпиской",
       "nav_workspace_analytics": "Перейти к аналитике рабочего пространства",
       "nav_workspace_drafts": "Перейти к черновикам рабочего пространства",
       "nav_workspace_archives": "Перейти в архивы рабочего пространства",
       "open_workspace_setting": "Открыть настройку рабочего пространства",
       "nav_workspace_settings": "Перейти в настройки рабочего пространства",
-      "nav_project_work_items": "Перейти к рабочим элементам",
+      "nav_project_work_items": "Перейти к задачам",
       "open_project_cycle": "Открыть цикл",
       "nav_project_cycles": "Перейти к циклам",
       "open_project_module": "Открыть модуль",

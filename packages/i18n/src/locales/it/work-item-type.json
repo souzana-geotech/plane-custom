@@ -1,21 +1,21 @@
 {
   "work_item_types": {
-    "label": "Tipi di elemento di lavoro",
-    "label_lowercase": "tipi di elementi di lavoro",
+    "label": "Tipi di attività",
+    "label_lowercase": "tipi di attività",
     "settings": {
       "description": "Personalizza e aggiungi le tue proprietà per adattarle alle esigenze del tuo team.",
-      "cant_delete_default_message": "Il tipo di elemento di lavoro non può essere eliminato perché è impostato come tipo predefinito per questo progetto.",
+      "cant_delete_default_message": "Il tipo di attività non può essere eliminato perché è impostato come tipo predefinito per questo progetto.",
       "set_as_default": "Imposta come predefinito",
       "cant_set_default_inactive_message": "Attiva questo tipo prima di impostarlo come predefinito",
       "set_default_confirmation": {
-        "title": "Imposta come tipo di elemento di lavoro predefinito",
-        "description": "Impostando {name} come predefinito, verrà importato in tutti i progetti di questo spazio di lavoro. Tutti i nuovi elementi di lavoro utilizzeranno questo tipo per impostazione predefinita.",
+        "title": "Imposta come tipo di attività predefinito",
+        "description": "Impostando {name} come predefinito, verrà importato in tutti i progetti di questo spazio di lavoro. Tutti i nuove attività utilizzeranno questo tipo per impostazione predefinita.",
         "confirm_button": "Imposta come predefinito"
       },
       "properties": {
         "title": "Proprietà personalizzate",
         "description": "Crea e personalizza le proprietà.",
-        "tooltip": "Ogni tipo di elemento di lavoro viene fornito con un set predefinito di proprietà come Titolo, Descrizione, Assegnatario, Stato, Priorità, Data di inizio, Data di scadenza, Modulo, Ciclo etc. Puoi anche personalizzare e aggiungere le tue proprietà per adattarle alle esigenze del tuo team.",
+        "tooltip": "Ogni tipo di attività viene fornito con un set predefinito di proprietà come Titolo, Descrizione, Assegnatario, Stato, Priorità, Data di inizio, Data di scadenza, Modulo, Ciclo etc. Puoi anche personalizzare e aggiungere le tue proprietà per adattarle alle esigenze del tuo team.",
         "add_button": "Aggiungi nuova proprietà",
         "project": {
           "add_button": {
@@ -195,7 +195,7 @@
           "validation_success_with_refs": "La formula è valida! Restituisce {resultType} ({count} campo/i referenziato/i)",
           "error": {
             "empty": "Inserisci una formula",
-            "missing_context": "Contesto dello spazio di lavoro, del progetto o del tipo di elemento di lavoro mancante",
+            "missing_context": "Contesto dello spazio di lavoro, del progetto o del tipo di attività mancante",
             "validation_failed": "Validazione fallita"
           },
           "picker": {
@@ -228,12 +228,12 @@
         },
         "empty_state": {
           "title": "Aggiungi proprietà personalizzate",
-          "description": "Nuove proprietà che aggiungi per questo tipo di elemento di lavoro appariranno qui."
+          "description": "Nuove proprietà che aggiungi per questo tipo di attività appariranno qui."
         }
       },
       "types": {
         "title": "Tipi",
-        "description": "Crea e personalizza tipi di elementi di lavoro con proprietà.",
+        "description": "Crea e personalizza tipi di attività con proprietà.",
         "sort_options": {
           "project_count": "Numero di progetti di cui fa parte"
         },
@@ -247,8 +247,8 @@
             "import_from_workspace": "Importa dallo spazio di lavoro"
           },
           "banner": {
-            "with_access": "Abilita i tipi di elementi di lavoro per importare i tipi dal livello dello spazio di lavoro",
-            "without_access": "I tipi di elementi di lavoro sono disabilitati. Contatta l'admin dello spazio di lavoro per abilitarli nelle impostazioni dello spazio di lavoro."
+            "with_access": "Abilita i tipi di attività per importare i tipi dal livello dello spazio di lavoro",
+            "without_access": "I tipi di attività sono disabilitati. Contatta l'admin dello spazio di lavoro per abilitarli nelle impostazioni dello spazio di lavoro."
           }
         }
       },
@@ -264,7 +264,7 @@
         },
         "unlink_confirmation": {
           "title": "Scollega proprietà",
-          "description": "Scollegando questa proprietà verranno eliminati permanentemente tutti i suoi valori su ogni elemento di lavoro che utilizza questo tipo. Questa azione non può essere annullata.",
+          "description": "Scollegando questa proprietà verranno eliminati permanentemente tutti i suoi valori su ogni attività che utilizza questo tipo. Questa azione non può essere annullata.",
           "input_label": "Digita",
           "input_label_suffix": "per continuare:",
           "confirm": "Scollega proprietà",
@@ -279,48 +279,48 @@
         "toast": {
           "success": {
             "title": "Successo!",
-            "message": "Tipo di elemento di lavoro eliminato con successo."
+            "message": "Tipo di attività eliminata con successo."
           },
           "error": {
             "title": "Errore!",
-            "message": "Impossibile eliminare il tipo di elemento di lavoro. Per favore riprova!"
+            "message": "Impossibile eliminare il tipo di attività. Per favore riprova!"
           }
         },
         "errors": {
-          "cannot_delete_default_work_item_type": "Impossibile eliminare il tipo di elemento di lavoro predefinito",
-          "cannot_delete_work_item_type_with_associated_work_items": "Impossibile eliminare il tipo di elemento di lavoro con elementi di lavoro associati"
+          "cannot_delete_default_work_item_type": "Impossibile eliminare il tipo di attività predefinito",
+          "cannot_delete_work_item_type_with_associated_work_items": "Impossibile eliminare il tipo di attività con attività associati"
         }
       }
     },
     "create": {
-      "title": "Crea tipo di elemento di lavoro",
-      "button": "Aggiungi tipo di elemento di lavoro",
+      "title": "Crea tipo di attività",
+      "button": "Aggiungi tipo di attività",
       "toast": {
         "success": {
           "title": "Successo!",
-          "message": "Tipo di elemento di lavoro creato con successo."
+          "message": "Tipo di attività creata con successo."
         },
         "error": {
           "title": "Errore!",
           "message": {
-            "default": "Impossibile creare il tipo di elemento di lavoro. Riprova!",
+            "default": "Impossibile creare il tipo di attività. Riprova!",
             "conflict": "Il tipo {name} esiste già. Scegli un nome diverso."
           }
         }
       }
     },
     "update": {
-      "title": "Aggiorna tipo di elemento di lavoro",
-      "button": "Aggiorna tipo di elemento di lavoro",
+      "title": "Aggiorna tipo di attività",
+      "button": "Aggiorna tipo di attività",
       "toast": {
         "success": {
           "title": "Successo!",
-          "message": "Tipo di elemento di lavoro {name} aggiornato con successo."
+          "message": "Tipo di attività {name} aggiornato con successo."
         },
         "error": {
           "title": "Errore!",
           "message": {
-            "default": "Impossibile aggiornare il tipo di elemento di lavoro. Riprova!",
+            "default": "Impossibile aggiornare il tipo di attività. Riprova!",
             "conflict": "Il tipo {name} esiste già. Scegli un nome diverso."
           }
         }
@@ -329,30 +329,30 @@
     "create_update": {
       "form": {
         "name": {
-          "placeholder": "Dà un nome unico a questo tipo di elemento di lavoro"
+          "placeholder": "Dà un nome unico a questo tipo di attività"
         },
         "description": {
-          "placeholder": "Descrivi cosa è destinato questo tipo di elemento di lavoro e quando deve essere utilizzato."
+          "placeholder": "Descrivi cosa è destinato questo tipo di attività e quando deve essere utilizzato."
         }
       }
     },
     "enable_disable": {
       "toast": {
-        "loading": "{action} {name} tipo di elemento di lavoro",
+        "loading": "{action} {name} tipo di attività",
         "success": {
           "title": "Successo!",
-          "message": "Tipo di elemento di lavoro {name} {action} con successo."
+          "message": "Tipo di attività {name} {action} con successo."
         },
         "error": {
           "title": "Errore!",
-          "message": "Impossibile {action} il tipo di elemento di lavoro. Si prega di riprovare!"
+          "message": "Impossibile {action} il tipo di attività. Si prega di riprovare!"
         }
       },
       "tooltip": "Clicca per {action}"
     },
     "change_confirmation": {
-      "title": "Cambiare il tipo di elemento di lavoro?",
-      "description": "La modifica del tipo di elemento di lavoro può comportare la perdita di valori di proprietà personalizzate specifiche del tipo corrente. Questa azione non può essere annullata.",
+      "title": "Cambiare il tipo di attività?",
+      "description": "La modifica del tipo di attività può comportare la perdita di valori di proprietà personalizzate specifiche del tipo corrente. Questa azione non può essere annullata.",
       "button": {
         "loading": "Modifica in corso",
         "default": "Cambia tipo"
@@ -361,13 +361,13 @@
     "empty_state": {
       "enable": {
         "title": "Abilita Tipi di Elementi di Lavoro",
-        "description": "Forma gli elementi di lavoro per il tuo lavoro con i Tipi di Elementi di Lavoro. Personalizza con icone, sfondi e proprietà e configurali per questo progetto.",
+        "description": "Forma le attività per il tuo lavoro con i Tipi di Elementi di Lavoro. Personalizza con icone, sfondi e proprietà e configurali per questo progetto.",
         "primary_button": {
           "text": "Abilita"
         },
         "confirmation": {
           "title": "Una volta abilitato, i Tipi di Elementi di Lavoro non possono essere disattivati.",
-          "description": "Plane's Elemento di Lavoro diventerà il tipo di elemento di lavoro predefinito per questo progetto e apparirà con la sua icona e sfondo in questo progetto.",
+          "description": "Plane's Elemento di Lavoro diventerà il tipo di attività predefinito per questo progetto e apparirà con la sua icona e sfondo in questo progetto.",
           "button": {
             "default": "Abilita",
             "loading": "Configurazione"
@@ -376,14 +376,14 @@
       },
       "get_pro": {
         "title": "Ottieni Pro per abilitare i Tipi di Elementi di Lavoro.",
-        "description": "Forma gli elementi di lavoro per il tuo lavoro con i Tipi di Elementi di Lavoro. Personalizza con icone, sfondi e proprietà e configurali per questo progetto.",
+        "description": "Forma le attività per il tuo lavoro con i Tipi di Elementi di Lavoro. Personalizza con icone, sfondi e proprietà e configurali per questo progetto.",
         "primary_button": {
           "text": "Ottieni Pro"
         }
       },
       "upgrade": {
         "title": "Aggiorna per abilitare i Tipi di Elementi di Lavoro.",
-        "description": "Forma gli elementi di lavoro per il tuo lavoro con i Tipi di Elementi di Lavoro. Personalizza con icone, sfondi e proprietà e configurali per questo progetto.",
+        "description": "Forma le attività per il tuo lavoro con i Tipi di Elementi di Lavoro. Personalizza con icone, sfondi e proprietà e configurali per questo progetto.",
         "primary_button": {
           "text": "Aggiorna"
         }
@@ -398,17 +398,17 @@
       "sidebar_label": "Gerarchia",
       "enable_control": {
         "title": "Abilita gerarchia",
-        "description": "Crea relazioni genitore-figlio tra diversi tipi di elementi di lavoro.",
+        "description": "Crea relazioni genitore-figlio tra diversi tipi di attività.",
         "tooltip": "Non è possibile disabilitare la gerarchia una volta abilitata."
       },
       "workspace_work_item_types_disabled_banner": {
-        "content": "Definisci prima i tipi di elementi di lavoro per creare una nuova gerarchia.",
-        "cta": "Impostazioni tipi elementi di lavoro"
+        "content": "Definisci prima i tipi di attività per creare una nuova gerarchia.",
+        "cta": "Impostazioni tipi attività"
       }
     },
     "levels": {
       "max_level_placeholder": "Trascina e rilascia un tipo per aggiungere un nuovo livello di gerarchia",
-      "empty_level_placeholder": "Trascina e rilascia un tipo di elemento di lavoro al livello {level}",
+      "empty_level_placeholder": "Trascina e rilascia un tipo di attività al livello {level}",
       "drag_tooltip": "Trascina per cambiare livello",
       "quick_actions": {
         "set_as_default": {
@@ -437,11 +437,11 @@
     "break_hierarchy_modal": {
       "title": "Salvare interromperà i collegamenti esistenti",
       "content": {
-        "intro": "Il tipo di elemento di lavoro {workItemTypeName} include:",
+        "intro": "Il tipo di attività {workItemTypeName} include:",
         "parent_items": "{count, plural, one {Verrà rimosso # collegamento padre} other {Verranno rimossi # collegamenti padre}}.",
-        "child_items": "{count, plural, one {sotto-elemento di lavoro} other {sotto-elementi di lavoro}}",
+        "child_items": "{count, plural, one {sottoattività} other {sottoattività}}",
         "parent_line_suffix_when_also_children": ", e ",
-        "footer": "Questa modifica rimuoverà le relazioni padre-figlio dagli elementi di lavoro esistenti del tipo {workItemTypeName}."
+        "footer": "Questa modifica rimuoverà le relazioni padre-figlio dalle attività esistenti del tipo {workItemTypeName}."
       },
       "confirm_input": {
         "label": "Digita «conferma» per continuare.",
@@ -459,18 +459,18 @@
     "work_item_modal": {
       "invalid_work_item_type_create_toast": {
         "title": "Errore!",
-        "message": "Il tipo di elemento di lavoro selezionato non può essere utilizzato per creare un nuovo elemento di lavoro poiché viola le regole della gerarchia."
+        "message": "Il tipo di attività selezionata non può essere utilizzato per creare un nuova attività poiché viola le regole della gerarchia."
       },
       "invalid_work_item_type_update_toast": {
         "title": "Errore!",
-        "message": "Il tipo di elemento di lavoro non può essere aggiornato poiché viola le regole della gerarchia."
+        "message": "Il tipo di attività non può essere aggiornato poiché viola le regole della gerarchia."
       }
     },
     "work_item_type_modal": {
       "level": "Livello di gerarchia",
       "invalid_level_toast": {
         "title": "Errore!",
-        "message": "Il tipo di elemento di lavoro non può essere aggiornato poiché viola le regole della gerarchia."
+        "message": "Il tipo di attività non può essere aggiornato poiché viola le regole della gerarchia."
       }
     }
   }

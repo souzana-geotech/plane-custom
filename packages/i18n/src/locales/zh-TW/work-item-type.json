@@ -233,7 +233,7 @@
       },
       "types": {
         "title": "類型",
-        "description": "建立和自訂具有屬性的工作事項類型。",
+        "description": "建立和自訂具有屬性的任務類型。",
         "sort_options": {
           "project_count": "參與專案的數量"
         },
@@ -247,8 +247,8 @@
             "import_from_workspace": "從工作區匯入"
           },
           "banner": {
-            "with_access": "啟用工作事項類型以從工作區層級匯入類型",
-            "without_access": "工作事項類型已停用。請聯絡工作區管理員在工作區設定中啟用。"
+            "with_access": "啟用任務類型以從工作區層級匯入類型",
+            "without_access": "任務類型已停用。請聯絡工作區管理員在工作區設定中啟用。"
           }
         }
       },
@@ -264,7 +264,7 @@
         },
         "unlink_confirmation": {
           "title": "取消連結屬性",
-          "description": "取消連結此屬性將永久刪除使用此類型的每個工作事項中的所有值。此操作無法還原。",
+          "description": "取消連結此屬性將永久刪除使用此類型的每個任務中的所有值。此操作無法還原。",
           "input_label": "輸入",
           "input_label_suffix": "以繼續：",
           "confirm": "取消連結屬性",
@@ -303,7 +303,7 @@
         "error": {
           "title": "錯誤！",
           "message": {
-            "default": "建立工作事項類型失敗。請再試一次！",
+            "default": "建立任務類型失敗。請再試一次！",
             "conflict": "{name} 類型已存在。請選擇其他名稱。"
           }
         }
@@ -320,7 +320,7 @@
         "error": {
           "title": "錯誤！",
           "message": {
-            "default": "更新工作事項類型失敗。請再試一次！",
+            "default": "更新任務類型失敗。請再試一次！",
             "conflict": "{name} 類型已存在。請選擇其他名稱。"
           }
         }

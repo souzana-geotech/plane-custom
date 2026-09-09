@@ -92,7 +92,7 @@ export class IssueStore implements IIssueStore {
     this.fetchingIssueDetails = issueId;
     const issue = await this.issueService.retrieve(workspaceSlug, projectId, issueId, query);
 
-    if (!issue) throw new Error("Work item not found");
+    if (!issue) throw new Error("Task not found");
 
     const issuePayload = this.addIssueToStore(issue);
 

@@ -15,17 +15,25 @@ import { useUserProfile, useUser } from "@/hooks/store/user";
 // plane web imports
 import { TourRoot } from "@/components/onboarding/tour/root";
 // local imports
-import { DashboardWidgets } from "./home-dashboard-widgets";
-import { UserGreetingsView } from "./user-greetings";
-import { MyWorkSections } from "./widgets/my-work/root";
+import { HomeHeader } from "./header";
+import { NoProjectsEmptyState } from "./widgets/empty-states";
+import { ManageWidgetsModal } from "./widgets/manage";
+import { FilterBar } from "./widgets/my-work/filter-bar";
+import { MyWorkProvider } from "./widgets/my-work/my-work-context";
+import { WorkQueue } from "./widgets/my-work/work-queue";
+import { MyWorkSidebar } from "./widgets/sidebar/root";
 import { HomePeekOverviewsRoot } from "../issues/peek-overview/peek-overviews";
 
+/**
+ * My Work: header → summary/filters → one work queue, with recent activity as secondary context.
+ * The queue is the page; everything else supports it.
+ */
 export const WorkspaceHomeView = observer(function WorkspaceHomeView() {
   // store hooks
   const { workspaceSlug } = useParams();
   const { data: currentUser } = useUser();
   const { data: currentUserProfile, updateTourCompleted } = useUserProfile();
-  const { fetchWidgets } = useHome();
+  const { fetchWidgets, showWidgetSettings, toggleWidgetSettings } = useHome();
 
   useSWR(
     workspaceSlug ? `HOME_DASHBOARD_WIDGETS_${workspaceSlug}` : null,
@@ -45,7 +53,9 @@ export const WorkspaceHomeView = observer(function WorkspaceHomeView() {
     }
   };
 
-  // TODO: refactor loader implementation
+  if (!workspaceSlug || !currentUser) return null;
+  const slug = workspaceSlug.toString();
+
   return (
     <>
       {currentUserProfile && !currentUserProfile.is_tour_completed && (
@@ -53,22 +63,27 @@ export const WorkspaceHomeView = observer(function WorkspaceHomeView() {
           <TourRoot onComplete={handleTourCompleted} />
         </div>
       )}
-      <>
-        <HomePeekOverviewsRoot />
-        <ContentWrapper className="mx-auto scrollbar-hide gap-6 bg-surface-1 px-page-x">
-          <div className="mx-auto w-full max-w-[800px]">
-            {currentUser && <UserGreetingsView user={currentUser} />}
-            {/* Today / Coming Up / My Tasks / Quick Actions always lead; the user-managed
-                widgets (Recent, Quick Links, Stickies) keep their own order below. */}
-            {workspaceSlug && (
-              <div className="pb-8">
-                <MyWorkSections workspaceSlug={workspaceSlug.toString()} />
-              </div>
-            )}
-            <DashboardWidgets />
+      <HomePeekOverviewsRoot />
+      <ManageWidgetsModal
+        workspaceSlug={slug}
+        isModalOpen={showWidgetSettings}
+        handleOnClose={() => toggleWidgetSettings(false)}
+      />
+      <ContentWrapper className="scrollbar-hide bg-surface-1 px-page-x light:bg-canvas">
+        <MyWorkProvider workspaceSlug={slug}>
+          <div className="mx-auto flex w-full max-w-[1200px] flex-col gap-5 pt-1 pb-12">
+            <HomeHeader user={currentUser} />
+            <NoProjectsEmptyState />
+            <div className="grid grid-cols-1 gap-8 lg:grid-cols-[minmax(0,1fr)_300px]">
+              <main className="flex min-w-0 flex-col gap-4">
+                <FilterBar />
+                <WorkQueue />
+              </main>
+              <MyWorkSidebar workspaceSlug={slug} />
+            </div>
           </div>
-        </ContentWrapper>
-      </>
+        </MyWorkProvider>
+      </ContentWrapper>
     </>
   );
 });

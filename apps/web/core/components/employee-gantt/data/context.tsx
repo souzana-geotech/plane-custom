@@ -11,9 +11,9 @@ import type { TEmployeeGanttFilters, TEmployeeGanttSummary, TEmployeeGanttZoom, 
 
 export type TEmployeeGanttContext = {
   workspaceSlug: string;
-  /** true until the work item list has loaded for the first time */
+  /** true until the task list has loaded for the first time */
   isLoading: boolean;
-  /** set when the work item request failed */
+  /** set when the task request failed */
   error: unknown;
   /** re-runs the failed request */
   retry: () => void;

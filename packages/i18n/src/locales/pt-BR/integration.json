@@ -19,7 +19,7 @@
   },
   "github_integration": {
     "name": "GitHub",
-    "description": "Conecte e sincronize seus itens de trabalho do GitHub com o Plane",
+    "description": "Conecte e sincronize suas tarefas do GitHub com o Plane",
     "connect_org": "Conectar Organização",
     "connect_org_description": "Conecte sua organização do GitHub com o Plane",
     "processing": "Processando",
@@ -48,7 +48,7 @@
     "pr_state_mapping_empty_state": "Estados de PR mapeados aparecerão aqui",
     "remove_pr_state_mapping": "Remover este Mapeamento de Estado de Pull Request",
     "remove_pr_state_mapping_confirmation": "Tem certeza de que deseja remover este mapeamento de estado de pull request?",
-    "issue_sync_message": "Itens de trabalho são sincronizados para {project}",
+    "issue_sync_message": "Tarefas são sincronizados para {project}",
     "link": "Vincular repositório do GitHub ao projeto do Plane",
     "pull_request_automation": "Automação de Pull Request",
     "pull_request_automation_description": "Configure o mapeamento de estado de pull request do GitHub para seu projeto Plane",
@@ -85,7 +85,7 @@
     "MR_READY_FOR_MERGE": "Quando o MR estiver pronto para merge, definir o estado para",
     "MR_MERGED": "Quando o MR for mesclado, definir o estado para",
     "MR_CLOSED": "Quando o MR for fechado, definir o estado para",
-    "integration_enabled_text": "Com a integração do Gitlab ativada, você pode automatizar fluxos de trabalho de itens de trabalho",
+    "integration_enabled_text": "Com a integração do Gitlab ativada, você pode automatizar fluxos de trabalho de tarefas",
     "choose_entity": "Escolher Entidade",
     "choose_project": "Escolher Projeto",
     "link_plane_project": "Vincular projeto do Plane",
@@ -150,7 +150,7 @@
       "project_updates_empty_state": "Projetos conectados com Canais do Slack aparecerão aqui.",
       "project_updates_form": {
         "title": "Configurar Atualizações de Projeto",
-        "description": "Receba notificações de atualizações de projeto no Slack quando itens de trabalho são criados",
+        "description": "Receba notificações de atualizações de projeto no Slack quando tarefas são criadas",
         "failed_to_load_channels": "Falha ao carregar canais do Slack",
         "project_dropdown": {
           "placeholder": "Selecione um projeto",

@@ -225,7 +225,7 @@ export const CreateUpdateIssueModalBase = observer(function CreateUpdateIssueMod
           isDraft: is_draft_issue,
         });
 
-        // create sub work item
+        // create sub task
         await handleCreateSubWorkItem({
           workspaceSlug: workspaceSlug?.toString(),
           projectId: response.project_id,

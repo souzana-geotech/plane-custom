@@ -82,7 +82,7 @@
         "export_separate_files": "データを個別のファイルにエクスポート",
         "exporting_projects": "プロジェクトをエクスポート中",
         "format": "形式",
-        "filters_info": "フィルターを適用して、条件に基づいて特定の作業項目をエクスポートします。",
+        "filters_info": "フィルターを適用して、条件に基づいて特定のタスクをエクスポートします。",
         "modal": {
           "title": "エクスポート先",
           "toasts": {
@@ -272,12 +272,12 @@
       "templates": {
         "title": "テンプレート",
         "heading": "テンプレート",
-        "description": "テンプレートを使用すると、プロジェクト、作業項目、ページの作成にかかる時間を80%短縮できます。"
+        "description": "テンプレートを使用すると、プロジェクト、タスク、ページの作成にかかる時間を80%短縮できます。"
       },
       "relations": {
         "title": "関連",
         "heading": "関連",
-        "description": "ワークスペース全体で作業項目を接続する関連タイプを作成・管理します。"
+        "description": "ワークスペース全体でタスクを接続する関連タイプを作成・管理します。"
       },
       "cancel_trial": {
         "title": "まずトライアルをキャンセルしてください。",
@@ -454,7 +454,7 @@
         "app_consent_unapproved_description": "ワークスペースに接続する前に、このアプリを信頼できることを確認してください。",
         "go_to_app": "アプリへ移動",
         "enable_app_mentions": "アプリのメンションを有効にする",
-        "enable_app_mentions_tooltip": "これを有効にすると、ユーザーは作業項目をこのアプリにメンションしたり割り当てたりできます。",
+        "enable_app_mentions_tooltip": "これを有効にすると、ユーザーはタスクをこのアプリにメンションしたり割り当てたりできます。",
         "scopes": "スコープ",
         "select_scopes": "スコープを選択",
         "read_access_to": "読み取り専用アクセス先",

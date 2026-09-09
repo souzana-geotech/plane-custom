@@ -32,7 +32,7 @@
       }
     },
     "quick_links": {
-      "empty": "Enregistrez des liens vers des éléments de travail que vous souhaitez avoir à portée de main.",
+      "empty": "Enregistrez des liens vers des tâches que vous souhaitez avoir à portée de main.",
       "add": "Ajouter un lien rapide",
       "title": "Lien rapide",
       "title_plural": "Liens rapides",
@@ -43,15 +43,16 @@
       "empty": {
         "project": "Vos projets récents apparaîtront ici une fois que vous en aurez visité un.",
         "page": "Vos pages récentes apparaîtront ici une fois que vous en aurez visité une.",
-        "issue": "Vos éléments de travail récents apparaîtront ici une fois que vous en aurez visité un.",
+        "issue": "Vos tâches récents apparaîtront ici une fois que vous en aurez visité un.",
         "default": "Vous n’avez pas encore d’éléments récents."
       },
       "filters": {
         "all": "Tous",
         "projects": "Projets",
         "pages": "Pages",
-        "issues": "Éléments de travail"
-      }
+        "issues": "Tâches"
+      },
+      "view_all": "Voir toute l'activité"
     },
     "new_at_plane": {
       "title": "Nouveau sur Plane"
@@ -66,57 +67,21 @@
     "manage_widgets": "Gérer les widgets",
     "title": "Mon travail",
     "greeting": {
-      "subtitle": "Voici ce qui nécessite votre attention."
-    },
-    "due": {
-      "prefix": "Échéance",
-      "today": "aujourd'hui",
-      "tomorrow": "demain"
+      "subtitle": "Voici ce qui demande votre attention aujourd'hui."
     },
     "status": {
-      "not_started": "Non commencé",
       "in_progress": "En cours",
       "done": "Terminé",
-      "cancelled": "Annulé"
-    },
-    "today": {
-      "title": "Aujourd'hui",
-      "overdue": "En retard",
-      "due_today": "Échéance aujourd'hui",
-      "in_progress": "En cours",
-      "empty": {
-        "title": "Vous êtes à jour 🎉",
-        "description": "Aucune échéance aujourd'hui."
-      }
-    },
-    "upcoming": {
-      "title": "À venir",
-      "tomorrow": "Demain",
-      "empty": {
-        "title": "Rien à venir",
-        "description": "Vous n'avez aucune tâche à venir."
-      }
+      "cancelled": "Annulé",
+      "to_do": "À faire",
+      "overdue": "En retard"
     },
     "my_tasks": {
-      "title": "Mes tâches",
-      "tabs": {
-        "all": "Tous",
-        "todo": "À faire",
-        "in_progress": "En cours",
-        "done": "Terminé"
-      },
-      "open": "Ouvrir",
-      "view_all": "Voir tout",
       "empty": {
-        "title": "Rien ici",
-        "description": "Les tâches qui vous sont assignées s'afficheront ici."
-      }
-    },
-    "quick_actions": {
-      "add_task": "Ajouter une tâche",
-      "add_note": "Ajouter une note",
-      "search": "Rechercher",
-      "search_placeholder": "Rechercher des tâches, projets ou personnes"
+        "filtered": "Aucune tâche ne correspond au filtre actuel."
+      },
+      "show_more": "Afficher {count} de plus",
+      "clear_filters": "Effacer les filtres"
     },
     "star_us_on_github": "Donnez-nous une étoile sur GitHub",
     "business_trial_banner": {
@@ -126,6 +91,98 @@
       "trial_ends_in_days": "L'essai se termine dans {days, plural, one {# jour} other {# jours}}",
       "start_subscription": "Démarrer l'abonnement",
       "explore_business_features": "Explorer les fonctionnalités Business"
+    },
+    "summary": {
+      "aria_label": "Résumé du travail",
+      "overdue": "En retard",
+      "due_today": "Échéance aujourd'hui",
+      "in_progress": "En cours",
+      "upcoming": "À venir"
+    },
+    "card": {
+      "mark_done": "Marquer comme terminée",
+      "more": "Plus",
+      "change_status": "Changer le statut",
+      "toasts": {
+        "marked_done": "Tâche marquée comme terminée",
+        "status_updated": "Statut mis à jour",
+        "status_update_failed": "Impossible de mettre à jour le statut",
+        "due_date_update_failed": "Impossible de mettre à jour l'échéance"
+      },
+      "set_due_date": "Définir l'échéance",
+      "remove_due_date": "Supprimer l'échéance"
+    },
+    "filter": {
+      "by_project": "Filtrer par projet",
+      "all_projects": "Tous les projets"
+    },
+    "header": {
+      "new_task": "Nouvelle tâche"
+    },
+    "filters": {
+      "all": "Toutes",
+      "done": "Terminées"
+    },
+    "priority": {
+      "urgent": "Priorité urgente",
+      "high": "Priorité haute"
+    },
+    "queue": {
+      "groups": {
+        "overdue": "En retard",
+        "today": "Échéance aujourd'hui",
+        "this_week": "Cette semaine",
+        "later": "Plus tard",
+        "no_date": "Sans échéance"
+      },
+      "empty": {
+        "all": {
+          "title": "Aucune tâche ne vous est attribuée",
+          "description": "Les tâches qui vous sont attribuées apparaîtront ici."
+        },
+        "overdue": {
+          "title": "Rien en retard",
+          "description": "Vous êtes dans les temps."
+        },
+        "due_today": {
+          "title": "Rien à rendre aujourd'hui",
+          "description": "Aucune tâche n'a d'échéance aujourd'hui."
+        },
+        "in_progress": {
+          "title": "Rien en cours",
+          "description": "Passez une tâche en cours pour la voir ici."
+        },
+        "upcoming": {
+          "title": "Rien à rendre cette semaine",
+          "description": "Aucune tâche n'arrive à échéance dans les 7 prochains jours."
+        },
+        "done": {
+          "title": "Rien de terminé pour le moment",
+          "description": "Les tâches que vous terminez apparaîtront ici."
+        }
+      },
+      "error": {
+        "title": "Impossible de charger votre travail",
+        "description": "Vérifiez votre connexion et réessayez.",
+        "retry": "Réessayer"
+      }
+    },
+    "activity": {
+      "title": "Votre activité récente",
+      "empty": "Aucune activité récente.",
+      "error": "Impossible de charger l'activité.",
+      "completed": "Marquée comme terminée",
+      "state": "Déplacée vers {state}",
+      "created": "Créée",
+      "commented": "Commentaire ajouté",
+      "due_date": "Échéance définie au {date}",
+      "due_date_removed": "Échéance supprimée",
+      "priority": "Priorité définie sur {priority}",
+      "assignees": "Responsables mis à jour",
+      "labels": "Étiquettes mises à jour",
+      "renamed": "Renommée",
+      "description": "Description mise à jour",
+      "updated": "Mise à jour"
     }
   }
 }

@@ -1,21 +1,21 @@
 {
   "work_item_types": {
     "label": "Typy Elementów Pracy",
-    "label_lowercase": "typy elementów pracy",
+    "label_lowercase": "typy zadań",
     "settings": {
       "description": "Dostosuj i dodaj własne właściwości, aby dopasować do potrzeb zespołu.",
-      "cant_delete_default_message": "Nie można usunąć tego typu elementu pracy, ponieważ jest on ustawiony jako domyślny dla tego projektu.",
+      "cant_delete_default_message": "Nie można usunąć tego typu zadania, ponieważ jest on ustawiony jako domyślny dla tego projektu.",
       "set_as_default": "Ustaw jako domyślny",
       "cant_set_default_inactive_message": "Aktywuj ten typ przed ustawieniem go jako domyślny",
       "set_default_confirmation": {
-        "title": "Ustaw jako domyślny typ elementu pracy",
-        "description": "Ustawienie {name} jako domyślnego zaimportuje go do wszystkich projektów w tym obszarze roboczym. Wszystkie nowe elementy pracy będą domyślnie używać tego typu.",
+        "title": "Ustaw jako domyślny typ zadania",
+        "description": "Ustawienie {name} jako domyślnego zaimportuje go do wszystkich projektów w tym obszarze roboczym. Wszystkie nowe zadania będą domyślnie używać tego typu.",
         "confirm_button": "Ustaw jako domyślny"
       },
       "properties": {
         "title": "Właściwości",
         "description": "Twórz i dostosowuj właściwości.",
-        "tooltip": "Każdy typ elementu pracy posiada domyślny zestaw właściwości, takich jak Tytuł, Opis, Przypisany, Stan, Priorytet, Data rozpoczęcia, Termin zakończenia, Moduł, Cykl itp. Możesz również dostosować i dodać własne właściwości, aby dopasować je do potrzeb Twojego zespołu.",
+        "tooltip": "Każdy typ zadania posiada domyślny zestaw właściwości, takich jak Tytuł, Opis, Przypisany, Stan, Priorytet, Data rozpoczęcia, Termin zakończenia, Moduł, Cykl itp. Możesz również dostosować i dodać własne właściwości, aby dopasować je do potrzeb Twojego zespołu.",
         "add_button": "Dodaj nową właściwość",
         "project": {
           "add_button": {
@@ -228,12 +228,12 @@
         },
         "empty_state": {
           "title": "Dodaj niestandardowe właściwości",
-          "description": "Nowe właściwości, które dodasz dla tego typu elementu pracy, pojawią się tutaj."
+          "description": "Nowe właściwości, które dodasz dla tego typu zadania, pojawią się tutaj."
         }
       },
       "types": {
         "title": "Typy",
-        "description": "Twórz i dostosowuj typy elementów pracy z właściwościami.",
+        "description": "Twórz i dostosowuj typy zadań z właściwościami.",
         "sort_options": {
           "project_count": "Liczba projektów, w których uczestniczy"
         },
@@ -247,8 +247,8 @@
             "import_from_workspace": "Importuj z przestrzeni roboczej"
           },
           "banner": {
-            "with_access": "Włącz typy elementów pracy, aby importować typy z poziomu przestrzeni roboczej",
-            "without_access": "Typy elementów pracy są wyłączone. Skontaktuj się z administratorem przestrzeni roboczej, aby je włączyć w ustawieniach przestrzeni roboczej."
+            "with_access": "Włącz typy zadań, aby importować typy z poziomu przestrzeni roboczej",
+            "without_access": "Typy zadań są wyłączone. Skontaktuj się z administratorem przestrzeni roboczej, aby je włączyć w ustawieniach przestrzeni roboczej."
           }
         }
       },
@@ -264,7 +264,7 @@
         },
         "unlink_confirmation": {
           "title": "Odłącz właściwość",
-          "description": "Odłączenie tej właściwości trwale usunie wszystkie jej wartości z każdego elementu pracy używającego tego typu. Tej akcji nie można cofnąć.",
+          "description": "Odłączenie tej właściwości trwale usunie wszystkie jej wartości z każdego zadania używającego tego typu. Tej akcji nie można cofnąć.",
           "input_label": "Wpisz",
           "input_label_suffix": "aby kontynuować:",
           "confirm": "Odłącz właściwość",
@@ -279,48 +279,48 @@
         "toast": {
           "success": {
             "title": "Sukces!",
-            "message": "Typ elementu pracy został pomyślnie usunięty."
+            "message": "Typ zadania został pomyślnie usunięty."
           },
           "error": {
             "title": "Błąd!",
-            "message": "Nie udało się usunąć typu elementu pracy. Spróbuj ponownie!"
+            "message": "Nie udało się usunąć typu zadania. Spróbuj ponownie!"
           }
         },
         "errors": {
-          "cannot_delete_default_work_item_type": "Nie można usunąć domyślnego typu elementu pracy",
-          "cannot_delete_work_item_type_with_associated_work_items": "Nie można usunąć typu elementu pracy z powiązanymi elementami pracy"
+          "cannot_delete_default_work_item_type": "Nie można usunąć domyślnego typu zadania",
+          "cannot_delete_work_item_type_with_associated_work_items": "Nie można usunąć typu zadania z powiązanymi zadaniami"
         }
       }
     },
     "create": {
-      "title": "Utwórz typ elementu pracy",
-      "button": "Dodaj typ elementu pracy",
+      "title": "Utwórz typ zadania",
+      "button": "Dodaj typ zadania",
       "toast": {
         "success": {
           "title": "Sukces!",
-          "message": "Typ elementu pracy utworzony pomyślnie."
+          "message": "Typ zadania utworzony pomyślnie."
         },
         "error": {
           "title": "Błąd!",
           "message": {
-            "default": "Nie udało się utworzyć typu elementu pracy. Spróbuj ponownie!",
+            "default": "Nie udało się utworzyć typu zadania. Spróbuj ponownie!",
             "conflict": "Typ {name} już istnieje. Wybierz inną nazwę."
           }
         }
       }
     },
     "update": {
-      "title": "Aktualizuj typ elementu pracy",
-      "button": "Aktualizuj typ elementu pracy",
+      "title": "Aktualizuj typ zadania",
+      "button": "Aktualizuj typ zadania",
       "toast": {
         "success": {
           "title": "Sukces!",
-          "message": "Typ elementu pracy {name} zaktualizowany pomyślnie."
+          "message": "Typ zadania {name} zaktualizowany pomyślnie."
         },
         "error": {
           "title": "Błąd!",
           "message": {
-            "default": "Nie udało się zaktualizować typu elementu pracy. Spróbuj ponownie!",
+            "default": "Nie udało się zaktualizować typu zadania. Spróbuj ponownie!",
             "conflict": "Typ {name} już istnieje. Wybierz inną nazwę."
           }
         }
@@ -329,30 +329,30 @@
     "create_update": {
       "form": {
         "name": {
-          "placeholder": "Nadaj temu typowi elementu pracy unikalną nazwę"
+          "placeholder": "Nadaj temu typowi zadania unikalną nazwę"
         },
         "description": {
-          "placeholder": "Opisz, do czego służy ten typ elementu pracy i kiedy należy go używać."
+          "placeholder": "Opisz, do czego służy ten typ zadania i kiedy należy go używać."
         }
       }
     },
     "enable_disable": {
       "toast": {
-        "loading": "{action} typ elementu pracy {name}",
+        "loading": "{action} typ zadania {name}",
         "success": {
           "title": "Sukces!",
-          "message": "Typ elementu pracy {name} {action} pomyślnie."
+          "message": "Typ zadania {name} {action} pomyślnie."
         },
         "error": {
           "title": "Błąd!",
-          "message": "Nie udało się {action} typu elementu pracy. Spróbuj ponownie!"
+          "message": "Nie udało się {action} typu zadania. Spróbuj ponownie!"
         }
       },
       "tooltip": "Kliknij, aby {action}"
     },
     "change_confirmation": {
-      "title": "Zmień typ elementu pracy?",
-      "description": "Zmiana typu elementu pracy może spowodować utratę wartości właściwości niestandardowych specyficznych dla bieżącego typu. Ta akcja nie może zostać cofnięta.",
+      "title": "Zmień typ zadania?",
+      "description": "Zmiana typu zadania może spowodować utratę wartości właściwości niestandardowych specyficznych dla bieżącego typu. Ta akcja nie może zostać cofnięta.",
       "button": {
         "loading": "Zmienianie",
         "default": "Zmień typ"
@@ -361,13 +361,13 @@
     "empty_state": {
       "enable": {
         "title": "Włącz Typy Elementów Pracy",
-        "description": "Kształtuj elementy pracy według swojej pracy za pomocą Typów elementów pracy. Dostosuj je za pomocą ikon, teł i właściwości oraz skonfiguruj je dla tego projektu.",
+        "description": "Kształtuj zadania według swojej pracy za pomocą Typów zadań. Dostosuj je za pomocą ikon, teł i właściwości oraz skonfiguruj je dla tego projektu.",
         "primary_button": {
           "text": "Włącz"
         },
         "confirmation": {
           "title": "Po włączeniu Typów Elementów Pracy nie można ich wyłączyć.",
-          "description": "Element pracy Plane stanie się domyślnym typem elementu pracy dla tego projektu i pojawi się ze swoją ikoną i tłem w tym projekcie.",
+          "description": "Zadanie Plane stanie się domyślnym typem zadania dla tego projektu i pojawi się ze swoją ikoną i tłem w tym projekcie.",
           "button": {
             "default": "Włącz",
             "loading": "Konfigurowanie"
@@ -375,15 +375,15 @@
         }
       },
       "get_pro": {
-        "title": "Zdobądź Pro, aby włączyć Typy elementów pracy.",
-        "description": "Kształtuj elementy pracy według swojej pracy za pomocą Typów elementów pracy. Dostosuj je za pomocą ikon, teł i właściwości oraz skonfiguruj je dla tego projektu.",
+        "title": "Zdobądź Pro, aby włączyć Typy zadań.",
+        "description": "Kształtuj zadania według swojej pracy za pomocą Typów zadań. Dostosuj je za pomocą ikon, teł i właściwości oraz skonfiguruj je dla tego projektu.",
         "primary_button": {
           "text": "Zdobądź Pro"
         }
       },
       "upgrade": {
-        "title": "Aktualizuj, aby włączyć Typy elementów pracy.",
-        "description": "Kształtuj elementy pracy według swojej pracy za pomocą Typów elementów pracy. Dostosuj je za pomocą ikon, teł i właściwości oraz skonfiguruj je dla tego projektu.",
+        "title": "Aktualizuj, aby włączyć Typy zadań.",
+        "description": "Kształtuj zadania według swojej pracy za pomocą Typów zadań. Dostosuj je za pomocą ikon, teł i właściwości oraz skonfiguruj je dla tego projektu.",
         "primary_button": {
           "text": "Aktualizuj"
         }
@@ -470,7 +470,7 @@
       "level": "Poziom hierarchii",
       "invalid_level_toast": {
         "title": "Błąd!",
-        "message": "Typ elementu pracy nie może zostać zaktualizowany, ponieważ narusza zasady hierarchii."
+        "message": "Typ zadania nie może zostać zaktualizowany, ponieważ narusza zasady hierarchii."
       }
     }
   }

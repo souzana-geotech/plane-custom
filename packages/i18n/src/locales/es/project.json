@@ -19,9 +19,9 @@
     "start_date": "Fecha de inicio",
     "end_date": "Fecha de finalización",
     "in_your_timezone": "En tu zona horaria",
-    "transfer_work_items": "Transferir {count} elementos de trabajo",
+    "transfer_work_items": "Transferir {count} tareas",
     "transfer": {
-      "no_cycles_available": "No hay otros ciclos disponibles para transferir elementos de trabajo."
+      "no_cycles_available": "No hay otros ciclos disponibles para transferir tareas."
     },
     "date_range": "Rango de fechas",
     "add_date": "Agregar fecha",
@@ -29,9 +29,9 @@
       "label": "Ciclo activo",
       "progress": "Progreso",
       "chart": "Gráfico de avance",
-      "priority_issue": "Elementos de trabajo prioritarios",
+      "priority_issue": "Tareas prioritarios",
       "assignees": "Asignados",
-      "issue_burndown": "Avance de elementos de trabajo",
+      "issue_burndown": "Avance de tareas",
       "ideal": "Ideal",
       "current": "Actual",
       "labels": "Etiquetas",
@@ -113,18 +113,18 @@
         }
       },
       "no_issues": {
-        "title": "No hay elementos de trabajo agregados al ciclo",
-        "description": "Agrega o crea elementos de trabajo que desees delimitar y entregar dentro de este ciclo",
+        "title": "No hay tareas agregadas al ciclo",
+        "description": "Agrega o crea tareas que desees delimitar y entregar dentro de este ciclo",
         "primary_button": {
-          "text": "Crear nuevo elemento de trabajo"
+          "text": "Crear nueva tarea"
         },
         "secondary_button": {
-          "text": "Agregar elemento de trabajo existente"
+          "text": "Agregar tarea existente"
         }
       },
       "completed_no_issues": {
-        "title": "No hay elementos de trabajo en el ciclo",
-        "description": "No hay elementos de trabajo en el ciclo. Los elementos de trabajo están transferidos u ocultos. Para ver elementos de trabajo ocultos si los hay, actualiza tus propiedades de visualización según corresponda."
+        "title": "No hay tareas en el ciclo",
+        "description": "No hay tareas en el ciclo. Las tareas están transferidas u ocultos. Para ver tareas ocultos si los hay, actualiza tus propiedades de visualización según corresponda."
       },
       "active": {
         "title": "No hay ciclo activo",
@@ -144,7 +144,7 @@
         "primary_button": {
           "text": "Crea tu primera vista",
           "comic": {
-            "title": "Las vistas funcionan sobre las propiedades de los Elementos de trabajo.",
+            "title": "Las vistas funcionan sobre las propiedades de las tareas.",
             "description": "Puedes crear una vista desde aquí con tantas propiedades como filtros como consideres apropiado."
           }
         },
@@ -154,14 +154,14 @@
         }
       },
       "no_archived_issues": {
-        "title": "Aún no hay elementos de trabajo archivados",
-        "description": "Manualmente o mediante automatización, puedes archivar elementos de trabajo que estén completados o cancelados. Encuéntralos aquí una vez archivados.",
+        "title": "Aún no hay tareas archivadas",
+        "description": "Manualmente o mediante automatización, puedes archivar tareas que estén completados o cancelados. Encuéntralos aquí una vez archivados.",
         "primary_button": {
           "text": "Configurar automatización"
         }
       },
       "issues_empty_filter": {
-        "title": "No se encontraron elementos de trabajo que coincidan con los filtros aplicados",
+        "title": "No se encontraron tareas que coincidan con los filtros aplicados",
         "secondary_button": {
           "text": "Limpiar todos los filtros"
         }
@@ -190,25 +190,25 @@
   "project_issues": {
     "empty_state": {
       "no_issues": {
-        "title": "Crea un elemento de trabajo y asígnalo a alguien, incluso a ti mismo",
-        "description": "Piensa en los elementos de trabajo como trabajos, tareas, trabajo o JTBD. Los cuales nos gustan. Un elemento de trabajo y sus sub-elementos de trabajo son generalmente acciones basadas en tiempo asignadas a miembros de tu equipo. Tu equipo crea, asigna y completa elementos de trabajo para mover tu proyecto hacia su objetivo.",
+        "title": "Crea una tarea y asígnalo a alguien, incluso a ti mismo",
+        "description": "Piensa en las tareas como trabajos, tareas, trabajo o JTBD. Los cuales nos gustan. Una tarea y sus sub-tareas son generalmente acciones basadas en tiempo asignadas a miembros de tu equipo. Tu equipo crea, asigna y completa tareas para mover tu proyecto hacia su objetivo.",
         "primary_button": {
-          "text": "Crea tu primer elemento de trabajo",
+          "text": "Crea tu primera tarea",
           "comic": {
-            "title": "Los elementos de trabajo son bloques de construcción en Plane.",
-            "description": "Rediseñar la interfaz de Plane, Cambiar la marca de la empresa o Lanzar el nuevo sistema de inyección de combustible son ejemplos de elementos de trabajo que probablemente tienen sub-elementos de trabajo."
+            "title": "Las tareas son bloques de construcción en Plane.",
+            "description": "Rediseñar la interfaz de Plane, Cambiar la marca de la empresa o Lanzar el nuevo sistema de inyección de combustible son ejemplos de tareas que probablemente tienen sub-tareas."
           }
         }
       },
       "no_archived_issues": {
-        "title": "Aún no hay elementos de trabajo archivados",
-        "description": "Manualmente o a través de automatización, puedes archivar elementos de trabajo que estén completados o cancelados. Encuéntralos aquí una vez archivados.",
+        "title": "Aún no hay tareas archivadas",
+        "description": "Manualmente o a través de automatización, puedes archivar tareas que estén completados o cancelados. Encuéntralos aquí una vez archivados.",
         "primary_button": {
           "text": "Establecer automatización"
         }
       },
       "issues_empty_filter": {
-        "title": "No se encontraron elementos de trabajo que coincidan con los filtros aplicados",
+        "title": "No se encontraron tareas que coincidan con los filtros aplicados",
         "secondary_button": {
           "text": "Limpiar todos los filtros"
         }
@@ -225,7 +225,7 @@
     "empty_state": {
       "general": {
         "title": "Mapea los hitos de tu proyecto a Módulos y rastrea el trabajo agregado fácilmente.",
-        "description": "Un grupo de elementos de trabajo que pertenecen a un padre lógico y jerárquico forman un módulo. Piensa en ellos como una forma de rastrear el trabajo por hitos del proyecto. Tienen sus propios períodos y fechas límite, así como análisis para ayudarte a ver qué tan cerca o lejos estás de un hito.",
+        "description": "Un grupo de tareas que pertenecen a un padre lógico y jerárquico forman un módulo. Piensa en ellos como una forma de rastrear el trabajo por hitos del proyecto. Tienen sus propios períodos y fechas límite, así como análisis para ayudarte a ver qué tan cerca o lejos estás de un hito.",
         "primary_button": {
           "text": "Construye tu primer módulo",
           "comic": {
@@ -235,13 +235,13 @@
         }
       },
       "no_issues": {
-        "title": "No hay elementos de trabajo en el módulo",
-        "description": "Crea o agrega elementos de trabajo que quieras lograr como parte de este módulo",
+        "title": "No hay tareas en el módulo",
+        "description": "Crea o agrega tareas que quieras lograr como parte de este módulo",
         "primary_button": {
-          "text": "Crear nuevos elementos de trabajo"
+          "text": "Crear nuevas tareas"
         },
         "secondary_button": {
-          "text": "Agregar un elemento de trabajo existente"
+          "text": "Agregar una tarea existente"
         }
       },
       "archived": {
@@ -272,7 +272,7 @@
     "empty_state": {
       "general": {
         "title": "Escribe una nota, un documento o una base de conocimiento completa. Obtén ayuda de Galileo, el asistente de IA de Plane, para comenzar",
-        "description": "Las páginas son espacios para pensamientos en Plane. Toma notas de reuniones, fórmalas fácilmente, integra elementos de trabajo, organízalas usando una biblioteca de componentes y mantenlas todas en el contexto de tu proyecto. Para hacer cualquier documento rápidamente, invoca a Galileo, la IA de Plane, con un atajo o haciendo clic en un botón.",
+        "description": "Las páginas son espacios para pensamientos en Plane. Toma notas de reuniones, fórmalas fácilmente, integra tareas, organízalas usando una biblioteca de componentes y mantenlas todas en el contexto de tu proyecto. Para hacer cualquier documento rápidamente, invoca a Galileo, la IA de Plane, con un atajo o haciendo clic en un botón.",
         "primary_button": {
           "text": "Crea tu primera página"
         }
@@ -301,7 +301,7 @@
     "empty_state": {
       "inbox": {
         "title": "Intake no está habilitado para el proyecto.",
-        "description": "Intake te ayuda a gestionar las solicitudes entrantes a tu proyecto y agregarlas como elementos de trabajo en tu flujo de trabajo. Habilita Intake desde la configuración del proyecto para gestionar las solicitudes.",
+        "description": "Intake te ayuda a gestionar las solicitudes entrantes a tu proyecto y agregarlas como tareas en tu flujo de trabajo. Habilita Intake desde la configuración del proyecto para gestionar las solicitudes.",
         "primary_button": {
           "text": "Gestionar funciones"
         }
@@ -353,7 +353,7 @@
     "order_by": {
       "name": "Nombre",
       "progress": "Progreso",
-      "issues": "Número de elementos de trabajo",
+      "issues": "Número de tareas",
       "due_date": "Fecha de vencimiento",
       "created_at": "Fecha de creación",
       "manual": "Manual"

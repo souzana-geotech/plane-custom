@@ -43,15 +43,16 @@
       "empty": {
         "project": "Ihre kürzlich aufgerufenen Projekte erscheinen hier, nachdem Sie sie geöffnet haben.",
         "page": "Ihre kürzlich aufgerufenen Seiten erscheinen hier, nachdem Sie sie geöffnet haben.",
-        "issue": "Ihre kürzlich aufgerufenen Arbeitselemente erscheinen hier, nachdem Sie sie geöffnet haben.",
+        "issue": "Ihre kürzlich aufgerufenen Aufgaben erscheinen hier, nachdem Sie sie geöffnet haben.",
         "default": "Sie haben noch keine kürzlichen Elemente."
       },
       "filters": {
         "all": "Alle",
         "projects": "Projekte",
         "pages": "Seiten",
-        "issues": "Arbeitselemente"
-      }
+        "issues": "Aufgaben"
+      },
+      "view_all": "Alle Aktivitäten anzeigen"
     },
     "new_at_plane": {
       "title": "Neu in Plane"
@@ -66,57 +67,21 @@
     "manage_widgets": "Widgets verwalten",
     "title": "Meine Arbeit",
     "greeting": {
-      "subtitle": "Hier ist, was Ihre Aufmerksamkeit erfordert."
-    },
-    "due": {
-      "prefix": "Fällig",
-      "today": "heute",
-      "tomorrow": "morgen"
+      "subtitle": "Das braucht heute Ihre Aufmerksamkeit."
     },
     "status": {
-      "not_started": "Nicht begonnen",
       "in_progress": "In Bearbeitung",
       "done": "Erledigt",
-      "cancelled": "Abgebrochen"
-    },
-    "today": {
-      "title": "Heute",
-      "overdue": "Überfällig",
-      "due_today": "Heute fällig",
-      "in_progress": "In Bearbeitung",
-      "empty": {
-        "title": "Sie sind auf dem neuesten Stand 🎉",
-        "description": "Für heute ist nichts fällig."
-      }
-    },
-    "upcoming": {
-      "title": "Demnächst",
-      "tomorrow": "Morgen",
-      "empty": {
-        "title": "Nichts Anstehendes",
-        "description": "Sie haben keine anstehenden Aufgaben."
-      }
+      "cancelled": "Abgebrochen",
+      "to_do": "Zu erledigen",
+      "overdue": "Überfällig"
     },
     "my_tasks": {
-      "title": "Meine Aufgaben",
-      "tabs": {
-        "all": "Alle",
-        "todo": "Zu erledigen",
-        "in_progress": "In Bearbeitung",
-        "done": "Erledigt"
-      },
-      "open": "Öffnen",
-      "view_all": "Alle anzeigen",
       "empty": {
-        "title": "Nichts vorhanden",
-        "description": "Ihnen zugewiesene Aufgaben werden hier angezeigt."
-      }
-    },
-    "quick_actions": {
-      "add_task": "Aufgabe hinzufügen",
-      "add_note": "Notiz hinzufügen",
-      "search": "Suchen",
-      "search_placeholder": "Aufgaben, Projekte oder Personen suchen"
+        "filtered": "Keine Aufgaben entsprechen dem aktuellen Filter."
+      },
+      "show_more": "{count} weitere anzeigen",
+      "clear_filters": "Filter zurücksetzen"
     },
     "star_us_on_github": "Geben Sie uns einen Stern auf GitHub",
     "business_trial_banner": {
@@ -126,6 +91,98 @@
       "trial_ends_in_days": "Testversion endet in {days, plural, one {# Tag} other {# Tagen}}",
       "start_subscription": "Abonnement starten",
       "explore_business_features": "Business-Funktionen entdecken"
+    },
+    "summary": {
+      "aria_label": "Arbeitsübersicht",
+      "overdue": "Überfällig",
+      "due_today": "Heute fällig",
+      "in_progress": "In Bearbeitung",
+      "upcoming": "Demnächst"
+    },
+    "card": {
+      "mark_done": "Als erledigt markieren",
+      "more": "Mehr",
+      "change_status": "Status ändern",
+      "toasts": {
+        "marked_done": "Aufgabe als erledigt markiert",
+        "status_updated": "Status aktualisiert",
+        "status_update_failed": "Status konnte nicht aktualisiert werden",
+        "due_date_update_failed": "Fälligkeitsdatum konnte nicht aktualisiert werden"
+      },
+      "set_due_date": "Fälligkeitsdatum festlegen",
+      "remove_due_date": "Fälligkeitsdatum entfernen"
+    },
+    "filter": {
+      "by_project": "Nach Projekt filtern",
+      "all_projects": "Alle Projekte"
+    },
+    "header": {
+      "new_task": "Neue Aufgabe"
+    },
+    "filters": {
+      "all": "Alle",
+      "done": "Erledigt"
+    },
+    "priority": {
+      "urgent": "Dringende Priorität",
+      "high": "Hohe Priorität"
+    },
+    "queue": {
+      "groups": {
+        "overdue": "Überfällig",
+        "today": "Heute fällig",
+        "this_week": "Diese Woche",
+        "later": "Später",
+        "no_date": "Kein Fälligkeitsdatum"
+      },
+      "empty": {
+        "all": {
+          "title": "Ihnen ist nichts zugewiesen",
+          "description": "Ihnen zugewiesene Aufgaben erscheinen hier."
+        },
+        "overdue": {
+          "title": "Nichts überfällig",
+          "description": "Sie liegen im Plan."
+        },
+        "due_today": {
+          "title": "Heute ist nichts fällig",
+          "description": "Keine Aufgabe hat heute als Fälligkeitsdatum."
+        },
+        "in_progress": {
+          "title": "Nichts in Bearbeitung",
+          "description": "Setzen Sie eine Aufgabe auf In Bearbeitung, damit sie hier erscheint."
+        },
+        "upcoming": {
+          "title": "Diese Woche ist nichts fällig",
+          "description": "In den nächsten 7 Tagen ist keine Aufgabe fällig."
+        },
+        "done": {
+          "title": "Noch nichts erledigt",
+          "description": "Erledigte Aufgaben erscheinen hier."
+        }
+      },
+      "error": {
+        "title": "Ihre Arbeit konnte nicht geladen werden",
+        "description": "Prüfen Sie Ihre Verbindung und versuchen Sie es erneut.",
+        "retry": "Erneut versuchen"
+      }
+    },
+    "activity": {
+      "title": "Ihre letzten Aktivitäten",
+      "empty": "Keine aktuellen Aktivitäten.",
+      "error": "Aktivitäten konnten nicht geladen werden.",
+      "completed": "Als erledigt markiert",
+      "state": "Verschoben nach {state}",
+      "created": "Erstellt",
+      "commented": "Kommentiert",
+      "due_date": "Fälligkeitsdatum auf {date} gesetzt",
+      "due_date_removed": "Fälligkeitsdatum entfernt",
+      "priority": "Priorität auf {priority} gesetzt",
+      "assignees": "Zuständige aktualisiert",
+      "labels": "Labels aktualisiert",
+      "renamed": "Umbenannt",
+      "description": "Beschreibung aktualisiert",
+      "updated": "Aktualisiert"
     }
   }
 }
