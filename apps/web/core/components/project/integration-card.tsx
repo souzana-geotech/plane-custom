@@ -77,7 +77,7 @@ export function IntegrationCard({ integration }: Props) {
         setToast({
           type: TOAST_TYPE.ERROR,
           title: "Error!",
-          message: "Repository could not be synced with the project. Please try again.",
+          message: "Repository could not be synced with the container. Please try again.",
         });
       });
   };

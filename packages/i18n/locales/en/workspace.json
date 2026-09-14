@@ -61,10 +61,10 @@
     },
     "empty": {
       "title": "No operations data yet",
-      "description": "Create modules for client jobs and tasks for the actual work, and this dashboard will fill in."
+      "description": "Create projects / jobs for client work and tasks for the actual work, and this dashboard will fill in."
     },
     "filters": {
-      "project": "Project",
+      "project": "Container",
       "job": "Job",
       "department": "Department",
       "employee": "Employee",
@@ -73,7 +73,7 @@
     },
     "kpi": {
       "active_jobs": "Active jobs",
-      "active_jobs_hint": "Modules that are not completed or cancelled",
+      "active_jobs_hint": "Projects / Jobs that are not completed or cancelled",
       "jobs_at_risk": "Jobs needing attention",
       "jobs_at_risk_hint": "Active jobs that are at risk, delayed or blocked",
       "overdue_tasks": "Overdue tasks",
@@ -107,7 +107,7 @@
     },
     "job_health": {
       "title": "Job health",
-      "description": "Derived from module due dates, blocked work, overdue work and schedule progress",
+      "description": "Derived from project / job due dates, blocked work, overdue work and schedule progress",
       "total": "{count, plural, one {# job} other {# jobs}}",
       "on_track": "On track",
       "at_risk": "At risk",
@@ -116,9 +116,9 @@
     },
     "jobs": {
       "title": "Active jobs",
-      "description": "Modules that represent client jobs",
+      "description": "Projects / Jobs that represent client work",
       "empty": "No active jobs",
-      "empty_description": "Create a module for each client job to track it here.",
+      "empty_description": "Create a project / job for each client engagement to track it here.",
       "columns": {
         "job": "Job",
         "lead": "Lead",
@@ -178,13 +178,13 @@
     },
     "empty_state": {
       "general": {
-        "title": "Overview of your projects, activity, and metrics",
-        "description": "Welcome to Plane, we are excited to have you here. Create your first project and track your tasks, and this page will transform into a space that helps you progress. Admins will also see items which help their team progress.",
+        "title": "Overview of your containers, activity, and metrics",
+        "description": "Welcome to Plane, we are excited to have you here. Create your first container and track your tasks, and this page will transform into a space that helps you progress. Admins will also see items which help their team progress.",
         "primary_button": {
-          "text": "Build your first project",
+          "text": "Build your first container",
           "comic": {
-            "title": "Everything starts with a project in Plane",
-            "description": "A project could be a product's roadmap, a marketing campaign, or launching a new car."
+            "title": "Everything starts with a container in Plane",
+            "description": "A container could be a product's roadmap, a marketing campaign, or launching a new car."
           }
         }
       }
@@ -192,7 +192,7 @@
   },
   "employee_gantt": {
     "title": "Employee Gantt",
-    "subtitle": "Who is working on what, across every project",
+    "subtitle": "Who is working on what, across every container",
     "capacity": {
       "overloaded": "Overloaded · {count}",
       "busy": "Busy · {count}",
@@ -210,7 +210,7 @@
     },
     "filters": {
       "all": "All",
-      "project": "Project",
+      "project": "Container",
       "employee": "Employee",
       "search_placeholder": "Search employees",
       "only_overlaps": "Only overlaps",
@@ -286,10 +286,10 @@
     "open_tasks": "Total open tasks",
     "error": "There was some error in fetching the data.",
     "work_items_closed_in": "Tasks closed in",
-    "selected_projects": "Selected projects",
+    "selected_projects": "Selected containers",
     "total_members": "Total members",
     "total_cycles": "Total cycles",
-    "total_modules": "Total modules",
+    "total_modules": "Total jobs",
     "pending_work_items": {
       "title": "Pending tasks",
       "empty_state": "Analysis of pending tasks by co-workers appears here."
@@ -315,11 +315,11 @@
     "backlog_work_items": "Backlog {entity}",
     "un_started_work_items": "Unstarted {entity}",
     "completed_work_items": "Completed {entity}",
-    "project_insights": "Project Insights",
-    "summary_of_projects": "Summary of Projects",
-    "all_projects": "All Projects",
+    "project_insights": "Container Insights",
+    "summary_of_projects": "Summary of Containers",
+    "all_projects": "All Containers",
     "trend_on_charts": "Trend on charts",
-    "active_projects": "Active Projects",
+    "active_projects": "Active Containers",
     "customized_insights": "Customized Insights",
     "created_vs_resolved": "Created vs Resolved",
     "empty_state": {
@@ -337,12 +337,12 @@
       },
       "general": {
         "title": "Track progress, workloads, and allocations. Spot trends, remove blockers, and move work faster",
-        "description": "See scope versus demand, estimates, and scope creep. Get performance by team members and teams, and make sure your project runs on time.",
+        "description": "See scope versus demand, estimates, and scope creep. Get performance by team members and teams, and make sure your container runs on time.",
         "primary_button": {
-          "text": "Start your first project",
+          "text": "Start your first container",
           "comic": {
-            "title": "Analytics works best with Cycles + Modules",
-            "description": "First, timebox your issues into Cycles and, if you can, group issues that span more than a cycle into Modules. Check out both on the left nav."
+            "title": "Analytics works best with Cycles + Projects / Jobs",
+            "description": "First, timebox your tasks into Cycles and, if you can, group tasks that span more than a cycle into Projects / Jobs. Check out both on the left nav."
           }
         }
       },
@@ -352,7 +352,7 @@
       },
       "module_progress": {
         "title": "No data yet",
-        "description": "Module progress analytics will appear here. Add tasks to modules to start tracking progress."
+        "description": "Project / Job progress analytics will appear here. Add tasks to projects / jobs to start tracking progress."
       },
       "intake_trends": {
         "title": "No data yet",
@@ -361,14 +361,14 @@
     },
     "upgrade_to_plan": "Upgrade to {plan} to unlock {tab}",
     "workitem_resolved_vs_pending": "Tasks resolved vs pending",
-    "projects_by_status": "Projects by status",
+    "projects_by_status": "Containers by status",
     "active_users": "Active users",
     "intake_trends": "Intake Trends"
   },
   "workspace_projects": {
-    "label": "{count, plural, one {Project} other {Projects}}",
+    "label": "{count, plural, one {Container} other {Containers}}",
     "create": {
-      "label": "Add Project"
+      "label": "Add Container"
     },
     "network": {
       "label": "Network",
@@ -384,7 +384,7 @@
     "error": {
       "permission": "You don't have permission to perform this action.",
       "cycle_delete": "Failed to delete cycle",
-      "module_delete": "Failed to delete module",
+      "module_delete": "Failed to delete project / job",
       "issue_delete": "Failed to delete task"
     },
     "state": {
@@ -401,7 +401,7 @@
       "members_length": "Number of members"
     },
     "scope": {
-      "my_projects": "My projects",
+      "my_projects": "My containers",
       "archived_projects": "Archived"
     },
     "common": {
@@ -410,33 +410,33 @@
     },
     "empty_state": {
       "general": {
-        "title": "No active projects",
-        "description": "Think of each project as the parent for goal-oriented work. Projects are where Jobs, Cycles, and Modules live and, along with your colleagues, help you achieve that goal. Create a new project or filter for archived projects.",
+        "title": "No active containers",
+        "description": "Think of each container as the parent for goal-oriented work. Containers are where Projects / Jobs, Cycles, and Pages live and, along with your colleagues, help you achieve that goal. Create a new container or filter for archived containers.",
         "primary_button": {
-          "text": "Start your first project",
+          "text": "Start your first container",
           "comic": {
-            "title": "Everything starts with a project in Plane",
-            "description": "A project could be a product's roadmap, a marketing campaign, or launching a new car."
+            "title": "Everything starts with a container in Plane",
+            "description": "A container could be a product's roadmap, a marketing campaign, or launching a new car."
           }
         }
       },
       "no_projects": {
-        "title": "No project",
-        "description": "To create tasks or manage your work, you need to create a project or be a part of one.",
+        "title": "No container",
+        "description": "To create tasks or manage your work, you need to create a container or be a part of one.",
         "primary_button": {
-          "text": "Start your first project",
+          "text": "Start your first container",
           "comic": {
-            "title": "Everything starts with a project in Plane",
-            "description": "A project could be a product's roadmap, a marketing campaign, or launching a new car."
+            "title": "Everything starts with a container in Plane",
+            "description": "A container could be a product's roadmap, a marketing campaign, or launching a new car."
           }
         }
       },
       "filter": {
-        "title": "No matching projects",
-        "description": "No projects detected with the matching criteria.\n Create a new project instead."
+        "title": "No matching containers",
+        "description": "No containers detected with the matching criteria.\n Create a new container instead."
       },
       "search": {
-        "description": "No projects detected with the matching criteria.\nCreate a new project instead"
+        "description": "No containers detected with the matching criteria.\nCreate a new container instead"
       }
     }
   },
@@ -444,8 +444,8 @@
     "add_view": "Add view",
     "empty_state": {
       "all-issues": {
-        "title": "No tasks in the project",
-        "description": "First project done! Now, slice your work into trackable pieces with tasks. Let's go!",
+        "title": "No tasks in the container",
+        "description": "First container done! Now, slice your work into trackable pieces with tasks. Let's go!",
         "primary_button": {
           "text": "Create new task"
         }
@@ -505,7 +505,7 @@
     "empty_state": {
       "general": {
         "title": "Write a note, a doc, or a full knowledge base. Get Galileo, Plane's AI assistant, to help you get started",
-        "description": "Pages are thoughts potting space in Plane. Take down meeting notes, format them easily, embed tasks, lay them out using a library of components, and keep them all in your project's context. To make short work of any doc, invoke Galileo, Plane's AI, with a shortcut or the click of a button.",
+        "description": "Pages are thoughts potting space in Plane. Take down meeting notes, format them easily, embed tasks, lay them out using a library of components, and keep them all in your container's context. To make short work of any doc, invoke Galileo, Plane's AI, with a shortcut or the click of a button.",
         "primary_button": {
           "text": "Create your first page"
         }
@@ -538,7 +538,7 @@
     "empty_state": {
       "active": {
         "title": "No active cycles",
-        "description": "Cycles of your projects that includes any period that encompasses today's date within its range. Find the progress and details of all your active cycle here."
+        "description": "Cycles of your containers that includes any period that encompasses today's date within its range. Find the progress and details of all your active cycle here."
       }
     }
   },

@@ -53,7 +53,7 @@ export const DeleteModuleModal = observer(function DeleteModuleModal(props: Prop
         setToast({
           type: TOAST_TYPE.SUCCESS,
           title: "Success!",
-          message: "Module deleted successfully.",
+          message: "Project / Job deleted successfully.",
         });
       })
       .catch((errors) => {
@@ -76,7 +76,7 @@ export const DeleteModuleModal = observer(function DeleteModuleModal(props: Prop
       handleSubmit={handleDeletion}
       isSubmitting={isDeleteLoading}
       isOpen={isOpen}
-      title="Delete module"
+      title="Delete project / job"
       content={
         <>
           Are you sure you want to delete module-{" "}

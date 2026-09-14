@@ -70,14 +70,14 @@ export const ModuleListItemAction = observer(function ModuleListItemAction(props
     );
 
     setPromiseToast(addToFavoritePromise, {
-      loading: "Adding module to favorites...",
+      loading: "Adding project / job to favorites...",
       success: {
         title: "Success!",
-        message: () => "Module added to favorites.",
+        message: () => "Project / Job added to favorites.",
       },
       error: {
         title: "Error!",
-        message: () => "Couldn't add the module to favorites. Please try again.",
+        message: () => "Couldn't add the project / job to favorites. Please try again.",
       },
     });
   };
@@ -94,14 +94,14 @@ export const ModuleListItemAction = observer(function ModuleListItemAction(props
     );
 
     setPromiseToast(removeFromFavoritePromise, {
-      loading: "Removing module from favorites...",
+      loading: "Removing project / job from favorites...",
       success: {
         title: "Success!",
-        message: () => "Module removed from favorites.",
+        message: () => "Project / Job removed from favorites.",
       },
       error: {
         title: "Error!",
-        message: () => "Couldn't remove the module from favorites. Please try again.",
+        message: () => "Couldn't remove the project / job from favorites. Please try again.",
       },
     });
   };
@@ -114,14 +114,14 @@ export const ModuleListItemAction = observer(function ModuleListItemAction(props
         setToast({
           type: TOAST_TYPE.SUCCESS,
           title: "Success!",
-          message: "Module updated successfully.",
+          message: "Project / Job updated successfully.",
         });
       })
       .catch((err) => {
         setToast({
           type: TOAST_TYPE.ERROR,
           title: "Error!",
-          message: err?.detail ?? "Module could not be updated. Please try again.",
+          message: err?.detail ?? "Project / Job could not be updated. Please try again.",
         });
       });
   };

@@ -34,9 +34,9 @@
       }
     },
     "errors": {
-      "snooze_permission": "Only project admins can snooze/Un-snooze tasks",
-      "accept_permission": "Only project admins can accept tasks",
-      "decline_permission": "Only project admins can deny tasks"
+      "snooze_permission": "Only container admins can snooze/Un-snooze tasks",
+      "accept_permission": "Only container admins can accept tasks",
+      "decline_permission": "Only container admins can deny tasks"
     },
     "actions": {
       "accept": "Accept",
@@ -47,7 +47,7 @@
       "delete": "Delete",
       "open": "Open task",
       "mark_as_duplicate": "Mark as duplicate",
-      "move": "Move {value} to project tasks"
+      "move": "Move {value} to container tasks"
     },
     "source": {
       "in-app": "in-app"

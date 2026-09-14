@@ -1,11 +1,11 @@
 {
   "module": {
-    "label": "{count, plural, one {Module} other {Modules}}",
-    "no_module": "No module",
-    "select": "Add modules",
+    "label": "{count, plural, one {Job} other {Jobs}}",
+    "no_module": "No job",
+    "select": "Add jobs",
     "code": {
-      "placeholder": "Module code (e.g. GT3D-001)",
-      "max_length": "Module code should be less than 50 characters"
+      "placeholder": "Project / Job code (e.g. GT3D-001)",
+      "max_length": "Project / Job code should be less than 50 characters"
     }
   }
 }

@@ -4,18 +4,18 @@
     "label_lowercase": "task types",
     "settings": {
       "description": "Customize and add your own properties to tailor it to your team's needs.",
-      "cant_delete_default_message": "This task type cannot be deleted because it's set as the default for this project",
+      "cant_delete_default_message": "This task type cannot be deleted because it's set as the default for this container",
       "set_as_default": "Set as default",
       "cant_set_default_inactive_message": "Activate this type before setting it as default",
       "set_default_confirmation": {
         "title": "Set as default task type",
-        "description": "Setting {name} as the default will import it to all projects in this workspace. All new tasks will use this type by default.",
+        "description": "Setting {name} as the default will import it to all containers in this workspace. All new tasks will use this type by default.",
         "confirm_button": "Set as default"
       },
       "properties": {
         "title": "Properties",
         "description": "Create and customize properties.",
-        "tooltip": "Each task type comes with a default set of properties like Title, Description, Assignee, State, Priority, Start date, Due date, Module, Cycle etc. You can also customize and add your own properties to tailor it to your team's needs.",
+        "tooltip": "Each task type comes with a default set of properties like Title, Description, Assignee, State, Priority, Start date, Due date, Project / Job, Cycle etc. You can also customize and add your own properties to tailor it to your team's needs.",
         "add_button": "Add new property",
         "project": {
           "add_button": {
@@ -195,7 +195,7 @@
           "validation_success_with_refs": "Formula is valid! Returns {resultType} ({count} field(s) referenced)",
           "error": {
             "empty": "Please enter a formula",
-            "missing_context": "Missing workspace, project, or task type context",
+            "missing_context": "Missing workspace, container, or task type context",
             "validation_failed": "Validation failed"
           },
           "picker": {
@@ -235,7 +235,7 @@
         "title": "Types",
         "description": "Create and customize task types with properties.",
         "sort_options": {
-          "project_count": "Number of projects part of"
+          "project_count": "Number of containers part of"
         },
         "filter_options": {
           "show_active": "Show active",
@@ -361,13 +361,13 @@
     "empty_state": {
       "enable": {
         "title": "Enable Task Types",
-        "description": "Shape tasks to your work with Task types. Customize with icons, backgrounds, and properties and configure them for this project.",
+        "description": "Shape tasks to your work with Task types. Customize with icons, backgrounds, and properties and configure them for this container.",
         "primary_button": {
           "text": "Enable"
         },
         "confirmation": {
           "title": "Once enabled, Task Types can't be disabled.",
-          "description": "Plane's Task will become the default task type for this project and will show up with its icon and background in this project.",
+          "description": "Plane's Task will become the default task type for this container and will show up with its icon and background in this container.",
           "button": {
             "default": "Enable",
             "loading": "Setting up"
@@ -376,14 +376,14 @@
       },
       "get_pro": {
         "title": "Get Pro to enable Task types.",
-        "description": "Shape tasks to your work with Task types. Customize with icons, backgrounds, and properties and configure them for this project.",
+        "description": "Shape tasks to your work with Task types. Customize with icons, backgrounds, and properties and configure them for this container.",
         "primary_button": {
           "text": "Get Pro"
         }
       },
       "upgrade": {
         "title": "Upgrade to enable Task types.",
-        "description": "Shape tasks to your work with Task types. Customize with icons, backgrounds, and properties and configure them for this project.",
+        "description": "Shape tasks to your work with Task types. Customize with icons, backgrounds, and properties and configure them for this container.",
         "primary_button": {
           "text": "Upgrade"
         }

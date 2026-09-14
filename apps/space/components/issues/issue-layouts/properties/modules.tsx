@@ -27,7 +27,7 @@ export const IssueBlockModules = observer(function IssueBlockModules({ moduleIds
 
   return (
     <div className="relative flex h-full flex-wrap items-center gap-1">
-      <Tooltip tooltipHeading="Modules" tooltipContent={modulesString}>
+      <Tooltip tooltipHeading="Jobs" tooltipContent={modulesString}>
         {modules.length <= 1 ? (
           <div
             key={modules?.[0]?.id}
@@ -37,7 +37,7 @@ export const IssueBlockModules = observer(function IssueBlockModules({ moduleIds
           >
             <div className="flex items-center gap-1.5 text-secondary">
               <ModuleOutline className="h-3 w-3 flex-shrink-0" />
-              <div className="text-11">{modules?.[0]?.name ?? "No Modules"}</div>
+              <div className="text-11">{modules?.[0]?.name ?? "No Jobs"}</div>
             </div>
           </div>
         ) : (

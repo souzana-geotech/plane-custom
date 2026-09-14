@@ -107,7 +107,7 @@ export const WorkspaceDashboardRoot = observer(function WorkspaceDashboardRoot(p
         description={t("workspace_projects.empty_state.no_projects.description")}
         actions={[
           {
-            label: "Create a project",
+            label: "Create a container",
             onClick: () => {
               toggleCreateProjectModal(true);
             },

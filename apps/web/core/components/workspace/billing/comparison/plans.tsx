@@ -71,12 +71,12 @@ export const PLANS_LIST: TPlanePlans[] = ["free", "one", "pro", "business", "ent
 
 export const PLANS_COMPARISON_LIST: TPlansComparisonDetails[] = [
   {
-    id: "project-work-tracking",
-    title: "Project + work tracking",
+    id: "container-work-tracking",
+    title: "Container + work tracking",
     features: [
       {
-        title: "Projects",
-        description: "Add projects to house tasks, cycles, and modules.",
+        title: "Containers",
+        description: "Add containers to house tasks, cycles, and projects / jobs.",
         cloud: {
           free: true,
           one: true,
@@ -87,7 +87,7 @@ export const PLANS_COMPARISON_LIST: TPlansComparisonDetails[] = [
       },
       {
         title: "Tasks",
-        description: "Add work via tasks, set properties for tracking, and add to\ncycles or modules.",
+        description: "Add work via tasks, set properties for tracking, and add to\ncycles or projects / jobs.",
         cloud: {
           free: true,
           one: true,
@@ -119,8 +119,8 @@ export const PLANS_COMPARISON_LIST: TPlansComparisonDetails[] = [
         },
       },
       {
-        title: "Modules",
-        description: "Group replicable work in modules with their own\nleads.",
+        title: "Projects / Jobs",
+        description: "Group replicable work in projects / jobs with their own\nleads.",
         cloud: {
           free: true,
           one: true,
@@ -155,12 +155,12 @@ export const PLANS_COMPARISON_LIST: TPlansComparisonDetails[] = [
     ],
   },
   {
-    id: "project-work-management",
-    title: "Project + work management",
+    id: "container-work-management",
+    title: "Container + work management",
     features: [
       {
         title: "Bulk Ops",
-        description: "Add several tasks to cycles or modules, transfer\nthem, or edit their properties.",
+        description: "Add several tasks to cycles or projects / jobs, transfer\nthem, or edit their properties.",
         cloud: {
           free: false,
           one: "Limited props",
@@ -192,7 +192,7 @@ export const PLANS_COMPARISON_LIST: TPlansComparisonDetails[] = [
       },
       {
         title: "Active Cycles",
-        description: "See all running cycles across all projects, or soon, in\na single project.",
+        description: "See all running cycles across all containers, or soon, in\na single container.",
         cloud: {
           free: false,
           one: true,
@@ -214,11 +214,11 @@ export const PLANS_COMPARISON_LIST: TPlansComparisonDetails[] = [
       },
       {
         title: "Custom Properties",
-        description: "Create your own properties and apply them to your\nworkspace or project.",
+        description: "Create your own properties and apply them to your\nworkspace or container.",
         cloud: {
           free: false,
           one: false,
-          pro: "Project-level\ncustom properties",
+          pro: "Container-level\ncustom properties",
           business: "Workspace-level\nproperties and roll-ups",
           enterprise: "Workspace-level\nproperties and roll-ups",
         },
@@ -236,7 +236,7 @@ export const PLANS_COMPARISON_LIST: TPlansComparisonDetails[] = [
       },
       {
         title: "Task Transfers",
-        description: "Move a task from a project or a cycle to\nanother.",
+        description: "Move a task from a container or a cycle to\nanother.",
         cloud: {
           free: false,
           one: false,
@@ -248,7 +248,7 @@ export const PLANS_COMPARISON_LIST: TPlansComparisonDetails[] = [
       {
         title: "Auto-transfer Cycle Tasks",
         description:
-          "Transfer incomplete tasks from a completed cycle\nto the next cycle or to the default project state. ",
+          "Transfer incomplete tasks from a completed cycle\nto the next cycle or to the default container state. ",
         cloud: {
           free: false,
           one: false,
@@ -259,7 +259,7 @@ export const PLANS_COMPARISON_LIST: TPlansComparisonDetails[] = [
       },
       {
         title: "Epics",
-        description: "Organize long-term work in epics that house tasks,\ncycles, and modules.",
+        description: "Organize long-term work in epics that house tasks,\ncycles, and projects / jobs.",
         cloud: {
           free: false,
           one: false,
@@ -283,7 +283,7 @@ export const PLANS_COMPARISON_LIST: TPlansComparisonDetails[] = [
       {
         title: "Checkpoints",
         description:
-          "Add markers to Projects, Epics and Initiatives to keep your\nteam on track and report on progress.",
+          "Add markers to Containers, Epics and Initiatives to keep your\nteam on track and report on progress.",
         comingSoon: true,
         cloud: {
           free: false,
@@ -294,8 +294,8 @@ export const PLANS_COMPARISON_LIST: TPlansComparisonDetails[] = [
         },
       },
       {
-        title: "Module Overview",
-        description: "Like Cycle Overviews, see relevant details and\nprogress charts for each module.",
+        title: "Project / Job Overview",
+        description: "Like Cycle Overviews, see relevant details and\nprogress charts for each project / job.",
         cloud: {
           free: false,
           one: false,
@@ -305,7 +305,7 @@ export const PLANS_COMPARISON_LIST: TPlansComparisonDetails[] = [
         },
       },
       {
-        title: "Auto-assignment In Modules",
+        title: "Auto-assignment In Projects / Jobs",
         description: "Choose assignment rules for tasks in a\nmodule including Linear, Round Robin, or Capacity.",
         cloud: {
           free: false,
@@ -328,9 +328,9 @@ export const PLANS_COMPARISON_LIST: TPlansComparisonDetails[] = [
       //   },
       // },
       {
-        title: "Public, Private, and Secret projects",
+        title: "Public, Private, and Secret containers",
         description:
-          "Public projects are visible and accessible to\neveryone. Private ones are visible but need approval\nto join. Secret projects aren't visible or accessible.",
+          "Public containers are visible and accessible to\neveryone. Private ones are visible but need approval\nto join. Secret containers aren't visible or accessible.",
         cloud: {
           free: false,
           one: false,
@@ -340,9 +340,9 @@ export const PLANS_COMPARISON_LIST: TPlansComparisonDetails[] = [
         },
       },
       {
-        title: "State Of Projects",
+        title: "State Of Containers",
         description:
-          "See all projects laid across states that highlight\nthose that need attention and those on track.",
+          "See all containers laid across states that highlight\nthose that need attention and those on track.",
         cloud: {
           free: false,
           one: false,
@@ -379,7 +379,7 @@ export const PLANS_COMPARISON_LIST: TPlansComparisonDetails[] = [
       },
       {
         title: "Teamspace Cycles",
-        description: "See multiple cycles in multiple projects at once.",
+        description: "See multiple cycles in multiple containers at once.",
         cloud: {
           free: false,
           one: false,
@@ -389,8 +389,8 @@ export const PLANS_COMPARISON_LIST: TPlansComparisonDetails[] = [
         },
       },
       {
-        title: "Project Templates",
-        description: "Save states, workflows, automation, and other project\nsettings into templates.",
+        title: "Container Templates",
+        description: "Save states, workflows, automation, and other container\nsettings into templates.",
         cloud: {
           free: false,
           one: false,
@@ -401,7 +401,7 @@ export const PLANS_COMPARISON_LIST: TPlansComparisonDetails[] = [
       },
       {
         title: "Baselines And Deviations",
-        description: "Declare baselines for how your projects progress\nand zoom in on deviations.",
+        description: "Declare baselines for how your containers progress\nand zoom in on deviations.",
         cloud: {
           free: false,
           one: false,
@@ -456,7 +456,7 @@ export const PLANS_COMPARISON_LIST: TPlansComparisonDetails[] = [
       },
       {
         title: "Emails For Intake",
-        description: "Get an email address for reporting tasks\ndirectly into a project's Intake.",
+        description: "Get an email address for reporting tasks\ndirectly into a container's Intake.",
         comingSoon: true,
         cloud: {
           free: false,
@@ -537,7 +537,7 @@ export const PLANS_COMPARISON_LIST: TPlansComparisonDetails[] = [
       {
         title: "Progress Charts",
         description:
-          "Track progress in cycles, modules, and overviews\nthroughout Plane without switching to dashboards\nor Analytics.",
+          "Track progress in cycles, projects / jobs, and overviews\nthroughout Plane without switching to dashboards\nor Analytics.",
         cloud: {
           free: false,
           one: false,
@@ -595,7 +595,7 @@ export const PLANS_COMPARISON_LIST: TPlansComparisonDetails[] = [
       },
       {
         title: "Custom Reports",
-        description: "Generate reports by any dimension and metric\nacross your project or workspace.",
+        description: "Generate reports by any dimension and metric\nacross your container or workspace.",
         comingSoon: true,
         cloud: {
           free: false,
@@ -674,7 +674,7 @@ export const PLANS_COMPARISON_LIST: TPlansComparisonDetails[] = [
     features: [
       {
         title: "Member limit",
-        description: "Number of seats that can use project and work management features",
+        description: "Number of seats that can use container and work management features",
         selfHostedDescription: "Number of users that our standard infra supports\nIncrease infra to get more users",
         cloud: {
           free: "12",
@@ -704,7 +704,7 @@ export const PLANS_COMPARISON_LIST: TPlansComparisonDetails[] = [
       },
       {
         title: "Guests",
-        description: "Let some users see everything or just their tasks in\na project.",
+        description: "Let some users see everything or just their tasks in\na container.",
         cloud: {
           free: false,
           one: "5 per paid member",
@@ -715,7 +715,7 @@ export const PLANS_COMPARISON_LIST: TPlansComparisonDetails[] = [
       },
       {
         title: "Approvals",
-        description: "Set workspace, project, and task type approvals to\ndesignated admins.",
+        description: "Set workspace, container, and task type approvals to\ndesignated admins.",
         comingSoon: true,
         cloud: {
           free: false,
@@ -818,7 +818,7 @@ export const PLANS_COMPARISON_LIST: TPlansComparisonDetails[] = [
       },
       {
         title: "Real-time Collab",
-        description: "Edit a page together with members in your project,\nteam, or workspace.",
+        description: "Edit a page together with members in your container,\nteam, or workspace.",
         cloud: {
           free: false,
           one: true,
@@ -829,7 +829,7 @@ export const PLANS_COMPARISON_LIST: TPlansComparisonDetails[] = [
       },
       {
         title: "Task Embeds",
-        description: "Embed tasks from any project you are a member\nof.",
+        description: "Embed tasks from any container you are a member\nof.",
         cloud: {
           free: false,
           one: true,
@@ -863,7 +863,7 @@ export const PLANS_COMPARISON_LIST: TPlansComparisonDetails[] = [
       },
       {
         title: "Wiki",
-        description: "Create company-wide wikis or knowledge bases\nwithout creating a project.",
+        description: "Create company-wide wikis or knowledge bases\nwithout creating a container.",
         cloud: {
           free: false,
           one: true,
@@ -885,7 +885,7 @@ export const PLANS_COMPARISON_LIST: TPlansComparisonDetails[] = [
       },
       {
         title: "Templates",
-        description: "Use pages as templates for your project, team, or\nworkspace.",
+        description: "Use pages as templates for your container, team, or\nworkspace.",
         cloud: {
           free: false,
           one: false,
@@ -1301,10 +1301,10 @@ export const PLANE_PLANS: PlanePlans = {
     },
   },
   planHighlights: {
-    free: ["Upto 12 users", "Pages", "Unlimited projects", "Unlimited cycles and modules"],
+    free: ["Upto 12 users", "Pages", "Unlimited containers", "Unlimited cycles and projects / jobs"],
     one: ["Upto 50 users", "OIDC and SAML", "Active cycles", "Limited time tracking"],
     pro: ["Unlimited users", "Custom tasks + Properties", "Task templates", "Full Time Tracking"],
-    business: ["RBAC", "Project Templates", "Baselines And Deviations", "Custom Reports"],
+    business: ["RBAC", "Container Templates", "Baselines And Deviations", "Custom Reports"],
     enterprise: ["Private + managed deployments", "GAC", "LDAP support", "Databases + Formulas"],
   },
   planComparison: PLANS_COMPARISON_LIST,

@@ -14,6 +14,13 @@ import { WorkspaceService } from "@/services/workspace.service";
 import type { IWorkspaceLinkStore } from "./link.store";
 import { WorkspaceLinkStore } from "./link.store";
 
+/**
+ * Home widgets the API still returns but that we do not surface, in the widget
+ * area or in the "Manage widgets" dialog. Filtered here rather than at each call
+ * site so the dialog and the rendered panels can never disagree.
+ */
+const HIDDEN_HOME_WIDGETS = new Set<THomeWidgetKeys>(["my_stickies"]);
+
 export interface IHomeStore {
   // observables
   loading: boolean;
@@ -76,7 +83,9 @@ export class HomeStore implements IHomeStore {
   }
 
   get orderedWidgets() {
-    return orderBy(Object.values(this.widgetsMap), "sort_order", "desc").map((widget) => widget.key);
+    return orderBy(Object.values(this.widgetsMap), "sort_order", "desc")
+      .map((widget) => widget.key)
+      .filter((key) => !HIDDEN_HOME_WIDGETS.has(key));
   }
 
   toggleWidgetSettings = (value?: boolean) => {

@@ -53,14 +53,14 @@ export const ModuleEmptyState = observer(function ModuleEmptyState() {
         setToast({
           type: TOAST_TYPE.SUCCESS,
           title: "Success!",
-          message: "Tasks added to the module successfully.",
+          message: "Tasks added to the project / job successfully.",
         })
       )
       .catch(() =>
         setToast({
           type: TOAST_TYPE.ERROR,
           title: "Error!",
-          message: "Selected tasks could not be added to the module. Please try again.",
+          message: "Selected tasks could not be added to the project / job. Please try again.",
         })
       );
   };

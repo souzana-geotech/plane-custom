@@ -45,7 +45,7 @@ export function ArchiveModuleModal(props: Props) {
         setToast({
           type: TOAST_TYPE.SUCCESS,
           title: "Archive success",
-          message: "Your archives can be found in project archives.",
+          message: "Your archives can be found in container archives.",
         });
         onClose();
         router.push(`/${workspaceSlug}/projects/${projectId}/modules`);
@@ -55,7 +55,7 @@ export function ArchiveModuleModal(props: Props) {
         setToast({
           type: TOAST_TYPE.ERROR,
           title: "Error!",
-          message: "Module could not be archived. Please try again.",
+          message: "Project / Job could not be archived. Please try again.",
         })
       )
       .finally(() => setIsArchiving(false));

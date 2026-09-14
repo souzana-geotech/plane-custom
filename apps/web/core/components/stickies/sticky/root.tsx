@@ -26,10 +26,9 @@ type TProps = {
   className?: string;
   stickyId: string | undefined;
   showToolbar?: boolean;
-  handleLayout?: () => void;
 };
 export const StickyNote = observer(function StickyNote(props: TProps) {
-  const { onClose, workspaceSlug, className = "", stickyId, showToolbar, handleLayout } = props;
+  const { onClose, workspaceSlug, className = "", stickyId, showToolbar } = props;
   // navigation
   // const pathName = usePathname();
   // states
@@ -80,7 +79,14 @@ export const StickyNote = observer(function StickyNote(props: TProps) {
         handleClose={() => setIsDeleteModalOpen(false)}
       />
       <div
-        className={cn("group/sticky flex h-fit w-full flex-col overflow-y-scroll rounded-sm", className)}
+        className={cn(
+          // The editor inside owns the scrolling, so the card itself only needs to
+          // clip its rounded corners — a second scroll container here just showed a
+          // permanent gutter on platforms that always paint scrollbars.
+          "group/sticky flex h-fit w-full flex-col overflow-hidden rounded-lg",
+          "shadow-raised-100 transition-shadow duration-200 hover:shadow-raised-200",
+          className
+        )}
         style={{
           backgroundColor,
         }}
@@ -97,7 +103,6 @@ export const StickyNote = observer(function StickyNote(props: TProps) {
             stickyData={stickyData}
             workspaceSlug={workspaceSlug}
             handleUpdate={(payload) => {
-              handleLayout?.();
               debouncedFormSave(payload);
             }}
             stickyId={stickyId}

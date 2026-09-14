@@ -9,7 +9,7 @@
   "sidebar": {
     "stickies": "Stickies",
     "your_work": "Your work",
-    "projects": "Projects",
+    "projects": "Containers",
     "pages": "Pages",
     "new_work_item": "New task",
     "home": "My Work",
@@ -20,7 +20,7 @@
     "analytics": "Analytics",
     "work_items": "Tasks",
     "cycles": "Cycles",
-    "modules": "Modules",
+    "modules": "Jobs",
     "intake": "Intake",
     "drafts": "Drafts",
     "favorites": "Favorites",
@@ -31,6 +31,6 @@
     "upgrade_plan": "Upgrade plan",
     "plane_pro": "Plane Pro",
     "business": "Business",
-    "all_projects": "All projects"
+    "all_projects": "All containers"
   }
 }

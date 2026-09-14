@@ -45,7 +45,7 @@ export function DeleteProjectModal(props: DeleteProjectModal) {
     watch,
   } = useForm({ defaultValues });
 
-  const canDelete = watch("projectName") === project?.name && watch("confirmDelete") === "delete my project";
+  const canDelete = watch("projectName") === project?.name && watch("confirmDelete") === "delete my container";
 
   const handleClose = () => {
     const timer = setTimeout(() => {
@@ -66,7 +66,7 @@ export function DeleteProjectModal(props: DeleteProjectModal) {
       setToast({
         type: TOAST_TYPE.SUCCESS,
         title: "Success!",
-        message: "Project deleted successfully.",
+        message: "Container deleted successfully.",
       });
     } catch (_error) {
       setToast({
@@ -85,7 +85,7 @@ export function DeleteProjectModal(props: DeleteProjectModal) {
             <WarningTriangleOutline className="h-6 w-6 text-danger-primary" aria-hidden="true" />
           </span>
           <span className="flex items-center justify-start">
-            <h3 className="text-18 font-medium 2xl:text-20">Delete project</h3>
+            <h3 className="text-18 font-medium 2xl:text-20">Delete container</h3>
           </span>
         </div>
         <span>
@@ -112,7 +112,7 @@ export function DeleteProjectModal(props: DeleteProjectModal) {
                     value={value}
                     onChange={onChange}
                     ref={ref}
-                    placeholder="Project name"
+                    placeholder="Container name"
                     autoComplete="off"
                   />
                 </InputGroup>
@@ -122,7 +122,7 @@ export function DeleteProjectModal(props: DeleteProjectModal) {
         </div>
         <div className="text-secondary">
           <p className="text-13">
-            To confirm, type <span className="font-medium text-primary">delete my project</span> below:
+            To confirm, type <span className="font-medium text-primary">delete my container</span> below:
           </p>
           <Controller
             control={control}
@@ -138,7 +138,7 @@ export function DeleteProjectModal(props: DeleteProjectModal) {
                     value={value}
                     onChange={onChange}
                     ref={ref}
-                    placeholder="Enter 'delete my project'"
+                    placeholder="Enter 'delete my container'"
                     autoComplete="off"
                   />
                 </InputGroup>
@@ -151,7 +151,7 @@ export function DeleteProjectModal(props: DeleteProjectModal) {
             Cancel
           </Button>
           <Button variant="error-fill" size="lg" type="submit" disabled={!canDelete} loading={isSubmitting}>
-            {isSubmitting ? "Deleting" : "Delete project"}
+            {isSubmitting ? "Deleting" : "Delete container"}
           </Button>
         </div>
       </form>

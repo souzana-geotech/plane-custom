@@ -56,7 +56,7 @@ export function ArchiveRestoreProjectModal(props: Props) {
         setToast({
           type: TOAST_TYPE.ERROR,
           title: "Error!",
-          message: "Project could not be archived. Please try again.",
+          message: "Container could not be archived. Please try again.",
         })
       )
       .finally(() => setIsLoading(false));
@@ -69,7 +69,7 @@ export function ArchiveRestoreProjectModal(props: Props) {
         setToast({
           type: TOAST_TYPE.SUCCESS,
           title: "Restore success",
-          message: `You can find ${projectDetails.name} in your projects.`,
+          message: `You can find ${projectDetails.name} in your containers.`,
         });
         onClose();
         router.push(`/${workspaceSlug}/projects/`);
@@ -79,7 +79,7 @@ export function ArchiveRestoreProjectModal(props: Props) {
         setToast({
           type: TOAST_TYPE.ERROR,
           title: "Error!",
-          message: "Project could not be restored. Please try again.",
+          message: "Container could not be restored. Please try again.",
         })
       )
       .finally(() => setIsLoading(false));
@@ -93,8 +93,8 @@ export function ArchiveRestoreProjectModal(props: Props) {
         </h3>
         <p className="mt-3 text-13 text-secondary">
           {archive
-            ? "This project and its tasks, cycles, modules, and pages will be archived. Its tasks won't appear in search. Only project admins can restore the project."
-            : "Restoring a project will activate it and make it visible to all members of the project. Are you sure you want to continue?"}
+            ? "This container and its tasks, cycles, projects / jobs, and pages will be archived. Its tasks won't appear in search. Only container admins can restore the container."
+            : "Restoring a container will activate it and make it visible to all members of the container. Are you sure you want to continue?"}
         </p>
         <div className="mt-3 flex justify-end gap-2">
           <Button variant="secondary" size="lg" onClick={onClose}>

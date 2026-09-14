@@ -41,9 +41,9 @@
         "failed": "Task could not be removed from the cycle. Please try again."
       },
       "module": {
-        "loading": "Removing task from the module",
-        "success": "Task removed from the module successfully.",
-        "failed": "Task could not be removed from the module. Please try again."
+        "loading": "Removing task from the project / job",
+        "success": "Task removed from the project / job successfully.",
+        "failed": "Task could not be removed from the project / job. Please try again."
       },
       "parent": {
         "label": "Remove parent task"
@@ -179,7 +179,7 @@
       "confirm_message": "Are you sure you want to archive the task? All your archived tasks can be restored later.",
       "success": {
         "label": "Archive success",
-        "message": "Your archives can be found in project archives."
+        "message": "Your archives can be found in container archives."
       },
       "failed": {
         "message": "Task could not be archived. Please try again."
@@ -188,7 +188,7 @@
     "restore": {
       "success": {
         "title": "Restore success",
-        "message": "Your task can be found in project tasks."
+        "message": "Your task can be found in container tasks."
       },
       "failed": {
         "message": "Task could not be restored. Please try again."
@@ -233,10 +233,10 @@
     "open_in_full_screen": "Open task in full screen",
     "duplicate": {
       "modal": {
-        "title": "Make a copy to another project",
+        "title": "Make a copy to another container",
         "description1": "This creates a copy of the task.",
         "description2": "All property data will be removed while duplicating.",
-        "placeholder": "Select a project"
+        "placeholder": "Select a container"
       }
     },
     "toast": {
@@ -291,14 +291,14 @@
       },
       "expand_all": "Expand all",
       "collapse_all": "Collapse all",
-      "truncated": "Showing the first {count} tasks. This module is too large to render its full WBS tree.",
+      "truncated": "Showing the first {count} tasks. This project / job is too large to render its full WBS tree.",
       "error": {
         "title": "Couldn't build the WBS tree",
         "message": "The task hierarchy could not be loaded. Every other layout is unaffected."
       },
       "move_failed": "Move failed",
       "move_failed_message": "The task could not be moved. Please try again.",
-      "move_rejected_cycle": "A task cannot be moved under itself or one of its own sub-tasks.",
+      "move_rejected_cycle": "A task cannot be moved under itself or one of its own subtasks.",
       "editing_disabled_filtered": "Drag-and-drop reordering is turned off while filters are active."
     }
   },
@@ -389,7 +389,7 @@
       },
       "create_button": {
         "label": "Create recurring task",
-        "no_permission": "Contact your project admin to create recurring tasks"
+        "no_permission": "Contact your container admin to create recurring tasks"
       }
     },
     "empty_state": {

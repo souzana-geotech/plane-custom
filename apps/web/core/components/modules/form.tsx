@@ -112,7 +112,7 @@ export function ModuleForm(props: Props) {
             />
           )}
           <h3 className="text-18 font-medium text-secondary">
-            {status ? t("common.update") : t("common.create")} {t("common.module").toLowerCase()}
+            {status ? t("project_module.update_module") : t("project_module.create_module")}
           </h3>
         </div>
         <div className="space-y-3">

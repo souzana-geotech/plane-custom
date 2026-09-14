@@ -125,7 +125,7 @@ export const useIssueActionHandlers = (props: MenuItemFactoryProps) => {
         setToast({
           type: TOAST_TYPE.SUCCESS,
           title: "Restore success",
-          message: "Your task can be found in project tasks.",
+          message: "Your task can be found in container tasks.",
         });
       })
       .catch(() => {
@@ -222,10 +222,10 @@ export const useMenuItemFactory = (props: MenuItemFactoryProps) => {
   });
 
   const createRemoveFromModuleMenuItem = (): TContextMenuItem => ({
-    key: "remove-from-module",
-    title: "Remove from module",
+    key: "remove-from-project / job",
+    title: "Remove from project / job",
     icon: CloseCircleOutline,
-    action: () => handleOptionalAction(handleRemoveFromView, "Remove from module"),
+    action: () => handleOptionalAction(handleRemoveFromView, "Remove from project / job"),
     shouldRender: isEditingAllowed,
   });
 

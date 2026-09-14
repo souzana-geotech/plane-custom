@@ -16,8 +16,8 @@ export const INDIVIDUAL_WEBHOOK_OPTIONS: {
 }[] = [
   {
     key: "project",
-    label: "Projects",
-    description: "Project created, updated, or deleted",
+    label: "Containers",
+    description: "Container created, updated, or deleted",
   },
   {
     key: "cycle",
@@ -27,12 +27,12 @@ export const INDIVIDUAL_WEBHOOK_OPTIONS: {
   {
     key: "issue",
     label: "Tasks",
-    description: "Task created, updated, deleted, added to a cycle or module",
+    description: "Task created, updated, deleted, added to a cycle or project / job",
   },
   {
     key: "module",
-    label: "Modules",
-    description: "Module created, updated, or deleted",
+    label: "Projects / Jobs",
+    description: "Project / Job created, updated, or deleted",
   },
   {
     key: "issue_comment",

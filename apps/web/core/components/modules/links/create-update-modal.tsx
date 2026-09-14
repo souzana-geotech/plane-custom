@@ -56,14 +56,14 @@ export function CreateUpdateModuleLinkModal(props: Props) {
         setToast({
           type: TOAST_TYPE.SUCCESS,
           title: "Success!",
-          message: "Module link created successfully.",
+          message: "Project / Job link created successfully.",
         });
       } else {
         await updateLink(payload, data.id);
         setToast({
           type: TOAST_TYPE.SUCCESS,
           title: "Success!",
-          message: "Module link updated successfully.",
+          message: "Project / Job link updated successfully.",
         });
       }
       onClose();

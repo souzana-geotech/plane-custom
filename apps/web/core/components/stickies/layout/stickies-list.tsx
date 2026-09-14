@@ -13,7 +13,6 @@ import type { ElementDragPayload } from "@atlaskit/pragmatic-drag-and-drop/eleme
 import { observer } from "mobx-react";
 import { usePathname } from "next/navigation";
 import { useTheme } from "next-themes";
-import Masonry from "react-masonry-component";
 
 // plane imports
 import { EUserPermissionsLevel } from "@plane/constants";
@@ -62,8 +61,6 @@ export const StickiesList = observer(function StickiesList(props: TProps) {
   const { stickyOperations } = useStickyOperations({ workspaceSlug: workspaceSlug?.toString() });
   // derived values
   const workspaceStickyIds = getWorkspaceStickyIds(workspaceSlug?.toString());
-  const itemWidth = `${100 / columnCount}%`;
-  const totalRows = Math.ceil(workspaceStickyIds.length / columnCount);
   const isStickiesPage = pathname?.includes("stickies");
   const hasGuestLevelPermissions = allowPermissions(
     [EUserWorkspaceRoles.ADMIN, EUserWorkspaceRoles.MEMBER, EUserWorkspaceRoles.GUEST],
@@ -71,24 +68,6 @@ export const StickiesList = observer(function StickiesList(props: TProps) {
   );
   const stickiesResolvedPath = resolvedTheme === "light" ? lightStickiesAsset : darkStickiesAsset;
   const stickiesSearchResolvedPath = resolvedTheme === "light" ? lightStickiesSearchAsset : darkStickiesSearchAsset;
-  const masonryRef = useRef<any>(null);
-
-  const handleLayout = () => {
-    if (masonryRef.current) {
-      // Force reflow
-      masonryRef.current.performLayout();
-    }
-  };
-
-  // Function to determine if an item is in first or last row
-  const getRowPositions = (index: number) => {
-    const currentRow = Math.floor(index / columnCount);
-    return {
-      isInFirstRow: currentRow === 0,
-      isInLastRow: currentRow === totalRows - 1 || index >= workspaceStickyIds.length - columnCount,
-    };
-  };
-
   const handleDrop = (self: DropTargetRecord, source: ElementDragPayload, location: DragLocationHistory) => {
     const dropTargets = location?.current?.dropTargets ?? [];
     if (!dropTargets || dropTargets.length <= 0) return;
@@ -149,26 +128,23 @@ export const StickiesList = observer(function StickiesList(props: TProps) {
 
   return (
     <div className="transition-opacity duration-300 ease-in-out">
-      {/* @ts-expect-error type mismatch here */}
-      <Masonry elementType="div" ref={masonryRef}>
-        {workspaceStickyIds.map((stickyId, index) => {
-          const { isInFirstRow, isInLastRow } = getRowPositions(index);
-          return (
-            <StickyDNDWrapper
-              key={stickyId}
-              stickyId={stickyId}
-              workspaceSlug={workspaceSlug.toString()}
-              itemWidth={itemWidth}
-              handleDrop={handleDrop}
-              isLastChild={index === workspaceStickyIds.length - 1}
-              isInFirstRow={isInFirstRow}
-              isInLastRow={isInLastRow}
-              handleLayout={handleLayout}
-            />
-          );
-        })}
-        {intersectionElement && <div style={{ width: itemWidth }}>{intersectionElement}</div>}
-      </Masonry>
+      {/*
+        CSS multi-column gives the masonry flow natively: each sticky keeps its own
+        height and the browser balances the columns, with no measuring pass to run
+        and nothing to re-run when a sticky's content grows.
+      */}
+      <div style={{ columnCount, columnGap: 0 }}>
+        {workspaceStickyIds.map((stickyId, index) => (
+          <StickyDNDWrapper
+            key={stickyId}
+            stickyId={stickyId}
+            workspaceSlug={workspaceSlug.toString()}
+            handleDrop={handleDrop}
+            isLastChild={index === workspaceStickyIds.length - 1}
+          />
+        ))}
+        {intersectionElement && <div style={{ breakInside: "avoid" }}>{intersectionElement}</div>}
+      </div>
     </div>
   );
 });

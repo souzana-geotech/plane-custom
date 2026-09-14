@@ -137,7 +137,7 @@ export const Exporter = observer(function Exporter(props: Props) {
                       return projectDetails?.identifier;
                     })
                     .join(", ")
-                : "All projects"
+                : "All containers"
             }
             onOpen={() => setIsSelectOpen(true)}
             onClose={() => setIsSelectOpen(false)}

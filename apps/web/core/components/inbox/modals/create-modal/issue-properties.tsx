@@ -148,7 +148,7 @@ export const InboxIssueProperties = observer(function InboxIssueProperties(props
             value={data?.module_ids || []}
             onChange={(moduleIds) => handleData("module_ids", moduleIds)}
             projectId={projectId}
-            placeholder="Modules"
+            placeholder="Jobs"
             buttonVariant="border-with-text"
             multiple
             showCount

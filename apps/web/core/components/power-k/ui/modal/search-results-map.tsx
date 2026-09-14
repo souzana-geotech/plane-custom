@@ -87,7 +87,7 @@ export const POWER_K_SEARCH_RESULTS_GROUPS_MAP: Record<TPowerKSearchResultsKeys,
     ),
     path: (module: IWorkspaceDefaultSearchResult) =>
       `/${module?.workspace__slug}/projects/${module?.project_id}/modules/${module?.id}`,
-    title: "Modules",
+    title: "Projects / Jobs",
   },
   page: {
     icon: DocumentationOutline,
@@ -109,7 +109,7 @@ export const POWER_K_SEARCH_RESULTS_GROUPS_MAP: Record<TPowerKSearchResultsKeys,
     icon: ProjectsOutline,
     itemName: (project: IWorkspaceProjectSearchResult) => project?.name,
     path: (project: IWorkspaceProjectSearchResult) => `/${project?.workspace__slug}/projects/${project?.id}/issues/`,
-    title: "Projects",
+    title: "Containers",
   },
   workspace: {
     icon: GridOutline,

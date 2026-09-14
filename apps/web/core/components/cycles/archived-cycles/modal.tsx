@@ -45,7 +45,7 @@ export function ArchiveCycleModal(props: Props) {
         setToast({
           type: TOAST_TYPE.SUCCESS,
           title: "Archive success",
-          message: "Your archives can be found in project archives.",
+          message: "Your archives can be found in container archives.",
         });
         onClose();
         router.push(`/${workspaceSlug}/projects/${projectId}/cycles`);

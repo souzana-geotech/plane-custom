@@ -40,7 +40,7 @@ export function ProjectFeatureToggle(props: Props) {
       checked={value}
       onCheckedChange={() => handleSubmit(featureItem?.key, featureItem?.property)}
       disabled={disabled}
-      aria-label="Toggle project feature"
+      aria-label="Toggle container feature"
     />
   );
 }

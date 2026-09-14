@@ -53,7 +53,7 @@ export const FilterProjects = observer(function FilterProjects(props: Props) {
   return (
     <>
       <FilterHeader
-        title={`Project${appliedFiltersCount > 0 ? ` (${appliedFiltersCount})` : ""}`}
+        title={`Container${appliedFiltersCount > 0 ? ` (${appliedFiltersCount})` : ""}`}
         isPreviewEnabled={previewEnabled}
         handleIsPreviewEnabled={() => setPreviewEnabled(!previewEnabled)}
       />
@@ -65,7 +65,7 @@ export const FilterProjects = observer(function FilterProjects(props: Props) {
                 {sortedOptions.slice(0, itemsToRender).map((project) => (
                   <FilterOption
                     key={`project-${project.id}`}
-                    isChecked={appliedFilters?.includes(project.id) ? true : false}
+                    isChecked={!!appliedFilters?.includes(project.id)}
                     onClick={() => handleUpdate(project.id)}
                     icon={
                       <span className="grid h-4 w-4 flex-shrink-0 place-items-center">

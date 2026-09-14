@@ -80,7 +80,7 @@ export const IssuesHeader = observer(function IssuesHeader() {
           </Breadcrumbs>
           {issuesCount && issuesCount > 0 ? (
             <Tooltip
-              label={`There are ${issuesCount} ${issuesCount > 1 ? "tasks" : "task"} in this project`}
+              label={`There are ${issuesCount} ${issuesCount > 1 ? "tasks" : "task"} in this container`}
               layout="stacked"
               side="bottom"
               disabled={isMobile}

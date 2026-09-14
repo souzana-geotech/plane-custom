@@ -86,10 +86,19 @@ export function StickyInput(props: TProps) {
               return "Click to type here";
             }}
             containerClassName={cn(
-              "vertical-scrollbar scrollbar-sm max-h-[540px] min-h-[256px] w-full overflow-y-scroll p-4 text-14",
-              {
-                "max-h-[588px]": isStickiesPage,
-              }
+              // `small-font` is the editor's own type scale for compact surfaces — it
+              // drives --font-size-regular and the headings together, so a sticky's
+              // body and its headings stay in proportion.
+              "small-font w-full p-4",
+              isStickiesPage
+                ? // On the board a note is as tall as its content. The floor only keeps
+                  // an empty note big enough to aim at; the ceiling is high enough that
+                  // ordinary notes never reach it, and stops an outlier from running away
+                  // down the column — past it the note scrolls within the card.
+                  "vertical-scrollbar scrollbar-sm max-h-[900px] min-h-[84px] overflow-y-auto"
+                : // Everywhere else (modal, peek, widget) the sticky sits inside a
+                  // fixed-size container, so it keeps a ceiling and scrolls within it.
+                  "vertical-scrollbar scrollbar-sm max-h-[540px] min-h-[140px] overflow-y-auto"
             )}
             uploadFile={async () => ""}
             duplicateFile={async () => ""}

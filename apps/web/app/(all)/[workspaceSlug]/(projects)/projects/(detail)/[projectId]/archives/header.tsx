@@ -43,7 +43,7 @@ const PROJECT_ARCHIVES_BREADCRUMB_LIST: {
     icon: CyclesOutline,
   },
   modules: {
-    label: "Modules",
+    label: "Projects / Jobs",
     href: "/modules",
     icon: ModuleOutline,
   },
@@ -95,7 +95,7 @@ export const ProjectArchivesHeader = observer(function ProjectArchivesHeader(pro
           </Breadcrumbs>
           {activeTab === "issues" && issueCount && issueCount > 0 ? (
             <Tooltip
-              label={`There are ${issueCount} ${issueCount > 1 ? "tasks" : "task"} in project's archived`}
+              label={`There are ${issueCount} ${issueCount > 1 ? "tasks" : "task"} in container's archived`}
               layout="stacked"
               side="bottom"
               disabled={isMobile}

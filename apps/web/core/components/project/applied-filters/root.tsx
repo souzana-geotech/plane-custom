@@ -29,8 +29,8 @@ type Props = {
   totalProjects: number;
 };
 
-const MEMBERS_FILTERS = ["lead", "members"];
-const DATE_FILTERS = ["created_at"];
+const MEMBERS_FILTERS = new Set(["lead", "members"]);
+const DATE_FILTERS = new Set(["created_at"]);
 
 export function ProjectAppliedFiltersList(props: Props) {
   const { t } = useTranslation();
@@ -73,14 +73,14 @@ export function ProjectAppliedFiltersList(props: Props) {
                   values={value}
                 />
               )}
-              {DATE_FILTERS.includes(filterKey) && (
+              {DATE_FILTERS.has(filterKey) && (
                 <AppliedDateFilters
                   editable={isEditingAllowed}
                   handleRemove={(val) => handleRemoveFilter(filterKey, val)}
                   values={value}
                 />
               )}
-              {MEMBERS_FILTERS.includes(filterKey) && (
+              {MEMBERS_FILTERS.has(filterKey) && (
                 <AppliedMembersFilters
                   editable={isEditingAllowed}
                   handleRemove={(val) => handleRemoveFilter(filterKey, val)}
@@ -125,7 +125,10 @@ export function ProjectAppliedFiltersList(props: Props) {
         )}
       </Header.LeftItem>
       <Header.RightItem>
-        <Tooltip label={`${filteredProjects} of ${totalProjects} projects match the applied filters.`} layout="stacked">
+        <Tooltip
+          label={`${filteredProjects} of ${totalProjects} containers match the applied filters.`}
+          layout="stacked"
+        >
           <span className="rounded-full bg-layer-1 px-2.5 py-1 text-13 font-medium">
             {filteredProjects}/{totalProjects}
           </span>

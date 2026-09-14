@@ -85,7 +85,7 @@ export const ModuleListItem = observer(function ModuleListItem(props: Props) {
               value={progress}
               size="md"
               variant={progress === 100 ? "success" : "brand"}
-              aria-label="Module progress"
+              aria-label="Project / Job progress"
             />
           </div>
           <div className="pointer-events-none absolute inset-0 flex items-center justify-center">

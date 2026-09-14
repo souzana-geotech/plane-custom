@@ -111,7 +111,7 @@ export function FavoriteFolder(props: Props) {
       dropTargetForElements({
         element,
         canDrop: ({ source }) => getCanDrop(source, favorite, false),
-        getData: ({ input, element }) => {
+        getData: ({ input, element: dropTargetElement }) => {
           const blockedStates: InstructionType[] = [];
           if (!isLastChild) {
             blockedStates.push("reorder-below");
@@ -119,7 +119,7 @@ export function FavoriteFolder(props: Props) {
 
           return attachInstruction(initialData, {
             input,
-            element,
+            element: dropTargetElement,
             currentLevel: 0,
             indentPerLevel: 0,
             mode: isLastChild ? "last-in-group" : "standard",
@@ -127,8 +127,7 @@ export function FavoriteFolder(props: Props) {
           });
         },
         onDrag: ({ source, self, location }) => {
-          const instruction = getInstructionFromPayload(self, source, location);
-          setInstruction(instruction);
+          setInstruction(getInstructionFromPayload(self, source, location));
         },
         onDragLeave: () => {
           setInstruction(undefined);
@@ -187,7 +186,7 @@ export function FavoriteFolder(props: Props) {
                       className="flex w-full flex-grow items-center gap-1.5 text-left select-none"
                     >
                       <Tooltip
-                        label={favorite.sort_order === null ? "Join the project to rearrange" : "Drag to rearrange"}
+                        label={favorite.sort_order === null ? "Join the container to rearrange" : "Drag to rearrange"}
                         align="end"
                         disabled={isDragging || isMobile}
                       >

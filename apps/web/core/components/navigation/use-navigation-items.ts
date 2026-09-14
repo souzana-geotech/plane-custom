@@ -63,7 +63,7 @@ export const useNavigationItems = ({
       {
         i18n_key: "sidebar.modules",
         key: "modules",
-        name: "Modules",
+        name: "Jobs",
         href: `/${workspaceSlug}/projects/${projectId}/modules`,
         icon: ModuleOutline,
         access: [EUserPermissions.ADMIN, EUserPermissions.MEMBER],

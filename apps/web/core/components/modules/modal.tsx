@@ -63,14 +63,14 @@ export const CreateUpdateModuleModal = observer(function CreateUpdateModuleModal
         setToast({
           type: TOAST_TYPE.SUCCESS,
           title: "Success!",
-          message: "Module created successfully.",
+          message: "Project / Job created successfully.",
         });
       })
       .catch((err) => {
         setToast({
           type: TOAST_TYPE.ERROR,
           title: "Error!",
-          message: err?.detail ?? err?.error ?? "Module could not be created. Please try again.",
+          message: err?.detail ?? err?.error ?? "Project / Job could not be created. Please try again.",
         });
       });
   };
@@ -86,14 +86,14 @@ export const CreateUpdateModuleModal = observer(function CreateUpdateModuleModal
         setToast({
           type: TOAST_TYPE.SUCCESS,
           title: "Success!",
-          message: "Module updated successfully.",
+          message: "Project / Job updated successfully.",
         });
       })
       .catch((err) => {
         setToast({
           type: TOAST_TYPE.ERROR,
           title: "Error!",
-          message: err?.detail ?? err?.error ?? "Module could not be updated. Please try again.",
+          message: err?.detail ?? err?.error ?? "Project / Job could not be updated. Please try again.",
         });
       });
   };
@@ -138,7 +138,7 @@ export const CreateUpdateModuleModal = observer(function CreateUpdateModuleModal
       <ModuleForm
         handleFormSubmit={handleFormSubmit}
         handleClose={handleClose}
-        status={data ? true : false}
+        status={!!data}
         projectId={activeProject ?? ""}
         setActiveProject={setActiveProject}
         data={data}

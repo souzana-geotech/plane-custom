@@ -53,7 +53,7 @@ export const ProjectMemberListItem = observer(function ProjectMemberListItem(pro
         .catch((err) => {
           setToast({
             type: TOAST_TYPE.ERROR,
-            title: "You can’t leave this project yet.",
+            title: "You can’t leave this container yet.",
             message: err?.error || "Something went wrong. Please try again.",
           });
         });
@@ -61,7 +61,7 @@ export const ProjectMemberListItem = observer(function ProjectMemberListItem(pro
       await removeMemberFromProject(workspaceSlug.toString(), projectId.toString(), memberId).catch((err) =>
         setToast({
           type: TOAST_TYPE.ERROR,
-          title: "You can't remove the member from this project yet.",
+          title: "You can't remove the member from this container yet.",
           message: err?.error || "Something went wrong. Please try again.",
         })
       );

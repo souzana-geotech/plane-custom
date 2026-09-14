@@ -101,7 +101,7 @@ export const messages = (activity: TProjectActivity): { message: string | ReactN
       };
     case "archived_at":
       return {
-        message: newValue === "restore" ? "restored the project" : "archived the project",
+        message: newValue === "restore" ? "restored the container" : "archived the container",
         customUserName: newValue === "archive" ? "Plane" : undefined,
       };
     case "name":
@@ -114,7 +114,7 @@ export const messages = (activity: TProjectActivity): { message: string | ReactN
       };
     case "description":
       return {
-        message: newValue ? "updated the project description" : "removed the project description",
+        message: newValue ? "updated the container description" : "removed the container description",
       };
     case "start_date":
       return {
@@ -204,7 +204,7 @@ export const messages = (activity: TProjectActivity): { message: string | ReactN
               {verb} this project {verb === "removed" ? "from" : "to"} the module{" "}
             </span>
             <span className="font-medium text-primary">
-              {verb === "removed" ? oldValue : newValue || "Unknown module"}
+              {verb === "removed" ? oldValue : newValue || "Unknown project / job"}
             </span>
           </>
         ),

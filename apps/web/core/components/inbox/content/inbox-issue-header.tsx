@@ -410,7 +410,7 @@ export const InboxIssueActionsHeader = observer(function InboxIssueActionsHeader
                           handleActionWithPermission(
                             isProjectAdmin,
                             () => setSelectDuplicateIssue(true),
-                            "Only project admins can mark task as duplicate"
+                            "Only container admins can mark task as duplicate"
                           )
                         }
                       >

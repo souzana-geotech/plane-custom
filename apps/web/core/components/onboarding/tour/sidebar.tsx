@@ -27,7 +27,7 @@ const sidebarOptions: {
   },
   {
     key: "modules",
-    label: "Modules",
+    label: "Jobs",
     Icon: ModuleOutline,
   },
   {

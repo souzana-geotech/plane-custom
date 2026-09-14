@@ -7,7 +7,7 @@
 import React, { useMemo } from "react";
 import { observer } from "mobx-react";
 import { useParams } from "next/navigation";
-import { ChevronRightOutline, MoreHorizontalOutline } from "@makeplane/propel/icons";
+import { ChevronRightOutline } from "@makeplane/propel/icons";
 import { Disclosure, Transition } from "@headlessui/react";
 // plane imports
 import {
@@ -20,10 +20,7 @@ import {
 import { useTranslation } from "@plane/i18n";
 import { EUserWorkspaceRoles } from "@plane/types";
 import { cn } from "@plane/utils";
-// components
-import { SidebarNavItem } from "@/components/sidebar/sidebar-navigation";
 // store hooks
-import { useAppTheme } from "@/hooks/store/use-app-theme";
 import { useUserPermissions } from "@/hooks/store/user";
 import useLocalStorage from "@/hooks/use-local-storage";
 import {
@@ -41,7 +38,6 @@ export const SidebarMenuItems = observer(function SidebarMenuItems() {
 
   // store hooks
   const { workspaceSlug } = useParams();
-  const { isExtendedSidebarOpened, toggleExtendedSidebar } = useAppTheme();
   const { allowPermissions } = useUserPermissions();
   // hooks
   const { preferences: personalPreferences } = usePersonalNavigationPreferences();
@@ -80,6 +76,13 @@ export const SidebarMenuItems = observer(function SidebarMenuItems() {
     return [...items, ...personalItems];
   }, [personalPreferences]);
 
+  // Every workspace navigation item is shown unconditionally, so the pin state that
+  // SidebarItemBase normally gates on is bypassed for all of them.
+  const alwaysPinnedItemKeys = useMemo(
+    () => WORKSPACE_SIDEBAR_DYNAMIC_NAVIGATION_ITEMS_LINKS.map((item) => item.key),
+    []
+  );
+
   const sortedNavigationItems = useMemo(
     () =>
       // oxlint-disable-next-line oxc/no-map-spread
@@ -112,19 +115,6 @@ export const SidebarMenuItems = observer(function SidebarMenuItems() {
           ))}
         </div>
       </div>
-      {isWorkspaceAdmin && (
-        <div className="flex flex-col">
-          <div className="flex w-full items-center rounded-sm px-2 py-1.5 text-placeholder">
-            <span className="text-13 font-semibold">{t("sidebar.management")}</span>
-          </div>
-          <div className="flex flex-col gap-0.5">
-            {WORKSPACE_SIDEBAR_MANAGEMENT_NAVIGATION_ITEMS_LINKS.map((item, _index) => (
-              // oxlint-disable-next-line react/no-array-index-key
-              <SidebarItemBase key={`management_${_index}`} item={item} />
-            ))}
-          </div>
-        </div>
-      )}
       <Disclosure as="div" className="flex flex-col" defaultOpen={!!isWorkspaceMenuOpen}>
         <div className="group flex w-full items-center justify-between rounded-sm px-2 py-1.5 text-placeholder hover:bg-layer-transparent-hover">
           <Disclosure.Button
@@ -138,7 +128,7 @@ export const SidebarMenuItems = observer(function SidebarMenuItems() {
                 : "aria_labels.app_sidebar.open_workspace_menu"
             )}
           >
-            <span className="text-13 font-semibold">{t("common.workspace")}</span>
+            <span className="text-13 font-semibold">{t("sidebar.management")}</span>
           </Disclosure.Button>
           <div className="pointer-events-none flex items-center opacity-0 group-hover:pointer-events-auto group-hover:opacity-100">
             <Disclosure.Button
@@ -173,26 +163,15 @@ export const SidebarMenuItems = observer(function SidebarMenuItems() {
           {isWorkspaceMenuOpen && (
             <Disclosure.Panel as="div" className="flex flex-col gap-0.5" static>
               <>
+                {isWorkspaceAdmin &&
+                  WORKSPACE_SIDEBAR_MANAGEMENT_NAVIGATION_ITEMS_LINKS.map((item, _index) => (
+                    // oxlint-disable-next-line react/no-array-index-key
+                    <SidebarItemBase key={`management_${_index}`} item={item} />
+                  ))}
                 {sortedNavigationItems.map((item, _index) => (
                   // oxlint-disable-next-line react/no-array-index-key
-                  <SidebarItemBase key={`dynamic_${_index}`} item={item} />
+                  <SidebarItemBase key={`dynamic_${_index}`} item={item} additionalStaticItems={alwaysPinnedItemKeys} />
                 ))}
-                <SidebarNavItem>
-                  <button
-                    type="button"
-                    onClick={() => toggleExtendedSidebar()}
-                    className="flex flex-grow items-center gap-1.5 text-13 font-medium text-tertiary"
-                    id="extended-sidebar-toggle"
-                    aria-label={t(
-                      isExtendedSidebarOpened
-                        ? "aria_labels.app_sidebar.close_extended_sidebar"
-                        : "aria_labels.app_sidebar.open_extended_sidebar"
-                    )}
-                  >
-                    <MoreHorizontalOutline className="size-4 flex-shrink-0" />
-                    <span>{isExtendedSidebarOpened ? "Hide" : "More"}</span>
-                  </button>
-                </SidebarNavItem>
               </>
             </Disclosure.Panel>
           )}

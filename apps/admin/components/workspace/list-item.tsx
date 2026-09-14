@@ -65,7 +65,7 @@ export const WorkspaceListItem = observer(function WorkspaceListItem({ workspace
           <div className="flex items-center gap-2.5 text-11">
             {workspace.total_projects !== null && (
               <span className="flex items-center gap-1">
-                <h3 className="font-medium text-secondary">Total projects:</h3>
+                <h3 className="font-medium text-secondary">Total containers:</h3>
                 <h4 className="text-tertiary">{workspace.total_projects}</h4>
               </span>
             )}

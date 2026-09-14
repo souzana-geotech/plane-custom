@@ -1,38 +1,38 @@
 {
   "project_settings": {
     "general": {
-      "enter_project_id": "Enter project ID",
+      "enter_project_id": "Enter container ID",
       "please_select_a_timezone": "Please select a timezone",
       "archive_project": {
-        "title": "Archive project",
-        "description": "Archiving a project will unlist your project from your side navigation although you will still be able to access it from your projects page. You can restore the project or delete it whenever you want.",
-        "button": "Archive project"
+        "title": "Archive container",
+        "description": "Archiving a container will unlist your container from your side navigation although you will still be able to access it from your containers page. You can restore the container or delete it whenever you want.",
+        "button": "Archive container"
       },
       "delete_project": {
-        "title": "Delete project",
-        "description": "When deleting a project, all of the data and resources within that project will be permanently removed and cannot be recovered.",
-        "button": "Delete my project"
+        "title": "Delete container",
+        "description": "When deleting a container, all of the data and resources within that container will be permanently removed and cannot be recovered.",
+        "button": "Delete my container"
       },
       "toast": {
-        "success": "Project updated successfully",
-        "error": "Project could not be updated. Please try again."
+        "success": "Container updated successfully",
+        "error": "Container could not be updated. Please try again."
       }
     },
     "members": {
       "label": "Members",
-      "project_lead": "Project lead",
-      "project_lead_description": "Select the project lead for the project.",
+      "project_lead": "Container lead",
+      "project_lead_description": "Select the container lead for the container.",
       "default_assignee": "Default assignee",
-      "default_assignee_description": "Select the default assignee for the project.",
-      "project_subscribers": "Project subscribers",
-      "project_subscribers_description": "Select members who will receive notifications for this project.",
+      "default_assignee_description": "Select the default assignee for the container.",
+      "project_subscribers": "Container subscribers",
+      "project_subscribers_description": "Select members who will receive notifications for this container.",
       "guest_super_permissions": {
         "title": "Grant view access to all tasks for guest users:",
-        "sub_heading": "This will allow guests to have view access to all the project tasks."
+        "sub_heading": "This will allow guests to have view access to all the container tasks."
       },
       "invite_members": {
         "title": "Invite members",
-        "sub_heading": "Invite members to work on your project.",
+        "sub_heading": "Invite members to work on your container.",
         "select_co_worker": "Select co-worker"
       }
     },
@@ -59,7 +59,7 @@
       "heading": "Estimates",
       "description": "Set up estimation systems to track and communicate the effort required for each task.",
       "label": "Estimates",
-      "title": "Enable estimates for my project",
+      "title": "Enable estimates for my container",
       "enable_description": "They help you in communicating complexity and workload of the team.",
       "no_estimate": "No estimate",
       "new": "New estimate system",
@@ -86,7 +86,7 @@
         "updated": {
           "success": {
             "title": "Estimate modified",
-            "message": "The estimate has been updated in your project."
+            "message": "The estimate has been updated in your container."
           },
           "error": {
             "title": "Estimate modification failed",
@@ -112,7 +112,7 @@
         "reorder": {
           "success": {
             "title": "Estimates re-ordered",
-            "message": "Estimates have been re-ordered in your project."
+            "message": "Estimates have been re-ordered in your container."
           },
           "error": {
             "title": "Estimate re-order failed",
@@ -200,7 +200,7 @@
     "empty_state": {
       "labels": {
         "title": "No labels yet",
-        "description": "Create labels to help organize and filter tasks in you project."
+        "description": "Create labels to help organize and filter tasks in you container."
       },
       "estimates": {
         "title": "No estimate systems yet",
@@ -209,7 +209,7 @@
       },
       "integrations": {
         "title": "No integrations configured",
-        "description": "Configure GitHub and other integrations to sync your project tasks."
+        "description": "Configure GitHub and other integrations to sync your container tasks."
       }
     },
     "workflows": {
@@ -235,7 +235,7 @@
         }
       },
       "heading": "Workflows",
-      "description": "Automate task transitions and set rules to control how tasks move through your project pipeline.",
+      "description": "Automate task transitions and set rules to control how tasks move through your container pipeline.",
       "add_button": "Add new workflow",
       "search": "Search workflows",
       "detail": {
@@ -252,7 +252,7 @@
       "select_states": {
         "empty_state": {
           "title": "All states are in use",
-          "description": "All defined states for this project are already present in your current workflow."
+          "description": "All defined states for this container are already present in your current workflow."
         }
       },
       "default_footer": {
@@ -326,30 +326,30 @@
       "cycles": {
         "title": "Cycles",
         "short_title": "Cycles",
-        "description": "Schedule work in flexible periods that adapt to this project's unique rhythm and pace.",
+        "description": "Schedule work in flexible periods that adapt to this container's unique rhythm and pace.",
         "toggle_title": "Enable cycles",
         "toggle_description": "Plan work in focused timeframes."
       },
       "modules": {
-        "title": "Modules",
-        "short_title": "Modules",
-        "description": "Organize work into sub-projects with dedicated leads and assignees.",
-        "toggle_title": "Enable modules",
-        "toggle_description": "Project members will be able to create and edit modules."
+        "title": "Projects / Jobs",
+        "short_title": "Projects / Jobs",
+        "description": "Group work into projects or jobs with dedicated leads and assignees.",
+        "toggle_title": "Enable projects / jobs",
+        "toggle_description": "Container members will be able to create and edit projects / jobs."
       },
       "views": {
         "title": "Views",
         "short_title": "Views",
         "description": "Save custom sorts, filters, and display options or share them with your team.",
         "toggle_title": "Enable views",
-        "toggle_description": "Project members will be able to create and edit views."
+        "toggle_description": "Container members will be able to create and edit views."
       },
       "pages": {
         "title": "Pages",
         "short_title": "Pages",
         "description": "Create and edit free-form content; notes, docs, anything.",
         "toggle_title": "Enable pages",
-        "toggle_description": "Project members will be able to create and edit pages."
+        "toggle_description": "Container members will be able to create and edit pages."
       },
       "intake": {
         "intake_responsibility": "Intake responsibility",
@@ -358,9 +358,9 @@
         "short_title": "Intake",
         "description": "Let non-members share bugs, feedback, and suggestions; without disrupting your workflow.",
         "toggle_title": "Enable intake",
-        "toggle_description": "Let project members create in app intake requests.",
-        "toggle_tooltip_on": "Ask your Project Admin to turn this on.",
-        "toggle_tooltip_off": "Ask your Project Admin to turn this off.",
+        "toggle_description": "Let container members create in app intake requests.",
+        "toggle_tooltip_on": "Ask your Container Admin to turn this on.",
+        "toggle_tooltip_off": "Ask your Container Admin to turn this off.",
         "notify_assignee": {
           "title": "Notify assignees",
           "description": "For a new request to intake, default assignees will be alerted via notifications"
@@ -413,9 +413,9 @@
       "time_tracking": {
         "title": "Time tracking",
         "short_title": "Time tracking",
-        "description": "Log time spent on tasks and projects.",
+        "description": "Log time spent on tasks and containers.",
         "toggle_title": "Enable time tracking",
-        "toggle_description": "Project members will be able to log time worked."
+        "toggle_description": "Container members will be able to log time worked."
       },
       "milestones": {
         "title": "Milestones",
@@ -425,18 +425,18 @@
         "toggle_description": "Organize tasks by milestone deadlines."
       },
       "toasts": {
-        "loading": "Updating project feature...",
-        "success": "Project feature updated successfully.",
-        "error": "Something went wrong while updating project feature. Please try again."
+        "loading": "Updating container feature...",
+        "success": "Container feature updated successfully.",
+        "error": "Something went wrong while updating container feature. Please try again."
       }
     },
     "project_updates": {
-      "heading": "Project Updates",
-      "description": "Consolidated tracking and progress monitoring for this project"
+      "heading": "Container Updates",
+      "description": "Consolidated tracking and progress monitoring for this container"
     },
     "templates": {
       "heading": "Templates",
-      "description": "Save 80% time spent on creating projects, tasks, and pages when you use templates."
+      "description": "Save 80% time spent on creating containers, tasks, and pages when you use templates."
     },
     "cycles": {
       "auto_schedule": {

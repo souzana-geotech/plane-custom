@@ -165,7 +165,7 @@ export const InboxIssueActionsMobileHeader = observer(function InboxIssueActions
                   handleActionWithPermission(
                     isProjectAdmin,
                     handleIssueSnoozeAction,
-                    "Only project admins can snooze/Un-snooze tasks"
+                    "Only container admins can snooze/Un-snooze tasks"
                   )
                 }
               >
@@ -181,7 +181,7 @@ export const InboxIssueActionsMobileHeader = observer(function InboxIssueActions
                   handleActionWithPermission(
                     isProjectAdmin,
                     () => setSelectDuplicateIssue(true),
-                    "Only project admins can mark tasks as duplicate"
+                    "Only container admins can mark tasks as duplicate"
                   )
                 }
               >
@@ -197,7 +197,7 @@ export const InboxIssueActionsMobileHeader = observer(function InboxIssueActions
                   handleActionWithPermission(
                     isProjectAdmin,
                     () => setAcceptIssueModal(true),
-                    "Only project admins can accept tasks"
+                    "Only container admins can accept tasks"
                   )
                 }
               >
@@ -213,7 +213,7 @@ export const InboxIssueActionsMobileHeader = observer(function InboxIssueActions
                   handleActionWithPermission(
                     isProjectAdmin,
                     () => setDeclineIssueModal(true),
-                    "Only project admins can deny tasks"
+                    "Only container admins can deny tasks"
                   )
                 }
               >

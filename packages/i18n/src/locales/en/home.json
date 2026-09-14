@@ -4,8 +4,8 @@
       "quickstart_guide": "Your quickstart guide",
       "not_right_now": "Not right now",
       "create_project": {
-        "title": "Create a project",
-        "description": "Most things start with a project in Plane.",
+        "title": "Create a container",
+        "description": "Most things start with a container in Plane.",
         "cta": "Get started"
       },
       "invite_team": {
@@ -41,14 +41,14 @@
     "recents": {
       "title": "Recent",
       "empty": {
-        "project": "Your recent projects will appear here once you visit one.",
+        "project": "Your recent containers will appear here once you visit one.",
         "page": "Your recent pages will appear here once you visit one.",
         "issue": "Your recent tasks will appear here once you visit one.",
         "default": "You don't have any recents yet."
       },
       "filters": {
         "all": "All",
-        "projects": "Projects",
+        "projects": "Containers",
         "pages": "Pages",
         "issues": "Tasks"
       },
@@ -113,8 +113,8 @@
       "remove_due_date": "Remove due date"
     },
     "filter": {
-      "by_project": "Filter by project",
-      "all_projects": "All projects"
+      "by_project": "Filter by container",
+      "all_projects": "All containers"
     },
     "header": {
       "new_task": "New task"

@@ -3,7 +3,7 @@
     "workitems": {
       "step_zero": {
         "title": "Welcome to your workspace",
-        "description": "To help you get started, we’ve created a Demo Project for you. Let’s add your first task."
+        "description": "To help you get started, we’ve created a Demo Container for you. Let’s add your first task."
       },
       "step_one": {
         "title": "Click “+ Add task”",
@@ -25,11 +25,11 @@
     "cycle": {
       "step_zero": {
         "title": "Make progress with Cycles",
-        "description": "Press Q to create a Cycle. Name it and set dates—only one cycle per project."
+        "description": "Press Q to create a Cycle. Name it and set dates—only one cycle per container."
       },
       "step_one": {
         "title": "Create a new cycle",
-        "description": "Press Q to create a Cycle. Name it and set dates—only one cycle per project."
+        "description": "Press Q to create a Cycle. Name it and set dates—only one cycle per container."
       },
       "step_two": {
         "title": "Click “+ ”",
@@ -46,30 +46,30 @@
     },
     "module": {
       "step_zero": {
-        "title": "Break your project down into Modules",
-        "description": "Modules are smaller, focused projects that help users group and organize tasks within specific time frames."
+        "title": "Break your container down into Projects / Jobs",
+        "description": "Projects / Jobs are smaller, focused units of work that help users group and organize tasks within specific time frames."
       },
       "step_one": {
-        "title": "Create Module",
-        "description": "Modules are smaller, focused projects that help users group and organize tasks within specific time frames."
+        "title": "Create Project / Job",
+        "description": "Projects / Jobs are smaller, focused units of work that help users group and organize tasks within specific time frames."
       },
       "step_two": {
         "title": "Click “+ ”",
-        "description": "Start by clicking the “+” button. Add new or existing tasks directly from the Module page."
+        "description": "Start by clicking the “+” button. Add new or existing tasks directly from the Project / Job page."
       },
       "step_three": {
-        "title": "Module states",
-        "description": "Modules use these statuses to help users plan and clearly track progress and stage."
+        "title": "Project / Job states",
+        "description": "Projects / Jobs use these statuses to help users plan and clearly track progress and stage."
       },
       "step_four": {
-        "title": "Module progress",
-        "description": "Module progress is tracked via completed items, with analytics to monitor performance."
+        "title": "Project / Job progress",
+        "description": "Project / Job progress is tracked via completed items, with analytics to monitor performance."
       }
     },
     "page": {
       "step_zero": {
         "title": "Document with AI-powered Pages",
-        "description": "Pages in Plane let you capture, organize, and collaborate on project info—no external tools needed."
+        "description": "Pages in Plane let you capture, organize, and collaborate on container info—no external tools needed."
       },
       "step_one": {
         "title": "Make page Public or Private",
@@ -103,7 +103,7 @@
       },
       "step_two": {
         "title": "Accept/decline a pending request",
-        "description": "Accept to edit and move the task to your project, or decline it to mark it as Cancelled."
+        "description": "Accept to edit and move the task to your container, or decline it to mark it as Cancelled."
       },
       "step_three": {
         "title": "Snooze for now",
@@ -127,7 +127,7 @@
       },
       "step_zero": {
         "title": "Find anything instantly",
-        "description": "Use universal search to jump to tasks, projects, pages, and people—without leaving your flow."
+        "description": "Use universal search to jump to tasks, containers, pages, and people—without leaving your flow."
       },
       "step_one": {
         "title": "Stay in control of updates",
@@ -148,8 +148,8 @@
       "got_it": "Got it"
     },
     "seed_data": {
-      "title": "Here is your demo project",
-      "description": "Projects let you manage your teams, tasks, and everything you need to get things done within your workspace."
+      "title": "Here is your demo container",
+      "description": "Containers let you manage your teams, tasks, and everything you need to get things done within your workspace."
     }
   },
   "get_started": {
@@ -160,7 +160,7 @@
       "description": "Begin your setup and see your ideas come to life faster.",
       "checklist_items": {
         "item_1": {
-          "title": "Create a project"
+          "title": "Create a container"
         },
         "item_2": {
           "title": "Create a task"

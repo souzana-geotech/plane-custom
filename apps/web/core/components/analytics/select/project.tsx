@@ -53,13 +53,13 @@ export const ProjectSelect = observer(function ProjectSelect(props: Props) {
         <div className={cn(getButtonStyling("secondary", "lg"), "gap-2")}>
           <ProjectsOutline className="h-4 w-4" />
           {value && value.length > 3
-            ? `3+ projects`
+            ? `3+ containers`
             : value && value.length > 0
               ? projectIds
                   ?.filter((p) => value.includes(p))
                   .map((p) => getProjectById(p)?.name)
                   .join(", ")
-              : "All projects"}
+              : "All containers"}
           <ChevronDownOutline className="h-3 w-3" aria-hidden="true" />
         </div>
       }

@@ -54,8 +54,8 @@ export function ModuleButtonContent(props: ModuleButtonContentProps) {
               <div className="max-w-40 truncate">
                 {value.length > 0
                   ? value.length === 1
-                    ? `${getModuleById(value[0])?.name || "module"}`
-                    : `${value.length} Module${value.length === 1 ? "" : "s"}`
+                    ? `${getModuleById(value[0])?.name || "job"}`
+                    : `${value.length} Job${value.length === 1 ? "" : "s"}`
                   : placeholder}
               </div>
             )}

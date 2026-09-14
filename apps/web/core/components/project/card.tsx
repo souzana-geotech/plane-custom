@@ -88,10 +88,10 @@ export const ProjectCard = observer(function ProjectCard(props: Props) {
 
     const addToFavoritePromise = addProjectToFavorites(workspaceSlug.toString(), project.id);
     setPromiseToast(addToFavoritePromise, {
-      loading: "Adding project to favorites...",
+      loading: "Adding container to favorites...",
       success: {
         title: "Success!",
-        message: () => "Project added to favorites.",
+        message: () => "Container added to favorites.",
         actionItems: () => {
           if (!isFavoriteMenuOpen) toggleFavoriteMenu(true);
           return <></>;
@@ -99,7 +99,7 @@ export const ProjectCard = observer(function ProjectCard(props: Props) {
       },
       error: {
         title: "Error!",
-        message: () => "Couldn't add the project to favorites. Please try again.",
+        message: () => "Couldn't add the container to favorites. Please try again.",
       },
     });
   };
@@ -109,14 +109,14 @@ export const ProjectCard = observer(function ProjectCard(props: Props) {
 
     const removeFromFavoritePromise = removeProjectFromFavorites(workspaceSlug.toString(), project.id);
     setPromiseToast(removeFromFavoritePromise, {
-      loading: "Removing project from favorites...",
+      loading: "Removing container from favorites...",
       success: {
         title: "Success!",
-        message: () => "Project removed from favorites.",
+        message: () => "Container removed from favorites.",
       },
       error: {
         title: "Error!",
-        message: () => "Couldn't remove the project from favorites. Please try again.",
+        message: () => "Couldn't remove the container from favorites. Please try again.",
       },
     });
   };
@@ -127,7 +127,7 @@ export const ProjectCard = observer(function ProjectCard(props: Props) {
       setToast({
         type: TOAST_TYPE.INFO,
         title: "Link Copied!",
-        message: "Project link copied to clipboard.",
+        message: "Container link copied to clipboard.",
       })
     );
   const handleOpenInNewTab = () => window.open(`/${projectLink}`, "_blank");
