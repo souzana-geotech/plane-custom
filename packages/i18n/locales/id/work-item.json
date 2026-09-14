@@ -88,8 +88,11 @@
         "kanban": "Tata Letak Papan",
         "calendar": "Tata Letak Kalender",
         "spreadsheet": "Tata Letak Tabel",
-        "gantt": "Tata Letak Garis Waktu"
-      }
+        "gantt": "Tata Letak Garis Waktu",
+        "wbs": "Tata Letak WBS"
+      },
+      "wbs": "WBS",
+      "wbs_number": "Nomor WBS"
     },
     "states": {
       "active": "Aktif",
@@ -280,6 +283,19 @@
       "click_to_downvote": "Klik untuk memberi suara turun",
       "click_to_view_upvotes": "Klik untuk melihat suara naik",
       "click_to_view_downvotes": "Klik untuk melihat suara turun"
+    },
+    "wbs": {
+      "columns": {
+        "wbs": "WBS",
+        "task": "Tugas"
+      },
+      "expand_all": "Perluas semua",
+      "collapse_all": "Ciutkan semua",
+      "truncated": "Menampilkan {count} tugas pertama. Modul ini terlalu besar untuk menampilkan pohon WBS secara lengkap.",
+      "error": {
+        "title": "Tidak dapat membuat pohon WBS",
+        "message": "Hierarki tugas tidak dapat dimuat. Tata letak lainnya tidak terpengaruh."
+      }
     }
   },
   "sub_work_item": {

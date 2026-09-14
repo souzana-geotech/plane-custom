@@ -718,7 +718,9 @@
     "developer": "Developer",
     "work_structure": "Work structure",
     "execution": "Execution",
-    "administration": "Administration"
+    "administration": "Administration",
+    "expand": "Expandir",
+    "collapse": "Contraer"
   },
   "chart": {
     "x_axis": "Eje X",

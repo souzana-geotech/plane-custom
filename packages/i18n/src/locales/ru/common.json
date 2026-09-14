@@ -718,7 +718,9 @@
     "developer": "Developer",
     "work_structure": "Work structure",
     "execution": "Execution",
-    "administration": "Administration"
+    "administration": "Administration",
+    "expand": "Развернуть",
+    "collapse": "Свернуть"
   },
   "chart": {
     "x_axis": "Ось X",

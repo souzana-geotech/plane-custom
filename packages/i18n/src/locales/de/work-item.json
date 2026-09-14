@@ -88,8 +88,11 @@
         "kanban": "Kanban-Layout",
         "calendar": "Kalenderlayout",
         "spreadsheet": "Tabellenlayout",
-        "gantt": "Zeitachsenlayout"
-      }
+        "gantt": "Zeitachsenlayout",
+        "wbs": "WBS-Layout"
+      },
+      "wbs": "WBS",
+      "wbs_number": "WBS-Nummer"
     },
     "states": {
       "active": "Aktiv",
@@ -280,6 +283,19 @@
       "click_to_downvote": "Klicken zum Runterstimmen",
       "click_to_view_upvotes": "Klicken um Hochstimmen anzuzeigen",
       "click_to_view_downvotes": "Klicken um Runterstimmen anzuzeigen"
+    },
+    "wbs": {
+      "columns": {
+        "wbs": "WBS",
+        "task": "Aufgabe"
+      },
+      "expand_all": "Alle ausklappen",
+      "collapse_all": "Alle einklappen",
+      "truncated": "Die ersten {count} Aufgaben werden angezeigt. Dieses Modul ist zu groß, um den vollständigen WBS-Baum darzustellen.",
+      "error": {
+        "title": "WBS-Baum konnte nicht erstellt werden",
+        "message": "Die Aufgabenhierarchie konnte nicht geladen werden. Alle anderen Layouts sind davon nicht betroffen."
+      }
     }
   },
   "sub_work_item": {

@@ -4,7 +4,14 @@
  * See the LICENSE file for details.
  */
 
-import { BoardOutline, CalendarOutline, ListOutline, TableOutline, TimelineOutline } from "@makeplane/propel/icons";
+import {
+  BoardOutline,
+  CalendarOutline,
+  HierarchyOutline,
+  ListOutline,
+  TableOutline,
+  TimelineOutline,
+} from "@makeplane/propel/icons";
 import type { ISvgIcons } from "@plane/propel/icons";
 import { EIssueLayoutTypes } from "@plane/types";
 
@@ -29,6 +36,8 @@ export function IssueLayoutIcon({
       return <TableOutline {...iconProps} />;
     case EIssueLayoutTypes.GANTT:
       return <TimelineOutline {...iconProps} />;
+    case EIssueLayoutTypes.WBS:
+      return <HierarchyOutline {...iconProps} />;
     default:
       return null;
   }

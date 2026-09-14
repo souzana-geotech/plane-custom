@@ -14,13 +14,8 @@ import { useTranslation } from "@plane/i18n";
 // icons
 import { ChevronDownOutline } from "@makeplane/propel/icons";
 // types
-import type {
-  IIssueDisplayFilterOptions,
-  IIssueDisplayProperties,
-  TIssueLayouts,
-  EIssueLayoutTypes,
-} from "@plane/types";
-import { EIssuesStoreType } from "@plane/types";
+import type { IIssueDisplayFilterOptions, IIssueDisplayProperties, TIssueLayouts } from "@plane/types";
+import { EIssueLayoutTypes, EIssuesStoreType } from "@plane/types";
 // ui
 import { CustomMenu } from "@plane/ui";
 // components
@@ -98,17 +93,20 @@ export const ProfileIssuesMobileHeader = observer(function ProfileIssuesMobileHe
         customButtonClassName="flex flex-center text-secondary text-13"
         closeOnSelect
       >
-        {ISSUE_LAYOUTS.map((layout, index) => {
-          if (layout.key === "spreadsheet" || layout.key === "gantt_chart" || layout.key === "calendar") return;
+        {ISSUE_LAYOUTS.map((layout) => {
+          // profile work items support the list and board layouts only; an
+          // allowlist keeps this correct as new layouts are added elsewhere
+          const layoutKey = layout.key;
+          if (layoutKey !== EIssueLayoutTypes.LIST && layoutKey !== EIssueLayoutTypes.KANBAN) return;
           return (
             <CustomMenu.MenuItem
-              key={index}
+              key={layoutKey}
               onClick={() => {
-                handleLayoutChange(ISSUE_LAYOUTS[index].key);
+                handleLayoutChange(layoutKey);
               }}
               className="flex items-center gap-2"
             >
-              <IssueLayoutIcon layout={ISSUE_LAYOUTS[index].key} className="h-3 w-3" />
+              <IssueLayoutIcon layout={layoutKey} className="h-3 w-3" />
               <div className="text-tertiary">{t(layout.i18n_title)}</div>
             </CustomMenu.MenuItem>
           );

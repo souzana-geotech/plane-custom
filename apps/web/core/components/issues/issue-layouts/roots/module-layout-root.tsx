@@ -24,6 +24,7 @@ import { BaseGanttRoot } from "../gantt";
 import { ModuleKanBanLayout } from "../kanban/roots/module-root";
 import { ModuleListLayout } from "../list/roots/module-root";
 import { ModuleSpreadsheetLayout } from "../spreadsheet/roots/module-root";
+import { WbsLayout } from "../wbs";
 
 function ModuleIssueLayout(props: { activeLayout: EIssueLayoutTypes | undefined; moduleId: string }) {
   switch (props.activeLayout) {
@@ -37,6 +38,9 @@ function ModuleIssueLayout(props: { activeLayout: EIssueLayoutTypes | undefined;
       return <BaseGanttRoot viewId={props.moduleId} />;
     case EIssueLayoutTypes.SPREADSHEET:
       return <ModuleSpreadsheetLayout />;
+    case EIssueLayoutTypes.WBS:
+      // WbsLayout scopes itself to the module via the moduleId route param
+      return <WbsLayout />;
     default:
       return null;
   }

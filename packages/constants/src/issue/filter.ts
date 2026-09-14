@@ -275,6 +275,21 @@ export const ISSUE_DISPLAY_FILTERS_BY_PAGE: TIssueFiltersToDisplayByPageType = {
           values: ["sub_issue"],
         },
       },
+      // Geotech3D: the WBS layout is module-scoped (a module = the WBS scope /
+      // future "Project/Job") and is offered only on module pages, which share
+      // this "issues" page key. It always loads the scope's full hierarchy
+      // ordered by sort_order, so it exposes no group_by/order_by/sub_issue
+      // controls of its own — changing any of them would break the numbering.
+      wbs: {
+        display_properties: ISSUE_DISPLAY_PROPERTIES_KEYS,
+        display_filters: {
+          type: ["active", "backlog"],
+        },
+        extra_options: {
+          access: false,
+          values: [],
+        },
+      },
     },
   },
   sub_work_items: {

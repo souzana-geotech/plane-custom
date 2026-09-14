@@ -88,8 +88,11 @@
         "kanban": "Layout a schede",
         "calendar": "Layout a calendario",
         "spreadsheet": "Layout a tabella",
-        "gantt": "Layout a timeline"
-      }
+        "gantt": "Layout a timeline",
+        "wbs": "Layout WBS"
+      },
+      "wbs": "WBS",
+      "wbs_number": "Numero WBS"
     },
     "states": {
       "active": "Attivo",
@@ -280,6 +283,19 @@
       "click_to_downvote": "Clicca per votare contro",
       "click_to_view_upvotes": "Clicca per vedere i voti a favore",
       "click_to_view_downvotes": "Clicca per vedere i voti contro"
+    },
+    "wbs": {
+      "columns": {
+        "wbs": "WBS",
+        "task": "Attività"
+      },
+      "expand_all": "Espandi tutto",
+      "collapse_all": "Comprimi tutto",
+      "truncated": "Vengono mostrate le prime {count} attività. Questo modulo è troppo grande per visualizzare l'intero albero WBS.",
+      "error": {
+        "title": "Impossibile generare l'albero WBS",
+        "message": "Impossibile caricare la gerarchia delle attività. Gli altri layout non sono interessati."
+      }
     }
   },
   "sub_work_item": {

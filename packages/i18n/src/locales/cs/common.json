@@ -718,7 +718,9 @@
     "developer": "Developer",
     "work_structure": "Work structure",
     "execution": "Execution",
-    "administration": "Administration"
+    "administration": "Administration",
+    "expand": "Rozbalit",
+    "collapse": "Sbalit"
   },
   "chart": {
     "x_axis": "Osa X",

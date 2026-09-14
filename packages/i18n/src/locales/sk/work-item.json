@@ -88,8 +88,11 @@
         "kanban": "Nástenkové rozloženie",
         "calendar": "Kalendárové rozloženie",
         "spreadsheet": "Tabuľkové rozloženie",
-        "gantt": "Rozloženie časovej osi"
-      }
+        "gantt": "Rozloženie časovej osi",
+        "wbs": "Rozloženie WBS"
+      },
+      "wbs": "WBS",
+      "wbs_number": "Číslo WBS"
     },
     "states": {
       "active": "Aktívne",
@@ -280,6 +283,19 @@
       "click_to_downvote": "Kliknite pre hlasovanie dole",
       "click_to_view_upvotes": "Kliknite pre zobrazenie hlasov hore",
       "click_to_view_downvotes": "Kliknite pre zobrazenie hlasov dole"
+    },
+    "wbs": {
+      "columns": {
+        "wbs": "WBS",
+        "task": "Úloha"
+      },
+      "expand_all": "Rozbaliť všetko",
+      "collapse_all": "Zbaliť všetko",
+      "truncated": "Zobrazuje sa prvých {count} úloh. Tento modul je príliš veľký na zobrazenie celého stromu WBS.",
+      "error": {
+        "title": "Strom WBS sa nepodarilo zostaviť",
+        "message": "Hierarchiu úloh sa nepodarilo načítať. Ostatné rozloženia nie sú ovplyvnené."
+      }
     }
   },
   "sub_work_item": {

@@ -39,6 +39,8 @@ import type { IWorkspaceIssues } from "./workspace/issue.store";
 import { WorkspaceIssues } from "./workspace/issue.store";
 import type { IWorkspaceDraftIssues, IWorkspaceDraftIssuesFilter } from "./workspace-draft";
 import { WorkspaceDraftIssues, WorkspaceDraftIssuesFilter } from "./workspace-draft";
+import type { IWbsStore } from "./wbs";
+import { WbsStore } from "./wbs";
 
 export interface IIssueRootStore {
   currentUserId: string | undefined;
@@ -106,6 +108,8 @@ export interface IIssueRootStore {
 
   projectEpicsFilter: IProjectIssuesFilter;
   projectEpics: IProjectIssues;
+
+  wbs: IWbsStore;
 }
 
 export class IssueRootStore implements IIssueRootStore {
@@ -174,6 +178,8 @@ export class IssueRootStore implements IIssueRootStore {
 
   projectEpicsFilter: IProjectIssuesFilter;
   projectEpics: IProjectIssues;
+
+  wbs: IWbsStore;
 
   constructor(rootStore: RootStore, serviceType: TIssueServiceType = EIssueServiceType.ISSUES) {
     makeObservable(this, {
@@ -265,5 +271,7 @@ export class IssueRootStore implements IIssueRootStore {
 
     this.projectEpicsFilter = new ProjectIssuesFilter(this);
     this.projectEpics = new ProjectIssues(this, this.projectEpicsFilter);
+
+    this.wbs = new WbsStore(this);
   }
 }

@@ -58,7 +58,9 @@ export const QuickAddIssueFormRoot = observer(function QuickAddIssueFormRoot(pro
 
   if (!projectDetail) return <></>;
 
-  const QUICK_ADD_ISSUE_FORMS: Record<EIssueLayoutTypes, FC<TQuickAddIssueForm>> = {
+  // Partial: layouts without an inline quick-add form (e.g. WBS) simply fall
+  // through to the `?? null` guard below, which already existed.
+  const QUICK_ADD_ISSUE_FORMS: Partial<Record<EIssueLayoutTypes, FC<TQuickAddIssueForm>>> = {
     [EIssueLayoutTypes.LIST]: ListQuickAddIssueForm,
     [EIssueLayoutTypes.KANBAN]: KanbanQuickAddIssueForm,
     [EIssueLayoutTypes.CALENDAR]: CalendarQuickAddIssueForm,

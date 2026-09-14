@@ -88,8 +88,11 @@
         "kanban": "看板布局",
         "calendar": "日历布局",
         "spreadsheet": "表格布局",
-        "gantt": "时间线布局"
-      }
+        "gantt": "时间线布局",
+        "wbs": "WBS 布局"
+      },
+      "wbs": "WBS",
+      "wbs_number": "WBS 编号"
     },
     "states": {
       "active": "活动",
@@ -280,6 +283,19 @@
       "click_to_downvote": "点击反对",
       "click_to_view_upvotes": "点击查看赞成票",
       "click_to_view_downvotes": "点击查看反对票"
+    },
+    "wbs": {
+      "columns": {
+        "wbs": "WBS",
+        "task": "任务"
+      },
+      "expand_all": "全部展开",
+      "collapse_all": "全部折叠",
+      "truncated": "仅显示前 {count} 个任务。此模块过大，无法呈现完整的 WBS 树。",
+      "error": {
+        "title": "无法生成 WBS 树",
+        "message": "无法加载任务层级。其他布局不受影响。"
+      }
     }
   },
   "sub_work_item": {

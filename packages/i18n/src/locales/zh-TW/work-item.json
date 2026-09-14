@@ -88,8 +88,11 @@
         "kanban": "看板版面配置",
         "calendar": "日曆版面配置",
         "spreadsheet": "試算表版面配置",
-        "gantt": "甘特圖版面配置"
-      }
+        "gantt": "甘特圖版面配置",
+        "wbs": "WBS 版面配置"
+      },
+      "wbs": "WBS",
+      "wbs_number": "WBS 編號"
     },
     "states": {
       "active": "使用中",
@@ -280,6 +283,19 @@
       "click_to_downvote": "點擊反對",
       "click_to_view_upvotes": "點擊查看贊成票",
       "click_to_view_downvotes": "點擊查看反對票"
+    },
+    "wbs": {
+      "columns": {
+        "wbs": "WBS",
+        "task": "任務"
+      },
+      "expand_all": "全部展開",
+      "collapse_all": "全部摺疊",
+      "truncated": "僅顯示前 {count} 個任務。此模組過大，無法呈現完整的 WBS 樹。",
+      "error": {
+        "title": "無法產生 WBS 樹",
+        "message": "無法載入任務階層。其他版面配置不受影響。"
+      }
     }
   },
   "sub_work_item": {

@@ -88,8 +88,11 @@
         "kanban": "Diseño de tablero",
         "calendar": "Diseño de calendario",
         "spreadsheet": "Diseño de tabla",
-        "gantt": "Diseño de línea de tiempo"
-      }
+        "gantt": "Diseño de línea de tiempo",
+        "wbs": "Diseño de WBS"
+      },
+      "wbs": "WBS",
+      "wbs_number": "Número WBS"
     },
     "states": {
       "active": "Activo",
@@ -280,6 +283,19 @@
       "click_to_downvote": "Haz clic para votar en contra",
       "click_to_view_upvotes": "Haz clic para ver los votos a favor",
       "click_to_view_downvotes": "Haz clic para ver los votos en contra"
+    },
+    "wbs": {
+      "columns": {
+        "wbs": "WBS",
+        "task": "Tarea"
+      },
+      "expand_all": "Expandir todo",
+      "collapse_all": "Contraer todo",
+      "truncated": "Se muestran las primeras {count} tareas. Este módulo es demasiado grande para mostrar el árbol WBS completo.",
+      "error": {
+        "title": "No se pudo generar el árbol WBS",
+        "message": "No se pudo cargar la jerarquía de tareas. Los demás diseños no se ven afectados."
+      }
     }
   },
   "sub_work_item": {

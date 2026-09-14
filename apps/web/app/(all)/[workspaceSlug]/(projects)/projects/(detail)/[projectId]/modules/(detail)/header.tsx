@@ -113,10 +113,12 @@ export const ModuleIssuesHeader = observer(function ModuleIssuesHeader() {
     ?.map((id) => {
       const _module = id === moduleId ? moduleDetails : getModuleById(id);
       if (!_module) return;
+      // Geotech3D: modules are searchable and labelled by "CODE | Name"
+      const moduleLabel = _module.module_code ? `${_module.module_code} | ${_module.name}` : _module.name;
       return {
         value: _module.id,
-        query: _module.name,
-        content: <SwitcherLabel name={_module.name} LabelIcon={ModuleOutline} />,
+        query: moduleLabel,
+        content: <SwitcherLabel name={moduleLabel} LabelIcon={ModuleOutline} />,
       };
     })
     .filter((option) => option !== undefined) as ICustomSearchSelectOption[];
@@ -153,7 +155,13 @@ export const ModuleIssuesHeader = observer(function ModuleIssuesHeader() {
                     onChange={(value: string) => {
                       router.push(`/${workspaceSlug}/projects/${projectId}/modules/${value}`);
                     }}
-                    title={moduleDetails?.name}
+                    title={
+                      // Geotech3D: show the module identity as "CODE | Name" —
+                      // the module code names the WBS scope, never a WBS number
+                      moduleDetails?.module_code
+                        ? `${moduleDetails.module_code} | ${moduleDetails?.name ?? ""}`
+                        : moduleDetails?.name
+                    }
                     icon={<ModuleOutline className="size-3.5 flex-shrink-0 text-tertiary" />}
                     isLast
                   />
@@ -184,6 +192,7 @@ export const ModuleIssuesHeader = observer(function ModuleIssuesHeader() {
                   EIssueLayoutTypes.CALENDAR,
                   EIssueLayoutTypes.SPREADSHEET,
                   EIssueLayoutTypes.GANTT,
+                  EIssueLayoutTypes.WBS,
                 ]}
                 onChange={(layout) => handleLayoutChange(layout)}
                 selectedLayout={activeLayout}
@@ -197,6 +206,7 @@ export const ModuleIssuesHeader = observer(function ModuleIssuesHeader() {
                   EIssueLayoutTypes.CALENDAR,
                   EIssueLayoutTypes.SPREADSHEET,
                   EIssueLayoutTypes.GANTT,
+                  EIssueLayoutTypes.WBS,
                 ]}
                 onChange={(layout) => handleLayoutChange(layout)}
                 activeLayout={activeLayout}

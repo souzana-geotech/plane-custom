@@ -83,13 +83,16 @@
       "calendar": "Calendar",
       "spreadsheet": "Table",
       "gantt": "Timeline",
+      "wbs": "WBS",
       "title": {
         "list": "List Layout",
         "kanban": "Board Layout",
         "calendar": "Calendar Layout",
         "spreadsheet": "Table Layout",
-        "gantt": "Timeline Layout"
-      }
+        "gantt": "Timeline Layout",
+        "wbs": "WBS Layout"
+      },
+      "wbs_number": "WBS number"
     },
     "states": {
       "active": "Active",
@@ -280,6 +283,19 @@
       "click_to_downvote": "Click to downvote",
       "click_to_view_upvotes": "Click to view upvotes",
       "click_to_view_downvotes": "Click to view downvotes"
+    },
+    "wbs": {
+      "columns": {
+        "wbs": "WBS",
+        "task": "Task"
+      },
+      "expand_all": "Expand all",
+      "collapse_all": "Collapse all",
+      "truncated": "Showing the first {count} tasks. This module is too large to render its full WBS tree.",
+      "error": {
+        "title": "Couldn't build the WBS tree",
+        "message": "The task hierarchy could not be loaded. Every other layout is unaffected."
+      }
     }
   },
   "sub_work_item": {

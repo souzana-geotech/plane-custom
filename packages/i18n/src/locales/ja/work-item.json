@@ -88,8 +88,11 @@
         "kanban": "ボードレイアウト",
         "calendar": "カレンダーレイアウト",
         "spreadsheet": "テーブルレイアウト",
-        "gantt": "タイムラインレイアウト"
-      }
+        "gantt": "タイムラインレイアウト",
+        "wbs": "WBSレイアウト"
+      },
+      "wbs": "WBS",
+      "wbs_number": "WBS番号"
     },
     "states": {
       "active": "アクティブ",
@@ -280,6 +283,19 @@
       "click_to_downvote": "クリックして反対票を投じる",
       "click_to_view_upvotes": "クリックして賛成票を表示",
       "click_to_view_downvotes": "クリックして反対票を表示"
+    },
+    "wbs": {
+      "columns": {
+        "wbs": "WBS",
+        "task": "タスク"
+      },
+      "expand_all": "すべて展開",
+      "collapse_all": "すべて折りたたむ",
+      "truncated": "最初の{count}件のタスクを表示しています。このモジュールが大きすぎるため、WBSツリー全体を表示できません。",
+      "error": {
+        "title": "WBSツリーを作成できませんでした",
+        "message": "タスクの階層を読み込めませんでした。他のレイアウトには影響ありません。"
+      }
     }
   },
   "sub_work_item": {

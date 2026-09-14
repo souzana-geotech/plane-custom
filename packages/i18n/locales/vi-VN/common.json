@@ -718,7 +718,9 @@
     "developer": "Developer",
     "work_structure": "Work structure",
     "execution": "Execution",
-    "administration": "Administration"
+    "administration": "Administration",
+    "expand": "Mở rộng",
+    "collapse": "Thu gọn"
   },
   "chart": {
     "x_axis": "Trục X",

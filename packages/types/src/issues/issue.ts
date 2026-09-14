@@ -18,6 +18,12 @@ export enum EIssueLayoutTypes {
   CALENDAR = "calendar",
   GANTT = "gantt_chart",
   SPREADSHEET = "spreadsheet",
+  /**
+   * Work Breakdown Structure — a recursive tree of the existing work item
+   * hierarchy with derived WBS numbering. Additive: selecting it changes only
+   * the persisted `display_filters.layout` value, which is free-form JSON.
+   */
+  WBS = "wbs",
 }
 
 export enum EIssueServiceType {

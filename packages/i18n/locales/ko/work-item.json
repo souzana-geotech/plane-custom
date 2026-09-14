@@ -88,8 +88,11 @@
         "kanban": "보드 레이아웃",
         "calendar": "캘린더 레이아웃",
         "spreadsheet": "테이블 레이아웃",
-        "gantt": "타임라인 레이아웃"
-      }
+        "gantt": "타임라인 레이아웃",
+        "wbs": "WBS 레이아웃"
+      },
+      "wbs": "WBS",
+      "wbs_number": "WBS 번호"
     },
     "states": {
       "active": "활성",
@@ -280,6 +283,19 @@
       "click_to_downvote": "클릭하여 비추천",
       "click_to_view_upvotes": "클릭하여 추천 목록 보기",
       "click_to_view_downvotes": "클릭하여 비추천 목록 보기"
+    },
+    "wbs": {
+      "columns": {
+        "wbs": "WBS",
+        "task": "작업"
+      },
+      "expand_all": "모두 펼치기",
+      "collapse_all": "모두 접기",
+      "truncated": "처음 {count}개의 작업을 표시하고 있습니다. 이 모듈은 전체 WBS 트리를 표시하기에는 너무 큽니다.",
+      "error": {
+        "title": "WBS 트리를 만들 수 없습니다",
+        "message": "작업 계층을 불러올 수 없습니다. 다른 레이아웃에는 영향이 없습니다."
+      }
     }
   },
   "sub_work_item": {

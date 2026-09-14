@@ -718,7 +718,9 @@
     "developer": "Developer",
     "work_structure": "Work structure",
     "execution": "Execution",
-    "administration": "Administration"
+    "administration": "Administration",
+    "expand": "펼치기",
+    "collapse": "접기"
   },
   "chart": {
     "x_axis": "X축",

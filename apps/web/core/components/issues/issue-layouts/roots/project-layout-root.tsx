@@ -4,11 +4,12 @@
  * See the LICENSE file for details.
  */
 
+import { useEffect } from "react";
 import { observer } from "mobx-react";
 import { useParams } from "next/navigation";
 import useSWR from "swr";
 // plane constants
-import { ISSUE_DISPLAY_FILTERS_BY_PAGE } from "@plane/constants";
+import { EIssueFilterType, ISSUE_DISPLAY_FILTERS_BY_PAGE } from "@plane/constants";
 import { EIssueLayoutTypes, EIssuesStoreType } from "@plane/types";
 import { Spinner } from "@plane/ui";
 // components
@@ -37,10 +38,43 @@ function ProjectIssueLayout(props: { activeLayout: EIssueLayoutTypes | undefined
       return <BaseGanttRoot />;
     case EIssueLayoutTypes.SPREADSHEET:
       return <ProjectSpreadsheetLayout />;
+    case EIssueLayoutTypes.WBS:
+      // TEMPORARY COMPATIBILITY — Geotech3D retired project-level WBS: the
+      // module is the canonical WBS scope, and the WBS layout now lives only in
+      // the module detail context (module-layout-root.tsx). A stored project
+      // preference that still says "wbs" is normalized back to the list layout
+      // so the page renders normally instead of blank.
+      return <ProjectWbsCompatFallback />;
     default:
       return null;
   }
 }
+
+/**
+ * TEMPORARY COMPATIBILITY for the retired project-level WBS layout.
+ *
+ * Rewrites the stale "wbs" display-filter value to "list" through the same
+ * update path the layout switcher uses; the switch above then re-renders the
+ * list layout with correct fetch params. Safe to delete once no stored
+ * project preference can still contain "wbs".
+ */
+const ProjectWbsCompatFallback = observer(function ProjectWbsCompatFallback() {
+  const { workspaceSlug: routerWorkspaceSlug, projectId: routerProjectId } = useParams();
+  const workspaceSlug = routerWorkspaceSlug?.toString();
+  const projectId = routerProjectId?.toString();
+  const { issuesFilter } = useIssues(EIssuesStoreType.PROJECT);
+
+  useEffect(() => {
+    if (!workspaceSlug || !projectId) return;
+    issuesFilter
+      ?.updateFilters(workspaceSlug, projectId, EIssueFilterType.DISPLAY_FILTERS, {
+        layout: EIssueLayoutTypes.LIST,
+      })
+      .catch(() => {});
+  }, [workspaceSlug, projectId, issuesFilter]);
+
+  return null;
+});
 
 export const ProjectLayoutRoot = observer(function ProjectLayoutRoot() {
   // router

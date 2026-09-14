@@ -34,6 +34,8 @@ type Props = {
   canUserCreateIssue: boolean | undefined;
   storeType?: EIssuesStoreType.PROJECT | EIssuesStoreType.EPIC;
 };
+// Geotech3D: WBS is deliberately absent here. The module is the canonical WBS
+// scope (see TWbsScope), so the WBS layout is offered only on module pages.
 const LAYOUTS = [
   EIssueLayoutTypes.LIST,
   EIssueLayoutTypes.KANBAN,

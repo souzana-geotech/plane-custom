@@ -88,8 +88,11 @@
         "kanban": "დაფის განლაგება",
         "calendar": "კალენდრის განლაგება",
         "spreadsheet": "ცხრილის განლაგება",
-        "gantt": "დროის ხაზის განლაგება"
-      }
+        "gantt": "დროის ხაზის განლაგება",
+        "wbs": "WBS განლაგება"
+      },
+      "wbs": "WBS",
+      "wbs_number": "WBS ნომერი"
     },
     "states": {
       "active": "აქტიური",
@@ -280,6 +283,19 @@
       "click_to_downvote": "Click to downvote",
       "click_to_view_upvotes": "Click to view upvotes",
       "click_to_view_downvotes": "Click to view downvotes"
+    },
+    "wbs": {
+      "columns": {
+        "wbs": "WBS",
+        "task": "დავალება"
+      },
+      "expand_all": "ყველას გაშლა",
+      "collapse_all": "ყველას ჩაკეცვა",
+      "truncated": "ნაჩვენებია პირველი {count} დავალება. ეს მოდული ძალიან დიდია სრული WBS ხის საჩვენებლად.",
+      "error": {
+        "title": "WBS ხის აგება ვერ მოხერხდა",
+        "message": "დავალებების იერარქიის ჩატვირთვა ვერ მოხერხდა. სხვა განლაგებები გამართულად მუშაობს."
+      }
     }
   },
   "sub_work_item": {

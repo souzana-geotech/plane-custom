@@ -718,7 +718,9 @@
     "developer": "Entwickler",
     "work_structure": "Arbeitsstruktur",
     "execution": "Ausführung",
-    "administration": "Verwaltung"
+    "administration": "Verwaltung",
+    "expand": "Ausklappen",
+    "collapse": "Einklappen"
   },
   "chart": {
     "x_axis": "X-Achse",

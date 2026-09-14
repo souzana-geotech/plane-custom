@@ -88,8 +88,11 @@
         "kanban": "Układ tablicy",
         "calendar": "Układ kalendarza",
         "spreadsheet": "Układ arkusza",
-        "gantt": "Układ osi czasu"
-      }
+        "gantt": "Układ osi czasu",
+        "wbs": "Układ WBS"
+      },
+      "wbs": "WBS",
+      "wbs_number": "Numer WBS"
     },
     "states": {
       "active": "Aktywny",
@@ -280,6 +283,19 @@
       "click_to_downvote": "Kliknij, aby zagłosować przeciw",
       "click_to_view_upvotes": "Kliknij, aby zobaczyć głosy za",
       "click_to_view_downvotes": "Kliknij, aby zobaczyć głosy przeciw"
+    },
+    "wbs": {
+      "columns": {
+        "wbs": "WBS",
+        "task": "Zadanie"
+      },
+      "expand_all": "Rozwiń wszystko",
+      "collapse_all": "Zwiń wszystko",
+      "truncated": "Wyświetlane jest pierwszych {count} zadań. Ten moduł jest zbyt duży, aby wyświetlić pełne drzewo WBS.",
+      "error": {
+        "title": "Nie udało się zbudować drzewa WBS",
+        "message": "Nie udało się wczytać hierarchii zadań. Pozostałe układy pozostają nienaruszone."
+      }
     }
   },
   "sub_work_item": {

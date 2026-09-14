@@ -88,8 +88,11 @@
         "kanban": "Layout de Quadro",
         "calendar": "Layout de Calendário",
         "spreadsheet": "Layout de Tabela",
-        "gantt": "Layout de Cronograma"
-      }
+        "gantt": "Layout de Cronograma",
+        "wbs": "Layout de WBS"
+      },
+      "wbs": "WBS",
+      "wbs_number": "Número WBS"
     },
     "states": {
       "active": "Ativo",
@@ -280,6 +283,19 @@
       "click_to_downvote": "Clique para votar contra",
       "click_to_view_upvotes": "Clique para ver os votos a favor",
       "click_to_view_downvotes": "Clique para ver os votos contra"
+    },
+    "wbs": {
+      "columns": {
+        "wbs": "WBS",
+        "task": "Tarefa"
+      },
+      "expand_all": "Expandir tudo",
+      "collapse_all": "Recolher tudo",
+      "truncated": "Exibindo as primeiras {count} tarefas. Este módulo é muito grande para exibir a árvore WBS completa.",
+      "error": {
+        "title": "Não foi possível gerar a árvore WBS",
+        "message": "Não foi possível carregar a hierarquia de tarefas. Os demais layouts não são afetados."
+      }
     }
   },
   "sub_work_item": {

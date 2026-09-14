@@ -88,8 +88,11 @@
         "kanban": "Disposition en tableau",
         "calendar": "Disposition en calendrier",
         "spreadsheet": "Disposition en tableau",
-        "gantt": "Disposition en chronologie"
-      }
+        "gantt": "Disposition en chronologie",
+        "wbs": "Disposition WBS"
+      },
+      "wbs": "WBS",
+      "wbs_number": "Numéro WBS"
     },
     "states": {
       "active": "Actif",
@@ -280,6 +283,19 @@
       "click_to_downvote": "Cliquez pour voter contre",
       "click_to_view_upvotes": "Cliquez pour voir les votes pour",
       "click_to_view_downvotes": "Cliquez pour voir les votes contre"
+    },
+    "wbs": {
+      "columns": {
+        "wbs": "WBS",
+        "task": "Tâche"
+      },
+      "expand_all": "Tout développer",
+      "collapse_all": "Tout réduire",
+      "truncated": "Affichage des {count} premières tâches. Ce module est trop volumineux pour afficher l'arborescence WBS complète.",
+      "error": {
+        "title": "Impossible de générer l'arborescence WBS",
+        "message": "La hiérarchie des tâches n'a pas pu être chargée. Les autres dispositions ne sont pas affectées."
+      }
     }
   },
   "sub_work_item": {

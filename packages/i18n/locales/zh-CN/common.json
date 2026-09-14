@@ -718,7 +718,9 @@
     "developer": "Developer",
     "work_structure": "Work structure",
     "execution": "Execution",
-    "administration": "Administration"
+    "administration": "Administration",
+    "expand": "展开",
+    "collapse": "折叠"
   },
   "chart": {
     "x_axis": "X轴",

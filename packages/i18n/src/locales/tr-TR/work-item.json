@@ -88,8 +88,11 @@
         "kanban": "Pano Düzeni",
         "calendar": "Takvim Düzeni",
         "spreadsheet": "Tablo Düzeni",
-        "gantt": "Zaman Çizelgesi Düzeni"
-      }
+        "gantt": "Zaman Çizelgesi Düzeni",
+        "wbs": "WBS Düzeni"
+      },
+      "wbs": "WBS",
+      "wbs_number": "WBS numarası"
     },
     "states": {
       "active": "Aktif",
@@ -280,6 +283,19 @@
       "click_to_downvote": "Olumsuz oy vermek için tıklayın",
       "click_to_view_upvotes": "Olumlu oyları görüntülemek için tıklayın",
       "click_to_view_downvotes": "Olumsuz oyları görüntülemek için tıklayın"
+    },
+    "wbs": {
+      "columns": {
+        "wbs": "WBS",
+        "task": "Görev"
+      },
+      "expand_all": "Tümünü genişlet",
+      "collapse_all": "Tümünü daralt",
+      "truncated": "İlk {count} görev gösteriliyor. Bu modül, WBS ağacının tamamını göstermek için çok büyük.",
+      "error": {
+        "title": "WBS ağacı oluşturulamadı",
+        "message": "Görev hiyerarşisi yüklenemedi. Diğer düzenler bundan etkilenmez."
+      }
     }
   },
   "sub_work_item": {

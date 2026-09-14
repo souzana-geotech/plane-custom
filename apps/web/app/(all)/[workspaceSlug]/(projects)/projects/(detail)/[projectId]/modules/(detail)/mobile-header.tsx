@@ -8,11 +8,17 @@ import { useCallback, useState } from "react";
 import { observer } from "mobx-react";
 import { useParams } from "next/navigation";
 // plane imports
-import { EIssueFilterType, ISSUE_LAYOUTS, ISSUE_DISPLAY_FILTERS_BY_PAGE } from "@plane/constants";
+import { EIssueFilterType, ISSUE_DISPLAY_FILTERS_BY_PAGE } from "@plane/constants";
 import { useTranslation } from "@plane/i18n";
-import { BoardOutline, CalendarOutline, ChevronDownOutline, ListOutline } from "@makeplane/propel/icons";
-import type { IIssueDisplayFilterOptions, IIssueDisplayProperties, EIssueLayoutTypes } from "@plane/types";
-import { EIssuesStoreType } from "@plane/types";
+import {
+  BoardOutline,
+  CalendarOutline,
+  ChevronDownOutline,
+  HierarchyOutline,
+  ListOutline,
+} from "@makeplane/propel/icons";
+import type { IIssueDisplayFilterOptions, IIssueDisplayProperties } from "@plane/types";
+import { EIssueLayoutTypes, EIssuesStoreType } from "@plane/types";
 import { CustomMenu } from "@plane/ui";
 // components
 import { WorkItemsModal } from "@/components/analytics/work-items/modal";
@@ -24,10 +30,13 @@ import { useModule } from "@/hooks/store/use-module";
 import { useProject } from "@/hooks/store/use-project";
 
 const SUPPORTED_LAYOUTS = [
-  { key: "list", i18n_title: "issue.layouts.list", icon: ListOutline },
-  { key: "kanban", i18n_title: "issue.layouts.kanban", icon: BoardOutline },
-  { key: "calendar", i18n_title: "issue.layouts.calendar", icon: CalendarOutline },
-];
+  { key: EIssueLayoutTypes.LIST, i18n_title: "issue.layouts.list", icon: ListOutline },
+  { key: EIssueLayoutTypes.KANBAN, i18n_title: "issue.layouts.kanban", icon: BoardOutline },
+  { key: EIssueLayoutTypes.CALENDAR, i18n_title: "issue.layouts.calendar", icon: CalendarOutline },
+  // Geotech3D: the module is the canonical WBS scope, so the WBS layout must be
+  // reachable from the module picker at every viewport width
+  { key: EIssueLayoutTypes.WBS, i18n_title: "issue.layouts.wbs", icon: HierarchyOutline },
+] as const;
 
 export const ModuleIssuesMobileHeader = observer(function ModuleIssuesMobileHeader() {
   // router
@@ -87,15 +96,17 @@ export const ModuleIssuesMobileHeader = observer(function ModuleIssuesMobileHead
           customButtonClassName="flex flex-grow justify-center text-secondary text-13"
           closeOnSelect
         >
-          {SUPPORTED_LAYOUTS.map((layout, index) => (
+          {/* use the entry's own key — the previous positional lookup into the
+              global ISSUE_LAYOUTS array broke as soon as the two lists diverged */}
+          {SUPPORTED_LAYOUTS.map((layout) => (
             <CustomMenu.MenuItem
               key={layout.key}
               onClick={() => {
-                handleLayoutChange(ISSUE_LAYOUTS[index].key);
+                handleLayoutChange(layout.key);
               }}
               className="flex items-center gap-2"
             >
-              <IssueLayoutIcon layout={ISSUE_LAYOUTS[index].key} className="h-3 w-3" />
+              <IssueLayoutIcon layout={layout.key} className="h-3 w-3" />
               <div className="text-tertiary">{t(layout.i18n_title)}</div>
             </CustomMenu.MenuItem>
           ))}

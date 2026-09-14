@@ -88,8 +88,11 @@
         "kanban": "Bố cục kanban",
         "calendar": "Bố cục lịch",
         "spreadsheet": "Bố cục bảng tính",
-        "gantt": "Bố cục dòng thời gian"
-      }
+        "gantt": "Bố cục dòng thời gian",
+        "wbs": "Bố cục WBS"
+      },
+      "wbs": "WBS",
+      "wbs_number": "Số WBS"
     },
     "states": {
       "active": "Hoạt động",
@@ -280,6 +283,19 @@
       "click_to_downvote": "Nhấp để bỏ phiếu chống",
       "click_to_view_upvotes": "Nhấp để xem phiếu thuận",
       "click_to_view_downvotes": "Nhấp để xem phiếu chống"
+    },
+    "wbs": {
+      "columns": {
+        "wbs": "WBS",
+        "task": "Nhiệm vụ"
+      },
+      "expand_all": "Mở rộng tất cả",
+      "collapse_all": "Thu gọn tất cả",
+      "truncated": "Đang hiển thị {count} nhiệm vụ đầu tiên. Mô-đun này quá lớn để hiển thị toàn bộ cây WBS.",
+      "error": {
+        "title": "Không thể tạo cây WBS",
+        "message": "Không thể tải cấu trúc phân cấp nhiệm vụ. Các bố cục khác không bị ảnh hưởng."
+      }
     }
   },
   "sub_work_item": {

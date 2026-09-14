@@ -88,8 +88,11 @@
         "kanban": "Vizualizare tip Tablă",
         "calendar": "Vizualizare tip Calendar",
         "spreadsheet": "Vizualizare tip Tabel",
-        "gantt": "Vizualizare tip Cronologic"
-      }
+        "gantt": "Vizualizare tip Cronologic",
+        "wbs": "Vizualizare tip WBS"
+      },
+      "wbs": "WBS",
+      "wbs_number": "Număr WBS"
     },
     "states": {
       "active": "Active",
@@ -280,6 +283,19 @@
       "click_to_downvote": "Clic pentru a vota negativ",
       "click_to_view_upvotes": "Clic pentru a vedea voturile pozitive",
       "click_to_view_downvotes": "Clic pentru a vedea voturile negative"
+    },
+    "wbs": {
+      "columns": {
+        "wbs": "WBS",
+        "task": "Activitate"
+      },
+      "expand_all": "Extindeți tot",
+      "collapse_all": "Restrângeți tot",
+      "truncated": "Se afișează primele {count} activități. Acest modul este prea mare pentru a afișa întregul arbore WBS.",
+      "error": {
+        "title": "Arborele WBS nu a putut fi generat",
+        "message": "Ierarhia activităților nu a putut fi încărcată. Celelalte vizualizări nu sunt afectate."
+      }
     }
   },
   "sub_work_item": {
