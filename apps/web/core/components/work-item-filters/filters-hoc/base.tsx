@@ -61,7 +61,7 @@ const WorkItemFilterRoot = observer(function WorkItemFilterRoot(props: TWorkItem
     ...entityConfigProps
   } = props;
   // store hooks
-  const { getOrCreateFilter, deleteFilter } = useWorkItemFilters();
+  const { getFilter, getOrCreateFilter, deleteFilter } = useWorkItemFilters();
   // derived values
   const workItemEntityID = useMemo(
     () => (isTemporary ? `TEMP-${entityId ?? uuidv4()}` : entityId),
@@ -73,6 +73,13 @@ const WorkItemFilterRoot = observer(function WorkItemFilterRoot(props: TWorkItem
     allowedFilters: filtersToShowByLayout ? filtersToShowByLayout : [],
     ...entityConfigProps,
   });
+  // Tracked read of the registered instance. React StrictMode's simulated
+  // unmount runs the delete cleanup below while this component keeps rendering
+  // with the memoized reference — leaving every `getFilter` consumer (header
+  // filter toggle, filtered empty states) looking at an empty registration.
+  // Observing the registration makes that deletion re-render this component,
+  // and the memo below then re-registers the instance.
+  const registeredFilter = getFilter(entityType, workItemEntityID);
   // get or create filter instance
   const workItemLayoutFilter = useMemo(
     () =>
@@ -88,7 +95,7 @@ const WorkItemFilterRoot = observer(function WorkItemFilterRoot(props: TWorkItem
         showOnMount,
       }),
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [entityType, workItemEntityID, saveViewOptions, updateViewOptions, updateFilters]
+    [entityType, workItemEntityID, saveViewOptions, updateViewOptions, updateFilters, registeredFilter]
   );
 
   // delete filter instance when component unmounts
