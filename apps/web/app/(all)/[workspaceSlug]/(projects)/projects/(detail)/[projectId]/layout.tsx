@@ -34,13 +34,13 @@ function ProjectLayout({ params }: Route.ComponentProps) {
         <div className="z-20">
           <Row className="flex h-header w-full items-center gap-2 border-b border-subtle bg-surface-1">
             <div className="flex h-full w-full items-center gap-2 divide-x divide-subtle">
-              <div className="flex size-full flex-1 items-center gap-2">
+              <div className="flex size-full min-w-0 flex-1 items-center gap-2">
                 {sidebarCollapsed && (
                   <div className="shrink-0">
                     <AppSidebarToggleButton />
                   </div>
                 )}
-                <Header className={cn("h-full", { "pl-1.5": !sidebarCollapsed })}>
+                <Header className={cn("h-full min-w-0 shrink", { "pl-1.5": !sidebarCollapsed })}>
                   <Header.LeftItem className="flex h-full max-w-full items-center gap-2">
                     <TabNavigationRoot workspaceSlug={workspaceSlug} projectId={projectId} />
                   </Header.LeftItem>

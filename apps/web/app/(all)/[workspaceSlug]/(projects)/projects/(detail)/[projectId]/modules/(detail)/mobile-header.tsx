@@ -87,7 +87,7 @@ export const ModuleIssuesMobileHeader = observer(function ModuleIssuesMobileHead
         moduleDetails={moduleDetails ?? undefined}
         projectDetails={currentProjectDetails}
       />
-      <div className="flex justify-evenly border-b border-subtle bg-surface-1 py-2">
+      <div className="flex justify-evenly border-b border-subtle bg-surface-1 py-2 [&>*]:min-w-0">
         <CustomMenu
           maxHeight={"md"}
           className="flex flex-grow justify-center text-13 text-secondary"
@@ -111,7 +111,7 @@ export const ModuleIssuesMobileHeader = observer(function ModuleIssuesMobileHead
             </CustomMenu.MenuItem>
           ))}
         </CustomMenu>
-        <div className="flex flex-grow items-center justify-center border-l border-subtle text-13 text-secondary">
+        <div className="flex flex-grow items-center justify-center truncate border-l border-subtle text-13 text-secondary">
           <FiltersDropdown
             title="Display"
             placement="bottom-end"
@@ -139,7 +139,7 @@ export const ModuleIssuesMobileHeader = observer(function ModuleIssuesMobileHead
 
         <button
           onClick={() => setAnalyticsModal(true)}
-          className="flex flex-grow justify-center border-l border-subtle text-13 text-secondary"
+          className="flex flex-grow justify-center truncate border-l border-subtle text-13 text-secondary"
         >
           Analytics
         </button>

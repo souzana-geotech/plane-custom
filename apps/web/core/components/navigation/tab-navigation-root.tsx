@@ -193,7 +193,7 @@ export const TabNavigationRoot = observer(function TabNavigationRoot(props: TTab
 
         <div className="h-5 w-1 shrink-0 border-l border-subtle" />
 
-        <div ref={containerRef} className="flex h-full min-w-0 flex-1 items-center overflow-hidden">
+        <div ref={containerRef} className="relative flex h-full min-w-0 flex-1 items-center overflow-hidden">
           <TabNavigationList className="h-full">
             {/* Render visible tab items */}
             {visibleItems.map((item) => {
@@ -228,7 +228,12 @@ export const TabNavigationRoot = observer(function TabNavigationRoot(props: TTab
           </TabNavigationList>
 
           {hasOverflow && (
-            <div className="pointer-events-none absolute -z-10 opacity-0">
+            /* Off-screen copies used only to measure each tab's natural width. `inert`
+               keeps them out of the tab order and out of focus-management scans: as
+               plain focusable links they let a modal's focus trap scroll the whole app
+               shell sideways, and `relative` on the parent above clips them so their
+               width never inflates an ancestor's scrollWidth. */
+            <div className="pointer-events-none absolute -z-10 opacity-0" aria-hidden inert>
               {visibleNavigationItems.map((item: TNavigationItem) => {
                 const itemIsActive = isActive(item);
                 const originalIndex = allNavigationItems.indexOf(item);

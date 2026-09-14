@@ -79,7 +79,7 @@ export const ProfileIssuesMobileHeader = observer(function ProfileIssuesMobileHe
   );
 
   return (
-    <div className="flex justify-evenly border-b border-subtle py-2 md:hidden">
+    <div className="flex justify-evenly border-b border-subtle py-2 md:hidden [&>*]:min-w-0">
       <CustomMenu
         maxHeight={"md"}
         className="flex flex-grow justify-center text-13 text-secondary"
@@ -112,7 +112,7 @@ export const ProfileIssuesMobileHeader = observer(function ProfileIssuesMobileHe
           );
         })}
       </CustomMenu>
-      <div className="flex flex-grow items-center justify-center border-l border-subtle text-13 text-secondary">
+      <div className="flex flex-grow items-center justify-center truncate border-l border-subtle text-13 text-secondary">
         <FiltersDropdown
           title={t("common.display")}
           placement="bottom-end"

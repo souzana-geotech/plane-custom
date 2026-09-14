@@ -7,10 +7,13 @@
 import React, { Fragment, useState } from "react";
 import type { Placement } from "@popperjs/core";
 import { usePopper } from "react-popper";
+// hooks
+import { useIsMobileViewport } from "@plane/hooks";
 // headless ui
 import { Popover, Transition } from "@headlessui/react";
 // ui
 import { Button } from "@plane/propel/button";
+import { cn } from "@plane/utils";
 
 type Props = {
   children: React.ReactNode;
@@ -43,6 +46,11 @@ export function FiltersDropdown(props: Props) {
   const { styles, attributes } = usePopper(referenceElement, popperElement, {
     placement: placement ?? "auto",
   });
+  // Phone widths get a panel pinned to the viewport instead of one anchored to the
+  // button: at 300px wide there is no horizontal room to anchor it in, and popper
+  // cannot clamp it because `Popover.Panel` is `fixed` inside a transformed ancestor,
+  // which puts its own offsets in a different coordinate system.
+  const isSmallScreen = useIsMobileViewport();
 
   return (
     <Popover as="div">
@@ -98,14 +106,14 @@ export function FiltersDropdown(props: Props) {
             leaveTo="opacity-0 translate-y-1"
           >
             {/** translate-y-0 is a hack to create new stacking context. Required for safari  */}
-            <Popover.Panel className="fixed z-10 translate-y-0">
+            <Popover.Panel className={cn("fixed z-10 translate-y-0", isSmallScreen && "inset-x-2")}>
               <div
                 className="my-1 overflow-hidden rounded-sm border border-subtle bg-surface-1 shadow-raised-100"
                 ref={setPopperElement}
-                style={styles.popper}
-                {...attributes.popper}
+                style={isSmallScreen ? undefined : styles.popper}
+                {...(isSmallScreen ? {} : attributes.popper)}
               >
-                <div className="flex max-h-[30rem] w-[18.75rem] flex-col overflow-hidden lg:max-h-[37.5rem]">
+                <div className="flex max-h-[30rem] w-[18.75rem] max-w-full flex-col overflow-hidden lg:max-h-[37.5rem]">
                   {children}
                 </div>
               </div>

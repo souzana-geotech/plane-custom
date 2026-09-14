@@ -7,7 +7,7 @@
 import type { Dispatch, ReactElement, SetStateAction } from "react";
 import React, { useCallback, useEffect, useState, useRef } from "react";
 // helpers
-import { usePlatformOS } from "@plane/hooks";
+import { useIsMobileViewport, usePlatformOS } from "@plane/hooks";
 import { cn } from "@plane/utils";
 
 interface ResizableSidebarProps {
@@ -58,6 +58,13 @@ export function ResizableSidebar({
   const initialMouseXRef = useRef<number>(0);
   // hooks
   const { isMobile } = usePlatformOS();
+  const isSmallScreen = useIsMobileViewport();
+  /**
+   * Below `md` the sidebar can no longer sit next to the content without eating the
+   * whole viewport, so it turns into an overlay drawer. Touch devices get the same
+   * treatment at any width, hence the union with the user-agent check.
+   */
+  const isOverlayMode = isMobile || isSmallScreen;
   // handlers
   const setShowPeek = useCallback(
     (value: boolean) => {
@@ -142,17 +149,31 @@ export function ResizableSidebar({
     []
   );
 
+  /**
+   * Both of these react to one flag *closing*, not to any of the other values they
+   * read - hence the previously trimmed dependency arrays. Comparing against the
+   * previous value in a ref keeps that single trigger while letting the arrays list
+   * everything the effects actually use.
+   */
+  const wasAnySidebarDropdownOpenRef = useRef(isAnySidebarDropdownOpen);
   useEffect(() => {
+    const wasOpen = wasAnySidebarDropdownOpenRef.current;
+    wasAnySidebarDropdownOpenRef.current = isAnySidebarDropdownOpen;
+    if (wasOpen === isAnySidebarDropdownOpen) return;
     if (!isAnySidebarDropdownOpen && isCollapsed && isHoveringTrigger) {
       handlePeekLeave();
     }
-  }, [isAnySidebarDropdownOpen]);
+  }, [isAnySidebarDropdownOpen, isCollapsed, isHoveringTrigger, handlePeekLeave]);
 
+  const wasAnyExtendedSidebarExpandedRef = useRef(isAnyExtendedSidebarExpanded);
   useEffect(() => {
+    const wasExpanded = wasAnyExtendedSidebarExpandedRef.current;
+    wasAnyExtendedSidebarExpandedRef.current = isAnyExtendedSidebarExpanded;
+    if (wasExpanded === isAnyExtendedSidebarExpanded) return;
     if (!isAnyExtendedSidebarExpanded && isCollapsed && isHoveringTrigger) {
       handlePeekLeave();
     }
-  }, [isAnyExtendedSidebarExpanded]);
+  }, [isAnyExtendedSidebarExpanded, isCollapsed, isHoveringTrigger, handlePeekLeave]);
 
   // Reset peek when sidebar is expanded
   useEffect(() => {
@@ -170,12 +191,38 @@ export function ResizableSidebar({
     onWidthChange?.(width);
   }, [width, onWidthChange]);
 
+  /**
+   * Notify on *changes* only. Firing this on mount - or again when React reconnects
+   * the subtree - echoes a possibly stale value straight back into the owning store,
+   * which can undo a collapse decided elsewhere in the same commit.
+   */
+  const lastReportedCollapsedRef = useRef<boolean | undefined>(undefined);
   useEffect(() => {
+    const lastReported = lastReportedCollapsedRef.current;
+    lastReportedCollapsedRef.current = isCollapsed;
+    if (lastReported === undefined || lastReported === isCollapsed) return;
     onCollapsedChange?.(isCollapsed);
   }, [isCollapsed, onCollapsedChange]);
 
+  /**
+   * As an overlay the drawer must never grow past the viewport it is floating over,
+   * so the stored (desktop) width is capped rather than replaced - narrow phones get
+   * a drawer that leaves a strip of content visible to tap back onto.
+   */
+  const openWidth = isOverlayMode ? `min(${width}px, 85vw)` : `${width}px`;
+  const resolvedWidth = isCollapsed ? "0px" : openWidth;
+
   return (
     <>
+      {/* Backdrop - only in overlay mode, where the drawer floats above the content */}
+      {isOverlayMode && !isCollapsed && (
+        <button
+          type="button"
+          aria-label="Close sidebar"
+          className="fixed inset-0 z-[19] bg-backdrop"
+          onClick={() => toggleCollapsedProp(true)}
+        />
+      )}
       {/* Main Sidebar */}
       <div
         id="main-sidebar"
@@ -183,17 +230,17 @@ export function ResizableSidebar({
           "z-20 h-full border-r border-subtle bg-surface-1",
           !isResizing && "transition-all duration-300 ease-in-out",
           isCollapsed ? "w-0 translate-x-[-100%] opacity-0" : "translate-x-0 opacity-100",
-          isMobile && "absolute",
+          isOverlayMode && "absolute inset-y-0 left-0 z-20 shadow-raised-200",
           className
         )}
         style={{
-          width: `${isCollapsed ? 0 : width}px`,
-          minWidth: `${isCollapsed ? 0 : width}px`,
-          maxWidth: `${isCollapsed ? 0 : width}px`,
+          width: resolvedWidth,
+          minWidth: resolvedWidth,
+          maxWidth: resolvedWidth,
         }}
         role="complementary"
         aria-label="Main sidebar"
-        data-prevent-outside-click={isMobile}
+        data-prevent-outside-click={isOverlayMode}
       >
         <aside
           className={cn(
@@ -207,6 +254,7 @@ export function ResizableSidebar({
           <div
             className={cn(
               "absolute z-[20] h-full w-1 cursor-ew-resize transition-all duration-200",
+              isOverlayMode && "hidden",
               !isResizing && "hover:bg-surface-2",
               isResizing && "w-1.5 bg-layer-1",
               "top-0 right-0"
@@ -230,7 +278,7 @@ export function ResizableSidebar({
           !showPeek ? "w-0" : "w-full"
         )}
         style={{
-          width: `${width}px`,
+          width: openWidth,
         }}
         onMouseEnter={handlePeekEnter}
         onMouseLeave={handlePeekLeave}
@@ -249,6 +297,7 @@ export function ResizableSidebar({
           <div
             className={cn(
               "absolute z-[20] h-full w-1 cursor-ew-resize transition-all duration-200",
+              isOverlayMode && "hidden",
               !isResizing && "hover:bg-surface-2",
               isResizing && "bg-layer-1",
               "top-0 right-0"
@@ -263,7 +312,7 @@ export function ResizableSidebar({
       </div>
 
       {/* Extended Sidebar */}
-      {extendedSidebar && extendedSidebar}
+      {extendedSidebar}
     </>
   );
 }

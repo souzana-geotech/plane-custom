@@ -49,16 +49,22 @@ export const TopNavigationRoot = observer(function TopNavigationRoot() {
         "px-2": !showLabel,
       })}
     >
-      {/* Workspace Menu */}
-      <div className="flex-1 shrink-0">
+      {/*
+        Three tracks that share one row at every width. The two outer tracks keep a
+        zero flex-basis so they grow by equal amounts and leave the search optically
+        centred on wide screens; the min-widths are what stop them collapsing to
+        nothing once the row runs out of space.
+      */}
+      {/* Workspace Menu - truncates, but never disappears entirely */}
+      <div className="min-w-fit flex-1 shrink">
         <WorkspaceMenuRoot variant="top-navigation" />
       </div>
-      {/* Power K Search */}
-      <div className="shrink-0">
+      {/* Power K Search - gives up width first, before either neighbour does */}
+      <div className="min-w-0 shrink">
         <TopNavPowerK />
       </div>
-      {/* Additional Actions */}
-      <div className="flex flex-1 shrink-0 items-center justify-end gap-1">
+      {/* Additional Actions - `min-w-fit` keeps every action reachable on narrow screens */}
+      <div className="flex min-w-fit flex-1 shrink-0 items-center justify-end gap-1">
         <Tooltip label="Inbox" side="bottom">
           <AppSidebarItem
             variant="link"

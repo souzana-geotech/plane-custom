@@ -101,7 +101,7 @@ export const TopNavPowerK = observer(() => {
     return () => {
       setTopNavInputRef(null);
     };
-  }, [setTopNavInputRef]);
+  }, [setTopNavInputRef, inputRef]);
 
   const handleClear = () => {
     setSearchTerm("");
@@ -203,25 +203,24 @@ export const TopNavPowerK = observer(() => {
         return;
       }
     },
-    [searchTerm, activePage, context, shouldShowContextBasedActions, setActivePage, closePanel]
+    [searchTerm, activePage, context, shouldShowContextBasedActions, setActivePage, closePanel, isOpen, containerRef]
   );
 
   return (
-    <div ref={containerRef} className="relative">
+    <div ref={containerRef} className="relative min-w-0">
       <div
-        className={cn("relative z-30 flex w-[364px] items-center transition-all duration-300 ease-in-out", {
+        className={cn("relative z-30 flex w-[364px] max-w-full items-center transition-all duration-300 ease-in-out", {
           "w-[554px]": isOpen,
         })}
       >
-        <div
+        {/* eslint-disable-next-line jsx-a11y/label-has-associated-control -- the input it labels is nested below */}
+        <label
           className={cn(
-            "flex h-7 w-full items-center rounded-lg border border-subtle-1 bg-layer-2 p-2 transition-colors duration-200",
+            "flex h-7 w-full cursor-text items-center rounded-lg border border-subtle-1 bg-layer-2 p-2 transition-colors duration-200",
             {
               "bg-layer-1": isOpen,
             }
           )}
-          onClick={() => inputRef.current?.focus()}
-          role="button"
         >
           <SearchOutline className="mr-2 size-3.5 shrink-0 text-placeholder" />
           <input
@@ -243,13 +242,13 @@ export const TopNavPowerK = observer(() => {
               <CloseOutline className="size-3.5 text-placeholder hover:text-primary" />
             </button>
           )}
-        </div>
+        </label>
       </div>
       <div
         className={cn(
           "shadow-lg absolute -top-[6px] left-1/2 z-20 flex -translate-x-1/2 flex-col overflow-hidden rounded-md border border-subtle bg-surface-1 px-0 pt-10 transition-all duration-300 ease-in-out",
           {
-            "max-h-[80vh] w-[574px] opacity-100": isOpen,
+            "max-h-[80vh] w-[574px] max-w-[calc(100vw-1.5rem)] opacity-100": isOpen,
             "h-0 w-0 opacity-0": !isOpen,
           }
         )}

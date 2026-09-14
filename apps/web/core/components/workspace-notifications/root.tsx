@@ -83,9 +83,11 @@ export const NotificationsRoot = observer(function NotificationsRoot({ workspace
   );
 
   return (
-    <div className={cn("h-full w-full overflow-hidden", isWorkItem && "overflow-y-auto")}>
+    <div className={cn("h-full w-full min-w-0 overflow-hidden", isWorkItem && "overflow-y-auto")}>
       {!currentSelectedNotificationId ? (
-        <div className="flex size-full items-center justify-center">
+        // Below `md` the list occupies the full width and this pane has none, so the
+        // "nothing selected" placeholder is desktop-only.
+        <div className="hidden size-full items-center justify-center md:flex">
           <EmptyStateCompact assetKey="unknown" assetClassName="size-20" />
         </div>
       ) : (

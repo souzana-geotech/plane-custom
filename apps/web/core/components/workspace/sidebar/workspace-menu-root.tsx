@@ -112,20 +112,24 @@ export const WorkspaceMenuRoot = observer(function WorkspaceMenuRoot(props: Work
             {variant === "top-navigation" && (
               <Menu.Button
                 className={cn(
-                  "group/menu-button flex flex-grow items-center justify-between gap-1 truncate rounded-sm p-1 text-13 font-medium text-secondary hover:bg-layer-1 focus:outline-none",
+                  "group/menu-button flex min-w-0 flex-grow items-center justify-between gap-1 truncate rounded-sm p-1 text-13 font-medium text-secondary hover:bg-layer-1 focus:outline-none",
                   {
                     "bg-layer-1": open,
                   }
                 )}
                 aria-label={t("aria_labels.projects_sidebar.open_workspace_switcher")}
               >
-                <div className="flex flex-grow items-center gap-2 truncate">
+                <div className="flex min-w-0 flex-grow items-center gap-2 truncate">
                   <WorkspaceLogo
                     logo={activeWorkspace?.logo_url}
                     name={activeWorkspace?.name}
                     classNames="border border-subtle rounded-md size-7"
                   />
-                  <h4 className="truncate text-14 font-medium text-primary">{activeWorkspace?.name ?? t("loading")}</h4>
+                  {/* Phone widths keep the logo + chevron only, so the switcher stays a
+                      one-tap target without starving the search box next to it. */}
+                  <h4 className="hidden truncate text-14 font-medium text-primary sm:block">
+                    {activeWorkspace?.name ?? t("loading")}
+                  </h4>
                 </div>
                 <ChevronDownOutline
                   className={cn("size-4 flex-shrink-0 text-placeholder duration-300", {
@@ -146,7 +150,7 @@ export const WorkspaceMenuRoot = observer(function WorkspaceMenuRoot(props: Work
               <Menu.Items as={Fragment}>
                 <div
                   className={cn(
-                    "fixed z-21 mt-1 flex w-[19rem] origin-top-left flex-col divide-y divide-subtle rounded-md border-[0.5px] border-strong bg-surface-1 shadow-raised-200 outline-none",
+                    "fixed z-21 mt-1 flex w-[19rem] max-w-[calc(100vw-2rem)] origin-top-left flex-col divide-y divide-subtle rounded-md border-[0.5px] border-strong bg-surface-1 shadow-raised-200 outline-none",
                     {
                       "top-11 left-14": variant === "sidebar",
                       "top-10 left-4": variant === "top-navigation",

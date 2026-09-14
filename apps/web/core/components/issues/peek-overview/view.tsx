@@ -213,7 +213,11 @@ export const IssueView = observer(function IssueView(props: IIssueView) {
                     />
                   </div>
                 ) : (
-                  <div className="vertical-scrollbar flex h-full w-full overflow-auto">
+                  <div
+                    // Two columns on desktop; stacked below `md`, where 400px of properties
+                    // would be wider than the panel itself.
+                    className="vertical-scrollbar flex h-full w-full flex-col overflow-auto md:flex-row"
+                  >
                     <div className="relative h-full w-full space-y-6 overflow-auto p-4 py-5">
                       <div className="space-y-3">
                         <PeekOverviewIssueDetails
@@ -247,7 +251,7 @@ export const IssueView = observer(function IssueView(props: IIssueView) {
                       </div>
                     </div>
                     <div
-                      className={`vertical-scrollbar scrollbar-sm h-full !w-[400px] flex-shrink-0 overflow-hidden border-l border-subtle p-4 py-5 ${
+                      className={`vertical-scrollbar scrollbar-sm h-full w-full shrink-0 overflow-hidden border-t border-subtle p-4 py-5 md:h-full md:!w-[400px] md:border-t-0 md:border-l ${
                         is_archived ? "pointer-events-none" : ""
                       }`}
                     >

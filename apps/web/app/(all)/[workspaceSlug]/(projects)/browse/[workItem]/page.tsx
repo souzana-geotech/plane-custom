@@ -9,6 +9,7 @@ import { observer } from "mobx-react";
 import { useTheme } from "next-themes";
 import useSWR from "swr";
 // plane imports
+import { useIsMobileViewport } from "@plane/hooks";
 import { useTranslation } from "@plane/i18n";
 import type { TIssue } from "@plane/types";
 import { EIssueServiceType } from "@plane/types";
@@ -45,7 +46,8 @@ export const IssueDetailsPage = observer(function IssueDetailsPage({ params }: R
     issue: { getIssueById },
   } = useIssueDetail();
   const { getProjectById, getProjectByIdentifier } = useProject();
-  const { toggleIssueDetailSidebar, issueDetailSidebarCollapsed } = useAppTheme();
+  const { toggleIssueDetailSidebar } = useAppTheme();
+  const isSmallScreen = useIsMobileViewport();
 
   const [projectIdentifier, sequence_id] = workItem.split("-");
 
@@ -71,19 +73,13 @@ export const IssueDetailsPage = observer(function IssueDetailsPage({ params }: R
     issue?.is_epic ? EIssueServiceType.EPICS : EIssueServiceType.ISSUES
   );
 
+  /**
+   * The properties panel is an off-canvas overlay below `md` and a docked column from
+   * `md` up, and nothing else toggles it - so it simply tracks the breakpoint.
+   */
   useEffect(() => {
-    const handleToggleIssueDetailSidebar = () => {
-      if (window && window.innerWidth < 768) {
-        toggleIssueDetailSidebar(true);
-      }
-      if (window && issueDetailSidebarCollapsed && window.innerWidth >= 768) {
-        toggleIssueDetailSidebar(false);
-      }
-    };
-    window.addEventListener("resize", handleToggleIssueDetailSidebar);
-    handleToggleIssueDetailSidebar();
-    return () => window.removeEventListener("resize", handleToggleIssueDetailSidebar);
-  }, [issueDetailSidebarCollapsed, toggleIssueDetailSidebar]);
+    toggleIssueDetailSidebar(isSmallScreen);
+  }, [isSmallScreen, toggleIssueDetailSidebar]);
 
   useEffect(() => {
     if (data?.is_intake) {

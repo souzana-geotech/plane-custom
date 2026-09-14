@@ -48,7 +48,9 @@ function LeftItem(props: HeaderProps) {
   return (
     <div
       className={cn(
-        "flex max-w-[80%] flex-grow flex-wrap items-center gap-2 overflow-ellipsis whitespace-nowrap",
+        // `min-w-0` is what lets long breadcrumbs and tab strips truncate: without it a
+        // flex child refuses to shrink below its content and overflows the header.
+        "flex max-w-[80%] min-w-0 flex-grow flex-wrap items-center gap-2 overflow-ellipsis whitespace-nowrap",
         props.className
       )}
     >
@@ -63,7 +65,7 @@ function RightItem(props: HeaderProps) {
   return (
     <div
       className={cn(
-        "flex w-auto items-center justify-end gap-2",
+        "flex w-auto shrink-0 items-center justify-end gap-2",
         {
           "items-baseline": variant === EHeaderVariant.TERNARY,
         },

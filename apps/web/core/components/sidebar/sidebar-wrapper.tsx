@@ -4,48 +4,41 @@
  * See the LICENSE file for details.
  */
 
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { observer } from "mobx-react";
 // plane helpers
-import { useOutsideClickDetector } from "@plane/hooks";
+import { useIsMobileViewport, useOutsideClickDetector } from "@plane/hooks";
 import { PreferencesOutline } from "@makeplane/propel/icons";
 import { ScrollArea } from "@plane/propel/scrollarea";
 // components
 import { CustomizeNavigationDialog } from "@/components/navigation/customize-navigation-dialog";
 // hooks
 import { useAppTheme } from "@/hooks/store/use-app-theme";
-import useSize from "@/hooks/use-window-size";
 // plane web components
 import { WorkspaceEditionBadge } from "@/components/workspace/edition-badge";
 import { AppSidebarToggleButton } from "./sidebar-toggle-button";
 import { IconButton } from "@plane/propel/icon-button";
 
 type TSidebarWrapperProps = {
-  title: string;
   children: React.ReactNode;
   quickActions?: React.ReactNode;
 };
 
 export const SidebarWrapper = observer(function SidebarWrapper(props: TSidebarWrapperProps) {
-  const { title, children, quickActions } = props;
+  const { children, quickActions } = props;
   // state
   const [isCustomizeNavDialogOpen, setIsCustomizeNavDialogOpen] = useState(false);
   // store hooks
   const { toggleSidebar, sidebarCollapsed } = useAppTheme();
-  const windowSize = useSize();
+  // hooks
+  const isSmallScreen = useIsMobileViewport();
   // refs
   const ref = useRef<HTMLDivElement>(null);
 
+  // Tapping outside the overlay drawer dismisses it, the same as tapping the backdrop.
   useOutsideClickDetector(ref, () => {
-    if (sidebarCollapsed === false && window.innerWidth < 768) {
-      toggleSidebar();
-    }
+    if (isSmallScreen && sidebarCollapsed === false) toggleSidebar(true);
   });
-
-  useEffect(() => {
-    if (windowSize[0] < 768 && !sidebarCollapsed) toggleSidebar();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [windowSize]);
 
   return (
     <>
@@ -54,17 +47,14 @@ export const SidebarWrapper = observer(function SidebarWrapper(props: TSidebarWr
         <div className="flex flex-col gap-3 px-3">
           {/* Workspace switcher and settings */}
 
-          <div className="flex items-center justify-between gap-2 px-2">
-            <span className="pt-1 text-16 font-medium text-primary">{title}</span>
-            <div className="flex items-center gap-2">
-              {title === "Projects" && (
-                <IconButton
-                  size="base"
-                  variant="ghost"
-                  icon={PreferencesOutline}
-                  onClick={() => setIsCustomizeNavDialogOpen(true)}
-                />
-              )}
+          <div className="flex items-center justify-end gap-2 px-2">
+            <div className="flex flex-shrink-0 items-center gap-2">
+              <IconButton
+                size="base"
+                variant="ghost"
+                icon={PreferencesOutline}
+                onClick={() => setIsCustomizeNavDialogOpen(true)}
+              />
               <AppSidebarToggleButton />
             </div>
           </div>

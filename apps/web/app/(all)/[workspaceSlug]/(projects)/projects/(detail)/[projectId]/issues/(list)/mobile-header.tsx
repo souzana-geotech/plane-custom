@@ -68,12 +68,12 @@ export const ProjectIssuesMobileHeader = observer(function ProjectIssuesMobileHe
         onClose={() => setAnalyticsModal(false)}
         projectDetails={currentProjectDetails ?? undefined}
       />
-      <div className="z-[13] flex justify-evenly border-b border-subtle bg-surface-1 py-2 md:hidden">
+      <div className="z-[13] flex justify-evenly border-b border-subtle bg-surface-1 py-2 md:hidden [&>*]:min-w-0">
         <MobileLayoutSelection
           layouts={[EIssueLayoutTypes.LIST, EIssueLayoutTypes.KANBAN, EIssueLayoutTypes.CALENDAR]}
           onChange={handleLayoutChange}
         />
-        <div className="flex flex-grow items-center justify-center border-l border-subtle text-13 text-secondary">
+        <div className="flex flex-grow items-center justify-center truncate border-l border-subtle text-13 text-secondary">
           <FiltersDropdown
             title={t("common.display")}
             placement="bottom-end"
@@ -100,7 +100,7 @@ export const ProjectIssuesMobileHeader = observer(function ProjectIssuesMobileHe
 
         <button
           onClick={() => setAnalyticsModal(true)}
-          className="flex flex-grow justify-center border-l border-subtle text-13 text-secondary"
+          className="flex flex-grow justify-center truncate border-l border-subtle text-13 text-secondary"
         >
           {t("common.analytics")}
         </button>

@@ -81,15 +81,17 @@ export const ProjectMemberList = observer(function ProjectMemberList(props: TPro
         projectId={projectId}
         workspaceSlug={workspaceSlug}
       />
-      <div className="flex items-center justify-between gap-4 overflow-x-hidden border-b border-subtle py-2">
-        <div className="text-14 font-semibold">{t("common.members")}</div>
-        <div className="flex items-center gap-2">
-          <div className="flex items-center justify-start gap-1.5 rounded-md border border-subtle bg-surface-1 px-2 py-1">
-            <SearchOutline className="h-3.5 w-3.5" />
+      {/* Wraps onto a second line rather than squeezing the search box out of existence */}
+      <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 overflow-x-hidden border-b border-subtle py-2">
+        <div className="shrink-0 text-14 font-semibold">{t("common.members")}</div>
+        <div className="flex min-w-0 flex-1 basis-80 flex-wrap items-center justify-end gap-2">
+          <div className="flex min-w-32 flex-1 items-center justify-start gap-1.5 rounded-md border border-subtle bg-surface-1 px-2 py-1 sm:max-w-[234px]">
+            <SearchOutline className="h-3.5 w-3.5 shrink-0" />
             <input
-              className="w-full max-w-[234px] border-none bg-transparent text-13 placeholder:text-placeholder focus:outline-none"
+              className="w-full min-w-0 border-none bg-transparent text-13 placeholder:text-placeholder focus:outline-none"
               placeholder="Search"
               value={searchQuery}
+              // eslint-disable-next-line jsx-a11y/no-autofocus
               autoFocus
               onChange={(e) => setSearchQuery(e.target.value)}
             />

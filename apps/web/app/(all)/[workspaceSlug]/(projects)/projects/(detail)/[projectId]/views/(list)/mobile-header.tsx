@@ -25,8 +25,8 @@ export const ViewMobileHeader = observer(function ViewMobileHeader() {
 
   return (
     <>
-      <div className="z-[13] flex justify-evenly border-b border-subtle bg-surface-1 py-2 md:hidden">
-        <Row className="flex flex-grow items-center justify-center border-l border-subtle text-13 text-secondary">
+      <div className="z-[13] flex justify-evenly border-b border-subtle bg-surface-1 py-2 md:hidden [&>*]:min-w-0">
+        <Row className="flex flex-grow items-center justify-center truncate border-l border-subtle text-13 text-secondary">
           <ViewOrderByDropdown
             sortBy={filters.sortBy}
             sortKey={filters.sortKey}
@@ -37,7 +37,7 @@ export const ViewMobileHeader = observer(function ViewMobileHeader() {
             isMobile
           />
         </Row>
-        <div className="flex flex-grow items-center justify-center border-l border-subtle text-13 text-secondary">
+        <div className="flex flex-grow items-center justify-center truncate border-l border-subtle text-13 text-secondary">
           <FiltersDropdown
             icon={<FilterOutline className="h-3 w-3" />}
             title="Filters"
