@@ -2,6 +2,10 @@
   "module": {
     "label": "{count, plural, one {Module} other {Modules}}",
     "no_module": "No module",
-    "select": "Add modules"
+    "select": "Add modules",
+    "code": {
+      "placeholder": "Module code (e.g. GT3D-001)",
+      "max_length": "Module code should be less than 50 characters"
+    }
   }
 }

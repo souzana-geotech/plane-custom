@@ -2,6 +2,10 @@
   "module": {
     "label": "{count, plural, one {მოდული} other {მოდულები}}",
     "no_module": "მოდული არ არის",
-    "select": "Add modules"
+    "select": "Add modules",
+    "code": {
+      "placeholder": "მოდულის კოდი (მაგ. GT3D-001)",
+      "max_length": "მოდულის კოდი უნდა იყოს 50 სიმბოლოზე ნაკლები"
+    }
   }
 }

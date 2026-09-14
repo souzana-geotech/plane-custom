@@ -72,7 +72,7 @@ export const ModuleAnalyticsSidebar = observer(function ModuleAnalyticsSidebar(p
   const moduleDetails = getModuleById(moduleId);
   const areEstimateEnabled = projectId && areEstimateEnabledByProjectId(projectId.toString());
   const estimateType = areEstimateEnabled && currentActiveEstimateId && estimateById(currentActiveEstimateId);
-  const isEstimatePointValid = estimateType && estimateType?.type == EEstimateSystem.POINTS ? true : false;
+  const isEstimatePointValid = Boolean(estimateType && estimateType?.type == EEstimateSystem.POINTS);
 
   const { reset, control } = useForm({
     defaultValues,
@@ -155,9 +155,7 @@ export const ModuleAnalyticsSidebar = observer(function ModuleAnalyticsSidebar(p
   const moduleStatus = MODULE_STATUS.find((status) => status.value === moduleDetails.status);
 
   const issueCount =
-    moduleDetails.total_issues === 0
-      ? "0 tasks"
-      : `${moduleDetails.completed_issues}/${moduleDetails.total_issues}`;
+    moduleDetails.total_issues === 0 ? "0 tasks" : `${moduleDetails.completed_issues}/${moduleDetails.total_issues}`;
 
   const issueEstimatePointCount =
     moduleDetails.total_estimate_points === 0
@@ -216,8 +214,8 @@ export const ModuleAnalyticsSidebar = observer(function ModuleAnalyticsSidebar(p
                     </span>
                   }
                   value={value}
-                  onChange={(value: any) => {
-                    submitChanges({ status: value });
+                  onChange={(updatedStatus: any) => {
+                    submitChanges({ status: updatedStatus });
                   }}
                   disabled={!isEditingAllowed || isArchived}
                 >
@@ -233,7 +231,9 @@ export const ModuleAnalyticsSidebar = observer(function ModuleAnalyticsSidebar(p
               )}
             />
           </div>
-          <h4 className="w-full text-18 font-semibold break-words text-primary">{moduleDetails.name}</h4>
+          <h4 className="w-full text-18 font-semibold break-words text-primary">
+            {moduleDetails.module_code ? `${moduleDetails.module_code} | ${moduleDetails.name}` : moduleDetails.name}
+          </h4>
         </div>
 
         {moduleDetails.description && (

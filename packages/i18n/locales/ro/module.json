@@ -2,6 +2,10 @@
   "module": {
     "label": "{count, plural, one {Modul} other {Module}}",
     "no_module": "Niciun modul",
-    "select": "Adaugă module"
+    "select": "Adaugă module",
+    "code": {
+      "placeholder": "Codul modulului (de ex. GT3D-001)",
+      "max_length": "Codul modulului trebuie să aibă mai puțin de 50 de caractere"
+    }
   }
 }

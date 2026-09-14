@@ -59,6 +59,25 @@ class ModuleWriteSerializer(BaseSerializer):
             and data.get("start_date", None) > data.get("target_date", None)
         ):
             raise serializers.ValidationError("Start date cannot exceed target date")
+
+        # Module code: a blank value clears the code (stored as NULL so the
+        # per-project unique constraint ignores unset codes).
+        if "module_code" in data:
+            module_code = (data.get("module_code") or "").strip()
+            data["module_code"] = module_code or None
+
+            if data["module_code"]:
+                project = self.context.get("project") or getattr(self.instance, "project", None)
+                if project:
+                    conflict = Module.objects.filter(
+                        project=project, module_code__iexact=data["module_code"]
+                    )
+                    if self.instance:
+                        conflict = conflict.exclude(pk=self.instance.pk)
+                    if conflict.exists():
+                        raise serializers.ValidationError(
+                            {"module_code": "Module code is already used in this project"}
+                        )
         return data
 
     def create(self, validated_data):
@@ -224,6 +243,7 @@ class ModuleSerializer(DynamicBaseSerializer):
             "project_id",
             # Model fields
             "name",
+            "module_code",
             "description",
             "description_text",
             "description_html",

@@ -2,6 +2,10 @@
   "module": {
     "label": "{count, plural, one {Modul} other {Modul}}",
     "no_module": "Tidak ada modul",
-    "select": "Tambah modul"
+    "select": "Tambah modul",
+    "code": {
+      "placeholder": "Kode modul (mis. GT3D-001)",
+      "max_length": "Kode modul harus kurang dari 50 karakter"
+    }
   }
 }

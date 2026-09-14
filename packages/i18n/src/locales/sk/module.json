@@ -2,6 +2,10 @@
   "module": {
     "label": "{count, plural, one {Modul} few {Moduly} other {Modulov}}",
     "no_module": "Žiadny modul",
-    "select": "Pridať moduly"
+    "select": "Pridať moduly",
+    "code": {
+      "placeholder": "Kód modulu (napr. GT3D-001)",
+      "max_length": "Kód modulu musí mať menej ako 50 znakov"
+    }
   }
 }

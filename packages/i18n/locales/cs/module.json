@@ -2,6 +2,10 @@
   "module": {
     "label": "{count, plural, one {Modul} few {Moduly} other {Modulů}}",
     "no_module": "Žádný modul",
-    "select": "Přidat moduly"
+    "select": "Přidat moduly",
+    "code": {
+      "placeholder": "Kód modulu (např. GT3D-001)",
+      "max_length": "Kód modulu musí mít méně než 50 znaků"
+    }
   }
 }

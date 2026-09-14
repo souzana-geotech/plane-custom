@@ -70,6 +70,13 @@ export interface IModule {
 
   id: string;
   name: string;
+  /**
+   * Geotech3D: user-managed identity code for the module (e.g. "GT3D-001").
+   * The module is the canonical WBS scope; this code names the scope. It is
+   * independent from WBS numbering and from work item sequence_ids, and unique
+   * per project while set.
+   */
+  module_code?: string | null;
   description: string;
   description_text: any;
   description_html: any;

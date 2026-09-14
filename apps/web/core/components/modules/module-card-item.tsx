@@ -35,6 +35,11 @@ type Props = {
   moduleId: string;
 };
 
+const handleEventPropagation = (e: SyntheticEvent<HTMLDivElement>) => {
+  e.stopPropagation();
+  e.preventDefault();
+};
+
 export const ModuleCardItem = observer(function ModuleCardItem(props: Props) {
   const { moduleId } = props;
   // refs
@@ -68,6 +73,7 @@ export const ModuleCardItem = observer(function ModuleCardItem(props: Props) {
     const addToFavoritePromise = addModuleToFavorites(workspaceSlug.toString(), projectId.toString(), moduleId).then(
       () => {
         if (!storedValue) toggleFavoriteMenu(true);
+        return null;
       }
     );
 
@@ -108,29 +114,23 @@ export const ModuleCardItem = observer(function ModuleCardItem(props: Props) {
     });
   };
 
-  const handleEventPropagation = (e: SyntheticEvent<HTMLDivElement>) => {
-    e.stopPropagation();
-    e.preventDefault();
-  };
-
   const handleModuleDetailsChange = async (payload: Partial<IModule>) => {
     if (!workspaceSlug || !projectId) return;
 
-    await updateModuleDetails(workspaceSlug.toString(), projectId.toString(), moduleId, payload)
-      .then(() => {
-        setToast({
-          type: TOAST_TYPE.SUCCESS,
-          title: "Success!",
-          message: "Module updated successfully.",
-        });
-      })
-      .catch((err) => {
-        setToast({
-          type: TOAST_TYPE.ERROR,
-          title: "Error!",
-          message: err?.detail ?? "Module could not be updated. Please try again.",
-        });
+    try {
+      await updateModuleDetails(workspaceSlug.toString(), projectId.toString(), moduleId, payload);
+      setToast({
+        type: TOAST_TYPE.SUCCESS,
+        title: "Success!",
+        message: "Module updated successfully.",
       });
+    } catch (err: any) {
+      setToast({
+        type: TOAST_TYPE.ERROR,
+        title: "Error!",
+        message: err?.detail ?? "Module could not be updated. Please try again.",
+      });
+    }
   };
 
   const openModuleOverview = (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -177,10 +177,27 @@ export const ModuleCardItem = observer(function ModuleCardItem(props: Props) {
         <Card>
           <div>
             <div className="flex items-center justify-between gap-2">
-              <Tooltip label={moduleDetails.name} layout="stacked" disabled={isMobile}>
-                <span className="truncate text-14 font-medium">{moduleDetails.name}</span>
+              <Tooltip
+                label={
+                  moduleDetails.module_code
+                    ? `${moduleDetails.module_code} | ${moduleDetails.name}`
+                    : moduleDetails.name
+                }
+                layout="stacked"
+                disabled={isMobile}
+              >
+                <span className="truncate text-14 font-medium">
+                  {moduleDetails.module_code
+                    ? `${moduleDetails.module_code} | ${moduleDetails.name}`
+                    : moduleDetails.name}
+                </span>
               </Tooltip>
-              <div className="flex items-center gap-2" onClick={handleEventPropagation}>
+              <div
+                role="presentation"
+                className="flex items-center gap-2"
+                onClick={handleEventPropagation}
+                onKeyDown={(e) => e.stopPropagation()}
+              >
                 {moduleStatus && (
                   <ModuleStatusDropdown
                     isDisabled={isDisabled}
@@ -217,7 +234,12 @@ export const ModuleCardItem = observer(function ModuleCardItem(props: Props) {
               showValue={false}
               aria-label="Module progress"
             />
-            <div className="flex items-center justify-between py-0.5" onClick={handleEventPropagation}>
+            <div
+              role="presentation"
+              className="flex items-center justify-between py-0.5"
+              onClick={handleEventPropagation}
+              onKeyDown={(e) => e.stopPropagation()}
+            >
               <DateRangeDropdown
                 buttonContainerClassName={`h-6 w-full flex ${isDisabled ? "cursor-not-allowed" : "cursor-pointer"} items-center gap-1.5 text-tertiary border-[0.5px] border-strong rounded-sm text-11`}
                 buttonVariant="transparent-with-text"

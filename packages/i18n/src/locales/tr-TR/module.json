@@ -2,6 +2,10 @@
   "module": {
     "label": "{count, plural, one {Modül} other {Modüller}}",
     "no_module": "Modül yok",
-    "select": "Modül ekle"
+    "select": "Modül ekle",
+    "code": {
+      "placeholder": "Modül kodu (örn. GT3D-001)",
+      "max_length": "Modül kodu 50 karakterden az olmalıdır"
+    }
   }
 }

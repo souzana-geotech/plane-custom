@@ -32,7 +32,9 @@ def get_default_display_filters():
         "type": None,
         "sub_issue": True,
         "show_empty_groups": True,
-        "layout": "list",
+        # Geotech3D: the module is the WBS scope, so every module opens in the
+        # WBS layout by default (users can still switch layouts per module)
+        "layout": "wbs",
         "calendar_date_range": "",
     }
 
@@ -66,6 +68,11 @@ class ModuleStatus(models.TextChoices):
 
 class Module(ProjectBaseModel):
     name = models.CharField(max_length=255, verbose_name="Module Name")
+    # Geotech3D: user-managed identity code for the module (e.g. "GT3D-001").
+    # A module is the canonical WBS scope (the future "Project/Job" container),
+    # and this code labels that scope. It is independent from WBS numbering and
+    # from work item sequence_ids, and unique per project while set.
+    module_code = models.CharField(max_length=50, null=True, blank=True, verbose_name="Module Code")
     description = models.TextField(verbose_name="Module Description", blank=True)
     description_text = models.JSONField(verbose_name="Module Description RT", blank=True, null=True)
     description_html = models.JSONField(verbose_name="Module Description HTML", blank=True, null=True)
@@ -105,7 +112,12 @@ class Module(ProjectBaseModel):
                 fields=["name", "project"],
                 condition=Q(deleted_at__isnull=True),
                 name="module_unique_name_project_when_deleted_at_null",
-            )
+            ),
+            models.UniqueConstraint(
+                fields=["module_code", "project"],
+                condition=Q(deleted_at__isnull=True) & Q(module_code__isnull=False),
+                name="module_unique_module_code_project_when_deleted_at_null",
+            ),
         ]
         verbose_name = "Module"
         verbose_name_plural = "Modules"

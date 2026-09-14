@@ -308,6 +308,7 @@ class ModuleViewSet(BaseViewSet):
                     "project_id",
                     # Model fields
                     "name",
+                    "module_code",
                     "description",
                     "description_text",
                     "description_html",
@@ -362,6 +363,7 @@ class ModuleViewSet(BaseViewSet):
                 "project_id",
                 # Model fields
                 "name",
+                "module_code",
                 "description",
                 "description_text",
                 "description_html",
@@ -677,6 +679,7 @@ class ModuleViewSet(BaseViewSet):
                 "project_id",
                 # Model fields
                 "name",
+                "module_code",
                 "description",
                 "description_text",
                 "description_html",

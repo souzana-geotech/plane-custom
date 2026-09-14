@@ -2,6 +2,10 @@
   "module": {
     "label": "{count, plural, one {模組} other {模組}}",
     "no_module": "無模組",
-    "select": "新增模組"
+    "select": "新增模組",
+    "code": {
+      "placeholder": "模組代碼（例如 GT3D-001）",
+      "max_length": "模組代碼必須少於 50 個字元"
+    }
   }
 }

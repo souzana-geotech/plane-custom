@@ -2,6 +2,10 @@
   "module": {
     "label": "{count, plural, one {模块} other {模块}}",
     "no_module": "无模块",
-    "select": "添加模块"
+    "select": "添加模块",
+    "code": {
+      "placeholder": "模块代码（例如 GT3D-001）",
+      "max_length": "模块代码必须少于 50 个字符"
+    }
   }
 }

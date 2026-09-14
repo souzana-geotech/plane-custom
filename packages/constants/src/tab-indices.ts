@@ -64,6 +64,7 @@ export const PROJECT_CYCLE_TAB_INDICES = ["name", "description", "date_range", "
 
 export const PROJECT_MODULE_TAB_INDICES = [
   "name",
+  "module_code",
   "description",
   "date_range",
   "status",

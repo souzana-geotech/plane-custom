@@ -36,6 +36,7 @@ type Props = {
 
 const defaultValues: Partial<IModule> = {
   name: "",
+  module_code: "",
   description: "",
   status: "backlog",
   lead_id: null,
@@ -56,6 +57,7 @@ export function ModuleForm(props: Props) {
     defaultValues: {
       project_id: projectId,
       name: data?.name || "",
+      module_code: data?.module_code || "",
       description: data?.description || "",
       status: data?.status || "backlog",
       lead_id: data?.lead_id || null,
@@ -102,7 +104,7 @@ export function ModuleForm(props: Props) {
                     }}
                     multiple={false}
                     buttonVariant="border-with-text"
-                    renderCondition={(projectId) => !!projectsWithCreatePermissions?.[projectId]}
+                    renderCondition={(id) => !!projectsWithCreatePermissions?.[id]}
                     tabIndex={getIndex("cover_image")}
                   />
                 </div>
@@ -137,6 +139,7 @@ export function ModuleForm(props: Props) {
                       onChange={onChange}
                       placeholder={t("title")}
                       tabIndex={getIndex("name")}
+                      // oxlint-disable-next-line jsx-a11y/no-autofocus
                       autoFocus
                     />
                   </InputGroup>
@@ -144,6 +147,37 @@ export function ModuleForm(props: Props) {
               )}
             />
             <span className="text-11 text-danger-primary">{errors?.name?.message}</span>
+          </div>
+          {/* Geotech3D: module code — names the module (the WBS scope, e.g.
+              "GT3D-001"). Independent from WBS numbers and work item ids. */}
+          <div className="space-y-1">
+            <Controller
+              control={control}
+              name="module_code"
+              rules={{
+                maxLength: {
+                  value: 50,
+                  message: t("module.code.max_length"),
+                },
+              }}
+              render={({ field: { value, onChange } }) => (
+                <Field name="module_code" invalid={Boolean(errors?.module_code)}>
+                  <InputGroup size="lg">
+                    <Input
+                      size="lg"
+                      id="module_code"
+                      name="module_code"
+                      type="text"
+                      value={value ?? ""}
+                      onChange={onChange}
+                      placeholder={t("module.code.placeholder")}
+                      tabIndex={getIndex("module_code")}
+                    />
+                  </InputGroup>
+                </Field>
+              )}
+            />
+            <span className="text-11 text-danger-primary">{errors?.module_code?.message}</span>
           </div>
           <div>
             <Controller

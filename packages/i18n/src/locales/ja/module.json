@@ -2,6 +2,10 @@
   "module": {
     "label": "{count, plural, one {モジュール} other {モジュール}}",
     "no_module": "モジュールなし",
-    "select": "モジュールを追加"
+    "select": "モジュールを追加",
+    "code": {
+      "placeholder": "モジュールコード（例：GT3D-001）",
+      "max_length": "モジュールコードは50文字未満で入力してください"
+    }
   }
 }
