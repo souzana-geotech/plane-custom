@@ -295,7 +295,11 @@
       "error": {
         "title": "Strom WBS se nepodařilo sestavit",
         "message": "Hierarchii úkolů se nepodařilo načíst. Ostatní rozložení nejsou ovlivněna."
-      }
+      },
+      "move_failed": "Přesun se nezdařil",
+      "move_failed_message": "Úkol se nepodařilo přesunout. Zkuste to prosím znovu.",
+      "move_rejected_cycle": "Úkol nelze přesunout pod něj samotný ani pod žádný z jeho dílčích úkolů.",
+      "editing_disabled_filtered": "Změna pořadí přetažením je vypnutá, dokud jsou aktivní filtry."
     }
   },
   "sub_work_item": {

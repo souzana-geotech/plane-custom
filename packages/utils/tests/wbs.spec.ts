@@ -6,7 +6,13 @@
 
 import { describe, expect, it } from "vitest";
 import type { TWbsSourceItem } from "@plane/types";
-import { computeWbsIndex, flattenWbsTree, getWbsAncestorIds, getWbsDescendantIds } from "../src/work-item/wbs";
+import {
+  computeWbsIndex,
+  flattenWbsTree,
+  getWbsAncestorIds,
+  getWbsDescendantIds,
+  planWbsMove,
+} from "../src/work-item/wbs";
 
 /** build a source item with sensible defaults so tests stay readable */
 const item = (
@@ -430,5 +436,129 @@ describe("getWbsAncestorIds / getWbsDescendantIds", () => {
     const cyclic = computeWbsIndex([item("A", "B", 100), item("B", "A", 200)]);
     expect(getWbsAncestorIds(cyclic, "A").length).toBeLessThanOrEqual(2);
     expect(getWbsDescendantIds(cyclic, "A").length).toBeLessThanOrEqual(2);
+  });
+});
+
+describe("planWbsMove — drag-and-drop planning", () => {
+  // 1 Survey (s100) / 1.1 FieldWork (s100) / 1.1.1 Scanning / 1.2 Processing (s200)
+  // 2 QA/QC (s200) / 3 BIM (s300)
+  const items = [
+    item("survey", null, 100),
+    item("fieldwork", "survey", 100),
+    item("scanning", "fieldwork", 100),
+    item("processing", "survey", 200),
+    item("qaqc", null, 200),
+    item("bim", null, 300),
+  ];
+  const index = computeWbsIndex(items);
+  const sortOf = (id: string) => items.find((i) => i.id === id)?.sort_order;
+
+  const apply = (plan: ReturnType<typeof planWbsMove>, sourceId: string) => {
+    // simulate the single-mutation apply and recompute codes
+    if (!plan.ok) throw new Error("plan not ok");
+    const next: TWbsSourceItem[] = [];
+    for (const i of items) {
+      next.push(i.id === sourceId ? { ...i, parent_id: plan.parentId, sort_order: plan.sortOrder } : i);
+    }
+    return codes(next);
+  };
+
+  it("Test A — root reorder: move BIM above Survey", () => {
+    const plan = planWbsMove(index, sortOf, "bim", "survey", "reorder-above");
+    expect(plan).toEqual({ ok: true, parentId: null, sortOrder: 100 - 65535 });
+    expect(apply(plan, "bim")).toMatchObject({ bim: "1", survey: "2", qaqc: "3" });
+  });
+
+  it("Test A2 — move BIM above QA/QC lands between Survey and QA/QC", () => {
+    const plan = planWbsMove(index, sortOf, "bim", "qaqc", "reorder-above");
+    expect(plan).toEqual({ ok: true, parentId: null, sortOrder: 150 });
+    expect(apply(plan, "bim")).toMatchObject({ survey: "1", bim: "2", qaqc: "3" });
+  });
+
+  it("Test A3 — move Survey below QA/QC (reorder-below with a next sibling)", () => {
+    const plan = planWbsMove(index, sortOf, "survey", "qaqc", "reorder-below");
+    expect(plan).toEqual({ ok: true, parentId: null, sortOrder: 250 });
+    expect(apply(plan, "survey")).toMatchObject({ qaqc: "1", survey: "2", bim: "3" });
+  });
+
+  it("Test A4 — move Survey below BIM (end of list)", () => {
+    const plan = planWbsMove(index, sortOf, "survey", "bim", "reorder-below");
+    expect(plan).toEqual({ ok: true, parentId: null, sortOrder: 300 + 65535 });
+    expect(apply(plan, "survey")).toMatchObject({ qaqc: "1", bim: "2", survey: "3" });
+  });
+
+  it("Test B — child reorder: move Processing above FieldWork", () => {
+    const plan = planWbsMove(index, sortOf, "processing", "fieldwork", "reorder-above");
+    expect(plan).toEqual({ ok: true, parentId: "survey", sortOrder: 100 - 65535 });
+    expect(apply(plan, "processing")).toMatchObject({ processing: "1.1", fieldwork: "1.2", scanning: "1.2.1" });
+  });
+
+  it("Test C — re-parent: drop BIM inside Survey appends after existing children", () => {
+    const plan = planWbsMove(index, sortOf, "bim", "survey", "make-child");
+    expect(plan).toEqual({ ok: true, parentId: "survey", sortOrder: 200 + 65535 });
+    expect(apply(plan, "bim")).toMatchObject({ bim: "1.3", qaqc: "2" });
+  });
+
+  it("Test C2 — make-child of a childless target starts a new group", () => {
+    const plan = planWbsMove(index, sortOf, "bim", "qaqc", "make-child");
+    expect(plan).toEqual({ ok: true, parentId: "qaqc", sortOrder: 65535 });
+    expect(apply(plan, "bim")).toMatchObject({ bim: "2.1" });
+  });
+
+  it("Test D — child to root: move Processing above QA/QC", () => {
+    const plan = planWbsMove(index, sortOf, "processing", "qaqc", "reorder-above");
+    expect(plan).toEqual({ ok: true, parentId: null, sortOrder: 150 });
+    expect(apply(plan, "processing")).toMatchObject({ survey: "1", processing: "2", qaqc: "3", bim: "4" });
+  });
+
+  it("Test E — subtree move: FieldWork under QA/QC keeps Scanning attached", () => {
+    const plan = planWbsMove(index, sortOf, "fieldwork", "qaqc", "make-child");
+    expect(plan).toEqual({ ok: true, parentId: "qaqc", sortOrder: 65535 });
+    const result = apply(plan, "fieldwork");
+    expect(result).toMatchObject({ fieldwork: "2.1", scanning: "2.1.1", processing: "1.1" });
+  });
+
+  it("Test F — cycle: Survey into Scanning (its own grandchild) is rejected", () => {
+    expect(planWbsMove(index, sortOf, "survey", "scanning", "make-child")).toEqual({
+      ok: false,
+      reason: "descendant",
+    });
+    expect(planWbsMove(index, sortOf, "survey", "fieldwork", "reorder-above")).toEqual({
+      ok: false,
+      reason: "descendant",
+    });
+  });
+
+  it("Test G — self: dropping a work item onto itself is rejected", () => {
+    expect(planWbsMove(index, sortOf, "survey", "survey", "make-child")).toEqual({ ok: false, reason: "self" });
+    expect(planWbsMove(index, sortOf, "survey", "survey", "reorder-above")).toEqual({ ok: false, reason: "self" });
+  });
+
+  it("rejects unknown source or target ids", () => {
+    expect(planWbsMove(index, sortOf, "ghost", "survey", "make-child")).toEqual({ ok: false, reason: "not-found" });
+    expect(planWbsMove(index, sortOf, "survey", "ghost", "make-child")).toEqual({ ok: false, reason: "not-found" });
+  });
+
+  it("reordering next to a direct sibling neighbour is stable (source excluded from the group)", () => {
+    // fieldwork is directly above processing; "processing above fieldwork" must
+    // not be confused by processing's own position in the sibling list
+    const plan = planWbsMove(index, sortOf, "fieldwork", "processing", "reorder-above");
+    expect(plan.ok).toBe(true);
+    if (plan.ok) {
+      expect(plan.parentId).toBe("survey");
+      const result = apply(plan, "fieldwork");
+      expect(result).toMatchObject({ fieldwork: "1.1", processing: "1.2" });
+    }
+  });
+
+  it("make-child onto the current parent re-appends at the end of the group", () => {
+    const plan = planWbsMove(index, sortOf, "fieldwork", "survey", "make-child");
+    expect(plan).toEqual({ ok: true, parentId: "survey", sortOrder: 200 + 65535 });
+    expect(apply(plan, "fieldwork")).toMatchObject({ processing: "1.1", fieldwork: "1.2", scanning: "1.2.1" });
+  });
+
+  it("falls back to the default gap when sort orders are missing", () => {
+    const plan = planWbsMove(index, () => undefined, "bim", "qaqc", "reorder-above");
+    expect(plan).toEqual({ ok: true, parentId: null, sortOrder: 65535 });
   });
 });

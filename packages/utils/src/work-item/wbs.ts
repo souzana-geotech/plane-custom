@@ -4,7 +4,7 @@
  * See the LICENSE file for details.
  */
 
-import type { TWbsIndex, TWbsNode, TWbsSourceItem } from "@plane/types";
+import type { TWbsIndex, TWbsMoveInstruction, TWbsMovePlan, TWbsNode, TWbsSourceItem } from "@plane/types";
 
 /**
  * Work Breakdown Structure numbering, derived from Plane's existing hierarchy.
@@ -272,6 +272,71 @@ export const flattenWbsTree = (
   }
 
   return rows;
+};
+
+/**
+ * Matches the spacing Plane's own layouts use when assigning `sort_order`
+ * (see `handleSortOrder` in the issue-layouts drag-and-drop utils).
+ */
+const WBS_SORT_ORDER_GAP = 65535;
+
+const finiteSortOrder = (value: number | undefined): value is number =>
+  typeof value === "number" && Number.isFinite(value);
+
+/**
+ * Plan a WBS drag-and-drop move as a single mutation on the moved work item.
+ *
+ * The plan never touches descendants — they follow automatically because only
+ * the moved item's `parent_id` / `sort_order` change and the hierarchy is
+ * derived. Cycle safety: a move onto itself or into its own subtree is
+ * rejected here for UX, and again by the server, which is the real boundary.
+ *
+ * `getSortOrder` reads the authoritative `sort_order` of a work item (the
+ * index deliberately does not carry it, to stay a pure presentation value).
+ */
+export const planWbsMove = (
+  index: TWbsIndex,
+  getSortOrder: (id: string) => number | undefined,
+  sourceId: string,
+  targetId: string,
+  instruction: TWbsMoveInstruction
+): TWbsMovePlan => {
+  const source = index.nodes.get(sourceId);
+  const target = index.nodes.get(targetId);
+  if (!source || !target) return { ok: false, reason: "not-found" };
+  if (sourceId === targetId) return { ok: false, reason: "self" };
+  // the target must not live inside the moved subtree — that would be a cycle
+  if (getWbsAncestorIds(index, targetId).includes(sourceId)) return { ok: false, reason: "descendant" };
+
+  if (instruction === "make-child") {
+    // append at the end of the target's children (visible or not)
+    const siblingIds = target.childIds.filter((id) => id !== sourceId);
+    const lastSort = siblingIds.length > 0 ? getSortOrder(siblingIds[siblingIds.length - 1]) : undefined;
+    return {
+      ok: true,
+      parentId: targetId,
+      sortOrder: finiteSortOrder(lastSort) ? lastSort + WBS_SORT_ORDER_GAP : WBS_SORT_ORDER_GAP,
+    };
+  }
+
+  // reorder-above / reorder-below: join the target's sibling group next to it
+  const parentId = target.parentId;
+  const groupIds = parentId === null ? index.rootIds : (index.nodes.get(parentId)?.childIds ?? []);
+  const siblingIds = groupIds.filter((id) => id !== sourceId);
+  const targetPosition = siblingIds.indexOf(targetId);
+  if (targetPosition === -1) return { ok: false, reason: "not-found" };
+
+  const insertionIndex = instruction === "reorder-above" ? targetPosition : targetPosition + 1;
+  const previousSort = insertionIndex > 0 ? getSortOrder(siblingIds[insertionIndex - 1]) : undefined;
+  const nextSort = insertionIndex < siblingIds.length ? getSortOrder(siblingIds[insertionIndex]) : undefined;
+
+  let sortOrder: number;
+  if (finiteSortOrder(previousSort) && finiteSortOrder(nextSort)) sortOrder = (previousSort + nextSort) / 2;
+  else if (finiteSortOrder(nextSort)) sortOrder = nextSort - WBS_SORT_ORDER_GAP;
+  else if (finiteSortOrder(previousSort)) sortOrder = previousSort + WBS_SORT_ORDER_GAP;
+  else sortOrder = WBS_SORT_ORDER_GAP;
+
+  return { ok: true, parentId, sortOrder };
 };
 
 /**

@@ -295,7 +295,11 @@
       "error": {
         "title": "無法產生 WBS 樹",
         "message": "無法載入任務階層。其他版面配置不受影響。"
-      }
+      },
+      "move_failed": "移動失敗",
+      "move_failed_message": "無法移動該任務。請重試。",
+      "move_rejected_cycle": "任務不能移動到其自身或其子任務之下。",
+      "editing_disabled_filtered": "篩選條件生效期間，拖放排序已停用。"
     }
   },
   "sub_work_item": {

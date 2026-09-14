@@ -295,7 +295,11 @@
       "error": {
         "title": "No se pudo generar el árbol WBS",
         "message": "No se pudo cargar la jerarquía de tareas. Los demás diseños no se ven afectados."
-      }
+      },
+      "move_failed": "Error al mover",
+      "move_failed_message": "No se pudo mover la tarea. Inténtelo de nuevo.",
+      "move_rejected_cycle": "Una tarea no se puede mover debajo de sí misma ni de una de sus subtareas.",
+      "editing_disabled_filtered": "Reordenar arrastrando está desactivado mientras los filtros están activos."
     }
   },
   "sub_work_item": {

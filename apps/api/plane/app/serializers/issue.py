@@ -185,6 +185,24 @@ class IssueCreateSerializer(BaseSerializer):
         ):
             raise serializers.ValidationError("Parent is not valid issue_id please pass a valid issue_id")
 
+        # Geotech3D: prevent hierarchy cycles. A work item may never become its
+        # own ancestor — reject a self-parent and any parent whose ancestor
+        # chain contains this work item. This is the server-side safety
+        # boundary for re-parenting (the WBS layout among others); frontend
+        # checks are UX only.
+        if attrs.get("parent") and self.instance:
+            cursor = attrs.get("parent")
+            seen_ids = set()
+            while cursor is not None and cursor.id not in seen_ids:
+                if cursor.id == self.instance.id:
+                    raise serializers.ValidationError(
+                        {"parent_id": "A work item cannot be moved under itself or one of its sub-work items"}
+                    )
+                seen_ids.add(cursor.id)
+                if cursor.parent_id is None:
+                    break
+                cursor = Issue.objects.filter(pk=cursor.parent_id).only("id", "parent_id").first()
+
         if (
             attrs.get("estimate_point")
             and not EstimatePoint.objects.filter(

@@ -5,15 +5,18 @@
  */
 
 import type { MouseEvent } from "react";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+import { combine } from "@atlaskit/pragmatic-drag-and-drop/combine";
+import { draggable, dropTargetForElements } from "@atlaskit/pragmatic-drag-and-drop/element/adapter";
+import { attachInstruction, extractInstruction } from "@atlaskit/pragmatic-drag-and-drop-hitbox/tree-item";
 import { observer } from "mobx-react";
 import { useParams } from "next/navigation";
 import { ChevronRightOutline } from "@makeplane/propel/icons";
 // plane imports
 import { Tooltip } from "@makeplane/propel/components/tooltip";
 import { useTranslation } from "@plane/i18n";
-import type { IIssueDisplayProperties, TIssue } from "@plane/types";
-import { ControlLink, Row } from "@plane/ui";
+import type { IIssueDisplayProperties, TIssue, TWbsMoveInstruction } from "@plane/types";
+import { ControlLink, DropIndicator, Row } from "@plane/ui";
 import { cn, generateWorkItemLink } from "@plane/utils";
 // components
 import { IssueIdentifier } from "@/components/issues/issue-detail/issue-identifier";
@@ -35,12 +38,28 @@ type Props = {
   isExpanded: boolean;
   /** dotted codes of this row's ancestors, nearest-last, for the deep-node hint */
   ancestorPath: string[];
+  /** whether this row is the last visible row of the tree (drop hitbox mode) */
+  isLastRow: boolean;
+  /** structural editing enabled — false while filters are active or the tree is truncated */
+  canDrag: boolean;
+  /** whether the given dragged row may be dropped on this row (self/descendant guard) */
+  canDropFromSource: (sourceId: string, targetId: string) => boolean;
+  /** apply a planned move — above / below / inside this row */
+  onMove: (sourceId: string, targetId: string, instruction: TWbsMoveInstruction) => void;
   onToggleExpanded: (issueId: string) => void;
   displayProperties: IIssueDisplayProperties | undefined;
   canEditProperties: (projectId: string | undefined) => boolean;
   updateIssue: ((projectId: string | null, issueId: string, data: Partial<TIssue>) => Promise<void>) | undefined;
   quickActions: TRenderQuickActions;
 };
+
+const WBS_DRAG_TYPE = "WBS_ISSUE";
+
+/** the three drop intentions the tree-item hitbox can report for a row */
+const WBS_INSTRUCTIONS: TWbsMoveInstruction[] = ["reorder-above", "reorder-below", "make-child"];
+
+const isWbsInstruction = (value: string | undefined): value is TWbsMoveInstruction =>
+  !!value && (WBS_INSTRUCTIONS as string[]).includes(value);
 
 /**
  * A single row of the WBS tree.
@@ -60,6 +79,10 @@ export const WbsRow = observer(function WbsRow(props: Props) {
     hasChildren,
     isExpanded,
     ancestorPath,
+    isLastRow,
+    canDrag,
+    canDropFromSource,
+    onMove,
     onToggleExpanded,
     displayProperties,
     canEditProperties,
@@ -68,6 +91,9 @@ export const WbsRow = observer(function WbsRow(props: Props) {
   } = props;
   // refs
   const rowRef = useRef<HTMLDivElement | null>(null);
+  // drag-and-drop state
+  const [dropInstruction, setDropInstruction] = useState<TWbsMoveInstruction | undefined>(undefined);
+  const [isBeingDragged, setIsBeingDragged] = useState(false);
   // router
   const { workspaceSlug: routerWorkspaceSlug } = useParams();
   const workspaceSlug = routerWorkspaceSlug?.toString();
@@ -80,6 +106,55 @@ export const WbsRow = observer(function WbsRow(props: Props) {
 
   // derived values
   const issue = issueStore.getIssueById(issueId);
+
+  // Drag-and-drop: the row is draggable and a tree-item drop target. The
+  // hitbox reports one of three intentions — above / below / make child —
+  // which the layout root turns into a single parent_id + sort_order mutation
+  // through Plane's existing optimistic update path.
+  useEffect(() => {
+    const element = rowRef.current;
+    if (!element || !canDrag) return;
+
+    return combine(
+      draggable({
+        element,
+        canDrag: () => canDrag,
+        getInitialData: () => ({ id: issueId, type: WBS_DRAG_TYPE }),
+        onDragStart: () => setIsBeingDragged(true),
+        onDrop: () => setIsBeingDragged(false),
+      }),
+      dropTargetForElements({
+        element,
+        canDrop: ({ source }) =>
+          source?.data?.type === WBS_DRAG_TYPE && canDropFromSource(source?.data?.id as string, issueId),
+        getData: ({ input, element: targetElement }) =>
+          attachInstruction(
+            { id: issueId, type: WBS_DRAG_TYPE },
+            {
+              input,
+              element: targetElement,
+              currentLevel: depth,
+              indentPerLevel: WBS_INDENT_PER_DEPTH,
+              // an expanded parent's lower half means "into", the very last row
+              // additionally exposes "below" so items can be dropped at the end
+              mode: isExpanded && hasChildren ? "expanded" : isLastRow ? "last-in-group" : "standard",
+            }
+          ),
+        onDrag: ({ self }) => {
+          const instruction = extractInstruction(self?.data)?.type;
+          setDropInstruction(isWbsInstruction(instruction) ? instruction : undefined);
+        },
+        onDragLeave: () => setDropInstruction(undefined),
+        onDrop: ({ self, source }) => {
+          setDropInstruction(undefined);
+          const instruction = extractInstruction(self?.data)?.type;
+          const sourceId = source?.data?.id;
+          if (typeof sourceId !== "string" || !isWbsInstruction(instruction)) return;
+          onMove(sourceId, issueId, instruction);
+        },
+      })
+    );
+  }, [canDrag, canDropFromSource, depth, hasChildren, isExpanded, isLastRow, issueId, onMove]);
 
   if (!issue) return null;
 
@@ -136,9 +211,20 @@ export const WbsRow = observer(function WbsRow(props: Props) {
           "group/wbs-row relative flex min-h-11 flex-col gap-2 border-b border-subtle bg-layer-transparent py-2 text-13 transition-colors hover:bg-layer-transparent-hover md:flex-row md:items-center",
           {
             "border-accent-strong": getIsIssuePeeked(issue.id),
+            // the row being dragged fades; a "make child" target highlights whole
+            "opacity-50": isBeingDragged,
+            "bg-accent-subtle": dropInstruction === "make-child",
           }
         )}
       >
+        <DropIndicator
+          classNames="absolute top-0 right-0 left-0 z-[2]"
+          isVisible={dropInstruction === "reorder-above"}
+        />
+        <DropIndicator
+          classNames="absolute -bottom-[1px] right-0 left-0 z-[2]"
+          isVisible={dropInstruction === "reorder-below"}
+        />
         <div className="flex min-w-0 flex-grow items-center gap-2" style={{ paddingLeft: `${indent}px` }}>
           {/* expand / collapse — visibility only, never changes the hierarchy */}
           <div className="grid size-4 flex-shrink-0 place-items-center">

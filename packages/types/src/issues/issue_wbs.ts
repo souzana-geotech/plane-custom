@@ -72,6 +72,36 @@ export type TWbsNode = {
   isCyclic: boolean;
 };
 
+/**
+ * A drop intention on the WBS tree, matching the tree-item hitbox used by
+ * Plane's existing drag-and-drop (above / below / make child).
+ */
+export type TWbsMoveInstruction = "reorder-above" | "reorder-below" | "make-child";
+
+/**
+ * The outcome of planning a WBS move. A successful plan is exactly one
+ * existing-API mutation on the moved work item — `parent_id` + `sort_order` —
+ * never anything more; descendants follow automatically because the hierarchy
+ * itself is untouched.
+ */
+export type TWbsMovePlan =
+  | {
+      ok: true;
+      /** the new parent — null makes the work item a root */
+      parentId: string | null;
+      /** midpoint / gap sort order within the new sibling group */
+      sortOrder: number;
+    }
+  | {
+      ok: false;
+      /**
+       * - "self": dropped onto itself
+       * - "descendant": dropped inside its own subtree (would create a cycle)
+       * - "not-found": source or target is not part of the computed tree
+       */
+      reason: "self" | "descendant" | "not-found";
+    };
+
 /** result of `computeWbsIndex` */
 export type TWbsIndex = {
   /** id -> node, for O(1) lookup while rendering */

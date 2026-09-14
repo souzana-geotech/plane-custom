@@ -295,7 +295,11 @@
       "error": {
         "title": "Impossible de générer l'arborescence WBS",
         "message": "La hiérarchie des tâches n'a pas pu être chargée. Les autres dispositions ne sont pas affectées."
-      }
+      },
+      "move_failed": "Échec du déplacement",
+      "move_failed_message": "La tâche n'a pas pu être déplacée. Veuillez réessayer.",
+      "move_rejected_cycle": "Une tâche ne peut pas être déplacée sous elle-même ni sous l'une de ses sous-tâches.",
+      "editing_disabled_filtered": "La réorganisation par glisser-déposer est désactivée tant que des filtres sont actifs."
     }
   },
   "sub_work_item": {

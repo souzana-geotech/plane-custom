@@ -295,7 +295,11 @@
       "error": {
         "title": "Nie udało się zbudować drzewa WBS",
         "message": "Nie udało się wczytać hierarchii zadań. Pozostałe układy pozostają nienaruszone."
-      }
+      },
+      "move_failed": "Przenoszenie nie powiodło się",
+      "move_failed_message": "Nie udało się przenieść zadania. Proszę spróbować ponownie.",
+      "move_rejected_cycle": "Zadania nie można przenieść pod nie samo ani pod żadne z jego podzadań.",
+      "editing_disabled_filtered": "Zmiana kolejności przez przeciąganie jest wyłączona, gdy filtry są aktywne."
     }
   },
   "sub_work_item": {

@@ -295,7 +295,11 @@
       "error": {
         "title": "Arborele WBS nu a putut fi generat",
         "message": "Ierarhia activităților nu a putut fi încărcată. Celelalte vizualizări nu sunt afectate."
-      }
+      },
+      "move_failed": "Mutarea a eșuat",
+      "move_failed_message": "Activitatea nu a putut fi mutată. Vă rugăm să încercați din nou.",
+      "move_rejected_cycle": "O activitate nu poate fi mutată sub ea însăși sau sub una dintre subactivitățile sale.",
+      "editing_disabled_filtered": "Reordonarea prin glisare și plasare este dezactivată cât timp filtrele sunt active."
     }
   },
   "sub_work_item": {

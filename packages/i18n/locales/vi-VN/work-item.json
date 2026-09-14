@@ -295,7 +295,11 @@
       "error": {
         "title": "Không thể tạo cây WBS",
         "message": "Không thể tải cấu trúc phân cấp nhiệm vụ. Các bố cục khác không bị ảnh hưởng."
-      }
+      },
+      "move_failed": "Di chuyển không thành công",
+      "move_failed_message": "Không thể di chuyển nhiệm vụ. Vui lòng thử lại.",
+      "move_rejected_cycle": "Không thể di chuyển nhiệm vụ vào chính nó hoặc vào một trong các nhiệm vụ con của nó.",
+      "editing_disabled_filtered": "Sắp xếp lại bằng kéo và thả bị tắt khi bộ lọc đang hoạt động."
     }
   },
   "sub_work_item": {

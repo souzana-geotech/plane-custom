@@ -11,16 +11,18 @@ import { useParams } from "next/navigation";
 import { EUserPermissions, EUserPermissionsLevel } from "@plane/constants";
 import { useTranslation } from "@plane/i18n";
 import { Button } from "@plane/propel/button";
-import type { TWbsScope } from "@plane/types";
+import { TOAST_TYPE, setToast } from "@plane/propel/toast";
+import type { TWbsMoveInstruction, TWbsScope } from "@plane/types";
 import { EIssuesStoreType } from "@plane/types";
 import { Row } from "@plane/ui";
-import { cn, flattenWbsTree, getWbsAncestorIds } from "@plane/utils";
+import { cn, flattenWbsTree, getWbsAncestorIds, planWbsMove } from "@plane/utils";
 // components
 import { LayoutErrorBoundary } from "@/components/common/layout-error-boundary";
 import RenderIfVisible from "@/components/core/render-if-visible-HOC";
 import { ModuleIssueQuickActions } from "@/components/issues/issue-layouts/quick-action-dropdowns";
 import { ListLoaderItemRow } from "@/components/ui/loader/layouts/list-layout-loader";
 // hooks
+import { useIssueDetail } from "@/hooks/store/use-issue-detail";
 import { useIssuesActions } from "@/hooks/use-issues-actions";
 import { useModule } from "@/hooks/store/use-module";
 import { useUserPermissions } from "@/hooks/store/user";
@@ -71,6 +73,7 @@ const WbsLayoutContent = observer(function WbsLayoutContent() {
   const { getModuleById } = useModule();
   const { issuesFilter } = useIssues(EIssuesStoreType.MODULE);
   const { updateIssue, removeIssue, removeIssueFromView, archiveIssue } = useIssuesActions(EIssuesStoreType.MODULE);
+  const { issue: issueStore } = useIssueDetail();
   const { allowPermissions } = useUserPermissions();
   const { isMobile } = usePlatformOS();
 
@@ -166,6 +169,66 @@ const WbsLayoutContent = observer(function WbsLayoutContent() {
   );
 
   const handleToggleExpanded = useCallback((issueId: string) => wbs.toggleExpanded(issueId), [wbs]);
+
+  // ---- drag-and-drop editing ------------------------------------------------
+  // Structural editing is off while a filter narrows the tree (hidden rows
+  // would make drop positions ambiguous — the safe choice) and while the
+  // snapshot is truncated (sibling groups may be partially loaded).
+  const isFilterActive = wbs.filteredIssueIds !== undefined;
+  const canEditStructure = isEditingAllowed && !isFilterActive && !wbs.isTruncated;
+
+  // self / own-subtree guard, evaluated live while dragging (UX only — the
+  // server enforces the same rule as the real safety boundary)
+  const canDropFromSource = useCallback(
+    (sourceId: string, targetId: string) =>
+      sourceId !== targetId && !getWbsAncestorIds(wbsIndex, targetId).includes(sourceId),
+    [wbsIndex]
+  );
+
+  const handleMove = useCallback(
+    (sourceId: string, targetId: string, instruction: TWbsMoveInstruction) => {
+      const sourceIssue = issueStore.getIssueById(sourceId);
+      if (!sourceIssue?.project_id || !updateIssue) return;
+
+      const plan = planWbsMove(
+        wbsIndex,
+        (id) => issueStore.getIssueById(id)?.sort_order,
+        sourceId,
+        targetId,
+        instruction
+      );
+
+      if (!plan.ok) {
+        setToast({
+          type: TOAST_TYPE.ERROR,
+          title: t("issue.wbs.move_failed"),
+          message:
+            plan.reason === "self" || plan.reason === "descendant"
+              ? t("issue.wbs.move_rejected_cycle")
+              : t("issue.wbs.move_failed_message"),
+        });
+        return;
+      }
+
+      // one mutation through the existing optimistic path: the shared issue
+      // map updates instantly (the WBS renumbers via its computed index) and
+      // reverts automatically if the server rejects the change
+      updateIssue(sourceIssue.project_id, sourceId, { parent_id: plan.parentId, sort_order: plan.sortOrder })
+        .then(() => {
+          // reveal the moved row when it landed inside a collapsed parent
+          if (instruction === "make-child") wbs.setExpandedForIds([targetId], true);
+          return null;
+        })
+        .catch(() => {
+          setToast({
+            type: TOAST_TYPE.ERROR,
+            title: t("issue.wbs.move_failed"),
+            message: t("issue.wbs.move_failed_message"),
+          });
+        });
+    },
+    [issueStore, updateIssue, wbsIndex, wbs, t]
+  );
 
   // Deleting a work item cascades to its subtree on the server and removing it
   // from the module changes the scope's membership, so the snapshot is reloaded
@@ -281,8 +344,16 @@ const WbsLayoutContent = observer(function WbsLayoutContent() {
         </Row>
       )}
 
+      {/* drag-and-drop pauses while a filter narrows the tree — hidden rows
+          would make drop positions ambiguous */}
+      {isFilterActive && isEditingAllowed && (
+        <Row className="flex min-h-9 items-center border-b border-subtle bg-layer-2 text-11 text-tertiary">
+          {t("issue.wbs.editing_disabled_filtered")}
+        </Row>
+      )}
+
       <div className={cn({ "opacity-60": wbs.loader === "mutation" })}>
-        {visibleRows.map((row) => {
+        {visibleRows.map((row, rowIndex) => {
           const ancestorPath = row.code.split(".").slice(0, -1);
           const rowElement = (
             <WbsRow
@@ -292,6 +363,10 @@ const WbsLayoutContent = observer(function WbsLayoutContent() {
               hasChildren={row.hasChildren}
               isExpanded={row.isExpanded}
               ancestorPath={ancestorPath.map((_, index) => ancestorPath.slice(0, index + 1).join("."))}
+              isLastRow={rowIndex === visibleRows.length - 1}
+              canDrag={canEditStructure}
+              canDropFromSource={canDropFromSource}
+              onMove={handleMove}
               onToggleExpanded={handleToggleExpanded}
               displayProperties={displayProperties}
               canEditProperties={canEditProperties}

@@ -295,7 +295,11 @@
       "error": {
         "title": "Tidak dapat membuat pohon WBS",
         "message": "Hierarki tugas tidak dapat dimuat. Tata letak lainnya tidak terpengaruh."
-      }
+      },
+      "move_failed": "Gagal memindahkan",
+      "move_failed_message": "Tugas tidak dapat dipindahkan. Silakan coba lagi.",
+      "move_rejected_cycle": "Tugas tidak dapat dipindahkan ke dalam dirinya sendiri atau salah satu subtugasnya.",
+      "editing_disabled_filtered": "Pengurutan ulang dengan seret dan lepas dinonaktifkan selama filter aktif."
     }
   },
   "sub_work_item": {

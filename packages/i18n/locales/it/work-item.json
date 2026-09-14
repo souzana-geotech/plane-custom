@@ -295,7 +295,11 @@
       "error": {
         "title": "Impossibile generare l'albero WBS",
         "message": "Impossibile caricare la gerarchia delle attività. Gli altri layout non sono interessati."
-      }
+      },
+      "move_failed": "Spostamento non riuscito",
+      "move_failed_message": "Impossibile spostare l'attività. Riprovare.",
+      "move_rejected_cycle": "Un'attività non può essere spostata sotto sé stessa o una delle sue sotto-attività.",
+      "editing_disabled_filtered": "Il riordino tramite trascinamento è disattivato mentre i filtri sono attivi."
     }
   },
   "sub_work_item": {

@@ -295,7 +295,11 @@
       "error": {
         "title": "无法生成 WBS 树",
         "message": "无法加载任务层级。其他布局不受影响。"
-      }
+      },
+      "move_failed": "移动失败",
+      "move_failed_message": "无法移动该任务。请重试。",
+      "move_rejected_cycle": "任务不能移动到其自身或其子任务之下。",
+      "editing_disabled_filtered": "筛选器生效期间，拖放排序已停用。"
     }
   },
   "sub_work_item": {

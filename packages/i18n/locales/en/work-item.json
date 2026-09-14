@@ -295,7 +295,11 @@
       "error": {
         "title": "Couldn't build the WBS tree",
         "message": "The task hierarchy could not be loaded. Every other layout is unaffected."
-      }
+      },
+      "move_failed": "Move failed",
+      "move_failed_message": "The task could not be moved. Please try again.",
+      "move_rejected_cycle": "A task cannot be moved under itself or one of its own sub-tasks.",
+      "editing_disabled_filtered": "Drag-and-drop reordering is turned off while filters are active."
     }
   },
   "sub_work_item": {

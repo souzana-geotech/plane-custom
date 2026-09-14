@@ -295,7 +295,11 @@
       "error": {
         "title": "WBS-Baum konnte nicht erstellt werden",
         "message": "Die Aufgabenhierarchie konnte nicht geladen werden. Alle anderen Layouts sind davon nicht betroffen."
-      }
+      },
+      "move_failed": "Verschieben fehlgeschlagen",
+      "move_failed_message": "Die Aufgabe konnte nicht verschoben werden. Bitte versuchen Sie es erneut.",
+      "move_rejected_cycle": "Eine Aufgabe kann nicht unter sich selbst oder eine ihrer Unteraufgaben verschoben werden.",
+      "editing_disabled_filtered": "Neuanordnung per Drag-and-drop ist deaktiviert, solange Filter aktiv sind."
     }
   },
   "sub_work_item": {

@@ -295,7 +295,11 @@
       "error": {
         "title": "Não foi possível gerar a árvore WBS",
         "message": "Não foi possível carregar a hierarquia de tarefas. Os demais layouts não são afetados."
-      }
+      },
+      "move_failed": "Falha ao mover",
+      "move_failed_message": "Não foi possível mover a tarefa. Tente novamente.",
+      "move_rejected_cycle": "Uma tarefa não pode ser movida para dentro de si mesma nem de uma de suas subtarefas.",
+      "editing_disabled_filtered": "A reordenação por arrastar e soltar fica desativada enquanto os filtros estão ativos."
     }
   },
   "sub_work_item": {

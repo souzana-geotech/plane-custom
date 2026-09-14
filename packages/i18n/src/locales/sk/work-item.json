@@ -295,7 +295,11 @@
       "error": {
         "title": "Strom WBS sa nepodarilo zostaviť",
         "message": "Hierarchiu úloh sa nepodarilo načítať. Ostatné rozloženia nie sú ovplyvnené."
-      }
+      },
+      "move_failed": "Presun sa nepodaril",
+      "move_failed_message": "Úlohu sa nepodarilo presunúť. Skúste to prosím znova.",
+      "move_rejected_cycle": "Úlohu nemožno presunúť pod ňu samotnú ani pod žiadnu z jej podúloh.",
+      "editing_disabled_filtered": "Zmena poradia ťahaním je vypnutá, kým sú aktívne filtre."
     }
   },
   "sub_work_item": {

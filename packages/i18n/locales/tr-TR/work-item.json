@@ -295,7 +295,11 @@
       "error": {
         "title": "WBS ağacı oluşturulamadı",
         "message": "Görev hiyerarşisi yüklenemedi. Diğer düzenler bundan etkilenmez."
-      }
+      },
+      "move_failed": "Taşıma başarısız",
+      "move_failed_message": "Görev taşınamadı. Lütfen tekrar deneyin.",
+      "move_rejected_cycle": "Bir görev kendisinin veya kendi alt görevlerinden birinin altına taşınamaz.",
+      "editing_disabled_filtered": "Filtreler etkinken sürükle-bırak ile yeniden sıralama devre dışıdır."
     }
   },
   "sub_work_item": {
