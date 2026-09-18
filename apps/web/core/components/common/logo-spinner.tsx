@@ -4,6 +4,7 @@
  * See the LICENSE file for details.
  */
 
+import { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
 // assets
 import WordmarkDark from "@plane/tailwind-config/brand/wordmark-dark.svg?url";
@@ -27,8 +28,16 @@ import WordmarkLight from "@plane/tailwind-config/brand/wordmark-light.svg?url";
  */
 export function LogoSpinner() {
   const { resolvedTheme } = useTheme();
+  // `resolvedTheme` comes from localStorage, so it is already set on the client's first render but
+  // never on the server. Holding the light asset until mount keeps the two renders identical — the
+  // dark one swaps in a frame later — instead of mismatching the `src` and failing hydration.
+  const [isMounted, setIsMounted] = useState(false);
 
-  const logoSrc = resolvedTheme === "dark" ? WordmarkDark : WordmarkLight;
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  const logoSrc = isMounted && resolvedTheme === "dark" ? WordmarkDark : WordmarkLight;
 
   return (
     <div className="flex items-center justify-center">

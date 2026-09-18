@@ -22,7 +22,12 @@ interface AppSidebarItemData {
 }
 
 interface AppSidebarItemProps {
-  variant?: "link" | "button";
+  /**
+   * `content` renders the icon and label without an interactive wrapper. Use it whenever the item
+   * already sits inside a button — a `CustomMenu` custom button or a headless UI `Menu.Button` —
+   * since a nested `<button>` is invalid HTML and makes React bail out of hydration.
+   */
+  variant?: "link" | "button" | "content";
   item?: AppSidebarItemData;
 }
 
@@ -46,6 +51,11 @@ interface AppSidebarButtonItemProps {
   children: React.ReactNode;
   onClick?: () => void;
   disabled?: boolean;
+  className?: string;
+}
+
+interface AppSidebarContentItemProps {
+  children: React.ReactNode;
   className?: string;
 }
 
@@ -115,6 +125,12 @@ function AppSidebarButtonItem({ children, onClick, disabled = false, className }
   );
 }
 
+function AppSidebarContentItem({ children, className }: AppSidebarContentItemProps) {
+  // Keeps `styles.base` — and with it the `group` class the icon's hover styles key off — on a
+  // non-interactive element, so the surrounding button stays the only focusable node.
+  return <div className={cn(styles.base, className)}>{children}</div>;
+}
+
 // ============================================================================
 // MAIN COMPONENT
 // ============================================================================
@@ -124,6 +140,7 @@ export type AppSidebarItemComponent = React.FC<AppSidebarItemProps> & {
   Icon: React.FC<AppSidebarItemIconProps>;
   Link: React.FC<AppSidebarLinkItemProps>;
   Button: React.FC<AppSidebarButtonItemProps>;
+  Content: React.FC<AppSidebarContentItemProps>;
 };
 
 function AppSidebarItem({ variant = "link", item }: AppSidebarItemProps) {
@@ -142,6 +159,10 @@ function AppSidebarItem({ variant = "link", item }: AppSidebarItemProps) {
     return <AppSidebarLinkItem href={href}>{commonItems}</AppSidebarLinkItem>;
   }
 
+  if (variant === "content") {
+    return <AppSidebarContentItem>{commonItems}</AppSidebarContentItem>;
+  }
+
   return (
     <AppSidebarButtonItem onClick={onClick} disabled={disabled}>
       {commonItems}
@@ -157,6 +178,7 @@ AppSidebarItem.Label = AppSidebarItemLabel;
 AppSidebarItem.Icon = AppSidebarItemIcon;
 AppSidebarItem.Link = AppSidebarLinkItem;
 AppSidebarItem.Button = AppSidebarButtonItem;
+AppSidebarItem.Content = AppSidebarContentItem;
 
 export { AppSidebarItem };
 export type { AppSidebarItemData, AppSidebarItemProps };

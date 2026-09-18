@@ -184,7 +184,7 @@ export const ExtendedSidebarItem = observer(function ExtendedSidebarItem(props: 
               )}
               ref={dragHandleRef}
             >
-              <DragHandle className="bg-transparent" />
+              <DragHandle as="div" className="bg-transparent" />
             </button>
           </Tooltip>
         )}

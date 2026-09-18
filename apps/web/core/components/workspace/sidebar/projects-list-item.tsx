@@ -29,7 +29,7 @@ import { EUserPermissions, EUserPermissionsLevel } from "@plane/constants";
 import { useOutsideClickDetector } from "@plane/hooks";
 import { useTranslation } from "@plane/i18n";
 import { Logo } from "@plane/propel/emoji-icon-picker";
-import { IconButton } from "@plane/propel/icon-button";
+import { IconButton, getIconButtonStyling } from "@plane/propel/icon-button";
 import { Tooltip } from "@makeplane/propel/components/tooltip";
 import { CustomMenu, DropIndicator, DragHandle, ControlLink } from "@plane/ui";
 import { cn } from "@plane/utils";
@@ -93,7 +93,7 @@ export const SidebarProjectsListItem = observer(function SidebarProjectsListItem
   const isProjectListOpen = getIsProjectListOpen(projectId);
   const [instruction, setInstruction] = useState<"DRAG_OVER" | "DRAG_BELOW" | undefined>(undefined);
   // refs
-  const actionSectionRef = useRef<HTMLButtonElement | null>(null);
+  const actionSectionRef = useRef<HTMLSpanElement | null>(null);
   const projectRef = useRef<HTMLDivElement | null>(null);
   const dragHandleRef = useRef<HTMLButtonElement | null>(null);
   // router
@@ -325,7 +325,7 @@ export const SidebarProjectsListItem = observer(function SidebarProjectsListItem
                   )}
                   ref={dragHandleRef}
                 >
-                  <DragHandle className="bg-transparent" />
+                  <DragHandle as="div" className="bg-transparent" />
                 </button>
               </Tooltip>
             )}
@@ -359,15 +359,16 @@ export const SidebarProjectsListItem = observer(function SidebarProjectsListItem
               <div className="flex items-center gap-1">
                 <CustomMenu
                   customButton={
-                    <IconButton
+                    // A `span`, not an `IconButton`: `CustomMenu` already wraps this in its own
+                    // `<button>`, and a nested one breaks hydration.
+                    <span
                       ref={actionSectionRef}
-                      variant="ghost"
-                      size="sm"
-                      icon={MoreHorizontalOutline}
-                      onClick={() => setIsMenuActive(!isMenuActive)}
-                      className="text-placeholder"
-                    />
+                      className={cn(getIconButtonStyling("ghost", "sm"), "text-placeholder")}
+                    >
+                      <MoreHorizontalOutline className="size-3.5" />
+                    </span>
                   }
+                  menuButtonOnClick={() => setIsMenuActive(!isMenuActive)}
                   className={cn(
                     "pointer-events-none flex-shrink-0 opacity-0 group-hover/project-item:pointer-events-auto group-hover/project-item:opacity-100",
                     {

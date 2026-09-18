@@ -6,10 +6,11 @@
 
 import { ISSUE_LAYOUTS } from "@plane/constants";
 import { useTranslation } from "@plane/i18n";
-import { Button } from "@plane/propel/button";
+import { getButtonStyling } from "@plane/propel/button";
 import { ChevronDownOutline } from "@makeplane/propel/icons";
 import type { EIssueLayoutTypes } from "@plane/types";
 import { CustomMenu } from "@plane/ui";
+import { cn } from "@plane/utils";
 import { IssueLayoutIcon } from "../../layout-icon";
 
 export function MobileLayoutSelection({
@@ -29,19 +30,22 @@ export function MobileLayoutSelection({
       className="flex flex-grow justify-center text-13 text-secondary"
       placement="bottom-start"
       customButton={
-        <Button variant="secondary" className="relative px-2">
+        <>
           {activeLayout && (
             <IssueLayoutIcon layout={activeLayout} size={14} strokeWidth={2} className={`h-3.5 w-3.5`} />
           )}
           <ChevronDownOutline className="my-auto size-3 text-secondary" />
-        </Button>
+        </>
       }
-      customButtonClassName="flex flex-grow justify-center text-secondary text-13"
+      customButtonClassName={cn(
+        getButtonStyling("secondary", "base"),
+        "relative flex flex-grow justify-center px-2 text-13 text-secondary"
+      )}
       closeOnSelect
     >
-      {ISSUE_LAYOUTS.filter((l) => layouts.includes(l.key)).map((layout, index) => (
+      {ISSUE_LAYOUTS.filter((l) => layouts.includes(l.key)).map((layout) => (
         <CustomMenu.MenuItem
-          key={index}
+          key={layout.key}
           onClick={() => {
             onChange(layout.key);
           }}

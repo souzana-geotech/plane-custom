@@ -7,7 +7,7 @@
 import type { ReactNode } from "react";
 import { Links, Meta, Outlet, Scripts } from "react-router";
 import type { LinksFunction } from "react-router";
-import { ThemeProvider, useTheme } from "next-themes";
+import { ThemeProvider } from "next-themes";
 // plane imports
 import { SITE_DESCRIPTION, SITE_NAME } from "@plane/constants";
 // types
@@ -118,12 +118,10 @@ export default function Root() {
   return <Outlet />;
 }
 
+// Renders the same markup on the server and on the client's first pass — branching on `window` or
+// on a theme read from localStorage would make the two disagree and fail hydration for the whole
+// tree. `LogoSpinner` defers its own theme-dependent asset the same way.
 export function HydrateFallback() {
-  const { resolvedTheme } = useTheme();
-
-  // if we are on the server or the theme is not resolved, return an empty div
-  if (typeof window === "undefined" || resolvedTheme === undefined) return <div />;
-
   return (
     <div className="relative flex h-screen w-full items-center justify-center bg-canvas">
       <LogoSpinner />
