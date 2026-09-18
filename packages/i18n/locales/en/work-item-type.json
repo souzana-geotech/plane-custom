@@ -367,7 +367,7 @@
         },
         "confirmation": {
           "title": "Once enabled, Task Types can't be disabled.",
-          "description": "Plane's Task will become the default task type for this container and will show up with its icon and background in this container.",
+          "description": "Geotech3D's Task will become the default task type for this container and will show up with its icon and background in this container.",
           "button": {
             "default": "Enable",
             "loading": "Setting up"

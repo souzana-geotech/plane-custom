@@ -13,23 +13,8 @@ import maintenanceModeLightModeImage from "@/app/assets/instance/maintenance-mod
 // layouts
 import DefaultLayout from "@/layouts/default-layout";
 
-const linkMap = [
-  {
-    key: "mail_to",
-    label: "Contact Support",
-    value: "mailto:support@plane.so",
-  },
-  {
-    key: "status",
-    label: "Status Page",
-    value: "https://status.plane.so/",
-  },
-  {
-    key: "twitter_handle",
-    label: "@planepowers",
-    value: "https://x.com/planepowers",
-  },
-];
+// Geotech3D: upstream points these at Plane support, status page and X account.
+const linkMap: { key: string; label: string; value: string }[] = [];
 
 // Production Error Component
 interface ProdErrorComponentProps {

@@ -41,7 +41,7 @@ export function AuthHeader(props: TAuthHeader) {
 
     return {
       header: "Comment or react to tasks",
-      subHeader: "Use plane to add your valuable inputs to features.",
+      subHeader: "Use Geotech3D to add your valuable inputs to features.",
     };
   };
 

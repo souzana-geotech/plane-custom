@@ -28,7 +28,7 @@ import "@fontsource/material-symbols-rounded";
 import "@fontsource/ibm-plex-mono";
 
 const APP_TITLE = "Geotech3D Publish | Shared boards";
-const APP_DESCRIPTION = "Plane Publish is a customer feedback management tool built on top of plane.so";
+const APP_DESCRIPTION = "Publicly shared boards and roadmaps from Geotech3D.";
 
 export const links: Route.LinksFunction = () => [
   { rel: "apple-touch-icon", sizes: "180x180", href: appleTouchIcon },
@@ -77,7 +77,7 @@ export const meta: Route.MetaFunction = () => [
   { name: "description", content: APP_DESCRIPTION },
   { property: "og:title", content: APP_TITLE },
   { property: "og:description", content: APP_DESCRIPTION },
-  { property: "og:url", content: "https://sites.plane.so/" },
+  { property: "og:url", content: "https://task-management.geotech3d.com/spaces/" },
   {
     name: "keywords",
     content:

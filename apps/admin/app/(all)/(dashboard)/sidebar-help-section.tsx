@@ -11,36 +11,15 @@ import { Transition } from "@headlessui/react";
 import { WEB_BASE_URL } from "@plane/constants";
 // plane internal packages
 import { Tooltip } from "@makeplane/propel/components/tooltip";
-import {
-  ArrowNarrowLeftOutline,
-  ChatOutline,
-  Github,
-  HelpOutline,
-  NewTabOutline,
-  PagesOutline,
-} from "@makeplane/propel/icons";
+import { ArrowNarrowLeftOutline, HelpOutline, NewTabOutline } from "@makeplane/propel/icons";
 import { cn } from "@plane/utils";
 // hooks
 import { useInstance, useTheme } from "@/hooks/store";
 // assets
 
-const helpOptions = [
-  {
-    name: "Documentation",
-    href: "https://docs.plane.so/",
-    Icon: PagesOutline,
-  },
-  {
-    name: "Join our Forum",
-    href: "https://forum.plane.so",
-    Icon: ChatOutline,
-  },
-  {
-    name: "Report a bug",
-    href: "https://github.com/makeplane/plane/issues/new/choose",
-    Icon: Github,
-  },
-];
+// Geotech3D: upstream lists Plane docs, forum and bug tracker here. None are
+// reachable for our staff, so the help menu carries no external links.
+const helpOptions: { name: string; href: string; Icon: React.ComponentType<{ className?: string }> }[] = [];
 
 export const AdminSidebarHelpSection = observer(function AdminSidebarHelpSection() {
   // states
@@ -70,17 +49,17 @@ export const AdminSidebarHelpSection = observer(function AdminSidebarHelpSection
               className={`relative flex items-center gap-1 rounded-sm bg-layer-1 px-2 py-1 text-body-xs-medium whitespace-nowrap text-secondary`}
             >
               <NewTabOutline width={14} height={14} />
-              {!isSidebarCollapsed && "Redirect to Plane"}
+              {!isSidebarCollapsed && "Redirect to Geotech3D"}
             </a>
           </>
         ) : (
-          <Tooltip label="Redirect to Plane" side="right">
+          <Tooltip label="Redirect to Geotech3D" side="right">
             <a
               href={redirectionLink}
               className={`relative flex items-center gap-1 rounded-sm bg-layer-1 px-2 py-1 text-body-xs-medium whitespace-nowrap text-secondary`}
             >
               <NewTabOutline width={14} height={14} />
-              {!isSidebarCollapsed && "Redirect to Plane"}
+              {!isSidebarCollapsed && "Redirect to Geotech3D"}
             </a>
           </Tooltip>
         )}

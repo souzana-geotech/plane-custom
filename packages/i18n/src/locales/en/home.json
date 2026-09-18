@@ -5,7 +5,7 @@
       "not_right_now": "Not right now",
       "create_project": {
         "title": "Create a container",
-        "description": "Most things start with a container in Plane.",
+        "description": "Most things start with a container in Geotech3D.",
         "cta": "Get started"
       },
       "invite_team": {
@@ -19,7 +19,7 @@
         "cta": "Configure this workspace"
       },
       "personalize_account": {
-        "title": "Make Plane yours.",
+        "title": "Make Geotech3D yours.",
         "description": "Choose your picture, colors, and more.",
         "cta": "Personalize now"
       },
@@ -55,7 +55,7 @@
       "view_all": "View all activity"
     },
     "new_at_plane": {
-      "title": "New at Plane"
+      "title": "New at Geotech3D"
     },
     "quick_tutorial": {
       "title": "Quick tutorial"

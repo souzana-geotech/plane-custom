@@ -1,7 +1,7 @@
 {
   "workspace_creation": {
     "heading": "Create your workspace",
-    "subheading": "To start using Plane, you need to create or join a workspace.",
+    "subheading": "To start using Geotech3D, you need to create or join a workspace.",
     "form": {
       "name": {
         "label": "Name your workspace",
@@ -179,11 +179,11 @@
     "empty_state": {
       "general": {
         "title": "Overview of your containers, activity, and metrics",
-        "description": "Welcome to Plane, we are excited to have you here. Create your first container and track your tasks, and this page will transform into a space that helps you progress. Admins will also see items which help their team progress.",
+        "description": "Welcome to Geotech3D, we are excited to have you here. Create your first container and track your tasks, and this page will transform into a space that helps you progress. Admins will also see items which help their team progress.",
         "primary_button": {
           "text": "Build your first container",
           "comic": {
-            "title": "Everything starts with a container in Plane",
+            "title": "Everything starts with a container in Geotech3D",
             "description": "A container could be a product's roadmap, a marketing campaign, or launching a new car."
           }
         }
@@ -415,7 +415,7 @@
         "primary_button": {
           "text": "Start your first container",
           "comic": {
-            "title": "Everything starts with a container in Plane",
+            "title": "Everything starts with a container in Geotech3D",
             "description": "A container could be a product's roadmap, a marketing campaign, or launching a new car."
           }
         }
@@ -426,7 +426,7 @@
         "primary_button": {
           "text": "Start your first container",
           "comic": {
-            "title": "Everything starts with a container in Plane",
+            "title": "Everything starts with a container in Geotech3D",
             "description": "A container could be a product's roadmap, a marketing campaign, or launching a new car."
           }
         }
@@ -504,8 +504,8 @@
   "workspace_pages": {
     "empty_state": {
       "general": {
-        "title": "Write a note, a doc, or a full knowledge base. Get Galileo, Plane's AI assistant, to help you get started",
-        "description": "Pages are thoughts potting space in Plane. Take down meeting notes, format them easily, embed tasks, lay them out using a library of components, and keep them all in your container's context. To make short work of any doc, invoke Galileo, Plane's AI, with a shortcut or the click of a button.",
+        "title": "Write a note, a doc, or a full knowledge base. Get Galileo, Geotech3D's AI assistant, to help you get started",
+        "description": "Pages are thoughts potting space in Geotech3D. Take down meeting notes, format them easily, embed tasks, lay them out using a library of components, and keep them all in your container's context. To make short work of any doc, invoke Galileo, Geotech3D's AI, with a shortcut or the click of a button.",
         "primary_button": {
           "text": "Create your first page"
         }

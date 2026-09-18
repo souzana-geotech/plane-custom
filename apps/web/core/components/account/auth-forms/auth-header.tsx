@@ -27,30 +27,30 @@ type TAuthHeader = {
 const Titles = {
   [EAuthModes.SIGN_IN]: {
     [EAuthSteps.EMAIL]: {
-      header: "Work in all dimensions.",
-      subHeader: "Welcome back to Plane.",
+      header: "Welcome to Geotech3D Task Management System",
+      subHeader: "Manage projects, tasks and teams in one place.",
     },
     [EAuthSteps.PASSWORD]: {
-      header: "Work in all dimensions.",
-      subHeader: "Welcome back to Plane.",
+      header: "Welcome to Geotech3D Task Management System",
+      subHeader: "Manage projects, tasks and teams in one place.",
     },
     [EAuthSteps.UNIQUE_CODE]: {
-      header: "Work in all dimensions.",
-      subHeader: "Welcome back to Plane.",
+      header: "Welcome to Geotech3D Task Management System",
+      subHeader: "Manage projects, tasks and teams in one place.",
     },
   },
   [EAuthModes.SIGN_UP]: {
     [EAuthSteps.EMAIL]: {
-      header: "Work in all dimensions.",
-      subHeader: "Create your Plane account.",
+      header: "Welcome to Geotech3D Task Management System",
+      subHeader: "Create your account.",
     },
     [EAuthSteps.PASSWORD]: {
-      header: "Work in all dimensions.",
-      subHeader: "Create your Plane account.",
+      header: "Welcome to Geotech3D Task Management System",
+      subHeader: "Create your account.",
     },
     [EAuthSteps.UNIQUE_CODE]: {
-      header: "Work in all dimensions.",
-      subHeader: "Create your Plane account.",
+      header: "Welcome to Geotech3D Task Management System",
+      subHeader: "Create your account.",
     },
   },
 };
@@ -62,7 +62,7 @@ export const AuthHeader = observer(function AuthHeader(props: TAuthHeader) {
   // plane imports
   const { t } = useTranslation();
 
-  const { data: invitation, isLoading } = useSWR(
+  const { data: invitationDetail, isLoading } = useSWR(
     workspaceSlug && invitationId ? `WORKSPACE_INVITATION_${workspaceSlug}_${invitationId}` : null,
     async () => workspaceSlug && invitationId && workSpaceService.getWorkspaceInvitation(workspaceSlug, invitationId),
     {
@@ -97,7 +97,12 @@ export const AuthHeader = observer(function AuthHeader(props: TAuthHeader) {
     return Titles[mode][step];
   };
 
-  const { header, subHeader } = getHeaderSubHeader(currentAuthStep, authMode, invitation || undefined, invitationEmail);
+  const { header, subHeader } = getHeaderSubHeader(
+    currentAuthStep,
+    authMode,
+    invitationDetail || undefined,
+    invitationEmail
+  );
 
   if (isLoading)
     return (

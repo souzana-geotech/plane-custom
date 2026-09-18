@@ -40,7 +40,7 @@ export const usePowerKHelpCommands = (): TPowerKCommandConfig[] => {
         window.open("https://docs.plane.so/", "_blank", "noopener,noreferrer");
       },
       isEnabled: () => true,
-      isVisible: () => true,
+      isVisible: () => false, // Geotech3D: hidden, opens a Plane property
       closeOnSelect: true,
     },
     {
@@ -53,7 +53,7 @@ export const usePowerKHelpCommands = (): TPowerKCommandConfig[] => {
         window.open("https://forum.plane.so", "_blank", "noopener,noreferrer");
       },
       isEnabled: () => true,
-      isVisible: () => true,
+      isVisible: () => false, // Geotech3D: hidden, opens a Plane property
       closeOnSelect: true,
     },
     {
@@ -66,7 +66,7 @@ export const usePowerKHelpCommands = (): TPowerKCommandConfig[] => {
         window.open("https://github.com/makeplane/plane/issues/new/choose", "_blank", "noopener,noreferrer");
       },
       isEnabled: () => true,
-      isVisible: () => true,
+      isVisible: () => false, // Geotech3D: hidden, opens a Plane property
       closeOnSelect: true,
     },
   ];

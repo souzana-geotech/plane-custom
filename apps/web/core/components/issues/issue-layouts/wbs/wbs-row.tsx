@@ -251,7 +251,7 @@ export const WbsRow = observer(function WbsRow(props: Props) {
             </span>
           </Tooltip>
 
-          {/* the canonical Plane identifier, e.g. PROJ-125 */}
+          {/* the canonical Geotech3D identifier, e.g. PROJ-125 */}
           {displayProperties?.key && issue.project_id && (
             <div className="flex-shrink-0">
               <IssueIdentifier

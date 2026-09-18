@@ -26,7 +26,7 @@ import userService from "@/services/user.service";
 // derived services
 const workspaceService = new WorkspaceService();
 
-type ETempUserRole = TUserPermissions | EUserWorkspaceRoles | EUserProjectRoles; // TODO: Remove this once we have migrated user permissions to enums to plane constants package
+type ETempUserRole = TUserPermissions | EUserWorkspaceRoles | EUserProjectRoles; // TODO: Remove this once we have migrated user permissions to enums to Geotech3D constants package
 
 export interface IBaseUserPermissionStore {
   loader: boolean;

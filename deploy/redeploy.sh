@@ -67,7 +67,8 @@ $CHANGED
 EOF
 
 [ -n "${FORCE// /}" ] && svcs="$FORCE"
-svcs=$(echo $svcs | tr ' ' '\n' | grep -v '^$' | sort -u | tr '\n' ' ')
+# NB: no grep here - an empty result exits 1 and set -e would abort the deploy
+svcs=$(printf '%s\n' $svcs | sort -u | tr '\n' ' ')
 
 log "services to rebuild:${svcs:+ $svcs}${svcs:- none}"
 if [ "$DRY" = "1" ]; then log "dry run - nothing was changed"; exit 0; fi

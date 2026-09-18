@@ -102,7 +102,7 @@ export const messages = (activity: TProjectActivity): { message: string | ReactN
     case "archived_at":
       return {
         message: newValue === "restore" ? "restored the container" : "archived the container",
-        customUserName: newValue === "archive" ? "Plane" : undefined,
+        customUserName: newValue === "archive" ? "Geotech3D" : undefined,
       };
     case "name":
       return {

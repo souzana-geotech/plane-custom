@@ -37,12 +37,12 @@ const integrationDetails: { [key: string]: any } = {
   github: {
     logo: GithubLogo,
     installed: "Activate GitHub on individual containers to sync with specific repositories.",
-    notInstalled: "Connect with GitHub with your Plane workspace to sync container tasks.",
+    notInstalled: "Connect with GitHub with your Geotech3D workspace to sync container tasks.",
   },
   slack: {
     logo: SlackLogo,
     installed: "Activate Slack on individual containers to sync with specific channels.",
-    notInstalled: "Connect with Slack with your Plane workspace to sync container tasks.",
+    notInstalled: "Connect with Slack with your Geotech3D workspace to sync container tasks.",
   },
 };
 
@@ -94,6 +94,7 @@ export const SingleIntegrationCard = observer(function SingleIntegrationCard({ i
           title: "Deleted successfully!",
           message: `${integration.title} integration deleted successfully.`,
         });
+        return;
       })
       .catch(() => {
         setDeletingIntegration(false);
