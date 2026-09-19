@@ -1,161 +1,89 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>SMTP Test Email - Geotech3D</title>
+{% extends "emails/base_email.html" %}
 
-    <style type="text/css">
-      body, table, td, p, a, li, blockquote {
-        -webkit-text-size-adjust: 100%;
-        -ms-text-size-adjust: 100%;
-      }
-      table, td {
-        mso-table-lspace: 0pt;
-        mso-table-rspace: 0pt;
-        border-collapse: collapse;
-      }
-      img {
-        -ms-interpolation-mode: bicubic;
-        border: 0;
-        height: auto;
-        line-height: 100%;
-        outline: none;
-        text-decoration: none;
-      }
-      body {
-        margin: 0;
-        padding: 0;
-        width: 100% !important;
-        height: 100% !important;
-      }
-      @media screen and (max-width: 620px) {
-        .email-container {
-          width: 100% !important;
-          max-width: 100% !important;
-        }
-        .email-content {
-          padding: 28px 20px !important;
-        }
-        .email-footer {
-          padding: 20px 20px !important;
-        }
-      }
-    </style>
-  </head>
+{% block title %}SMTP test &mdash; Geotech3D{% endblock %}
+{% block preheader %}Email configuration verified for your Geotech3D instance.{% endblock %}
+{% block doclabel %}System Diagnostic{% endblock %}
+{% block footer_note %}Automated SMTP diagnostic test message.{% endblock %}
 
-  <body
-    bgcolor="#f4f5f7"
-    style="
-      margin: 0;
-      padding: 0;
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-      font-weight: 400;
-      color: #374151;
-      -webkit-font-smoothing: antialiased;
-      -webkit-text-size-adjust: none;
-      background-color: #f4f5f7;
-    "
-  >
-    <center
-      class="email-body"
-      style="width: 100%; background-color: #f4f5f7; padding: 40px 10px;"
-    >
-      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
-        <tr>
-          <td align="center">
-            <table
-              role="presentation"
-              class="email-container"
-              width="600"
-              cellpadding="0"
-              cellspacing="0"
-              border="0"
-              style="
-                width: 600px;
-                max-width: 600px;
-                background-color: #ffffff;
-                border-radius: 8px;
-                border: 1px solid #e5e7eb;
-                overflow: hidden;
-                box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-              "
-            >
-              <!-- HEADER -->
-              <tr>
-                <td style="background-color: #231f20; border-top: 4px solid #71b32f; padding: 26px 20px 24px 20px; text-align: center;">
-                  <a href="https://geotech3d.com" target="_blank" style="text-decoration: none; display: inline-block;">
-                    <img src="https://task-management.geotech3d.com/geotech3d-email-logo.png" width="210" height="35" alt="Geotech3D" style="display: block; width: 210px; max-width: 210px; height: auto; margin: 0 auto; border: 0; color: #ffffff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 24px; font-weight: 700; letter-spacing: 1px;" />
-                  </a>
-                </td>
-              </tr>
+{% block content %}
+                <!-- MOTIF · DATUM BAR -->
+                <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="margin: 0 0 22px 0;">
+                  <tr>
+                    <td width="48" height="3" bgcolor="#73BE44" style="width: 48px; height: 3px; font-size: 0; line-height: 3px; mso-line-height-rule: exactly;">&nbsp;</td>
+                  </tr>
+                </table>
 
-              <!-- BODY -->
-              <tr>
-                <td class="email-content" style="padding: 36px 40px; background-color: #ffffff;">
-                  <h1
-                    style="
-                      margin: 0 0 16px;
-                      font-size: 22px;
-                      line-height: 1.35;
-                      font-weight: 700;
-                      color: #111827;
-                    "
-                  >
-                    Email configuration verified
-                  </h1>
-
-                  <p style="margin: 0 0 16px; font-size: 15px; line-height: 1.6; color: #374151;">
-                    This is a test email confirming that SMTP email delivery is configured and working as expected for your Geotech3D platform instance.
-                  </p>
-
-                  <div
-                    style="
-                      background-color: #ebf7e5;
-                      border: 1px solid #cce9be;
-                      border-radius: 6px;
-                      padding: 14px 18px;
-                      margin: 20px 0;
-                    "
-                  >
-                    <p style="margin: 0; font-size: 14px; font-weight: 600; color: #3a6d16;">
-                      &check; SMTP connection established successfully.
-                    </p>
-                  </div>
-
-                  <p style="margin: 0; font-size: 14px; line-height: 1.6; color: #6b7280;">
-                    Regards,<br />
-                    <strong style="color: #111827;">Geotech3D Operations Team</strong>
-                  </p>
-                </td>
-              </tr>
-
-              <!-- FOOTER -->
-              <tr>
-                <td
-                  class="email-footer"
+                <h1
+                  class="g3d-h1"
                   style="
-                    background-color: #fafafa;
-                    border-top: 1px solid #e5e7eb;
-                    padding: 24px 40px;
-                    font-size: 12px;
-                    line-height: 1.6;
-                    color: #9ca3af;
-                    text-align: left;
+                    margin: 0 0 20px 0;
+                    font-family: 'Graphik', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+                    font-size: 28px;
+                    line-height: 1.22;
+                    font-weight: 700;
+                    letter-spacing: -0.4px;
+                    color: #14171a;
                   "
                 >
-                  <p style="margin: 0 0 4px; font-weight: 600; color: #6b7280; font-size: 12px;">
-                    Geotech3D Operations Platform &bull; Geospatial Services
-                  </p>
-                  <p style="margin: 0; font-size: 12px; color: #9ca3af;">
-                    Automated SMTP diagnostic test message.
-                  </p>
-                </td>
-              </tr>
-            </table>
-          </td>
-        </tr>
-      </table>
-    </center>
-  </body>
-</html>
+                  Email configuration verified
+                </h1>
+
+                <p
+                  class="g3d-body"
+                  style="
+                    margin: 0 0 26px 0;
+                    font-family: 'Graphik', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+                    font-size: 15px;
+                    line-height: 1.68;
+                    color: #3c4347;
+                  "
+                >
+                  This is a test email confirming that SMTP email delivery is configured and working as expected for your Geotech3D platform instance.
+                </p>
+
+                <!-- COMPONENT · DATA PANEL -->
+                <table
+                  role="presentation"
+                  width="100%"
+                  cellpadding="0"
+                  cellspacing="0"
+                  border="0"
+                  class="g3d-panel"
+                  bgcolor="#F7F9F9"
+                  style="background-color: #f7f9f9; border-radius: 8px; margin: 0 0 30px 0;"
+                >
+                  <tr>
+                    <td class="g3d-panel-rule" width="3" bgcolor="#1F2224" style="width: 3px; font-size: 0; line-height: 0;">&nbsp;</td>
+                    <td style="padding: 15px 18px 16px 18px;">
+                      <p
+                        class="g3d-label"
+                        style="
+                          margin: 0 0 5px 0;
+                          font-family: 'Graphik', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+                          font-size: 10px;
+                          font-weight: 700;
+                          letter-spacing: 1.6px;
+                          text-transform: uppercase;
+                          color: #6b7477;
+                        "
+                      >
+                        Status
+                      </p>
+                      <p
+                        class="g3d-value"
+                        style="
+                          margin: 0;
+                          font-family: 'Graphik', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+                          font-size: 15px;
+                          line-height: 1.45;
+                          font-weight: 600;
+                          color: #14171a;
+                          word-break: break-word;
+                        "
+                      >
+                        SMTP connection established successfully.
+                      </p>
+                    </td>
+                  </tr>
+                </table>
+{% endblock %}

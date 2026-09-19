@@ -1,0 +1,51 @@
+{% comment %}
+Fallback URL note block. Usage:
+  {% include "emails/_fallback.html" with url=x %}
+{% endcomment %}
+                <!-- COMPONENT · NOTE BLOCK (fallback URL) -->
+                <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="table-layout: fixed; mso-table-layout: fixed;">
+                  <tr>
+                    <td style="padding: 24px 0 0 0;">
+                      <p
+                        class="g3d-label"
+                        style="
+                          margin: 0 0 8px 0;
+                          font-family: 'Graphik', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+                          font-size: 10px;
+                          font-weight: 700;
+                          letter-spacing: 1.6px;
+                          text-transform: uppercase;
+                          color: #6b7477;
+                        "
+                      >
+                        If the button doesn&rsquo;t work
+                      </p>
+                      <p
+                        class="g3d-note"
+                        style="
+                          margin: 0;
+                          font-family: 'Graphik', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+                          font-size: 13px;
+                          line-height: 1.7;
+                          color: #6b7477;
+                        "
+                      >
+                        Paste this link into your browser:<br />
+                        <a
+                          href="{{ url }}"
+                          class="g3d-link g3d-url"
+                          target="_blank"
+                          style="
+                            color: #4c5559;
+                            font-size: 12.5px;
+                            line-height: 1.7;
+                            text-decoration: none;
+                            word-break: break-all;
+                            overflow-wrap: break-word;
+                          "
+                          >{{ url }}</a
+                        >
+                      </p>
+                    </td>
+                  </tr>
+                </table>

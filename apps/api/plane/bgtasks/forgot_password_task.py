@@ -35,7 +35,7 @@ def forgot_password(first_name, email, uidb64, token, current_site):
             EMAIL_FROM,
         ) = get_email_configuration()
 
-        subject = "A new password to your Geotech3D account has been requested"
+        subject = "Reset your Geotech3D password"
 
         context = {
             "first_name": first_name,

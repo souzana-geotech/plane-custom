@@ -1,0 +1,52 @@
+{% comment %}
+CTA button. Usage:
+  {% include "emails/_button.html" with url=x label="Go" vml_width=210 %}
+vml_width is the Outlook VML box width in px - size it to the label.
+{% endcomment %}
+                <!-- COMPONENT · PRIMARY CTA -->
+                <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="margin: 0 0 14px 0;">
+                  <tr>
+                    <td class="g3d-btn-cell" align="left" style="padding: 0;">
+                      <!--[if mso]>
+                        <v:roundrect
+                          xmlns:v="urn:schemas-microsoft-com:vml"
+                          xmlns:w="urn:schemas-microsoft-com:office:word"
+                          href="{{ url }}"
+                          style="height:52px;v-text-anchor:middle;width:{{ vml_width }}px;"
+                          arcsize="16%"
+                          strokecolor="#3B7020"
+                          strokeweight="1px"
+                          fillcolor="#468425"
+                        >
+                          <w:anchorlock />
+                          <center style="color:#ffffff;font-family:Arial,sans-serif;font-size:16px;font-weight:bold;letter-spacing:0.2px;">{{ label }}</center>
+                        </v:roundrect>
+                      <![endif]-->
+                      <!--[if !mso]><!-->
+                      <a
+                        href="{{ url }}"
+                        class="g3d-btn"
+                        target="_blank"
+                        style="
+                          background-color: #468425;
+                          border: 1px solid #3b7020;
+                          border-bottom-width: 2px;
+                          border-radius: 8px;
+                          color: #ffffff;
+                          display: inline-block;
+                          font-family: 'Graphik', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+                          font-size: 16px;
+                          font-weight: 600;
+                          letter-spacing: 0.2px;
+                          line-height: 20px;
+                          mso-hide: all;
+                          padding: 15px 34px;
+                          text-align: center;
+                          text-decoration: none;
+                        "
+                        >{{ label }}</a
+                      >
+                      <!--<![endif]-->
+                    </td>
+                  </tr>
+                </table>

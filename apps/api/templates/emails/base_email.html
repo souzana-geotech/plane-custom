@@ -1,0 +1,781 @@
+{% comment %}
+===================================================================
+   GEOTECH3D EMAIL — BASE TEMPLATE
+   Every transactional email extends this. Blocks:
+     title, preheader, doclabel, content, footer_note
+   Components: emails/_button.html, emails/_fallback.html
+   Asset host is hardcoded below (5 references) — change it here only.
+   Do not fork this file — change the design here and all mail follows.
+   ===================================================================
+{% endcomment %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="x-apple-disable-message-reformatting" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="supported-color-schemes" content="light dark" />
+    <title>{% block title %}Geotech3D{% endblock %}</title>
+
+    <!--[if mso]>
+      <xml>
+        <o:OfficeDocumentSettings>
+          <o:AllowPNG />
+          <o:PixelsPerInch>96</o:PixelsPerInch>
+        </o:OfficeDocumentSettings>
+      </xml>
+      <style type="text/css">
+        body, table, td, p, a, h1 { font-family: Arial, Helvetica, sans-serif !important; }
+      </style>
+    <![endif]-->
+
+    <!--
+      =====================================================================
+      GEOTECH3D  ·  TRANSACTIONAL EMAIL DESIGN SYSTEM  ·  v1
+      Master reference template. Do not diverge without updating this block.
+      ---------------------------------------------------------------------
+      PALETTE
+        Graphite 800  #1F2224   header band, data-panel rule, footer wordmark
+        Ink 900       #14171A   headings, emphasis
+        Ink 700       #3C4347   body copy
+        Ink 600       #4C5559   fallback URL
+        Ink 500       #5A6367   phone links
+        Ink 550       #6B7477   secondary copy
+        Ink 450       #6B7477   caps labels, addresses, footer meta (AA)
+        Line          #E2E6E6   hairlines, card border
+        Surface       #FFFFFF   card
+        Surface sub   #F7F9F9   data panels, footer
+        Canvas        #E2E7E7   outer background (matches topo tile base)
+        Brand green   #73BE44   brand accent (datum bar; from logo band)
+        Green deep    #468425   primary CTA fill (AA with white)
+        Green edge    #3B7020   CTA edge, links, city labels, tagline
+
+      TYPE  (Graphik if installed, system grotesque fallback)
+        Doc label   10px / 700 / .20em / uppercase
+        H1          28px / 700 / 1.22 / -0.4px
+        Lead        16px / 1.62
+        Body        15px / 1.68
+        Meta        13px / 1.65
+        Micro       11.5px / 1.6
+        Caps label  10.5px / 700 / .16em / uppercase
+
+      DARK MODE
+        Every surface/text token has a class hook (.g3d-*) and a dark
+        override. Footer ribbon is switched off in dark (it is baked on a
+        light tint). Two mechanisms: prefers-color-scheme (Apple Mail)
+        and data-ogsc/data-ogsb (Outlook.com, Outlook mobile). The Outlook
+        rules are generated from the media block, so both stay identical.
+        Gmail supports neither and applies its own inversion.
+
+      GEOMETRY
+        Card radius 14px · panel 8px · button 8px
+        Card border 1px #E2E6E6 · shadow 0 14px 34px rgba(20,25,28,.12)
+        Content padding 44px desktop / 26px mobile
+        Section rhythm 28px · block rhythm 18px
+
+      MOTIFS
+        1. Contour art — Geotech3D contour artwork, footer only:
+                         geotech3d-email-topo-foot.png on #F7F9F9, no-repeat,
+                         anchored right bottom. Header stays a flat graphite
+                         band. Never behind body copy, and never under a filled
+                         child element — opaque panels punch rectangular holes
+                         through a background image.
+                         Both degrade to their bgcolor when images are off.
+        2. Datum bar   — 48x3px brand-green bar above every H1
+        3. Data panel  — #F7F9F9 panel with 3px graphite left rule
+        4. Caps label  — letterspaced micro-caps heading for note blocks
+
+      COMPONENTS
+        header / datum+h1 / lead copy / data panel / CTA (VML) /
+        note block / office grid / social row / footer
+      =====================================================================
+    -->
+
+    <style type="text/css">
+      body, table, td, p, a, li, blockquote {
+        -webkit-text-size-adjust: 100%;
+        -ms-text-size-adjust: 100%;
+      }
+      table, td {
+        mso-table-lspace: 0pt;
+        mso-table-rspace: 0pt;
+        border-collapse: collapse;
+      }
+      img {
+        -ms-interpolation-mode: bicubic;
+        border: 0;
+        height: auto;
+        line-height: 100%;
+        outline: none;
+        text-decoration: none;
+      }
+      body {
+        margin: 0 !important;
+        padding: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+      }
+      a {
+        color: #3b7020;
+      }
+      .g3d-link:hover {
+        text-decoration: underline !important;
+      }
+
+      /* ------------------------------------------------------------------
+         DARK MODE
+         Honoured by Apple Mail (macOS/iOS) and other WebKit clients.
+         Gmail and Outlook.com ignore prefers-color-scheme and apply their
+         own inversion instead, so every rule here is additive: remove the
+         block and the light design is untouched. !important is required —
+         inline styles otherwise win.
+         ------------------------------------------------------------------ */
+      @media (prefers-color-scheme: dark) {
+        body,
+        .g3d-outer {
+          background-color: #0e1011 !important;
+        }
+        .g3d-container {
+          background-color: #1e2224 !important;
+          border-color: #2e3436 !important;
+        }
+        .g3d-header {
+          background-color: #141718 !important;
+        }
+        .g3d-content {
+          background-color: #1e2224 !important;
+        }
+        .g3d-rule {
+          background-color: #2e3436 !important;
+        }
+
+        .g3d-h1,
+        .g3d-lead,
+        .g3d-value {
+          color: #f3f5f5 !important;
+        }
+        .g3d-body {
+          color: #c7cdcf !important;
+        }
+        .g3d-note,
+        .g3d-expiry,
+        .g3d-url {
+          color: #a7afb1 !important;
+        }
+        .g3d-label,
+        .g3d-doclabel {
+          color: #8c9497 !important;
+        }
+
+        .g3d-panel {
+          background-color: #262b2d !important;
+        }
+        .g3d-panel-rule {
+          background-color: #73be44 !important;
+        }
+
+        /* the ribbon is baked on #F7F9F9 — it would glow on a dark footer */
+        .g3d-footer {
+          background-color: #191d1e !important;
+          background-image: none !important;
+          border-top-color: #2e3436 !important;
+        }
+        .g3d-wordmark,
+        .g3d-site {
+          color: #f3f5f5 !important;
+        }
+        .g3d-tagline,
+        .g3d-city {
+          color: #73be44 !important;
+        }
+        .g3d-entity {
+          color: #e3e8e9 !important;
+        }
+        .g3d-addr,
+        .g3d-meta {
+          color: #8c9497 !important;
+        }
+        .g3d-tel {
+          color: #b3bbbd !important;
+        }
+        .g3d-mail {
+          color: #d2d8d9 !important;
+        }
+        /* rich notification body (issue-updates): broad rules, because the
+           markup is generated from loops and cannot carry per-element hooks */
+        .g3d-rich p,
+        .g3d-rich td,
+        .g3d-rich span,
+        .g3d-rich div {
+          color: #c7cdcf !important;
+        }
+        .g3d-rich h2,
+        .g3d-rich h2 a,
+        .g3d-rich strong {
+          color: #f3f5f5 !important;
+        }
+        .g3d-rich a {
+          color: #9ccf78 !important;
+        }
+        /* the CTA is an <a> inside .g3d-rich — keep its label white on green */
+        .g3d-rich a.g3d-btn {
+          color: #ffffff !important;
+        }
+        .g3d-surf {
+          background-color: #262b2d !important;
+          border-color: #2e3436 !important;
+        }
+        .g3d-warn {
+          background-color: #2b2519 !important;
+          border-color: #4a3f22 !important;
+        }
+        .g3d-warn p,
+        .g3d-warn strong {
+          color: #e0cb96 !important;
+        }
+      }
+
+      /* ------------------------------------------------------------------
+         DARK MODE — Outlook.com / Outlook mobile
+         Outlook ignores prefers-color-scheme; in dark mode it stamps
+         data-ogsc / data-ogsb onto the markup it rewrote. These rules are
+         generated from the media block above so the palettes cannot drift.
+         ------------------------------------------------------------------ */
+      body[data-ogsc],
+      body[data-ogsb],
+      [data-ogsc] .g3d-outer,
+      [data-ogsb] .g3d-outer {
+        background-color: #0e1011 !important;
+      }
+      [data-ogsc] .g3d-container,
+      [data-ogsb] .g3d-container {
+        background-color: #1e2224 !important;
+        border-color: #2e3436 !important;
+      }
+      [data-ogsc] .g3d-header,
+      [data-ogsb] .g3d-header {
+        background-color: #141718 !important;
+      }
+      [data-ogsc] .g3d-content,
+      [data-ogsb] .g3d-content {
+        background-color: #1e2224 !important;
+      }
+      [data-ogsc] .g3d-rule,
+      [data-ogsb] .g3d-rule {
+        background-color: #2e3436 !important;
+      }
+      [data-ogsc] .g3d-h1,
+      [data-ogsb] .g3d-h1,
+      [data-ogsc] .g3d-lead,
+      [data-ogsb] .g3d-lead,
+      [data-ogsc] .g3d-value,
+      [data-ogsb] .g3d-value {
+        color: #f3f5f5 !important;
+      }
+      [data-ogsc] .g3d-body,
+      [data-ogsb] .g3d-body {
+        color: #c7cdcf !important;
+      }
+      [data-ogsc] .g3d-note,
+      [data-ogsb] .g3d-note,
+      [data-ogsc] .g3d-expiry,
+      [data-ogsb] .g3d-expiry,
+      [data-ogsc] .g3d-url,
+      [data-ogsb] .g3d-url {
+        color: #a7afb1 !important;
+      }
+      [data-ogsc] .g3d-label,
+      [data-ogsb] .g3d-label,
+      [data-ogsc] .g3d-doclabel,
+      [data-ogsb] .g3d-doclabel {
+        color: #8c9497 !important;
+      }
+      [data-ogsc] .g3d-panel,
+      [data-ogsb] .g3d-panel {
+        background-color: #262b2d !important;
+      }
+      [data-ogsc] .g3d-panel-rule,
+      [data-ogsb] .g3d-panel-rule {
+        background-color: #73be44 !important;
+      }
+      [data-ogsc] .g3d-footer,
+      [data-ogsb] .g3d-footer {
+        background-color: #191d1e !important;
+        background-image: none !important;
+        border-top-color: #2e3436 !important;
+      }
+      [data-ogsc] .g3d-wordmark,
+      [data-ogsb] .g3d-wordmark,
+      [data-ogsc] .g3d-site,
+      [data-ogsb] .g3d-site {
+        color: #f3f5f5 !important;
+      }
+      [data-ogsc] .g3d-tagline,
+      [data-ogsb] .g3d-tagline,
+      [data-ogsc] .g3d-city,
+      [data-ogsb] .g3d-city {
+        color: #73be44 !important;
+      }
+      [data-ogsc] .g3d-entity,
+      [data-ogsb] .g3d-entity {
+        color: #e3e8e9 !important;
+      }
+      [data-ogsc] .g3d-addr,
+      [data-ogsb] .g3d-addr,
+      [data-ogsc] .g3d-meta,
+      [data-ogsb] .g3d-meta {
+        color: #8c9497 !important;
+      }
+      [data-ogsc] .g3d-tel,
+      [data-ogsb] .g3d-tel {
+        color: #b3bbbd !important;
+      }
+      [data-ogsc] .g3d-mail,
+      [data-ogsb] .g3d-mail {
+        color: #d2d8d9 !important;
+      }
+      [data-ogsc] .g3d-rich p,
+      [data-ogsb] .g3d-rich p,
+      [data-ogsc] .g3d-rich td,
+      [data-ogsb] .g3d-rich td,
+      [data-ogsc] .g3d-rich span,
+      [data-ogsb] .g3d-rich span,
+      [data-ogsc] .g3d-rich div,
+      [data-ogsb] .g3d-rich div {
+        color: #c7cdcf !important;
+      }
+      [data-ogsc] .g3d-rich h2,
+      [data-ogsb] .g3d-rich h2,
+      [data-ogsc] .g3d-rich h2 a,
+      [data-ogsb] .g3d-rich h2 a,
+      [data-ogsc] .g3d-rich strong,
+      [data-ogsb] .g3d-rich strong {
+        color: #f3f5f5 !important;
+      }
+      [data-ogsc] .g3d-rich a,
+      [data-ogsb] .g3d-rich a {
+        color: #9ccf78 !important;
+      }
+      [data-ogsc] .g3d-rich a.g3d-btn,
+      [data-ogsb] .g3d-rich a.g3d-btn {
+        color: #ffffff !important;
+      }
+      [data-ogsc] .g3d-surf,
+      [data-ogsb] .g3d-surf {
+        background-color: #262b2d !important;
+        border-color: #2e3436 !important;
+      }
+      [data-ogsc] .g3d-warn,
+      [data-ogsb] .g3d-warn {
+        background-color: #2b2519 !important;
+        border-color: #4a3f22 !important;
+      }
+      [data-ogsc] .g3d-warn p,
+      [data-ogsb] .g3d-warn p,
+      [data-ogsc] .g3d-warn strong,
+      [data-ogsb] .g3d-warn strong {
+        color: #e0cb96 !important;
+      }
+
+      @media screen and (max-width: 620px) {
+        .g3d-container {
+          width: 100% !important;
+          max-width: 100% !important;
+        }
+        .g3d-header {
+          padding: 24px 24px 22px 24px !important;
+        }
+        .g3d-content {
+          padding: 32px 24px 34px 24px !important;
+        }
+        .g3d-footer {
+          padding: 24px 24px 26px 24px !important;
+        }
+        .g3d-stack-a,
+        .g3d-stack-b {
+          display: block !important;
+          width: 100% !important;
+          max-width: 100% !important;
+          text-align: left !important;
+        }
+        .g3d-stack-a {
+          padding: 0 !important;
+        }
+        .g3d-col {
+          display: block !important;
+          width: 100% !important;
+          max-width: 100% !important;
+          padding: 0 0 20px 0 !important;
+        }
+        .g3d-stack-b {
+          padding: 15px 0 2px 0 !important;
+        }
+        .g3d-h1 {
+          font-size: 24px !important;
+          line-height: 1.26 !important;
+        }
+        .g3d-logo {
+          width: 196px !important;
+          height: auto !important;
+        }
+        .g3d-btn-cell {
+          display: block !important;
+          width: 100% !important;
+        }
+        .g3d-btn {
+          display: block !important;
+          width: 100% !important;
+          box-sizing: border-box !important;
+          padding-left: 12px !important;
+          padding-right: 12px !important;
+        }
+        .g3d-outer {
+          padding: 24px 12px 28px 12px !important;
+        }
+      }
+    </style>
+  </head>
+
+  <body
+    bgcolor="#E2E7E7"
+    style="
+      margin: 0;
+      padding: 0;
+      background-color: #e2e7e7;
+      font-family: 'Graphik', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      color: #3c4347;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    "
+  >
+    <!-- PREHEADER -->
+    <div
+      style="
+        display: none;
+        font-size: 1px;
+        line-height: 1px;
+        max-height: 0;
+        max-width: 0;
+        opacity: 0;
+        overflow: hidden;
+        mso-hide: all;
+        color: transparent;
+      "
+    >
+      {% block preheader %}{% endblock %}
+      &#847;&#847;&#847;&#847;&#847;&#847;&#847;&#847;&#847;&#847;&#847;&#847;&#847;&#847;&#847;&#847;&#847;&#847;&#847;&#847;&#847;&#847;&#847;&#847;&#847;&#847;&#847;&#847;&#847;&#847;
+    </div>
+
+    <!-- CANVAS -->
+    <table
+      role="presentation"
+      width="100%"
+      cellpadding="0"
+      cellspacing="0"
+      border="0"
+      bgcolor="#E2E7E7"
+      style="background-color: #e2e7e7;"
+    >
+      <tr>
+        <td
+          class="g3d-outer"
+          align="center"
+          valign="top"
+          bgcolor="#E2E7E7"
+          style="
+            background-color: #e2e7e7;
+            padding: 44px 16px 48px 16px;
+          "
+        >
+          <!--[if mso]>
+          <table role="presentation" width="600" cellpadding="0" cellspacing="0" border="0"><tr><td>
+          <![endif]-->
+
+          <!-- CARD -->
+          <table
+            role="presentation"
+            class="g3d-container"
+            width="600"
+            cellpadding="0"
+            cellspacing="0"
+            border="0"
+            align="center"
+            style="
+              width: 600px;
+              max-width: 600px;
+              background-color: #ffffff;
+              border-radius: 14px;
+              border: 1px solid #e2e6e6;
+              overflow: hidden;
+              box-shadow: 0 14px 34px rgba(20, 25, 28, 0.12);
+            "
+          >
+            <!-- HEADER -->
+            <tr>
+              <td
+                class="g3d-header"
+                bgcolor="#1F2224"
+                style="background-color: #1f2224; padding: 30px 44px 28px 44px;"
+              >
+                <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                  <tr>
+                    <td class="g3d-stack-a" align="left" valign="middle" style="padding: 0;">
+                      <a href="https://geotech3d.com" target="_blank" style="text-decoration: none; display: inline-block;">
+                        <img
+                          src="https://task-management.geotech3d.com/geotech3d-email-logo.png"
+                          width="228"
+                          height="38"
+                          alt="Geotech3D"
+                          class="g3d-logo"
+                          style="
+                            display: block;
+                            width: 228px;
+                            max-width: 228px;
+                            height: auto;
+                            border: 0;
+                            outline: none;
+                            text-decoration: none;
+                            color: #ffffff;
+                            font-family: 'Graphik', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+                            font-size: 20px;
+                            font-weight: 700;
+                            letter-spacing: 2px;
+                            line-height: 38px;
+                          "
+                        />
+                      </a>
+                    </td>
+                    <td
+                      class="g3d-stack-b g3d-doclabel"
+                      align="right"
+                      valign="middle"
+                      style="
+                        padding: 0;
+                        font-family: 'Graphik', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+                        font-size: 10px;
+                        font-weight: 700;
+                        letter-spacing: 2px;
+                        text-transform: uppercase;
+                        color: #868e91;
+                        white-space: nowrap;
+                      "
+                    >
+                      {% block doclabel %}Notification{% endblock %}
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+
+            <!-- CONTENT -->
+            <tr>
+              <td class="g3d-content" bgcolor="#FFFFFF" style="background-color: #ffffff; padding: 44px 44px 40px 44px;">
+{% block content %}{% endblock %}
+              </td>
+            </tr>
+
+            <!-- FOOTER -->
+            <tr>
+              <td
+                class="g3d-footer"
+                bgcolor="#F7F9F9"
+                background="https://task-management.geotech3d.com/geotech3d-email-topo-foot.png"
+                style="
+                  background-color: #f7f9f9;
+                  background-image: url('https://task-management.geotech3d.com/geotech3d-email-topo-foot.png');
+                  background-repeat: no-repeat;
+                  background-position: right bottom;
+                  border-top: 1px solid #e2e6e6;
+                  padding: 28px 44px 30px 44px;
+                "
+              >
+                <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                  <tr>
+                    <td align="left" style="padding: 0 0 4px 0;">
+                      <span
+                        style="
+                          font-family: 'Graphik', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+                          font-size: 15px;
+                          font-weight: 700;
+                          letter-spacing: 2.4px;
+                          color: #1f2224;
+                        "
+                        class="g3d-wordmark"
+                        >GEOTECH3D</span
+                      >
+                    </td>
+                  </tr>
+                  <tr>
+                    <td align="left" style="padding: 0 0 18px 0;">
+                      <span
+                        style="
+                          font-family: 'Graphik', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+                          font-size: 9.5px;
+                          font-weight: 700;
+                          letter-spacing: 2.6px;
+                          text-transform: uppercase;
+                          color: #3b7020;
+                        "
+                        class="g3d-tagline"
+                        >Geospatial Services</span
+                      >
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="g3d-rule" height="1" bgcolor="#E2E6E6" style="height: 1px; font-size: 0; line-height: 1px; mso-line-height-rule: exactly;">&nbsp;</td>
+                  </tr>
+
+                  <!-- COMPONENT · OFFICE GRID -->
+                  <tr>
+                    <td style="padding: 20px 0 18px 0;">
+                      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                        <tr>
+                      <td class="g3d-col" width="33.33%" valign="top" style="padding: 0 18px 0 0;">
+                        <p class="g3d-city" style="margin: 0 0 7px 0; font-family: 'Graphik', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 1.6px; text-transform: uppercase; color: #3b7020;">
+                          Dubai, UAE
+                        </p>
+                        <p class="g3d-entity" style="margin: 0 0 6px 0; font-family: 'Graphik', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; font-size: 11.5px; line-height: 1.5; font-weight: 600; color: #1f2224;">
+                          Geotech 3D LLC
+                        </p>
+                        <p class="g3d-addr" style="margin: 0 0 8px 0; font-family: 'Graphik', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; font-size: 11.5px; line-height: 1.6; color: #6b7477;">
+                          Al Qusais Industrial Area 3, Dubai, UAE
+                        </p>
+                        <p style="margin: 0 0 3px 0; font-family: 'Graphik', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; font-size: 11.5px; line-height: 1.6;">
+                          <a href="tel:+97142951589" class="g3d-link g3d-tel" style="font-family: 'Graphik', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; color: #5a6367; text-decoration: none;">+971 4 295 1589</a>
+                        </p>
+                        <p style="margin: 0; font-family: 'Graphik', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; font-size: 11.5px; line-height: 1.6;">
+                          <a href="mailto:info@geotech3d.com" class="g3d-link g3d-mail" style="font-family: 'Graphik', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; color: #4c5559; text-decoration: none; font-weight: 600;">info@geotech3d.com</a>
+                        </p>
+                      </td>
+                      <td class="g3d-col" width="33.33%" valign="top" style="padding: 0 18px 0 0;">
+                        <p class="g3d-city" style="margin: 0 0 7px 0; font-family: 'Graphik', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 1.6px; text-transform: uppercase; color: #3b7020;">
+                          Riyadh, KSA
+                        </p>
+                        <p class="g3d-entity" style="margin: 0 0 6px 0; font-family: 'Graphik', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; font-size: 11.5px; line-height: 1.5; font-weight: 600; color: #1f2224;">
+                          Geotech for Information Technology
+                        </p>
+                        <p class="g3d-addr" style="margin: 0 0 8px 0; font-family: 'Graphik', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; font-size: 11.5px; line-height: 1.6; color: #6b7477;">
+                          Al Maseef, Abi Bakr Al Siddiq Rd, Riyadh, KSA
+                        </p>
+                        <p style="margin: 0 0 3px 0; font-family: 'Graphik', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; font-size: 11.5px; line-height: 1.6;">
+                          <a href="tel:+966556403354" class="g3d-link g3d-tel" style="font-family: 'Graphik', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; color: #5a6367; text-decoration: none;">+966 55 640 3354</a>
+                        </p>
+                        <p style="margin: 0; font-family: 'Graphik', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; font-size: 11.5px; line-height: 1.6;">
+                          <a href="mailto:info@geotech3d.sa" class="g3d-link g3d-mail" style="font-family: 'Graphik', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; color: #4c5559; text-decoration: none; font-weight: 600;">info@geotech3d.sa</a>
+                        </p>
+                      </td>
+                      <td class="g3d-col" width="33.33%" valign="top" style="padding: 0;">
+                        <p class="g3d-city" style="margin: 0 0 7px 0; font-family: 'Graphik', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 1.6px; text-transform: uppercase; color: #3b7020;">
+                          Abu Dhabi, UAE
+                        </p>
+                        <p class="g3d-entity" style="margin: 0 0 6px 0; font-family: 'Graphik', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; font-size: 11.5px; line-height: 1.5; font-weight: 600; color: #1f2224;">
+                          Geotech for Surveying and Measurements &ndash; L.L.C &ndash; S.P.C
+                        </p>
+                        <p class="g3d-addr" style="margin: 0 0 8px 0; font-family: 'Graphik', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; font-size: 11.5px; line-height: 1.6; color: #6b7477;">
+                          West 2, Al Hisn, Abu Dhabi, UAE
+                        </p>
+                        <p style="margin: 0 0 3px 0; font-family: 'Graphik', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; font-size: 11.5px; line-height: 1.6;">
+                          <a href="tel:+97125525890" class="g3d-link g3d-tel" style="font-family: 'Graphik', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; color: #5a6367; text-decoration: none;">+971 2552 5890</a>
+                        </p>
+                        <p style="margin: 0; font-family: 'Graphik', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; font-size: 11.5px; line-height: 1.6;">
+                          <a href="mailto:info@geotech3d.ae" class="g3d-link g3d-mail" style="font-family: 'Graphik', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; color: #4c5559; text-decoration: none; font-weight: 600;">info@geotech3d.ae</a>
+                        </p>
+                      </td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+
+                  <!-- COMPONENT · SOCIAL ROW -->
+                  <tr>
+                    <td align="left" style="padding: 0 0 22px 0;">
+                      <table role="presentation" cellpadding="0" cellspacing="0" border="0">
+                        <tr>
+                          <td style="padding: 0 10px 0 0;">
+                            <a href="https://www.facebook.com/3DGEOTECH/" target="_blank" style="text-decoration: none;"
+                              ><img
+                                src="https://task-management.geotech3d.com/geotech3d-email-facebook.png"
+                                width="28"
+                                height="28"
+                                alt="Facebook"
+                                style="display: block; width: 28px; height: 28px; border: 0; outline: none; font-size: 0; line-height: 28px;"
+                            /></a>
+                          </td>
+                          <td style="padding: 0 10px 0 0;">
+                            <a href="https://www.instagram.com/geotech_3d/" target="_blank" style="text-decoration: none;"
+                              ><img
+                                src="https://task-management.geotech3d.com/geotech3d-email-instagram.png"
+                                width="28"
+                                height="28"
+                                alt="Instagram"
+                                style="display: block; width: 28px; height: 28px; border: 0; outline: none; font-size: 0; line-height: 28px;"
+                            /></a>
+                          </td>
+                          <td style="padding: 0 10px 0 0;">
+                            <a href="https://ae.linkedin.com/company/geotech-3d" target="_blank" style="text-decoration: none;"
+                              ><img
+                                src="https://task-management.geotech3d.com/geotech3d-email-linkedin.png"
+                                width="28"
+                                height="28"
+                                alt="LinkedIn"
+                                style="display: block; width: 28px; height: 28px; border: 0; outline: none; font-size: 0; line-height: 28px;"
+                            /></a>
+                          </td>
+                          <td style="padding: 0 10px 0 0;">
+                            <a href="https://x.com/Geotech3D" target="_blank" style="text-decoration: none;"
+                              ><img
+                                src="https://task-management.geotech3d.com/geotech3d-email-twitter.png"
+                                width="28"
+                                height="28"
+                                alt="X (Twitter)"
+                                style="display: block; width: 28px; height: 28px; border: 0; outline: none; font-size: 0; line-height: 28px;"
+                            /></a>
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td class="g3d-rule" height="1" bgcolor="#E2E6E6" style="height: 1px; font-size: 0; line-height: 1px; mso-line-height-rule: exactly;">&nbsp;</td>
+                  </tr>
+
+                  <tr>
+                    <td
+                      class="g3d-meta"
+                      align="left"
+                      style="
+                        padding: 16px 0 0 0;
+                        font-family: 'Graphik', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+                        font-size: 11.5px;
+                        line-height: 1.7;
+                        color: #6b7477;
+                      "
+                    >
+                      <a
+                        href="https://www.geotech3d.com"
+                        class="g3d-link g3d-site"
+                        target="_blank"
+                        style="color: #1f2224; text-decoration: none; font-weight: 600;"
+                        >www.geotech3d.com</a
+                      ><br />
+                      {% block footer_note %}This is an automated message.{% endblock %}
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+
+          </table>
+          <!-- /CARD -->
+
+          <!--[if mso]>
+          </td></tr></table>
+          <![endif]-->
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>
