@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Your Geotech3D Analytics export is ready</title>
+    <title>You've been assigned to {{issue_identifier}} on Geotech3D</title>
 
     <style type="text/css">
       body, table, td, p, a, li, blockquote {
@@ -39,6 +39,16 @@
         }
         .email-footer {
           padding: 20px 20px !important;
+        }
+        .email-button-cell {
+          display: block !important;
+          width: 100% !important;
+          text-align: center !important;
+        }
+        .email-button {
+          display: block !important;
+          width: 100% !important;
+          box-sizing: border-box !important;
         }
       }
       *[class="gmail-fix"] {
@@ -76,7 +86,7 @@
         visibility: hidden;
       "
     >
-      Your requested Geotech3D Analytics data export is attached as a CSV file.
+      {{actor_name}} assigned you to {{issue_identifier}}: {{issue_name}} in {{project_name}} on Geotech3D.
     </span>
 
     <!-- Outer Wrapper -->
@@ -126,14 +136,18 @@
                       color: #111827;
                     "
                   >
-                    Your Analytics export is ready
+                    You've been assigned to a task
                   </h1>
 
                   <p style="margin: 0 0 20px; font-size: 15px; line-height: 1.6; color: #374151;">
-                    Your requested data export from Geotech3D Analytics has been generated successfully. It is attached to this email as a CSV file.
+                    Hello <strong style="color: #111827;">{{assignee_name}}</strong>,
                   </p>
 
-                  <!-- Export Info Box -->
+                  <p style="margin: 0 0 20px; font-size: 15px; line-height: 1.6; color: #374151;">
+                    <strong style="color: #111827;">{{actor_name}}</strong> assigned you to the following task in <strong style="color: #111827;">{{project_name}}</strong>:
+                  </p>
+
+                  <!-- Task Card -->
                   <table
                     role="presentation"
                     width="100%"
@@ -150,34 +164,85 @@
                   >
                     <tr>
                       <td style="padding: 16px 20px;">
-                        <p style="margin: 0 0 4px; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: #6b7280;">
-                          Attachment
-                        </p>
-                        <p style="margin: 0; font-size: 15px; font-weight: 600; color: #111827;">
-                          Analytics Data Export (.csv)
+                        <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="margin-bottom: 8px;">
+                          <tr>
+                            <td style="background-color: #ebf7e5; border-radius: 4px; padding: 2px 8px;">
+                              <span style="font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace; font-size: 12px; font-weight: 700; color: #3a6d16;">
+                                {{issue_identifier}}
+                              </span>
+                            </td>
+                            <td style="padding-left: 10px; font-size: 13px; color: #6b7280;">
+                              {{project_name}}
+                            </td>
+                          </tr>
+                        </table>
+                        <p style="margin: 0; font-size: 16px; font-weight: 600; color: #111827; line-height: 1.4;">
+                          {{issue_name}}
                         </p>
                       </td>
                     </tr>
                   </table>
 
-                  <!-- Security & usage note -->
-                  <div
+                  <!-- Primary CTA Button -->
+                  <table
+                    role="presentation"
+                    cellspacing="0"
+                    cellpadding="0"
+                    border="0"
+                    style="margin: 0 0 28px;"
+                  >
+                    <tr>
+                      <td class="email-button-cell" align="left">
+                        <a
+                          href="{{issue_url}}"
+                          class="email-button"
+                          target="_blank"
+                          style="
+                            background-color: #71b32f;
+                            border: 1px solid #5f9a28;
+                            border-radius: 6px;
+                            color: #ffffff;
+                            padding: 13px 28px;
+                            text-align: center;
+                            text-decoration: none;
+                            display: inline-block;
+                            font-size: 15px;
+                            font-weight: 600;
+                            white-space: nowrap;
+                          "
+                        >
+                          View task
+                        </a>
+                      </td>
+                    </tr>
+                  </table>
+
+                  <!-- Fallback link -->
+                  <p
                     style="
-                      border-left: 3px solid #d1d5db;
-                      padding-left: 14px;
-                      margin-top: 24px;
+                      margin: 0 0 8px;
+                      font-size: 13px;
+                      line-height: 1.6;
+                      color: #6b7280;
                     "
                   >
-                    <p
-                      style="
-                        margin: 0;
-                        font-size: 13px;
-                        line-height: 1.6;
-                        color: #6b7280;
-                      "
-                    >
-                      This export contains operational data from your Geotech3D workspace. Please handle it according to your organization's data protection guidelines.
-                    </p>
+                    If the button above does not work, copy and paste this link into your browser:
+                  </p>
+
+                  <div
+                    style="
+                      background-color: #f9fafb;
+                      border: 1px solid #e5e7eb;
+                      border-radius: 4px;
+                      padding: 10px 14px;
+                      font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+                      font-size: 12px;
+                      color: #4b5563;
+                      word-break: break-all;
+                      line-height: 1.5;
+                    "
+                  >
+                    {{issue_url}}
                   </div>
                 </td>
               </tr>
@@ -200,7 +265,7 @@
                     Geotech3D Operations Platform &bull; Geospatial Services
                   </p>
                   <p style="margin: 0; font-size: 12px; color: #9ca3af;">
-                    Automated export notification from Geotech3D Analytics.
+                    This operational update was sent to {{email}}.
                   </p>
                 </td>
               </tr>

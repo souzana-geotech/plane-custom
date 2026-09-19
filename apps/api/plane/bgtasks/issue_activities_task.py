@@ -10,6 +10,7 @@ import json
 from celery import shared_task
 
 # Django imports
+from django.conf import settings
 from django.core.serializers.json import DjangoJSONEncoder
 from django.utils import timezone
 
@@ -17,6 +18,7 @@ from django.utils import timezone
 # Module imports
 from plane.app.serializers import IssueActivitySerializer
 from plane.bgtasks.dependency_schedule_task import handle_issue_activity_for_dependencies
+from plane.bgtasks.issue_assigned_email_task import issue_assigned_email
 from plane.bgtasks.notification_task import notifications
 from plane.db.models import (
     CommentReaction,
@@ -407,6 +409,20 @@ def track_assignees(
 
     # Create assignees subscribers to the issue and ignore if already
     IssueSubscriber.objects.bulk_create(bulk_subscribers, batch_size=10, ignore_conflicts=True)
+
+    # Dispatch assignment email for each newly added assignee.
+    # The set `added_assignees` is already the set-difference (requested - current),
+    # so only genuinely new assignees are notified. Guards (inactive user,
+    # self-assignment, property_change preference) are enforced inside the task.
+    base_url = settings.WEB_URL or settings.APP_BASE_URL or ""
+    for new_assignee_id in added_assignees:
+        if is_valid_uuid(new_assignee_id):
+            issue_assigned_email.delay(
+                issue_id=str(issue_id),
+                assignee_id=str(new_assignee_id),
+                actor_id=str(actor_id),
+                base_url=base_url,
+            )
 
     for dropped_assignee in dropped_assginees:
         # validate uuids
