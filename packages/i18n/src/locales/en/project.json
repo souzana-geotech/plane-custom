@@ -300,8 +300,8 @@
   "disabled_project": {
     "empty_state": {
       "inbox": {
-        "title": "Intake is not enabled for the container.",
-        "description": "Intake helps you manage incoming requests to your container and add them as tasks in your workflow. Enable intake from container settings to manage requests.",
+        "title": "Request is not enabled for the container.",
+        "description": "Request helps you manage incoming requests to your container and add them as tasks in your workflow. Enable Request from container settings to manage requests.",
         "primary_button": {
           "text": "Manage features"
         }

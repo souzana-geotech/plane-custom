@@ -94,11 +94,11 @@
     },
     "intake": {
       "step_zero": {
-        "title": "Streamline requests with intake",
+        "title": "Streamline your requests",
         "description": "A Geotech3D-only feature that lets Guests create tasks for bugs, requests, or tickets."
       },
       "step_one": {
-        "title": "Open/closed intake requests",
+        "title": "Open/closed requests",
         "description": "Pending requests stay in the Open tab, and once addressed by an admin or member, they move to Closed."
       },
       "step_two": {

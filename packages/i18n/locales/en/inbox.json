@@ -57,10 +57,10 @@
       "updated_at": "Updated at",
       "id": "ID"
     },
-    "label": "Intake",
-    "page_label": "{workspace} - Intake",
+    "label": "Request",
+    "page_label": "{workspace} - Request",
     "modal": {
-      "title": "Create intake task"
+      "title": "Create request"
     },
     "tabs": {
       "open": "Open",
@@ -77,7 +77,7 @@
       },
       "sidebar_filter": {
         "title": "No matching tasks",
-        "description": "No task matches filter applied in intake. Create a new task."
+        "description": "No task matches filter applied in requests. Create a new task."
       },
       "detail": {
         "title": "Select a task to view its details."

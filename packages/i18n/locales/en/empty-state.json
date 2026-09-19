@@ -87,12 +87,12 @@
       "description": "Archive pages not on your radar. Access them here when needed."
     },
     "intake_sidebar": {
-      "title": "Log Intake requests",
+      "title": "Log Requests",
       "description": "Submit new requests to be reviewed, prioritized, and tracked within your container's workflow.",
-      "cta_primary": "Create Intake request"
+      "cta_primary": "Create Request"
     },
     "intake_main": {
-      "title": "Select an Intake task to view its details"
+      "title": "Select a request to view its details"
     },
     "epics": {
       "title": "Turn complex work into structured epics.",
@@ -166,7 +166,7 @@
       "title": "Create projects / jobs to organize your work and track progress across different stages."
     },
     "analytics_no_intake": {
-      "title": "Set up intake to manage incoming requests and track how they're accepted and rejected"
+      "title": "Set up Request to manage incoming requests and track how they're accepted and rejected"
     },
     "home_widget_stickies": {
       "title": "Jot down an idea, capture an aha, or record a brainwave. Add a sticky to get started."

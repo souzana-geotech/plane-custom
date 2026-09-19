@@ -19,7 +19,7 @@ export const BUSINESS_PLAN_FEATURES = [
   "Decision + Loops Automation",
   "Custom Reports",
   "Nested Pages",
-  "Intake Forms",
+  "Request Forms",
 ];
 
 export const PRO_PLAN_FEATURES = [

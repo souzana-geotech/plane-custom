@@ -356,14 +356,14 @@
       },
       "intake_trends": {
         "title": "No data yet",
-        "description": "Intake trends analytics will appear here. Add tasks to intake to start tracking trends."
+        "description": "Request trends analytics will appear here. Add tasks to requests to start tracking trends."
       }
     },
     "upgrade_to_plan": "Upgrade to {plan} to unlock {tab}",
     "workitem_resolved_vs_pending": "Tasks resolved vs pending",
     "projects_by_status": "Containers by status",
     "active_users": "Active users",
-    "intake_trends": "Intake Trends"
+    "intake_trends": "Request Trends"
   },
   "workspace_projects": {
     "label": "{count, plural, one {Container} other {Containers}}",

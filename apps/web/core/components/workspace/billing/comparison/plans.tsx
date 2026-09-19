@@ -130,7 +130,7 @@ export const PLANS_COMPARISON_LIST: TPlansComparisonDetails[] = [
         },
       },
       {
-        title: "Intake",
+        title: "Request",
         description:
           "See suggestions and feedback from viewers and\nguests before you decide to add them to your\nproject.",
         cloud: {
@@ -422,8 +422,8 @@ export const PLANS_COMPARISON_LIST: TPlansComparisonDetails[] = [
         },
       },
       {
-        title: "Intake Assignees",
-        description: "Assign approved Intake tasks to a member by\ndefault.",
+        title: "Request Assignees",
+        description: "Assign approved Request tasks to a member by\ndefault.",
         cloud: {
           free: false,
           one: false,
@@ -444,8 +444,8 @@ export const PLANS_COMPARISON_LIST: TPlansComparisonDetails[] = [
         },
       },
       {
-        title: "Intake Forms",
-        description: "Take Intake tasks from externally accessible web\nforms.",
+        title: "Request Forms",
+        description: "Take Request tasks from externally accessible web\nforms.",
         cloud: {
           free: false,
           one: false,
@@ -455,8 +455,8 @@ export const PLANS_COMPARISON_LIST: TPlansComparisonDetails[] = [
         },
       },
       {
-        title: "Emails For Intake",
-        description: "Get an email address for reporting tasks\ndirectly into a container's Intake.",
+        title: "Emails For Request",
+        description: "Get an email address for reporting tasks\ndirectly into a container's Request.",
         comingSoon: true,
         cloud: {
           free: false,
