@@ -9,11 +9,18 @@
 :3000 {
 	root * /usr/share/caddy/html
 
-	# Per-client-IP rate limiting for static asset requests
+	# Per-client-IP rate limiting for static asset requests.
+	#
+	# Geotech3D: raised from the upstream 300. This bundle splits into ~1000
+	# chunks, and a deploy rotates every filename, so the next visit is a cold
+	# load that fetches a large share of them at once. An office also reaches
+	# this through one NAT address, which makes {client_ip} the whole office
+	# rather than one person. At 300 the first load after a deploy returned
+	# 429 for real users.
 	rate_limit {
 		zone static {
 			key {client_ip}
-			events 300
+			events 5000
 			window 1m
 		}
 	}
