@@ -7,7 +7,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { HourglassOutline } from "@makeplane/propel/icons";
 import { getButtonStyling } from "@plane/propel/button";
-import { Tooltip } from "@plane/propel/tooltip";
+import { Tooltip } from "@makeplane/propel/components/tooltip";
 import { cn, isValidWorkingDaysCount } from "@plane/utils";
 
 type Props = {
@@ -126,5 +126,5 @@ export const WorkingDaysInput = React.forwardRef(function WorkingDaysInput(
   );
 
   // A disabled field with no explanation reads as a bug; the tooltip says why.
-  return tooltip ? <Tooltip tooltipContent={tooltip}>{field}</Tooltip> : field;
+  return tooltip ? <Tooltip label={tooltip}>{field}</Tooltip> : field;
 });
