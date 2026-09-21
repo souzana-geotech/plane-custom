@@ -89,15 +89,30 @@ export const InboxIssueActionsHeader = observer(function InboxIssueActionsHeader
 
   const issue = inboxIssue?.issue;
   // derived values
+  // Geotech3D: a Request is decided by an admin or by whoever it was assigned
+  // to. This mirrors the server exactly - before, every member saw Accept and
+  // Decline, the server quietly kept the status unchanged, and the request
+  // stayed pending with nothing on screen explaining why.
+  // unchanged: this only decides whether the actions menu appears at all. It
+  // still holds items a non-reviewer needs, such as copy link and delete.
   const isAllowed = allowPermissions(
     [EUserPermissions.ADMIN, EUserPermissions.MEMBER],
     EUserPermissionsLevel.PROJECT,
     workspaceSlug,
     projectId
   );
-  const canMarkAsDuplicate = isAllowed && (inboxIssue?.status === 0 || inboxIssue?.status === -2);
-  const canMarkAsAccepted = isAllowed && (inboxIssue?.status === 0 || inboxIssue?.status === -2);
-  const canMarkAsDeclined = isAllowed && (inboxIssue?.status === 0 || inboxIssue?.status === -2);
+  const isProjectAdminForReview = allowPermissions(
+    [EUserPermissions.ADMIN],
+    EUserPermissionsLevel.PROJECT,
+    workspaceSlug,
+    projectId
+  );
+  const isAssignedToCurrentUser = !!currentUser?.id && !!issue?.assignee_ids?.includes(currentUser.id);
+  const canReview = isProjectAdminForReview || isAssignedToCurrentUser;
+  const isPendingOrSnoozed = inboxIssue?.status === 0 || inboxIssue?.status === -2;
+  const canMarkAsDuplicate = canReview && isPendingOrSnoozed;
+  const canMarkAsAccepted = canReview && isPendingOrSnoozed;
+  const canMarkAsDeclined = canReview && isPendingOrSnoozed;
   // can delete only if admin or is creator of the issue
   const canDelete =
     allowPermissions([EUserPermissions.ADMIN], EUserPermissionsLevel.PROJECT, workspaceSlug, projectId) ||
@@ -162,9 +177,8 @@ export const InboxIssueActionsHeader = observer(function InboxIssueActionsHeader
 
   const handleInboxIssueDelete = async () => {
     if (!inboxIssue || !currentInboxIssueId) return;
-    await deleteInboxIssue(workspaceSlug, projectId, currentInboxIssueId).then(() => {
-      if (!isNotificationEmbed) router.push(`/${workspaceSlug}/projects/${projectId}/intake`);
-    });
+    await deleteInboxIssue(workspaceSlug, projectId, currentInboxIssueId);
+    if (!isNotificationEmbed) router.push(`/${workspaceSlug}/projects/${projectId}/intake`);
   };
 
   const handleIssueSnoozeAction = async () => {

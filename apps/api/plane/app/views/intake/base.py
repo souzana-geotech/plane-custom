@@ -25,6 +25,7 @@ from plane.db.models import (
     Intake,
     IntakeIssue,
     Issue,
+    IssueAssignee,
     State,
     StateGroup,
     IssueLink,
@@ -332,7 +333,7 @@ class IntakeIssueViewSet(BaseViewSet):
         else:
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-    @allow_permission(allowed_roles=[ROLE.ADMIN], creator=True, model=Issue)
+    @allow_permission(allowed_roles=[ROLE.ADMIN], creator=True, model=Issue, assignee=True)
     def partial_update(self, request, slug, project_id, pk):
         skip_activity = request.data.pop("skip_activity", False)
         is_description_update = request.data.get("description_html") is not None
@@ -359,6 +360,15 @@ class IntakeIssueViewSet(BaseViewSet):
             role=ROLE.ADMIN.value,
         ).exists()
 
+        # Geotech3D: a Request is decided by whoever it was assigned to, as well
+        # as by an admin. Role is deliberately not consulted - assigning it to
+        # someone is the act that grants them the say.
+        is_assignee = IssueAssignee.objects.filter(
+            issue_id=pk,
+            assignee=request.user,
+            deleted_at__isnull=True,
+        ).exists()
+
         if not project_member and not is_workspace_admin:
             return Response(
                 {"error": "Only admin or creator can update the intake tasks"},
@@ -366,9 +376,11 @@ class IntakeIssueViewSet(BaseViewSet):
             )
 
         # Only project members admins and created_by users can access this endpoint
-        if ((project_member and project_member.role <= ROLE.GUEST.value) and not is_workspace_admin) and str(
-            intake_issue.created_by_id
-        ) != str(request.user.id):
+        if (
+            ((project_member and project_member.role <= ROLE.GUEST.value) and not is_workspace_admin)
+            and not is_assignee
+            and str(intake_issue.created_by_id) != str(request.user.id)
+        ):
             return Response(
                 {"error": "You cannot edit intake issues"},
                 status=status.HTTP_400_BAD_REQUEST,
@@ -431,7 +443,7 @@ class IntakeIssueViewSet(BaseViewSet):
         intake_serializer = None
         intake_current_instance = None
 
-        if (project_member and project_member.role > ROLE.MEMBER.value) or is_workspace_admin:
+        if (project_member and project_member.role > ROLE.MEMBER.value) or is_workspace_admin or is_assignee:
             intake_current_instance = json.dumps(IntakeIssueSerializer(intake_issue).data, cls=DjangoJSONEncoder)
             intake_serializer = IntakeIssueSerializer(intake_issue, data=request.data, partial=True)
 

@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: AGPL-3.0-only
 # See the LICENSE file for details.
 
-from plane.db.models import WorkspaceMember, ProjectMember
+from plane.db.models import WorkspaceMember, ProjectMember, IssueAssignee
 from functools import wraps
 from rest_framework.response import Response
 from rest_framework import status
@@ -16,7 +16,7 @@ class ROLE(Enum):
     GUEST = 5
 
 
-def allow_permission(allowed_roles, level="PROJECT", creator=False, model=None):
+def allow_permission(allowed_roles, level="PROJECT", creator=False, model=None, assignee=False):
     def decorator(view_func):
         @wraps(view_func)
         def _wrapped_view(instance, request, *args, **kwargs):
@@ -35,6 +35,28 @@ def allow_permission(allowed_roles, level="PROJECT", creator=False, model=None):
 
                 obj = model.objects.filter(id=kwargs["pk"], created_by=request.user).exists()
                 if obj:
+                    return view_func(instance, request, *args, **kwargs)
+
+            # Geotech3D: whoever the work item is assigned to may act on it,
+            # whatever their project role. Used for accepting a Request: the
+            # person it lands on is the one who decides. Mirrors `creator`
+            # above - a bypass, not a widening of `allowed_roles`.
+            if assignee:
+                if not WorkspaceMember.objects.filter(
+                    member=request.user,
+                    workspace__slug=kwargs["slug"],
+                    is_active=True,
+                ).exists():
+                    return Response(
+                        {"error": "You don't have the required permissions."},
+                        status=status.HTTP_403_FORBIDDEN,
+                    )
+
+                if IssueAssignee.objects.filter(
+                    issue_id=kwargs["pk"],
+                    assignee=request.user,
+                    deleted_at__isnull=True,
+                ).exists():
                     return view_func(instance, request, *args, **kwargs)
 
             # Convert allowed_roles to their values if they are enum members
