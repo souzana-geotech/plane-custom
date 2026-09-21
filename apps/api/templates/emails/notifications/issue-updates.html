@@ -1,7 +1,7 @@
 {% extends "emails/base_email.html" %}
 
 {% block title %}{{ issue.issue_identifier }} {{ issue.name }} &mdash; Geotech3D{% endblock %}
-{% block preheader %}{{summary}} on {{ issue.issue_identifier }} in {{project}}.{% endblock %}
+{% block preheader %}{% if data or comments %}{{summary}} on {{ issue.issue_identifier }} in {{project}}.{% else %}{% for reminder in reminders %}{{ reminder.message }} {% endfor %}{{ issue.issue_identifier }} in {{project}}.{% endif %}{% endblock %}
 {% block doclabel %}Activity Update{% endblock %}
 {% block footer_note %}This operational update was sent to <span style="color: #6b7477;">{{ receiver.email }}</span>.<br /><a href="{{ issue_url }}" class="g3d-link" style="color: #4c5559; text-decoration: none;">Unsubscribe from this {{entity_type}}</a> &middot; <a href="{{ user_preference }}" class="g3d-link" style="color: #4c5559; text-decoration: none;">Manage notification preferences</a>{% endblock %}
 
