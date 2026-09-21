@@ -161,8 +161,14 @@ class ProjectViewSet(BaseViewSet):
                 ).values("role")
             )
             .annotate(
+                # distinct=True: for a workspace MEMBER, list() below filters on
+                # `project_projectmember ... | Q(network=2)`, and on a public project the
+                # OR leaves that join unconstrained, so the project row repeats once per
+                # member. Without distinct the count is multiplied by the member count.
+                # The trailing .distinct() dedupes rows, not an already-computed aggregate.
                 intake_count=Count(
                     "project_intakeissue",
+                    distinct=True,
                     filter=Q(
                         project_intakeissue__status=IntakeIssueStatus.PENDING.value,
                         project_intakeissue__deleted_at__isnull=True,
