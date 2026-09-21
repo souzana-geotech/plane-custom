@@ -12,9 +12,14 @@ import { Tooltip } from "@makeplane/propel/components/tooltip";
 import { cn, renderFormattedDate } from "@plane/utils";
 // types
 import type { TButtonVariants } from "@/components/dropdowns/types";
+// hooks
+import { useMember } from "@/hooks/store/use-member";
 
 type Props = {
   targetDate: string | null;
+  /** who fixed the date and when; shown in the tooltip so a member knows who to ask */
+  lockedBy?: string | null;
+  lockedAt?: string | null;
   buttonVariant: TButtonVariants;
   buttonClassName?: string;
   buttonContainerClassName?: string;
@@ -38,6 +43,8 @@ type Props = {
 export const LockedDueDateButton = observer(function LockedDueDateButton(props: Props) {
   const {
     targetDate,
+    lockedBy,
+    lockedAt,
     buttonVariant,
     buttonClassName = "",
     buttonContainerClassName = "",
@@ -49,12 +56,19 @@ export const LockedDueDateButton = observer(function LockedDueDateButton(props: 
     showRequestAction = true,
   } = props;
   const { t } = useTranslation();
+  const { getUserDetails } = useMember();
 
   const isBordered = buttonVariant.startsWith("border");
   const isBackground = buttonVariant.startsWith("background");
 
+  const lockedByDetails = lockedBy ? getUserDetails(lockedBy) : undefined;
+
   const tooltipLines = [
     t("issue.due_date_lock.fixed"),
+    lockedByDetails?.display_name
+      ? t("issue.due_date_lock.fixed_by", { name: lockedByDetails.display_name })
+      : undefined,
+    lockedAt ? t("issue.due_date_lock.fixed_on", { date: renderFormattedDate(lockedAt) }) : undefined,
     pendingRequest
       ? t("issue.due_date_lock.request.pending_detail", {
           name: pendingRequest.requested_by_detail?.display_name ?? "",

@@ -91,6 +91,8 @@ export const DueDateControl = observer(function DueDateControl(props: Props) {
       <>
         <LockedDueDateButton
           targetDate={issue.target_date ?? null}
+          lockedBy={issue.due_date_locked_by}
+          lockedAt={issue.due_date_locked_at}
           buttonVariant={buttonVariant}
           buttonClassName={buttonClassName}
           buttonContainerClassName={buttonContainerClassName}

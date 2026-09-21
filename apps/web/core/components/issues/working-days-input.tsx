@@ -7,6 +7,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { HourglassOutline } from "@makeplane/propel/icons";
 import { getButtonStyling } from "@plane/propel/button";
+import { Tooltip } from "@plane/propel/tooltip";
 import { cn, isValidWorkingDaysCount } from "@plane/utils";
 
 type Props = {
@@ -17,6 +18,8 @@ type Props = {
   placeholder: string;
   buttonVariant: "border-with-text" | "transparent-with-text";
   disabled?: boolean;
+  /** why the field cannot be edited, e.g. because the due date is fixed */
+  tooltip?: string;
   tabIndex?: number;
   className?: string;
   inputClassName?: string;
@@ -35,7 +38,17 @@ export const WorkingDaysInput = React.forwardRef(function WorkingDaysInput(
   props: Props,
   ref: React.ForwardedRef<HTMLInputElement>
 ) {
-  const { value, onChange, placeholder, buttonVariant, disabled = false, tabIndex, className, inputClassName } = props;
+  const {
+    value,
+    onChange,
+    placeholder,
+    buttonVariant,
+    disabled = false,
+    tooltip,
+    tabIndex,
+    className,
+    inputClassName,
+  } = props;
   const [inputValue, setInputValue] = useState(value !== undefined ? `${value}` : "");
   const isFocusedRef = useRef(false);
 
@@ -60,7 +73,7 @@ export const WorkingDaysInput = React.forwardRef(function WorkingDaysInput(
     onChange(parsedValue);
   };
 
-  return (
+  const field = (
     <div
       className={cn(
         getButtonStyling("ghost", "sm"),
@@ -111,4 +124,7 @@ export const WorkingDaysInput = React.forwardRef(function WorkingDaysInput(
       />
     </div>
   );
+
+  // A disabled field with no explanation reads as a bug; the tooltip says why.
+  return tooltip ? <Tooltip tooltipContent={tooltip}>{field}</Tooltip> : field;
 });

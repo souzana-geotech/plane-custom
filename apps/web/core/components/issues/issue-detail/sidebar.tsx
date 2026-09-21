@@ -41,7 +41,7 @@ import { useProjectState } from "@/hooks/store/use-project-state";
 import type { TWorkItemDatesUpdate } from "@/hooks/use-work-item-working-days";
 import { useWorkItemWorkingDays } from "@/hooks/use-work-item-working-days";
 // components
-import { DueDateControl, IssueDueDateLockControl } from "@/components/issues/due-date-lock";
+import { DueDateControl, IssueDueDateLockControl, useDueDateLock } from "@/components/issues/due-date-lock";
 import { IssueParentSelectRoot } from "@/components/issues/parent-select-root";
 import { SidebarPropertyListItem } from "@/components/common/layout/sidebar/property-list-item";
 import { IssueCycleSelect } from "./cycle-select";
@@ -80,7 +80,8 @@ export const IssueDetailsSidebar = observer(function IssueDetailsSidebar(props: 
 
   // Geotech3D: a fixed due date makes the working-days field a readout and keeps
   // a start-date edit from dragging the locked due date along with it.
-  const isDueDateLocked = !!issue?.is_due_date_locked;
+  // An admin may move a fixed due date, so for them nothing here is read-only.
+  const { isDueDateReadOnly } = useDueDateLock({ workspaceSlug, projectId, issue });
 
   const { workingDays, isDurationDriven, handleStartDateChange, handleTargetDateChange, handleWorkingDaysChange } =
     useWorkItemWorkingDays({
@@ -88,7 +89,7 @@ export const IssueDetailsSidebar = observer(function IssueDetailsSidebar(props: 
       targetDate: issue?.target_date,
       onDatesChange: handleDatesChange,
       resetKey: issueId,
-      isDueDateLocked,
+      isDueDateLocked: isDueDateReadOnly,
     });
 
   if (!issue) return <></>;
@@ -219,7 +220,8 @@ export const IssueDetailsSidebar = observer(function IssueDetailsSidebar(props: 
                 onChange={handleWorkingDaysChange}
                 placeholder={t("issue.add.working_days")}
                 buttonVariant="transparent-with-text"
-                disabled={!isEditable}
+                disabled={!isEditable || isDueDateReadOnly}
+                tooltip={isDueDateReadOnly ? t("issue.due_date_lock.working_days_readonly") : undefined}
                 className="group h-7.5 w-full grow text-left"
               />
             </SidebarPropertyListItem>

@@ -109,7 +109,13 @@ export const IssueDefaultProperties = observer(function IssueDefaultProperties(p
 
   // Geotech3D: editing a task whose due date is fixed — the due date field is
   // read-only and working days become a readout. A brand-new task has no lock.
+  // The lock is admin-controlled, so an admin keeps editing here exactly as
+  // they do on every other surface; only a member is held to the fixed date.
   const isDueDateLocked = !!useWatch({ control, name: "is_due_date_locked" });
+  const canManageDueDateLock = !!(
+    projectId && allowPermissions([EUserPermissions.ADMIN], EUserPermissionsLevel.PROJECT, workspaceSlug, projectId)
+  );
+  const isDueDateReadOnly = isDueDateLocked && !canManageDueDateLock;
 
   const { workingDays, isDurationDriven, handleStartDateChange, handleTargetDateChange, handleWorkingDaysChange } =
     useWorkItemWorkingDays({
@@ -117,7 +123,7 @@ export const IssueDefaultProperties = observer(function IssueDefaultProperties(p
       targetDate,
       onDatesChange: handleDatesChange,
       resetKey: id,
-      isDueDateLocked,
+      isDueDateLocked: isDueDateReadOnly,
     });
 
   // the secondary properties stay collapsed so a routine task is title + save, but they must never
@@ -217,7 +223,7 @@ export const IssueDefaultProperties = observer(function IssueDefaultProperties(p
                 minDate={minDate ?? undefined}
                 placeholder={t("issue.form.no_due_date")}
                 tabIndex={getIndex("target_date")}
-                disabled={isDueDateLocked}
+                disabled={isDueDateReadOnly}
               />
             )}
           />
@@ -282,6 +288,8 @@ export const IssueDefaultProperties = observer(function IssueDefaultProperties(p
               buttonVariant="border-with-text"
               placeholder={t("working_days")}
               tabIndex={getIndex("working_days")}
+              disabled={isDueDateReadOnly}
+              tooltip={isDueDateReadOnly ? t("issue.due_date_lock.working_days_readonly") : undefined}
             />
           </div>
           {projectDetails?.cycle_view && (

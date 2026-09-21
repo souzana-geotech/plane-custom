@@ -26,7 +26,7 @@ import {
 import { cn, getDate, shouldHighlightIssueDueDate } from "@plane/utils";
 // components
 import { DateDropdown } from "@/components/dropdowns/date";
-import { DueDateControl, IssueDueDateLockControl } from "@/components/issues/due-date-lock";
+import { DueDateControl, IssueDueDateLockControl, useDueDateLock } from "@/components/issues/due-date-lock";
 import { EstimateDropdown } from "@/components/dropdowns/estimate";
 import { ButtonAvatars } from "@/components/dropdowns/member/avatar";
 import { MemberDropdown } from "@/components/dropdowns/member/dropdown";
@@ -78,7 +78,8 @@ export const PeekOverviewProperties = observer(function PeekOverviewProperties(p
 
   // Geotech3D: a fixed due date turns working days into a readout and keeps a
   // start-date edit from dragging the locked due date along with it.
-  const isDueDateLocked = !!issue?.is_due_date_locked;
+  // An admin may move a fixed due date, so for them nothing here is read-only.
+  const { isDueDateReadOnly } = useDueDateLock({ workspaceSlug, projectId, issue });
 
   const { workingDays, isDurationDriven, handleStartDateChange, handleTargetDateChange, handleWorkingDaysChange } =
     useWorkItemWorkingDays({
@@ -86,7 +87,7 @@ export const PeekOverviewProperties = observer(function PeekOverviewProperties(p
       targetDate: issue?.target_date,
       onDatesChange: handleDatesChange,
       resetKey: issueId,
-      isDueDateLocked,
+      isDueDateLocked: isDueDateReadOnly,
     });
 
   if (!issue) return <></>;
@@ -214,7 +215,8 @@ export const PeekOverviewProperties = observer(function PeekOverviewProperties(p
             onChange={handleWorkingDaysChange}
             placeholder={t("issue.add.working_days")}
             buttonVariant="transparent-with-text"
-            disabled={disabled}
+            disabled={disabled || isDueDateReadOnly}
+            tooltip={isDueDateReadOnly ? t("issue.due_date_lock.working_days_readonly") : undefined}
             className="group h-7.5 w-full grow text-left"
             inputClassName="text-body-xs-medium"
           />
