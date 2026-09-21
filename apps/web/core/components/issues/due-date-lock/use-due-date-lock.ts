@@ -11,6 +11,7 @@ import { useTranslation } from "@plane/i18n";
 import type { TIssue, TIssueDueDateChangeRequest } from "@plane/types";
 import { TOAST_TYPE, setToast } from "@plane/propel/toast";
 // hooks
+import { useIssues } from "@/hooks/store/use-issues";
 import { useUserPermissions } from "@/hooks/store/user";
 // services
 import { IssueDueDateLockService } from "@/services/issue/issue_due_date_lock.service";
@@ -23,7 +24,10 @@ export const DUE_DATE_LOCK_REQUESTS_KEY = (issueId: string | undefined) =>
 type TUseDueDateLockProps = {
   workspaceSlug: string | undefined;
   projectId: string | undefined;
-  issue: Partial<Pick<TIssue, "is_due_date_locked" | "target_date" | "id">> | undefined | null;
+  issue:
+    | Partial<Pick<TIssue, "is_due_date_locked" | "due_date_locked_by" | "due_date_locked_at" | "target_date" | "id">>
+    | undefined
+    | null;
   /** skip fetching the request list until something actually needs it */
   withRequests?: boolean;
 };
@@ -40,6 +44,7 @@ export const useDueDateLock = (props: TUseDueDateLockProps) => {
   const { workspaceSlug, projectId, issue, withRequests = false } = props;
   const { t } = useTranslation();
   const { allowPermissions } = useUserPermissions();
+  const { updateIssueLocally } = useIssues();
   const [isRequestModalOpen, setIsRequestModalOpen] = useState(false);
   const [isMutating, setIsMutating] = useState(false);
 
@@ -70,10 +75,38 @@ export const useDueDateLock = (props: TUseDueDateLockProps) => {
   const setLocked = useCallback(
     async (locked: boolean) => {
       if (!workspaceSlug || !projectId || !issue?.id) return;
+      const issueId = issue.id;
+
+      // Paint the new state before the request goes out: every surface reads
+      // `is_due_date_locked` from the shared issue map, so the date control
+      // swaps between the picker and the fixed affordance immediately instead
+      // of after a refetch. `previous` restores it if the server says no.
+      const previous: Partial<TIssue> = {
+        is_due_date_locked: !!issue.is_due_date_locked,
+        due_date_locked_by: issue.due_date_locked_by ?? null,
+        due_date_locked_at: issue.due_date_locked_at ?? null,
+      };
+      updateIssueLocally(issueId, { is_due_date_locked: locked });
+
       setIsMutating(true);
       try {
-        if (locked) await service.lock(workspaceSlug, projectId, issue.id);
-        else await service.unlock(workspaceSlug, projectId, issue.id);
+        if (locked) {
+          // The lock response carries who fixed it and when, which the fixed
+          // affordance shows; unlocking clears both.
+          const updated = await service.lock(workspaceSlug, projectId, issueId);
+          updateIssueLocally(issueId, {
+            is_due_date_locked: true,
+            due_date_locked_by: updated?.due_date_locked_by ?? null,
+            due_date_locked_at: updated?.due_date_locked_at ?? null,
+          });
+        } else {
+          await service.unlock(workspaceSlug, projectId, issueId);
+          updateIssueLocally(issueId, {
+            is_due_date_locked: false,
+            due_date_locked_by: null,
+            due_date_locked_at: null,
+          });
+        }
         setToast({
           type: TOAST_TYPE.SUCCESS,
           title: t("common.success"),
@@ -81,6 +114,7 @@ export const useDueDateLock = (props: TUseDueDateLockProps) => {
         });
         return true;
       } catch {
+        updateIssueLocally(issueId, previous);
         setToast({
           type: TOAST_TYPE.ERROR,
           title: t("common.error.label"),
@@ -91,7 +125,16 @@ export const useDueDateLock = (props: TUseDueDateLockProps) => {
         setIsMutating(false);
       }
     },
-    [workspaceSlug, projectId, issue?.id, t]
+    [
+      workspaceSlug,
+      projectId,
+      issue?.id,
+      issue?.is_due_date_locked,
+      issue?.due_date_locked_by,
+      issue?.due_date_locked_at,
+      updateIssueLocally,
+      t,
+    ]
   );
 
   return {

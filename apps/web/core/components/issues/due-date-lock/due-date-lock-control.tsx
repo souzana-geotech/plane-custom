@@ -24,7 +24,8 @@ const service = new IssueDueDateLockService();
 type Props = {
   workspaceSlug: string;
   projectId: string;
-  issue: Pick<TIssue, "id" | "target_date" | "is_due_date_locked">;
+  issue: Pick<TIssue, "id" | "target_date" | "is_due_date_locked"> &
+    Partial<Pick<TIssue, "due_date_locked_by" | "due_date_locked_at">>;
   isEditable: boolean;
 };
 

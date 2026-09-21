@@ -6,7 +6,7 @@
 
 import { useContext } from "react";
 import { merge } from "lodash-es";
-import type { TIssueMap } from "@plane/types";
+import type { TIssue, TIssueMap } from "@plane/types";
 import { EIssuesStoreType } from "@plane/types";
 import { StoreContext } from "@/lib/store-context";
 import type { IArchivedIssues, IArchivedIssuesFilter } from "@/store/issue/archived";
@@ -22,6 +22,9 @@ import type { IWorkspaceDraftIssues, IWorkspaceDraftIssuesFilter } from "@/store
 
 type defaultIssueStore = {
   issueMap: TIssueMap;
+  /** Write straight into the shared issue map, without a request. For painting
+   * a change the server has already accepted, or rolling one back. */
+  updateIssueLocally: (issueId: string, issue: Partial<TIssue>) => void;
 };
 
 export type TStoreIssues = {
@@ -85,6 +88,7 @@ export const useIssues = <T extends EIssuesStoreType>(storeType?: T): TStoreIssu
 
   const defaultStore: defaultIssueStore = {
     issueMap: context.issue.issues.issuesMap,
+    updateIssueLocally: context.issue.issues.updateIssue,
   };
 
   switch (storeType) {

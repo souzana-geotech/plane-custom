@@ -19,7 +19,12 @@ type Props = {
   projectId: string | undefined;
   /** `id` may be absent on a partially loaded task (e.g. the intake panel); the
    * fixed state still renders, only the request action needs an id. */
-  issue: Partial<Pick<TIssue, "target_date" | "start_date" | "is_due_date_locked" | "id">>;
+  issue: Partial<
+    Pick<
+      TIssue,
+      "target_date" | "start_date" | "is_due_date_locked" | "due_date_locked_by" | "due_date_locked_at" | "id"
+    >
+  >;
   onChange: (date: Date | null) => void;
   disabled?: boolean;
   buttonVariant: TButtonVariants;
