@@ -27,6 +27,9 @@ export type TMyWorkItem = {
   state_id: string | null;
   priority: TIssuePriorities | null;
   target_date: string | null;
+  /** Geotech3D: a fixed due date is admin-only, so the row shows the fixed
+   * affordance instead of a picker. */
+  is_due_date_locked?: boolean;
   updated_at: string;
   created_at: string;
 };

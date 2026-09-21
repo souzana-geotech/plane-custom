@@ -27,7 +27,7 @@ import {
   renderFormattedPayloadDate,
 } from "@plane/utils";
 // components
-import { DateDropdown } from "@/components/dropdowns/date";
+import { DueDateControl } from "@/components/issues/due-date-lock";
 // hooks
 import { useIssueDetail } from "@/hooks/store/use-issue-detail";
 import { useProject } from "@/hooks/store/use-project";
@@ -172,8 +172,10 @@ export const TaskRow = observer(function TaskRow(props: TTaskRowProps) {
               "opacity-0 transition-opacity group-focus-within/row:opacity-100 group-hover/row:opacity-100"
           )}
         >
-          <DateDropdown
-            value={item.target_date}
+          <DueDateControl
+            workspaceSlug={workspaceSlug}
+            projectId={item.project_id}
+            issue={item}
             onChange={(date) => void changeDueDate(item, (date && renderFormattedPayloadDate(date)) || null)}
             buttonVariant="transparent-with-text"
             buttonClassName={cn("h-7 w-full justify-end px-1.5 text-12", DUE_TEXT_CLASSNAME[dueBucket])}
@@ -183,6 +185,8 @@ export const TaskRow = observer(function TaskRow(props: TTaskRowProps) {
             isClearable={false}
             disabled={isDone}
             placement="bottom-end"
+            // the row is already dense; the request action lives on the task itself
+            showRequestAction={false}
           />
         </div>
         <CustomMenu
@@ -203,7 +207,7 @@ export const TaskRow = observer(function TaskRow(props: TTaskRowProps) {
               {t("home.card.mark_done")}
             </CustomMenu.MenuItem>
           )}
-          {!isDone && item.target_date && (
+          {!isDone && item.target_date && !item.is_due_date_locked && (
             <CustomMenu.MenuItem className="flex items-center gap-2" onClick={() => void changeDueDate(item, null)}>
               <CalendarOutline className="size-3.5 text-geo-grey" />
               {t("home.card.remove_due_date")}

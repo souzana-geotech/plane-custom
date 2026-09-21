@@ -8,6 +8,7 @@ import { observer } from "mobx-react";
 import type { TIssue } from "@plane/types";
 // components
 import { DateDropdown } from "@/components/dropdowns/date";
+import type { Placement } from "@popperjs/core";
 import type { TButtonVariants } from "@/components/dropdowns/types";
 // local
 import { LockedDueDateButton } from "./locked-due-date-button";
@@ -37,6 +38,7 @@ type Props = {
   icon?: React.ReactNode;
   minDate?: Date;
   maxDate?: Date;
+  placement?: Placement;
   tabIndex?: number;
   onClose?: () => void;
   showTooltip?: boolean;
