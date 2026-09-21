@@ -41,7 +41,10 @@ export const links: LinksFunction = () => [
   { rel: "icon", type: "image/png", sizes: "32x32", href: favicon32 },
   { rel: "icon", type: "image/png", sizes: "16x16", href: favicon16 },
   { rel: "shortcut icon", href: faviconIco },
-  { rel: "manifest", href: "/site.webmanifest.json" },
+  // Geotech3D: only one manifest link, or the browser takes the first and
+  // ignores the rest. The upstream /site.webmanifest.json still describes
+  // Plane - its name, blue theme colour and logos - so the installed app
+  // carried Plane's identity. /manifest.json below is ours.
   { rel: "apple-touch-icon", href: icon512 },
   { rel: "apple-touch-icon", sizes: "180x180", href: icon180 },
   { rel: "apple-touch-icon", sizes: "512x512", href: icon512 },

@@ -1,6 +1,7 @@
 {
   "name": "Geotech3D",
   "short_name": "Geotech3D",
+  "description": "Geotech3D task management.",
   "icons": [
     {
       "src": "/icons/icon-192x192.png",
