@@ -65,10 +65,22 @@ def _parse_date(value):
 
 
 def _is_shiftable(issue):
-    """Only open, non-archived, non-draft issues with at least one date can move."""
+    """
+    Only open, non-archived, non-draft issues with at least one date can move.
+
+    Geotech3D: a task whose due date is fixed (``is_due_date_locked``) is never
+    moved by dependency propagation either — an internal Celery task writing
+    through ``bulk_update`` must not be a way around the lock. Because a skipped
+    task is left out of ``old_targets``/``new_targets``, ``requirement()`` reads
+    its unchanged ``target_date`` on *both* sides for anything downstream, so the
+    delta there is zero and the chain stops at the locked task (stop/absorb) —
+    it never passes through to tasks behind it.
+    """
     from plane.bgtasks.dependency_schedule_task import _is_closed
 
     if issue.archived_at is not None or issue.is_draft:
+        return False
+    if issue.is_due_date_locked:
         return False
     if _is_closed(issue):
         return False

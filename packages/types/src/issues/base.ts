@@ -11,6 +11,7 @@ export * from "./issue_link";
 export * from "./issue_attachment";
 export * from "./issue_relation";
 export * from "./issue_dependency_schedule";
+export * from "./issue_due_date_lock";
 export * from "./issue_sub_issues";
 export * from "./issue_wbs";
 export * from "./activity/base";

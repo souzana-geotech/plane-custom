@@ -6,12 +6,13 @@
 
 import React from "react";
 import { observer } from "mobx-react";
+import { useParams } from "next/navigation";
 import { DueDateOutline } from "@makeplane/propel/icons";
 // types
 import type { TIssue } from "@plane/types";
 import { cn, getDate, renderFormattedPayloadDate, shouldHighlightIssueDueDate } from "@plane/utils";
 // components
-import { DateDropdown } from "@/components/dropdowns/date";
+import { DueDateControl } from "@/components/issues/due-date-lock";
 // helpers
 // hooks
 import { useProjectState } from "@/hooks/store/use-project-state";
@@ -25,6 +26,8 @@ type Props = {
 
 export const SpreadsheetDueDateColumn = observer(function SpreadsheetDueDateColumn(props: Props) {
   const { issue, onChange, disabled, onClose } = props;
+  // router
+  const { workspaceSlug } = useParams();
   // store hooks
   const { getStateById } = useProjectState();
   // derived values
@@ -32,8 +35,10 @@ export const SpreadsheetDueDateColumn = observer(function SpreadsheetDueDateColu
 
   return (
     <div className="h-11 border-b-[0.5px] border-subtle">
-      <DateDropdown
-        value={issue.target_date}
+      <DueDateControl
+        workspaceSlug={workspaceSlug?.toString()}
+        projectId={issue.project_id ?? undefined}
+        issue={issue}
         minDate={getDate(issue.start_date)}
         onChange={(data) => {
           const targetDate = data ? renderFormattedPayloadDate(data) : null;

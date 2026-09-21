@@ -19,6 +19,10 @@ from plane.app.views import (
     IssueRelationViewSet,
     IssueDependencyScheduleEndpoint,
     WorkspaceDependencyScheduleEndpoint,
+    IssueDueDateLockEndpoint,
+    IssueDueDateChangeRequestEndpoint,
+    IssueDueDateChangeRequestReviewEndpoint,
+    WorkspaceDueDateChangeRequestEndpoint,
     IssueSubscriberViewSet,
     ProjectUserDisplayPropertyEndpoint,
     IssueViewSet,
@@ -254,6 +258,28 @@ urlpatterns = [
         WorkspaceDependencyScheduleEndpoint.as_view(),
         name="workspace-dependency-schedules",
     ),
+    ## Fixed due date (Geotech3D)
+    path(
+        "workspaces/<str:slug>/projects/<uuid:project_id>/issues/<uuid:issue_id>/due-date-lock/",
+        IssueDueDateLockEndpoint.as_view(),
+        name="issue-due-date-lock",
+    ),
+    path(
+        "workspaces/<str:slug>/projects/<uuid:project_id>/issues/<uuid:issue_id>/due-date-change-requests/",
+        IssueDueDateChangeRequestEndpoint.as_view(),
+        name="issue-due-date-change-requests",
+    ),
+    path(
+        "workspaces/<str:slug>/projects/<uuid:project_id>/due-date-change-requests/<uuid:pk>/<str:action>/",
+        IssueDueDateChangeRequestReviewEndpoint.as_view(),
+        name="issue-due-date-change-request-review",
+    ),
+    path(
+        "workspaces/<str:slug>/due-date-change-requests/",
+        WorkspaceDueDateChangeRequestEndpoint.as_view(),
+        name="workspace-due-date-change-requests",
+    ),
+    ## End Fixed due date
     ## End Issue Relation
     path(
         "workspaces/<str:slug>/projects/<uuid:project_id>/deleted-issues/",

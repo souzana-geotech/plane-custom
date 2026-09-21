@@ -79,6 +79,7 @@ from plane.db.models import (
     Workspace,
 )
 from plane.settings.storage import S3Storage
+from plane.utils.date_lock import OVERRIDE_CONTEXT_KEY, can_manage_due_date_lock
 from plane.utils.path_validator import sanitize_filename
 from plane.utils.order_queryset import (
     ACTIVITY_ORDER_BY_ALLOWLIST,
@@ -650,6 +651,8 @@ class IssueDetailAPIEndpoint(BaseAPIView):
                     context={
                         "project_id": project_id,
                         "workspace_id": project.workspace_id,
+                        # Geotech3D: only a project admin may move a fixed due date
+                        OVERRIDE_CONTEXT_KEY: can_manage_due_date_lock(request.user, slug, project_id),
                     },
                     partial=True,
                 )
@@ -781,7 +784,12 @@ class IssueDetailAPIEndpoint(BaseAPIView):
         serializer = IssueSerializer(
             issue,
             data=request.data,
-            context={"project_id": project_id, "workspace_id": project.workspace_id},
+            context={
+                "project_id": project_id,
+                "workspace_id": project.workspace_id,
+                # Geotech3D: only a project admin may move a fixed due date
+                OVERRIDE_CONTEXT_KEY: can_manage_due_date_lock(request.user, slug, project_id),
+            },
             partial=True,
         )
         if serializer.is_valid():

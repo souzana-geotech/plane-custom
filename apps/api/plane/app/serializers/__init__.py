@@ -54,6 +54,11 @@ from .cycle import (
     CycleUserPropertiesSerializer,
 )
 from .asset import FileAssetSerializer
+from .due_date_request import (
+    IssueDueDateChangeRequestCreateSerializer,
+    IssueDueDateChangeRequestReviewSerializer,
+    IssueDueDateChangeRequestSerializer,
+)
 from .issue import (
     IssueCreateSerializer,
     IssueActivitySerializer,

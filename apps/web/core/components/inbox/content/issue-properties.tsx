@@ -18,7 +18,7 @@ import type { TInboxDuplicateIssueDetails, TIssue } from "@plane/types";
 import { ControlLink } from "@plane/ui";
 import { getDate, renderFormattedPayloadDate, generateWorkItemLink } from "@plane/utils";
 // components
-import { DateDropdown } from "@/components/dropdowns/date";
+import { DueDateControl } from "@/components/issues/due-date-lock";
 import { IntakeStateDropdown } from "@/components/dropdowns/intake-state/dropdown";
 import { MemberDropdown } from "@/components/dropdowns/member/dropdown";
 import { PriorityDropdown } from "@/components/dropdowns/priority";
@@ -143,9 +143,11 @@ export const InboxIssueContentProperties = observer(function InboxIssueContentPr
                 <DueDateOutline className="h-4 w-4 flex-shrink-0" />
                 <span>Due date</span>
               </div>
-              <DateDropdown
+              <DueDateControl
+                workspaceSlug={workspaceSlug}
+                projectId={projectId}
+                issue={issue}
                 placeholder="Add due date"
-                value={issue.target_date || null}
                 onChange={(val) =>
                   issue?.id &&
                   issueOperations.update(workspaceSlug, projectId, issue?.id, {

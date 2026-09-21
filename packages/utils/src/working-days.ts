@@ -167,9 +167,16 @@ const toPayloadDate = (date: Date | string | undefined | null): string | null =>
  */
 export const resolveStartDateChange = (
   nextStartDate: Date | string | null,
-  enteredWorkingDays: number | null
+  enteredWorkingDays: number | null,
+  options?: { isDueDateLocked?: boolean }
 ): TWorkItemDatesUpdate => {
   const startDate = toPayloadDate(nextStartDate);
+  // Geotech3D: with a fixed due date the schedule can never be duration driven —
+  // the due date is the anchor. A start date change then moves only the start
+  // date, and the working days count simply re-derives against the fixed due
+  // date. Without this guard a start date edit would silently try to rewrite a
+  // locked target_date and be refused by the server.
+  if (options?.isDueDateLocked) return { start_date: startDate };
   if (!startDate || !isValidWorkingDaysCount(enteredWorkingDays)) return { start_date: startDate };
   return {
     start_date: startDate,

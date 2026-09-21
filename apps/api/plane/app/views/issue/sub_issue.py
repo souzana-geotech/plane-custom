@@ -170,6 +170,7 @@ class SubIssuesEndpoint(BaseAPIView):
                 "link_count",
                 "is_draft",
                 "archived_at",
+                "is_due_date_locked",
                 "state_group",
             )
         )

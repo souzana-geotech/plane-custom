@@ -61,6 +61,12 @@ from plane.db.models import (
     ProjectMember,
     UserRecentVisit,
 )
+from plane.utils.date_lock import (
+    OVERRIDE_CONTEXT_KEY,
+    blocks_due_date_change,
+    can_manage_due_date_lock,
+)
+from plane.utils.error_codes import ERROR_CODES
 from plane.utils.filters import ComplexFilterBackend, IssueFilterSet
 from plane.utils.global_paginator import paginate
 from plane.utils.grouper import (
@@ -198,6 +204,7 @@ class IssueListEndpoint(BaseAPIView):
                 "link_count",
                 "is_draft",
                 "archived_at",
+                "is_due_date_locked",
                 "deleted_at",
             )
             datetime_fields = ["created_at", "updated_at"]
@@ -463,6 +470,7 @@ class IssueViewSet(BaseViewSet):
                     "link_count",
                     "is_draft",
                     "archived_at",
+                    "is_due_date_locked",
                     "deleted_at",
                 )
                 .first()
@@ -674,10 +682,36 @@ class IssueViewSet(BaseViewSet):
         if not issue:
             return Response({"error": "Issue not found"}, status=status.HTTP_404_NOT_FOUND)
 
+        # Geotech3D: check the fixed due date here as well as in the serializer.
+        # The serializer is the safety net that covers every caller; doing it up
+        # front lets this endpoint answer with the same flat
+        # ``error_code``/``error_message`` body the gantt bulk endpoint uses,
+        # instead of DRF's nested field-error shape.
+        can_override_due_date = can_manage_due_date_lock(request.user, slug, project_id)
+        if "target_date" in request.data and blocks_due_date_change(
+            issue, request.data.get("target_date"), can_override_due_date
+        ):
+            return Response(
+                {
+                    "error_code": ERROR_CODES["DUE_DATE_LOCKED"],
+                    "error_message": "DUE_DATE_LOCKED",
+                },
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+
         current_instance = json.dumps(IssueDetailSerializer(issue).data, cls=DjangoJSONEncoder)
 
         requested_data = json.dumps(self.request.data, cls=DjangoJSONEncoder)
-        serializer = IssueCreateSerializer(issue, data=request.data, partial=True, context={"project_id": project_id})
+        serializer = IssueCreateSerializer(
+            issue,
+            data=request.data,
+            partial=True,
+            context={
+                "project_id": project_id,
+                # Geotech3D: only a project admin may move a fixed due date
+                OVERRIDE_CONTEXT_KEY: can_override_due_date,
+            },
+        )
         if serializer.is_valid():
             serializer.save()
             # Check if the update is a migration description update
@@ -889,6 +923,7 @@ class IssuePaginatedViewSet(BaseViewSet):
             "updated_by",
             "is_draft",
             "archived_at",
+            "is_due_date_locked",
             "module_ids",
             "label_ids",
             "assignee_ids",
@@ -1134,6 +1169,30 @@ class IssueBulkUpdateDateEndpoint(BaseAPIView):
         issues = list(Issue.objects.filter(id__in=issue_ids, workspace__slug=slug, project_id=project_id))
         issues_dict = {str(issue.id): issue for issue in issues}
         issues_to_update = []
+
+        # Geotech3D: this endpoint writes with ``bulk_update`` and never touches a
+        # serializer, so the fixed-due-date rule has to be applied here directly.
+        # The whole batch is rejected rather than partially applied, so a gantt
+        # drag never half-lands. Note the check is independent of the client's
+        # ``dependency_auto_shift`` marker: that marker only silences the backend
+        # auto-shift and must never be able to wave a locked date through.
+        can_override = can_manage_due_date_lock(request.user, slug, project_id)
+        locked_issue_ids = [
+            str(issue.id)
+            for update in updates
+            if (issue := issues_dict.get(update["id"])) is not None
+            and update.get("target_date")
+            and blocks_due_date_change(issue, update.get("target_date"), can_override)
+        ]
+        if locked_issue_ids:
+            return Response(
+                {
+                    "error_code": ERROR_CODES["DUE_DATE_LOCKED"],
+                    "error_message": "DUE_DATE_LOCKED",
+                    "issue_ids": locked_issue_ids,
+                },
+                status=status.HTTP_400_BAD_REQUEST,
+            )
 
         for update in updates:
             issue_id = update["id"]

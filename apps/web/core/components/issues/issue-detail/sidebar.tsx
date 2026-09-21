@@ -41,6 +41,7 @@ import { useProjectState } from "@/hooks/store/use-project-state";
 import type { TWorkItemDatesUpdate } from "@/hooks/use-work-item-working-days";
 import { useWorkItemWorkingDays } from "@/hooks/use-work-item-working-days";
 // components
+import { DueDateControl, IssueDueDateLockControl } from "@/components/issues/due-date-lock";
 import { IssueParentSelectRoot } from "@/components/issues/parent-select-root";
 import { SidebarPropertyListItem } from "@/components/common/layout/sidebar/property-list-item";
 import { IssueCycleSelect } from "./cycle-select";
@@ -77,12 +78,17 @@ export const IssueDetailsSidebar = observer(function IssueDetailsSidebar(props: 
     [issueOperations, workspaceSlug, projectId, issueId]
   );
 
+  // Geotech3D: a fixed due date makes the working-days field a readout and keeps
+  // a start-date edit from dragging the locked due date along with it.
+  const isDueDateLocked = !!issue?.is_due_date_locked;
+
   const { workingDays, isDurationDriven, handleStartDateChange, handleTargetDateChange, handleWorkingDaysChange } =
     useWorkItemWorkingDays({
       startDate: issue?.start_date,
       targetDate: issue?.target_date,
       onDatesChange: handleDatesChange,
       resetKey: issueId,
+      isDueDateLocked,
     });
 
   if (!issue) return <></>;
@@ -177,9 +183,11 @@ export const IssueDetailsSidebar = observer(function IssueDetailsSidebar(props: 
 
             <SidebarPropertyListItem icon={DueDateOutline} label={t("common.order_by.due_date")}>
               <div className="flex w-full items-center gap-2">
-                <DateDropdown
+                <DueDateControl
+                  workspaceSlug={workspaceSlug}
+                  projectId={projectId}
+                  issue={issue}
                   placeholder={t("issue.add.due_date")}
-                  value={issue.target_date}
                   onChange={handleTargetDateChange}
                   minDate={minDate ?? undefined}
                   disabled={!isEditable}
@@ -195,6 +203,13 @@ export const IssueDetailsSidebar = observer(function IssueDetailsSidebar(props: 
                 />
               </div>
             </SidebarPropertyListItem>
+
+            <IssueDueDateLockControl
+              workspaceSlug={workspaceSlug}
+              projectId={projectId}
+              issue={issue}
+              isEditable={isEditable}
+            />
 
             <IssueDependencyDelayIndicator workspaceSlug={workspaceSlug} projectId={projectId} issueId={issueId} />
 

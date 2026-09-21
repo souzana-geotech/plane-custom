@@ -1,0 +1,110 @@
+/**
+ * Copyright (c) 2023-present Plane Software, Inc. and contributors
+ * SPDX-License-Identifier: AGPL-3.0-only
+ * See the LICENSE file for details.
+ */
+
+import { useCallback, useMemo, useState } from "react";
+import useSWR from "swr";
+import { EUserPermissions, EUserPermissionsLevel } from "@plane/constants";
+import { useTranslation } from "@plane/i18n";
+import type { TIssue, TIssueDueDateChangeRequest } from "@plane/types";
+import { TOAST_TYPE, setToast } from "@plane/propel/toast";
+// hooks
+import { useUserPermissions } from "@/hooks/store/user";
+// services
+import { IssueDueDateLockService } from "@/services/issue/issue_due_date_lock.service";
+
+const service = new IssueDueDateLockService();
+
+export const DUE_DATE_LOCK_REQUESTS_KEY = (issueId: string | undefined) =>
+  issueId ? `DUE_DATE_CHANGE_REQUESTS_${issueId}` : null;
+
+type TUseDueDateLockProps = {
+  workspaceSlug: string | undefined;
+  projectId: string | undefined;
+  issue: Partial<Pick<TIssue, "is_due_date_locked" | "target_date" | "id">> | undefined | null;
+  /** skip fetching the request list until something actually needs it */
+  withRequests?: boolean;
+};
+
+/**
+ * Geotech3D: everything a due-date surface needs to render the fixed state.
+ *
+ * `isLocked` is what the *server* says. `canManageLock` decides whether the
+ * viewer sees the date picker (admins keep editing a fixed date) or the
+ * "Due date is fixed / Request change" affordance. Disabling in the UI is a
+ * courtesy — the lock is enforced server side regardless.
+ */
+export const useDueDateLock = (props: TUseDueDateLockProps) => {
+  const { workspaceSlug, projectId, issue, withRequests = false } = props;
+  const { t } = useTranslation();
+  const { allowPermissions } = useUserPermissions();
+  const [isRequestModalOpen, setIsRequestModalOpen] = useState(false);
+  const [isMutating, setIsMutating] = useState(false);
+
+  const isLocked = !!issue?.is_due_date_locked;
+
+  const canManageLock = allowPermissions(
+    [EUserPermissions.ADMIN],
+    EUserPermissionsLevel.PROJECT,
+    workspaceSlug,
+    projectId
+  );
+
+  // A member sees the locked affordance; an admin keeps the normal date picker.
+  const isDueDateReadOnly = isLocked && !canManageLock;
+
+  const { data: requests, mutate: mutateRequests } = useSWR(
+    withRequests && isLocked && workspaceSlug && projectId && issue?.id ? DUE_DATE_LOCK_REQUESTS_KEY(issue.id) : null,
+    withRequests && isLocked && workspaceSlug && projectId && issue?.id
+      ? () => service.listRequests(workspaceSlug, projectId, issue.id as string)
+      : null
+  );
+
+  const pendingRequest: TIssueDueDateChangeRequest | undefined = useMemo(
+    () => requests?.find((request) => request.status === "pending"),
+    [requests]
+  );
+
+  const setLocked = useCallback(
+    async (locked: boolean) => {
+      if (!workspaceSlug || !projectId || !issue?.id) return;
+      setIsMutating(true);
+      try {
+        if (locked) await service.lock(workspaceSlug, projectId, issue.id);
+        else await service.unlock(workspaceSlug, projectId, issue.id);
+        setToast({
+          type: TOAST_TYPE.SUCCESS,
+          title: t("common.success"),
+          message: locked ? t("work_item.due_date_lock.fixed_success") : t("work_item.due_date_lock.unfixed_success"),
+        });
+        return true;
+      } catch {
+        setToast({
+          type: TOAST_TYPE.ERROR,
+          title: t("common.error.label"),
+          message: t("work_item.due_date_lock.fix_error"),
+        });
+        return false;
+      } finally {
+        setIsMutating(false);
+      }
+    },
+    [workspaceSlug, projectId, issue?.id, t]
+  );
+
+  return {
+    isLocked,
+    canManageLock,
+    isDueDateReadOnly,
+    isMutating,
+    pendingRequest,
+    requests,
+    mutateRequests,
+    setLocked,
+    isRequestModalOpen,
+    openRequestModal: () => setIsRequestModalOpen(true),
+    closeRequestModal: () => setIsRequestModalOpen(false),
+  };
+};

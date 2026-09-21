@@ -58,6 +58,11 @@ export const useLiveDependencyShift = (block: IGanttBlock) => {
   const isShiftable = (id: string): boolean => {
     const data = getBlockById(id)?.data;
     if (!data) return false;
+    // Geotech3D: a fixed due date absorbs the shift — the locked task does not
+    // move, and because `computeDependencyShifts` stops traversing through an
+    // unshiftable node, nothing behind it moves either. Mirrors `_is_shiftable`
+    // in `plane.bgtasks.dependency_auto_shift_task`.
+    if (data.is_due_date_locked) return false;
     const stateGroup = getStateById(data.state_id)?.group;
     return stateGroup !== "completed" && stateGroup !== "cancelled";
   };

@@ -289,6 +289,36 @@ def track_start_date(
         )
 
 
+# Geotech3D: track the admin fixing / releasing a task's due date
+def track_due_date_lock(
+    requested_data,
+    current_instance,
+    issue_id,
+    project_id,
+    workspace_id,
+    actor_id,
+    issue_activities,
+    epoch,
+):
+    locked = bool(requested_data.get("is_due_date_locked"))
+    if bool(current_instance.get("is_due_date_locked")) == locked:
+        return
+    issue_activities.append(
+        IssueActivity(
+            issue_id=issue_id,
+            actor_id=actor_id,
+            verb="updated",
+            old_value="locked" if not locked else "unlocked",
+            new_value="locked" if locked else "unlocked",
+            field="is_due_date_locked",
+            project_id=project_id,
+            workspace_id=workspace_id,
+            comment="fixed the due date" if locked else "released the fixed due date",
+            epoch=epoch,
+        )
+    )
+
+
 # Track changes in issue labels
 def track_labels(
     requested_data,
@@ -626,6 +656,7 @@ def update_issue_activity(
         "description_html": track_description,
         "target_date": track_target_date,
         "start_date": track_start_date,
+        "is_due_date_locked": track_due_date_lock,
         "label_ids": track_labels,
         "assignee_ids": track_assignees,
         "estimate_point": track_estimate_points,

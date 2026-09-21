@@ -147,6 +147,12 @@ from .issue.link import IssueLinkViewSet
 from .issue.relation import IssueRelationViewSet
 
 from .issue.dependency_schedule import IssueDependencyScheduleEndpoint, WorkspaceDependencyScheduleEndpoint
+from .issue.due_date_lock import (
+    IssueDueDateChangeRequestEndpoint,
+    IssueDueDateChangeRequestReviewEndpoint,
+    IssueDueDateLockEndpoint,
+    WorkspaceDueDateChangeRequestEndpoint,
+)
 
 from .issue.reaction import IssueReactionViewSet
 

@@ -146,6 +146,22 @@ class Issue(ChangeTrackerMixin, ProjectBaseModel):
     )
     start_date = models.DateField(null=True, blank=True)
     target_date = models.DateField(null=True, blank=True)
+    # Geotech3D: a fixed (admin-controlled) due date. While this is True only a
+    # project admin may change ``target_date``; members go through the
+    # ``IssueDueDateChangeRequest`` approval workflow instead. ``start_date`` is
+    # deliberately *not* covered. The flag is the authoritative value; the two
+    # columns below are audit metadata for the UI ("fixed by X on Y") and are
+    # kept in sync by the lock endpoint. It is never writable through the
+    # generic issue update endpoints — see ``plane.utils.date_lock``.
+    is_due_date_locked = models.BooleanField(default=False)
+    due_date_locked_by = models.ForeignKey(
+        "db.User",
+        on_delete=models.SET_NULL,
+        related_name="due_date_locked_issues",
+        null=True,
+        blank=True,
+    )
+    due_date_locked_at = models.DateTimeField(null=True, blank=True)
     assignees = models.ManyToManyField(
         settings.AUTH_USER_MODEL,
         blank=True,

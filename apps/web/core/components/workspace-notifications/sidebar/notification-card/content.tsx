@@ -45,10 +45,7 @@ export type TNotificationContentMap = {
 // Base notification content map for core fields
 export const BASE_NOTIFICATION_CONTENT_MAP: TNotificationContentMap = {
   duplicate: ({ verb }) => ({
-    action:
-      verb === "created"
-        ? "marked that this task is a duplicate of"
-        : "marked that this task is not a duplicate",
+    action: verb === "created" ? "marked that this task is a duplicate of" : "marked that this task is not a duplicate",
     value: null,
     showConnector: false,
   }),
@@ -85,6 +82,28 @@ export const BASE_NOTIFICATION_CONTENT_MAP: TNotificationContentMap = {
       showConnector: false,
     };
   },
+  // Geotech3D: fixed due date change requests (apps/api/plane/bgtasks/due_date_request_task.py)
+  due_date_change_requested: ({ newValue }) => ({
+    action: "requested a change to a fixed due date, to",
+    value: renderFormattedDate(newValue),
+    showConnector: false,
+  }),
+  due_date_change_approved: ({ newValue }) => ({
+    action: "approved your due date change request, the due date is now",
+    value: renderFormattedDate(newValue),
+    showConnector: false,
+  }),
+  due_date_change_rejected: ({ newValue }) => ({
+    action: "rejected your due date change request for",
+    value: renderFormattedDate(newValue),
+    showConnector: false,
+  }),
+  // Geotech3D: an admin fixing / releasing a due date
+  is_due_date_locked: ({ newValue }) => ({
+    action: newValue === "locked" ? "fixed the due date" : "released the fixed due date",
+    value: null,
+    showConnector: false,
+  }),
   labels: ({ newValue, oldValue }) => ({
     action: newValue !== "" ? "added label" : "removed label",
     value: newValue !== "" ? newValue : oldValue,

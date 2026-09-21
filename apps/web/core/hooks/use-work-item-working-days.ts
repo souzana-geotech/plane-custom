@@ -25,6 +25,11 @@ type TUseWorkItemWorkingDaysProps = {
   onDatesChange: (update: TWorkItemDatesUpdate) => void;
   /** changing this drops the duration driven mode, e.g. when a different task is shown */
   resetKey?: string;
+  /**
+   * Geotech3D: the task's due date is fixed by an admin. The working days field
+   * then becomes read-only output rather than input — see the hook docs below.
+   */
+  isDueDateLocked?: boolean;
 };
 
 type TUseWorkItemWorkingDaysReturn = {
@@ -45,9 +50,15 @@ type TUseWorkItemWorkingDaysReturn = {
  * task into a duration driven schedule for the current editing session, where the due date is
  * recalculated whenever the start date or the working days change. Picking a due date by hand always
  * wins and hands control back to the plain start date + due date workflow.
+ *
+ * Geotech3D — fixed due date: when `isDueDateLocked` is set the due date is the anchor, so the
+ * schedule can never be duration driven. Working days become a read-only readout that re-derives
+ * against the fixed due date as the member moves the start date, and neither the working days input
+ * nor a start date change can emit a `target_date`. Start date editing itself stays fully available;
+ * this only stops it from dragging the locked due date along with it.
  */
 export const useWorkItemWorkingDays = (props: TUseWorkItemWorkingDaysProps): TUseWorkItemWorkingDaysReturn => {
-  const { startDate, targetDate, onDatesChange, resetKey } = props;
+  const { startDate, targetDate, onDatesChange, resetKey, isDueDateLocked = false } = props;
   // a non null value means the user drives the schedule through working days
   const [enteredWorkingDays, setEnteredWorkingDays] = useState<number | null>(null);
   // keep the latest handler around so the callbacks below stay stable
@@ -60,23 +71,31 @@ export const useWorkItemWorkingDays = (props: TUseWorkItemWorkingDaysProps): TUs
   }, [resetKey]);
 
   const derivedWorkingDays = getWorkingDaysBetweenDates(startDate, targetDate);
-  const isDurationDriven = enteredWorkingDays !== null;
+  // a fixed due date is the anchor, so the schedule is never duration driven
+  const isDurationDriven = !isDueDateLocked && enteredWorkingDays !== null;
 
   const handleStartDateChange = useCallback(
     (date: Date | null) => {
-      onDatesChangeRef.current(resolveStartDateChange(date, enteredWorkingDays));
+      onDatesChangeRef.current(resolveStartDateChange(date, enteredWorkingDays, { isDueDateLocked }));
     },
-    [enteredWorkingDays]
+    [enteredWorkingDays, isDueDateLocked]
   );
 
-  const handleTargetDateChange = useCallback((date: Date | null) => {
-    // a manually picked due date always wins, so stop deriving it from working days
-    setEnteredWorkingDays(null);
-    onDatesChangeRef.current({ target_date: date ? (renderFormattedPayloadDate(date) ?? null) : null });
-  }, []);
+  const handleTargetDateChange = useCallback(
+    (date: Date | null) => {
+      // the due date is fixed; changing it goes through the request workflow instead
+      if (isDueDateLocked) return;
+      // a manually picked due date always wins, so stop deriving it from working days
+      setEnteredWorkingDays(null);
+      onDatesChangeRef.current({ target_date: date ? (renderFormattedPayloadDate(date) ?? null) : null });
+    },
+    [isDueDateLocked]
+  );
 
   const handleWorkingDaysChange = useCallback(
     (workingDays: number | null) => {
+      // with a fixed due date the field is a readout, not an input
+      if (isDueDateLocked) return;
       // clearing the field hands control back to the start date + due date workflow
       if (workingDays === null) {
         setEnteredWorkingDays(null);
@@ -88,11 +107,12 @@ export const useWorkItemWorkingDays = (props: TUseWorkItemWorkingDaysProps): TUs
       const update = resolveWorkingDaysChange(startDate, workingDays);
       if (update) onDatesChangeRef.current(update);
     },
-    [startDate]
+    [startDate, isDueDateLocked]
   );
 
   return {
-    workingDays: enteredWorkingDays ?? derivedWorkingDays,
+    // locked tasks always show the value implied by the current dates
+    workingDays: isDueDateLocked ? derivedWorkingDays : (enteredWorkingDays ?? derivedWorkingDays),
     isDurationDriven,
     handleStartDateChange,
     handleTargetDateChange,

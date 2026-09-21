@@ -83,6 +83,16 @@ export type TBaseIssue = {
   is_draft: boolean;
   is_epic?: boolean;
   is_intake?: boolean;
+
+  /**
+   * Geotech3D: the due date (`target_date`) is fixed by a project admin. While
+   * this is true only an admin may change it; everyone else goes through the
+   * change-request workflow. `start_date` is deliberately not covered.
+   * Read-only — set through the dedicated lock endpoint, never a normal update.
+   */
+  is_due_date_locked?: boolean;
+  due_date_locked_by?: string | null;
+  due_date_locked_at?: string | null;
 };
 
 type IssueRelation = {

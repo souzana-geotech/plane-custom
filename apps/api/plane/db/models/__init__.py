@@ -28,6 +28,7 @@ from .integration import (
     SlackProjectSync,
     WorkspaceIntegration,
 )
+from .due_date_request import IssueDueDateChangeRequest
 from .issue import (
     CommentReaction,
     Issue,

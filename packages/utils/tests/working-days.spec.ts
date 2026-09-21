@@ -171,6 +171,21 @@ describe("resolveStartDateChange", () => {
     expect(resolveStartDateChange(MONDAY, 0)).toEqual({ start_date: MONDAY });
     expect(resolveStartDateChange(MONDAY, -4)).toEqual({ start_date: MONDAY });
   });
+
+  // Geotech3D: a fixed due date is the schedule anchor, so a start date change
+  // must never carry a recalculated target_date that the server would refuse.
+  it("never emits a due date when the due date is fixed", () => {
+    expect(resolveStartDateChange(MONDAY, 3, { isDueDateLocked: true })).toEqual({ start_date: MONDAY });
+    expect(resolveStartDateChange(SATURDAY, 3, { isDueDateLocked: true })).toEqual({ start_date: SATURDAY });
+    expect(resolveStartDateChange(null, 3, { isDueDateLocked: true })).toEqual({ start_date: null });
+  });
+
+  it("is unchanged when the due date is not fixed", () => {
+    expect(resolveStartDateChange(MONDAY, 3, { isDueDateLocked: false })).toEqual({
+      start_date: MONDAY,
+      target_date: WEDNESDAY,
+    });
+  });
 });
 
 describe("resolveWorkingDaysChange", () => {

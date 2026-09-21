@@ -31,6 +31,7 @@ from plane.utils.content_validator import (
     validate_html_content,
     validate_binary_data,
 )
+from plane.utils.date_lock import OVERRIDE_CONTEXT_KEY, assert_due_date_editable
 
 from .base import BaseSerializer
 from .cycle import CycleLiteSerializer, CycleSerializer
@@ -69,7 +70,18 @@ class IssueSerializer(BaseSerializer):
 
     class Meta:
         model = Issue
-        read_only_fields = ["id", "workspace", "project", "updated_by", "updated_at", "completed_at"]
+        read_only_fields = [
+            "id",
+            "workspace",
+            "project",
+            "updated_by",
+            "updated_at",
+            "completed_at",
+            # Geotech3D: fixed due date is only settable via the admin lock endpoint
+            "is_due_date_locked",
+            "due_date_locked_by",
+            "due_date_locked_at",
+        ]
         exclude = ["description_json", "description_stripped"]
 
     def validate(self, data):
@@ -79,6 +91,16 @@ class IssueSerializer(BaseSerializer):
             and data.get("start_date", None) > data.get("target_date", None)
         ):
             raise serializers.ValidationError("Start date cannot exceed target date")
+
+        # Geotech3D: a fixed due date may only be moved by a project admin. The
+        # external API is a full write path, so it needs the same guard the app
+        # API gets in ``plane.app.serializers.issue.IssueCreateSerializer``.
+        if self.instance is not None and "target_date" in data:
+            assert_due_date_editable(
+                self.instance,
+                data.get("target_date"),
+                can_override=self.context.get(OVERRIDE_CONTEXT_KEY, False),
+            )
 
         try:
             if data.get("description_html", None) is not None:

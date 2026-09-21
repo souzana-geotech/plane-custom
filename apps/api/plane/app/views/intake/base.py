@@ -43,6 +43,7 @@ from plane.app.serializers import (
     IntakeIssueDetailSerializer,
     IssueDescriptionVersionDetailSerializer,
 )
+from plane.utils.date_lock import OVERRIDE_CONTEXT_KEY, can_manage_due_date_lock
 from plane.utils.issue_filters import issue_filters
 from plane.utils.order_queryset import INTAKE_ISSUE_ORDER_BY_ALLOWLIST, sanitize_order_by
 from plane.bgtasks.issue_activities_task import issue_activity
@@ -412,7 +413,15 @@ class IntakeIssueViewSet(BaseViewSet):
             issue_requested_data = json.dumps(issue_data, cls=DjangoJSONEncoder)
 
             issue_serializer = IssueCreateSerializer(
-                issue, data=issue_data, partial=True, context={"project_id": project_id, "allow_triage_state": True}
+                issue,
+                data=issue_data,
+                partial=True,
+                context={
+                    "project_id": project_id,
+                    "allow_triage_state": True,
+                    # Geotech3D: only a project admin may move a fixed due date
+                    OVERRIDE_CONTEXT_KEY: can_manage_due_date_lock(request.user, slug, project_id),
+                },
             )
 
             if not issue_serializer.is_valid():

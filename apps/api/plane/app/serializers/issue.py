@@ -47,6 +47,7 @@ from plane.utils.content_validator import (
     validate_html_content,
     validate_binary_data,
 )
+from plane.utils.date_lock import OVERRIDE_CONTEXT_KEY, assert_due_date_editable
 
 
 class IssueFlatSerializer(BaseSerializer):
@@ -111,6 +112,12 @@ class IssueCreateSerializer(BaseSerializer):
             "created_at",
             "updated_at",
             "completed_at",
+            # Geotech3D: the fixed-due-date flag and its audit metadata are only
+            # ever written by the dedicated admin lock endpoint, never through a
+            # generic issue create/update payload.
+            "is_due_date_locked",
+            "due_date_locked_by",
+            "due_date_locked_at",
         ]
 
     def to_representation(self, instance):
@@ -131,6 +138,16 @@ class IssueCreateSerializer(BaseSerializer):
             and attrs.get("start_date", None) > attrs.get("target_date", None)
         ):
             raise serializers.ValidationError("Start date cannot exceed target date")
+
+        # Geotech3D: a fixed due date may only be changed by a project admin.
+        # Only relevant on update - a task being created has no lock yet. Note
+        # this deliberately does not look at ``start_date``: members keep it.
+        if self.instance is not None and "target_date" in attrs:
+            assert_due_date_editable(
+                self.instance,
+                attrs.get("target_date"),
+                can_override=self.context.get(OVERRIDE_CONTEXT_KEY, False),
+            )
 
         # Validate description content for security
         if "description_html" in attrs and attrs["description_html"]:
@@ -827,6 +844,10 @@ class IssueSerializer(DynamicBaseSerializer):
             "link_count",
             "is_draft",
             "archived_at",
+            # Geotech3D: fixed due date, read-only everywhere
+            "is_due_date_locked",
+            "due_date_locked_by",
+            "due_date_locked_at",
         ]
         read_only_fields = fields
 

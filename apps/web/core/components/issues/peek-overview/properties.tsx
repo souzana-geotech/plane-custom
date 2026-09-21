@@ -26,6 +26,7 @@ import {
 import { cn, getDate, shouldHighlightIssueDueDate } from "@plane/utils";
 // components
 import { DateDropdown } from "@/components/dropdowns/date";
+import { DueDateControl, IssueDueDateLockControl } from "@/components/issues/due-date-lock";
 import { EstimateDropdown } from "@/components/dropdowns/estimate";
 import { ButtonAvatars } from "@/components/dropdowns/member/avatar";
 import { MemberDropdown } from "@/components/dropdowns/member/dropdown";
@@ -75,12 +76,17 @@ export const PeekOverviewProperties = observer(function PeekOverviewProperties(p
     [issueOperations, workspaceSlug, projectId, issueId]
   );
 
+  // Geotech3D: a fixed due date turns working days into a readout and keeps a
+  // start-date edit from dragging the locked due date along with it.
+  const isDueDateLocked = !!issue?.is_due_date_locked;
+
   const { workingDays, isDurationDriven, handleStartDateChange, handleTargetDateChange, handleWorkingDaysChange } =
     useWorkItemWorkingDays({
       startDate: issue?.start_date,
       targetDate: issue?.target_date,
       onDatesChange: handleDatesChange,
       resetKey: issueId,
+      isDueDateLocked,
     });
 
   if (!issue) return <></>;
@@ -174,8 +180,10 @@ export const PeekOverviewProperties = observer(function PeekOverviewProperties(p
 
         <SidebarPropertyListItem icon={DueDateOutline} label={t("common.order_by.due_date")}>
           <div className="flex w-full items-center gap-2">
-            <DateDropdown
-              value={issue.target_date}
+            <DueDateControl
+              workspaceSlug={workspaceSlug}
+              projectId={projectId}
+              issue={issue}
               onChange={handleTargetDateChange}
               placeholder={t("issue.add.due_date")}
               buttonVariant="transparent-with-text"
@@ -192,6 +200,13 @@ export const PeekOverviewProperties = observer(function PeekOverviewProperties(p
             />
           </div>
         </SidebarPropertyListItem>
+
+        <IssueDueDateLockControl
+          workspaceSlug={workspaceSlug}
+          projectId={projectId}
+          issue={issue}
+          isEditable={!disabled}
+        />
 
         <SidebarPropertyListItem icon={HourglassOutline} label={t("working_days")}>
           <WorkingDaysInput

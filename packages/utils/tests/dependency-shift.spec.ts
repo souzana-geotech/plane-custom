@@ -151,6 +151,48 @@ describe("computeDependencyShifts — chain propagation", () => {
   });
 });
 
+describe("computeDependencyShifts — fixed due date (stop / absorb)", () => {
+  // Geotech3D: a locked dependent must not move, and the chain must stop there
+  // rather than passing the shift through to tasks behind it. Mirrors
+  // `_is_shiftable` in `plane.bgtasks.dependency_auto_shift_task`.
+  const chain = {
+    a: { target: "2026-09-10" },
+    b: { start: "2026-09-11", target: "2026-09-12" },
+    c: { start: "2026-09-14", target: "2026-09-15" },
+  };
+  const edges = { b: ["a"], c: ["b"] };
+
+  it("does not move a locked dependent and stops the chain there", () => {
+    const { getNode, getDependentIds, getBlockerIds } = graph(chain, edges);
+    const shifts = computeDependencyShifts({
+      movedId: "a",
+      oldTargetDate: "2026-09-10",
+      newTargetDate: "2026-09-12", // +2 working days
+      getNode,
+      getDependentIds,
+      getBlockerIds,
+      isShiftable: (id) => id !== "b",
+    });
+    expect(shifts.has("b")).toBe(false);
+    // C must not pass through the locked task
+    expect(shifts.has("c")).toBe(false);
+  });
+
+  it("still propagates the same chain when nothing is locked", () => {
+    const { getNode, getDependentIds, getBlockerIds } = graph(chain, edges);
+    const shifts = computeDependencyShifts({
+      movedId: "a",
+      oldTargetDate: "2026-09-10",
+      newTargetDate: "2026-09-12",
+      getNode,
+      getDependentIds,
+      getBlockerIds,
+    });
+    expect(shifts.get("b")).toEqual({ start_date: "2026-09-14", target_date: "2026-09-15" });
+    expect(shifts.get("c")).toEqual({ start_date: "2026-09-16", target_date: "2026-09-17" });
+  });
+});
+
 describe("computeDependencyShifts — multiple dependencies", () => {
   const nodes = {
     early: { target: "2026-09-08" },

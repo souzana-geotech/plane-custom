@@ -26,6 +26,7 @@ import {
 // components
 import { CycleDropdown } from "@/components/dropdowns/cycle";
 import { DateDropdown } from "@/components/dropdowns/date";
+import { DueDateControl } from "@/components/issues/due-date-lock";
 import { DateRangeDropdown } from "@/components/dropdowns/date-range";
 import { EstimateDropdown } from "@/components/dropdowns/estimate";
 import { MemberDropdown } from "@/components/dropdowns/member/dropdown";
@@ -296,8 +297,10 @@ export const IssueProperties = observer(function IssueProperties(props: IIssuePr
       >
         {/* oxlint-disable-next-line jsx_a11y/click-events-have-key-events oxlint-disable-next-line jsx_a11y/no-static-element-interactions */}
         <div className="h-5" onFocus={handleEventPropagation} onClick={handleEventPropagation}>
-          <DateDropdown
-            value={issue?.target_date ?? null}
+          <DueDateControl
+            workspaceSlug={workspaceSlug?.toString()}
+            projectId={issue.project_id ?? undefined}
+            issue={issue}
             onChange={handleTargetDate}
             minDate={minDate}
             placeholder={t("common.order_by.due_date")}
@@ -311,7 +314,6 @@ export const IssueProperties = observer(function IssueProperties(props: IIssuePr
             disabled={isReadOnly}
             renderByDefault={isMobile}
             showTooltip
-            labelClassName="text-caption-sm-regular"
           />
         </div>
       </WithDisplayPropertiesHOC>

@@ -5,12 +5,14 @@
  */
 
 import React, { useEffect, useRef, useState } from "react";
+import { useParams } from "next/navigation";
 import { combine } from "@atlaskit/pragmatic-drag-and-drop/combine";
 import { draggable } from "@atlaskit/pragmatic-drag-and-drop/element/adapter";
 import { observer } from "mobx-react";
 // plane helpers
 import { useOutsideClickDetector } from "@plane/hooks";
 // components
+import { useDueDateLock } from "@/components/issues/due-date-lock";
 import { useIssueDetail } from "@/hooks/store/use-issue-detail";
 import type { TRenderQuickActions } from "../list/list-view-types";
 import { HIGHLIGHT_CLASS } from "../utils";
@@ -28,6 +30,7 @@ type Props = {
 export const CalendarIssueBlockRoot = observer(function CalendarIssueBlockRoot(props: Props) {
   const { issueId, quickActions, isDragDisabled, isEpic = false, canEditProperties } = props;
 
+  const { workspaceSlug } = useParams();
   const issueRef = useRef<HTMLAnchorElement | null>(null);
   const [isDragging, setIsDragging] = useState(false);
 
@@ -37,7 +40,15 @@ export const CalendarIssueBlockRoot = observer(function CalendarIssueBlockRoot(p
 
   const issue = getIssueById(issueId);
 
-  const canDrag = !isDragDisabled && canEditProperties(issue?.project_id ?? undefined);
+  // Geotech3D: a calendar drag writes target_date, so a task with a fixed due
+  // date is not draggable. Admins keep dragging; the server enforces the rest.
+  const { isDueDateReadOnly } = useDueDateLock({
+    workspaceSlug: workspaceSlug?.toString(),
+    projectId: issue?.project_id ?? undefined,
+    issue,
+  });
+
+  const canDrag = !isDragDisabled && !isDueDateReadOnly && canEditProperties(issue?.project_id ?? undefined);
 
   useEffect(() => {
     const element = issueRef.current;
@@ -57,6 +68,7 @@ export const CalendarIssueBlockRoot = observer(function CalendarIssueBlockRoot(p
         },
       })
     );
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [issueRef?.current, issue, canDrag]);
 
   useOutsideClickDetector(issueRef, () => {

@@ -23,6 +23,7 @@ import {
   IssueRelationActivity,
   IssueStartDateActivity,
   IssueTargetDateActivity,
+  IssueDueDateLockActivity,
   IssueCycleActivity,
   IssueModuleActivity,
   IssueLabelActivity,
@@ -76,6 +77,8 @@ export const IssueActivityItem = observer(function IssueActivityItem(props: TIss
       return <IssueStartDateActivity {...componentDefaultProps} showIssue={false} />;
     case "target_date":
       return <IssueTargetDateActivity {...componentDefaultProps} showIssue={false} />;
+    case "is_due_date_locked":
+      return <IssueDueDateLockActivity {...componentDefaultProps} showIssue={false} />;
     case "cycles":
       return <IssueCycleActivity {...componentDefaultProps} />;
     case "modules":

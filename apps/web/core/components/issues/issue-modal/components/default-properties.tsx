@@ -107,8 +107,18 @@ export const IssueDefaultProperties = observer(function IssueDefaultProperties(p
     [setValue, handleFormChange]
   );
 
+  // Geotech3D: editing a task whose due date is fixed — the due date field is
+  // read-only and working days become a readout. A brand-new task has no lock.
+  const isDueDateLocked = !!useWatch({ control, name: "is_due_date_locked" });
+
   const { workingDays, isDurationDriven, handleStartDateChange, handleTargetDateChange, handleWorkingDaysChange } =
-    useWorkItemWorkingDays({ startDate, targetDate, onDatesChange: handleDatesChange, resetKey: id });
+    useWorkItemWorkingDays({
+      startDate,
+      targetDate,
+      onDatesChange: handleDatesChange,
+      resetKey: id,
+      isDueDateLocked,
+    });
 
   // the secondary properties stay collapsed so a routine task is title + save, but they must never
   // hide data that is already there — editing a task or applying a template fills these in
@@ -207,6 +217,7 @@ export const IssueDefaultProperties = observer(function IssueDefaultProperties(p
                 minDate={minDate ?? undefined}
                 placeholder={t("issue.form.no_due_date")}
                 tabIndex={getIndex("target_date")}
+                disabled={isDueDateLocked}
               />
             )}
           />
