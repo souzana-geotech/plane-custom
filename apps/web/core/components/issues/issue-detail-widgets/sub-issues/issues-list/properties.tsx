@@ -14,7 +14,7 @@ import type { IIssueDisplayProperties, TIssue } from "@plane/types";
 import { getDate, renderFormattedPayloadDate, shouldHighlightIssueDueDate } from "@plane/utils";
 // components
 import { DateDropdown } from "@/components/dropdowns/date";
-import { DueDateControl } from "@/components/issues/due-date-lock";
+import { DueDateControl, useDueDateLock } from "@/components/issues/due-date-lock";
 import { DateRangeDropdown } from "@/components/dropdowns/date-range";
 import { MemberDropdown } from "@/components/dropdowns/member/dropdown";
 import { PriorityDropdown } from "@/components/dropdowns/priority";
@@ -76,6 +76,16 @@ export const SubIssuesListItemProperties = observer(function SubIssuesListItemPr
   const isDateRangeEnabled: boolean = Boolean(
     issue.start_date && issue.target_date && displayProperties?.start_date && displayProperties?.due_date
   );
+  // Geotech3D: the merged range writes both dates at once, which a fixed due
+  // date forbids. Fall back to the split controls so a member keeps an editable
+  // start date next to the fixed-date affordance, instead of a range picker
+  // whose clear button the server would reject.
+  const { isDueDateReadOnly } = useDueDateLock({
+    workspaceSlug,
+    projectId: issue.project_id ?? undefined,
+    issue,
+  });
+  const showDateRange = isDateRangeEnabled && !isDueDateReadOnly;
 
   if (!displayProperties) return <></>;
 
@@ -132,7 +142,7 @@ export const SubIssuesListItemProperties = observer(function SubIssuesListItemPr
       <WithDisplayPropertiesHOC
         displayProperties={displayProperties}
         displayPropertyKey={["start_date", "due_date"]}
-        shouldRenderProperty={() => isDateRangeEnabled}
+        shouldRenderProperty={() => showDateRange}
       >
         {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions */}
         <div className="h-5" onFocus={handleEventPropagation} onClick={handleEventPropagation}>
@@ -166,7 +176,7 @@ export const SubIssuesListItemProperties = observer(function SubIssuesListItemPr
       <WithDisplayPropertiesHOC
         displayProperties={displayProperties}
         displayPropertyKey="start_date"
-        shouldRenderProperty={() => !isDateRangeEnabled}
+        shouldRenderProperty={() => !showDateRange}
       >
         <div className="h-5">
           <DateDropdown
@@ -187,7 +197,7 @@ export const SubIssuesListItemProperties = observer(function SubIssuesListItemPr
       <WithDisplayPropertiesHOC
         displayProperties={displayProperties}
         displayPropertyKey="due_date"
-        shouldRenderProperty={() => !isDateRangeEnabled}
+        shouldRenderProperty={() => !showDateRange}
       >
         <div className="h-5">
           <DueDateControl

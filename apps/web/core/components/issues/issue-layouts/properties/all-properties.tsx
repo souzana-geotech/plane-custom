@@ -26,7 +26,7 @@ import {
 // components
 import { CycleDropdown } from "@/components/dropdowns/cycle";
 import { DateDropdown } from "@/components/dropdowns/date";
-import { DueDateControl } from "@/components/issues/due-date-lock";
+import { DueDateControl, useDueDateLock } from "@/components/issues/due-date-lock";
 import { DateRangeDropdown } from "@/components/dropdowns/date-range";
 import { EstimateDropdown } from "@/components/dropdowns/estimate";
 import { MemberDropdown } from "@/components/dropdowns/member/dropdown";
@@ -178,6 +178,16 @@ export const IssueProperties = observer(function IssueProperties(props: IIssuePr
   const isDateRangeEnabled: boolean = Boolean(
     issue.start_date && issue.target_date && displayProperties.start_date && displayProperties.due_date
   );
+  // Geotech3D: the merged range writes both dates at once, which a fixed due
+  // date forbids. Fall back to the split controls so a member keeps an editable
+  // start date next to the fixed-date affordance, instead of a range picker
+  // whose clear button the server would reject.
+  const { isDueDateReadOnly } = useDueDateLock({
+    workspaceSlug: workspaceSlug?.toString(),
+    projectId: issue.project_id ?? undefined,
+    issue,
+  });
+  const showDateRange = isDateRangeEnabled && !isDueDateReadOnly;
 
   const defaultLabelOptions =
     issue?.label_ids?.flatMap((id) => {
@@ -233,7 +243,7 @@ export const IssueProperties = observer(function IssueProperties(props: IIssuePr
       <WithDisplayPropertiesHOC
         displayProperties={displayProperties}
         displayPropertyKey={["start_date", "due_date"]}
-        shouldRenderProperty={() => isDateRangeEnabled}
+        shouldRenderProperty={() => showDateRange}
       >
         {/* oxlint-disable-next-line jsx_a11y/click-events-have-key-events oxlint-disable-next-line jsx_a11y/no-static-element-interactions */}
         <div className="h-5" onFocus={handleEventPropagation} onClick={handleEventPropagation}>
@@ -269,7 +279,7 @@ export const IssueProperties = observer(function IssueProperties(props: IIssuePr
       <WithDisplayPropertiesHOC
         displayProperties={displayProperties}
         displayPropertyKey="start_date"
-        shouldRenderProperty={() => !isDateRangeEnabled}
+        shouldRenderProperty={() => !showDateRange}
       >
         {/* oxlint-disable-next-line jsx_a11y/click-events-have-key-events oxlint-disable-next-line jsx_a11y/no-static-element-interactions */}
         <div className="h-5" onFocus={handleEventPropagation} onClick={handleEventPropagation}>
@@ -293,7 +303,7 @@ export const IssueProperties = observer(function IssueProperties(props: IIssuePr
       <WithDisplayPropertiesHOC
         displayProperties={displayProperties}
         displayPropertyKey="due_date"
-        shouldRenderProperty={() => !isDateRangeEnabled}
+        shouldRenderProperty={() => !showDateRange}
       >
         {/* oxlint-disable-next-line jsx_a11y/click-events-have-key-events oxlint-disable-next-line jsx_a11y/no-static-element-interactions */}
         <div className="h-5" onFocus={handleEventPropagation} onClick={handleEventPropagation}>
