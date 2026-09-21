@@ -5,7 +5,7 @@
  */
 
 import { observer } from "mobx-react";
-import { LockOutline } from "@makeplane/propel/icons";
+import { EditOutline, LockOutline } from "@makeplane/propel/icons";
 import { useTranslation } from "@plane/i18n";
 import type { TIssueDueDateChangeRequest } from "@plane/types";
 import { Tooltip } from "@makeplane/propel/components/tooltip";
@@ -108,17 +108,27 @@ export const LockedDueDateButton = observer(function LockedDueDateButton(props: 
           </Tooltip>
         ) : (
           onRequestChange && (
-            <button
-              type="button"
-              onClick={(e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                onRequestChange();
-              }}
-              className="flex-shrink-0 rounded px-1.5 py-0.5 text-body-xs-medium whitespace-nowrap text-accent-primary hover:bg-accent-primary/10"
-            >
-              {t("issue.due_date_lock.request_change")}
-            </button>
+            /* The label and the fixed date share one narrow column. On a phone
+               that column is ~158px and the two together need more, and flexbox
+               shrinks the date first - so the member lost the very thing they
+               came to read. Below `sm` the action is the icon alone and the
+               date keeps its full width; the label returns once there is room.
+               The tooltip carries the wording either way. */
+            <Tooltip label={t("issue.due_date_lock.request_change")}>
+              <button
+                type="button"
+                onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  onRequestChange();
+                }}
+                aria-label={t("issue.due_date_lock.request_change")}
+                className="grid size-5 flex-shrink-0 place-items-center rounded text-accent-primary hover:bg-accent-primary/10 sm:block sm:size-auto sm:px-1.5 sm:py-0.5 sm:text-body-xs-medium sm:whitespace-nowrap"
+              >
+                <EditOutline className="size-3.5 sm:hidden" aria-hidden="true" />
+                <span className="hidden sm:inline">{t("issue.due_date_lock.request_change")}</span>
+              </button>
+            </Tooltip>
           )
         ))}
     </div>
