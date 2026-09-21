@@ -15,7 +15,6 @@ import { CustomizeNavigationDialog } from "@/components/navigation/customize-nav
 // hooks
 import { useAppTheme } from "@/hooks/store/use-app-theme";
 // plane web components
-import { WorkspaceEditionBadge } from "@/components/workspace/edition-badge";
 import { AppSidebarToggleButton } from "./sidebar-toggle-button";
 import { IconButton } from "@plane/propel/icon-button";
 
@@ -71,15 +70,11 @@ export const SidebarWrapper = observer(function SidebarWrapper(props: TSidebarWr
         >
           {children}
         </ScrollArea>
-        {/* Help Section */}
-        <div className="flex h-12 items-center justify-between border-t border-subtle bg-surface-1 p-3">
-          <WorkspaceEditionBadge />
-          {/* TODO: To be checked if we need this */}
-          {/* <div className="flex items-center gap-2">
-          {!shouldRenderAppRail && <HelpMenu />}
-          {!isAppRailEnabled && <AppSidebarToggleButton />}
-        </div> */}
-        </div>
+        {/* Geotech3D: the footer bar held only WorkspaceEditionBadge - the "Community"
+            edition label, which opens Plane's upgrade-to-paid modal. Both are Plane
+            branding, so the bar goes with it rather than leaving an empty 48px strip.
+            The upstream HelpMenu / AppSidebarToggleButton it also carried were already
+            commented out. */}
       </div>
     </>
   );
