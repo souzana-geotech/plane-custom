@@ -496,3 +496,54 @@ class TestChangeRequestWorkflow:
 
         # A member is not an admin of any project, so the queue is empty for them.
         assert env.client(env.member).get(url).json() == []
+
+
+@pytest.mark.unit
+class TestLockFlagIsSerialised:
+    """
+    The web client decides whether to show a member the date picker or the
+    "fixed" affordance from ``is_due_date_locked`` on whatever payload hydrated
+    the task. Every *list* endpoint therefore has to carry the flag, not just the
+    detail one: a list that omits it makes the store read ``undefined``, the
+    member gets an editable picker, and the only feedback is the server refusing
+    the write. These endpoints each build their field set by hand, so a new one
+    silently reintroduces that gap.
+    """
+
+    def _rows(self, response):
+        payload = response.json()
+        rows = payload.get("results", payload) if isinstance(payload, dict) else payload
+        # grouped layouts nest the rows one level deeper
+        if isinstance(rows, dict):
+            rows = next(iter(rows.values()), [])
+        return rows
+
+    def _row_for(self, response, issue):
+        return next((r for r in self._rows(response) if str(r["id"]) == str(issue.id)), None)
+
+    def test_detail_endpoint_exposes_the_flag(self, env):
+        issue = env.issue(locked=True)
+        body = env.client(env.member).get(env.issue_url(issue)).json()
+        assert body["is_due_date_locked"] is True
+
+    def test_project_issue_list_exposes_the_flag(self, env):
+        issue = env.issue(locked=True)
+        row = self._row_for(env.client(env.member).get(f"{env.base}/issues/"), issue)
+        assert row is not None, "task missing from the project list"
+        assert row["is_due_date_locked"] is True
+
+    def test_workspace_issue_list_exposes_the_flag(self, env):
+        """Feeds "My Work" and the global views, via ViewIssueListSerializer."""
+        issue = env.issue(locked=True)
+        response = env.client(env.member).get(f"/api/workspaces/{env.workspace.slug}/issues/")
+        row = self._row_for(response, issue)
+        assert row is not None, "task missing from the workspace list"
+        assert row["is_due_date_locked"] is True
+
+    def test_unlocked_task_reports_false_not_missing(self, env):
+        """An absent key and ``False`` are the same thing to the client, so the
+        unlocked case has to be explicit rather than merely falsy."""
+        issue = env.issue(locked=False)
+        row = self._row_for(env.client(env.member).get(f"{env.base}/issues/"), issue)
+        assert "is_due_date_locked" in row
+        assert row["is_due_date_locked"] is False

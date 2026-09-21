@@ -102,10 +102,15 @@ export const IssueDetailRoot = observer(function IssueDetailRoot(props: TIssueDe
           await updateIssue(targetWorkspaceSlug, targetProjectId, targetIssueId, data);
         } catch (error) {
           console.log("Error in updating issue:", error);
+          // A fixed due date is refused server side with its own code; say so
+          // instead of the generic failure, which reads as a dead end.
+          const isLocked = (error as { error_message?: string } | undefined)?.error_message === "DUE_DATE_LOCKED";
           setToast({
             title: t("common.error.label"),
             type: TOAST_TYPE.ERROR,
-            message: t("entity.update.failed", { entity: t("issue.label") }),
+            message: isLocked
+              ? t("issue.due_date_lock.locked_error")
+              : t("entity.update.failed", { entity: t("issue.label") }),
           });
         }
       },

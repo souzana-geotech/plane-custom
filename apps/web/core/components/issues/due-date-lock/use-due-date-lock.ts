@@ -77,14 +77,14 @@ export const useDueDateLock = (props: TUseDueDateLockProps) => {
         setToast({
           type: TOAST_TYPE.SUCCESS,
           title: t("common.success"),
-          message: locked ? t("work_item.due_date_lock.fixed_success") : t("work_item.due_date_lock.unfixed_success"),
+          message: locked ? t("issue.due_date_lock.fixed_success") : t("issue.due_date_lock.unfixed_success"),
         });
         return true;
       } catch {
         setToast({
           type: TOAST_TYPE.ERROR,
           title: t("common.error.label"),
-          message: t("work_item.due_date_lock.fix_error"),
+          message: t("issue.due_date_lock.fix_error"),
         });
         return false;
       } finally {

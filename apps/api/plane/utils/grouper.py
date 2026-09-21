@@ -126,6 +126,7 @@ def issue_on_results(
         "link_count",
         "is_draft",
         "archived_at",
+        "is_due_date_locked",
         "state__group",
     ]
 

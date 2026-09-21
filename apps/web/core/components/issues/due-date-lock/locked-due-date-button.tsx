@@ -54,9 +54,9 @@ export const LockedDueDateButton = observer(function LockedDueDateButton(props: 
   const isBackground = buttonVariant.startsWith("background");
 
   const tooltipLines = [
-    t("work_item.due_date_lock.fixed"),
+    t("issue.due_date_lock.fixed"),
     pendingRequest
-      ? t("work_item.due_date_lock.request.pending_detail", {
+      ? t("issue.due_date_lock.request.pending_detail", {
           name: pendingRequest.requested_by_detail?.display_name ?? "",
           date: renderFormattedDate(pendingRequest.requested_target_date),
         })
@@ -80,16 +80,16 @@ export const LockedDueDateButton = observer(function LockedDueDateButton(props: 
         >
           {!hideIcon && <LockOutline className="h-3 w-3 flex-shrink-0 text-tertiary" />}
           <span className="truncate">
-            {targetDate ? renderFormattedDate(targetDate) : (placeholder ?? t("work_item.due_date_lock.fixed_short"))}
+            {targetDate ? renderFormattedDate(targetDate) : (placeholder ?? t("issue.due_date_lock.fixed_short"))}
           </span>
         </div>
       </Tooltip>
 
       {showRequestAction &&
         (pendingRequest ? (
-          <Tooltip label={t("work_item.due_date_lock.request.pending_awaiting")}>
+          <Tooltip label={t("issue.due_date_lock.request.pending_awaiting")}>
             <span className="flex-shrink-0 rounded bg-warning-subtle px-1.5 py-0.5 text-body-xs-medium whitespace-nowrap text-warning-primary">
-              {t("work_item.due_date_lock.request.pending_label")}
+              {t("issue.due_date_lock.request.pending_label")}
             </span>
           </Tooltip>
         ) : (
@@ -103,7 +103,7 @@ export const LockedDueDateButton = observer(function LockedDueDateButton(props: 
               }}
               className="flex-shrink-0 rounded px-1.5 py-0.5 text-body-xs-medium whitespace-nowrap text-accent-primary hover:bg-accent-primary/10"
             >
-              {t("work_item.due_date_lock.request_change")}
+              {t("issue.due_date_lock.request_change")}
             </button>
           )
         ))}

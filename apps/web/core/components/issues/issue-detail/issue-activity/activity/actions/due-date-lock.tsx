@@ -35,7 +35,7 @@ export const IssueDueDateLockActivity = observer(function IssueDueDateLockActivi
       ends={ends}
     >
       <>
-        {isLocked ? "fixed the due date" : "released the fixed due date"}
+        {isLocked ? "fixed the due date" : "unfixed the due date"}
         {showIssue && " for "}
         {showIssue && <IssueLink activityId={activityId} />}.
       </>

@@ -55,15 +55,15 @@ const RequestRow = observer(function RequestRow(props: {
         title: t("common.success"),
         message:
           action === "approve"
-            ? t("work_item.due_date_lock.review.approved_success")
-            : t("work_item.due_date_lock.review.rejected_success"),
+            ? t("issue.due_date_lock.review.approved_success")
+            : t("issue.due_date_lock.review.rejected_success"),
       });
       onReviewed();
     } catch {
       setToast({
         type: TOAST_TYPE.ERROR,
         title: t("common.error.label"),
-        message: t("work_item.due_date_lock.review.error"),
+        message: t("issue.due_date_lock.review.error"),
       });
     } finally {
       setIsReviewing(null);
@@ -74,7 +74,7 @@ const RequestRow = observer(function RequestRow(props: {
     <div className="mt-2 rounded-md border border-subtle bg-surface-2 p-2.5">
       <div className="flex flex-wrap items-center gap-x-1.5 gap-y-1 text-body-xs-regular text-secondary">
         <span className="text-body-xs-medium text-primary">{request.requested_by_detail?.display_name}</span>
-        <span>{t("work_item.due_date_lock.review.requested").toLowerCase()}</span>
+        <span>{t("issue.due_date_lock.review.requested").toLowerCase()}</span>
         <span className="text-body-xs-semibold text-primary">{renderFormattedDate(request.requested_target_date)}</span>
         {request.current_target_date && (
           <span className="text-tertiary line-through">{renderFormattedDate(request.current_target_date)}</span>
@@ -82,7 +82,7 @@ const RequestRow = observer(function RequestRow(props: {
       </div>
 
       <p className="mt-1 text-body-xs-regular text-tertiary">
-        {request.reason?.trim() ? request.reason : t("work_item.due_date_lock.review.no_reason")}
+        {request.reason?.trim() ? request.reason : t("issue.due_date_lock.review.no_reason")}
       </p>
 
       {showRejectReason && (
@@ -91,7 +91,7 @@ const RequestRow = observer(function RequestRow(props: {
           value={rejectReason}
           onChange={(e) => setRejectReason(e.target.value)}
           maxLength={2000}
-          placeholder={t("work_item.due_date_lock.review.reject_reason_placeholder")}
+          placeholder={t("issue.due_date_lock.review.reject_reason_placeholder")}
           className="focus:border-accent-primary mt-2 w-full resize-none rounded-md border border-subtle bg-surface-1 px-2 py-1.5 text-body-xs-regular text-primary outline-none"
         />
       )}
@@ -104,7 +104,7 @@ const RequestRow = observer(function RequestRow(props: {
           loading={isReviewing === "approve"}
           disabled={isReviewing !== null}
         >
-          {t("work_item.due_date_lock.review.approve")}
+          {t("issue.due_date_lock.review.approve")}
         </Button>
         <Button
           variant="secondary"
@@ -113,7 +113,7 @@ const RequestRow = observer(function RequestRow(props: {
           loading={isReviewing === "reject"}
           disabled={isReviewing !== null}
         >
-          {t("work_item.due_date_lock.review.reject")}
+          {t("issue.due_date_lock.review.reject")}
         </Button>
       </div>
     </div>
@@ -161,7 +161,7 @@ export const IssueDueDateLockControl = observer(function IssueDueDateLockControl
       <div className="flex items-center justify-between gap-2">
         <span className="flex items-center gap-1.5 text-body-xs-regular text-tertiary">
           <LockOutline className="h-3 w-3 flex-shrink-0" />
-          {isLocked ? t("work_item.due_date_lock.fixed") : t("work_item.due_date_lock.fix")}
+          {isLocked ? t("issue.due_date_lock.fixed") : t("issue.due_date_lock.fix")}
         </span>
         {canManageLock && isEditable && (
           <button
@@ -170,7 +170,7 @@ export const IssueDueDateLockControl = observer(function IssueDueDateLockControl
             disabled={isMutating}
             className="rounded px-1.5 py-0.5 text-body-xs-medium text-accent-primary hover:bg-accent-primary/10 disabled:opacity-50"
           >
-            {isLocked ? t("work_item.due_date_lock.unfix") : t("work_item.due_date_lock.fix")}
+            {isLocked ? t("issue.due_date_lock.unfix") : t("issue.due_date_lock.fix")}
           </button>
         )}
       </div>

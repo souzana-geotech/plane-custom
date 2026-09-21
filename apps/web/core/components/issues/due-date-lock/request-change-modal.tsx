@@ -67,8 +67,8 @@ export const RequestDueDateChangeModal = observer(function RequestDueDateChangeM
       });
       setToast({
         type: TOAST_TYPE.SUCCESS,
-        title: t("work_item.due_date_lock.request.success_title"),
-        message: t("work_item.due_date_lock.request.success_message"),
+        title: t("issue.due_date_lock.request.success_title"),
+        message: t("issue.due_date_lock.request.success_message"),
       });
       onSubmitted?.();
       onClose();
@@ -76,12 +76,12 @@ export const RequestDueDateChangeModal = observer(function RequestDueDateChangeM
       const code = (error as { error_message?: string } | undefined)?.error_message;
       setToast({
         type: TOAST_TYPE.ERROR,
-        title: t("work_item.due_date_lock.request.error_title"),
+        title: t("issue.due_date_lock.request.error_title"),
         message:
           code === "DUE_DATE_CHANGE_REQUEST_EXISTS"
-            ? t("work_item.due_date_lock.request.already_pending")
+            ? t("issue.due_date_lock.request.already_pending")
             : code === "DUE_DATE_CHANGE_REQUEST_SAME_DATE"
-              ? t("work_item.due_date_lock.request.same_date")
+              ? t("issue.due_date_lock.request.same_date")
               : t("common.error.message"),
       });
       setIsSubmitting(false);
@@ -94,17 +94,13 @@ export const RequestDueDateChangeModal = observer(function RequestDueDateChangeM
         <div className="flex items-start gap-2">
           <LockOutline className="mt-0.5 h-4 w-4 flex-shrink-0 text-tertiary" />
           <div>
-            <h3 className="text-body-md-semibold text-primary">{t("work_item.due_date_lock.request.title")}</h3>
-            <p className="mt-1 text-body-xs-regular text-tertiary">
-              {t("work_item.due_date_lock.request.description")}
-            </p>
+            <h3 className="text-body-md-semibold text-primary">{t("issue.due_date_lock.request.title")}</h3>
+            <p className="mt-1 text-body-xs-regular text-tertiary">{t("issue.due_date_lock.request.description")}</p>
           </div>
         </div>
 
         <div className="mt-4 flex items-center gap-2 rounded-md bg-surface-2 px-3 py-2">
-          <span className="text-body-xs-medium text-tertiary">
-            {t("work_item.due_date_lock.request.current_due_date")}
-          </span>
+          <span className="text-body-xs-medium text-tertiary">{t("issue.due_date_lock.request.current_due_date")}</span>
           <span className="text-body-xs-semibold text-primary">
             {issue.target_date ? renderFormattedDate(issue.target_date) : "—"}
           </span>
@@ -112,7 +108,7 @@ export const RequestDueDateChangeModal = observer(function RequestDueDateChangeM
 
         <div className="mt-4">
           <p className="mb-2 text-body-xs-medium text-secondary">
-            {t("work_item.due_date_lock.request.requested_due_date")}
+            {t("issue.due_date_lock.request.requested_due_date")}
           </p>
           <div className="flex justify-center rounded-md border border-subtle p-2">
             <Calendar
@@ -127,14 +123,14 @@ export const RequestDueDateChangeModal = observer(function RequestDueDateChangeM
           </div>
           {isSameDate && (
             <p className="mt-1.5 text-body-xs-regular text-danger-primary">
-              {t("work_item.due_date_lock.request.same_date")}
+              {t("issue.due_date_lock.request.same_date")}
             </p>
           )}
         </div>
 
         <div className="mt-4">
           <label className="mb-2 block text-body-xs-medium text-secondary" htmlFor="due-date-request-reason">
-            {t("work_item.due_date_lock.request.reason")}
+            {t("issue.due_date_lock.request.reason")}
           </label>
           <textarea
             id="due-date-request-reason"
@@ -142,19 +138,17 @@ export const RequestDueDateChangeModal = observer(function RequestDueDateChangeM
             value={reason}
             onChange={(e) => setReason(e.target.value)}
             maxLength={2000}
-            placeholder={t("work_item.due_date_lock.request.reason_placeholder")}
+            placeholder={t("issue.due_date_lock.request.reason_placeholder")}
             className="focus:border-accent-primary w-full resize-none rounded-md border border-subtle bg-surface-1 px-3 py-2 text-body-sm-regular text-primary outline-none"
           />
         </div>
 
         <div className="mt-5 flex items-center justify-end gap-2">
           <Button variant="secondary" size="sm" onClick={onClose}>
-            {t("work_item.due_date_lock.request.cancel")}
+            {t("issue.due_date_lock.request.cancel")}
           </Button>
           <Button variant="primary" size="sm" onClick={handleSubmit} disabled={!canSubmit} loading={isSubmitting}>
-            {isSubmitting
-              ? t("work_item.due_date_lock.request.submitting")
-              : t("work_item.due_date_lock.request.submit")}
+            {isSubmitting ? t("issue.due_date_lock.request.submitting") : t("issue.due_date_lock.request.submit")}
           </Button>
         </div>
       </div>
