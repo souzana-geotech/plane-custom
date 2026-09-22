@@ -98,6 +98,12 @@ class Project(BaseModel):
     is_time_tracking_enabled = models.BooleanField(default=False)
     is_issue_type_enabled = models.BooleanField(default=False)
     guest_view_all_features = models.BooleanField(default=False)
+    # Geotech3D: the starting text a new Job (Module) gets in its description
+    # field. Per container, edited by a container admin in the Projects/Jobs
+    # feature settings. Plain text - the Job description is a textarea, not a
+    # rich editor - and it is only ever a starting point: it is copied into the
+    # create form, never enforced, and never written to an existing Job.
+    job_description_template = models.TextField(blank=True, default="")
     cover_image = models.TextField(blank=True, null=True)
     cover_image_asset = models.ForeignKey(
         "db.FileAsset",

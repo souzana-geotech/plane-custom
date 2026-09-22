@@ -14,6 +14,7 @@ import { PageHead } from "@/components/core/page-title";
 import { SettingsContentWrapper } from "@/components/settings/content-wrapper";
 import { SettingsHeading } from "@/components/settings/heading";
 import { ProjectSettingsFeatureControlItem } from "@/components/settings/project/content/feature-control-item";
+import { JobDescriptionTemplateSetting } from "@/components/settings/project/content/job-description-template";
 // hooks
 import { useProject } from "@/hooks/store/use-project";
 import { useUserPermissions } from "@/hooks/store/user";
@@ -46,7 +47,7 @@ function FeaturesModulesSettingsPage({ params }: Route.ComponentProps) {
           title={t("project_settings.features.modules.title")}
           description={t("project_settings.features.modules.description")}
         />
-        <div className="mt-7">
+        <div className="mt-7 flex flex-col gap-4">
           <ProjectSettingsFeatureControlItem
             title={t("project_settings.features.modules.toggle_title")}
             description={t("project_settings.features.modules.toggle_description")}
@@ -55,6 +56,8 @@ function FeaturesModulesSettingsPage({ params }: Route.ComponentProps) {
             value={!!currentProjectDetails?.module_view}
             workspaceSlug={workspaceSlug}
           />
+          {/* Geotech3D: the starting description every new Job here is created with */}
+          <JobDescriptionTemplateSetting projectId={projectId} workspaceSlug={workspaceSlug} />
         </div>
       </section>
     </SettingsContentWrapper>

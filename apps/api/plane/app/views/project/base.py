@@ -194,6 +194,7 @@ class ProjectViewSet(BaseViewSet):
             "page_view",
             "inbox_view",
             "guest_view_all_features",
+            "job_description_template",
             "project_lead",
             "network",
             "created_at",

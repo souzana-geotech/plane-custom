@@ -27,6 +27,11 @@ class ProjectCreateSerializer(BaseSerializer):
     and workspace association for new project initialization.
     """
 
+    # Geotech3D: a Job description template is laid out by hand - indentation and
+    # a trailing blank line are part of it - so store it exactly as typed. DRF
+    # maps a TextField to a CharField that trims whitespace by default.
+    job_description_template = serializers.CharField(required=False, allow_blank=True, trim_whitespace=False)
+
     PROJECT_ICON_DEFAULT_COLORS = [
         "#95999f",
         "#6d7b8a",
@@ -85,6 +90,7 @@ class ProjectCreateSerializer(BaseSerializer):
             "page_view",
             "intake_view",
             "guest_view_all_features",
+            "job_description_template",
             "archive_in",
             "close_in",
             "timezone",

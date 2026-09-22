@@ -5,6 +5,7 @@
  */
 
 import { useEffect } from "react";
+import { observer } from "mobx-react";
 import { Controller, useForm } from "react-hook-form";
 // plane imports
 import { Field } from "@makeplane/propel/components/field";
@@ -22,6 +23,7 @@ import { MemberDropdown } from "@/components/dropdowns/member/dropdown";
 import { ProjectDropdown } from "@/components/dropdowns/project/dropdown";
 import { ModuleStatusSelect } from "@/components/modules";
 // hooks
+import { useProject } from "@/hooks/store/use-project";
 import { useUser } from "@/hooks/store/user/user-user";
 
 type Props = {
@@ -43,16 +45,21 @@ const defaultValues: Partial<IModule> = {
   member_ids: [],
 };
 
-export function ModuleForm(props: Props) {
+// Geotech3D: an observer so the container description template is picked up as
+// soon as the container store has it.
+export const ModuleForm = observer(function ModuleForm(props: Props) {
   const { handleFormSubmit, handleClose, status, projectId, setActiveProject, data, isMobile = false } = props;
   // store hooks
   const { projectsWithCreatePermissions } = useUser();
+  const { getProjectById } = useProject();
   // form info
   const {
     formState: { errors, isSubmitting, dirtyFields },
     handleSubmit,
     control,
     reset,
+    setValue,
+    watch,
   } = useForm<IModule>({
     defaultValues: {
       project_id: projectId,
@@ -69,11 +76,20 @@ export function ModuleForm(props: Props) {
 
   const { t } = useTranslation();
 
+  // Geotech3D: a new Job starts from the description template its container
+  // carries. Read off the container currently picked in the form, not the one
+  // the modal opened on - the two differ once someone uses the dropdown.
+  const isEditing = !!data;
+  const selectedProjectId = watch("project_id");
+  const jobDescriptionTemplate = getProjectById(selectedProjectId)?.job_description_template ?? "";
+
   const handleCreateUpdateModule = async (formData: Partial<IModule>) => {
     await handleFormSubmit(formData, dirtyFields);
 
     reset({
       ...defaultValues,
+      // Leave the next Job in this modal starting from the template too.
+      description: isEditing ? "" : jobDescriptionTemplate,
     });
   };
 
@@ -83,6 +99,14 @@ export function ModuleForm(props: Props) {
       ...data,
     });
   }, [data, reset]);
+
+  // Apply the template only while the description is untouched: switching
+  // container swaps the template, but text someone has typed is never thrown
+  // away, and an existing Job's description is never overwritten.
+  useEffect(() => {
+    if (isEditing || dirtyFields.description) return;
+    setValue("description", jobDescriptionTemplate);
+  }, [isEditing, dirtyFields.description, jobDescriptionTemplate, setValue]);
 
   return (
     <form onSubmit={handleSubmit(handleCreateUpdateModule)}>
@@ -287,4 +311,4 @@ export function ModuleForm(props: Props) {
       </div>
     </form>
   );
-}
+});

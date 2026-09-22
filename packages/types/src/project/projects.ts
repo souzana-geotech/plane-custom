@@ -31,6 +31,11 @@ export interface IPartialProject {
   page_view: boolean;
   inbox_view: boolean;
   guest_view_all_features?: boolean;
+  /**
+   * Geotech3D: the starting text a new Job gets in its description field.
+   * Plain text, per container, edited by an admin in the Jobs feature settings.
+   */
+  job_description_template?: string;
   project_lead?: IUserLite | string | null;
   network?: number;
   // Timestamps

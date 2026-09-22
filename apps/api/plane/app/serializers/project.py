@@ -30,6 +30,10 @@ from plane.utils.content_validator import (
 class ProjectSerializer(BaseSerializer):
     workspace_detail = WorkspaceLiteSerializer(source="workspace", read_only=True)
     inbox_view = serializers.BooleanField(read_only=True, source="intake_view")
+    # Geotech3D: a Job description template is laid out by hand - indentation and
+    # a trailing blank line are part of it - so store it exactly as typed. DRF
+    # maps a TextField to a CharField that trims whitespace by default.
+    job_description_template = serializers.CharField(required=False, allow_blank=True, trim_whitespace=False)
 
     class Meta:
         model = Project
