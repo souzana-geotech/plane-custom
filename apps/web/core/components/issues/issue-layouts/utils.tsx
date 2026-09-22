@@ -833,7 +833,7 @@ export const getScopeMemberIds = ({ isWorkspaceLevel, projectId }: TGetColumns):
 
   if (projectId || (projectMemberIds && projectMemberIds.length > 0)) {
     const { getProjectMemberIds } = store.memberRoot.project;
-    const _projectMemberIds = projectId ? getProjectMemberIds(projectId, false) : projectMemberIds;
+    const _projectMemberIds = projectId ? getProjectMemberIds(projectId, true) : projectMemberIds;
     return {
       memberIds: _projectMemberIds ?? [],
       includeNone: true,

@@ -125,13 +125,13 @@ class IssueSerializer(BaseSerializer):
             if not is_valid:
                 raise serializers.ValidationError({"description_binary": "Invalid binary data"})
 
-        # Validate assignees are from project
+        # Validate assignees are from project. Geotech3D: guests are assignable
+        # too - an external collaborator is given work, not just a view of it.
         if data.get("assignees", []):
             valid_assignee_ids = set(
                 ProjectMember.objects.filter(
                     project_id=self.context.get("project_id"),
                     is_active=True,
-                    role__gte=15,
                     member_id__in=data["assignees"],
                 ).values_list("member_id", flat=True)
             )

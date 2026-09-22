@@ -49,7 +49,7 @@ export const SubWorkItemTitleActions = observer(function SubWorkItemTitleActions
 
   // derived values
   const projectStates = getProjectStates(projectId);
-  const projectMemberIds = getProjectMemberIds(projectId, false);
+  const projectMemberIds = getProjectMemberIds(projectId, true);
   const subIssueFilters = getSubIssueFilters(parentId);
   const layoutDisplayFiltersOptions = ISSUE_DISPLAY_FILTERS_BY_PAGE["sub_work_items"].layoutOptions.list;
 
@@ -87,8 +87,11 @@ export const SubWorkItemTitleActions = observer(function SubWorkItemTitleActions
   );
 
   return (
-    // prevent click everywhere
+    // Containment only: keeps a click on these controls from reaching the row
+    // behind them. The wrapper itself is not interactive - the controls inside
+    // it carry their own keyboard handling - so it stays out of the a11y tree.
     <div
+      role="presentation"
       className="flex items-center gap-2"
       onClick={(e) => {
         e.stopPropagation();

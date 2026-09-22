@@ -221,6 +221,7 @@ export const SubIssuesListItemProperties = observer(function SubIssuesListItemPr
       <WithDisplayPropertiesHOC displayProperties={displayProperties} displayPropertyKey="assignee">
         <div className="h-5 flex-shrink-0">
           <MemberDropdown
+            includeGuests
             value={issue.assignee_ids}
             projectId={issue.project_id ?? undefined}
             onChange={(val) =>

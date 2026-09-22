@@ -40,6 +40,7 @@ from plane.db.models import (
     IssueLabel,
     ModuleIssue,
 )
+from plane.utils.guest_scope import guest_issue_scope_q
 from plane.utils.issue_filters import issue_filters
 from plane.utils.order_queryset import VIEW_ORDER_BY_ALLOWLIST, order_issue_queryset, sanitize_order_by
 from plane.bgtasks.recent_visited_task import recent_visited_task
@@ -156,9 +157,9 @@ class WorkspaceViewIssuesViewSet(BaseViewSet):
                 project__guest_view_all_features=True,
             )
             | Q(
+                guest_issue_scope_q(self.request.user),
                 project__project_projectmember__role=5,
                 project__guest_view_all_features=False,
-                created_by=self.request.user,
             )
             |
             # For other roles (role > 5), show all issues

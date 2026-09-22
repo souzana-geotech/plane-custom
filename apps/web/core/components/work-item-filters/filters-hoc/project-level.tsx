@@ -150,13 +150,13 @@ export const ProjectLevelWorkItemFiltersHOC = observer(function ProjectLevelWork
       updateView(workspaceSlug, projectId, viewDetails.id, {
         ...getViewFilterPayload(filterExpression),
       })
-        .then(() => {
+        .then(() =>
           setToast({
             type: TOAST_TYPE.SUCCESS,
             title: "Success!",
             message: "Your view has been updated successfully.",
-          });
-        })
+          })
+        )
         .catch(() => {
           setToast({
             type: TOAST_TYPE.ERROR,
@@ -204,7 +204,7 @@ export const ProjectLevelWorkItemFiltersHOC = observer(function ProjectLevelWork
         workspaceSlug={workspaceSlug}
         cycleIds={getProjectCycleIds(projectId) ?? undefined}
         labelIds={getProjectLabelIds(projectId)}
-        memberIds={getProjectMemberIds(projectId, false) ?? undefined}
+        memberIds={getProjectMemberIds(projectId, true) ?? undefined}
         moduleIds={getProjectModuleIds(projectId) ?? undefined}
         stateIds={getProjectStateIds(projectId)}
         saveViewOptions={saveViewOptions}

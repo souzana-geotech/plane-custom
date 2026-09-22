@@ -80,6 +80,7 @@ export const InboxIssueProperties = observer(function InboxIssueProperties(props
       {/* Assignees */}
       <div className="h-7">
         <MemberDropdown
+          includeGuests
           projectId={projectId}
           value={data?.assignee_ids || []}
           onChange={(assigneeIds) => handleData("assignee_ids", assigneeIds)}

@@ -13,6 +13,7 @@ from rest_framework import status
 from .. import BaseAPIView
 from plane.app.permissions import ProjectEntityPermission, WorkspaceEntityPermission
 from plane.db.models import IssueDependencySchedule
+from plane.utils.guest_scope import guest_issue_scope_q
 
 
 class IssueDependencyScheduleEndpoint(BaseAPIView):
@@ -81,9 +82,9 @@ class WorkspaceDependencyScheduleEndpoint(BaseAPIView):
                         project__guest_view_all_features=True,
                     )
                     | Q(
+                        guest_issue_scope_q(request.user, prefix="issue__"),
                         project__project_projectmember__role=5,
                         project__guest_view_all_features=False,
-                        issue__created_by=request.user,
                     )
                     | Q(project__project_projectmember__role__gt=5),
                     project__project_projectmember__member=request.user,

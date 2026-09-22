@@ -39,6 +39,7 @@ import { useIssueDetail } from "@/hooks/store/use-issue-detail";
 import { useMember } from "@/hooks/store/use-member";
 import { useProject } from "@/hooks/store/use-project";
 import { useProjectState } from "@/hooks/store/use-project-state";
+import { useCanGuestAssigneeUpdateState } from "@/hooks/use-guest-assignee-state-access";
 import type { TWorkItemDatesUpdate } from "@/hooks/use-work-item-working-days";
 import { useWorkItemWorkingDays } from "@/hooks/use-work-item-working-days";
 // plane web components
@@ -81,6 +82,10 @@ export const PeekOverviewProperties = observer(function PeekOverviewProperties(p
   // An admin may move a fixed due date, so for them nothing here is read-only.
   const { isDueDateReadOnly } = useDueDateLock({ workspaceSlug, projectId, issue });
 
+  // Geotech3D: a guest assigned to this task may still move it along its states,
+  // even though every other property stays read-only for them.
+  const canGuestAssigneeUpdateState = useCanGuestAssigneeUpdateState(projectId, issue?.assignee_ids);
+
   const { workingDays, isDurationDriven, handleStartDateChange, handleTargetDateChange, handleWorkingDaysChange } =
     useWorkItemWorkingDays({
       startDate: issue?.start_date,
@@ -111,7 +116,7 @@ export const PeekOverviewProperties = observer(function PeekOverviewProperties(p
             value={issue?.state_id}
             onChange={(val) => issueOperations.update(workspaceSlug, projectId, issueId, { state_id: val })}
             projectId={projectId}
-            disabled={disabled}
+            disabled={disabled && !canGuestAssigneeUpdateState}
             buttonVariant="transparent-with-text"
             className="group w-full grow"
             buttonContainerClassName="w-full text-left h-7.5"
@@ -123,6 +128,7 @@ export const PeekOverviewProperties = observer(function PeekOverviewProperties(p
 
         <SidebarPropertyListItem icon={MembersOutline} label={t("common.assignees")}>
           <MemberDropdown
+            includeGuests
             value={issue?.assignee_ids ?? undefined}
             onChange={(val) => issueOperations.update(workspaceSlug, projectId, issueId, { assignee_ids: val })}
             disabled={disabled}

@@ -117,6 +117,7 @@ export const RecentIssue = observer(function RecentIssue(props: BlockProps) {
           {issueDetails?.assignees?.length > 0 && (
             <div className="h-5">
               <MemberDropdown
+                includeGuests
                 projectId={issueDetails?.project_id}
                 value={issueDetails?.assignees}
                 onChange={() => {}}

@@ -39,6 +39,13 @@ export interface IIssueProperties {
   className: string;
 }
 
+// Containment only: keeps a click on a property control from reaching the row
+// behind it. Hoisted out of the component - it captures nothing from it.
+const handleEventPropagation = (e: React.MouseEvent) => {
+  e.stopPropagation();
+  e.preventDefault();
+};
+
 export const DraftIssueProperties = observer(function DraftIssueProperties(props: IIssueProperties) {
   const { issue, updateIssue, className } = props;
   // store hooks
@@ -134,16 +141,11 @@ export const DraftIssueProperties = observer(function DraftIssueProperties(props
   const maxDate = getDate(issue.target_date);
   maxDate?.setDate(maxDate.getDate());
 
-  const handleEventPropagation = (e: React.MouseEvent) => {
-    e.stopPropagation();
-    e.preventDefault();
-  };
-
   return (
     <div className={className}>
       {/* basic properties */}
       {/* state */}
-      <div className="h-5" onClick={handleEventPropagation}>
+      <div role="presentation" className="h-5" onClick={handleEventPropagation}>
         <StateDropdown
           buttonContainerClassName="truncate max-w-40"
           value={issue.state_id}
@@ -156,7 +158,7 @@ export const DraftIssueProperties = observer(function DraftIssueProperties(props
       </div>
 
       {/* priority */}
-      <div className="h-5" onClick={handleEventPropagation}>
+      <div role="presentation" className="h-5" onClick={handleEventPropagation}>
         <PriorityDropdown
           value={issue?.priority}
           onChange={handlePriority}
@@ -179,7 +181,7 @@ export const DraftIssueProperties = observer(function DraftIssueProperties(props
       />
 
       {/* start date */}
-      <div className="h-5" onClick={handleEventPropagation}>
+      <div role="presentation" className="h-5" onClick={handleEventPropagation}>
         <DateDropdown
           value={issue.start_date ?? null}
           onChange={handleStartDate}
@@ -194,7 +196,7 @@ export const DraftIssueProperties = observer(function DraftIssueProperties(props
       </div>
 
       {/* target/due date */}
-      <div className="h-5" onClick={handleEventPropagation}>
+      <div role="presentation" className="h-5" onClick={handleEventPropagation}>
         <DateDropdown
           value={issue?.target_date ?? null}
           onChange={handleTargetDate}
@@ -213,8 +215,9 @@ export const DraftIssueProperties = observer(function DraftIssueProperties(props
       </div>
 
       {/* assignee */}
-      <div className="h-5" onClick={handleEventPropagation}>
+      <div role="presentation" className="h-5" onClick={handleEventPropagation}>
         <MemberDropdown
+          includeGuests
           projectId={issue?.project_id}
           value={issue?.assignee_ids}
           onChange={handleAssignee}
@@ -231,7 +234,7 @@ export const DraftIssueProperties = observer(function DraftIssueProperties(props
 
       {/* modules */}
       {projectDetails?.module_view && (
-        <div className="h-5" onClick={handleEventPropagation}>
+        <div role="presentation" className="h-5" onClick={handleEventPropagation}>
           <ModuleDropdown
             buttonContainerClassName="truncate max-w-40"
             projectId={issue?.project_id}
@@ -248,7 +251,7 @@ export const DraftIssueProperties = observer(function DraftIssueProperties(props
 
       {/* cycles */}
       {projectDetails?.cycle_view && (
-        <div className="h-5" onClick={handleEventPropagation}>
+        <div role="presentation" className="h-5" onClick={handleEventPropagation}>
           <CycleDropdown
             buttonContainerClassName="truncate max-w-40"
             projectId={issue?.project_id}
@@ -263,7 +266,7 @@ export const DraftIssueProperties = observer(function DraftIssueProperties(props
 
       {/* estimates */}
       {issue.project_id && areEstimateEnabledByProjectId(issue.project_id?.toString()) && (
-        <div className="h-5" onClick={handleEventPropagation}>
+        <div role="presentation" className="h-5" onClick={handleEventPropagation}>
           <EstimateDropdown
             value={issue.estimate_point ?? undefined}
             onChange={handleEstimate}

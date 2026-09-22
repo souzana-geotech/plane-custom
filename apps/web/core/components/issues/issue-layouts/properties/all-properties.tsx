@@ -40,6 +40,7 @@ import { useLabel } from "@/hooks/store/use-label";
 import { useProject } from "@/hooks/store/use-project";
 import { useProjectState } from "@/hooks/store/use-project-state";
 import { useAppRouter } from "@/hooks/use-app-router";
+import { useCanGuestAssigneeUpdateState } from "@/hooks/use-guest-assignee-state-access";
 import { useIssueStoreType } from "@/hooks/use-issue-layout-store";
 import { usePlatformOS } from "@/hooks/use-platform-os";
 // local components
@@ -63,6 +64,8 @@ export const IssueProperties = observer(function IssueProperties(props: IIssuePr
   // store hooks
   const { getProjectById } = useProject();
   const { labelMap } = useLabel();
+  // Geotech3D: a guest assigned to this task may still move it along its states
+  const canGuestAssigneeUpdateState = useCanGuestAssigneeUpdateState(issue?.project_id, issue?.assignee_ids);
   const storeType = useIssueStoreType();
   const {
     issues: { changeModulesInIssue },
@@ -216,7 +219,7 @@ export const IssueProperties = observer(function IssueProperties(props: IIssuePr
             value={issue.state_id}
             onChange={handleState}
             projectId={issue.project_id}
-            disabled={isReadOnly}
+            disabled={isReadOnly && !canGuestAssigneeUpdateState}
             buttonVariant="border-with-text"
             renderByDefault={isMobile}
             showTooltip
@@ -333,6 +336,7 @@ export const IssueProperties = observer(function IssueProperties(props: IIssuePr
         {/* oxlint-disable-next-line jsx_a11y/click-events-have-key-events oxlint-disable-next-line jsx_a11y/no-static-element-interactions */}
         <div className="h-5" onFocus={handleEventPropagation} onClick={handleEventPropagation}>
           <MemberDropdown
+            includeGuests
             projectId={issue?.project_id}
             value={issue?.assignee_ids}
             onChange={handleAssignee}

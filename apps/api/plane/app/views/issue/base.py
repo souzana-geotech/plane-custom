@@ -69,6 +69,13 @@ from plane.utils.date_lock import (
 from plane.utils.error_codes import ERROR_CODES
 from plane.utils.filters import ComplexFilterBackend, IssueFilterSet
 from plane.utils.global_paginator import paginate
+from plane.utils.guest_scope import (
+    guest_issue_scope_q,
+    is_guest,
+    is_issue_in_guest_scope,
+    is_restricted_guest,
+    narrow_payload_for_guest_assignee,
+)
 from plane.utils.grouper import (
     issue_group_values,
     issue_on_results,
@@ -99,17 +106,10 @@ class IssueListEndpoint(BaseAPIView):
         # Base queryset with basic filters
         queryset = Issue.issue_objects.filter(workspace__slug=slug, project_id=project_id, pk__in=issue_ids)
 
-        # Restrict guests without full feature access to issues they created,
-        # mirroring IssueViewSet.list.
-        if ProjectMember.objects.filter(
-            workspace__slug=slug,
-            project_id=project_id,
-            member=request.user,
-            role=ROLE.GUEST.value,
-            is_active=True,
-            project__guest_view_all_features=False,
-        ).exists():
-            queryset = queryset.filter(created_by=request.user)
+        # Restrict guests without full feature access to the tasks they created
+        # or are assigned to, mirroring IssueViewSet.list.
+        if is_restricted_guest(request.user, slug, project_id):
+            queryset = queryset.filter(guest_issue_scope_q(request.user))
 
         # Apply filtering from filterset
         queryset = self.filter_queryset(queryset)
@@ -275,7 +275,6 @@ class IssueViewSet(BaseViewSet):
         if request.GET.get("updated_at__gt", None) is not None:
             extra_filters = {"updated_at__gt": request.GET.get("updated_at__gt")}
 
-        project = Project.objects.get(pk=project_id, workspace__slug=slug)
         query_params = request.query_params.copy()
 
         filters = issue_filters(query_params, "GET")
@@ -314,18 +313,10 @@ class IssueViewSet(BaseViewSet):
             entity_identifier=project_id,
             user_id=request.user.id,
         )
-        if (
-            ProjectMember.objects.filter(
-                workspace__slug=slug,
-                project_id=project_id,
-                member=request.user,
-                role=5,
-                is_active=True,
-            ).exists()
-            and not project.guest_view_all_features
-        ):
-            issue_queryset = issue_queryset.filter(created_by=request.user)
-            filtered_issue_queryset = filtered_issue_queryset.filter(created_by=request.user)
+        if is_restricted_guest(request.user, slug, project_id):
+            guest_scope = guest_issue_scope_q(request.user)
+            issue_queryset = issue_queryset.filter(guest_scope)
+            filtered_issue_queryset = filtered_issue_queryset.filter(guest_scope)
 
         if group_by:
             if sub_group_by:
@@ -499,8 +490,6 @@ class IssueViewSet(BaseViewSet):
 
     @allow_permission(allowed_roles=[ROLE.ADMIN, ROLE.MEMBER, ROLE.GUEST], creator=True, model=Issue)
     def retrieve(self, request, slug, project_id, pk=None):
-        project = Project.objects.get(pk=project_id, workspace__slug=slug)
-
         issue = (
             Issue.objects.filter(
                 project_id=self.kwargs.get("project_id"),
@@ -601,21 +590,11 @@ class IssueViewSet(BaseViewSet):
             )
 
         """
-        if the role is guest and guest_view_all_features is false and owned by is not
-        the requesting user then dont show the issue
+        if the role is guest and guest_view_all_features is false and the task is
+        neither created by nor assigned to the requesting user, dont show it
         """
 
-        if (
-            ProjectMember.objects.filter(
-                workspace__slug=slug,
-                project_id=project_id,
-                member=request.user,
-                role=5,
-                is_active=True,
-            ).exists()
-            and not project.guest_view_all_features
-            and not issue.created_by == request.user
-        ):
+        if is_restricted_guest(request.user, slug, project_id) and not is_issue_in_guest_scope(issue, request.user):
             return Response(
                 {"error": "You are not allowed to view this issue"},
                 status=status.HTTP_403_FORBIDDEN,
@@ -632,7 +611,10 @@ class IssueViewSet(BaseViewSet):
         serializer = IssueDetailSerializer(issue, expand=self.expand)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
-    @allow_permission(allowed_roles=[ROLE.ADMIN, ROLE.MEMBER], creator=True, model=Issue)
+    # Geotech3D: ``assignee=True`` lets whoever the task is assigned to reach
+    # this endpoint whatever their role. For a guest that is narrowed to the
+    # state field below - they move their own work along, they do not edit it.
+    @allow_permission(allowed_roles=[ROLE.ADMIN, ROLE.MEMBER], creator=True, model=Issue, assignee=True)
     def partial_update(self, request, slug, project_id, pk=None):
         queryset = self.get_queryset()
         queryset = self.apply_annotations(queryset)
@@ -682,14 +664,27 @@ class IssueViewSet(BaseViewSet):
         if not issue:
             return Response({"error": "Issue not found"}, status=status.HTTP_404_NOT_FOUND)
 
+        # Geotech3D: a guest only gets here for a task assigned to them, and may
+        # do one thing with it - move it to another state. Drop every other
+        # field before it reaches the serializer. A guest editing a task they
+        # created keeps the wider rights upstream grants through ``creator``.
+        issue_data = request.data
+        if issue.created_by_id != request.user.id and is_guest(request.user, slug, project_id):
+            issue_data = narrow_payload_for_guest_assignee(issue_data)
+            if not issue_data:
+                return Response(
+                    {"error": "Guests can only change the state of a task assigned to them"},
+                    status=status.HTTP_403_FORBIDDEN,
+                )
+
         # Geotech3D: check the fixed due date here as well as in the serializer.
         # The serializer is the safety net that covers every caller; doing it up
         # front lets this endpoint answer with the same flat
         # ``error_code``/``error_message`` body the gantt bulk endpoint uses,
         # instead of DRF's nested field-error shape.
         can_override_due_date = can_manage_due_date_lock(request.user, slug, project_id)
-        if "target_date" in request.data and blocks_due_date_change(
-            issue, request.data.get("target_date"), can_override_due_date
+        if "target_date" in issue_data and blocks_due_date_change(
+            issue, issue_data.get("target_date"), can_override_due_date
         ):
             return Response(
                 {
@@ -701,10 +696,10 @@ class IssueViewSet(BaseViewSet):
 
         current_instance = json.dumps(IssueDetailSerializer(issue).data, cls=DjangoJSONEncoder)
 
-        requested_data = json.dumps(self.request.data, cls=DjangoJSONEncoder)
+        requested_data = json.dumps(issue_data, cls=DjangoJSONEncoder)
         serializer = IssueCreateSerializer(
             issue,
-            data=request.data,
+            data=issue_data,
             partial=True,
             context={
                 "project_id": project_id,
@@ -942,17 +937,10 @@ class IssuePaginatedViewSet(BaseViewSet):
         queryset = self.get_queryset().order_by("updated_at")
 
         # validation for guest user
-        project = Project.objects.get(pk=project_id, workspace__slug=slug)
-        project_member = ProjectMember.objects.filter(
-            workspace__slug=slug,
-            project_id=project_id,
-            member=request.user,
-            role=5,
-            is_active=True,
-        )
-        if project_member.exists() and not project.guest_view_all_features:
-            base_queryset = base_queryset.filter(created_by=request.user)
-            queryset = queryset.filter(created_by=request.user)
+        if is_restricted_guest(request.user, slug, project_id):
+            guest_scope = guest_issue_scope_q(request.user)
+            base_queryset = base_queryset.filter(guest_scope)
+            queryset = queryset.filter(guest_scope)
 
         # filtering issues by greater then updated_at given by the user
         if updated_at:
@@ -1064,7 +1052,8 @@ class IssueDetailEndpoint(BaseAPIView):
         filters = issue_filters(request.query_params, "GET")
 
         # check for the project member role, if the role is 5 then check for the guest_view_all_features
-        #  if it is true then show all the issues else show only the issues created by the user
+        #  if it is true then show all the tasks, else only the ones the guest
+        #  created or is assigned to
         permission_subquery = (
             Issue.issue_objects.filter(workspace__slug=slug, project_id=project_id, id=OuterRef("id"))
             .filter(
@@ -1080,11 +1069,11 @@ class IssueDetailEndpoint(BaseAPIView):
                     project__guest_view_all_features=True,
                 )
                 | Q(
+                    guest_issue_scope_q(self.request.user),
                     project__project_projectmember__member=self.request.user,
                     project__project_projectmember__is_active=True,
                     project__project_projectmember__role=ROLE.GUEST.value,
                     project__guest_view_all_features=False,
-                    created_by=self.request.user,
                 )
             )
             .values("id")
@@ -1399,21 +1388,11 @@ class IssueDetailIdentifierEndpoint(BaseAPIView):
             )
 
         """
-        if the role is guest and guest_view_all_features is false and owned by is not
-        the requesting user then dont show the issue
+        if the role is guest and guest_view_all_features is false and the task is
+        neither created by nor assigned to the requesting user, dont show it
         """
 
-        if (
-            ProjectMember.objects.filter(
-                workspace__slug=slug,
-                project_id=project.id,
-                member=request.user,
-                role=5,
-                is_active=True,
-            ).exists()
-            and not project.guest_view_all_features
-            and not issue.created_by == request.user
-        ):
+        if is_restricted_guest(request.user, slug, project.id) and not is_issue_in_guest_scope(issue, request.user):
             return Response(
                 {"error": "You are not allowed to view this issue"},
                 status=status.HTTP_403_FORBIDDEN,

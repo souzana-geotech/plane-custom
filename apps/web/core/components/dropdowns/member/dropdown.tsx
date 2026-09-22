@@ -15,6 +15,12 @@ import type { MemberDropdownProps } from "./types";
 
 type TMemberDropdownProps = {
   icon?: ComponentType<SVGProps<SVGSVGElement>>;
+  /**
+   * Geotech3D: guests are assignable - an external collaborator is given work,
+   * not just a view of it. A dropdown that picks who does the work opts in;
+   * lead and owner pickers leave this off and keep listing members only.
+   */
+  includeGuests?: boolean;
   memberIds?: string[];
   onClose?: () => void;
   optionsClassName?: string;
@@ -23,7 +29,7 @@ type TMemberDropdownProps = {
 } & MemberDropdownProps;
 
 export const MemberDropdown = observer(function MemberDropdown(props: TMemberDropdownProps) {
-  const { memberIds: propsMemberIds, projectId } = props;
+  const { includeGuests = false, memberIds: propsMemberIds, projectId } = props;
   // router params
   const { workspaceSlug } = useParams();
   // store hooks
@@ -36,7 +42,7 @@ export const MemberDropdown = observer(function MemberDropdown(props: TMemberDro
   const memberIds = propsMemberIds
     ? propsMemberIds
     : projectId
-      ? getProjectMemberIds(projectId, false)
+      ? getProjectMemberIds(projectId, includeGuests)
       : workspaceMemberIds;
 
   const onDropdownOpen = () => {
