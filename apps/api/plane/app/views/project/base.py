@@ -43,7 +43,7 @@ from plane.db.models.intake import IntakeIssueStatus
 from plane.utils.host import base_host
 from plane.utils.order_queryset import PROJECT_ORDER_BY_ALLOWLIST, sanitize_order_by
 from plane.utils.personal_project import (
-    MySpaceUnavailable,
+    NotEligibleForMySpace,
     get_or_create_my_space,
     hidden_personal_projects_q,
     is_others_personal_project,
@@ -276,6 +276,11 @@ class ProjectViewSet(BaseViewSet):
     @allow_permission([ROLE.ADMIN, ROLE.MEMBER], level="WORKSPACE")
     def create(self, request, slug):
         workspace = Workspace.objects.get(slug=slug)
+        if workspace.is_my_space:
+            return Response(
+                personal_project_error("The My Space workspace only holds personal containers."),
+                status=status.HTTP_400_BAD_REQUEST,
+            )
 
         serializer = ProjectSerializer(data={**request.data}, context={"workspace_id": workspace.id})
         if serializer.is_valid():
@@ -339,23 +344,18 @@ class ProjectViewSet(BaseViewSet):
 
     @allow_permission([ROLE.ADMIN, ROLE.MEMBER], level="WORKSPACE")
     def personal(self, request, slug):
-        """Open My Space from this workspace: the caller's one personal container.
+        """Open My Space from this workspace: the caller's personal container.
 
-        Created here the first time; after that it is the same container from
-        every workspace, and the response names its home workspace so the web
-        app can open it there. POST because the first call creates it (and
-        this viewset reads GETs from the replica). Guests do not get one.
+        It lives in the shared My Space workspace, so the response names that
+        workspace and the web app opens it there. Set up on first use. POST
+        because the first call creates it (and this viewset reads GETs from
+        the replica). Guests do not get one.
         """
-        workspace = Workspace.objects.get(slug=slug)
         try:
-            project = get_or_create_my_space(request.user, workspace)
-        except MySpaceUnavailable as unavailable:
+            project = get_or_create_my_space(request.user)
+        except NotEligibleForMySpace:
             return Response(
-                {
-                    "error": f"My Space lives in {unavailable.workspace.name}, where you are not a member any more.",
-                    "error_code": "MY_SPACE_UNAVAILABLE",
-                    "workspace_name": unavailable.workspace.name,
-                },
+                {"error": "My Space is for workspace members and admins.", "error_code": "MY_SPACE_UNAVAILABLE"},
                 status=status.HTTP_403_FORBIDDEN,
             )
         return Response(

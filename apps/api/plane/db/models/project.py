@@ -104,9 +104,9 @@ class Project(BaseModel):
     # rich editor - and it is only ever a starting point: it is copied into the
     # create form, never enforced, and never written to an existing Job.
     job_description_template = models.TextField(blank=True, default="")
-    # Geotech3D: "My Space" - one private container per person, shared by all
-    # their workspaces: it lives in the workspace where it was first opened
-    # (``plane.utils.personal_project``) and the others link to it. Only ``owner`` is
+    # Geotech3D: "My Space" - one private container per person, living in the
+    # shared My Space workspace (``Workspace.is_my_space``) and reached from
+    # every workspace (``plane.utils.personal_project``). Only ``owner`` is
     # ever a member: nobody can be added, nobody can join, it cannot be
     # published, and it is hidden from everyone else, workspace admins
     # included. ``db_default`` keeps a rollback safe: older code that inserts

@@ -48,6 +48,7 @@ from .. import BaseViewSet
 from plane.db.models import UserFavorite
 from plane.utils.filters import ComplexFilterBackend
 from plane.utils.filters import IssueFilterSet
+from plane.utils.personal_project import is_my_space_workspace
 
 
 class WorkspaceViewViewSet(BaseViewSet):
@@ -64,7 +65,13 @@ class WorkspaceViewViewSet(BaseViewSet):
             .get_queryset()
             .filter(workspace__slug=self.kwargs.get("slug"))
             .filter(project__isnull=True)
-            .filter(Q(owned_by=self.request.user) | Q(access=1))
+            # In the shared My Space workspace a "public" view would be public
+            # to every colleague; there, everyone sees only their own views.
+            .filter(
+                Q(owned_by=self.request.user)
+                if is_my_space_workspace(self.kwargs.get("slug"))
+                else Q(owned_by=self.request.user) | Q(access=1)
+            )
             .order_by(
                 sanitize_order_by(
                     self.request.GET.get("order_by", "-created_at"),

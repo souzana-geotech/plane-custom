@@ -137,6 +137,12 @@ class Workspace(BaseModel):
     organization_size = models.CharField(max_length=20, blank=True, null=True)
     timezone = models.CharField(max_length=255, default="UTC", choices=TIMEZONE_CHOICES)
     background_color = models.CharField(max_length=255, default=get_random_color)
+    # Geotech3D: the one shared "My Space" workspace. It holds everyone's
+    # personal container (``Project.is_personal``); each person sees only
+    # their own. Everyone in it is a MEMBER and nobody is an admin, so nobody
+    # manages it. Created on the first My Space open
+    # (``plane.utils.personal_project``). ``db_default`` keeps a rollback safe.
+    is_my_space = models.BooleanField(default=False, db_default=False)
 
     def __str__(self):
         """Return name of the Workspace"""
@@ -180,6 +186,13 @@ class Workspace(BaseModel):
         verbose_name_plural = "Workspaces"
         db_table = "workspaces"
         ordering = ("-created_at",)
+        constraints = [
+            models.UniqueConstraint(
+                fields=["is_my_space"],
+                condition=models.Q(is_my_space=True, deleted_at__isnull=True),
+                name="workspace_single_my_space",
+            ),
+        ]
 
 
 class WorkspaceBaseModel(BaseModel):

@@ -3,38 +3,41 @@
 # See the LICENSE file for details.
 
 """
-Geotech3D: "My Space" - one private container per person, the same from every
-workspace.
+Geotech3D: "My Space" - one private container per person, in one shared
+workspace, reached from every workspace.
 
-A personal container is an ordinary ``Project`` row with ``is_personal=True``
-and an ``owner``, so tasks, states, layouts and pages all work unchanged. A
-container has to live in exactly one workspace, so My Space lives in its
-**home workspace** - the one where its owner first opened it - and every other
-workspace links to it (the web app opens it there, with a way back). What makes
-it personal is a set of rules, enforced where each operation lives:
+There is a single **My Space workspace** (``Workspace.is_my_space``) for the
+whole instance. It holds one **personal container** per person - an ordinary
+``Project`` with ``is_personal=True`` and an ``owner`` - so tasks, states,
+layouts and pages all work unchanged. Every company workspace links to it; the
+web app opens it there, with a way back.
 
-* **One per person**, across all workspaces, created the first time its owner
-  opens it (``get_or_create_my_space``). Nothing is created at deploy time and
-  no workspace-join path needs a hook.
-* **Only the owner is a member.** Adding members, inviting, joining (including
-  a workspace admin joining a Secret container) and changing the owner's
-  membership are refused.
-* **Hidden from everyone else**, workspace admins of the home workspace
-  included: the container list excludes it, and editing, deleting or archiving
-  it by id is refused.
+The My Space workspace is nobody's to run: everyone in it is a MEMBER, nobody
+is an admin, and it cannot be invited to, renamed, deleted, left, or given an
+ordinary container. People join it only through ``get_or_create_my_space``.
+
+Each personal container is private to its owner:
+
+* **One per person**, created the first time they open My Space. Nothing is
+  created at deploy time and no workspace-join path needs a hook.
+* **Only the owner is a member.** Adding members, inviting, joining and
+  changing the owner's membership are refused.
+* **Hidden from everyone else**: the container list excludes other people's,
+  and editing, deleting or archiving one by id is refused.
 * **Never public**: it cannot be published, and ``network`` stays Secret.
 * **Sealed off from other containers**: no task relation may cross into or out
   of it, and webhooks never carry its events.
 
-The owner reaches it while an ADMIN or MEMBER of the home workspace. Guests do
-not get one. A member demoted to guest there keeps the container and its data,
-but their membership of it is deactivated; opening My Space after being
-promoted again reactivates it. Someone who leaves the home workspace loses
-access the same way - the data stays, and comes back if they rejoin.
+**Who gets it**: ADMINs and MEMBERs of a company workspace. A pure guest does
+not. Someone who stops being an ADMIN or MEMBER anywhere - they leave or are
+removed from every company workspace, or are demoted to guest everywhere -
+loses access (``close_my_space_if_ineligible``). The data stays and comes back
+when they are an ADMIN or MEMBER again and open My Space.
 
 Privacy for the rest of the API rests on the Phase 0 rule in
 ``plane.utils.project_access``: container data is read only by active members.
 """
+
 # Python imports
 import uuid
 
@@ -43,24 +46,22 @@ from django.db import IntegrityError, transaction
 from django.db.models import Q
 
 # Module imports
-from plane.db.models import Project, ProjectIdentifier, ProjectMember, State, WorkspaceMember
+from plane.db.models import Project, ProjectIdentifier, ProjectMember, State, Workspace, WorkspaceMember
 from plane.db.models.state import DEFAULT_STATES
 
 ADMIN_ROLE = 20
 MEMBER_ROLE = 15
 
 PERSONAL_PROJECT_NAME = "My Space"
+MY_SPACE_WORKSPACE_NAME = "My Space"
+MY_SPACE_WORKSPACE_SLUG = "my-space"
 # Error code for the container endpoints that refuse an operation on a
 # personal container; the web app shows its own message for it.
 PERSONAL_PROJECT_ERROR = "PERSONAL_PROJECT_LOCKED"
 
 
-class MySpaceUnavailable(Exception):
-    """My Space exists, but its owner is not an ADMIN or MEMBER of its home workspace."""
-
-    def __init__(self, workspace):
-        super().__init__(workspace.slug)
-        self.workspace = workspace
+class NotEligibleForMySpace(Exception):
+    """The user is not an ADMIN or MEMBER of any company workspace."""
 
 
 def personal_project_error(message):
@@ -80,6 +81,23 @@ def is_personal_project(project_id):
     if project_id is None:
         return False
     return Project.objects.filter(pk=project_id, is_personal=True).exists()
+
+
+def is_my_space_workspace(slug):
+    if not slug:
+        return False
+    return Workspace.objects.filter(slug=slug, is_my_space=True).exists()
+
+
+def is_reserved_workspace_slug(slug):
+    """Company workspaces may not take the My Space workspace's slug."""
+    return bool(slug) and slug.lower() == MY_SPACE_WORKSPACE_SLUG
+
+
+def is_eligible_for_my_space(user):
+    return WorkspaceMember.objects.filter(
+        member=user, is_active=True, role__gte=MEMBER_ROLE, workspace__is_my_space=False
+    ).exists()
 
 
 def is_others_personal_project(project_id, user):
@@ -174,14 +192,56 @@ def _ensure_owner_membership(project, user):
     membership.save(update_fields=["is_active", "role", "deleted_at", "updated_at"])
 
 
-def get_or_create_my_space(user, workspace):
-    """Return ``user``'s one My Space, creating it in ``workspace`` the first time.
+def _my_space_workspace(user):
+    """The one My Space workspace, created by whoever opens My Space first."""
+    workspace = Workspace.objects.filter(is_my_space=True).first()
+    if workspace is not None:
+        return workspace
+    slug = MY_SPACE_WORKSPACE_SLUG
+    if Workspace.all_objects.filter(slug=slug).exists():
+        slug = f"{MY_SPACE_WORKSPACE_SLUG}-{uuid.uuid4().hex[:8]}"
+    try:
+        with transaction.atomic():
+            # ``owner`` is required by the model; it grants nothing here - the
+            # owner joins as a MEMBER like everyone else.
+            return Workspace.objects.create(name=MY_SPACE_WORKSPACE_NAME, slug=slug, owner=user, is_my_space=True)
+    except IntegrityError:
+        # Two first opens raced; the partial unique constraint let one through.
+        return Workspace.objects.get(is_my_space=True)
 
-    Raises ``MySpaceUnavailable`` when it lives in a workspace where ``user`` is
-    no longer an ADMIN or MEMBER.
+
+def _ensure_workspace_membership(workspace, user):
+    """Everyone in the My Space workspace is an active MEMBER, never an admin."""
+    membership = WorkspaceMember.all_objects.filter(workspace=workspace, member=user).order_by("-created_at").first()
+    if membership is None:
+        try:
+            with transaction.atomic():
+                WorkspaceMember.objects.create(workspace=workspace, member=user, role=MEMBER_ROLE)
+        except IntegrityError:
+            pass  # a concurrent open created it
+        return
+    if membership.is_active and membership.role == MEMBER_ROLE and membership.deleted_at is None:
+        return
+    membership.is_active = True
+    membership.role = MEMBER_ROLE
+    membership.deleted_at = None
+    membership.save(update_fields=["is_active", "role", "deleted_at", "updated_at"])
+
+
+def get_or_create_my_space(user):
+    """Return ``user``'s personal container, setting up whatever is missing.
+
+    Raises ``NotEligibleForMySpace`` for someone who is not an ADMIN or MEMBER
+    of any company workspace.
     """
+    if not is_eligible_for_my_space(user):
+        raise NotEligibleForMySpace()
+
+    workspace = _my_space_workspace(user)
+    _ensure_workspace_membership(workspace, user)
+
     for _attempt in range(3):
-        project = Project.objects.filter(owner=user, is_personal=True).select_related("workspace").first()
+        project = Project.objects.filter(workspace=workspace, owner=user, is_personal=True).first()
         if project is not None:
             break
         try:
@@ -195,9 +255,24 @@ def get_or_create_my_space(user, workspace):
     else:
         raise IntegrityError("Could not create the personal container")
 
-    if not WorkspaceMember.objects.filter(
-        workspace_id=project.workspace_id, member=user, is_active=True, role__gte=MEMBER_ROLE
-    ).exists():
-        raise MySpaceUnavailable(project.workspace)
     _ensure_owner_membership(project, user)
     return project
+
+
+def close_my_space_if_ineligible(user_id):
+    """Shut My Space for someone who is no longer an ADMIN or MEMBER anywhere.
+
+    Called after a company workspace membership ends or is demoted. Only the
+    memberships are deactivated; the container and its data stay, and opening
+    My Space later restores access if the person is eligible again.
+    """
+    if WorkspaceMember.objects.filter(
+        member_id=user_id, is_active=True, role__gte=MEMBER_ROLE, workspace__is_my_space=False
+    ).exists():
+        return
+    WorkspaceMember.objects.filter(member_id=user_id, workspace__is_my_space=True, is_active=True).update(
+        is_active=False
+    )
+    ProjectMember.objects.filter(
+        member_id=user_id, project__is_personal=True, project__workspace__is_my_space=True, is_active=True
+    ).update(is_active=False)

@@ -80,6 +80,8 @@ class WorkSpaceSerializer(DynamicBaseSerializer):
             "updated_at",
             "owner",
             "logo_url",
+            # Only My Space creation sets this.
+            "is_my_space",
         ]
 
 
