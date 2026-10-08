@@ -29,7 +29,6 @@ urlpatterns = [
         CycleViewSet.as_view(
             {
                 "get": "retrieve",
-                "put": "update",
                 "patch": "partial_update",
                 "delete": "destroy",
             }
@@ -46,7 +45,6 @@ urlpatterns = [
         CycleIssueViewSet.as_view(
             {
                 "get": "retrieve",
-                "put": "update",
                 "patch": "partial_update",
                 "delete": "destroy",
             }

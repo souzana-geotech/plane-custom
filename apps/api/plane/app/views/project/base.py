@@ -318,6 +318,13 @@ class ProjectViewSet(BaseViewSet):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+    def update(self, request, *args, **kwargs):
+        # Geotech3D: DRF's default ``update`` checks nothing beyond a login -
+        # ``partial_update`` below is where the admin check lives - and
+        # ``ProjectListSerializer`` writes every field. ``PUT`` is no longer
+        # routed; this keeps it closed if a route ever maps it again.
+        return Response(status=status.HTTP_405_METHOD_NOT_ALLOWED)
+
     def partial_update(self, request, slug, pk=None):
         # try:
         is_workspace_admin = WorkspaceMember.objects.filter(
