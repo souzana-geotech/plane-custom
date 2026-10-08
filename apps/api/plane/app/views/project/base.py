@@ -544,6 +544,16 @@ class DeployBoardViewSet(BaseViewSet):
     serializer_class = DeployBoardSerializer
     model = DeployBoard
 
+    def get_queryset(self):
+        # retrieve / partial_update / destroy look the board up by ``pk``. The
+        # permission only proves membership of the container in the URL, so
+        # the lookup must stay inside that container, or a member of one could
+        # edit or unpublish another container's board by its id.
+        return DeployBoard.objects.filter(
+            workspace__slug=self.kwargs.get("slug"),
+            project_id=self.kwargs.get("project_id"),
+        )
+
     def list(self, request, slug, project_id):
         project_deploy_board = DeployBoard.objects.filter(
             entity_name="project", entity_identifier=project_id, workspace__slug=slug

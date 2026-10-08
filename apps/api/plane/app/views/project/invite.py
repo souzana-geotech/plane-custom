@@ -250,8 +250,11 @@ class ProjectJoinEndpoint(BaseAPIView):
                     workspace_member.save()
 
                 # Check if the user was already a member of project then activate the user
+                # Scoped to this container: without ``project_id`` this picked
+                # the user's first membership anywhere in the workspace and
+                # reactivated that one instead.
                 project_member = ProjectMember.objects.filter(
-                    workspace_id=project_invite.workspace_id, member=user
+                    workspace_id=project_invite.workspace_id, project_id=project_id, member=user
                 ).first()
                 if project_member is None:
                     # Create a Project Member

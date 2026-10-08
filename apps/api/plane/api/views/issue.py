@@ -90,6 +90,7 @@ from plane.bgtasks.storage_metadata_task import get_asset_object_metadata
 from .base import BaseAPIView
 from plane.utils.host import base_host
 from plane.utils.issue_relation_mapper import get_actual_relation
+from plane.utils.project_access import member_project_ids
 from plane.bgtasks.webhook_task import model_activity
 from plane.app.permissions import ROLE
 from plane.utils.openapi import (
@@ -2381,9 +2382,17 @@ class IssueRelationListCreateAPIEndpoint(BaseAPIView):
         Retrieve all relationships for a task organized by relation type.
         Returns a structured response with relations grouped by type.
         """
+        if not Issue.objects.filter(pk=issue_id, project_id=project_id, workspace__slug=slug).exists():
+            return Response({"error": "Issue not found"}, status=status.HTTP_404_NOT_FOUND)
+
+        # Relations may cross containers; list one only when the caller is a
+        # member of the containers at both ends.
+        my_project_ids = member_project_ids(request.user, slug)
         relations = IssueRelation.objects.filter(
             Q(issue_id=issue_id) | Q(related_issue_id=issue_id),
             workspace__slug=slug,
+            issue__project_id__in=my_project_ids,
+            related_issue__project_id__in=my_project_ids,
         ).values(
             "relation_type",
             "issue_id",
@@ -2528,12 +2537,16 @@ class IssueRelationListCreateAPIEndpoint(BaseAPIView):
         actual_relation = get_actual_relation(relation_type)
         is_reverse = relation_type in ["blocking", "start_after", "finish_after"]
 
-        # Scope to workspace to prevent cross-tenant IDOR
-        # Relations can cross projects so only workspace scope is enforced
+        if not Issue.objects.filter(pk=issue_id, project_id=project_id, workspace__slug=slug).exists():
+            return Response({"error": "Issue not found"}, status=status.HTTP_404_NOT_FOUND)
+
+        # Scope to workspace to prevent cross-tenant IDOR. Relations can cross
+        # containers, but only into containers the caller is a member of.
         issues = list(
             Issue.issue_objects.filter(
                 workspace__slug=slug,
                 pk__in=issues,
+                project_id__in=member_project_ids(request.user, slug),
             ).values_list("id", flat=True)
         )
 

@@ -32,6 +32,19 @@ from plane.db.models import (
 from plane.bgtasks.issue_activities_task import issue_activity
 from plane.utils.issue_relation_mapper import get_actual_relation
 from plane.utils.host import base_host
+from plane.utils.project_access import member_project_ids
+
+
+def _issue_not_in_project(slug, project_id, issue_id):
+    """404 unless ``issue_id`` lives in the container named by the URL.
+
+    ``ProjectEntityPermission`` only proves membership of ``project_id``; the
+    task id must belong to it too, or any member of one container could read
+    or edit another container's relations by task id.
+    """
+    if Issue.objects.filter(pk=issue_id, project_id=project_id, workspace__slug=slug).exists():
+        return None
+    return Response({"error": "Issue not found"}, status=status.HTTP_404_NOT_FOUND)
 
 
 class IssueRelationViewSet(BaseViewSet):
@@ -40,6 +53,9 @@ class IssueRelationViewSet(BaseViewSet):
     permission_classes = [ProjectEntityPermission]
 
     def list(self, request, slug, project_id, issue_id):
+        if (not_found := _issue_not_in_project(slug, project_id, issue_id)) is not None:
+            return not_found
+
         issue_relations = (
             IssueRelation.objects.filter(Q(issue_id=issue_id) | Q(related_issue=issue_id))
             .filter(workspace__slug=self.kwargs.get("slug"))
@@ -100,7 +116,9 @@ class IssueRelationViewSet(BaseViewSet):
         )
 
         queryset = (
-            Issue.issue_objects.filter(workspace__slug=slug)
+            # Relations may cross containers; the other end is listed only
+            # when the caller is a member of the container it lives in.
+            Issue.issue_objects.filter(workspace__slug=slug, project_id__in=member_project_ids(request.user, slug))
             .select_related("workspace", "project", "state", "parent")
             .prefetch_related("assignees", "labels", "issue_module__module")
             .annotate(
@@ -214,15 +232,19 @@ class IssueRelationViewSet(BaseViewSet):
                 status=status.HTTP_400_BAD_REQUEST,
             )
 
+        if (not_found := _issue_not_in_project(slug, project_id, issue_id)) is not None:
+            return not_found
+
         issues = request.data.get("issues", [])
         project = Project.objects.get(pk=project_id)
 
-        # Scope to workspace to prevent cross-tenant IDOR
-        # Relations can cross projects so only workspace scope is enforced
+        # Scope to workspace to prevent cross-tenant IDOR. Relations can cross
+        # containers, but only into containers the caller is a member of.
         issues = list(
             Issue.issue_objects.filter(
                 workspace__slug=slug,
                 pk__in=issues,
+                project_id__in=member_project_ids(request.user, slug),
             ).values_list("id", flat=True)
         )
 
@@ -269,6 +291,9 @@ class IssueRelationViewSet(BaseViewSet):
             )
 
     def remove_relation(self, request, slug, project_id, issue_id):
+        if (not_found := _issue_not_in_project(slug, project_id, issue_id)) is not None:
+            return not_found
+
         related_issue = request.data.get("related_issue", None)
 
         issue_relations = IssueRelation.objects.filter(

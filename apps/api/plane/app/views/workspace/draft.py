@@ -36,11 +36,33 @@ from plane.db.models import (
     DraftIssueCycle,
     Workspace,
     FileAsset,
+    Cycle,
+    Module,
+    ProjectMember,
 )
 from .. import BaseViewSet
 from plane.bgtasks.issue_activities_task import issue_activity
 from plane.utils.issue_filters import issue_filters
 from plane.utils.host import base_host
+
+
+def _can_add_tasks_to(user, project_id):
+    """True when ``user`` may create tasks in container ``project_id``.
+
+    Drafts are workspace-level, so the container on a draft is client-chosen.
+    Without this a draft could carry - and later be converted into - a task in
+    a container the user is not a member of, or only a guest in.
+    """
+    return ProjectMember.objects.filter(
+        member=user, project_id=project_id, is_active=True, role__gte=ROLE.MEMBER.value
+    ).exists()
+
+
+def _forbidden_project():
+    return Response(
+        {"error": "You don't have permission to add tasks to this project."},
+        status=status.HTTP_403_FORBIDDEN,
+    )
 
 
 class WorkspaceDraftIssueViewSet(BaseViewSet):
@@ -112,6 +134,9 @@ class WorkspaceDraftIssueViewSet(BaseViewSet):
     def create(self, request, slug):
         workspace = Workspace.objects.get(slug=slug)
 
+        if request.data.get("project_id") and not _can_add_tasks_to(request.user, request.data.get("project_id")):
+            return _forbidden_project()
+
         serializer = DraftIssueCreateSerializer(
             data=request.data,
             context={
@@ -166,6 +191,8 @@ class WorkspaceDraftIssueViewSet(BaseViewSet):
             return Response({"error": "Issue not found"}, status=status.HTTP_404_NOT_FOUND)
 
         project_id = request.data.get("project_id", issue.project_id)
+        if project_id and str(project_id) != str(issue.project_id) and not _can_add_tasks_to(request.user, project_id):
+            return _forbidden_project()
 
         serializer = DraftIssueCreateSerializer(
             issue,
@@ -204,13 +231,31 @@ class WorkspaceDraftIssueViewSet(BaseViewSet):
 
     @allow_permission(allowed_roles=[ROLE.ADMIN, ROLE.MEMBER], level="WORKSPACE")
     def create_draft_to_issue(self, request, slug, draft_id):
-        draft_issue = self.get_queryset().filter(pk=draft_id).first()
+        # Only your own draft, and only into a container you may add tasks to.
+        draft_issue = self.get_queryset().filter(pk=draft_id, created_by=request.user).first()
+        if draft_issue is None:
+            return Response({"error": "Draft not found"}, status=status.HTTP_404_NOT_FOUND)
 
         if not draft_issue.project_id:
             return Response(
                 {"error": "Project is required to create an issue."},
                 status=status.HTTP_400_BAD_REQUEST,
             )
+
+        if not _can_add_tasks_to(request.user, draft_issue.project_id):
+            return _forbidden_project()
+
+        # The cycle and Jobs must belong to the draft's container; anything
+        # else would file the new task into another container's cycle or Job.
+        cycle_id = request.data.get("cycle_id", None)
+        if cycle_id and not Cycle.objects.filter(pk=cycle_id, project_id=draft_issue.project_id).exists():
+            cycle_id = None
+        module_ids = [
+            str(module_id)
+            for module_id in Module.objects.filter(
+                pk__in=request.data.get("module_ids", []) or [], project_id=draft_issue.project_id
+            ).values_list("id", flat=True)
+        ]
 
         serializer = IssueCreateSerializer(
             data=request.data,
@@ -236,9 +281,9 @@ class WorkspaceDraftIssueViewSet(BaseViewSet):
                 origin=base_host(request=request, is_app=True),
             )
 
-            if request.data.get("cycle_id", None):
+            if cycle_id:
                 created_records = CycleIssue.objects.create(
-                    cycle_id=request.data.get("cycle_id", None),
+                    cycle_id=cycle_id,
                     issue_id=serializer.data.get("id", None),
                     project_id=draft_issue.project_id,
                     workspace_id=draft_issue.workspace_id,
@@ -263,7 +308,7 @@ class WorkspaceDraftIssueViewSet(BaseViewSet):
                     origin=base_host(request=request, is_app=True),
                 )
 
-            if request.data.get("module_ids", []):
+            if module_ids:
                 # bulk create the module
                 ModuleIssue.objects.bulk_create(
                     [
@@ -275,7 +320,7 @@ class WorkspaceDraftIssueViewSet(BaseViewSet):
                             created_by_id=draft_issue.created_by_id,
                             updated_by_id=draft_issue.updated_by_id,
                         )
-                        for module in request.data.get("module_ids", [])
+                        for module in module_ids
                     ],
                     batch_size=10,
                 )
@@ -292,7 +337,7 @@ class WorkspaceDraftIssueViewSet(BaseViewSet):
                         notification=True,
                         origin=base_host(request=request, is_app=True),
                     )
-                    for module in request.data.get("module_ids", [])
+                    for module in module_ids
                 ]
 
             # Update file assets

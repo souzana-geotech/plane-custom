@@ -45,6 +45,7 @@ from plane.utils.openapi import (
     asset_docs,
 )
 from plane.utils.exception_logger import log_exception
+from plane.utils.project_access import is_active_project_member
 
 
 class UserAssetEndpoint(BaseAPIView):
@@ -436,6 +437,11 @@ class GenericAssetEndpoint(BaseAPIView):
 
             # Get the asset
             asset = FileAsset.objects.get(id=asset_id, workspace_id=workspace.id, is_deleted=False)
+
+            # A container-bound asset needs membership of its container; answer
+            # like a missing asset so its existence is not confirmed.
+            if asset.project_id is not None and not is_active_project_member(request.user, asset.project_id):
+                return Response({"error": "Asset not found"}, status=status.HTTP_404_NOT_FOUND)
 
             # Check if the asset exists and is uploaded
             if not asset.is_uploaded:

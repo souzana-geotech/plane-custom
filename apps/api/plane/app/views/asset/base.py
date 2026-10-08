@@ -3,6 +3,7 @@
 # See the LICENSE file for details.
 
 # Third party imports
+from django.db.models import Q
 from rest_framework import status
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
@@ -13,6 +14,7 @@ from ..base import BaseAPIView, BaseViewSet
 from plane.app.permissions import WorkspaceMemberPermission
 from plane.db.models import FileAsset, Workspace
 from plane.app.serializers import FileAssetSerializer
+from plane.utils.project_access import member_project_ids
 
 
 class FileAssetEndpoint(BaseAPIView):
@@ -25,7 +27,10 @@ class FileAssetEndpoint(BaseAPIView):
 
     def get(self, request, workspace_id, asset_key):
         asset_key = str(workspace_id) + "/" + asset_key
-        files = FileAsset.objects.filter(asset=asset_key)
+        # Container-bound files only for members of that container.
+        files = FileAsset.objects.filter(asset=asset_key).filter(
+            Q(project_id__isnull=True) | Q(project_id__in=member_project_ids(request.user))
+        )
         if files.exists():
             serializer = FileAssetSerializer(files, context={"request": request}, many=True)
             return Response({"data": serializer.data, "status": True}, status=status.HTTP_200_OK)

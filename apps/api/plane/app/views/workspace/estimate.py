@@ -12,6 +12,7 @@ from plane.app.serializers import WorkspaceEstimateSerializer
 from plane.app.views.base import BaseAPIView
 from plane.db.models import Estimate, Project
 from plane.utils.cache import cache_response
+from plane.utils.project_access import member_project_ids
 
 
 class WorkspaceEstimatesEndpoint(BaseAPIView):
@@ -20,9 +21,11 @@ class WorkspaceEstimatesEndpoint(BaseAPIView):
 
     @cache_response(60 * 60 * 2)
     def get(self, request, slug):
-        estimate_ids = Project.objects.filter(workspace__slug=slug, estimate__isnull=False).values_list(
-            "estimate_id", flat=True
-        )
+        estimate_ids = Project.objects.filter(
+            workspace__slug=slug,
+            estimate__isnull=False,
+            id__in=member_project_ids(request.user, slug),
+        ).values_list("estimate_id", flat=True)
         estimates = (
             Estimate.objects.filter(pk__in=estimate_ids, workspace__slug=slug)
             .prefetch_related("points")

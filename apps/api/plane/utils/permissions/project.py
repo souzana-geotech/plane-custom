@@ -66,14 +66,11 @@ class ProjectMemberPermission(BasePermission):
                 project_id=view.project_id,
                 is_active=True,
             ).exists()
-        ## Only workspace owners or admins can create the projects
-        if request.method == "POST":
-            return WorkspaceMember.objects.filter(
-                workspace__slug=view.workspace_slug,
-                member=request.user,
-                role__in=[ROLE.ADMIN.value, ROLE.MEMBER.value],
-                is_active=True,
-            ).exists()
+        ## Geotech3D: POST creates something inside ``view.project_id`` (a
+        ## publish board, a label), so it needs membership of that container.
+        ## Upstream checked only the workspace role, which let any workspace
+        ## member publish - or add labels to - a container they are not in.
+        ## POST now falls through to the same check as every other write.
 
         ## Only Project Admins can update project attributes
         return ProjectMember.objects.filter(

@@ -31,6 +31,7 @@ from plane.db.models import (
 
 from plane.utils.analytics_plot import build_graph_plot, VALID_ANALYTICS_FIELDS, VALID_YAXIS
 from plane.utils.issue_filters import issue_filters
+from plane.utils.project_access import member_project_ids
 from plane.app.permissions import allow_permission, ROLE
 
 
@@ -57,6 +58,10 @@ class AnalyticsEndpoint(BaseAPIView):
 
         # Additional filters that need to be applied
         filters = issue_filters(request.GET, "GET")
+        # Only containers the caller is an active member of. Every query below
+        # (including the state/label/assignee/cycle/module name extras) spreads
+        # ``filters``, so this one key scopes all of them.
+        filters["project_id__in"] = member_project_ids(request.user, slug)
 
         # Get the issues for the workspace with the additional filters applied
         queryset = Issue.issue_objects.filter(workspace__slug=slug, **filters)
@@ -192,7 +197,9 @@ class SavedAnalyticEndpoint(BaseAPIView):
         analytic_view = AnalyticView.objects.get(pk=analytic_id, workspace__slug=slug)
 
         filter = analytic_view.query
-        queryset = Issue.issue_objects.filter(**filter)
+        queryset = Issue.issue_objects.filter(**filter).filter(
+            workspace__slug=slug, project_id__in=member_project_ids(request.user, slug)
+        )
 
         x_axis = analytic_view.query_dict.get("x_axis", False)
         y_axis = analytic_view.query_dict.get("y_axis", False)
@@ -240,7 +247,7 @@ class ExportAnalyticsEndpoint(BaseAPIView):
                 status=status.HTTP_400_BAD_REQUEST,
             )
 
-        analytic_export_task.delay(email=request.user.email, data=request.data, slug=slug)
+        analytic_export_task.delay(email=request.user.email, data=request.data, slug=slug, user_id=str(request.user.id))
 
         return Response(
             {"message": f"Once the export is ready it will be emailed to you at {str(request.user.email)}"},
@@ -252,7 +259,9 @@ class DefaultAnalyticsEndpoint(BaseAPIView):
     @allow_permission([ROLE.ADMIN, ROLE.MEMBER, ROLE.GUEST], level="WORKSPACE")
     def get(self, request, slug):
         filters = issue_filters(request.GET, "GET")
-        base_issues = Issue.issue_objects.filter(workspace__slug=slug, **filters)
+        base_issues = Issue.issue_objects.filter(
+            workspace__slug=slug, project_id__in=member_project_ids(request.user, slug), **filters
+        )
 
         total_issues = base_issues.count()
 
@@ -406,7 +415,7 @@ class ProjectStatsEndpoint(BaseAPIView):
         if not requested_fields:
             requested_fields = valid_fields
 
-        projects = Project.objects.filter(workspace__slug=slug)
+        projects = Project.objects.filter(workspace__slug=slug, id__in=member_project_ids(request.user, slug))
         if project_ids:
             projects = projects.filter(id__in=project_ids.split(","))
 

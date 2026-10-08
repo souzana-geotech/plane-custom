@@ -43,6 +43,7 @@ from plane.utils.exception_logger import log_exception
 from .base import BaseAPIView
 from plane.utils.host import base_host
 from plane.utils.order_queryset import PROJECT_ORDER_BY_ALLOWLIST, sanitize_order_by
+from plane.utils.project_access import member_project_ids
 from plane.api.serializers import (
     ProjectSerializer,
     ProjectLiteSerializer,
@@ -720,7 +721,10 @@ class ProjectSummaryAPIEndpoint(BaseAPIView):
 
         Get the summary of a project
         """
-        project = Project.objects.filter(pk=project_id, workspace__slug=slug).first()
+        # Only for active members of the container, like the rest of the API.
+        project = Project.objects.filter(
+            pk=project_id, workspace__slug=slug, id__in=member_project_ids(request.user, slug)
+        ).first()
         if not project:
             return Response({"error": "Project not found"}, status=status.HTTP_404_NOT_FOUND)
         fields = request.GET.get("fields", "").split(",")

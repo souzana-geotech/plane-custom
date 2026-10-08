@@ -9,7 +9,10 @@ from rest_framework.response import Response
 from plane.app.permissions import allow_permission, ROLE
 from plane.app.serializers import ExporterHistorySerializer
 from plane.bgtasks.export_task import issue_export_task
+from django.db.models import Q
+
 from plane.db.models import ExporterHistory, Project, Workspace
+from plane.utils.project_access import member_project_ids
 
 # Module imports
 from .. import BaseAPIView
@@ -66,8 +69,20 @@ class ExportIssuesEndpoint(BaseAPIView):
 
     @allow_permission(allowed_roles=[ROLE.ADMIN, ROLE.MEMBER], level="WORKSPACE")
     def get(self, request, slug):
-        exporter_history = ExporterHistory.objects.filter(workspace__slug=slug, type="issue_exports").select_related(
-            "workspace", "initiated_by"
+        # Each row carries a download URL for the exported tasks, so a viewer
+        # sees their own exports plus those covering only containers they are
+        # an active member of. An export with no containers listed is private
+        # to whoever ran it.
+        my_project_ids = [
+            str(project_id) for project_id in member_project_ids(request.user, slug).values_list("project_id", flat=True)
+        ]
+        exporter_history = (
+            ExporterHistory.objects.filter(workspace__slug=slug, type="issue_exports")
+            .filter(
+                Q(initiated_by=request.user)
+                | (Q(project__contained_by=my_project_ids) & ~Q(project=[]) & Q(project__isnull=False))
+            )
+            .select_related("workspace", "initiated_by")
         )
 
         if request.GET.get("per_page", False) and request.GET.get("cursor", False):

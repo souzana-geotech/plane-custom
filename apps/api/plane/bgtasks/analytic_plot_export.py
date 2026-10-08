@@ -18,13 +18,14 @@ from django.db import models
 from django.db.models.functions import Cast, Concat
 
 # Module imports
-from plane.db.models import Issue
+from plane.db.models import Issue, User
 from plane.license.utils.instance_value import get_email_configuration
 from plane.utils.analytics_plot import build_graph_plot
 from plane.utils.email import generate_plain_text_from_html
 from plane.utils.exception_logger import log_exception
 from plane.utils.issue_filters import issue_filters
 from plane.utils.csv_utils import sanitize_csv_row
+from plane.utils.project_access import member_project_ids
 
 row_mapping = {
     "state__name": "State",
@@ -347,9 +348,20 @@ def generate_non_segmented_rows(
 
 
 @shared_task
-def analytic_export_task(email, data, slug):
+def analytic_export_task(email, data, slug, user_id=None):
     try:
+        # Export only containers the requester is an active member of. Tasks
+        # queued before ``user_id`` existed carry just the requester's email,
+        # which is unique per user; with neither, export nothing.
+        requester = (
+            User.objects.filter(pk=user_id).first() if user_id else User.objects.filter(email=email).first()
+        )
+        if requester is None:
+            return
+
         filters = issue_filters(data, "POST")
+        # Every detail query below spreads ``filters``, so this scopes them all.
+        filters["project_id__in"] = member_project_ids(requester, slug)
         queryset = Issue.issue_objects.filter(**filters, workspace__slug=slug)
 
         x_axis = data.get("x_axis", False)

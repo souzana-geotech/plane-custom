@@ -41,6 +41,7 @@ from plane.db.models import (
     ProjectPage,
     WorkspaceMember,
 )
+from plane.utils.project_access import member_project_ids
 
 
 class GlobalSearchEndpoint(BaseAPIView):
@@ -335,6 +336,8 @@ class SearchEndpoint(BaseAPIView):
                             workspace__slug=slug,
                             member__is_bot=False,
                             project_id=project_id,
+                            # The caller must be in this container to list its members.
+                            project_id__in=member_project_ids(self.request.user, slug),
                         )
                         .annotate(
                             member__avatar_url=Case(
@@ -375,7 +378,7 @@ class SearchEndpoint(BaseAPIView):
                     projects = (
                         Project.objects.filter(
                             q,
-                            Q(project_projectmember__member=self.request.user) | Q(network=2),
+                            Q(id__in=member_project_ids(self.request.user, slug)) | Q(network=2),
                             workspace__slug=slug,
                         )
                         .order_by("-created_at")
@@ -580,7 +583,7 @@ class SearchEndpoint(BaseAPIView):
                     projects = (
                         Project.objects.filter(
                             q,
-                            Q(project_projectmember__member=self.request.user) | Q(network=2),
+                            Q(id__in=member_project_ids(self.request.user, slug)) | Q(network=2),
                             workspace__slug=slug,
                         )
                         .order_by("-created_at")

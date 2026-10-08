@@ -59,6 +59,7 @@ from plane.utils.grouper import (
     issue_queryset_grouper,
 )
 from plane.utils.issue_filters import issue_filters
+from plane.utils.project_access import member_project_ids
 from plane.utils.order_queryset import ACTIVITY_ORDER_BY_ALLOWLIST, order_issue_queryset, sanitize_order_by
 from plane.utils.paginator import GroupedOffsetPaginator, SubGroupedOffsetPaginator
 from plane.utils.filters import ComplexFilterBackend
@@ -403,6 +404,8 @@ class WorkspaceUserActivityEndpoint(BaseAPIView):
 
 
 class WorkspaceUserProfileStatsEndpoint(BaseAPIView):
+    permission_classes = [WorkspaceViewerPermission]
+
     def get(self, request, slug, user_id):
         filters = issue_filters(request.query_params, "GET")
 
@@ -505,6 +508,7 @@ class WorkspaceUserProfileStatsEndpoint(BaseAPIView):
             workspace__slug=slug,
             cycle__start_date__gt=timezone.now(),
             issue__assignees__in=[user_id],
+            project_id__in=member_project_ids(request.user, slug),
         ).values("cycle__name", "cycle__id", "cycle__project_id")
 
         present_cycle = CycleIssue.objects.filter(
@@ -512,6 +516,7 @@ class WorkspaceUserProfileStatsEndpoint(BaseAPIView):
             cycle__start_date__lt=timezone.now(),
             cycle__end_date__gt=timezone.now(),
             issue__assignees__in=[user_id],
+            project_id__in=member_project_ids(request.user, slug),
         ).values("cycle__name", "cycle__id", "cycle__project_id")
 
         return Response(

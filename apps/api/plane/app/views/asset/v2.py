@@ -24,6 +24,7 @@ from plane.settings.storage import S3Storage
 from plane.app.permissions import allow_permission, ROLE
 from plane.utils.cache import invalidate_cache_directly
 from plane.utils.path_validator import sanitize_filename
+from plane.utils.project_access import is_active_project_member
 from plane.bgtasks.storage_metadata_task import get_asset_object_metadata
 from plane.throttles.asset import AssetRateThrottle
 
@@ -829,6 +830,12 @@ class DuplicateAssetEndpoint(BaseAPIView):
             # check if project exists in the workspace
             if not Project.objects.filter(id=project_id, workspace=workspace).exists():
                 return Response({"error": "Project not found"}, status=status.HTTP_404_NOT_FOUND)
+            # and that the caller may put files into it
+            if not is_active_project_member(request.user, project_id):
+                return Response(
+                    {"error": "You don't have access to this project."},
+                    status=status.HTTP_403_FORBIDDEN,
+                )
 
         storage = S3Storage(request=request)
         # Restrict the source asset to the same destination workspace to prevent cross-workspace asset copying
@@ -839,6 +846,13 @@ class DuplicateAssetEndpoint(BaseAPIView):
         ).first()
 
         if not original_asset:
+            return Response({"error": "Asset not found"}, status=status.HTTP_404_NOT_FOUND)
+
+        # A copy is readable by whoever can see its destination, so copying is
+        # a read of the source: a container-bound source needs membership.
+        if original_asset.project_id is not None and not is_active_project_member(
+            request.user, original_asset.project_id
+        ):
             return Response({"error": "Asset not found"}, status=status.HTTP_404_NOT_FOUND)
 
         sanitized_name = sanitize_filename(original_asset.attributes.get("name")) or "unnamed"
@@ -877,6 +891,15 @@ class WorkspaceAssetDownloadEndpoint(BaseAPIView):
                 is_uploaded=True,
             )
         except FileAsset.DoesNotExist:
+            return Response(
+                {"error": "The requested asset could not be found."},
+                status=status.HTTP_404_NOT_FOUND,
+            )
+
+        # Workspace-level route, so a container-bound asset (attachment, page
+        # image) still needs membership of its container. Answer 404 like a
+        # missing asset rather than confirming it exists.
+        if asset.project_id is not None and not is_active_project_member(request.user, asset.project_id):
             return Response(
                 {"error": "The requested asset could not be found."},
                 status=status.HTTP_404_NOT_FOUND,

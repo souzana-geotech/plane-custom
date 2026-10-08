@@ -23,6 +23,7 @@ from plane.db.models import (
     ProjectMember,
 )
 from plane.utils.build_chart import build_analytics_chart
+from plane.utils.project_access import member_project_ids
 from plane.utils.date_utils import (
     get_analytics_filters,
 )
@@ -73,7 +74,7 @@ class AdvanceAnalyticsEndpoint(AdvanceAnalyticsBaseView):
             project_ids = [str(project_id) for project_id in project_ids.split(",")]
             members_query = ProjectMember.objects.filter(
                 project_id__in=project_ids, is_active=True, member__is_bot=False
-            )
+            ).filter(project_id__in=member_project_ids(self.request.user, self._workspace_slug))
 
         return {
             "total_users": self.get_filtered_counts(members_query),
