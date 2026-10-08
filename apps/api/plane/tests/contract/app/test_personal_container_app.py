@@ -2,19 +2,18 @@
 # SPDX-License-Identifier: AGPL-3.0-only
 # See the LICENSE file for details.
 
-"""Contract tests for "My Space" - a private workspace per person (Phase 1).
+"""Contract tests for "My Space", the personal container (Phase 1, backend).
 
-See ``plane.utils.personal_project`` for the rules. ``alice`` is a MEMBER of
-the company ``workspace`` and owns a My Space; ``create_user``
-(``session_client``) is the company workspace owner and ADMIN, who must not be
-able to see, join or change it.
+See ``plane.utils.personal_project`` for the rules. ``alice`` is a workspace
+MEMBER who owns a My Space; ``create_user`` (``session_client``) is the
+workspace owner and ADMIN, who must not be able to see, join, edit or reach
+into it. My Space is one container per person, shared by all their
+workspaces: it lives where it was first opened.
 """
 
-from unittest import mock
 from uuid import uuid4
 
 import pytest
-from django.utils import timezone
 from rest_framework import status
 from rest_framework.test import APIClient
 
@@ -26,15 +25,12 @@ from plane.db.models import (
     ProjectMember,
     State,
     User,
-    Webhook,
     Workspace,
     WorkspaceMember,
-    WorkspaceMemberInvite,
 )
 from plane.db.models.state import DEFAULT_STATES
 
 ADMIN, MEMBER, GUEST = 20, 15, 5
-MY_SPACE_URL = "/api/users/me/my-space/"
 
 
 def _user(prefix):
@@ -71,20 +67,20 @@ def alice_client(alice):
     return _client(alice)
 
 
+def _open_my_space(client, workspace):
+    return client.post(f"/api/workspaces/{workspace.slug}/my-space/", {}, format="json")
+
+
 @pytest.fixture
-def my_space(alice_client):
-    """``(workspace, project)`` of alice's My Space."""
-    response = alice_client.post(MY_SPACE_URL, {}, format="json")
+def my_space(alice_client, workspace):
+    response = _open_my_space(alice_client, workspace)
     assert response.status_code == status.HTTP_200_OK
-    return (
-        Workspace.objects.get(pk=response.data["workspace"]["id"]),
-        Project.objects.get(pk=response.data["project"]["id"]),
-    )
+    return Project.objects.get(pk=response.data["id"])
 
 
 @pytest.fixture
 def team(db, workspace, create_user, alice):
-    """A container in the company workspace that both the admin and alice belong to."""
+    """An ordinary container both the admin and alice belong to."""
     project = Project.objects.create(name="Team", identifier="TEAM", workspace=workspace, created_by=create_user)
     ProjectMember.objects.create(project=project, member=create_user, workspace=workspace, role=ADMIN)
     ProjectMember.objects.create(project=project, member=alice, workspace=workspace, role=MEMBER)
@@ -94,201 +90,187 @@ def team(db, workspace, create_user, alice):
 @pytest.mark.contract
 class TestOpeningMySpace:
     @pytest.mark.django_db
-    def test_first_open_creates_a_private_workspace_with_one_container(self, alice, my_space):
-        space, container = my_space
-        assert (space.is_personal, space.owner_id, space.name) == (True, alice.id, "My Space")
-        assert space.slug == f"my-space-{alice.id.hex}"
-        assert list(WorkspaceMember.objects.filter(workspace=space).values_list("member_id", "role")) == [
-            (alice.id, ADMIN)
-        ]
-
-        assert list(Project.objects.filter(workspace=space)) == [container]
-        assert (container.is_personal, container.owner_id, container.identifier, container.network) == (
-            True,
-            alice.id,
-            "MY",
-            0,
+    def test_first_open_creates_a_private_tasks_and_pages_container(self, alice, my_space):
+        assert my_space.is_personal is True
+        assert my_space.owner_id == alice.id
+        assert my_space.network == 0
+        assert my_space.identifier.startswith("MY")
+        assert (my_space.module_view, my_space.cycle_view, my_space.issue_views_view, my_space.intake_view) == (
+            False,
+            False,
+            False,
+            False,
         )
-        features = (container.module_view, container.cycle_view, container.issue_views_view, container.intake_view)
-        assert features == (False, False, False, False)
-        assert container.page_view is True
-        assert list(ProjectMember.objects.filter(project=container).values_list("member_id", "role")) == [
+        assert my_space.page_view is True
+        assert list(ProjectMember.objects.filter(project=my_space).values_list("member_id", "role")) == [
             (alice.id, ADMIN)
         ]
         # ``State.objects`` hides the Triage state, as it does for every container.
-        assert State.objects.filter(project=container).count() == len(
+        assert State.objects.filter(project=my_space).count() == len(
             [state for state in DEFAULT_STATES if state["group"] != "triage"]
         )
 
     @pytest.mark.django_db
-    def test_it_is_one_place_whichever_workspace_you_come_from(self, alice, alice_client, my_space):
-        other = Workspace.objects.create(name="Other company", slug="other-company", owner=alice)
-        WorkspaceMember.objects.create(workspace=other, member=alice, role=MEMBER)
-
-        response = alice_client.post(MY_SPACE_URL, {}, format="json")
+    def test_opening_again_returns_the_same_container(self, alice_client, workspace, my_space):
+        response = _open_my_space(alice_client, workspace)
         assert response.status_code == status.HTTP_200_OK
-        assert response.data["workspace"]["id"] == my_space[0].id
-        assert response.data["project"]["id"] == my_space[1].id
-        assert Workspace.objects.filter(owner=alice, is_personal=True).count() == 1
+        assert response.data["id"] == my_space.id
+        assert response.data["workspace_slug"] == workspace.slug
+        assert Project.objects.filter(workspace=workspace, is_personal=True).count() == 1
 
     @pytest.mark.django_db
-    def test_everyone_gets_their_own(self, session_client, my_space):
-        response = session_client.post(MY_SPACE_URL, {}, format="json")
+    def test_it_is_one_container_whichever_workspace_you_open_it_from(
+        self, alice, alice_client, workspace, my_space
+    ):
+        other = Workspace.objects.create(name="Dubai", slug="dubai", owner=alice)
+        WorkspaceMember.objects.create(workspace=other, member=alice, role=MEMBER)
+
+        response = _open_my_space(alice_client, other)
         assert response.status_code == status.HTTP_200_OK
-        assert response.data["workspace"]["id"] != my_space[0].id
+        assert response.data["id"] == my_space.id
+        # The web app opens it in its home workspace.
+        assert (response.data["workspace_slug"], response.data["workspace_name"]) == (workspace.slug, workspace.name)
+        assert Project.objects.filter(owner=alice, is_personal=True).count() == 1
+        assert not Project.objects.filter(workspace=other).exists()
+
+    @pytest.mark.django_db
+    def test_leaving_the_home_workspace_closes_it_and_rejoining_reopens_it(
+        self, alice, alice_client, workspace, my_space
+    ):
+        other = Workspace.objects.create(name="Dubai", slug="dubai", owner=alice)
+        WorkspaceMember.objects.create(workspace=other, member=alice, role=MEMBER)
+        assert alice_client.post(f"/api/workspaces/{workspace.slug}/members/leave/").status_code == 204
+
+        closed = _open_my_space(alice_client, other)
+        assert closed.status_code == status.HTTP_403_FORBIDDEN
+        assert closed.data["error_code"] == "MY_SPACE_UNAVAILABLE"
+        assert Project.objects.filter(pk=my_space.pk).exists()
+        assert not Project.objects.filter(workspace=other).exists()
+
+        WorkspaceMember.objects.filter(workspace=workspace, member=alice).update(is_active=True)
+        reopened = _open_my_space(alice_client, other)
+        assert reopened.status_code == status.HTTP_200_OK
+        assert reopened.data["id"] == my_space.id
+        assert ProjectMember.objects.get(project=my_space, member=alice).is_active is True
+
+    @pytest.mark.django_db
+    def test_everyone_gets_their_own(self, session_client, workspace, my_space):
+        response = _open_my_space(session_client, workspace)
+        assert response.status_code == status.HTTP_200_OK
+        assert response.data["id"] != my_space.id
 
     @pytest.mark.django_db
     def test_guests_do_not_get_one(self, workspace):
         guest = _user("guest")
         WorkspaceMember.objects.create(workspace=workspace, member=guest, role=GUEST)
-        assert _client(guest).post(MY_SPACE_URL, {}, format="json").status_code == status.HTTP_403_FORBIDDEN
-        assert not Workspace.objects.filter(is_personal=True).exists()
+        assert _open_my_space(_client(guest), workspace).status_code == status.HTTP_403_FORBIDDEN
+        assert not Project.objects.filter(is_personal=True).exists()
 
     @pytest.mark.django_db
-    def test_someone_demoted_later_keeps_theirs(self, alice, alice_client, workspace, my_space):
-        WorkspaceMember.objects.filter(workspace=workspace, member=alice).update(role=GUEST)
-        response = alice_client.post(MY_SPACE_URL, {}, format="json")
-        assert response.status_code == status.HTTP_200_OK
-        assert response.data["workspace"]["id"] == my_space[0].id
-
-    @pytest.mark.django_db
-    def test_opening_restores_the_owners_memberships(self, alice, alice_client, my_space):
-        space, container = my_space
-        WorkspaceMember.objects.filter(workspace=space, member=alice).update(is_active=False, role=GUEST)
-        ProjectMember.objects.filter(project=container, member=alice).update(is_active=False, role=GUEST)
-
-        assert alice_client.post(MY_SPACE_URL, {}, format="json").status_code == status.HTTP_200_OK
-        workspace_membership = WorkspaceMember.objects.get(workspace=space, member=alice)
-        container_membership = ProjectMember.objects.get(project=container, member=alice)
-        assert (workspace_membership.is_active, workspace_membership.role) == (True, ADMIN)
-        assert (container_membership.is_active, container_membership.role) == (True, ADMIN)
+    def test_opening_restores_a_deactivated_membership(self, alice, alice_client, workspace, my_space):
+        ProjectMember.objects.filter(project=my_space, member=alice).update(is_active=False, role=GUEST)
+        assert _open_my_space(alice_client, workspace).status_code == status.HTTP_200_OK
+        membership = ProjectMember.objects.get(project=my_space, member=alice)
+        assert (membership.is_active, membership.role) == (True, ADMIN)
 
 
 @pytest.mark.contract
-class TestOutsiders:
+class TestHiddenFromEveryoneElse:
     @pytest.mark.django_db
-    def test_company_admin_cannot_reach_it(self, session_client, my_space):
-        space, container = my_space
-        base = f"/api/workspaces/{space.slug}"
-        assert session_client.get(f"{base}/projects/").status_code == status.HTTP_403_FORBIDDEN
-        issues = session_client.get(f"{base}/projects/{container.id}/issues/")
-        assert issues.status_code == status.HTTP_403_FORBIDDEN
-        renamed = session_client.patch(f"{base}/", {"name": "taken"}, format="json")
-        assert renamed.status_code in (status.HTTP_403_FORBIDDEN, status.HTTP_404_NOT_FOUND)
-        space.refresh_from_db()
-        assert space.name == "My Space"
+    def test_not_in_the_admins_container_list(self, session_client, alice_client, workspace, my_space, team):
+        ids = {str(row["id"]) for row in session_client.get(f"/api/workspaces/{workspace.slug}/projects/").data}
+        assert str(my_space.id) not in ids
+        assert str(team.id) in ids
+
+        detail = session_client.get(f"/api/workspaces/{workspace.slug}/projects/details/").data
+        assert str(my_space.id) not in {str(row["id"]) for row in detail}
+
+        own = {
+            str(row["id"]): row for row in alice_client.get(f"/api/workspaces/{workspace.slug}/projects/").data
+        }
+        assert own[str(my_space.id)]["is_personal"] is True
 
     @pytest.mark.django_db
-    def test_not_in_the_admins_workspace_list(self, session_client, my_space):
-        slugs = {row["slug"] for row in session_client.get("/api/users/me/workspaces/").data}
-        assert my_space[0].slug not in slugs
+    def test_admin_cannot_open_edit_delete_or_archive_it(self, session_client, workspace, my_space):
+        url = f"/api/workspaces/{workspace.slug}/projects/{my_space.id}/"
+        assert session_client.get(url).status_code == status.HTTP_404_NOT_FOUND
+        assert session_client.patch(url, {"name": "taken"}, format="json").status_code == status.HTTP_404_NOT_FOUND
+        assert session_client.delete(url).status_code == status.HTTP_404_NOT_FOUND
+        assert session_client.post(f"{url}archive/").status_code == status.HTTP_403_FORBIDDEN
+        my_space.refresh_from_db()
+        assert my_space.deleted_at is None and my_space.archived_at is None
+        assert my_space.name.startswith("My Space")
 
     @pytest.mark.django_db
-    def test_owner_sees_it_flagged_in_their_workspace_list(self, alice_client, my_space):
-        rows = {row["slug"]: row for row in alice_client.get("/api/users/me/workspaces/").data}
-        assert rows[my_space[0].slug]["is_personal"] is True
-
-    @pytest.mark.django_db
-    def test_hidden_from_the_instance_admin_workspace_list(self, create_user, my_space):
-        from plane.license.models import Instance, InstanceAdmin
-
-        instance = Instance.objects.first() or Instance.objects.create(
-            instance_name="test",
-            instance_id=uuid4().hex,
-            current_version="0",
-            latest_version="0",
-            last_checked_at=timezone.now(),
+    def test_admin_cannot_join_it(self, session_client, create_user, workspace, my_space):
+        response = session_client.post(
+            f"/api/users/me/workspaces/{workspace.slug}/projects/invitations/",
+            {"project_ids": [str(my_space.id)]},
+            format="json",
         )
-        InstanceAdmin.objects.get_or_create(instance=instance, user=create_user, defaults={"role": 20})
-        response = _client(create_user).get("/api/instances/workspaces/", {"per_page": 10, "cursor": "10:0:0"})
-        assert response.status_code == status.HTTP_200_OK, response.data
-        assert my_space[0].slug not in {row["slug"] for row in response.data["results"]}
+        assert response.status_code in (status.HTTP_200_OK, status.HTTP_201_CREATED)
+        assert not ProjectMember.objects.filter(project=my_space, member=create_user).exists()
 
 
 @pytest.mark.contract
-class TestFixedShape:
+class TestOnlyTheOwnerIsAMember:
     @pytest.mark.django_db
-    def test_nobody_can_be_invited_or_change_membership(self, alice, alice_client, my_space):
-        space, _ = my_space
-        base = f"/api/workspaces/{space.slug}"
-        invited = alice_client.post(
-            f"{base}/invitations/", {"emails": [{"email": "x@plane.so", "role": MEMBER}]}, format="json"
+    def test_members_cannot_be_added_invited_or_changed(self, alice, alice_client, create_user, workspace, my_space):
+        base = f"/api/workspaces/{workspace.slug}/projects/{my_space.id}"
+        added = alice_client.post(
+            f"{base}/members/", {"members": [{"member_id": str(create_user.id), "role": MEMBER}]}, format="json"
         )
-        own = WorkspaceMember.objects.get(workspace=space, member=alice)
-        changed = alice_client.patch(f"{base}/members/{own.id}/", {"role": MEMBER}, format="json")
-        removed = alice_client.delete(f"{base}/members/{own.id}/")
+        invited = alice_client.post(f"{base}/invitations/", {"emails": [{"email": "x@plane.so"}]}, format="json")
+        membership = ProjectMember.objects.get(project=my_space, member=alice)
+        changed = alice_client.patch(f"{base}/members/{membership.id}/", {"role": MEMBER}, format="json")
         left = alice_client.post(f"{base}/members/leave/")
 
-        for response in (invited, changed, removed, left):
+        for response in (added, invited, changed, left):
             assert response.status_code == status.HTTP_400_BAD_REQUEST
             assert response.data["error_code"] == "PERSONAL_PROJECT_LOCKED"
-        assert not WorkspaceMemberInvite.objects.filter(workspace=space).exists()
-        memberships = WorkspaceMember.objects.filter(workspace=space).values_list("member_id", "role", "is_active")
-        assert list(memberships) == [(alice.id, ADMIN, True)]
-
-    @pytest.mark.django_db
-    def test_the_workspace_cannot_be_renamed_deleted_or_given_a_second_container(self, alice_client, my_space):
-        space, _ = my_space
-        base = f"/api/workspaces/{space.slug}"
-        assert alice_client.patch(f"{base}/", {"name": "Mine"}, format="json").status_code == 400
-        assert alice_client.delete(f"{base}/").status_code == 400
-        created = alice_client.post(f"{base}/projects/", {"name": "Second", "identifier": "SEC"}, format="json")
-        assert created.status_code == 400
-        space.refresh_from_db()
-        assert (space.name, space.deleted_at) == ("My Space", None)
-        assert Project.objects.filter(workspace=space).count() == 1
-
-    @pytest.mark.django_db
-    def test_the_container_cannot_be_shared_published_deleted_or_made_public(self, alice, alice_client, my_space):
-        space, container = my_space
-        base = f"/api/workspaces/{space.slug}/projects/{container.id}"
-        membership = ProjectMember.objects.get(project=container, member=alice)
-        new_member = {"members": [{"member_id": str(uuid4()), "role": MEMBER}]}
-        responses = [
-            alice_client.post(f"{base}/members/", new_member, format="json"),
-            alice_client.post(f"{base}/invitations/", {"emails": [{"email": "x@plane.so"}]}, format="json"),
-            alice_client.patch(f"{base}/members/{membership.id}/", {"role": MEMBER}, format="json"),
-            alice_client.post(f"{base}/members/leave/"),
-            alice_client.post(f"{base}/project-deploy-boards/", {}, format="json"),
-            alice_client.patch(f"{base}/", {"network": 2}, format="json"),
-            alice_client.delete(f"{base}/"),
-            alice_client.post(f"{base}/archive/"),
+        assert list(ProjectMember.objects.filter(project=my_space).values_list("member_id", "role", "is_active")) == [
+            (alice.id, ADMIN, True)
         ]
-        assert [response.status_code for response in responses] == [400] * len(responses)
-        container.refresh_from_db()
-        assert (container.network, container.deleted_at, container.archived_at) == (0, None, None)
-        assert not DeployBoard.objects.filter(project=container).exists()
-
-    @pytest.mark.django_db
-    def test_the_owner_can_still_use_it(self, alice_client, my_space):
-        space, container = my_space
-        response = alice_client.post(
-            f"/api/workspaces/{space.slug}/projects/{container.id}/issues/", {"name": "note to self"}, format="json"
-        )
-        assert response.status_code == status.HTTP_201_CREATED
-        assert Issue.objects.get(pk=response.data["id"]).sequence_id == 1
-
-    @pytest.mark.django_db
-    def test_company_slugs_cannot_take_the_reserved_prefix(self, session_client):
-        response = session_client.post(
-            "/api/workspaces/", {"name": "Sneaky", "slug": f"my-space-{uuid4().hex}"}, format="json"
-        )
-        assert response.status_code == status.HTTP_409_CONFLICT
-        # ``status`` is "available".
-        check = session_client.get("/api/workspace-slug-check/", {"slug": "my-space-anything"})
-        assert check.data["status"] is False
 
 
 @pytest.mark.contract
-class TestSealed:
+class TestOwnerLimits:
     @pytest.mark.django_db
-    def test_no_relation_out_of_my_space(self, alice, alice_client, my_space, team):
-        space, container = my_space
-        mine = _issue("private note", container, alice)
-        sibling = _issue("another private note", container, alice)
+    def test_owner_can_rename_but_not_make_it_public(self, alice_client, workspace, my_space):
+        url = f"/api/workspaces/{workspace.slug}/projects/{my_space.id}/"
+        assert alice_client.patch(url, {"name": "Scratchpad"}, format="json").status_code == status.HTTP_200_OK
+        assert alice_client.patch(url, {"network": 2}, format="json").status_code == status.HTTP_400_BAD_REQUEST
+        assert (
+            alice_client.patch(url, {"is_personal": False, "owner": None}, format="json").status_code
+            == status.HTTP_200_OK
+        )
+        my_space.refresh_from_db()
+        assert (my_space.name, my_space.network, my_space.is_personal) == ("Scratchpad", 0, True)
+        assert my_space.owner_id is not None
+
+    @pytest.mark.django_db
+    def test_owner_cannot_delete_archive_or_publish_it(self, alice_client, workspace, my_space):
+        base = f"/api/workspaces/{workspace.slug}/projects/{my_space.id}"
+        assert alice_client.delete(f"{base}/").status_code == status.HTTP_400_BAD_REQUEST
+        assert alice_client.post(f"{base}/archive/").status_code == status.HTTP_400_BAD_REQUEST
+        assert (
+            alice_client.post(f"{base}/project-deploy-boards/", {}, format="json").status_code
+            == status.HTTP_400_BAD_REQUEST
+        )
+        my_space.refresh_from_db()
+        assert my_space.deleted_at is None and my_space.archived_at is None
+        assert not DeployBoard.objects.filter(project=my_space).exists()
+
+
+@pytest.mark.contract
+class TestSealedFromOtherContainers:
+    @pytest.mark.django_db
+    def test_no_relation_out_of_my_space(self, alice, alice_client, workspace, my_space, team):
+        mine = _issue("private note", my_space, alice)
+        sibling = _issue("another private note", my_space, alice)
         outside = _issue("team task", team, alice)
         response = alice_client.post(
-            f"/api/workspaces/{space.slug}/projects/{container.id}/issues/{mine.id}/issue-relation/",
+            f"/api/workspaces/{workspace.slug}/projects/{my_space.id}/issues/{mine.id}/issue-relation/",
             {"relation_type": "relates_to", "issues": [str(outside.id), str(sibling.id)]},
             format="json",
         )
@@ -296,12 +278,27 @@ class TestSealed:
         assert list(IssueRelation.objects.values_list("related_issue_id", flat=True)) == [sibling.id]
 
     @pytest.mark.django_db
-    def test_webhooks_never_carry_my_space_events(self, alice, my_space, team):
-        from plane.bgtasks import webhook_task
+    def test_no_relation_into_my_space(self, alice, alice_client, workspace, my_space, team):
+        mine = _issue("private note", my_space, alice)
+        outside = _issue("team task", team, alice)
+        response = alice_client.post(
+            f"/api/workspaces/{workspace.slug}/projects/{team.id}/issues/{outside.id}/issue-relation/",
+            {"relation_type": "blocked_by", "issues": [str(mine.id)]},
+            format="json",
+        )
+        assert response.status_code == status.HTTP_201_CREATED
+        assert not IssueRelation.objects.exists()
 
-        space, container = my_space
-        Webhook.objects.create(workspace=space, url="https://hooks.example.com/mine", issue=True)
-        Webhook.objects.create(workspace=team.workspace, url="https://hooks.example.com/team", issue=True)
+    @pytest.mark.django_db
+    def test_webhook_activity_sends_team_events_only(self, alice, workspace, my_space, team):
+        from unittest import mock
+
+        from plane.bgtasks import webhook_task
+        from plane.db.models import Webhook
+
+        Webhook.objects.create(workspace=workspace, url="https://hooks.example.com/plane", issue=True)
+        private = _issue("private", my_space, alice)
+        shared = _issue("shared", team, alice)
 
         def fire(issue):
             webhook_task.webhook_activity(
@@ -311,7 +308,7 @@ class TestSealed:
                 old_value=None,
                 new_value=issue.name,
                 actor_id=alice.id,
-                slug=issue.workspace.slug,
+                slug=workspace.slug,
                 current_site="https://example.com",
                 event_id=issue.id,
                 old_identifier=None,
@@ -319,27 +316,60 @@ class TestSealed:
             )
 
         with mock.patch.object(webhook_task.webhook_send_task, "delay") as send:
-            fire(_issue("private", container, alice))
+            fire(private)
             assert not send.called
-            fire(_issue("shared", team, alice))
+            fire(shared)
             assert send.call_count == 1
+
+    @pytest.mark.django_db
+    def test_webhooks_skip_my_space_events(self, alice, my_space, team):
+        from plane.bgtasks.webhook_task import _is_personal_project_event
+
+        assert _is_personal_project_event("project", my_space.id) is True
+        assert _is_personal_project_event("issue", _issue("private", my_space, alice).id) is True
+        assert _is_personal_project_event("project", team.id) is False
+        assert _is_personal_project_event("issue", _issue("shared", team, alice).id) is False
+
+
+@pytest.mark.contract
+class TestWorkspaceMembership:
+    @pytest.mark.django_db
+    def test_demotion_to_guest_closes_my_space_but_keeps_it(
+        self, session_client, alice, alice_client, workspace, my_space, team
+    ):
+        workspace_member = WorkspaceMember.objects.get(workspace=workspace, member=alice)
+        response = session_client.patch(
+            f"/api/workspaces/{workspace.slug}/members/{workspace_member.id}/", {"role": GUEST}, format="json"
+        )
+        assert response.status_code == status.HTTP_200_OK
+
+        personal = ProjectMember.objects.get(project=my_space, member=alice)
+        assert personal.is_active is False
+        assert ProjectMember.objects.get(project=team, member=alice).role == GUEST
+        assert Project.objects.filter(pk=my_space.pk).exists()
+        assert _open_my_space(alice_client, workspace).status_code == status.HTTP_403_FORBIDDEN
+
+    @pytest.mark.django_db
+    def test_my_space_does_not_block_leaving_the_workspace(self, alice, alice_client, workspace, my_space):
+        response = alice_client.post(f"/api/workspaces/{workspace.slug}/members/leave/")
+        assert response.status_code == status.HTTP_204_NO_CONTENT
+        assert ProjectMember.objects.get(project=my_space, member=alice).is_active is False
 
 
 @pytest.mark.contract
 class TestExternalApi:
     @pytest.mark.django_db
-    def test_external_api_refuses_to_change_my_space(self, session_client, api_key_client, alice):
-        opened = session_client.post(MY_SPACE_URL, {}, format="json").data
-        slug, project_id = opened["workspace"]["slug"], opened["project"]["id"]
-        base = f"/api/v1/workspaces/{slug}"
+    def test_member_endpoints_refuse_my_space(self, session_client, api_key_client, create_user, workspace, alice):
+        my_space_id = _open_my_space(session_client, workspace).data["id"]
+        base = f"/api/v1/workspaces/{workspace.slug}/projects/{my_space_id}"
 
-        new_member = {"member": str(alice.id), "role": MEMBER}
-        responses = [
-            api_key_client.post(f"{base}/projects/{project_id}/members/", new_member, format="json"),
-            api_key_client.post(f"{base}/projects/", {"name": "Second", "identifier": "SEC"}, format="json"),
-            api_key_client.post(f"{base}/invitations/", {"email": "x@plane.so", "role": MEMBER}, format="json"),
-            api_key_client.delete(f"{base}/projects/{project_id}/"),
-            api_key_client.patch(f"{base}/projects/{project_id}/", {"network": 2}, format="json"),
-        ]
-        assert [response.status_code for response in responses] == [400] * len(responses)
-        assert Project.objects.get(pk=project_id).network == 0
+        response = api_key_client.post(f"{base}/members/", {"member": str(alice.id), "role": MEMBER}, format="json")
+        assert response.status_code == status.HTTP_400_BAD_REQUEST
+        assert not ProjectMember.objects.filter(project_id=my_space_id, member=alice).exists()
+
+        assert api_key_client.delete(f"{base}/").status_code == status.HTTP_400_BAD_REQUEST
+        assert (
+            api_key_client.patch(f"{base}/", {"network": 2}, format="json").status_code
+            == status.HTTP_400_BAD_REQUEST
+        )
+        assert Project.objects.get(pk=my_space_id).network == 0

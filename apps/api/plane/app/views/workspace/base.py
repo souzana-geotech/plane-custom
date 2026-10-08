@@ -48,7 +48,6 @@ from plane.license.utils.instance_value import get_configuration_value
 from plane.bgtasks.workspace_seed_task import workspace_seed
 from plane.utils.url import contains_url
 from plane.utils.csv_utils import sanitize_csv_row
-from plane.utils.personal_project import is_reserved_workspace_slug, personal_project_error
 
 
 class WorkSpaceViewSet(BaseViewSet):
@@ -107,9 +106,6 @@ class WorkSpaceViewSet(BaseViewSet):
                     status=status.HTTP_400_BAD_REQUEST,
                 )
 
-            if is_reserved_workspace_slug(slug):
-                return Response({"slug": "The workspace with the slug already exists"}, status=status.HTTP_409_CONFLICT)
-
             if len(name) > 80 or len(slug) > 48:
                 return Response(
                     {"error": "The maximum length for name is 80 and for slug is 48"},
@@ -159,8 +155,6 @@ class WorkSpaceViewSet(BaseViewSet):
 
     @allow_permission([ROLE.ADMIN], level="WORKSPACE")
     def partial_update(self, request, *args, **kwargs):
-        if self.get_object().is_personal:
-            return Response(personal_project_error("My Space cannot be changed."), status=status.HTTP_400_BAD_REQUEST)
         return super().partial_update(request, *args, **kwargs)
 
     def remove_last_workspace_ids_from_user_settings(self, id: uuid.UUID) -> None:
@@ -174,8 +168,6 @@ class WorkSpaceViewSet(BaseViewSet):
     def destroy(self, request, *args, **kwargs):
         # Get the workspace
         workspace = self.get_object()
-        if workspace.is_personal:
-            return Response(personal_project_error("My Space cannot be deleted."), status=status.HTTP_400_BAD_REQUEST)
         self.remove_last_workspace_ids_from_user_settings(workspace.id)
         return super().destroy(request, *args, **kwargs)
 
@@ -229,11 +221,7 @@ class WorkSpaceAvailabilityCheckEndpoint(BaseAPIView):
                 status=status.HTTP_400_BAD_REQUEST,
             )
 
-        workspace = (
-            Workspace.objects.filter(slug=slug).exists()
-            or slug in RESTRICTED_WORKSPACE_SLUGS
-            or is_reserved_workspace_slug(slug)
-        )
+        workspace = Workspace.objects.filter(slug=slug).exists() or slug in RESTRICTED_WORKSPACE_SLUGS
         return Response({"status": not workspace}, status=status.HTTP_200_OK)
 
 

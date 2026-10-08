@@ -43,6 +43,8 @@ from plane.db.models.intake import IntakeIssueStatus
 from plane.utils.host import base_host
 from plane.utils.order_queryset import PROJECT_ORDER_BY_ALLOWLIST, sanitize_order_by
 from plane.utils.personal_project import (
+    MySpaceUnavailable,
+    get_or_create_my_space,
     hidden_personal_projects_q,
     is_others_personal_project,
     personal_project_error,
@@ -274,11 +276,6 @@ class ProjectViewSet(BaseViewSet):
     @allow_permission([ROLE.ADMIN, ROLE.MEMBER], level="WORKSPACE")
     def create(self, request, slug):
         workspace = Workspace.objects.get(slug=slug)
-        if workspace.is_personal:
-            return Response(
-                personal_project_error("My Space holds a single container."),
-                status=status.HTTP_400_BAD_REQUEST,
-            )
 
         serializer = ProjectSerializer(data={**request.data}, context={"workspace_id": workspace.id})
         if serializer.is_valid():
@@ -339,6 +336,39 @@ class ProjectViewSet(BaseViewSet):
         # ``ProjectListSerializer`` writes every field. ``PUT`` is no longer
         # routed; this keeps it closed if a route ever maps it again.
         return Response(status=status.HTTP_405_METHOD_NOT_ALLOWED)
+
+    @allow_permission([ROLE.ADMIN, ROLE.MEMBER], level="WORKSPACE")
+    def personal(self, request, slug):
+        """Open My Space from this workspace: the caller's one personal container.
+
+        Created here the first time; after that it is the same container from
+        every workspace, and the response names its home workspace so the web
+        app can open it there. POST because the first call creates it (and
+        this viewset reads GETs from the replica). Guests do not get one.
+        """
+        workspace = Workspace.objects.get(slug=slug)
+        try:
+            project = get_or_create_my_space(request.user, workspace)
+        except MySpaceUnavailable as unavailable:
+            return Response(
+                {
+                    "error": f"My Space lives in {unavailable.workspace.name}, where you are not a member any more.",
+                    "error_code": "MY_SPACE_UNAVAILABLE",
+                    "workspace_name": unavailable.workspace.name,
+                },
+                status=status.HTTP_403_FORBIDDEN,
+            )
+        return Response(
+            {
+                "id": project.id,
+                "name": project.name,
+                "identifier": project.identifier,
+                "workspace_id": project.workspace_id,
+                "workspace_slug": project.workspace.slug,
+                "workspace_name": project.workspace.name,
+            },
+            status=status.HTTP_200_OK,
+        )
 
     def partial_update(self, request, slug, pk=None):
         if is_others_personal_project(pk, request.user):

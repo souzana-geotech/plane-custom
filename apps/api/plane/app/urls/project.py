@@ -28,6 +28,11 @@ urlpatterns = [
         name="project",
     ),
     path(
+        "workspaces/<str:slug>/my-space/",
+        ProjectViewSet.as_view({"post": "personal"}),
+        name="my-space",
+    ),
+    path(
         "workspaces/<str:slug>/projects/details/",
         ProjectViewSet.as_view({"get": "list_detail"}),
         name="project",

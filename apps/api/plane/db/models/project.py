@@ -104,11 +104,13 @@ class Project(BaseModel):
     # rich editor - and it is only ever a starting point: it is copied into the
     # create form, never enforced, and never written to an existing Job.
     job_description_template = models.TextField(blank=True, default="")
-    # Geotech3D: "My Space" - the single container inside a person's personal
-    # workspace (``Workspace.is_personal``), created with it on first open.
-    # Only ``owner`` is ever a member: nobody can be added or join, it cannot
-    # be published, and it is hidden from everyone else. ``db_default`` keeps a
-    # rollback safe for older code that inserts containers without this column.
+    # Geotech3D: "My Space" - one private container per person, shared by all
+    # their workspaces: it lives in the workspace where it was first opened
+    # (``plane.utils.personal_project``) and the others link to it. Only ``owner`` is
+    # ever a member: nobody can be added, nobody can join, it cannot be
+    # published, and it is hidden from everyone else, workspace admins
+    # included. ``db_default`` keeps a rollback safe: older code that inserts
+    # a container without naming this column still gets ``False``.
     is_personal = models.BooleanField(default=False, db_default=False)
     owner = models.ForeignKey(
         settings.AUTH_USER_MODEL,
@@ -178,9 +180,9 @@ class Project(BaseModel):
                 name="project_unique_name_workspace_when_deleted_at_null",
             ),
             models.UniqueConstraint(
-                fields=["workspace", "owner"],
+                fields=["owner"],
                 condition=Q(is_personal=True, deleted_at__isnull=True),
-                name="project_unique_personal_per_owner_workspace",
+                name="project_unique_personal_per_owner",
             ),
         ]
         verbose_name = "Project"

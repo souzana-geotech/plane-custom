@@ -19,7 +19,6 @@ from plane.db.models import WorkspaceMemberInvite, Workspace
 from plane.api.serializers import WorkspaceInviteSerializer
 from plane.utils.permissions import WorkspaceOwnerPermission
 from plane.utils.openapi.parameters import WORKSPACE_SLUG_PARAMETER
-from plane.utils.personal_project import personal_project_error
 
 
 class WorkspaceInvitationsViewset(BaseViewSet):
@@ -89,10 +88,6 @@ class WorkspaceInvitationsViewset(BaseViewSet):
     )
     def create(self, request, slug):
         workspace = Workspace.objects.get(slug=slug)
-        if workspace.is_personal:
-            return Response(
-                personal_project_error("Nobody can be invited to My Space."), status=status.HTTP_400_BAD_REQUEST
-            )
         serializer = WorkspaceInviteSerializer(data=request.data, context={"slug": slug})
         serializer.is_valid(raise_exception=True)
         serializer.save(workspace=workspace, created_by=request.user)
