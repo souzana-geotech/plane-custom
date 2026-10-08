@@ -19,6 +19,7 @@ from plane.app.views import (
     ## End User
     ## Workspaces
     UserWorkSpacesEndpoint,
+    MySpaceEndpoint,
 )
 
 urlpatterns = [
@@ -65,6 +66,7 @@ urlpatterns = [
     path("users/me/activities/", UserActivityEndpoint.as_view(), name="user-activities"),
     # user workspaces
     path("users/me/workspaces/", UserWorkSpacesEndpoint.as_view(), name="user-workspace"),
+    path("users/me/my-space/", MySpaceEndpoint.as_view(), name="my-space"),
     # User Graphs
     path(
         "users/me/workspaces/<str:slug>/activity-graph/",

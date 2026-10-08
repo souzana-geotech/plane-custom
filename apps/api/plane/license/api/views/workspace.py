@@ -14,6 +14,7 @@ from plane.license.api.permissions import InstanceAdminPermission
 from plane.db.models import Workspace, WorkspaceMember, Project
 from plane.license.api.serializers import WorkspaceSerializer
 from plane.utils.constants import RESTRICTED_WORKSPACE_SLUGS
+from plane.utils.personal_project import is_reserved_workspace_slug
 
 
 class InstanceWorkSpaceAvailabilityCheckEndpoint(BaseAPIView):
@@ -28,7 +29,11 @@ class InstanceWorkSpaceAvailabilityCheckEndpoint(BaseAPIView):
                 status=status.HTTP_400_BAD_REQUEST,
             )
 
-        workspace = Workspace.objects.filter(slug__iexact=slug).exists() or slug in RESTRICTED_WORKSPACE_SLUGS
+        workspace = (
+            Workspace.objects.filter(slug__iexact=slug).exists()
+            or slug in RESTRICTED_WORKSPACE_SLUGS
+            or is_reserved_workspace_slug(slug)
+        )
         return Response({"status": not workspace}, status=status.HTTP_200_OK)
 
 
@@ -53,7 +58,11 @@ class InstanceWorkSpaceEndpoint(BaseAPIView):
             .values("count")
         )
 
-        workspaces = Workspace.objects.annotate(total_projects=project_count, total_members=member_count)
+        # My Space workspaces are private to their owner; they are not part of
+        # the instance's workspace list.
+        workspaces = Workspace.objects.filter(is_personal=False).annotate(
+            total_projects=project_count, total_members=member_count
+        )
 
         # Add search functionality
         search = request.query_params.get("search", None)
@@ -79,6 +88,12 @@ class InstanceWorkSpaceEndpoint(BaseAPIView):
                 return Response(
                     {"error": "Both name and slug are required"},
                     status=status.HTTP_400_BAD_REQUEST,
+                )
+
+            if is_reserved_workspace_slug(slug):
+                return Response(
+                    {"slug": "The workspace with the slug already exists"},
+                    status=status.HTTP_409_CONFLICT,
                 )
 
             if len(name) > 80 or len(slug) > 48:

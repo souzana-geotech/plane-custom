@@ -23,6 +23,7 @@ from plane.app.serializers import (
 from plane.app.views.base import BaseAPIView
 from plane.db.models import Project, ProjectMember, WorkspaceMember, DraftIssue
 from plane.utils.cache import invalidate_cache
+from plane.utils.personal_project import is_personal_workspace, personal_project_error
 
 from .. import BaseViewSet
 
@@ -75,6 +76,11 @@ class WorkSpaceMemberViewSet(BaseViewSet):
 
     @allow_permission(allowed_roles=[ROLE.ADMIN], level="WORKSPACE")
     def partial_update(self, request, slug, pk):
+        if is_personal_workspace(slug):
+            return Response(
+                personal_project_error("My Space has exactly one member."),
+                status=status.HTTP_400_BAD_REQUEST,
+            )
         workspace_member = WorkspaceMember.objects.get(
             pk=pk, workspace__slug=slug, member__is_bot=False, is_active=True
         )
@@ -86,11 +92,7 @@ class WorkSpaceMemberViewSet(BaseViewSet):
 
         # If a user is moved to a guest role he can't have any other role in projects
         if "role" in request.data and int(request.data.get("role")) == 5:
-            memberships = ProjectMember.objects.filter(workspace__slug=slug, member_id=workspace_member.member_id)
-            memberships.filter(project__is_personal=False).update(role=5)
-            # Guests have no My Space. Keep the container and its data, but
-            # shut the door; opening My Space after a promotion reopens it.
-            memberships.filter(project__is_personal=True).update(is_active=False, updated_at=timezone.now())
+            ProjectMember.objects.filter(workspace__slug=slug, member_id=workspace_member.member_id).update(role=5)
 
         serializer = WorkSpaceMemberSerializer(workspace_member, data=request.data, partial=True)
 
@@ -101,6 +103,11 @@ class WorkSpaceMemberViewSet(BaseViewSet):
 
     @allow_permission(allowed_roles=[ROLE.ADMIN], level="WORKSPACE")
     def destroy(self, request, slug, pk):
+        if is_personal_workspace(slug):
+            return Response(
+                personal_project_error("My Space has exactly one member."),
+                status=status.HTTP_400_BAD_REQUEST,
+            )
         # Check the user role who is deleting the user
         workspace_member = WorkspaceMember.objects.get(
             workspace__slug=slug, pk=pk, member__is_bot=False, is_active=True
@@ -134,8 +141,7 @@ class WorkSpaceMemberViewSet(BaseViewSet):
                     ),
                 ),
             )
-            # My Space always has exactly one admin and must not block leaving.
-            .filter(total_members=1, member_with_role=1, workspace__slug=slug, is_personal=False)
+            .filter(total_members=1, member_with_role=1, workspace__slug=slug)
             .exists()
         ):
             return Response(
@@ -164,6 +170,11 @@ class WorkSpaceMemberViewSet(BaseViewSet):
     @invalidate_cache(path="api/users/me/workspaces/", user=False, multiple=True)
     @allow_permission(allowed_roles=[ROLE.ADMIN, ROLE.MEMBER, ROLE.GUEST], level="WORKSPACE")
     def leave(self, request, slug):
+        if is_personal_workspace(slug):
+            return Response(
+                personal_project_error("My Space cannot be left."),
+                status=status.HTTP_400_BAD_REQUEST,
+            )
         workspace_member = WorkspaceMember.objects.get(workspace__slug=slug, member=request.user, is_active=True)
 
         # Check if the leaving user is the only admin of the workspace
@@ -189,8 +200,7 @@ class WorkSpaceMemberViewSet(BaseViewSet):
                     ),
                 ),
             )
-            # My Space always has exactly one admin and must not block leaving.
-            .filter(total_members=1, member_with_role=1, workspace__slug=slug, is_personal=False)
+            .filter(total_members=1, member_with_role=1, workspace__slug=slug)
             .exists()
         ):
             return Response(

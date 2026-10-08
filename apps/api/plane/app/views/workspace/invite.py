@@ -30,6 +30,7 @@ from plane.bgtasks.workspace_invitation_task import workspace_invitation
 from plane.db.models import User, Workspace, WorkspaceMember, WorkspaceMemberInvite
 from plane.utils.cache import invalidate_cache, invalidate_cache_directly
 from plane.utils.host import base_host
+from plane.utils.personal_project import is_personal_workspace, personal_project_error
 from .. import BaseViewSet
 
 
@@ -50,6 +51,11 @@ class WorkspaceInvitationsViewset(BaseViewSet):
         )
 
     def create(self, request, slug):
+        if is_personal_workspace(slug):
+            return Response(
+                personal_project_error("Nobody can be invited to My Space."),
+                status=status.HTTP_400_BAD_REQUEST,
+            )
         emails = request.data.get("emails", [])
         # Check if email is provided
         if not emails:
@@ -147,6 +153,11 @@ class WorkspaceJoinEndpoint(BaseAPIView):
     )
     @invalidate_cache(path="/api/users/me/settings/", multiple=True)
     def post(self, request, slug, pk):
+        if is_personal_workspace(slug):
+            return Response(
+                personal_project_error("Nobody can be invited to My Space."),
+                status=status.HTTP_400_BAD_REQUEST,
+            )
         workspace_invite = WorkspaceMemberInvite.objects.get(pk=pk, workspace__slug=slug)
 
         token = request.data.get("token", "")

@@ -231,6 +231,11 @@ class ProjectListCreateAPIEndpoint(BaseAPIView):
         """
         try:
             workspace = Workspace.objects.get(slug=slug)
+            if workspace.is_personal:
+                return Response(
+                    personal_project_error("My Space holds a single container."),
+                    status=status.HTTP_400_BAD_REQUEST,
+                )
 
             serializer = ProjectCreateSerializer(data={**request.data}, context={"workspace_id": workspace.id})
 

@@ -34,6 +34,7 @@ from .user.base import (
 
 from .base import BaseAPIView, BaseViewSet
 
+from .workspace.my_space import MySpaceEndpoint
 from .workspace.base import (
     WorkSpaceViewSet,
     UserWorkSpacesEndpoint,
