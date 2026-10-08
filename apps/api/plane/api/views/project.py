@@ -51,6 +51,7 @@ from plane.api.serializers import (
     ProjectUpdateSerializer,
 )
 from plane.app.permissions import ProjectBasePermission, WorkSpaceAdminPermission
+from plane.utils.personal_project import personal_project_error
 from plane.utils.openapi import (
     project_docs,
     PROJECT_ID_PARAMETER,
@@ -550,6 +551,8 @@ class ProjectDetailAPIEndpoint(BaseAPIView):
         Partially update an existing project's properties like name, description, or settings.
         Tracks changes in model activity logs for audit purposes.
         """
+        if Project.objects.filter(pk=pk, is_personal=True).exists() and str(request.data.get("network", 0)) != "0":
+            return Response(personal_project_error("My Space is always private."), status=status.HTTP_400_BAD_REQUEST)
         try:
             workspace = Workspace.objects.get(slug=slug)
             project = Project.objects.get(pk=pk)
@@ -627,6 +630,8 @@ class ProjectDetailAPIEndpoint(BaseAPIView):
         Permanently remove a project and all its associated data from the workspace.
         Only admins can delete projects and the action cannot be undone.
         """
+        if Project.objects.filter(pk=pk, is_personal=True).exists():
+            return Response(personal_project_error("My Space cannot be deleted."), status=status.HTTP_400_BAD_REQUEST)
         project = Project.objects.get(pk=pk, workspace__slug=slug)
         # Delete the user favorite cycle
         UserFavorite.objects.filter(entity_type="project", entity_identifier=pk, project_id=pk).delete()
@@ -670,6 +675,8 @@ class ProjectArchiveUnarchiveAPIEndpoint(BaseAPIView):
         Move a project to archived status, hiding it from active project lists.
         Archived projects remain accessible but are excluded from regular workflows.
         """
+        if Project.objects.filter(pk=project_id, is_personal=True).exists():
+            return Response(personal_project_error("My Space cannot be archived."), status=status.HTTP_400_BAD_REQUEST)
         project = Project.objects.get(pk=project_id, workspace__slug=slug)
         project.archived_at = timezone.now()
         project.save()

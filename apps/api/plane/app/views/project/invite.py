@@ -35,6 +35,7 @@ from plane.db.models import (
 )
 from plane.db.models.project import ProjectNetwork
 from plane.utils.host import base_host
+from plane.utils.personal_project import hidden_personal_projects_q, is_personal_project, personal_project_error
 
 
 class ProjectInvitationsViewset(BaseViewSet):
@@ -55,6 +56,11 @@ class ProjectInvitationsViewset(BaseViewSet):
 
     @allow_permission([ROLE.ADMIN])
     def create(self, request, slug, project_id):
+        if is_personal_project(project_id):
+            return Response(
+                personal_project_error("Nobody can be invited to My Space."),
+                status=status.HTTP_400_BAD_REQUEST,
+            )
         emails = request.data.get("emails", [])
 
         # Check if email is provided
@@ -136,7 +142,13 @@ class UserProjectInvitationsViewset(BaseViewSet):
         workspace_member = WorkspaceMember.objects.get(member=request.user, workspace__slug=slug, is_active=True)
 
         # Get all the projects
-        projects = Project.objects.filter(id__in=project_ids, workspace__slug=slug).only("id", "network")
+        # Someone else's My Space cannot be joined - not even by a workspace
+        # admin, who may otherwise join any Secret container.
+        projects = (
+            Project.objects.filter(id__in=project_ids, workspace__slug=slug)
+            .exclude(hidden_personal_projects_q(request.user))
+            .only("id", "network")
+        )
         # Check if user has permission to join each project
         for project in projects:
             if project.network == ProjectNetwork.SECRET.value and workspace_member.role != ROLE.ADMIN.value:
@@ -193,6 +205,11 @@ class ProjectJoinEndpoint(BaseAPIView):
     permission_classes = [AllowAny]
 
     def post(self, request, slug, project_id, pk):
+        if is_personal_project(project_id):
+            return Response(
+                personal_project_error("Nobody can be invited to My Space."),
+                status=status.HTTP_400_BAD_REQUEST,
+            )
         project_invite = ProjectMemberInvite.objects.get(pk=pk, project_id=project_id, workspace__slug=slug)
 
         token = request.data.get("token", "")

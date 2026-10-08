@@ -245,7 +245,11 @@ class IssueRelationViewSet(BaseViewSet):
                 workspace__slug=slug,
                 pk__in=issues,
                 project_id__in=member_project_ids(request.user, slug),
-            ).values_list("id", flat=True)
+            )
+            # My Space is sealed: its tasks relate only to each other, and
+            # no other container's task may point into one.
+            .filter(Q(project_id=project_id) if project.is_personal else Q(project__is_personal=False))
+            .values_list("id", flat=True)
         )
 
         issue_relation = IssueRelation.objects.bulk_create(

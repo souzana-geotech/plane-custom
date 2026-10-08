@@ -389,6 +389,22 @@ def webhook_send_task(
         return
 
 
+def _is_personal_project_event(event: str, event_id) -> bool:
+    """True when the event belongs to a My Space container.
+
+    Webhooks are workspace-wide and set up by workspace admins; a personal
+    container is private to its owner, so its events are never sent. Looked
+    up through ``all_objects`` so deletions are covered too.
+    """
+    model = MODEL_MAPPER.get(event)
+    if model is None or event == "user":
+        return False
+    manager = getattr(model, "all_objects", model.objects)
+    if event == "project":
+        return manager.filter(pk=event_id, is_personal=True).exists()
+    return manager.filter(pk=event_id, project__is_personal=True).exists()
+
+
 @shared_task
 def webhook_activity(
     event: str,
@@ -430,6 +446,9 @@ def webhook_activity(
         race conditions where objects might have been deleted.
     """
     try:
+        if _is_personal_project_event(event, event_id):
+            return
+
         webhooks = Webhook.objects.filter(workspace__slug=slug, is_active=True)
 
         if event == "project":

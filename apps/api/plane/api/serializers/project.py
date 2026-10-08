@@ -242,6 +242,9 @@ class ProjectSerializer(BaseSerializer):
             "updated_by",
             "deleted_at",
             "cover_image_url",
+            # Set once, by My Space creation only.
+            "is_personal",
+            "owner",
         ]
 
     def validate(self, data):

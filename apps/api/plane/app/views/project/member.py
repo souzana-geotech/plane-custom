@@ -22,6 +22,17 @@ from plane.db.models import Project, ProjectMember, ProjectUserProperty, Workspa
 from plane.bgtasks.project_add_user_email_task import project_add_user_email
 from plane.utils.host import base_host
 from plane.app.permissions.base import allow_permission, ROLE
+from plane.utils.personal_project import is_personal_project, personal_project_error
+
+
+def _personal_project_locked(project_id):
+    """My Space has exactly one member, its owner, and that never changes."""
+    if is_personal_project(project_id):
+        return Response(
+            personal_project_error("Members of My Space cannot be changed."),
+            status=status.HTTP_400_BAD_REQUEST,
+        )
+    return None
 
 
 class ProjectMemberViewSet(BaseViewSet):
@@ -45,6 +56,8 @@ class ProjectMemberViewSet(BaseViewSet):
 
     @allow_permission([ROLE.ADMIN])
     def create(self, request, slug, project_id):
+        if (locked := _personal_project_locked(project_id)) is not None:
+            return locked
         # Get the list of members to be added to the project and their roles i.e. the user_id and the role
         members = request.data.get("members", [])
 
@@ -204,6 +217,8 @@ class ProjectMemberViewSet(BaseViewSet):
 
     @allow_permission([ROLE.ADMIN, ROLE.MEMBER, ROLE.GUEST])
     def partial_update(self, request, slug, project_id, pk):
+        if (locked := _personal_project_locked(project_id)) is not None:
+            return locked
         project_member = ProjectMember.objects.get(pk=pk, workspace__slug=slug, project_id=project_id, is_active=True)
 
         # Fetch the target's workspace role (used to cap the new project role)
@@ -289,6 +304,8 @@ class ProjectMemberViewSet(BaseViewSet):
 
     @allow_permission([ROLE.ADMIN])
     def destroy(self, request, slug, project_id, pk):
+        if (locked := _personal_project_locked(project_id)) is not None:
+            return locked
         project_member = ProjectMember.objects.get(
             workspace__slug=slug,
             project_id=project_id,
@@ -322,6 +339,8 @@ class ProjectMemberViewSet(BaseViewSet):
 
     @allow_permission([ROLE.ADMIN, ROLE.MEMBER, ROLE.GUEST])
     def leave(self, request, slug, project_id):
+        if (locked := _personal_project_locked(project_id)) is not None:
+            return locked
         project_member = ProjectMember.objects.get(
             workspace__slug=slug,
             project_id=project_id,

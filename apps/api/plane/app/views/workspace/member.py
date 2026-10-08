@@ -86,7 +86,11 @@ class WorkSpaceMemberViewSet(BaseViewSet):
 
         # If a user is moved to a guest role he can't have any other role in projects
         if "role" in request.data and int(request.data.get("role")) == 5:
-            ProjectMember.objects.filter(workspace__slug=slug, member_id=workspace_member.member_id).update(role=5)
+            memberships = ProjectMember.objects.filter(workspace__slug=slug, member_id=workspace_member.member_id)
+            memberships.filter(project__is_personal=False).update(role=5)
+            # Guests have no My Space. Keep the container and its data, but
+            # shut the door; opening My Space after a promotion reopens it.
+            memberships.filter(project__is_personal=True).update(is_active=False, updated_at=timezone.now())
 
         serializer = WorkSpaceMemberSerializer(workspace_member, data=request.data, partial=True)
 
@@ -130,7 +134,8 @@ class WorkSpaceMemberViewSet(BaseViewSet):
                     ),
                 ),
             )
-            .filter(total_members=1, member_with_role=1, workspace__slug=slug)
+            # My Space always has exactly one admin and must not block leaving.
+            .filter(total_members=1, member_with_role=1, workspace__slug=slug, is_personal=False)
             .exists()
         ):
             return Response(
@@ -184,7 +189,8 @@ class WorkSpaceMemberViewSet(BaseViewSet):
                     ),
                 ),
             )
-            .filter(total_members=1, member_with_role=1, workspace__slug=slug)
+            # My Space always has exactly one admin and must not block leaving.
+            .filter(total_members=1, member_with_role=1, workspace__slug=slug, is_personal=False)
             .exists()
         ):
             return Response(

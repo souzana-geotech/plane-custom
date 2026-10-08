@@ -42,6 +42,12 @@ from plane.db.models import (
 from plane.db.models.intake import IntakeIssueStatus
 from plane.utils.host import base_host
 from plane.utils.order_queryset import PROJECT_ORDER_BY_ALLOWLIST, sanitize_order_by
+from plane.utils.personal_project import (
+    get_or_create_personal_project,
+    hidden_personal_projects_q,
+    is_others_personal_project,
+    personal_project_error,
+)
 
 
 class ProjectViewSet(BaseViewSet):
@@ -60,6 +66,9 @@ class ProjectViewSet(BaseViewSet):
             super()
             .get_queryset()
             .filter(workspace__slug=self.kwargs.get("slug"))
+            # Someone else's My Space does not exist as far as this user can
+            # tell - not in the list, and 404 by id - workspace admins included.
+            .exclude(hidden_personal_projects_q(self.request.user))
             .select_related("workspace", "workspace__owner", "default_assignee", "project_lead")
             .annotate(
                 is_favorite=Exists(
@@ -152,6 +161,7 @@ class ProjectViewSet(BaseViewSet):
 
         projects = (
             Project.objects.filter(workspace__slug=self.kwargs.get("slug"))
+            .exclude(hidden_personal_projects_q(self.request.user))
             .select_related("workspace", "workspace__owner", "default_assignee", "project_lead")
             .annotate(
                 member_role=ProjectMember.objects.filter(
@@ -195,6 +205,7 @@ class ProjectViewSet(BaseViewSet):
             "inbox_view",
             "guest_view_all_features",
             "job_description_template",
+            "is_personal",
             "project_lead",
             "network",
             "created_at",
@@ -325,7 +336,21 @@ class ProjectViewSet(BaseViewSet):
         # routed; this keeps it closed if a route ever maps it again.
         return Response(status=status.HTTP_405_METHOD_NOT_ALLOWED)
 
+    @allow_permission([ROLE.ADMIN, ROLE.MEMBER], level="WORKSPACE")
+    def personal(self, request, slug):
+        """Open My Space: the caller's personal container, created on first use.
+
+        POST because the first call creates it (and this viewset reads GETs
+        from the replica). Guests do not get one.
+        """
+        workspace = Workspace.objects.get(slug=slug)
+        project = get_or_create_personal_project(request.user, workspace)
+        project = self.get_queryset().filter(pk=project.pk).first()
+        return Response(ProjectListSerializer(project).data, status=status.HTTP_200_OK)
+
     def partial_update(self, request, slug, pk=None):
+        if is_others_personal_project(pk, request.user):
+            return Response({"error": "Project does not exist"}, status=status.HTTP_404_NOT_FOUND)
         # try:
         is_workspace_admin = WorkspaceMember.objects.filter(
             member=request.user,
@@ -357,6 +382,11 @@ class ProjectViewSet(BaseViewSet):
         if project.archived_at:
             return Response(
                 {"error": "Archived projects cannot be updated"},
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+        if project.is_personal and str(request.data.get("network", 0)) != "0":
+            return Response(
+                personal_project_error("My Space is always private."),
                 status=status.HTTP_400_BAD_REQUEST,
             )
 
@@ -394,6 +424,13 @@ class ProjectViewSet(BaseViewSet):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
     def destroy(self, request, slug, pk):
+        if is_others_personal_project(pk, request.user):
+            return Response({"error": "Project does not exist"}, status=status.HTTP_404_NOT_FOUND)
+        if Project.objects.filter(pk=pk, workspace__slug=slug, is_personal=True).exists():
+            return Response(
+                personal_project_error("My Space cannot be deleted."),
+                status=status.HTTP_400_BAD_REQUEST,
+            )
         if (
             WorkspaceMember.objects.filter(
                 member=request.user,
@@ -442,6 +479,11 @@ class ProjectArchiveUnarchiveEndpoint(BaseAPIView):
     @allow_permission([ROLE.ADMIN, ROLE.MEMBER])
     def post(self, request, slug, project_id):
         project = Project.objects.get(pk=project_id, workspace__slug=slug)
+        if project.is_personal:
+            return Response(
+                personal_project_error("My Space cannot be archived."),
+                status=status.HTTP_400_BAD_REQUEST,
+            )
         project.archived_at = timezone.now()
         project.save()
         UserFavorite.objects.filter(workspace__slug=slug, project=project_id).delete()
@@ -570,6 +612,11 @@ class DeployBoardViewSet(BaseViewSet):
         return Response(serializer.data, status=status.HTTP_200_OK)
 
     def create(self, request, slug, project_id):
+        if Project.objects.filter(pk=project_id, is_personal=True).exists():
+            return Response(
+                personal_project_error("My Space cannot be published."),
+                status=status.HTTP_400_BAD_REQUEST,
+            )
         comments = request.data.get("is_comments_enabled", False)
         reactions = request.data.get("is_reactions_enabled", False)
         intake = request.data.get("intake", None)

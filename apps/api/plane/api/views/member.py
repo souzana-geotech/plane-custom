@@ -21,6 +21,7 @@ from plane.api.serializers import (
 )
 from plane.db.models import User, Workspace, WorkspaceMember, Project, ProjectMember
 from plane.utils.permissions import ProjectMemberPermission, WorkSpaceAdminPermission, ProjectAdminPermission
+from plane.utils.personal_project import is_personal_project, personal_project_error
 from plane.utils.openapi import (
     WORKSPACE_SLUG_PARAMETER,
     PROJECT_ID_PARAMETER,
@@ -158,6 +159,10 @@ class ProjectMemberListCreateAPIEndpoint(BaseAPIView):
         request=OpenApiRequest(request=ProjectMemberSerializer),
     )
     def post(self, request, slug, project_id):
+        if is_personal_project(project_id):
+            return Response(
+                personal_project_error("Members of My Space cannot be changed."), status=status.HTTP_400_BAD_REQUEST
+            )
         serializer = ProjectMemberSerializer(data=request.data, context={"slug": slug})
         serializer.is_valid(raise_exception=True)
         serializer.save(project_id=project_id)
@@ -209,6 +214,10 @@ class ProjectMemberDetailAPIEndpoint(ProjectMemberListCreateAPIEndpoint):
         request=OpenApiRequest(request=ProjectMemberSerializer),
     )
     def patch(self, request, slug, project_id, pk):
+        if is_personal_project(project_id):
+            return Response(
+                personal_project_error("Members of My Space cannot be changed."), status=status.HTTP_400_BAD_REQUEST
+            )
         project_member = ProjectMember.objects.get(project_id=project_id, workspace__slug=slug, pk=pk)
         serializer = ProjectMemberSerializer(project_member, data=request.data, partial=True, context={"slug": slug})
         serializer.is_valid(raise_exception=True)
@@ -224,6 +233,10 @@ class ProjectMemberDetailAPIEndpoint(ProjectMemberListCreateAPIEndpoint):
         responses={204: OpenApiResponse(description="Project member deleted")},
     )
     def delete(self, request, slug, project_id, pk):
+        if is_personal_project(project_id):
+            return Response(
+                personal_project_error("Members of My Space cannot be changed."), status=status.HTTP_400_BAD_REQUEST
+            )
         project_member = ProjectMember.objects.get(project_id=project_id, workspace__slug=slug, pk=pk)
         project_member.is_active = False
         project_member.save()
