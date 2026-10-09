@@ -174,9 +174,11 @@ class Project(BaseModel):
                 condition=Q(deleted_at__isnull=True),
                 name="project_unique_identifier_workspace_when_deleted_at_null",
             ),
+            # Geotech3D: personal containers are exempt - every one of them is
+            # called "My Space", and they all share the My Space workspace.
             models.UniqueConstraint(
                 fields=["name", "workspace"],
-                condition=Q(deleted_at__isnull=True),
+                condition=Q(deleted_at__isnull=True, is_personal=False),
                 name="project_unique_name_workspace_when_deleted_at_null",
             ),
             models.UniqueConstraint(

@@ -127,20 +127,13 @@ def _free_identifier(workspace_id, user):
             return candidate
 
 
-def _free_name(workspace_id, user):
-    # Container names are unique per workspace. Only the owner ever sees this
-    # one, and the web app labels it "My Space" regardless.
-    base = f"{PERSONAL_PROJECT_NAME} - {user.display_name or user.email}"[:240]
-    name = base
-    while Project.objects.filter(workspace_id=workspace_id, name=name).exists():
-        name = f"{base} {uuid.uuid4().hex[:6]}"
-    return name
-
 
 def _create_personal_project(user, workspace):
     with transaction.atomic():
         project = Project.objects.create(
-            name=_free_name(workspace.id, user),
+            # Every personal container is just "My Space"; personal containers
+            # are exempt from the per-workspace name uniqueness constraint.
+            name=PERSONAL_PROJECT_NAME,
             identifier=_free_identifier(workspace.id, user),
             workspace=workspace,
             network=0,

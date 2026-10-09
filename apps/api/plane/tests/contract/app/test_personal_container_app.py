@@ -114,6 +114,7 @@ class TestOpeningMySpace:
         assert WorkspaceMember.objects.get(workspace=hub, member=alice).role == MEMBER
 
         assert (my_space.is_personal, my_space.owner_id, my_space.network) == (True, alice.id, 0)
+        assert my_space.name == "My Space"
         assert my_space.identifier.startswith("MY")
         features = (my_space.module_view, my_space.cycle_view, my_space.issue_views_view, my_space.intake_view)
         assert features == (False, False, False, False)
@@ -146,6 +147,8 @@ class TestOpeningMySpace:
         theirs = Project.objects.get(owner=create_user, is_personal=True)
         assert theirs.id != my_space.id
         assert theirs.workspace_id == hub.id
+        # Everyone's container has the same name; no colleague's name shows.
+        assert theirs.name == my_space.name == "My Space"
         # Nobody runs the My Space workspace - the company admin is a MEMBER there.
         assert WorkspaceMember.objects.get(workspace=hub, member=create_user).role == MEMBER
 

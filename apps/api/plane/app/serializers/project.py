@@ -48,7 +48,9 @@ class ProjectSerializer(BaseSerializer):
         if re.match(Project.FORBIDDEN_IDENTIFIER_CHARS_PATTERN, name):
             raise serializers.ValidationError(detail="PROJECT_NAME_CANNOT_CONTAIN_SPECIAL_CHARACTERS")
 
-        project = Project.objects.filter(name=name, workspace_id=workspace_id)
+        # Geotech3D: personal containers don't take part in name clashes - they
+        # are all "My Space", and a clash would reveal a colleague's name.
+        project = Project.objects.filter(name=name, workspace_id=workspace_id, is_personal=False)
 
         if project_id:
             project = project.exclude(id=project_id)
