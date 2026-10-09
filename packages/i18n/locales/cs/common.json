@@ -883,6 +883,16 @@
       "intro": "Své soukromé úkoly mějte v My Space. Vidíte je jen Vy.",
       "empty": "V My Space nejsou žádné otevřené úkoly.",
       "more": "+{count} dalších v My Space"
+    },
+    "list": {
+      "subtitle": "Vaše soukromé úkoly. Vidíte je jen Vy.",
+      "add_placeholder": "Přidejte úkol a stiskněte Enter",
+      "empty": {
+        "title": "Nic k udělání",
+        "description": "Začněte přidáním úkolu výše."
+      },
+      "error": "Změnu se nepodařilo uložit. Zkuste to prosím znovu.",
+      "mark_open": "Označit jako nedokončené"
     }
   }
 }

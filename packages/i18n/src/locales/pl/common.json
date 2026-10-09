@@ -883,6 +883,16 @@
       "intro": "Przechowuj prywatne zadania w My Space. Tylko Ty je widzisz.",
       "empty": "Brak otwartych zadań w My Space.",
       "more": "+{count} więcej w My Space"
+    },
+    "list": {
+      "subtitle": "Twoje prywatne zadania. Tylko Ty je widzisz.",
+      "add_placeholder": "Dodaj zadanie i naciśnij Enter",
+      "empty": {
+        "title": "Nic do zrobienia",
+        "description": "Dodaj zadanie powyżej, aby zacząć."
+      },
+      "error": "Nie udało się zapisać zmiany. Spróbuj ponownie.",
+      "mark_open": "Oznacz jako niewykonane"
     }
   }
 }

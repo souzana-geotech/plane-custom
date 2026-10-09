@@ -883,6 +883,16 @@
       "intro": "Özel görevlerinizi My Space'te tutun. Onları yalnızca siz görebilirsiniz.",
       "empty": "My Space'te açık görev yok.",
       "more": "My Space'te {count} tane daha"
+    },
+    "list": {
+      "subtitle": "Özel görevleriniz. Onları yalnızca siz görebilirsiniz.",
+      "add_placeholder": "Bir görev ekleyin ve Enter'a basın",
+      "empty": {
+        "title": "Yapılacak bir şey yok",
+        "description": "Başlamak için yukarıdan bir görev ekleyin."
+      },
+      "error": "Değişiklik kaydedilemedi. Lütfen tekrar deneyin.",
+      "mark_open": "Tamamlanmadı olarak işaretle"
     }
   }
 }

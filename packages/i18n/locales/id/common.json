@@ -883,6 +883,16 @@
       "intro": "Simpan tugas pribadi Anda di My Space. Hanya Anda yang dapat melihatnya.",
       "empty": "Tidak ada tugas terbuka di My Space.",
       "more": "+{count} lainnya di My Space"
+    },
+    "list": {
+      "subtitle": "Tugas pribadi Anda. Hanya Anda yang dapat melihatnya.",
+      "add_placeholder": "Tambahkan tugas lalu tekan Enter",
+      "empty": {
+        "title": "Tidak ada yang perlu dikerjakan",
+        "description": "Tambahkan tugas di atas untuk memulai."
+      },
+      "error": "Perubahan tidak dapat disimpan. Silakan coba lagi.",
+      "mark_open": "Tandai belum selesai"
     }
   }
 }

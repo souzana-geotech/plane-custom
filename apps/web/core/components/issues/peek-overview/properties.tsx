@@ -100,6 +100,8 @@ export const PeekOverviewProperties = observer(function PeekOverviewProperties(p
   const projectDetails = getProjectById(issue.project_id);
   const isEstimateEnabled = projectDetails?.estimate;
   const stateDetails = getStateById(issue.state_id);
+  // Geotech3D: a My Space task is a personal to-do - state and due date only.
+  const isPersonal = !!projectDetails?.is_personal;
 
   const minDate = getDate(issue.start_date);
   minDate?.setDate(minDate.getDate());
@@ -126,64 +128,68 @@ export const PeekOverviewProperties = observer(function PeekOverviewProperties(p
           />
         </SidebarPropertyListItem>
 
-        <SidebarPropertyListItem icon={MembersOutline} label={t("common.assignees")}>
-          <MemberDropdown
-            includeGuests
-            value={issue?.assignee_ids ?? undefined}
-            onChange={(val) => issueOperations.update(workspaceSlug, projectId, issueId, { assignee_ids: val })}
-            disabled={disabled}
-            projectId={projectId}
-            placeholder={t("issue.add.assignee")}
-            multiple
-            buttonVariant={issue?.assignee_ids?.length > 1 ? "transparent-without-text" : "transparent-with-text"}
-            className="group w-full grow"
-            buttonContainerClassName="w-full text-left h-7.5"
-            buttonClassName={`text-body-xs-medium justify-between ${issue?.assignee_ids?.length > 0 ? "" : "text-placeholder"}`}
-            hideIcon={issue.assignee_ids?.length === 0}
-            dropdownArrow
-            dropdownArrowClassName="h-3.5 w-3.5 hidden group-hover:inline"
-          />
-        </SidebarPropertyListItem>
+        {!isPersonal && (
+          <>
+            <SidebarPropertyListItem icon={MembersOutline} label={t("common.assignees")}>
+              <MemberDropdown
+                includeGuests
+                value={issue?.assignee_ids ?? undefined}
+                onChange={(val) => issueOperations.update(workspaceSlug, projectId, issueId, { assignee_ids: val })}
+                disabled={disabled}
+                projectId={projectId}
+                placeholder={t("issue.add.assignee")}
+                multiple
+                buttonVariant={issue?.assignee_ids?.length > 1 ? "transparent-without-text" : "transparent-with-text"}
+                className="group w-full grow"
+                buttonContainerClassName="w-full text-left h-7.5"
+                buttonClassName={`text-body-xs-medium justify-between ${issue?.assignee_ids?.length > 0 ? "" : "text-placeholder"}`}
+                hideIcon={issue.assignee_ids?.length === 0}
+                dropdownArrow
+                dropdownArrowClassName="h-3.5 w-3.5 hidden group-hover:inline"
+              />
+            </SidebarPropertyListItem>
 
-        <SidebarPropertyListItem icon={PriorityOutline} label={t("common.priority")}>
-          <PriorityDropdown
-            value={issue?.priority}
-            onChange={(val) => issueOperations.update(workspaceSlug, projectId, issueId, { priority: val })}
-            disabled={disabled}
-            buttonVariant="transparent-with-text"
-            className="h-7.5 w-full grow rounded-sm"
-            buttonContainerClassName="w-full text-left h-7.5"
-            buttonClassName={`text-body-xs-medium whitespace-nowrap [&_svg]:size-3.5 ${!issue?.priority || issue?.priority === "none" ? "text-placeholder" : ""}`}
-          />
-        </SidebarPropertyListItem>
+            <SidebarPropertyListItem icon={PriorityOutline} label={t("common.priority")}>
+              <PriorityDropdown
+                value={issue?.priority}
+                onChange={(val) => issueOperations.update(workspaceSlug, projectId, issueId, { priority: val })}
+                disabled={disabled}
+                buttonVariant="transparent-with-text"
+                className="h-7.5 w-full grow rounded-sm"
+                buttonContainerClassName="w-full text-left h-7.5"
+                buttonClassName={`text-body-xs-medium whitespace-nowrap [&_svg]:size-3.5 ${!issue?.priority || issue?.priority === "none" ? "text-placeholder" : ""}`}
+              />
+            </SidebarPropertyListItem>
 
-        {createdByDetails && (
-          <SidebarPropertyListItem icon={UserOutline} label={t("common.created_by")} childrenClassName="px-2">
-            <ButtonAvatars
-              showTooltip
-              userIds={createdByDetails?.display_name?.includes("-intake") ? null : createdByDetails?.id}
-            />
-            <span className="grow truncate text-body-xs-medium leading-5 text-secondary">
-              {createdByDetails?.display_name?.includes("-intake") ? "Geotech3D" : createdByDetails?.display_name}
-            </span>
-          </SidebarPropertyListItem>
+            {createdByDetails && (
+              <SidebarPropertyListItem icon={UserOutline} label={t("common.created_by")} childrenClassName="px-2">
+                <ButtonAvatars
+                  showTooltip
+                  userIds={createdByDetails?.display_name?.includes("-intake") ? null : createdByDetails?.id}
+                />
+                <span className="grow truncate text-body-xs-medium leading-5 text-secondary">
+                  {createdByDetails?.display_name?.includes("-intake") ? "Geotech3D" : createdByDetails?.display_name}
+                </span>
+              </SidebarPropertyListItem>
+            )}
+
+            <SidebarPropertyListItem icon={StartDateOutline} label={t("common.order_by.start_date")}>
+              <DateDropdown
+                value={issue.start_date}
+                onChange={handleStartDateChange}
+                placeholder={t("issue.add.start_date")}
+                buttonVariant="transparent-with-text"
+                maxDate={isDurationDriven ? undefined : (maxDate ?? undefined)}
+                disabled={disabled}
+                className="group w-full grow"
+                buttonContainerClassName="w-full text-left h-7.5"
+                buttonClassName={`text-body-xs-medium ${issue?.start_date ? "" : "text-placeholder"}`}
+                hideIcon
+                clearIconClassName="h-3 w-3 hidden group-hover:inline"
+              />
+            </SidebarPropertyListItem>
+          </>
         )}
-
-        <SidebarPropertyListItem icon={StartDateOutline} label={t("common.order_by.start_date")}>
-          <DateDropdown
-            value={issue.start_date}
-            onChange={handleStartDateChange}
-            placeholder={t("issue.add.start_date")}
-            buttonVariant="transparent-with-text"
-            maxDate={isDurationDriven ? undefined : (maxDate ?? undefined)}
-            disabled={disabled}
-            className="group w-full grow"
-            buttonContainerClassName="w-full text-left h-7.5"
-            buttonClassName={`text-body-xs-medium ${issue?.start_date ? "" : "text-placeholder"}`}
-            hideIcon
-            clearIconClassName="h-3 w-3 hidden group-hover:inline"
-          />
-        </SidebarPropertyListItem>
 
         <SidebarPropertyListItem icon={DueDateOutline} label={t("common.order_by.due_date")}>
           <div className="flex w-full items-center gap-2">
@@ -208,85 +214,89 @@ export const PeekOverviewProperties = observer(function PeekOverviewProperties(p
           </div>
         </SidebarPropertyListItem>
 
-        <IssueDueDateLockControl
-          workspaceSlug={workspaceSlug}
-          projectId={projectId}
-          issue={issue}
-          isEditable={!disabled}
-        />
-
-        <SidebarPropertyListItem icon={HourglassOutline} label={t("working_days")}>
-          <WorkingDaysInput
-            value={workingDays}
-            onChange={handleWorkingDaysChange}
-            placeholder={t("issue.add.working_days")}
-            buttonVariant="transparent-with-text"
-            disabled={disabled || isDueDateReadOnly}
-            tooltip={isDueDateReadOnly ? t("issue.due_date_lock.working_days_readonly") : undefined}
-            className="group h-7.5 w-full grow text-left"
-            inputClassName="text-body-xs-medium"
-          />
-        </SidebarPropertyListItem>
-
-        {isEstimateEnabled && (
-          <SidebarPropertyListItem icon={EstimateOutline} label={t("common.estimate")}>
-            <EstimateDropdown
-              value={issue.estimate_point ?? undefined}
-              onChange={(val) => issueOperations.update(workspaceSlug, projectId, issueId, { estimate_point: val })}
-              projectId={projectId}
-              disabled={disabled}
-              buttonVariant="transparent-with-text"
-              className="group w-full grow"
-              buttonContainerClassName="w-full text-left h-7.5"
-              buttonClassName={`text-body-xs-medium ${issue?.estimate_point !== undefined ? "" : "text-placeholder"}`}
-              placeholder="None"
-              hideIcon
-              dropdownArrow
-              dropdownArrowClassName="h-3.5 w-3.5 hidden group-hover:inline"
-            />
-          </SidebarPropertyListItem>
-        )}
-
-        {projectDetails?.module_view && (
-          <SidebarPropertyListItem icon={ModuleOutline} label={t("common.modules")}>
-            <IssueModuleSelect
-              className="w-full grow"
+        {!isPersonal && (
+          <>
+            <IssueDueDateLockControl
               workspaceSlug={workspaceSlug}
               projectId={projectId}
-              issueId={issueId}
-              issueOperations={issueOperations}
-              disabled={disabled}
+              issue={issue}
+              isEditable={!disabled}
             />
-          </SidebarPropertyListItem>
+
+            <SidebarPropertyListItem icon={HourglassOutline} label={t("working_days")}>
+              <WorkingDaysInput
+                value={workingDays}
+                onChange={handleWorkingDaysChange}
+                placeholder={t("issue.add.working_days")}
+                buttonVariant="transparent-with-text"
+                disabled={disabled || isDueDateReadOnly}
+                tooltip={isDueDateReadOnly ? t("issue.due_date_lock.working_days_readonly") : undefined}
+                className="group h-7.5 w-full grow text-left"
+                inputClassName="text-body-xs-medium"
+              />
+            </SidebarPropertyListItem>
+
+            {isEstimateEnabled && (
+              <SidebarPropertyListItem icon={EstimateOutline} label={t("common.estimate")}>
+                <EstimateDropdown
+                  value={issue.estimate_point ?? undefined}
+                  onChange={(val) => issueOperations.update(workspaceSlug, projectId, issueId, { estimate_point: val })}
+                  projectId={projectId}
+                  disabled={disabled}
+                  buttonVariant="transparent-with-text"
+                  className="group w-full grow"
+                  buttonContainerClassName="w-full text-left h-7.5"
+                  buttonClassName={`text-body-xs-medium ${issue?.estimate_point !== undefined ? "" : "text-placeholder"}`}
+                  placeholder="None"
+                  hideIcon
+                  dropdownArrow
+                  dropdownArrowClassName="h-3.5 w-3.5 hidden group-hover:inline"
+                />
+              </SidebarPropertyListItem>
+            )}
+
+            {projectDetails?.module_view && (
+              <SidebarPropertyListItem icon={ModuleOutline} label={t("common.modules")}>
+                <IssueModuleSelect
+                  className="w-full grow"
+                  workspaceSlug={workspaceSlug}
+                  projectId={projectId}
+                  issueId={issueId}
+                  issueOperations={issueOperations}
+                  disabled={disabled}
+                />
+              </SidebarPropertyListItem>
+            )}
+
+            {projectDetails?.cycle_view && (
+              <SidebarPropertyListItem icon={CyclesOutline} label={t("common.cycle")} appendElement={null}>
+                <IssueCycleSelect
+                  className="h-7.5 w-full grow"
+                  workspaceSlug={workspaceSlug}
+                  projectId={projectId}
+                  issueId={issueId}
+                  issueOperations={issueOperations}
+                  disabled={disabled}
+                />
+              </SidebarPropertyListItem>
+            )}
+
+            <SidebarPropertyListItem icon={ParentOutline} label={t("common.parent")}>
+              <IssueParentSelectRoot
+                className="h-7.5 w-full grow"
+                disabled={disabled}
+                issueId={issueId}
+                issueOperations={issueOperations}
+                projectId={projectId}
+                workspaceSlug={workspaceSlug}
+              />
+            </SidebarPropertyListItem>
+
+            <SidebarPropertyListItem icon={LabelsOutline} label={t("common.labels")}>
+              <IssueLabel workspaceSlug={workspaceSlug} projectId={projectId} issueId={issueId} disabled={disabled} />
+            </SidebarPropertyListItem>
+          </>
         )}
-
-        {projectDetails?.cycle_view && (
-          <SidebarPropertyListItem icon={CyclesOutline} label={t("common.cycle")} appendElement={null}>
-            <IssueCycleSelect
-              className="h-7.5 w-full grow"
-              workspaceSlug={workspaceSlug}
-              projectId={projectId}
-              issueId={issueId}
-              issueOperations={issueOperations}
-              disabled={disabled}
-            />
-          </SidebarPropertyListItem>
-        )}
-
-        <SidebarPropertyListItem icon={ParentOutline} label={t("common.parent")}>
-          <IssueParentSelectRoot
-            className="h-7.5 w-full grow"
-            disabled={disabled}
-            issueId={issueId}
-            issueOperations={issueOperations}
-            projectId={projectId}
-            workspaceSlug={workspaceSlug}
-          />
-        </SidebarPropertyListItem>
-
-        <SidebarPropertyListItem icon={LabelsOutline} label={t("common.labels")}>
-          <IssueLabel workspaceSlug={workspaceSlug} projectId={projectId} issueId={issueId} disabled={disabled} />
-        </SidebarPropertyListItem>
       </div>
     </div>
   );

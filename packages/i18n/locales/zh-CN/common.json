@@ -883,6 +883,16 @@
       "intro": "将您的私人任务保存在 My Space 中，只有您可以看到。",
       "empty": "My Space 中没有未完成的任务。",
       "more": "My Space 中还有 {count} 个"
+    },
+    "list": {
+      "subtitle": "您的私人任务，只有您可以看到。",
+      "add_placeholder": "输入任务后按 Enter",
+      "empty": {
+        "title": "暂无待办事项",
+        "description": "在上方添加任务即可开始。"
+      },
+      "error": "无法保存此更改，请重试。",
+      "mark_open": "标记为未完成"
     }
   }
 }

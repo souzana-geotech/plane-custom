@@ -883,6 +883,16 @@
       "intro": "Tenga le Sue attività private in My Space. Solo Lei può vederle.",
       "empty": "Nessuna attività aperta in My Space.",
       "more": "+{count} altre in My Space"
+    },
+    "list": {
+      "subtitle": "Le Sue attività private. Solo Lei può vederle.",
+      "add_placeholder": "Aggiunga un'attività e prema Enter",
+      "empty": {
+        "title": "Niente da fare",
+        "description": "Aggiunga un'attività qui sopra per iniziare."
+      },
+      "error": "Impossibile salvare la modifica. Riprovi.",
+      "mark_open": "Segna come non completata"
     }
   }
 }

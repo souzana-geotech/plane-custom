@@ -883,6 +883,16 @@
       "intro": "Gardez vos tâches privées dans My Space. Vous seul pouvez les voir.",
       "empty": "Aucune tâche ouverte dans My Space.",
       "more": "+{count} de plus dans My Space"
+    },
+    "list": {
+      "subtitle": "Vos tâches privées. Vous seul pouvez les voir.",
+      "add_placeholder": "Ajoutez une tâche et appuyez sur Enter",
+      "empty": {
+        "title": "Rien à faire",
+        "description": "Ajoutez une tâche ci-dessus pour commencer."
+      },
+      "error": "Impossible d’enregistrer cette modification. Veuillez réessayer.",
+      "mark_open": "Marquer comme non terminée"
     }
   }
 }

@@ -883,6 +883,16 @@
       "intro": "Păstrați sarcinile private în My Space. Doar dumneavoastră le puteți vedea.",
       "empty": "Nicio sarcină deschisă în My Space.",
       "more": "+{count} în plus în My Space"
+    },
+    "list": {
+      "subtitle": "Sarcinile dumneavoastră private. Doar dumneavoastră le puteți vedea.",
+      "add_placeholder": "Adăugați o sarcină și apăsați Enter",
+      "empty": {
+        "title": "Nimic de făcut",
+        "description": "Adăugați o sarcină mai sus pentru a începe."
+      },
+      "error": "Modificarea nu a putut fi salvată. Încercați din nou.",
+      "mark_open": "Marcați ca neterminată"
     }
   }
 }

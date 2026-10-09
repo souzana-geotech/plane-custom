@@ -883,6 +883,16 @@
       "intro": "Lưu các công việc riêng tư của bạn trong My Space. Chỉ bạn mới xem được.",
       "empty": "Không có công việc đang mở trong My Space.",
       "more": "+{count} công việc khác trong My Space"
+    },
+    "list": {
+      "subtitle": "Công việc riêng tư của bạn. Chỉ bạn mới xem được.",
+      "add_placeholder": "Thêm công việc rồi nhấn Enter",
+      "empty": {
+        "title": "Không có việc cần làm",
+        "description": "Thêm một công việc ở trên để bắt đầu."
+      },
+      "error": "Không thể lưu thay đổi. Vui lòng thử lại.",
+      "mark_open": "Đánh dấu là chưa xong"
     }
   }
 }

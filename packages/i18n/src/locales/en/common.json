@@ -883,6 +883,16 @@
       "intro": "Keep your private tasks in My Space. Only you can see them.",
       "empty": "No open tasks in My Space.",
       "more": "+{count} more in My Space"
+    },
+    "list": {
+      "subtitle": "Your private tasks. Only you can see them.",
+      "add_placeholder": "Add a task and press Enter",
+      "empty": {
+        "title": "Nothing to do",
+        "description": "Add a task above to get started."
+      },
+      "error": "Couldn't save that change. Please try again.",
+      "mark_open": "Mark as not done"
     }
   }
 }

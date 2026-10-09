@@ -883,6 +883,16 @@
       "intro": "Guarde sus tareas privadas en My Space. Solo usted puede verlas.",
       "empty": "No hay tareas abiertas en My Space.",
       "more": "+{count} más en My Space"
+    },
+    "list": {
+      "subtitle": "Sus tareas privadas. Solo usted puede verlas.",
+      "add_placeholder": "Añada una tarea y pulse Enter",
+      "empty": {
+        "title": "Nada pendiente",
+        "description": "Añada una tarea arriba para empezar."
+      },
+      "error": "No se pudo guardar el cambio. Inténtelo de nuevo.",
+      "mark_open": "Marcar como no hecha"
     }
   }
 }

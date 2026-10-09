@@ -33,7 +33,6 @@ from plane.db.models import (
     WorkspaceMember,
     WorkspaceMemberInvite,
 )
-from plane.db.models.state import DEFAULT_STATES
 
 ADMIN, MEMBER, GUEST = 20, 15, 5
 
@@ -122,10 +121,14 @@ class TestOpeningMySpace:
         assert list(ProjectMember.objects.filter(project=my_space).values_list("member_id", "role")) == [
             (alice.id, ADMIN)
         ]
-        # ``State.objects`` hides the Triage state, as it does for every container.
-        assert State.objects.filter(project=my_space).count() == len(
-            [state for state in DEFAULT_STATES if state["group"] != "triage"]
-        )
+        # A personal to-do list: three states, "To do" first.
+        states = State.objects.filter(project=my_space).order_by("sequence")
+        assert [(state.name, state.group) for state in states] == [
+            ("To do", "unstarted"),
+            ("In progress", "started"),
+            ("Done", "completed"),
+        ]
+        assert states.get(default=True).name == "To do"
         # Nothing lands in the company workspace.
         assert not Project.objects.filter(workspace=workspace, is_personal=True).exists()
 

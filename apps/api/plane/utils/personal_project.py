@@ -47,7 +47,7 @@ from django.db.models import Q
 
 # Module imports
 from plane.db.models import Project, ProjectIdentifier, ProjectMember, State, Workspace, WorkspaceMember
-from plane.db.models.state import DEFAULT_STATES
+from plane.db.models.state import StateGroup
 
 ADMIN_ROLE = 20
 MEMBER_ROLE = 15
@@ -55,6 +55,13 @@ MEMBER_ROLE = 15
 PERSONAL_PROJECT_NAME = "My Space"
 MY_SPACE_WORKSPACE_NAME = "My Space"
 MY_SPACE_WORKSPACE_SLUG = "my-space"
+# A personal to-do list needs three states, not a team workflow's six.
+PERSONAL_STATES = [
+    {"name": "To do", "color": "#60646C", "sequence": 15000, "group": StateGroup.UNSTARTED.value, "default": True},
+    {"name": "In progress", "color": "#F59E0B", "sequence": 25000, "group": StateGroup.STARTED.value},
+    {"name": "Done", "color": "#46A758", "sequence": 35000, "group": StateGroup.COMPLETED.value},
+]
+
 # Error code for the container endpoints that refuse an operation on a
 # personal container; the web app shows its own message for it.
 PERSONAL_PROJECT_ERROR = "PERSONAL_PROJECT_LOCKED"
@@ -163,7 +170,7 @@ def _create_personal_project(user, workspace):
                     default=state.get("default", False),
                     created_by=user,
                 )
-                for state in DEFAULT_STATES
+                for state in PERSONAL_STATES
             ]
         )
     return project

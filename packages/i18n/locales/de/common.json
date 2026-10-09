@@ -883,6 +883,16 @@
       "intro": "Behalten Sie Ihre privaten Aufgaben in My Space. Nur Sie können sie sehen.",
       "empty": "Keine offenen Aufgaben in My Space.",
       "more": "+{count} weitere in My Space"
+    },
+    "list": {
+      "subtitle": "Ihre privaten Aufgaben. Nur Sie können sie sehen.",
+      "add_placeholder": "Aufgabe eingeben und Enter drücken",
+      "empty": {
+        "title": "Nichts zu tun",
+        "description": "Fügen Sie oben eine Aufgabe hinzu, um zu beginnen."
+      },
+      "error": "Die Änderung konnte nicht gespeichert werden. Bitte versuchen Sie es erneut.",
+      "mark_open": "Als nicht erledigt markieren"
     }
   }
 }
