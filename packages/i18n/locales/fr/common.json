@@ -893,6 +893,17 @@
       },
       "error": "Impossible d’enregistrer cette modification. Veuillez réessayer.",
       "mark_open": "Marquer comme non terminée"
+    },
+    "panel": {
+      "label": "Détails de la tâche",
+      "close": "Fermer",
+      "title": "Titre de la tâche",
+      "status": "Statut",
+      "due_date": "Échéance",
+      "notes": "Notes",
+      "notes_placeholder": "Ajouter des notes…",
+      "delete": "Supprimer la tâche",
+      "confirm_delete": "Oui, supprimer"
     }
   }
 }

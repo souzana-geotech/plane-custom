@@ -893,6 +893,17 @@
       },
       "error": "Změnu se nepodařilo uložit. Zkuste to prosím znovu.",
       "mark_open": "Označit jako nedokončené"
+    },
+    "panel": {
+      "label": "Podrobnosti úkolu",
+      "close": "Zavřít",
+      "title": "Název úkolu",
+      "status": "Stav",
+      "due_date": "Termín",
+      "notes": "Poznámky",
+      "notes_placeholder": "Přidejte poznámky…",
+      "delete": "Smazat úkol",
+      "confirm_delete": "Ano, smazat"
     }
   }
 }

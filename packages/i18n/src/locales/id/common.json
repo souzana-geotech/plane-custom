@@ -893,6 +893,17 @@
       },
       "error": "Perubahan tidak dapat disimpan. Silakan coba lagi.",
       "mark_open": "Tandai belum selesai"
+    },
+    "panel": {
+      "label": "Detail tugas",
+      "close": "Tutup",
+      "title": "Judul tugas",
+      "status": "Status",
+      "due_date": "Tenggat",
+      "notes": "Catatan",
+      "notes_placeholder": "Tambahkan catatan…",
+      "delete": "Hapus tugas",
+      "confirm_delete": "Ya, hapus"
     }
   }
 }

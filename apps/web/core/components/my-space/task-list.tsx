@@ -6,7 +6,6 @@
 
 import { useMemo, useRef, useState } from "react";
 import { observer } from "mobx-react";
-import Link from "next/link";
 import useSWR from "swr";
 import { Checkbox } from "@makeplane/propel/components/checkbox";
 import { ChevronRightOutline, LockOutline } from "@makeplane/propel/icons";
@@ -14,17 +13,18 @@ import { ChevronRightOutline, LockOutline } from "@makeplane/propel/icons";
 import { useTranslation } from "@plane/i18n";
 import { TOAST_TYPE, setToast } from "@plane/propel/toast";
 import type { TIssue } from "@plane/types";
-import { cn, generateWorkItemLink, renderFormattedPayloadDate } from "@plane/utils";
+import { cn, renderFormattedPayloadDate } from "@plane/utils";
 // components
 import { DateDropdown } from "@/components/dropdowns/date";
 import { DUE_TEXT_CLASSNAME } from "@/components/home/widgets/my-work/task-row";
 import { getDueBucket, type TDueBucket } from "@/components/home/widgets/my-work/use-my-work-items";
 // hooks
-import { useProject } from "@/hooks/store/use-project";
 import { useProjectState } from "@/hooks/store/use-project-state";
 // services
 import { IssueService } from "@/services/issue/issue.service";
 import { WorkspaceService } from "@/services/workspace.service";
+// local imports
+import { MySpaceTaskPanel } from "./task-panel";
 
 const issueService = new IssueService();
 const workspaceService = new WorkspaceService();
@@ -42,38 +42,40 @@ const GROUP_LABEL_KEY: Record<TDueBucket, string> = {
 };
 
 type Props = {
+  /** Slug of the shared My Space workspace the container lives in (not the page's workspace). */
   workspaceSlug: string;
   projectId: string;
+  /** A task to open on arrival, e.g. one followed from My Work. */
+  initialTaskId?: string | null;
 };
 
 /**
  * Geotech3D: My Space as a plain to-do list.
  *
- * Replaces the container task layouts for a personal container: type a task and
- * press Enter, tick it off when it's done, give it a due date if it has one.
- * Everything else about a task is one click away on its own page.
+ * Type a task and press Enter, tick it off when it's done, give it a due date if
+ * it has one. A task opens in a panel beside the list. Everything talks to the
+ * shared My Space workspace directly, so the list can sit inside whichever
+ * workspace the user is working in.
  */
 export const MySpaceTaskList = observer(function MySpaceTaskList(props: Props) {
-  const { workspaceSlug, projectId } = props;
+  const { workspaceSlug, projectId, initialTaskId } = props;
   const { t } = useTranslation();
-  const { getProjectById } = useProject();
   const { getProjectStates, fetchProjectStates } = useProjectState();
   const [newTaskName, setNewTaskName] = useState("");
   const [isCreating, setIsCreating] = useState(false);
   const [showDone, setShowDone] = useState(false);
+  const [selectedTaskId, setSelectedTaskId] = useState<string | null>(initialTaskId ?? null);
   const inputRef = useRef<HTMLInputElement>(null);
 
-  const project = getProjectById(projectId);
   useSWR(`MY_SPACE_STATES_${projectId}`, () => fetchProjectStates(workspaceSlug, projectId));
   const projectStates = getProjectStates(projectId);
   const states = useMemo(() => projectStates ?? [], [projectStates]);
 
-  const tasksKey = `MY_SPACE_TASKS_${projectId}`;
   const {
     data: tasks,
     isLoading,
     mutate,
-  } = useSWR(tasksKey, async () => {
+  } = useSWR(`MY_SPACE_TASKS_${projectId}`, async () => {
     const response = await workspaceService.getViewIssues(workspaceSlug, {
       project: projectId,
       order_by: "target_date",
@@ -90,12 +92,11 @@ export const MySpaceTaskList = observer(function MySpaceTaskList(props: Props) {
   );
   const doneStateId = useMemo(() => states.find((state) => state.group === "completed")?.id, [states]);
 
-  const isDone = (task: TPersonalTask) => {
-    const group = task.state_id ? stateById.get(task.state_id)?.group : undefined;
-    return group === "completed" || group === "cancelled";
-  };
-
   const { groups, doneTasks } = useMemo(() => {
+    const isDone = (task: TPersonalTask) => {
+      const group = task.state_id ? stateById.get(task.state_id)?.group : undefined;
+      return group === "completed" || group === "cancelled";
+    };
     const open = (tasks ?? []).filter((task) => !isDone(task));
     const byBucket = new Map<TDueBucket, TPersonalTask[]>();
     for (const task of open) {
@@ -106,19 +107,30 @@ export const MySpaceTaskList = observer(function MySpaceTaskList(props: Props) {
       groups: GROUP_ORDER.filter((key) => byBucket.has(key)).map((key) => ({ key, tasks: byBucket.get(key) ?? [] })),
       doneTasks: (tasks ?? []).filter(isDone),
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [tasks, stateById]);
+  const doneIds = useMemo(() => new Set(doneTasks.map((task) => task.id)), [doneTasks]);
 
   const showError = () =>
     setToast({ type: TOAST_TYPE.ERROR, title: t("toast.error"), message: t("my_space.list.error") });
 
-  const updateTask = async (task: TPersonalTask, data: Partial<TIssue>) => {
+  const updateTask = async (taskId: string, data: Partial<TIssue>) => {
     // optimistic: the list reflects the change at once, then re-syncs
-    await mutate((current) => current?.map((item) => (item.id === task.id ? { ...item, ...data } : item)), {
+    await mutate((current) => current?.map((item) => (item.id === taskId ? { ...item, ...data } : item)), {
       revalidate: false,
     });
     try {
-      await issueService.patchIssue(workspaceSlug, projectId, task.id, data);
+      await issueService.patchIssue(workspaceSlug, projectId, taskId, data);
+    } catch {
+      showError();
+    } finally {
+      void mutate();
+    }
+  };
+
+  const deleteTask = async (taskId: string) => {
+    try {
+      await issueService.deleteIssue(workspaceSlug, projectId, taskId);
+      setSelectedTaskId(null);
     } catch {
       showError();
     } finally {
@@ -143,38 +155,35 @@ export const MySpaceTaskList = observer(function MySpaceTaskList(props: Props) {
   };
 
   const renderTask = (task: TPersonalTask) => {
-    const done = isDone(task);
+    const done = doneIds.has(task.id);
     const state = task.state_id ? stateById.get(task.state_id) : undefined;
     const dueBucket = getDueBucket(task.target_date);
-    const link = generateWorkItemLink({
-      workspaceSlug,
-      projectId,
-      issueId: task.id,
-      projectIdentifier: project?.identifier,
-      sequenceId: task.sequence_id,
-    });
     return (
       <li
         key={task.id}
-        className="group/row flex min-h-11 items-center gap-3 border-b border-subtle px-3 py-2 last:border-b-0 hover:bg-layer-transparent-hover"
+        className={cn(
+          "group/row flex min-h-11 items-center gap-3 border-b border-subtle px-3 py-2 last:border-b-0 hover:bg-layer-transparent-hover",
+          selectedTaskId === task.id && "bg-layer-transparent-active"
+        )}
       >
         <Checkbox
           checked={done}
           aria-label={done ? t("my_space.list.mark_open") : t("home.card.mark_done")}
           onClick={() => {
             const stateId = done ? todoStateId : doneStateId;
-            if (stateId) void updateTask(task, { state_id: stateId });
+            if (stateId) void updateTask(task.id, { state_id: stateId });
           }}
         />
-        <Link
-          href={link}
+        <button
+          type="button"
+          onClick={() => setSelectedTaskId(task.id)}
           className={cn(
-            "min-w-0 flex-1 truncate text-13 text-primary hover:underline",
+            "min-w-0 flex-1 truncate text-left text-13 text-primary hover:underline",
             done && "text-tertiary line-through decoration-geo-grey"
           )}
         >
           {task.name}
-        </Link>
+        </button>
         {!done && state?.group === "started" && (
           <span className="flex-shrink-0 rounded-full bg-warning-subtle px-2 py-0.5 text-11 font-medium text-warning-primary">
             {t("home.status.in_progress")}
@@ -184,7 +193,7 @@ export const MySpaceTaskList = observer(function MySpaceTaskList(props: Props) {
           <div className={cn("flex-shrink-0", !task.target_date && "opacity-0 group-hover/row:opacity-100")}>
             <DateDropdown
               value={task.target_date ?? null}
-              onChange={(date) => void updateTask(task, { target_date: renderFormattedPayloadDate(date) ?? null })}
+              onChange={(date) => void updateTask(task.id, { target_date: renderFormattedPayloadDate(date) ?? null })}
               placeholder={t("home.card.set_due_date")}
               buttonVariant="transparent-with-text"
               buttonClassName={cn("h-7 px-1.5 text-12", DUE_TEXT_CLASSNAME[dueBucket])}
@@ -202,75 +211,92 @@ export const MySpaceTaskList = observer(function MySpaceTaskList(props: Props) {
   const hasOpenTasks = groups.length > 0;
 
   return (
-    <div className="mx-auto flex w-full max-w-3xl flex-col gap-5 px-4 py-6">
-      <div className="flex flex-col gap-1">
-        <h1 className="flex items-center gap-2 text-18 font-semibold text-primary">
-          <LockOutline className="size-4 text-tertiary" />
-          {t("my_space.title")}
-        </h1>
-        <p className="text-13 text-tertiary">{t("my_space.list.subtitle")}</p>
+    <div className="flex h-full w-full">
+      <div className={cn("h-full min-w-0 flex-1 overflow-y-auto", selectedTaskId && "hidden md:block")}>
+        <div className="mx-auto flex w-full max-w-3xl flex-col gap-5 px-4 py-6">
+          <div className="flex flex-col gap-1">
+            <h1 className="flex items-center gap-2 text-18 font-semibold text-primary">
+              <LockOutline className="size-4 text-tertiary" />
+              {t("my_space.title")}
+            </h1>
+            <p className="text-13 text-tertiary">{t("my_space.list.subtitle")}</p>
+          </div>
+
+          <form
+            onSubmit={(event) => {
+              event.preventDefault();
+              void createTask();
+            }}
+          >
+            <input
+              ref={inputRef}
+              value={newTaskName}
+              onChange={(event) => setNewTaskName(event.target.value)}
+              disabled={isCreating}
+              placeholder={t("my_space.list.add_placeholder")}
+              aria-label={t("my_space.list.add_placeholder")}
+              className="w-full rounded-lg border border-subtle bg-surface-1 px-3 py-2.5 text-13 text-primary placeholder:text-placeholder focus:border-accent-strong focus:outline-none"
+            />
+          </form>
+
+          {isLoading ? null : !hasOpenTasks ? (
+            <div className="rounded-lg border border-dashed border-subtle px-4 py-10 text-center">
+              <p className="text-13 font-medium text-primary">{t("my_space.list.empty.title")}</p>
+              <p className="mt-1 text-12 text-tertiary">{t("my_space.list.empty.description")}</p>
+            </div>
+          ) : (
+            <div className="flex flex-col gap-4">
+              {groups.map((group) => (
+                <section key={group.key} className="flex flex-col gap-1.5">
+                  <h2
+                    className={cn(
+                      "px-1 text-11 font-semibold tracking-wide text-geo-grey uppercase",
+                      group.key === "overdue" && "text-danger-primary",
+                      group.key === "today" && "text-warning-primary"
+                    )}
+                  >
+                    {t(GROUP_LABEL_KEY[group.key])} · {group.tasks.length}
+                  </h2>
+                  <ul className="overflow-hidden rounded-lg border border-subtle bg-surface-1">
+                    {group.tasks.map(renderTask)}
+                  </ul>
+                </section>
+              ))}
+            </div>
+          )}
+
+          {doneTasks.length > 0 && (
+            <section className="flex flex-col gap-1.5">
+              <button
+                type="button"
+                onClick={() => setShowDone((value) => !value)}
+                className="flex items-center gap-1 px-1 text-11 font-semibold tracking-wide text-geo-grey uppercase hover:text-secondary"
+                aria-expanded={showDone}
+              >
+                <ChevronRightOutline className={cn("size-3 transition-transform", showDone && "rotate-90")} />
+                {t("home.status.done")} · {doneTasks.length}
+              </button>
+              {showDone && (
+                <ul className="overflow-hidden rounded-lg border border-subtle bg-surface-1">
+                  {doneTasks.map(renderTask)}
+                </ul>
+              )}
+            </section>
+          )}
+        </div>
       </div>
 
-      <form
-        onSubmit={(event) => {
-          event.preventDefault();
-          void createTask();
-        }}
-      >
-        <input
-          ref={inputRef}
-          value={newTaskName}
-          onChange={(event) => setNewTaskName(event.target.value)}
-          disabled={isCreating}
-          placeholder={t("my_space.list.add_placeholder")}
-          aria-label={t("my_space.list.add_placeholder")}
-          className="w-full rounded-lg border border-subtle bg-surface-1 px-3 py-2.5 text-13 text-primary placeholder:text-placeholder focus:border-accent-strong focus:outline-none"
+      {selectedTaskId && (
+        <MySpaceTaskPanel
+          key={selectedTaskId}
+          workspaceSlug={workspaceSlug}
+          projectId={projectId}
+          taskId={selectedTaskId}
+          states={states}
+          onClose={() => setSelectedTaskId(null)}
+          onUpdate={updateTask}
+          onDelete={deleteTask}
         />
-      </form>
-
-      {isLoading ? null : !hasOpenTasks ? (
-        <div className="rounded-lg border border-dashed border-subtle px-4 py-10 text-center">
-          <p className="text-13 font-medium text-primary">{t("my_space.list.empty.title")}</p>
-          <p className="mt-1 text-12 text-tertiary">{t("my_space.list.empty.description")}</p>
-        </div>
-      ) : (
-        <div className="flex flex-col gap-4">
-          {groups.map((group) => (
-            <section key={group.key} className="flex flex-col gap-1.5">
-              <h2
-                className={cn(
-                  "px-1 text-11 font-semibold tracking-wide text-geo-grey uppercase",
-                  group.key === "overdue" && "text-danger-primary",
-                  group.key === "today" && "text-warning-primary"
-                )}
-              >
-                {t(GROUP_LABEL_KEY[group.key])} · {group.tasks.length}
-              </h2>
-              <ul className="overflow-hidden rounded-lg border border-subtle bg-surface-1">
-                {group.tasks.map(renderTask)}
-              </ul>
-            </section>
-          ))}
-        </div>
-      )}
-
-      {doneTasks.length > 0 && (
-        <section className="flex flex-col gap-1.5">
-          <button
-            type="button"
-            onClick={() => setShowDone((value) => !value)}
-            className="flex items-center gap-1 px-1 text-11 font-semibold tracking-wide text-geo-grey uppercase hover:text-secondary"
-            aria-expanded={showDone}
-          >
-            <ChevronRightOutline className={cn("size-3 transition-transform", showDone && "rotate-90")} />
-            {t("home.status.done")} · {doneTasks.length}
-          </button>
-          {showDone && (
-            <ul className="overflow-hidden rounded-lg border border-subtle bg-surface-1">
-              {doneTasks.map(renderTask)}
-            </ul>
-          )}
-        </section>
       )}
     </div>
   );

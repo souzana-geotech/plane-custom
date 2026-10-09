@@ -893,6 +893,17 @@
       },
       "error": "Não foi possível salvar a alteração. Tente novamente.",
       "mark_open": "Marcar como não concluída"
+    },
+    "panel": {
+      "label": "Detalhes da tarefa",
+      "close": "Fechar",
+      "title": "Título da tarefa",
+      "status": "Status",
+      "due_date": "Data de vencimento",
+      "notes": "Notas",
+      "notes_placeholder": "Adicionar notas…",
+      "delete": "Excluir tarefa",
+      "confirm_delete": "Sim, excluir"
     }
   }
 }

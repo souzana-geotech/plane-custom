@@ -893,6 +893,17 @@
       },
       "error": "Không thể lưu thay đổi. Vui lòng thử lại.",
       "mark_open": "Đánh dấu là chưa xong"
+    },
+    "panel": {
+      "label": "Chi tiết công việc",
+      "close": "Đóng",
+      "title": "Tiêu đề công việc",
+      "status": "Trạng thái",
+      "due_date": "Hạn chót",
+      "notes": "Ghi chú",
+      "notes_placeholder": "Thêm ghi chú…",
+      "delete": "Xóa công việc",
+      "confirm_delete": "Có, xóa"
     }
   }
 }

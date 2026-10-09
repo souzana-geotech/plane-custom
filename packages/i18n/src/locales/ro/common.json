@@ -893,6 +893,17 @@
       },
       "error": "Modificarea nu a putut fi salvată. Încercați din nou.",
       "mark_open": "Marcați ca neterminată"
+    },
+    "panel": {
+      "label": "Detaliile sarcinii",
+      "close": "Închideți",
+      "title": "Titlul sarcinii",
+      "status": "Stare",
+      "due_date": "Termen",
+      "notes": "Note",
+      "notes_placeholder": "Adăugați note…",
+      "delete": "Ștergeți sarcina",
+      "confirm_delete": "Da, ștergeți"
     }
   }
 }

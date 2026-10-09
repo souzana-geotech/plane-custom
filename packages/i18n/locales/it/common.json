@@ -893,6 +893,17 @@
       },
       "error": "Impossibile salvare la modifica. Riprovi.",
       "mark_open": "Segna come non completata"
+    },
+    "panel": {
+      "label": "Dettagli attività",
+      "close": "Chiudi",
+      "title": "Titolo dell'attività",
+      "status": "Stato",
+      "due_date": "Scadenza",
+      "notes": "Note",
+      "notes_placeholder": "Aggiunga note…",
+      "delete": "Elimina attività",
+      "confirm_delete": "Sì, elimina"
     }
   }
 }

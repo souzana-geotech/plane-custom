@@ -893,6 +893,17 @@
       },
       "error": "Değişiklik kaydedilemedi. Lütfen tekrar deneyin.",
       "mark_open": "Tamamlanmadı olarak işaretle"
+    },
+    "panel": {
+      "label": "Görev ayrıntıları",
+      "close": "Kapat",
+      "title": "Görev başlığı",
+      "status": "Durum",
+      "due_date": "Bitiş tarihi",
+      "notes": "Notlar",
+      "notes_placeholder": "Not ekleyin…",
+      "delete": "Görevi sil",
+      "confirm_delete": "Evet, sil"
     }
   }
 }

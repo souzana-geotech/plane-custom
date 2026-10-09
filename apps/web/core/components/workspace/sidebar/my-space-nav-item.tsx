@@ -6,7 +6,7 @@
 
 import { observer } from "mobx-react";
 import Link from "next/link";
-import { useParams } from "next/navigation";
+import { useParams, usePathname } from "next/navigation";
 import { ArrowNarrowLeftOutline, LockOutline } from "@makeplane/propel/icons";
 // plane imports
 import { EUserPermissionsLevel } from "@plane/constants";
@@ -20,18 +20,20 @@ import { useUserPermissions } from "@/hooks/store/user";
 import { useMySpace } from "@/hooks/use-my-space";
 
 /**
- * Geotech3D: the sidebar's way into and out of My Space.
+ * Geotech3D: the sidebar's way into My Space.
  *
- * In a company workspace it opens the user's personal container (guests have
- * none). Inside the My Space workspace it becomes "Back to <workspace>",
- * returning to wherever My Space was opened from.
+ * In a company workspace it opens My Space right there, at
+ * `/<workspace>/my-space/` - the list is shown inside the current workspace
+ * (guests have none). Should the user end up in the shared My Space workspace
+ * itself, it becomes "Back to <workspace>".
  */
 export const MySpaceNavItem = observer(function MySpaceNavItem() {
   const { t } = useTranslation();
   const { workspaceSlug } = useParams();
+  const pathname = usePathname();
   const { allowPermissions } = useUserPermissions();
   const { toggleSidebar, isExtendedSidebarOpened, toggleExtendedSidebar } = useAppTheme();
-  const { isInMySpace, isOpening, openMySpace, returnWorkspace } = useMySpace();
+  const { isInMySpace, returnWorkspace } = useMySpace();
 
   const closeSidebarOnMobile = () => {
     if (window.innerWidth < 768) toggleSidebar();
@@ -61,22 +63,15 @@ export const MySpaceNavItem = observer(function MySpaceNavItem() {
   );
   if (!canHaveMySpace) return null;
 
+  const href = `/${workspaceSlug?.toString()}/my-space/`;
   return (
-    <button
-      type="button"
-      className="w-full text-left disabled:cursor-wait"
-      disabled={isOpening}
-      onClick={() => {
-        closeSidebarOnMobile();
-        void openMySpace();
-      }}
-    >
-      <SidebarNavItem>
+    <Link href={href} onClick={closeSidebarOnMobile}>
+      <SidebarNavItem isActive={!!pathname?.startsWith(href.slice(0, -1))}>
         <div className="flex items-center gap-1.5 py-[1px]">
           <LockOutline className="size-4 flex-shrink-0" />
           <p className="text-13 leading-5 font-medium">{t("my_space.title")}</p>
         </div>
       </SidebarNavItem>
-    </button>
+    </Link>
   );
 });

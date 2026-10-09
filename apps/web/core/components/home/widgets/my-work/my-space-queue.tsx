@@ -14,11 +14,11 @@ import { EUserPermissionsLevel } from "@plane/constants";
 import { useTranslation } from "@plane/i18n";
 import { EUserWorkspaceRoles } from "@plane/types";
 import type { IState } from "@plane/types";
-import { cn, generateWorkItemLink, renderFormattedDateWithoutYear } from "@plane/utils";
+import { cn, renderFormattedDateWithoutYear } from "@plane/utils";
 // hooks
 import { useWorkspace } from "@/hooks/store/use-workspace";
 import { useUserPermissions } from "@/hooks/store/user";
-import { mySpaceProjectPath, rememberMySpaceReturn, useMySpace } from "@/hooks/use-my-space";
+import { useMySpace } from "@/hooks/use-my-space";
 // services
 import { ProjectService } from "@/services/project/project.service";
 import { ProjectStateService } from "@/services/project/project-state.service";
@@ -41,14 +41,14 @@ const MAX_ROWS = 8;
  *
  * My Space lives in its own shared workspace, so the work queue's stores (containers
  * and states of the current workspace) know nothing about these tasks. This section
- * reads them straight from the My Space workspace and links into it; changing a task
- * happens there, with a way back.
+ * reads them straight from the My Space workspace; a task opens in My Space shown
+ * inside this same workspace (`/<workspace>/my-space/?task=<id>`).
  */
 export const MySpaceQueue = observer(function MySpaceQueue() {
   const { t } = useTranslation();
   const { workspaceSlug } = useMyWork();
   const { workspaces } = useWorkspace();
-  const { isInMySpace, isOpening, openMySpace } = useMySpace();
+  const { isInMySpace } = useMySpace();
   const { allowPermissions } = useUserPermissions();
   // Guests have no My Space.
   const canHaveMySpace = allowPermissions(
@@ -98,8 +98,7 @@ export const MySpaceQueue = observer(function MySpaceQueue() {
       {items && <span className="text-11 text-geo-grey tabular-nums">{items.length}</span>}
       {container && mySpaceSlug && (
         <Link
-          href={mySpaceProjectPath(mySpaceSlug, container.id)}
-          onClick={() => rememberMySpaceReturn(workspaceSlug)}
+          href={`/${workspaceSlug}/my-space/`}
           className="ml-auto text-12 font-medium text-secondary hover:text-primary hover:underline"
         >
           {t("my_space.open")}
@@ -118,14 +117,12 @@ export const MySpaceQueue = observer(function MySpaceQueue() {
         // Never opened yet: My Space is created on first use.
         <div className="flex items-center justify-between gap-3 px-3 py-3">
           <p className="text-12 text-tertiary">{t("my_space.home.intro")}</p>
-          <button
-            type="button"
-            disabled={isOpening}
-            onClick={() => void openMySpace()}
-            className="flex-shrink-0 rounded-md border border-strong px-2.5 py-1 text-12 font-medium text-secondary hover:bg-layer-transparent-hover disabled:cursor-wait"
+          <Link
+            href={`/${workspaceSlug}/my-space/`}
+            className="flex-shrink-0 rounded-md border border-strong px-2.5 py-1 text-12 font-medium text-secondary hover:bg-layer-transparent-hover"
           >
             {t("my_space.open")}
-          </button>
+          </Link>
         </div>
       ) : isLoading || !container ? (
         <RowSkeleton count={2} />
@@ -137,13 +134,8 @@ export const MySpaceQueue = observer(function MySpaceQueue() {
             const state = item.state_id ? stateById.get(item.state_id) : undefined;
             const status = getVisualStatus(state?.group, item.target_date);
             const dueBucket = getDueBucket(item.target_date);
-            const link = generateWorkItemLink({
-              workspaceSlug: mySpaceSlug,
-              projectId: container.id,
-              issueId: item.id,
-              projectIdentifier: container.identifier,
-              sequenceId: item.sequence_id,
-            });
+            // Opens in My Space inside this workspace, with the task's panel open.
+            const link = `/${workspaceSlug}/my-space/?task=${item.id}`;
             return (
               <li
                 key={item.id}
@@ -153,7 +145,6 @@ export const MySpaceQueue = observer(function MySpaceQueue() {
                 <div className="flex min-w-0 flex-1 flex-col">
                   <Link
                     href={link}
-                    onClick={() => rememberMySpaceReturn(workspaceSlug)}
                     className="truncate text-13 font-medium text-primary hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-strong"
                   >
                     {item.name}

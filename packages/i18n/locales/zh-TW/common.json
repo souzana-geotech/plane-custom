@@ -893,6 +893,17 @@
       },
       "error": "無法儲存此變更，請再試一次。",
       "mark_open": "標記為未完成"
+    },
+    "panel": {
+      "label": "任務詳細資料",
+      "close": "關閉",
+      "title": "任務標題",
+      "status": "狀態",
+      "due_date": "截止日期",
+      "notes": "備註",
+      "notes_placeholder": "新增備註…",
+      "delete": "刪除任務",
+      "confirm_delete": "確認刪除"
     }
   }
 }

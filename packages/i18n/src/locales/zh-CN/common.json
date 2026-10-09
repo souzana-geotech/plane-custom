@@ -893,6 +893,17 @@
       },
       "error": "无法保存此更改，请重试。",
       "mark_open": "标记为未完成"
+    },
+    "panel": {
+      "label": "任务详情",
+      "close": "关闭",
+      "title": "任务标题",
+      "status": "状态",
+      "due_date": "截止日期",
+      "notes": "备注",
+      "notes_placeholder": "添加备注…",
+      "delete": "删除任务",
+      "confirm_delete": "确认删除"
     }
   }
 }

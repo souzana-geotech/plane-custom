@@ -893,6 +893,17 @@
       },
       "error": "Die Änderung konnte nicht gespeichert werden. Bitte versuchen Sie es erneut.",
       "mark_open": "Als nicht erledigt markieren"
+    },
+    "panel": {
+      "label": "Aufgabendetails",
+      "close": "Schließen",
+      "title": "Aufgabentitel",
+      "status": "Status",
+      "due_date": "Fälligkeitsdatum",
+      "notes": "Notizen",
+      "notes_placeholder": "Notizen hinzufügen …",
+      "delete": "Aufgabe löschen",
+      "confirm_delete": "Ja, löschen"
     }
   }
 }

@@ -893,6 +893,17 @@
       },
       "error": "No se pudo guardar el cambio. Inténtelo de nuevo.",
       "mark_open": "Marcar como no hecha"
+    },
+    "panel": {
+      "label": "Detalles de la tarea",
+      "close": "Cerrar",
+      "title": "Título de la tarea",
+      "status": "Estado",
+      "due_date": "Fecha de vencimiento",
+      "notes": "Notas",
+      "notes_placeholder": "Añadir notas…",
+      "delete": "Eliminar tarea",
+      "confirm_delete": "Sí, eliminar"
     }
   }
 }

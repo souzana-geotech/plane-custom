@@ -893,6 +893,17 @@
       },
       "error": "Nie udało się zapisać zmiany. Spróbuj ponownie.",
       "mark_open": "Oznacz jako niewykonane"
+    },
+    "panel": {
+      "label": "Szczegóły zadania",
+      "close": "Zamknij",
+      "title": "Tytuł zadania",
+      "status": "Status",
+      "due_date": "Termin",
+      "notes": "Notatki",
+      "notes_placeholder": "Dodaj notatki…",
+      "delete": "Usuń zadanie",
+      "confirm_delete": "Tak, usuń"
     }
   }
 }

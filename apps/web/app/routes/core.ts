@@ -110,6 +110,11 @@ export const coreRoutes: RouteConfigEntry[] = [
           ),
         ]),
 
+        // Geotech3D: My Space, shown inside the current workspace
+        layout("./(all)/[workspaceSlug]/(projects)/my-space/layout.tsx", [
+          route(":workspaceSlug/my-space", "./(all)/[workspaceSlug]/(projects)/my-space/page.tsx"),
+        ]),
+
         // Stickies
         layout("./(all)/[workspaceSlug]/(projects)/stickies/layout.tsx", [
           route(":workspaceSlug/stickies", "./(all)/[workspaceSlug]/(projects)/stickies/page.tsx"),

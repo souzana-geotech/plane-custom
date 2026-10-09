@@ -893,6 +893,17 @@
       },
       "error": "変更を保存できませんでした。もう一度お試しください。",
       "mark_open": "未完了に戻す"
+    },
+    "panel": {
+      "label": "タスクの詳細",
+      "close": "閉じる",
+      "title": "タスク名",
+      "status": "ステータス",
+      "due_date": "期日",
+      "notes": "メモ",
+      "notes_placeholder": "メモを追加…",
+      "delete": "タスクを削除",
+      "confirm_delete": "削除する"
     }
   }
 }
