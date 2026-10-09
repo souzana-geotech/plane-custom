@@ -5,13 +5,18 @@
  */
 
 import { observer } from "mobx-react";
+import { useParams } from "next/navigation";
 // plane imports
+import { EUserPermissionsLevel } from "@plane/constants";
 import { useTranslation } from "@plane/i18n";
 import { AddOutline } from "@makeplane/propel/icons";
 import { Button } from "@plane/propel/button";
+import { EUserWorkspaceRoles } from "@plane/types";
 import type { IUser } from "@plane/types";
 // hooks
 import { useCommandPalette } from "@/hooks/store/use-command-palette";
+import { useUser, useUserPermissions } from "@/hooks/store/user";
+import { useAppRouter } from "@/hooks/use-app-router";
 
 type THomeHeaderProps = {
   user: IUser;
@@ -25,6 +30,23 @@ export const HomeHeader = observer(function HomeHeader(props: THomeHeaderProps) 
   const { user } = props;
   const { t } = useTranslation();
   const { toggleCreateIssueModal } = useCommandPalette();
+  const { canPerformAnyCreateAction } = useUser();
+  const { allowPermissions } = useUserPermissions();
+  const { workspaceSlug } = useParams();
+  const router = useAppRouter();
+
+  // Geotech3D: the create-task modal needs a container to put the task in and
+  // silently renders nothing without one. Someone not yet in any container
+  // adds their task to My Space instead.
+  const handleNewTask = () => {
+    const canHaveMySpace = allowPermissions(
+      [EUserWorkspaceRoles.ADMIN, EUserWorkspaceRoles.MEMBER],
+      EUserPermissionsLevel.WORKSPACE,
+      workspaceSlug?.toString()
+    );
+    if (!canPerformAnyCreateAction && canHaveMySpace) router.push(`/${workspaceSlug?.toString()}/my-space/`);
+    else toggleCreateIssueModal(true);
+  };
 
   const hour = new Intl.DateTimeFormat("en-US", {
     hour12: false,
@@ -42,7 +64,7 @@ export const HomeHeader = observer(function HomeHeader(props: THomeHeaderProps) 
           <span className="text-geo-grey">{t("home.greeting.subtitle")}</span>
         </p>
       </div>
-      <Button variant="primary" size="lg" onClick={() => toggleCreateIssueModal(true)} prependIcon={<AddOutline />}>
+      <Button variant="primary" size="lg" onClick={handleNewTask} prependIcon={<AddOutline />}>
         {t("home.header.new_task")}
       </Button>
     </header>
