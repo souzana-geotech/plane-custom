@@ -15,7 +15,7 @@ import type {
 } from "@plane/types";
 // helpers
 // plane web types
-import type { TProject, TPartialProject } from "@plane/types";
+import type { TMySpace, TProject, TPartialProject } from "@plane/types";
 // services
 import { APIService } from "@/services/api.service";
 
@@ -26,6 +26,19 @@ export class ProjectService extends APIService {
 
   async createProject(workspaceSlug: string, data: Partial<TProject>): Promise<TProject> {
     return this.post(`/api/workspaces/${workspaceSlug}/projects/`, data)
+      .then((response) => response?.data)
+      .catch((error) => {
+        throw error?.response;
+      });
+  }
+
+  /**
+   * Geotech3D: open My Space from this workspace - the caller's personal
+   * container, set up on first use. It lives in the shared My Space workspace
+   * named in the response.
+   */
+  async openMySpace(workspaceSlug: string): Promise<TMySpace> {
+    return this.post(`/api/workspaces/${workspaceSlug}/my-space/`, {})
       .then((response) => response?.data)
       .catch((error) => {
         throw error?.response;

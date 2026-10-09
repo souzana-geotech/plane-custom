@@ -870,5 +870,19 @@
       "description": "Esporta attività in un file JSON.",
       "short_description": "Esporta come JSON"
     }
+  },
+  "my_space": {
+    "title": "My Space",
+    "back_to": "Torna a {workspace}",
+    "open": "Apri My Space",
+    "open_error": {
+      "title": "Impossibile aprire My Space",
+      "message": "Riprovi. Se il problema persiste, si rivolga a un amministratore dello spazio di lavoro."
+    },
+    "home": {
+      "intro": "Tenga le Sue attività private in My Space. Solo Lei può vederle.",
+      "empty": "Nessuna attività aperta in My Space.",
+      "more": "+{count} altre in My Space"
+    }
   }
 }

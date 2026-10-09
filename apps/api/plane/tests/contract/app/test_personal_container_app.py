@@ -398,3 +398,24 @@ class TestExternalApi:
         ]
         assert [response.status_code for response in responses] == [400] * len(responses)
         assert Project.objects.get(pk=project_id).network == 0
+
+
+@pytest.mark.contract
+class TestNeverTheLandingWorkspace:
+    @pytest.mark.django_db
+    def test_sign_in_lands_in_a_company_workspace(self, alice, workspace, hub):
+        from plane.db.models import Profile
+
+        from plane.app.serializers import UserMeSettingsSerializer
+
+        # Created at sign-up in the app; the test user has none yet.
+        Profile.objects.get_or_create(user=alice)
+        Profile.objects.filter(user=alice).update(last_workspace_id=hub.id)
+        settings = UserMeSettingsSerializer(alice).data["workspace"]
+        assert settings["last_workspace_slug"] is None
+        assert settings["fallback_workspace_slug"] == workspace.slug
+
+        from plane.authentication.utils.redirection_path import get_redirection_path
+
+        Profile.objects.filter(user=alice).update(is_onboarded=True)
+        assert get_redirection_path(alice) == workspace.slug

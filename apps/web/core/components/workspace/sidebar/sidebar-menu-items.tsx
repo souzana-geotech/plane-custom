@@ -22,11 +22,13 @@ import { EUserWorkspaceRoles } from "@plane/types";
 import { cn } from "@plane/utils";
 // store hooks
 import { useUserPermissions } from "@/hooks/store/user";
+import { useMySpace } from "@/hooks/use-my-space";
 import useLocalStorage from "@/hooks/use-local-storage";
 import {
   usePersonalNavigationPreferences,
   useWorkspaceNavigationPreferences,
 } from "@/hooks/use-navigation-preferences";
+import { MySpaceNavItem } from "./my-space-nav-item";
 import { SidebarItemBase } from "./sidebar-item";
 
 export const SidebarMenuItems = observer(function SidebarMenuItems() {
@@ -42,6 +44,7 @@ export const SidebarMenuItems = observer(function SidebarMenuItems() {
   // hooks
   const { preferences: personalPreferences } = usePersonalNavigationPreferences();
   const { preferences: workspacePreferences } = useWorkspaceNavigationPreferences();
+  const { isInMySpace } = useMySpace();
   // translation
   const { t } = useTranslation();
 
@@ -109,32 +112,20 @@ export const SidebarMenuItems = observer(function SidebarMenuItems() {
           <span className="text-13 font-semibold">{t("sidebar.your_work")}</span>
         </div>
         <div className="flex flex-col gap-0.5">
-          {filteredStaticNavigationItems.map((item, _index) => (
-            // oxlint-disable-next-line react/no-array-index-key
-            <SidebarItemBase key={`static_${_index}`} item={item} />
+          {filteredStaticNavigationItems.map((item) => (
+            <SidebarItemBase key={`static_${item.key}`} item={item} />
           ))}
+          <MySpaceNavItem />
         </div>
       </div>
-      <Disclosure as="div" className="flex flex-col" defaultOpen={!!isWorkspaceMenuOpen}>
-        <div className="group flex w-full items-center justify-between rounded-sm px-2 py-1.5 text-placeholder hover:bg-layer-transparent-hover">
-          <Disclosure.Button
-            as="button"
-            type="button"
-            className="flex w-full items-center gap-1 text-left text-13 font-semibold whitespace-nowrap text-placeholder"
-            onClick={() => toggleListDisclosure(!isWorkspaceMenuOpen)}
-            aria-label={t(
-              isWorkspaceMenuOpen
-                ? "aria_labels.app_sidebar.close_workspace_menu"
-                : "aria_labels.app_sidebar.open_workspace_menu"
-            )}
-          >
-            <span className="text-13 font-semibold">{t("sidebar.management")}</span>
-          </Disclosure.Button>
-          <div className="pointer-events-none flex items-center opacity-0 group-hover:pointer-events-auto group-hover:opacity-100">
+      {/* Geotech3D: the My Space workspace has no admins and nothing to manage. */}
+      {!isInMySpace && (
+        <Disclosure as="div" className="flex flex-col" defaultOpen={!!isWorkspaceMenuOpen}>
+          <div className="group flex w-full items-center justify-between rounded-sm px-2 py-1.5 text-placeholder hover:bg-layer-transparent-hover">
             <Disclosure.Button
               as="button"
               type="button"
-              className="flex-shrink-0 rounded-sm p-0.5 hover:bg-layer-1"
+              className="flex w-full items-center gap-1 text-left text-13 font-semibold whitespace-nowrap text-placeholder"
               onClick={() => toggleListDisclosure(!isWorkspaceMenuOpen)}
               aria-label={t(
                 isWorkspaceMenuOpen
@@ -142,41 +133,58 @@ export const SidebarMenuItems = observer(function SidebarMenuItems() {
                   : "aria_labels.app_sidebar.open_workspace_menu"
               )}
             >
-              <ChevronRightOutline
-                className={cn("size-3 flex-shrink-0 transition-all", {
-                  "rotate-90": isWorkspaceMenuOpen,
-                })}
-              />
+              <span className="text-13 font-semibold">{t("sidebar.management")}</span>
             </Disclosure.Button>
+            <div className="pointer-events-none flex items-center opacity-0 group-hover:pointer-events-auto group-hover:opacity-100">
+              <Disclosure.Button
+                as="button"
+                type="button"
+                className="flex-shrink-0 rounded-sm p-0.5 hover:bg-layer-1"
+                onClick={() => toggleListDisclosure(!isWorkspaceMenuOpen)}
+                aria-label={t(
+                  isWorkspaceMenuOpen
+                    ? "aria_labels.app_sidebar.close_workspace_menu"
+                    : "aria_labels.app_sidebar.open_workspace_menu"
+                )}
+              >
+                <ChevronRightOutline
+                  className={cn("size-3 flex-shrink-0 transition-all", {
+                    "rotate-90": isWorkspaceMenuOpen,
+                  })}
+                />
+              </Disclosure.Button>
+            </div>
           </div>
-        </div>
-        <Transition
-          as="div"
-          show={!!isWorkspaceMenuOpen}
-          enter="transition duration-100 ease-out"
-          enterFrom="transform scale-95 opacity-0"
-          enterTo="transform scale-100 opacity-100"
-          leave="transition duration-75 ease-out"
-          leaveFrom="transform scale-100 opacity-100"
-          leaveTo="transform scale-95 opacity-0"
-        >
-          {isWorkspaceMenuOpen && (
-            <Disclosure.Panel as="div" className="flex flex-col gap-0.5" static>
-              <>
-                {isWorkspaceAdmin &&
-                  WORKSPACE_SIDEBAR_MANAGEMENT_NAVIGATION_ITEMS_LINKS.map((item, _index) => (
-                    // oxlint-disable-next-line react/no-array-index-key
-                    <SidebarItemBase key={`management_${_index}`} item={item} />
+          <Transition
+            as="div"
+            show={!!isWorkspaceMenuOpen}
+            enter="transition duration-100 ease-out"
+            enterFrom="transform scale-95 opacity-0"
+            enterTo="transform scale-100 opacity-100"
+            leave="transition duration-75 ease-out"
+            leaveFrom="transform scale-100 opacity-100"
+            leaveTo="transform scale-95 opacity-0"
+          >
+            {isWorkspaceMenuOpen && (
+              <Disclosure.Panel as="div" className="flex flex-col gap-0.5" static>
+                <>
+                  {isWorkspaceAdmin &&
+                    WORKSPACE_SIDEBAR_MANAGEMENT_NAVIGATION_ITEMS_LINKS.map((item) => (
+                      <SidebarItemBase key={`management_${item.key}`} item={item} />
+                    ))}
+                  {sortedNavigationItems.map((item) => (
+                    <SidebarItemBase
+                      key={`dynamic_${item.key}`}
+                      item={item}
+                      additionalStaticItems={alwaysPinnedItemKeys}
+                    />
                   ))}
-                {sortedNavigationItems.map((item, _index) => (
-                  // oxlint-disable-next-line react/no-array-index-key
-                  <SidebarItemBase key={`dynamic_${_index}`} item={item} additionalStaticItems={alwaysPinnedItemKeys} />
-                ))}
-              </>
-            </Disclosure.Panel>
-          )}
-        </Transition>
-      </Disclosure>
+                </>
+              </Disclosure.Panel>
+            )}
+          </Transition>
+        </Disclosure>
+      )}
     </>
   );
 });

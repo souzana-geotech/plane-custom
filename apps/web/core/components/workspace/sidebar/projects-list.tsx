@@ -34,6 +34,7 @@ import { useCommandPalette } from "@/hooks/store/use-command-palette";
 import { useProject } from "@/hooks/store/use-project";
 import { useUserPermissions } from "@/hooks/store/user";
 import { useProjectNavigationPreferences } from "@/hooks/use-navigation-preferences";
+import { useMySpace } from "@/hooks/use-my-space";
 // plane web imports
 import type { TProject } from "@plane/types";
 // local imports
@@ -58,11 +59,13 @@ export const SidebarProjectsList = observer(function SidebarProjectsList() {
   const { workspaceSlug } = useParams();
   const pathname = usePathname();
 
-  // auth
-  const isAuthorizedUser = allowPermissions(
-    [EUserPermissions.ADMIN, EUserPermissions.MEMBER],
-    EUserPermissionsLevel.WORKSPACE
-  );
+  const { isInMySpace } = useMySpace();
+
+  // auth. Geotech3D: the My Space workspace holds only personal containers, so
+  // nobody creates one there.
+  const isAuthorizedUser =
+    !isInMySpace &&
+    allowPermissions([EUserPermissions.ADMIN, EUserPermissions.MEMBER], EUserPermissionsLevel.WORKSPACE);
 
   // Compute limited projects for main sidebar
   const displayedProjects = projectPreferences.showLimitedProjects
@@ -73,13 +76,12 @@ export const SidebarProjectsList = observer(function SidebarProjectsList() {
   const hasMoreProjects =
     projectPreferences.showLimitedProjects && joinedProjects.length > projectPreferences.limitedProjectsCount;
 
-  const handleCopyText = (projectId: string) => {
-    copyUrlToClipboard(`${workspaceSlug}/projects/${projectId}/issues`).then(() => {
-      setToast({
-        type: TOAST_TYPE.SUCCESS,
-        title: t("link_copied"),
-        message: t("project_link_copied_to_clipboard"),
-      });
+  const handleCopyText = async (projectId: string) => {
+    await copyUrlToClipboard(`${workspaceSlug}/projects/${projectId}/issues`);
+    setToast({
+      type: TOAST_TYPE.SUCCESS,
+      title: t("link_copied"),
+      message: t("project_link_copied_to_clipboard"),
     });
   };
 
@@ -243,8 +245,8 @@ export const SidebarProjectsList = observer(function SidebarProjectsList() {
             >
               {loader === "init-loader" && (
                 <Loader className="w-full space-y-1.5">
-                  {Array.from({ length: 4 }).map((_, index) => (
-                    <Loader.Item key={index} height="28px" />
+                  {Array.from({ length: 4 }, (_, index) => `sidebar-loader-${index}`).map((key) => (
+                    <Loader.Item key={key} height="28px" />
                   ))}
                 </Loader>
               )}
@@ -255,7 +257,7 @@ export const SidebarProjectsList = observer(function SidebarProjectsList() {
                       <SidebarProjectsListItem
                         key={projectId}
                         projectId={projectId}
-                        handleCopyText={() => handleCopyText(projectId)}
+                        handleCopyText={() => void handleCopyText(projectId)}
                         projectListType={"JOINED"}
                         disableDrag={false}
                         disableDrop={false}

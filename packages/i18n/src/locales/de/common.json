@@ -870,5 +870,19 @@
       "description": "Aufgaben in JSON exportieren.",
       "short_description": "Als JSON exportieren"
     }
+  },
+  "my_space": {
+    "title": "My Space",
+    "back_to": "Zurück zu {workspace}",
+    "open": "My Space öffnen",
+    "open_error": {
+      "title": "My Space konnte nicht geöffnet werden",
+      "message": "Bitte versuchen Sie es erneut. Wenn das Problem weiterhin besteht, wenden Sie sich an einen Workspace-Administrator."
+    },
+    "home": {
+      "intro": "Behalten Sie Ihre privaten Aufgaben in My Space. Nur Sie können sie sehen.",
+      "empty": "Keine offenen Aufgaben in My Space.",
+      "more": "+{count} weitere in My Space"
+    }
   }
 }

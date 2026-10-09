@@ -34,6 +34,11 @@ export interface IWorkspace {
   total_projects?: number;
   role: number;
   timezone: string;
+  /**
+   * Geotech3D: the shared "My Space" workspace holding everyone's personal
+   * container. Reached from a company workspace, never listed as one.
+   */
+  readonly is_my_space?: boolean;
 }
 
 export interface IWorkspaceLite {

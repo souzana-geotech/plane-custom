@@ -13,24 +13,29 @@ def get_redirection_path(user):
     if not profile.is_onboarded:
         return "onboarding"
 
-    # Redirect to the last workspace if the user has last workspace
+    # Redirect to the last workspace if the user has last workspace. Geotech3D:
+    # never the shared My Space workspace - it is reached from a company one.
     if (
         profile.last_workspace_id
         and Workspace.objects.filter(
             pk=profile.last_workspace_id,
+            is_my_space=False,
             workspace_member__member_id=user.id,
             workspace_member__is_active=True,
         ).exists()
     ):
         workspace = Workspace.objects.filter(
             pk=profile.last_workspace_id,
+            is_my_space=False,
             workspace_member__member_id=user.id,
             workspace_member__is_active=True,
         ).first()
         return f"{workspace.slug}"
 
     fallback_workspace = (
-        Workspace.objects.filter(workspace_member__member_id=user.id, workspace_member__is_active=True)
+        Workspace.objects.filter(
+            workspace_member__member_id=user.id, workspace_member__is_active=True, is_my_space=False
+        )
         .order_by("created_at")
         .first()
     )

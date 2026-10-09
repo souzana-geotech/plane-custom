@@ -98,18 +98,21 @@ class UserMeSettingsSerializer(BaseSerializer):
     def get_workspace(self, obj):
         workspace_invites = WorkspaceMemberInvite.objects.filter(email=obj.email).count()
 
-        # profile
+        # profile. Geotech3D: the shared My Space workspace is never a landing
+        # workspace - it is reached from a company workspace.
         profile = Profile.objects.get(user=obj)
         if (
             profile.last_workspace_id is not None
             and Workspace.objects.filter(
                 pk=profile.last_workspace_id,
+                is_my_space=False,
                 workspace_member__member=obj.id,
                 workspace_member__is_active=True,
             ).exists()
         ):
             workspace = Workspace.objects.filter(
                 pk=profile.last_workspace_id,
+                is_my_space=False,
                 workspace_member__member=obj.id,
                 workspace_member__is_active=True,
             ).first()
@@ -125,7 +128,9 @@ class UserMeSettingsSerializer(BaseSerializer):
             }
         else:
             fallback_workspace = (
-                Workspace.objects.filter(workspace_member__member_id=obj.id, workspace_member__is_active=True)
+                Workspace.objects.filter(
+                    workspace_member__member_id=obj.id, workspace_member__is_active=True, is_my_space=False
+                )
                 .order_by("created_at")
                 .first()
             )

@@ -870,5 +870,19 @@
       "description": "Eksportuj elementy do pliku JSON.",
       "short_description": "Eksportuj jako JSON"
     }
+  },
+  "my_space": {
+    "title": "My Space",
+    "back_to": "Wróć do {workspace}",
+    "open": "Otwórz My Space",
+    "open_error": {
+      "title": "Nie udało się otworzyć My Space",
+      "message": "Spróbuj ponownie. Jeśli problem się powtarza, skontaktuj się z administratorem obszaru roboczego."
+    },
+    "home": {
+      "intro": "Przechowuj prywatne zadania w My Space. Tylko Ty je widzisz.",
+      "empty": "Brak otwartych zadań w My Space.",
+      "more": "+{count} więcej w My Space"
+    }
   }
 }

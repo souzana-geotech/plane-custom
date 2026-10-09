@@ -870,5 +870,19 @@
       "description": "Exportujte položky do JSON.",
       "short_description": "Exportovať ako JSON"
     }
+  },
+  "my_space": {
+    "title": "My Space",
+    "back_to": "Späť do {workspace}",
+    "open": "Otvoriť My Space",
+    "open_error": {
+      "title": "My Space sa nepodarilo otvoriť",
+      "message": "Skúste to znova. Ak problémy pretrvávajú, obráťte sa na správcu pracovného priestoru."
+    },
+    "home": {
+      "intro": "Svoje súkromné úlohy majte v My Space. Vidíte ich len Vy.",
+      "empty": "V My Space nie sú žiadne otvorené úlohy.",
+      "more": "+{count} ďalších v My Space"
+    }
   }
 }

@@ -22,7 +22,8 @@ export const PowerKOpenWorkspaceMenu = observer(function PowerKOpenWorkspaceMenu
   // store hooks
   const { loader, workspaces } = useWorkspace();
   // derived values
-  const workspacesList = workspaces ? Object.values(workspaces) : [];
+  // Geotech3D: the shared My Space workspace is not one of the user's workspaces to switch to.
+  const workspacesList = workspaces ? Object.values(workspaces).filter((workspace) => !workspace.is_my_space) : [];
 
   if (loader) return <Spinner />;
 

@@ -36,6 +36,8 @@ export interface IPartialProject {
    * Plain text, per container, edited by an admin in the Jobs feature settings.
    */
   job_description_template?: string;
+  /** Geotech3D: a "My Space" personal container - private to its owner, its only member. */
+  readonly is_personal?: boolean;
   project_lead?: IUserLite | string | null;
   network?: number;
   // Timestamps
@@ -181,3 +183,16 @@ export interface ISearchIssueResponse {
 export type TPartialProject = IPartialProject;
 
 export type TProject = TPartialProject & IProject;
+
+/**
+ * Geotech3D: what `POST /api/workspaces/:slug/my-space/` returns - the caller's
+ * personal container and the shared My Space workspace it lives in.
+ */
+export type TMySpace = {
+  id: string;
+  name: string;
+  identifier: string;
+  workspace_id: string;
+  workspace_slug: string;
+  workspace_name: string;
+};

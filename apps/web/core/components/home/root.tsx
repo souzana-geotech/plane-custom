@@ -19,6 +19,7 @@ import { HomeHeader } from "./header";
 import { NoProjectsEmptyState } from "./widgets/empty-states";
 import { ManageWidgetsModal } from "./widgets/manage";
 import { FilterBar } from "./widgets/my-work/filter-bar";
+import { MySpaceQueue } from "./widgets/my-work/my-space-queue";
 import { MyWorkProvider } from "./widgets/my-work/my-work-context";
 import { WorkQueue } from "./widgets/my-work/work-queue";
 import { MyWorkSidebar } from "./widgets/sidebar/root";
@@ -78,6 +79,7 @@ export const WorkspaceHomeView = observer(function WorkspaceHomeView() {
               <main className="flex min-w-0 flex-col gap-4">
                 <FilterBar />
                 <WorkQueue />
+                <MySpaceQueue />
               </main>
               <MyWorkSidebar workspaceSlug={slug} />
             </div>

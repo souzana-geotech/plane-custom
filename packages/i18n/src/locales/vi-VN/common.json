@@ -870,5 +870,19 @@
       "description": "Xuất nhiệm vụ thành tệp JSON.",
       "short_description": "Xuất sang JSON"
     }
+  },
+  "my_space": {
+    "title": "My Space",
+    "back_to": "Quay lại {workspace}",
+    "open": "Mở My Space",
+    "open_error": {
+      "title": "Không thể mở My Space",
+      "message": "Vui lòng thử lại. Nếu vẫn không được, hãy liên hệ quản trị viên không gian làm việc."
+    },
+    "home": {
+      "intro": "Lưu các công việc riêng tư của bạn trong My Space. Chỉ bạn mới xem được.",
+      "empty": "Không có công việc đang mở trong My Space.",
+      "more": "+{count} công việc khác trong My Space"
+    }
   }
 }

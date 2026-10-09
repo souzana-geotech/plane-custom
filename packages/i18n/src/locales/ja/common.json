@@ -870,5 +870,19 @@
       "description": "タスクをJSONファイルにエクスポートします。",
       "short_description": "JSONとしてエクスポート"
     }
+  },
+  "my_space": {
+    "title": "My Space",
+    "back_to": "{workspace} に戻る",
+    "open": "My Space を開く",
+    "open_error": {
+      "title": "My Space を開けませんでした",
+      "message": "もう一度お試しください。解決しない場合は、ワークスペースの管理者にお問い合わせください。"
+    },
+    "home": {
+      "intro": "非公開のタスクは My Space で管理できます。表示できるのはご自身だけです。",
+      "empty": "My Space に未完了のタスクはありません。",
+      "more": "My Space に他 {count} 件"
+    }
   }
 }

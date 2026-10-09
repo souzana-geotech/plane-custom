@@ -870,5 +870,19 @@
       "description": "Экспорт задач в JSON-файл.",
       "short_description": "Экспорт в json"
     }
+  },
+  "my_space": {
+    "title": "My Space",
+    "back_to": "Вернуться в {workspace}",
+    "open": "Открыть My Space",
+    "open_error": {
+      "title": "Не удалось открыть My Space",
+      "message": "Попробуйте ещё раз. Если ошибка повторится, обратитесь к администратору рабочего пространства."
+    },
+    "home": {
+      "intro": "Храните личные задачи в My Space. Их видите только Вы.",
+      "empty": "В My Space нет открытых задач.",
+      "more": "+{count} в My Space"
+    }
   }
 }

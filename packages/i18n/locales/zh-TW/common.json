@@ -870,5 +870,19 @@
       "description": "將任務匯出為 JSON 檔案。",
       "short_description": "匯出為 JSON"
     }
+  },
+  "my_space": {
+    "title": "My Space",
+    "back_to": "返回 {workspace}",
+    "open": "開啟 My Space",
+    "open_error": {
+      "title": "無法開啟 My Space",
+      "message": "請再試一次。如果仍然失敗，請聯絡工作區管理員。"
+    },
+    "home": {
+      "intro": "將您的私人任務保存在 My Space 中，只有您看得到。",
+      "empty": "My Space 中沒有未完成的任務。",
+      "more": "My Space 中還有 {count} 個"
+    }
   }
 }

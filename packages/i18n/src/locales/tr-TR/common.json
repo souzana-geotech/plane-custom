@@ -870,5 +870,19 @@
       "description": "Görevleri JSON dosyasına aktarın.",
       "short_description": "JSON olarak aktar"
     }
+  },
+  "my_space": {
+    "title": "My Space",
+    "back_to": "{workspace} alanına dön",
+    "open": "My Space'i aç",
+    "open_error": {
+      "title": "My Space açılamadı",
+      "message": "Lütfen tekrar deneyin. Sorun devam ederse bir çalışma alanı yöneticisine başvurun."
+    },
+    "home": {
+      "intro": "Özel görevlerinizi My Space'te tutun. Onları yalnızca siz görebilirsiniz.",
+      "empty": "My Space'te açık görev yok.",
+      "more": "My Space'te {count} tane daha"
+    }
   }
 }

@@ -870,5 +870,19 @@
       "description": "Ekspor tugas ke file JSON.",
       "short_description": "Ekspor sebagai json"
     }
+  },
+  "my_space": {
+    "title": "My Space",
+    "back_to": "Kembali ke {workspace}",
+    "open": "Buka My Space",
+    "open_error": {
+      "title": "Tidak dapat membuka My Space",
+      "message": "Silakan coba lagi. Jika terus gagal, hubungi admin ruang kerja."
+    },
+    "home": {
+      "intro": "Simpan tugas pribadi Anda di My Space. Hanya Anda yang dapat melihatnya.",
+      "empty": "Tidak ada tugas terbuka di My Space.",
+      "more": "+{count} lainnya di My Space"
+    }
   }
 }

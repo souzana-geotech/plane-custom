@@ -870,5 +870,19 @@
       "description": "Export tasks to a JSON file.",
       "short_description": "Export as json"
     }
+  },
+  "my_space": {
+    "title": "My Space",
+    "back_to": "Back to {workspace}",
+    "open": "Open My Space",
+    "open_error": {
+      "title": "Couldn't open My Space",
+      "message": "Please try again. If it keeps failing, ask a workspace admin."
+    },
+    "home": {
+      "intro": "Keep your private tasks in My Space. Only you can see them.",
+      "empty": "No open tasks in My Space.",
+      "more": "+{count} more in My Space"
+    }
   }
 }

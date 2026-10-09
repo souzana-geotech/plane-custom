@@ -43,7 +43,7 @@ import {
 import { useTaskActions } from "./use-task-actions";
 
 /** Due dates carry urgency through color, never through a second badge. */
-const DUE_TEXT_CLASSNAME: Record<TDueBucket, string> = {
+export const DUE_TEXT_CLASSNAME: Record<TDueBucket, string> = {
   overdue: "text-danger-primary font-medium",
   today: "text-warning-primary font-medium",
   upcoming: "text-secondary",

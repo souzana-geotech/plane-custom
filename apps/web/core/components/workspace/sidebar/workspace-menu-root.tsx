@@ -65,7 +65,8 @@ export const WorkspaceMenuRoot = observer(function WorkspaceMenuRoot(props: Work
       toggleSidebar();
     }
   };
-  const workspacesList = orderWorkspacesList(Object.values(workspaces ?? {}));
+  // Geotech3D: the shared My Space workspace is reached from the sidebar, not listed as a workspace.
+  const workspacesList = orderWorkspacesList(Object.values(workspaces ?? {}).filter((w) => !w.is_my_space));
   // TODO: fix workspaces list scroll
 
   // Toggle sidebar dropdown state when either menu is open

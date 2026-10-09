@@ -870,5 +870,19 @@
       "description": "Exportez les tâches vers un fichier JSON.",
       "short_description": "Exporter en json"
     }
+  },
+  "my_space": {
+    "title": "My Space",
+    "back_to": "Retour à {workspace}",
+    "open": "Ouvrir My Space",
+    "open_error": {
+      "title": "Impossible d’ouvrir My Space",
+      "message": "Veuillez réessayer. Si le problème persiste, contactez un administrateur de l’espace de travail."
+    },
+    "home": {
+      "intro": "Gardez vos tâches privées dans My Space. Vous seul pouvez les voir.",
+      "empty": "Aucune tâche ouverte dans My Space.",
+      "more": "+{count} de plus dans My Space"
+    }
   }
 }

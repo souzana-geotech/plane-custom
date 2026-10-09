@@ -870,5 +870,19 @@
       "description": "Exportă activitățile într-un fișier JSON.",
       "short_description": "Exportă ca JSON"
     }
+  },
+  "my_space": {
+    "title": "My Space",
+    "back_to": "Înapoi la {workspace}",
+    "open": "Deschideți My Space",
+    "open_error": {
+      "title": "My Space nu a putut fi deschis",
+      "message": "Încercați din nou. Dacă problema persistă, contactați un administrator al spațiului de lucru."
+    },
+    "home": {
+      "intro": "Păstrați sarcinile private în My Space. Doar dumneavoastră le puteți vedea.",
+      "empty": "Nicio sarcină deschisă în My Space.",
+      "more": "+{count} în plus în My Space"
+    }
   }
 }

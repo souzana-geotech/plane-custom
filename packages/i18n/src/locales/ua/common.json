@@ -870,5 +870,19 @@
       "description": "Експортуйте одиниці у формат JSON.",
       "short_description": "Експортувати як JSON"
     }
+  },
+  "my_space": {
+    "title": "My Space",
+    "back_to": "Повернутися до {workspace}",
+    "open": "Відкрити My Space",
+    "open_error": {
+      "title": "Не вдалося відкрити My Space",
+      "message": "Спробуйте ще раз. Якщо помилка повториться, зверніться до адміністратора робочого простору."
+    },
+    "home": {
+      "intro": "Зберігайте особисті завдання в My Space. Їх бачите лише ви.",
+      "empty": "У My Space немає відкритих завдань.",
+      "more": "+{count} у My Space"
+    }
   }
 }
