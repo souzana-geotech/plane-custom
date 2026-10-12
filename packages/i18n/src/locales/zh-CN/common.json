@@ -872,17 +872,17 @@
     }
   },
   "my_space": {
-    "title": "My Space",
+    "title": "Personal Space",
     "back_to": "返回 {workspace}",
-    "open": "打开 My Space",
+    "open": "打开 Personal Space",
     "open_error": {
-      "title": "无法打开 My Space",
+      "title": "无法打开 Personal Space",
       "message": "请重试。如果仍然失败，请联系工作区管理员。"
     },
     "home": {
-      "intro": "将您的私人任务保存在 My Space 中，只有您可以看到。",
-      "empty": "My Space 中没有未完成的任务。",
-      "more": "My Space 中还有 {count} 个"
+      "intro": "将您的私人任务保存在 Personal Space 中，只有您可以看到。",
+      "empty": "Personal Space 中没有未完成的任务。",
+      "more": "Personal Space 中还有 {count} 个"
     },
     "list": {
       "subtitle": "您的私人任务，只有您可以看到。",

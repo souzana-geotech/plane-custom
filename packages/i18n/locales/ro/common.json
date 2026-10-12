@@ -872,17 +872,17 @@
     }
   },
   "my_space": {
-    "title": "My Space",
+    "title": "Personal Space",
     "back_to": "Înapoi la {workspace}",
-    "open": "Deschideți My Space",
+    "open": "Deschideți Personal Space",
     "open_error": {
-      "title": "My Space nu a putut fi deschis",
+      "title": "Personal Space nu a putut fi deschis",
       "message": "Încercați din nou. Dacă problema persistă, contactați un administrator al spațiului de lucru."
     },
     "home": {
-      "intro": "Păstrați sarcinile private în My Space. Doar dumneavoastră le puteți vedea.",
-      "empty": "Nicio sarcină deschisă în My Space.",
-      "more": "+{count} în plus în My Space"
+      "intro": "Păstrați sarcinile private în Personal Space. Doar dumneavoastră le puteți vedea.",
+      "empty": "Nicio sarcină deschisă în Personal Space.",
+      "more": "+{count} în plus în Personal Space"
     },
     "list": {
       "subtitle": "Sarcinile dumneavoastră private. Doar dumneavoastră le puteți vedea.",

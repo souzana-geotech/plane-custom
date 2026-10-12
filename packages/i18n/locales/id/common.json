@@ -872,17 +872,17 @@
     }
   },
   "my_space": {
-    "title": "My Space",
+    "title": "Personal Space",
     "back_to": "Kembali ke {workspace}",
-    "open": "Buka My Space",
+    "open": "Buka Personal Space",
     "open_error": {
-      "title": "Tidak dapat membuka My Space",
+      "title": "Tidak dapat membuka Personal Space",
       "message": "Silakan coba lagi. Jika terus gagal, hubungi admin ruang kerja."
     },
     "home": {
-      "intro": "Simpan tugas pribadi Anda di My Space. Hanya Anda yang dapat melihatnya.",
-      "empty": "Tidak ada tugas terbuka di My Space.",
-      "more": "+{count} lainnya di My Space"
+      "intro": "Simpan tugas pribadi Anda di Personal Space. Hanya Anda yang dapat melihatnya.",
+      "empty": "Tidak ada tugas terbuka di Personal Space.",
+      "more": "+{count} lainnya di Personal Space"
     },
     "list": {
       "subtitle": "Tugas pribadi Anda. Hanya Anda yang dapat melihatnya.",

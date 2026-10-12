@@ -52,8 +52,8 @@ from plane.db.models.state import StateGroup
 ADMIN_ROLE = 20
 MEMBER_ROLE = 15
 
-PERSONAL_PROJECT_NAME = "My Space"
-MY_SPACE_WORKSPACE_NAME = "My Space"
+PERSONAL_PROJECT_NAME = "Personal Space"
+MY_SPACE_WORKSPACE_NAME = "Personal Space"
 MY_SPACE_WORKSPACE_SLUG = "my-space"
 # A personal to-do list needs three states, not a team workflow's six.
 PERSONAL_STATES = [

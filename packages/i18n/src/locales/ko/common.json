@@ -872,17 +872,17 @@
     }
   },
   "my_space": {
-    "title": "My Space",
+    "title": "Personal Space",
     "back_to": "{workspace}(으)로 돌아가기",
-    "open": "My Space 열기",
+    "open": "Personal Space 열기",
     "open_error": {
-      "title": "My Space를 열 수 없습니다",
+      "title": "Personal Space를 열 수 없습니다",
       "message": "다시 시도해 주십시오. 계속 실패하면 워크스페이스 관리자에게 문의하십시오."
     },
     "home": {
-      "intro": "비공개 작업은 My Space에 보관하세요. 본인만 볼 수 있습니다.",
-      "empty": "My Space에 진행 중인 작업이 없습니다.",
-      "more": "My Space에 {count}개 더 있음"
+      "intro": "비공개 작업은 Personal Space에 보관하세요. 본인만 볼 수 있습니다.",
+      "empty": "Personal Space에 진행 중인 작업이 없습니다.",
+      "more": "Personal Space에 {count}개 더 있음"
     },
     "list": {
       "subtitle": "비공개 작업입니다. 본인만 볼 수 있습니다.",

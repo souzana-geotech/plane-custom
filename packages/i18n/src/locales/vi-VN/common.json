@@ -872,17 +872,17 @@
     }
   },
   "my_space": {
-    "title": "My Space",
+    "title": "Personal Space",
     "back_to": "Quay lại {workspace}",
-    "open": "Mở My Space",
+    "open": "Mở Personal Space",
     "open_error": {
-      "title": "Không thể mở My Space",
+      "title": "Không thể mở Personal Space",
       "message": "Vui lòng thử lại. Nếu vẫn không được, hãy liên hệ quản trị viên không gian làm việc."
     },
     "home": {
-      "intro": "Lưu các công việc riêng tư của bạn trong My Space. Chỉ bạn mới xem được.",
-      "empty": "Không có công việc đang mở trong My Space.",
-      "more": "+{count} công việc khác trong My Space"
+      "intro": "Lưu các công việc riêng tư của bạn trong Personal Space. Chỉ bạn mới xem được.",
+      "empty": "Không có công việc đang mở trong Personal Space.",
+      "more": "+{count} công việc khác trong Personal Space"
     },
     "list": {
       "subtitle": "Công việc riêng tư của bạn. Chỉ bạn mới xem được.",

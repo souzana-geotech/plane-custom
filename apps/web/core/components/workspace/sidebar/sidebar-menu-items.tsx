@@ -52,10 +52,10 @@ export const SidebarMenuItems = observer(function SidebarMenuItems() {
     toggleWorkspaceMenu(isOpen);
   };
 
-  // Filter static navigation items based on personal preferences
-  const filteredStaticNavigationItems = useMemo(() => {
-    const items = [...WORKSPACE_SIDEBAR_STATIC_NAVIGATION_ITEMS_LINKS];
-    const personalItems: Array<(typeof items)[0] & { sort_order: number }> = [];
+  // Personal items (drafts, stickies) shown per personal preferences, after My Work and My Space
+  const filteredPersonalNavigationItems = useMemo(() => {
+    const personalItems: Array<(typeof WORKSPACE_SIDEBAR_STATIC_NAVIGATION_ITEMS_LINKS)[0] & { sort_order: number }> =
+      [];
 
     // Add personal items based on preferences with their sort_order
     const stickiesItem = WORKSPACE_SIDEBAR_STATIC_NAVIGATION_ITEMS["stickies"];
@@ -74,9 +74,7 @@ export const SidebarMenuItems = observer(function SidebarMenuItems() {
 
     // Sort personal items by sort_order
     personalItems.sort((a, b) => a.sort_order - b.sort_order);
-
-    // Merge static items with sorted personal items
-    return [...items, ...personalItems];
+    return personalItems;
   }, [personalPreferences]);
 
   // Every workspace navigation item is shown unconditionally, so the pin state that
@@ -112,10 +110,14 @@ export const SidebarMenuItems = observer(function SidebarMenuItems() {
           <span className="text-13 font-semibold">{t("sidebar.your_work")}</span>
         </div>
         <div className="flex flex-col gap-0.5">
-          {filteredStaticNavigationItems.map((item) => (
+          {WORKSPACE_SIDEBAR_STATIC_NAVIGATION_ITEMS_LINKS.map((item) => (
             <SidebarItemBase key={`static_${item.key}`} item={item} />
           ))}
+          {/* Geotech3D: My Space sits right under My Work. */}
           <MySpaceNavItem />
+          {filteredPersonalNavigationItems.map((item) => (
+            <SidebarItemBase key={`static_${item.key}`} item={item} />
+          ))}
         </div>
       </div>
       {/* Geotech3D: the My Space workspace has no admins and nothing to manage. */}

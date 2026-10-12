@@ -872,17 +872,17 @@
     }
   },
   "my_space": {
-    "title": "My Space",
+    "title": "Personal Space",
     "back_to": "Volver a {workspace}",
-    "open": "Abrir My Space",
+    "open": "Abrir Personal Space",
     "open_error": {
-      "title": "No se pudo abrir My Space",
+      "title": "No se pudo abrir Personal Space",
       "message": "Inténtelo de nuevo. Si el problema continúa, consulte a un administrador del espacio de trabajo."
     },
     "home": {
-      "intro": "Guarde sus tareas privadas en My Space. Solo usted puede verlas.",
-      "empty": "No hay tareas abiertas en My Space.",
-      "more": "+{count} más en My Space"
+      "intro": "Guarde sus tareas privadas en Personal Space. Solo usted puede verlas.",
+      "empty": "No hay tareas abiertas en Personal Space.",
+      "more": "+{count} más en Personal Space"
     },
     "list": {
       "subtitle": "Sus tareas privadas. Solo usted puede verlas.",

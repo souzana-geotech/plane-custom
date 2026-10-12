@@ -4,9 +4,11 @@ from django.db import migrations, models
 
 
 def name_personal_containers_my_space(apps, schema_editor):
-    """Every personal container is just "My Space" (Geotech3D)."""
+    """Every personal container, and the shared workspace, is just "Personal Space" (Geotech3D)."""
     Project = apps.get_model("db", "Project")
-    Project.objects.filter(is_personal=True).update(name="My Space")
+    Workspace = apps.get_model("db", "Workspace")
+    Project.objects.filter(is_personal=True).update(name="Personal Space")
+    Workspace.objects.filter(is_my_space=True).update(name="Personal Space")
 
 
 class Migration(migrations.Migration):

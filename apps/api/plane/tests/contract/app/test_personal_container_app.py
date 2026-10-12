@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: AGPL-3.0-only
 # See the LICENSE file for details.
 
-"""Contract tests for "My Space" (Phase 1, backend).
+"""Contract tests for "Personal Space" (My Space) (Phase 1, backend).
 
 See ``plane.utils.personal_project`` for the rules. There is one shared My
 Space workspace; it holds one personal container per person. ``alice`` is a
@@ -109,11 +109,11 @@ def team(db, workspace, create_user, alice):
 class TestOpeningMySpace:
     @pytest.mark.django_db
     def test_first_open_sets_up_the_shared_workspace_and_a_private_container(self, alice, workspace, my_space, hub):
-        assert (hub.is_my_space, hub.name, hub.slug) == (True, "My Space", "my-space")
+        assert (hub.is_my_space, hub.name, hub.slug) == (True, "Personal Space", "my-space")
         assert WorkspaceMember.objects.get(workspace=hub, member=alice).role == MEMBER
 
         assert (my_space.is_personal, my_space.owner_id, my_space.network) == (True, alice.id, 0)
-        assert my_space.name == "My Space"
+        assert my_space.name == "Personal Space"
         assert my_space.identifier.startswith("MY")
         features = (my_space.module_view, my_space.cycle_view, my_space.issue_views_view, my_space.intake_view)
         assert features == (False, False, False, False)
@@ -141,7 +141,7 @@ class TestOpeningMySpace:
             response = _open_my_space(alice_client, opened_from)
             assert response.status_code == status.HTTP_200_OK
             assert response.data["id"] == my_space.id
-            assert (response.data["workspace_slug"], response.data["workspace_name"]) == ("my-space", "My Space")
+            assert (response.data["workspace_slug"], response.data["workspace_name"]) == ("my-space", "Personal Space")
         assert Project.objects.filter(owner=alice, is_personal=True).count() == 1
         assert Workspace.objects.filter(is_my_space=True).count() == 1
 
@@ -151,7 +151,7 @@ class TestOpeningMySpace:
         assert theirs.id != my_space.id
         assert theirs.workspace_id == hub.id
         # Everyone's container has the same name; no colleague's name shows.
-        assert theirs.name == my_space.name == "My Space"
+        assert theirs.name == my_space.name == "Personal Space"
         # Nobody runs the My Space workspace - the company admin is a MEMBER there.
         assert WorkspaceMember.objects.get(workspace=hub, member=create_user).role == MEMBER
 
@@ -317,7 +317,7 @@ class TestTheMySpaceWorkspaceIsLocked:
         ]
         assert [response.status_code for response in responses] == [400] * len(responses)
         hub.refresh_from_db()
-        assert (hub.name, hub.deleted_at) == ("My Space", None)
+        assert (hub.name, hub.deleted_at) == ("Personal Space", None)
         assert Project.objects.filter(workspace=hub, is_personal=False).count() == 0
 
     @pytest.mark.django_db

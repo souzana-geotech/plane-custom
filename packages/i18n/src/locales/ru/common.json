@@ -872,17 +872,17 @@
     }
   },
   "my_space": {
-    "title": "My Space",
+    "title": "Personal Space",
     "back_to": "Вернуться в {workspace}",
-    "open": "Открыть My Space",
+    "open": "Открыть Personal Space",
     "open_error": {
-      "title": "Не удалось открыть My Space",
+      "title": "Не удалось открыть Personal Space",
       "message": "Попробуйте ещё раз. Если ошибка повторится, обратитесь к администратору рабочего пространства."
     },
     "home": {
-      "intro": "Храните личные задачи в My Space. Их видите только Вы.",
-      "empty": "В My Space нет открытых задач.",
-      "more": "+{count} в My Space"
+      "intro": "Храните личные задачи в Personal Space. Их видите только Вы.",
+      "empty": "В Personal Space нет открытых задач.",
+      "more": "+{count} в Personal Space"
     },
     "list": {
       "subtitle": "Ваши личные задачи. Их видите только Вы.",

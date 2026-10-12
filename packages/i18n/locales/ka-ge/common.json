@@ -872,17 +872,17 @@
     }
   },
   "my_space": {
-    "title": "My Space",
+    "title": "Personal Space",
     "back_to": "დაბრუნება: {workspace}",
-    "open": "My Space-ის გახსნა",
+    "open": "Personal Space-ის გახსნა",
     "open_error": {
-      "title": "My Space-ის გახსნა ვერ მოხერხდა",
+      "title": "Personal Space-ის გახსნა ვერ მოხერხდა",
       "message": "გთხოვთ, სცადოთ ხელახლა. თუ შეცდომა განმეორდება, მიმართეთ სამუშაო სივრცის ადმინისტრატორს."
     },
     "home": {
-      "intro": "შეინახეთ თქვენი პირადი დავალებები My Space-ში. მათ მხოლოდ თქვენ ხედავთ.",
-      "empty": "My Space-ში ღია დავალებები არ არის.",
-      "more": "+{count} სხვა My Space-ში"
+      "intro": "შეინახეთ თქვენი პირადი დავალებები Personal Space-ში. მათ მხოლოდ თქვენ ხედავთ.",
+      "empty": "Personal Space-ში ღია დავალებები არ არის.",
+      "more": "+{count} სხვა Personal Space-ში"
     },
     "list": {
       "subtitle": "თქვენი პირადი დავალებები. მათ მხოლოდ თქვენ ხედავთ.",

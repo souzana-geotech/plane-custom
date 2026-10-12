@@ -872,17 +872,17 @@
     }
   },
   "my_space": {
-    "title": "My Space",
+    "title": "Personal Space",
     "back_to": "{workspace} alanına dön",
-    "open": "My Space'i aç",
+    "open": "Personal Space'i aç",
     "open_error": {
-      "title": "My Space açılamadı",
+      "title": "Personal Space açılamadı",
       "message": "Lütfen tekrar deneyin. Sorun devam ederse bir çalışma alanı yöneticisine başvurun."
     },
     "home": {
-      "intro": "Özel görevlerinizi My Space'te tutun. Onları yalnızca siz görebilirsiniz.",
-      "empty": "My Space'te açık görev yok.",
-      "more": "My Space'te {count} tane daha"
+      "intro": "Özel görevlerinizi Personal Space'te tutun. Onları yalnızca siz görebilirsiniz.",
+      "empty": "Personal Space'te açık görev yok.",
+      "more": "Personal Space'te {count} tane daha"
     },
     "list": {
       "subtitle": "Özel görevleriniz. Onları yalnızca siz görebilirsiniz.",
