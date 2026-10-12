@@ -502,3 +502,72 @@ class TestNeverTheLandingWorkspace:
 
         Profile.objects.filter(user=alice).update(is_onboarded=True)
         assert get_redirection_path(alice) == workspace.slug
+
+
+@pytest.mark.contract
+class TestExportsStayPrivate:
+    """Exports run in the background over a list of containers the caller names."""
+
+    @staticmethod
+    def _export_tasks(client, hub, project_ids):
+        import io
+        import zipfile
+
+        from plane.bgtasks import export_task
+
+        uploaded = []
+        run_now = export_task.issue_export_task
+        with (
+            mock.patch("plane.app.views.exporter.base.issue_export_task.delay", side_effect=run_now),
+            mock.patch.object(export_task, "upload_to_s3", side_effect=lambda buffer, *args: uploaded.append(buffer)),
+        ):
+            response = client.post(
+                f"/api/workspaces/{hub.slug}/export-issues/",
+                {"provider": "csv", "project": project_ids, "multiple": False},
+                format="json",
+            )
+        assert response.status_code == status.HTTP_200_OK
+        with zipfile.ZipFile(io.BytesIO(uploaded[0].getvalue())) as archive:
+            return b"".join(archive.read(name) for name in archive.namelist())
+
+    @pytest.mark.django_db
+    def test_a_colleague_cannot_export_her_tasks(self, admin_in_hub, alice, alice_client, my_space, hub):
+        _issue("zzsecret task", my_space, alice)
+        # Naming her container outright, or exporting everything they can see.
+        assert b"zzsecret" not in self._export_tasks(admin_in_hub, hub, [str(my_space.id)])
+        assert b"zzsecret" not in self._export_tasks(admin_in_hub, hub, [])
+        # The export does carry tasks: hers, when she runs it.
+        assert b"zzsecret task" in self._export_tasks(alice_client, hub, [str(my_space.id)])
+
+    @pytest.mark.django_db
+    def test_a_colleague_cannot_export_her_analytics(self, admin_in_hub, alice, alice_client, my_space, hub):
+        from plane.app.views.analytic import base as analytic_views
+        from plane.bgtasks import analytic_plot_export
+        from plane.db.models import IssueLabel, Label
+
+        task = _issue("zzsecret task", my_space, alice)
+        label = Label.objects.create(name="zzsecret label", project=my_space, workspace=hub)
+        IssueLabel.objects.create(issue=task, label=label, project=my_space, workspace=hub)
+
+        def export(client):
+            sent = []
+            with (
+                mock.patch.object(
+                    analytic_views.analytic_export_task, "delay", side_effect=analytic_plot_export.analytic_export_task
+                ),
+                mock.patch.object(
+                    analytic_plot_export,
+                    "send_export_email",
+                    side_effect=lambda email, slug, csv_buffer, rows: sent.append(csv_buffer.getvalue()),
+                ),
+            ):
+                response = client.post(
+                    f"/api/workspaces/{hub.slug}/export-analytics/",
+                    {"x_axis": "labels__id", "y_axis": "issue_count"},
+                    format="json",
+                )
+            assert response.status_code == status.HTTP_200_OK
+            return "".join(sent)
+
+        assert "zzsecret" not in export(admin_in_hub)
+        assert "zzsecret label" in export(alice_client)
