@@ -400,12 +400,20 @@ class TestTheContainerIsLocked:
         assert not DeployBoard.objects.filter(project=my_space).exists()
 
     @pytest.mark.django_db
-    def test_the_owner_can_use_it(self, alice_client, my_space, hub):
+    def test_the_owner_can_use_it(self, alice, alice_client, my_space, hub):
         response = alice_client.post(
             f"/api/workspaces/{hub.slug}/projects/{my_space.id}/issues/", {"name": "note to self"}, format="json"
         )
         assert response.status_code == status.HTTP_201_CREATED
         assert Issue.objects.get(pk=response.data["id"]).sequence_id == 1
+        # Nobody assigned: the task is the owner's.
+        assert response.data["assignee_ids"] == [alice.id]
+        unassigned = alice_client.post(
+            f"/api/workspaces/{hub.slug}/projects/{my_space.id}/issues/",
+            {"name": "another note", "assignee_ids": []},
+            format="json",
+        )
+        assert unassigned.data["assignee_ids"] == [alice.id]
         renamed = alice_client.patch(
             f"/api/workspaces/{hub.slug}/projects/{my_space.id}/", {"name": "Scratchpad"}, format="json"
         )

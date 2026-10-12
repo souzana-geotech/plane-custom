@@ -139,6 +139,9 @@ def _create_personal_project(user, workspace):
             network=0,
             is_personal=True,
             owner=user,
+            # New tasks with nobody assigned go to the owner. It is the
+            # container's ordinary "default assignee" setting.
+            default_assignee=user,
             # An ordinary container: Jobs, cycles, views and pages, as the
             # company's containers have them. Requests (intake) are for work
             # coming in from others, so they start off.
