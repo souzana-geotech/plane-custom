@@ -138,19 +138,21 @@ export const MySpaceTaskList = observer(function MySpaceTaskList(props: Props) {
     }
   };
 
+  // The box clears at once and keeps focus, so tasks can be typed one after another.
   const createTask = async () => {
     const name = newTaskName.trim();
     if (!name || isCreating) return;
     setIsCreating(true);
+    setNewTaskName("");
     try {
       await issueService.createIssue(workspaceSlug, projectId, { name });
-      setNewTaskName("");
       await mutate();
     } catch {
+      // give the text back so it isn't lost
+      setNewTaskName((current) => current || name);
       showError();
     } finally {
       setIsCreating(false);
-      inputRef.current?.focus();
     }
   };
 
@@ -232,7 +234,6 @@ export const MySpaceTaskList = observer(function MySpaceTaskList(props: Props) {
               ref={inputRef}
               value={newTaskName}
               onChange={(event) => setNewTaskName(event.target.value)}
-              disabled={isCreating}
               placeholder={t("my_space.list.add_placeholder")}
               aria-label={t("my_space.list.add_placeholder")}
               className="w-full rounded-lg border border-subtle bg-surface-1 px-3 py-2.5 text-13 text-primary placeholder:text-placeholder focus:border-accent-strong focus:outline-none"

@@ -4,7 +4,7 @@
  * See the LICENSE file for details.
  */
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { observer } from "mobx-react";
 import useSWR from "swr";
 import { CloseOutline } from "@makeplane/propel/icons";
@@ -61,11 +61,13 @@ export const MySpaceTaskPanel = observer(function MySpaceTaskPanel(props: Props)
   const [name, setName] = useState("");
   const [notes, setNotes] = useState("");
   const [confirmDelete, setConfirmDelete] = useState(false);
+  // A field being typed in is never overwritten by a refresh (one follows every save).
+  const editing = useRef({ name: false, notes: false });
 
   useEffect(() => {
     if (!task) return;
-    setName(task.name);
-    setNotes(htmlToText(task.description_html));
+    if (!editing.current.name) setName(task.name);
+    if (!editing.current.notes) setNotes(htmlToText(task.description_html));
     setConfirmDelete(false);
   }, [task]);
 
@@ -95,7 +97,9 @@ export const MySpaceTaskPanel = observer(function MySpaceTaskPanel(props: Props)
           <input
             value={name}
             onChange={(event) => setName(event.target.value)}
+            onFocus={() => (editing.current.name = true)}
             onBlur={() => {
+              editing.current.name = false;
               const trimmed = name.trim();
               if (trimmed && trimmed !== task.name) void save({ name: trimmed });
               else setName(task.name);
@@ -152,7 +156,9 @@ export const MySpaceTaskPanel = observer(function MySpaceTaskPanel(props: Props)
             <textarea
               value={notes}
               onChange={(event) => setNotes(event.target.value)}
+              onFocus={() => (editing.current.notes = true)}
               onBlur={() => {
+                editing.current.notes = false;
                 if (notes !== htmlToText(task.description_html)) void save({ description_html: textToHtml(notes) });
               }}
               placeholder={t("my_space.panel.notes_placeholder")}

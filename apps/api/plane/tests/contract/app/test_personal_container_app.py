@@ -258,6 +258,27 @@ class TestPrivateFromColleagues:
         assert "alice's view" not in str(listing)
         assert IssueView.objects.filter(name="alice's view").exists()
 
+    @pytest.mark.django_db
+    def test_her_tasks_stay_out_of_the_workspace_wide_routes(self, admin_in_hub, create_user, alice, my_space, hub):
+        """The to-do list reads tasks through the My Space workspace's task list; so could a colleague."""
+        secret = _issue("alice secret plan", my_space, alice)
+        theirs = _issue("admin own note", Project.objects.get(owner=create_user, is_personal=True), create_user)
+        base = f"/api/workspaces/{hub.slug}"
+
+        listing = admin_in_hub.get(f"{base}/issues/", {"per_page": 100, "cursor": "100:0:0"})
+        assert listing.status_code == status.HTTP_200_OK
+        assert str(theirs.id) in str(listing.data) and str(secret.id) not in str(listing.data)
+        # Asking for her container by id does not help either.
+        filtered = admin_in_hub.get(
+            f"{base}/issues/", {"project": str(my_space.id), "per_page": 100, "cursor": "100:0:0"}
+        )
+        assert str(secret.id) not in str(filtered.data)
+
+        assert "secret" not in str(admin_in_hub.get(f"{base}/search/", {"search": "secret"}).data)
+        assert "secret" not in str(admin_in_hub.get(f"{base}/user-issues/{alice.id}/").data)
+        by_key = admin_in_hub.get(f"{base}/work-items/{my_space.identifier}-{secret.sequence_id}/")
+        assert by_key.status_code in (status.HTTP_403_FORBIDDEN, status.HTTP_404_NOT_FOUND)
+
 
 @pytest.mark.contract
 class TestTheMySpaceWorkspaceIsLocked:
