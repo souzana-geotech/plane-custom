@@ -20,6 +20,7 @@ from rest_framework import status
 from rest_framework.test import APIClient
 
 from plane.db.models import (
+    DEFAULT_STATES,
     DeployBoard,
     Issue,
     IssueRelation,
@@ -115,20 +116,17 @@ class TestOpeningMySpace:
         assert (my_space.is_personal, my_space.owner_id, my_space.network) == (True, alice.id, 0)
         assert my_space.name == "Personal Space"
         assert my_space.identifier.startswith("MY")
-        features = (my_space.module_view, my_space.cycle_view, my_space.issue_views_view, my_space.intake_view)
-        assert features == (False, False, False, False)
-        assert my_space.page_view is True
+        # An ordinary container: Jobs, cycles, views and pages on; requests off.
+        features = (my_space.module_view, my_space.cycle_view, my_space.issue_views_view, my_space.page_view)
+        assert features == (True, True, True, True)
+        assert my_space.intake_view is False
         assert list(ProjectMember.objects.filter(project=my_space).values_list("member_id", "role")) == [
             (alice.id, ADMIN)
         ]
-        # A personal to-do list: three states, "To do" first.
-        states = State.objects.filter(project=my_space).order_by("sequence")
-        assert [(state.name, state.group) for state in states] == [
-            ("To do", "unstarted"),
-            ("In progress", "started"),
-            ("Done", "completed"),
-        ]
-        assert states.get(default=True).name == "To do"
+        # The same workflow states as any new container.
+        states = State.all_state_objects.filter(project=my_space).order_by("sequence")
+        assert [state.name for state in states] == [state["name"] for state in DEFAULT_STATES]
+        assert states.get(default=True).name == "Backlog"
         # Nothing lands in the company workspace.
         assert not Project.objects.filter(workspace=workspace, is_personal=True).exists()
 
@@ -278,6 +276,56 @@ class TestPrivateFromColleagues:
         assert "secret" not in str(admin_in_hub.get(f"{base}/user-issues/{alice.id}/").data)
         by_key = admin_in_hub.get(f"{base}/work-items/{my_space.identifier}-{secret.sequence_id}/")
         assert by_key.status_code in (status.HTTP_403_FORBIDDEN, status.HTTP_404_NOT_FOUND)
+
+    @pytest.mark.django_db
+    def test_her_jobs_cycles_pages_and_views_stay_out_of_workspace_wide_routes(
+        self, admin_in_hub, alice, alice_client, my_space, hub
+    ):
+        """Personal Space is an ordinary container, so it holds Jobs, cycles, pages and views too."""
+        from plane.db.models import Cycle, Label, Module, Page, ProjectPage
+
+        owned = {"project": my_space, "workspace": hub}
+        _issue("zzsecret task", my_space, alice)
+        Module.objects.create(name="zzsecret job", **owned)
+        Cycle.objects.create(name="zzsecret cycle", owned_by=alice, **owned)
+        IssueView.objects.create(name="zzsecret view", owned_by=alice, **owned)
+        Label.objects.create(name="zzsecret label", **owned)
+        page = Page.objects.create(name="zzsecret page", workspace=hub, owned_by=alice, access=0)
+        ProjectPage.objects.create(project=my_space, page=page, workspace=hub)
+
+        base = f"/api/workspaces/{hub.slug}"
+        routes = [
+            ("search/", {"search": "zzsecret"}),
+            ("search/", {"search": "zzsecret", "workspace_search": "true"}),
+            ("entity-search/", {"query": "zzsecret", "query_type": "issue,cycle,module,page,project"}),
+            ("issues/", {"per_page": 100, "cursor": "100:0:0"}),
+            ("modules/", {}),
+            ("cycles/", {}),
+            ("labels/", {}),
+            ("states/", {}),
+            ("estimates/", {}),
+            ("views/", {}),
+            ("workspace-views/", {}),
+            ("project-stats/", {}),
+            ("project-members/", {}),
+            ("analytics/", {"x_axis": "labels__id", "y_axis": "issue_count"}),
+            ("default-analytics/", {}),
+            ("recent-visits/", {}),
+            ("user-favorites/", {}),
+            ("dependency-schedules/", {}),
+            ("due-date-change-requests/", {}),
+            (f"user-issues/{alice.id}/", {}),
+        ]
+        leaks = []
+        for route, params in routes:
+            response = admin_in_hub.get(f"{base}/{route}", params)
+            if response.status_code >= 500 or b"zzsecret" in response.content:
+                leaks.append((route, response.status_code))
+        assert leaks == []
+        # The probe can see a leak: the owner finds all of it.
+        own = alice_client.get(f"{base}/search/", {"search": "zzsecret"}).content
+        for name in (b"zzsecret task", b"zzsecret job", b"zzsecret cycle", b"zzsecret page", b"zzsecret view"):
+            assert name in own
 
 
 @pytest.mark.contract

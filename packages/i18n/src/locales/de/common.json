@@ -883,27 +883,6 @@
       "intro": "Behalten Sie Ihre privaten Aufgaben in Personal Space. Nur Sie können sie sehen.",
       "empty": "Keine offenen Aufgaben in Personal Space.",
       "more": "+{count} weitere in Personal Space"
-    },
-    "list": {
-      "subtitle": "Ihre privaten Aufgaben. Nur Sie können sie sehen.",
-      "add_placeholder": "Aufgabe eingeben und Enter drücken",
-      "empty": {
-        "title": "Nichts zu tun",
-        "description": "Fügen Sie oben eine Aufgabe hinzu, um zu beginnen."
-      },
-      "error": "Die Änderung konnte nicht gespeichert werden. Bitte versuchen Sie es erneut.",
-      "mark_open": "Als nicht erledigt markieren"
-    },
-    "panel": {
-      "label": "Aufgabendetails",
-      "close": "Schließen",
-      "title": "Aufgabentitel",
-      "status": "Status",
-      "due_date": "Fälligkeitsdatum",
-      "notes": "Notizen",
-      "notes_placeholder": "Notizen hinzufügen …",
-      "delete": "Aufgabe löschen",
-      "confirm_delete": "Ja, löschen"
     }
   }
 }

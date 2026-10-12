@@ -883,27 +883,6 @@
       "intro": "Guarde suas tarefas privadas no Personal Space. Só você pode vê-las.",
       "empty": "Nenhuma tarefa aberta no Personal Space.",
       "more": "+{count} a mais no Personal Space"
-    },
-    "list": {
-      "subtitle": "Suas tarefas privadas. Só você pode vê-las.",
-      "add_placeholder": "Adicione uma tarefa e pressione Enter",
-      "empty": {
-        "title": "Nada a fazer",
-        "description": "Adicione uma tarefa acima para começar."
-      },
-      "error": "Não foi possível salvar a alteração. Tente novamente.",
-      "mark_open": "Marcar como não concluída"
-    },
-    "panel": {
-      "label": "Detalhes da tarefa",
-      "close": "Fechar",
-      "title": "Título da tarefa",
-      "status": "Status",
-      "due_date": "Data de vencimento",
-      "notes": "Notas",
-      "notes_placeholder": "Adicionar notas…",
-      "delete": "Excluir tarefa",
-      "confirm_delete": "Sim, excluir"
     }
   }
 }

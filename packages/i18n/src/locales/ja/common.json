@@ -883,27 +883,6 @@
       "intro": "非公開のタスクは Personal Space で管理できます。表示できるのはご自身だけです。",
       "empty": "Personal Space に未完了のタスクはありません。",
       "more": "Personal Space に他 {count} 件"
-    },
-    "list": {
-      "subtitle": "非公開のタスクです。表示できるのはご自身だけです。",
-      "add_placeholder": "タスクを入力して Enter を押してください",
-      "empty": {
-        "title": "やることはありません",
-        "description": "上の欄からタスクを追加してください。"
-      },
-      "error": "変更を保存できませんでした。もう一度お試しください。",
-      "mark_open": "未完了に戻す"
-    },
-    "panel": {
-      "label": "タスクの詳細",
-      "close": "閉じる",
-      "title": "タスク名",
-      "status": "ステータス",
-      "due_date": "期日",
-      "notes": "メモ",
-      "notes_placeholder": "メモを追加…",
-      "delete": "タスクを削除",
-      "confirm_delete": "削除する"
     }
   }
 }

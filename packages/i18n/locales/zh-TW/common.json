@@ -883,27 +883,6 @@
       "intro": "將您的私人任務保存在 Personal Space 中，只有您看得到。",
       "empty": "Personal Space 中沒有未完成的任務。",
       "more": "Personal Space 中還有 {count} 個"
-    },
-    "list": {
-      "subtitle": "您的私人任務，只有您看得到。",
-      "add_placeholder": "輸入任務後按 Enter",
-      "empty": {
-        "title": "目前沒有待辦事項",
-        "description": "在上方新增任務即可開始。"
-      },
-      "error": "無法儲存此變更，請再試一次。",
-      "mark_open": "標記為未完成"
-    },
-    "panel": {
-      "label": "任務詳細資料",
-      "close": "關閉",
-      "title": "任務標題",
-      "status": "狀態",
-      "due_date": "截止日期",
-      "notes": "備註",
-      "notes_placeholder": "新增備註…",
-      "delete": "刪除任務",
-      "confirm_delete": "確認刪除"
     }
   }
 }

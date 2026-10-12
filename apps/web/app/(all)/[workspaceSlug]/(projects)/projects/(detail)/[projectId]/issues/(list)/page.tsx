@@ -10,13 +10,12 @@ import { useTranslation } from "@plane/i18n";
 // components
 import { PageHead } from "@/components/core/page-title";
 import { ProjectLayoutRoot } from "@/components/issues/issue-layouts/roots/project-layout-root";
-import { MySpaceTaskList } from "@/components/my-space/task-list";
 // hooks
 import { useProject } from "@/hooks/store/use-project";
 import type { Route } from "./+types/page";
 
 function ProjectIssuesPage({ params }: Route.ComponentProps) {
-  const { workspaceSlug, projectId } = params;
+  const { projectId } = params;
   // i18n
   const { t } = useTranslation();
   // store
@@ -30,12 +29,7 @@ function ProjectIssuesPage({ params }: Route.ComponentProps) {
     <>
       <PageHead title={pageTitle} />
       <div className="h-full w-full">
-        {/* Geotech3D: My Space is a plain to-do list, not a container layout. */}
-        {project?.is_personal ? (
-          <MySpaceTaskList workspaceSlug={workspaceSlug} projectId={projectId} />
-        ) : (
-          <ProjectLayoutRoot />
-        )}
+        <ProjectLayoutRoot />
       </div>
     </>
   );

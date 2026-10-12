@@ -883,27 +883,6 @@
       "intro": "Tenga le Sue attività private in Personal Space. Solo Lei può vederle.",
       "empty": "Nessuna attività aperta in Personal Space.",
       "more": "+{count} altre in Personal Space"
-    },
-    "list": {
-      "subtitle": "Le Sue attività private. Solo Lei può vederle.",
-      "add_placeholder": "Aggiunga un'attività e prema Enter",
-      "empty": {
-        "title": "Niente da fare",
-        "description": "Aggiunga un'attività qui sopra per iniziare."
-      },
-      "error": "Impossibile salvare la modifica. Riprovi.",
-      "mark_open": "Segna come non completata"
-    },
-    "panel": {
-      "label": "Dettagli attività",
-      "close": "Chiudi",
-      "title": "Titolo dell'attività",
-      "status": "Stato",
-      "due_date": "Scadenza",
-      "notes": "Note",
-      "notes_placeholder": "Aggiunga note…",
-      "delete": "Elimina attività",
-      "confirm_delete": "Sì, elimina"
     }
   }
 }

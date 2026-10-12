@@ -9,7 +9,7 @@ workspace, reached from every workspace.
 There is a single **My Space workspace** (``Workspace.is_my_space``) for the
 whole instance. It holds one **personal container** per person - an ordinary
 ``Project`` with ``is_personal=True`` and an ``owner`` - so tasks, states,
-layouts and pages all work unchanged. Every company workspace links to it; the
+layouts, Jobs, cycles, views and pages all work unchanged. Every company workspace links to it; the
 web app opens it there, with a way back.
 
 The My Space workspace is nobody's to run: everyone in it is a MEMBER, nobody
@@ -46,8 +46,7 @@ from django.db import IntegrityError, transaction
 from django.db.models import Q
 
 # Module imports
-from plane.db.models import Project, ProjectIdentifier, ProjectMember, State, Workspace, WorkspaceMember
-from plane.db.models.state import StateGroup
+from plane.db.models import DEFAULT_STATES, Project, ProjectIdentifier, ProjectMember, State, Workspace, WorkspaceMember
 
 ADMIN_ROLE = 20
 MEMBER_ROLE = 15
@@ -55,12 +54,6 @@ MEMBER_ROLE = 15
 PERSONAL_PROJECT_NAME = "Personal Space"
 MY_SPACE_WORKSPACE_NAME = "Personal Space"
 MY_SPACE_WORKSPACE_SLUG = "my-space"
-# A personal to-do list needs three states, not a team workflow's six.
-PERSONAL_STATES = [
-    {"name": "To do", "color": "#60646C", "sequence": 15000, "group": StateGroup.UNSTARTED.value, "default": True},
-    {"name": "In progress", "color": "#F59E0B", "sequence": 25000, "group": StateGroup.STARTED.value},
-    {"name": "Done", "color": "#46A758", "sequence": 35000, "group": StateGroup.COMPLETED.value},
-]
 
 # Error code for the container endpoints that refuse an operation on a
 # personal container; the web app shows its own message for it.
@@ -138,7 +131,7 @@ def _free_identifier(workspace_id, user):
 def _create_personal_project(user, workspace):
     with transaction.atomic():
         project = Project.objects.create(
-            # Every personal container is just "My Space"; personal containers
+            # Every personal container has the same name; personal containers
             # are exempt from the per-workspace name uniqueness constraint.
             name=PERSONAL_PROJECT_NAME,
             identifier=_free_identifier(workspace.id, user),
@@ -146,11 +139,12 @@ def _create_personal_project(user, workspace):
             network=0,
             is_personal=True,
             owner=user,
-            # Tasks and pages only: Jobs, cycles, views and requests are team
-            # features. The owner may switch them on later.
-            module_view=False,
-            cycle_view=False,
-            issue_views_view=False,
+            # An ordinary container: Jobs, cycles, views and pages, as the
+            # company's containers have them. Requests (intake) are for work
+            # coming in from others, so they start off.
+            module_view=True,
+            cycle_view=True,
+            issue_views_view=True,
             intake_view=False,
             page_view=True,
         )
@@ -170,7 +164,7 @@ def _create_personal_project(user, workspace):
                     default=state.get("default", False),
                     created_by=user,
                 )
-                for state in PERSONAL_STATES
+                for state in DEFAULT_STATES
             ]
         )
     return project

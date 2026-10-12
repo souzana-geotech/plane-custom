@@ -883,27 +883,6 @@
       "intro": "Keep your private tasks in Personal Space. Only you can see them.",
       "empty": "No open tasks in Personal Space.",
       "more": "+{count} more in Personal Space"
-    },
-    "list": {
-      "subtitle": "Your private tasks. Only you can see them.",
-      "add_placeholder": "Add a task and press Enter",
-      "empty": {
-        "title": "Nothing to do",
-        "description": "Add a task above to get started."
-      },
-      "error": "Couldn't save that change. Please try again.",
-      "mark_open": "Mark as not done"
-    },
-    "panel": {
-      "label": "Task details",
-      "close": "Close",
-      "title": "Task title",
-      "status": "Status",
-      "due_date": "Due date",
-      "notes": "Notes",
-      "notes_placeholder": "Add notes...",
-      "delete": "Delete task",
-      "confirm_delete": "Yes, delete"
     }
   }
 }

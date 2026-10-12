@@ -9,11 +9,7 @@ import { LockOutline } from "@makeplane/propel/icons";
 import { useTranslation } from "@plane/i18n";
 import { Header } from "@plane/ui";
 
-/**
- * Geotech3D: the My Space task list header - just the name. The team tools of a
- * container header (layouts, display, filters, analytics, publish) don't apply to
- * a personal to-do list; new tasks are added inline on the list itself.
- */
+/** Geotech3D: the header shown for the moment Personal Space is being opened. */
 export function MySpaceTasksHeader() {
   const { t } = useTranslation();
   return (

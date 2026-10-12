@@ -883,27 +883,6 @@
       "intro": "Simpan tugas pribadi Anda di Personal Space. Hanya Anda yang dapat melihatnya.",
       "empty": "Tidak ada tugas terbuka di Personal Space.",
       "more": "+{count} lainnya di Personal Space"
-    },
-    "list": {
-      "subtitle": "Tugas pribadi Anda. Hanya Anda yang dapat melihatnya.",
-      "add_placeholder": "Tambahkan tugas lalu tekan Enter",
-      "empty": {
-        "title": "Tidak ada yang perlu dikerjakan",
-        "description": "Tambahkan tugas di atas untuk memulai."
-      },
-      "error": "Perubahan tidak dapat disimpan. Silakan coba lagi.",
-      "mark_open": "Tandai belum selesai"
-    },
-    "panel": {
-      "label": "Detail tugas",
-      "close": "Tutup",
-      "title": "Judul tugas",
-      "status": "Status",
-      "due_date": "Tenggat",
-      "notes": "Catatan",
-      "notes_placeholder": "Tambahkan catatan…",
-      "delete": "Hapus tugas",
-      "confirm_delete": "Ya, hapus"
     }
   }
 }

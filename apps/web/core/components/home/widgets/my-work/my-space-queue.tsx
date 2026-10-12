@@ -18,7 +18,7 @@ import { cn, renderFormattedDateWithoutYear } from "@plane/utils";
 // hooks
 import { useWorkspace } from "@/hooks/store/use-workspace";
 import { useUserPermissions } from "@/hooks/store/user";
-import { useMySpace } from "@/hooks/use-my-space";
+import { rememberMySpaceReturn, useMySpace } from "@/hooks/use-my-space";
 // services
 import { ProjectService } from "@/services/project/project.service";
 import { ProjectStateService } from "@/services/project/project-state.service";
@@ -41,8 +41,8 @@ const MAX_ROWS = 8;
  *
  * My Space lives in its own shared workspace, so the work queue's stores (containers
  * and states of the current workspace) know nothing about these tasks. This section
- * reads them straight from the My Space workspace; a task opens in My Space shown
- * inside this same workspace (`/<workspace>/my-space/?task=<id>`).
+ * reads them straight from the Personal Space workspace; a task opens there, with
+ * a way back to this workspace.
  */
 export const MySpaceQueue = observer(function MySpaceQueue() {
   const { t } = useTranslation();
@@ -134,8 +134,8 @@ export const MySpaceQueue = observer(function MySpaceQueue() {
             const state = item.state_id ? stateById.get(item.state_id) : undefined;
             const status = getVisualStatus(state?.group, item.target_date);
             const dueBucket = getDueBucket(item.target_date);
-            // Opens in My Space inside this workspace, with the task's panel open.
-            const link = `/${workspaceSlug}/my-space/?task=${item.id}`;
+            // Opens the task in Personal Space, which links back to this workspace.
+            const link = `/${mySpaceSlug}/browse/${container.identifier}-${item.sequence_id}/`;
             return (
               <li
                 key={item.id}
@@ -145,6 +145,7 @@ export const MySpaceQueue = observer(function MySpaceQueue() {
                 <div className="flex min-w-0 flex-1 flex-col">
                   <Link
                     href={link}
+                    onClick={() => rememberMySpaceReturn(workspaceSlug)}
                     className="truncate text-13 font-medium text-primary hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-strong"
                   >
                     {item.name}

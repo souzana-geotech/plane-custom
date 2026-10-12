@@ -883,27 +883,6 @@
       "intro": "Păstrați sarcinile private în Personal Space. Doar dumneavoastră le puteți vedea.",
       "empty": "Nicio sarcină deschisă în Personal Space.",
       "more": "+{count} în plus în Personal Space"
-    },
-    "list": {
-      "subtitle": "Sarcinile dumneavoastră private. Doar dumneavoastră le puteți vedea.",
-      "add_placeholder": "Adăugați o sarcină și apăsați Enter",
-      "empty": {
-        "title": "Nimic de făcut",
-        "description": "Adăugați o sarcină mai sus pentru a începe."
-      },
-      "error": "Modificarea nu a putut fi salvată. Încercați din nou.",
-      "mark_open": "Marcați ca neterminată"
-    },
-    "panel": {
-      "label": "Detaliile sarcinii",
-      "close": "Închideți",
-      "title": "Titlul sarcinii",
-      "status": "Stare",
-      "due_date": "Termen",
-      "notes": "Note",
-      "notes_placeholder": "Adăugați note…",
-      "delete": "Ștergeți sarcina",
-      "confirm_delete": "Da, ștergeți"
     }
   }
 }

@@ -6,32 +6,33 @@
 
 import { useEffect } from "react";
 import { observer } from "mobx-react";
-import { useParams, useSearchParams } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import useSWR from "swr";
 // plane imports
 import { useTranslation } from "@plane/i18n";
 import { Loader } from "@plane/ui";
 // components
 import { PageHead } from "@/components/core/page-title";
-import { MySpaceTaskList } from "@/components/my-space/task-list";
 // hooks
 import { useWorkspace } from "@/hooks/store/use-workspace";
+import { rememberMySpaceReturn } from "@/hooks/use-my-space";
 // services
 import { ProjectService } from "@/services/project/project.service";
 
 const projectService = new ProjectService();
 
 /**
- * Geotech3D: My Space, shown inside whichever workspace the user is working in.
+ * Geotech3D: the way into Personal Space from any workspace.
  *
- * The personal container lives in the shared My Space workspace; this page asks
- * for it (setting it up on first use) and renders its list here, so opening My
- * Space never switches workspace.
+ * Personal Space is an ordinary container (tasks, Jobs, cycles, views, pages) in
+ * the shared Personal Space workspace. This page asks for the caller's own one
+ * (setting it up on first use), remembers which workspace they came from for the
+ * sidebar's "Back to" link, and opens the container there.
  */
 function MySpacePage() {
   const { t } = useTranslation();
+  const router = useRouter();
   const { workspaceSlug } = useParams();
-  const searchParams = useSearchParams();
   const { workspaces, fetchWorkspaces } = useWorkspace();
   const slug = workspaceSlug?.toString();
 
@@ -41,14 +42,24 @@ function MySpacePage() {
     { revalidateOnFocus: false }
   );
 
-  // The first open joins the user to the My Space workspace; refresh the list of
-  // workspaces so My Work can find it too.
   useEffect(() => {
-    if (!mySpace) return;
-    if (!Object.values(workspaces ?? {}).some((workspace) => workspace.slug === mySpace.workspace_slug)) {
-      void fetchWorkspaces();
-    }
-  }, [mySpace, workspaces, fetchWorkspaces]);
+    if (!mySpace || !slug) return;
+    let cancelled = false;
+    const open = async () => {
+      // The first open joins the user to the Personal Space workspace; the app
+      // only opens workspaces it knows about.
+      if (!Object.values(workspaces ?? {}).some((workspace) => workspace.slug === mySpace.workspace_slug)) {
+        await fetchWorkspaces();
+      }
+      if (cancelled) return;
+      rememberMySpaceReturn(slug);
+      router.replace(`/${mySpace.workspace_slug}/projects/${mySpace.id}/issues/`);
+    };
+    void open();
+    return () => {
+      cancelled = true;
+    };
+  }, [mySpace, slug, workspaces, fetchWorkspaces, router]);
 
   return (
     <>
@@ -58,18 +69,12 @@ function MySpacePage() {
           <p className="text-13 font-medium text-primary">{t("my_space.open_error.title")}</p>
           <p className="text-12 text-tertiary">{t("my_space.open_error.message")}</p>
         </div>
-      ) : !mySpace ? (
+      ) : (
         <Loader className="mx-auto flex w-full max-w-3xl flex-col gap-3 px-4 py-6">
           <Loader.Item height="28px" width="30%" />
           <Loader.Item height="40px" />
           <Loader.Item height="120px" />
         </Loader>
-      ) : (
-        <MySpaceTaskList
-          workspaceSlug={mySpace.workspace_slug}
-          projectId={mySpace.id}
-          initialTaskId={searchParams?.get("task")}
-        />
       )}
     </>
   );

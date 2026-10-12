@@ -883,27 +883,6 @@
       "intro": "Özel görevlerinizi Personal Space'te tutun. Onları yalnızca siz görebilirsiniz.",
       "empty": "Personal Space'te açık görev yok.",
       "more": "Personal Space'te {count} tane daha"
-    },
-    "list": {
-      "subtitle": "Özel görevleriniz. Onları yalnızca siz görebilirsiniz.",
-      "add_placeholder": "Bir görev ekleyin ve Enter'a basın",
-      "empty": {
-        "title": "Yapılacak bir şey yok",
-        "description": "Başlamak için yukarıdan bir görev ekleyin."
-      },
-      "error": "Değişiklik kaydedilemedi. Lütfen tekrar deneyin.",
-      "mark_open": "Tamamlanmadı olarak işaretle"
-    },
-    "panel": {
-      "label": "Görev ayrıntıları",
-      "close": "Kapat",
-      "title": "Görev başlığı",
-      "status": "Durum",
-      "due_date": "Bitiş tarihi",
-      "notes": "Notlar",
-      "notes_placeholder": "Not ekleyin…",
-      "delete": "Görevi sil",
-      "confirm_delete": "Evet, sil"
     }
   }
 }

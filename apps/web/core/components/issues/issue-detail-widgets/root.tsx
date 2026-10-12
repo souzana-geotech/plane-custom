@@ -5,11 +5,8 @@
  */
 
 import React from "react";
-import { observer } from "mobx-react";
 // plane imports
 import type { TIssueServiceType, TWorkItemWidgets } from "@plane/types";
-// hooks
-import { useProject } from "@/hooks/store/use-project";
 // local imports
 import { IssueDetailWidgetActionButtons } from "./action-buttons";
 import { IssueDetailWidgetCollapsibles } from "./issue-detail-widget-collapsibles";
@@ -25,7 +22,7 @@ type Props = {
   hideWidgets?: TWorkItemWidgets[];
 };
 
-export const IssueDetailWidgets = observer(function IssueDetailWidgets(props: Props) {
+export function IssueDetailWidgets(props: Props) {
   const {
     workspaceSlug,
     projectId,
@@ -33,13 +30,8 @@ export const IssueDetailWidgets = observer(function IssueDetailWidgets(props: Pr
     disabled,
     renderWidgetModals = true,
     issueServiceType,
-    hideWidgets: hideWidgetsProp,
+    hideWidgets,
   } = props;
-  const { getProjectById } = useProject();
-  // Geotech3D: My Space tasks are personal to-dos; relations are a team tool.
-  const hideWidgets: TWorkItemWidgets[] | undefined = getProjectById(projectId)?.is_personal
-    ? [...(hideWidgetsProp ?? []), "relations"]
-    : hideWidgetsProp;
 
   return (
     <>
@@ -72,4 +64,4 @@ export const IssueDetailWidgets = observer(function IssueDetailWidgets(props: Pr
       )}
     </>
   );
-});
+}

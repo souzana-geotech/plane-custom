@@ -883,27 +883,6 @@
       "intro": "Przechowuj prywatne zadania w Personal Space. Tylko Ty je widzisz.",
       "empty": "Brak otwartych zadań w Personal Space.",
       "more": "+{count} więcej w Personal Space"
-    },
-    "list": {
-      "subtitle": "Twoje prywatne zadania. Tylko Ty je widzisz.",
-      "add_placeholder": "Dodaj zadanie i naciśnij Enter",
-      "empty": {
-        "title": "Nic do zrobienia",
-        "description": "Dodaj zadanie powyżej, aby zacząć."
-      },
-      "error": "Nie udało się zapisać zmiany. Spróbuj ponownie.",
-      "mark_open": "Oznacz jako niewykonane"
-    },
-    "panel": {
-      "label": "Szczegóły zadania",
-      "close": "Zamknij",
-      "title": "Tytuł zadania",
-      "status": "Status",
-      "due_date": "Termin",
-      "notes": "Notatki",
-      "notes_placeholder": "Dodaj notatki…",
-      "delete": "Usuń zadanie",
-      "confirm_delete": "Tak, usuń"
     }
   }
 }

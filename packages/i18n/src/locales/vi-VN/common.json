@@ -883,27 +883,6 @@
       "intro": "Lưu các công việc riêng tư của bạn trong Personal Space. Chỉ bạn mới xem được.",
       "empty": "Không có công việc đang mở trong Personal Space.",
       "more": "+{count} công việc khác trong Personal Space"
-    },
-    "list": {
-      "subtitle": "Công việc riêng tư của bạn. Chỉ bạn mới xem được.",
-      "add_placeholder": "Thêm công việc rồi nhấn Enter",
-      "empty": {
-        "title": "Không có việc cần làm",
-        "description": "Thêm một công việc ở trên để bắt đầu."
-      },
-      "error": "Không thể lưu thay đổi. Vui lòng thử lại.",
-      "mark_open": "Đánh dấu là chưa xong"
-    },
-    "panel": {
-      "label": "Chi tiết công việc",
-      "close": "Đóng",
-      "title": "Tiêu đề công việc",
-      "status": "Trạng thái",
-      "due_date": "Hạn chót",
-      "notes": "Ghi chú",
-      "notes_placeholder": "Thêm ghi chú…",
-      "delete": "Xóa công việc",
-      "confirm_delete": "Có, xóa"
     }
   }
 }

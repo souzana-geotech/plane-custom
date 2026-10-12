@@ -883,27 +883,6 @@
       "intro": "Svoje súkromné úlohy majte v Personal Space. Vidíte ich len Vy.",
       "empty": "V Personal Space nie sú žiadne otvorené úlohy.",
       "more": "+{count} ďalších v Personal Space"
-    },
-    "list": {
-      "subtitle": "Vaše súkromné úlohy. Vidíte ich len Vy.",
-      "add_placeholder": "Pridajte úlohu a stlačte Enter",
-      "empty": {
-        "title": "Nič na práci",
-        "description": "Začnite pridaním úlohy vyššie."
-      },
-      "error": "Zmenu sa nepodarilo uložiť. Skúste to znova.",
-      "mark_open": "Označiť ako nedokončené"
-    },
-    "panel": {
-      "label": "Podrobnosti úlohy",
-      "close": "Zavrieť",
-      "title": "Názov úlohy",
-      "status": "Stav",
-      "due_date": "Termín",
-      "notes": "Poznámky",
-      "notes_placeholder": "Pridajte poznámky…",
-      "delete": "Odstrániť úlohu",
-      "confirm_delete": "Áno, odstrániť"
     }
   }
 }

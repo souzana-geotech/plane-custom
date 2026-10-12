@@ -883,27 +883,6 @@
       "intro": "Své soukromé úkoly mějte v Personal Space. Vidíte je jen Vy.",
       "empty": "V Personal Space nejsou žádné otevřené úkoly.",
       "more": "+{count} dalších v Personal Space"
-    },
-    "list": {
-      "subtitle": "Vaše soukromé úkoly. Vidíte je jen Vy.",
-      "add_placeholder": "Přidejte úkol a stiskněte Enter",
-      "empty": {
-        "title": "Nic k udělání",
-        "description": "Začněte přidáním úkolu výše."
-      },
-      "error": "Změnu se nepodařilo uložit. Zkuste to prosím znovu.",
-      "mark_open": "Označit jako nedokončené"
-    },
-    "panel": {
-      "label": "Podrobnosti úkolu",
-      "close": "Zavřít",
-      "title": "Název úkolu",
-      "status": "Stav",
-      "due_date": "Termín",
-      "notes": "Poznámky",
-      "notes_placeholder": "Přidejte poznámky…",
-      "delete": "Smazat úkol",
-      "confirm_delete": "Ano, smazat"
     }
   }
 }

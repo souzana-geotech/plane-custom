@@ -883,27 +883,6 @@
       "intro": "Guarde sus tareas privadas en Personal Space. Solo usted puede verlas.",
       "empty": "No hay tareas abiertas en Personal Space.",
       "more": "+{count} más en Personal Space"
-    },
-    "list": {
-      "subtitle": "Sus tareas privadas. Solo usted puede verlas.",
-      "add_placeholder": "Añada una tarea y pulse Enter",
-      "empty": {
-        "title": "Nada pendiente",
-        "description": "Añada una tarea arriba para empezar."
-      },
-      "error": "No se pudo guardar el cambio. Inténtelo de nuevo.",
-      "mark_open": "Marcar como no hecha"
-    },
-    "panel": {
-      "label": "Detalles de la tarea",
-      "close": "Cerrar",
-      "title": "Título de la tarea",
-      "status": "Estado",
-      "due_date": "Fecha de vencimiento",
-      "notes": "Notas",
-      "notes_placeholder": "Añadir notas…",
-      "delete": "Eliminar tarea",
-      "confirm_delete": "Sí, eliminar"
     }
   }
 }
