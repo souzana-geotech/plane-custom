@@ -131,6 +131,8 @@ export const NoProjectsEmptyState = observer(function NoProjectsEmptyState() {
     }
   };
 
+  // Geotech3D: Personal Space has no containers to create or people to invite.
+  if (activeWorkspace?.is_my_space) return null;
   if (storedValue?.hide || (joinedProjectIds?.length > 0 && (activeWorkspace?.total_members || 0) >= 2)) return null;
 
   return (
