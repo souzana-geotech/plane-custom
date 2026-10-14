@@ -257,6 +257,18 @@ class TestPrivateFromColleagues:
         assert IssueView.objects.filter(name="alice's view").exists()
 
     @pytest.mark.django_db
+    def test_nobody_sees_who_else_uses_personal_space(self, admin_in_hub, create_user, alice, alice_client, hub):
+        members = admin_in_hub.get(f"/api/workspaces/{hub.slug}/members/")
+        assert members.status_code == status.HTTP_200_OK
+        assert [str(row["member"]["id"]) for row in members.data] == [str(create_user.id)]
+        alice_membership = WorkspaceMember.objects.get(workspace=hub, member=alice)
+        assert admin_in_hub.get(f"/api/workspaces/{hub.slug}/members/{alice_membership.id}/").status_code == 404
+
+        mine = {row["slug"]: row for row in admin_in_hub.get("/api/users/me/workspaces/").data}
+        assert mine[hub.slug]["total_members"] == 1
+        assert admin_in_hub.get(f"/api/workspaces/{hub.slug}/").data["total_members"] == 1
+
+    @pytest.mark.django_db
     def test_her_tasks_stay_out_of_the_workspace_wide_routes(self, admin_in_hub, create_user, alice, my_space, hub):
         """The to-do list reads tasks through the My Space workspace's task list; so could a colleague."""
         secret = _issue("alice secret plan", my_space, alice)

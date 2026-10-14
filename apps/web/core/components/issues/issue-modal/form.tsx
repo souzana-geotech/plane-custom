@@ -42,6 +42,7 @@ import { useIssueModal } from "@/hooks/context/use-issue-modal";
 import { useIssueDetail } from "@/hooks/store/use-issue-detail";
 import { useProject } from "@/hooks/store/use-project";
 import { useProjectState } from "@/hooks/store/use-project-state";
+import { useUser } from "@/hooks/store/user";
 import { useWorkspaceDraftIssues } from "@/hooks/store/workspace-draft";
 import { usePlatformOS } from "@/hooks/use-platform-os";
 import { useProjectIssueProperties } from "@/hooks/use-project-issue-properties";
@@ -130,6 +131,7 @@ export const IssueFormRoot = observer(function IssueFormRoot(props: IssueFormPro
   } = useIssueDetail();
   const { fetchCycles } = useProjectIssueProperties();
   const { getStateById } = useProjectState();
+  const { data: currentUser } = useUser();
 
   // form info
   const methods = useForm<TIssue>({
@@ -174,6 +176,17 @@ export const IssueFormRoot = observer(function IssueFormRoot(props: IssueFormPro
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [projectId]);
+
+  // Geotech3D: in Personal Space a task left unassigned goes to the owner (the
+  // container's default assignee), and the owner is the only one who can create
+  // one there - so the form shows them as the assignee from the start.
+  const assigneeIds = watch("assignee_ids");
+  const isPersonalProject = !!getProjectById(projectId)?.is_personal;
+  useEffect(() => {
+    if (data?.id || !isPersonalProject || !currentUser?.id) return;
+    if (dirtyFields.assignee_ids || (assigneeIds?.length ?? 0) > 0) return;
+    setValue("assignee_ids", [currentUser.id]);
+  }, [data?.id, isPersonalProject, currentUser?.id, assigneeIds, dirtyFields.assignee_ids, setValue]);
 
   // Reset form when data prop changes
   useEffect(() => {

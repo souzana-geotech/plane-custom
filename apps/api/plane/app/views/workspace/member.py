@@ -40,12 +40,17 @@ class WorkSpaceMemberViewSet(BaseViewSet):
     use_read_replica = True
 
     def get_queryset(self):
-        return self.filter_queryset(
+        queryset = (
             super()
             .get_queryset()
             .filter(workspace__slug=self.kwargs.get("slug"))
             .select_related("member", "member__avatar_asset")
         )
+        # Geotech3D: in the shared Personal Space workspace everyone sees only
+        # themselves - who else uses Personal Space is not theirs to know.
+        if is_my_space_workspace(self.kwargs.get("slug")):
+            queryset = queryset.filter(member=self.request.user)
+        return self.filter_queryset(queryset)
 
     @allow_permission(allowed_roles=[ROLE.ADMIN, ROLE.MEMBER, ROLE.GUEST], level="WORKSPACE")
     def list(self, request, slug):

@@ -22,6 +22,7 @@ type Props = {
   workspaceSlug: string;
   project: {
     id: string;
+    is_personal?: boolean;
   };
   isAdmin: boolean;
   isAuthorized: boolean;
@@ -51,14 +52,15 @@ export function ProjectActionsMenu({
   return (
     <CustomMenu
       customButton={
+        // `CustomMenu` wraps this in its own `<button>`, so the click goes on the menu.
         <span
           ref={actionSectionRef}
           className="grid place-items-center rounded-sm p-0.5 text-placeholder hover:bg-layer-1"
-          onClick={() => setIsMenuActive(!isMenuActive)}
         >
           <MoreHorizontalOutline className="size-4" />
         </span>
       }
+      menuButtonOnClick={() => setIsMenuActive(!isMenuActive)}
       className="flex-shrink-0"
       customButtonClassName="grid place-items-center"
       placement="bottom-start"
@@ -67,8 +69,8 @@ export function ProjectActionsMenu({
       closeOnSelect
       onMenuClose={() => setIsMenuActive(false)}
     >
-      {/* Publish project settings */}
-      {isAdmin && (
+      {/* Publish project settings - Geotech3D: never for Personal Space */}
+      {isAdmin && !project?.is_personal && (
         <CustomMenu.MenuItem onClick={onPublishModal}>
           <div className="relative flex flex-shrink-0 items-center justify-start gap-2">
             <div className="flex h-4 w-4 cursor-pointer items-center justify-center rounded-sm text-secondary transition-all duration-300 hover:bg-layer-1">

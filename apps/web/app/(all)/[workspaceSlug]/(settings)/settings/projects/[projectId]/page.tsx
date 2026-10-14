@@ -45,7 +45,10 @@ function ProjectSettingsPage({ params }: Route.ComponentProps) {
         ) : (
           <ProjectDetailsFormLoader />
         )}
-        {isAdmin && <GeneralProjectSettingsControlSection projectId={projectId} />}
+        {/* Geotech3D: Personal Space can't be archived or deleted (the server refuses). */}
+        {isAdmin && !currentProjectDetails?.is_personal && (
+          <GeneralProjectSettingsControlSection projectId={projectId} />
+        )}
       </div>
     </SettingsContentWrapper>
   );

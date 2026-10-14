@@ -11,7 +11,7 @@ import uuid
 
 from dateutil.relativedelta import relativedelta
 from django.db import IntegrityError
-from django.db.models import Count, F, Func, OuterRef, Prefetch, Q
+from django.db.models import Case, Count, F, Func, IntegerField, OuterRef, Prefetch, Q, Value, When
 
 from django.db.models.fields import DateField
 from django.db.models.functions import Cast, ExtractDay, ExtractWeek
@@ -76,7 +76,12 @@ class WorkSpaceViewSet(BaseViewSet):
                 workspace_member__member=self.request.user,
                 workspace_member__is_active=True,
             )
-            .annotate(total_members=member_count)
+            .annotate(
+                # Geotech3D: the Personal Space workspace doesn't say how many use it.
+                total_members=Case(
+                    When(is_my_space=True, then=Value(1)), default=member_count, output_field=IntegerField()
+                )
+            )
         )
 
     def create(self, request):
@@ -211,7 +216,13 @@ class UserWorkSpacesEndpoint(BaseAPIView):
                     queryset=WorkspaceMember.objects.filter(member=request.user, is_active=True),
                 )
             )
-            .annotate(role=role, total_members=member_count)
+            .annotate(
+                role=role,
+                # Geotech3D: the Personal Space workspace doesn't say how many use it.
+                total_members=Case(
+                    When(is_my_space=True, then=Value(1)), default=member_count, output_field=IntegerField()
+                ),
+            )
             .filter(workspace_member__member=request.user, workspace_member__is_active=True)
             .distinct()
         )

@@ -70,11 +70,14 @@ const SidebarDropdownItem = observer(function SidebarDropdownItem(props: TProps)
               >
                 {workspace.name}
               </div>
-              <div className="flex w-fit gap-2 text-13 text-tertiary capitalize">
-                <span>{getUserRole(workspace.role)?.toLowerCase() || "guest"}</span>
-                <div className="m-auto h-1 w-1 rounded-full bg-layer-1/50" />
-                <span className="capitalize">{t("member", { count: workspace.total_members || 0 })}</span>
-              </div>
+              {/* Geotech3D: who else uses Personal Space is nobody's business. */}
+              {!workspace.is_my_space && (
+                <div className="flex w-fit gap-2 text-13 text-tertiary capitalize">
+                  <span>{getUserRole(workspace.role)?.toLowerCase() || "guest"}</span>
+                  <div className="m-auto h-1 w-1 rounded-full bg-layer-1/50" />
+                  <span className="capitalize">{t("member", { count: workspace.total_members || 0 })}</span>
+                </div>
+              )}
             </div>
           </div>
           {workspace.id === activeWorkspace?.id ? (
@@ -83,7 +86,8 @@ const SidebarDropdownItem = observer(function SidebarDropdownItem(props: TProps)
             </span>
           ) : null}
         </div>
-        {workspace.id === activeWorkspace?.id && (
+        {/* Geotech3D: the shared Personal Space workspace has nothing to set up. */}
+        {workspace.id === activeWorkspace?.id && !workspace.is_my_space && (
           <>
             <div className="mt-2 mb-1 flex gap-2">
               {[EUserPermissions.ADMIN, EUserPermissions.MEMBER].includes(workspace?.role) && (
