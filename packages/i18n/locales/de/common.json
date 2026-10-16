@@ -884,5 +884,31 @@
       "empty": "Keine offenen Aufgaben in Personal Space.",
       "more": "+{count} weitere in Personal Space"
     }
+  },
+  "container_overview": {
+    "view_all": "Alle anzeigen",
+    "my_tasks": {
+      "title": "Meine Aufgaben hier",
+      "empty": "Ihnen ist hier nichts zugewiesen."
+    },
+    "in_progress": {
+      "title": "Gerade in Bearbeitung",
+      "empty": "Derzeit ist nichts in Bearbeitung."
+    },
+    "jobs": {
+      "title": "Fortschritt der Module",
+      "empty": "Noch keine Module."
+    },
+    "whats_new": {
+      "title": "Neuigkeiten",
+      "new_requests": "Neue Anfragen zur Prüfung",
+      "empty": "Bisher hat sich nichts geändert."
+    },
+    "empty": {
+      "title": "Dieses Projekt ist leer",
+      "description": "Fügen Sie zuerst eine Aufgabe hinzu und holen Sie dann die Personen dazu, die daran arbeiten.",
+      "add_task": "Erste Aufgabe hinzufügen",
+      "add_team": "Team hinzufügen"
+    }
   }
 }

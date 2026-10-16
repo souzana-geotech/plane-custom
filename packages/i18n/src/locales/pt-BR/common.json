@@ -884,5 +884,31 @@
       "empty": "Nenhuma tarefa aberta no Personal Space.",
       "more": "+{count} a mais no Personal Space"
     }
+  },
+  "container_overview": {
+    "view_all": "Ver tudo",
+    "my_tasks": {
+      "title": "Minhas tarefas aqui",
+      "empty": "Nada aqui está atribuído a você."
+    },
+    "in_progress": {
+      "title": "Em andamento agora",
+      "empty": "Nada está em andamento."
+    },
+    "jobs": {
+      "title": "Progresso dos módulos",
+      "empty": "Ainda não há módulos."
+    },
+    "whats_new": {
+      "title": "Novidades",
+      "new_requests": "Novas solicitações para revisar",
+      "empty": "Nada mudou ainda."
+    },
+    "empty": {
+      "title": "Este projeto está vazio",
+      "description": "Comece adicionando a primeira tarefa e depois convide as pessoas que vão trabalhar nela.",
+      "add_task": "Adicionar a primeira tarefa",
+      "add_team": "Adicionar a equipe"
+    }
   }
 }

@@ -4,12 +4,15 @@
  * See the LICENSE file for details.
  */
 
+import { useEffect } from "react";
 import { observer } from "mobx-react";
+import { usePathname } from "next/navigation";
 import { Outlet } from "react-router";
 // plane imports
 import { Header, Row } from "@plane/ui";
 import { cn } from "@plane/utils";
 // components
+import { getContainerTabFromPath, rememberContainerTab } from "@/components/navigation/container-entry";
 import { TabNavigationRoot } from "@/components/navigation/tab-navigation-root";
 import { AppSidebarToggleButton } from "@/components/sidebar/sidebar-toggle-button";
 // hooks
@@ -27,6 +30,13 @@ function ProjectLayout({ params }: Route.ComponentProps) {
   const { sidebarCollapsed } = useAppTheme();
   // preferences
   const { preferences: projectPreferences } = useProjectNavigationPreferences();
+  const pathname = usePathname();
+
+  // Geotech3D: remember which part of the container the user is in, so it opens there next time.
+  useEffect(() => {
+    const tabKey = pathname ? getContainerTabFromPath(pathname, projectId) : null;
+    if (tabKey) rememberContainerTab(projectId, tabKey);
+  }, [pathname, projectId]);
 
   return (
     <>

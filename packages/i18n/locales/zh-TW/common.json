@@ -884,5 +884,31 @@
       "empty": "Personal Space 中沒有未完成的任務。",
       "more": "Personal Space 中還有 {count} 個"
     }
+  },
+  "container_overview": {
+    "view_all": "檢視全部",
+    "my_tasks": {
+      "title": "我在這裡的任務",
+      "empty": "這裡沒有指派給您的任務。"
+    },
+    "in_progress": {
+      "title": "正在進行",
+      "empty": "目前沒有進行中的任務。"
+    },
+    "jobs": {
+      "title": "模組進度",
+      "empty": "尚無模組。"
+    },
+    "whats_new": {
+      "title": "最新動態",
+      "new_requests": "待審核的新請求",
+      "empty": "尚無變更。"
+    },
+    "empty": {
+      "title": "此專案為空",
+      "description": "請先新增第一個任務，再邀請將參與其中的成員。",
+      "add_task": "新增第一個任務",
+      "add_team": "新增團隊"
+    }
   }
 }

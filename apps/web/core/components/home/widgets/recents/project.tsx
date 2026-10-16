@@ -12,6 +12,7 @@ import { calculateTimeAgo } from "@plane/utils";
 // components
 import { ListItem } from "@/components/core/list";
 import { MemberDropdown } from "@/components/dropdowns/member/dropdown";
+import { getContainerEntryHref } from "@/components/navigation/container-entry";
 // helpers
 
 type BlockProps = {
@@ -28,7 +29,7 @@ export function RecentProject(props: BlockProps) {
 
   if (!projectDetails) return <></>;
 
-  const projectLink = `/${workspaceSlug}/projects/${projectDetails?.id}/issues`;
+  const projectLink = getContainerEntryHref(workspaceSlug, projectDetails.id);
 
   return (
     <ListItem

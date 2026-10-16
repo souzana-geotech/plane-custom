@@ -40,6 +40,7 @@ import { usePlatformOS } from "@/hooks/use-platform-os";
 // local imports
 import { AvatarGroupOverflow } from "@/components/common/avatar-group-overflow";
 import { CoverImage } from "@/components/common/cover-image";
+import { getContainerEntryHref } from "@/components/navigation/container-entry";
 import { DeleteProjectModal } from "./delete-project-modal";
 import { JoinProjectModal } from "./join-project-modal";
 import { ArchiveRestoreProjectModal } from "./archive-restore-modal";
@@ -206,7 +207,7 @@ export const ProjectCard = observer(function ProjectCard(props: Props) {
       )}
       <Link
         ref={projectCardRef}
-        href={`/${workspaceSlug}/projects/${project.id}/issues`}
+        href={getContainerEntryHref(workspaceSlug.toString(), project.id)}
         onClick={(e) => {
           if (!isMemberOfProject || isArchived) {
             e.preventDefault();
@@ -319,7 +320,8 @@ export const ProjectCard = observer(function ProjectCard(props: Props) {
             {isArchived ? (
               hasAdminRole && (
                 <div className="flex items-center justify-center gap-2">
-                  <div
+                  <button
+                    type="button"
                     className="flex items-center justify-center text-11 font-medium text-placeholder hover:text-secondary"
                     onClick={(e) => {
                       e.preventDefault();
@@ -331,8 +333,10 @@ export const ProjectCard = observer(function ProjectCard(props: Props) {
                       <RestoreOutline className="h-3.5 w-3.5" />
                       Restore
                     </div>
-                  </div>
-                  <div
+                  </button>
+                  <button
+                    type="button"
+                    aria-label="Delete"
                     className="flex items-center justify-center text-11 font-medium text-placeholder hover:text-secondary"
                     onClick={(e) => {
                       e.preventDefault();
@@ -341,7 +345,7 @@ export const ProjectCard = observer(function ProjectCard(props: Props) {
                     }}
                   >
                     <DeleteOutline className="h-3.5 w-3.5" />
-                  </div>
+                  </button>
                 </div>
               )
             ) : (

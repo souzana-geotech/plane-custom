@@ -884,5 +884,31 @@
       "empty": "Tidak ada tugas terbuka di Personal Space.",
       "more": "+{count} lainnya di Personal Space"
     }
+  },
+  "container_overview": {
+    "view_all": "Lihat semua",
+    "my_tasks": {
+      "title": "Tugas saya di sini",
+      "empty": "Tidak ada yang ditugaskan kepada Anda di sini."
+    },
+    "in_progress": {
+      "title": "Sedang dikerjakan",
+      "empty": "Tidak ada yang sedang dikerjakan."
+    },
+    "jobs": {
+      "title": "Progres modul",
+      "empty": "Belum ada modul."
+    },
+    "whats_new": {
+      "title": "Yang baru",
+      "new_requests": "Permintaan baru untuk ditinjau",
+      "empty": "Belum ada perubahan."
+    },
+    "empty": {
+      "title": "Proyek ini kosong",
+      "description": "Mulailah dengan menambahkan tugas pertama, lalu ajak orang-orang yang akan mengerjakannya.",
+      "add_task": "Tambahkan tugas pertama",
+      "add_team": "Tambahkan tim"
+    }
   }
 }

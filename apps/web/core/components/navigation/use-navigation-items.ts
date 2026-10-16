@@ -9,6 +9,7 @@ import { useMemo, useCallback } from "react";
 import { EUserPermissions, EUserPermissionsLevel } from "@plane/constants";
 import {
   CyclesOutline,
+  DashboardsOutline,
   IntakeOutline,
   ModuleOutline,
   PagesOutline,
@@ -40,6 +41,17 @@ export const useNavigationItems = ({
   const baseNavigation = useCallback(
     // oxlint-disable-next-line no-shadow
     (workspaceSlug: string, projectId: string): TNavigationItem[] => [
+      // Geotech3D: what's going on in the container, at a glance.
+      {
+        i18n_key: "common.overview",
+        key: "overview",
+        name: "Overview",
+        href: `/${workspaceSlug}/projects/${projectId}/overview`,
+        icon: DashboardsOutline,
+        access: [EUserPermissions.ADMIN, EUserPermissions.MEMBER],
+        shouldRender: true,
+        sortOrder: 0,
+      },
       {
         i18n_key: "sidebar.work_items",
         key: "work_items",

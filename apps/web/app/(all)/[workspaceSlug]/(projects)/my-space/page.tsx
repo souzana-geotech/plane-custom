@@ -13,6 +13,7 @@ import { useTranslation } from "@plane/i18n";
 import { Loader } from "@plane/ui";
 // components
 import { PageHead } from "@/components/core/page-title";
+import { getContainerEntryHref } from "@/components/navigation/container-entry";
 // hooks
 import { useWorkspace } from "@/hooks/store/use-workspace";
 import { rememberMySpaceReturn } from "@/hooks/use-my-space";
@@ -53,7 +54,7 @@ function MySpacePage() {
       }
       if (cancelled) return;
       rememberMySpaceReturn(slug);
-      router.replace(`/${mySpace.workspace_slug}/projects/${mySpace.id}/issues/`);
+      router.replace(getContainerEntryHref(mySpace.workspace_slug, mySpace.id));
     };
     void open();
     return () => {
