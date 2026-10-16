@@ -34,7 +34,8 @@ import { Tooltip } from "@makeplane/propel/components/tooltip";
 import { CustomMenu, DropIndicator, DragHandle, ControlLink } from "@plane/ui";
 import { cn } from "@plane/utils";
 // components
-import { getContainerEntryHref } from "@/components/navigation/container-entry";
+import { getContainerEntryHref, OVERVIEW_TAB_KEY } from "@/components/navigation/container-entry";
+import { getTabUrl } from "@/components/navigation/tab-navigation-utils";
 import { LeaveProjectModal } from "@/components/project/leave-project-modal";
 import { PublishProjectModal } from "@/components/project/publish-project/modal";
 // hooks
@@ -257,7 +258,10 @@ export const SidebarProjectsListItem = observer(function SidebarProjectsListItem
 
   const handleItemClick = () => {
     if (projectPreferences.navigationMode === "ACCORDION") {
-      setIsProjectListOpen(!isProjectListOpen);
+      // Geotech3D: the container's name opens its Overview and unfolds its list; the arrow
+      // beside it folds the list. Guests have no Overview, so the container picks their page.
+      router.push(isAuthorized ? getTabUrl(workspaceSlug.toString(), project.id, OVERVIEW_TAB_KEY) : defaultTabUrl);
+      setIsProjectListOpen(true);
     } else {
       router.push(defaultTabUrl);
     }
