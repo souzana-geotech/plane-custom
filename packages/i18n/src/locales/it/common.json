@@ -884,5 +884,31 @@
       "empty": "Nessuna attività aperta in Personal Space.",
       "more": "+{count} altre in Personal Space"
     }
+  },
+  "container_overview": {
+    "view_all": "Mostra tutto",
+    "my_tasks": {
+      "title": "Le mie attività qui",
+      "empty": "Qui non Le è assegnato nulla."
+    },
+    "in_progress": {
+      "title": "In corso ora",
+      "empty": "Nulla è in corso."
+    },
+    "jobs": {
+      "title": "Avanzamento dei moduli",
+      "empty": "Ancora nessun modulo."
+    },
+    "whats_new": {
+      "title": "Novità",
+      "new_requests": "Nuove richieste da esaminare",
+      "empty": "Non è ancora cambiato nulla."
+    },
+    "empty": {
+      "title": "Questo progetto è vuoto",
+      "description": "Inizi aggiungendo la prima attività, poi inviti le persone che ci lavoreranno.",
+      "add_task": "Aggiungi la prima attività",
+      "add_team": "Aggiungi il team"
+    }
   }
 }

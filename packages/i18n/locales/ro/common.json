@@ -884,5 +884,31 @@
       "empty": "Nicio sarcină deschisă în Personal Space.",
       "more": "+{count} în plus în Personal Space"
     }
+  },
+  "container_overview": {
+    "view_all": "Vedeți tot",
+    "my_tasks": {
+      "title": "Sarcinile mele aici",
+      "empty": "Nu vă este atribuit nimic aici."
+    },
+    "in_progress": {
+      "title": "În desfășurare acum",
+      "empty": "Nimic nu este în desfășurare."
+    },
+    "jobs": {
+      "title": "Progresul modulelor",
+      "empty": "Încă nu există module."
+    },
+    "whats_new": {
+      "title": "Noutăți",
+      "new_requests": "Cereri noi de analizat",
+      "empty": "Nu s-a schimbat nimic încă."
+    },
+    "empty": {
+      "title": "Acest proiect este gol",
+      "description": "Începeți prin a adăuga prima sarcină, apoi invitați persoanele care vor lucra la ea.",
+      "add_task": "Adăugați prima sarcină",
+      "add_team": "Adăugați echipa"
+    }
   }
 }

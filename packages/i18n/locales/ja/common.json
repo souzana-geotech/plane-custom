@@ -884,5 +884,31 @@
       "empty": "Personal Space に未完了のタスクはありません。",
       "more": "Personal Space に他 {count} 件"
     }
+  },
+  "container_overview": {
+    "view_all": "すべて表示",
+    "my_tasks": {
+      "title": "ここでの自分のタスク",
+      "empty": "ここで割り当てられているものはありません。"
+    },
+    "in_progress": {
+      "title": "現在進行中",
+      "empty": "進行中のものはありません。"
+    },
+    "jobs": {
+      "title": "モジュールの進捗",
+      "empty": "まだモジュールはありません。"
+    },
+    "whats_new": {
+      "title": "最新情報",
+      "new_requests": "確認待ちの新しいリクエスト",
+      "empty": "まだ変更はありません。"
+    },
+    "empty": {
+      "title": "このプロジェクトは空です",
+      "description": "まず最初のタスクを追加してから、作業するメンバーを招待してください。",
+      "add_task": "最初のタスクを追加",
+      "add_team": "チームを追加"
+    }
   }
 }

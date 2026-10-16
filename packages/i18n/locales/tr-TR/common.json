@@ -884,5 +884,31 @@
       "empty": "Personal Space'te açık görev yok.",
       "more": "Personal Space'te {count} tane daha"
     }
+  },
+  "container_overview": {
+    "view_all": "Tümünü görüntüle",
+    "my_tasks": {
+      "title": "Buradaki görevlerim",
+      "empty": "Burada size atanmış bir şey yok."
+    },
+    "in_progress": {
+      "title": "Şu anda devam eden",
+      "empty": "Devam eden bir şey yok."
+    },
+    "jobs": {
+      "title": "Modül ilerlemesi",
+      "empty": "Henüz modül yok."
+    },
+    "whats_new": {
+      "title": "Yenilikler",
+      "new_requests": "İncelenecek yeni talepler",
+      "empty": "Henüz hiçbir şey değişmedi."
+    },
+    "empty": {
+      "title": "Bu proje boş",
+      "description": "İlk görevi ekleyerek başlayın, ardından üzerinde çalışacak kişileri davet edin.",
+      "add_task": "İlk görevi ekle",
+      "add_team": "Ekibi ekle"
+    }
   }
 }

@@ -884,5 +884,31 @@
       "empty": "No hay tareas abiertas en Personal Space.",
       "more": "+{count} más en Personal Space"
     }
+  },
+  "container_overview": {
+    "view_all": "Ver todo",
+    "my_tasks": {
+      "title": "Mis tareas aquí",
+      "empty": "No tiene nada asignado aquí."
+    },
+    "in_progress": {
+      "title": "En curso ahora",
+      "empty": "No hay nada en curso."
+    },
+    "jobs": {
+      "title": "Progreso de los módulos",
+      "empty": "Aún no hay módulos."
+    },
+    "whats_new": {
+      "title": "Novedades",
+      "new_requests": "Nuevas solicitudes por revisar",
+      "empty": "Todavía no ha cambiado nada."
+    },
+    "empty": {
+      "title": "Este proyecto está vacío",
+      "description": "Empiece añadiendo la primera tarea y luego invite a las personas que trabajarán en ella.",
+      "add_task": "Añadir la primera tarea",
+      "add_team": "Añadir al equipo"
+    }
   }
 }

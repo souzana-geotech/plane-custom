@@ -884,5 +884,31 @@
       "empty": "Aucune tâche ouverte dans Personal Space.",
       "more": "+{count} de plus dans Personal Space"
     }
+  },
+  "container_overview": {
+    "view_all": "Tout afficher",
+    "my_tasks": {
+      "title": "Mes tâches ici",
+      "empty": "Rien ne vous est attribué ici."
+    },
+    "in_progress": {
+      "title": "En cours",
+      "empty": "Rien n’est en cours."
+    },
+    "jobs": {
+      "title": "Avancement des modules",
+      "empty": "Aucun module pour l’instant."
+    },
+    "whats_new": {
+      "title": "Nouveautés",
+      "new_requests": "Nouvelles demandes à examiner",
+      "empty": "Rien n’a encore changé."
+    },
+    "empty": {
+      "title": "Ce projet est vide",
+      "description": "Commencez par ajouter la première tâche, puis invitez les personnes qui y travailleront.",
+      "add_task": "Ajouter la première tâche",
+      "add_team": "Ajouter l’équipe"
+    }
   }
 }

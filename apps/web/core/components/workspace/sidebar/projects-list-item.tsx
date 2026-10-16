@@ -34,8 +34,7 @@ import { Tooltip } from "@makeplane/propel/components/tooltip";
 import { CustomMenu, DropIndicator, DragHandle, ControlLink } from "@plane/ui";
 import { cn } from "@plane/utils";
 // components
-import { DEFAULT_TAB_KEY, getTabUrl } from "@/components/navigation/tab-navigation-utils";
-import { useTabPreferences } from "@/components/navigation/use-tab-preferences";
+import { getContainerEntryHref } from "@/components/navigation/container-entry";
 import { LeaveProjectModal } from "@/components/project/leave-project-modal";
 import { PublishProjectModal } from "@/components/project/publish-project/modal";
 // hooks
@@ -48,7 +47,6 @@ import { usePlatformOS } from "@/hooks/use-platform-os";
 // local imports
 import { HIGHLIGHT_CLASS, highlightIssueOnDrop } from "../../issues/issue-layouts/utils";
 import { ProjectNavigation } from "./project-navigation";
-import { useNavigationItems } from "@/components/navigation/use-navigation-items";
 
 type Props = {
   projectId: string;
@@ -102,21 +100,8 @@ export const SidebarProjectsListItem = observer(function SidebarProjectsListItem
   // derived values
   const project = getPartialProjectById(projectId);
 
-  // Get available navigation items for this project
-  const navigationItems = useNavigationItems({
-    workspaceSlug: workspaceSlug.toString(),
-    projectId,
-    project,
-    allowPermissions,
-  });
-  const availableTabKeys = navigationItems.map((item) => item.key);
-
-  // Get preferences from hook
-  const { tabPreferences } = useTabPreferences(workspaceSlug.toString(), projectId);
-  const defaultTabKey = tabPreferences.defaultTab;
-  // Validate that the default tab is available
-  const validatedDefaultTabKey = availableTabKeys.includes(defaultTabKey) ? defaultTabKey : DEFAULT_TAB_KEY;
-  const defaultTabUrl = project ? getTabUrl(workspaceSlug.toString(), project.id, validatedDefaultTabKey) : "";
+  // Geotech3D: the container root picks the page it opens on (see `container-entry`).
+  const defaultTabUrl = project ? getContainerEntryHref(workspaceSlug.toString(), project.id) : "";
 
   // toggle project list open
   const setIsProjectListOpen = useCallback(

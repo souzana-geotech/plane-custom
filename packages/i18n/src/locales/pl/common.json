@@ -884,5 +884,31 @@
       "empty": "Brak otwartych zadań w Personal Space.",
       "more": "+{count} więcej w Personal Space"
     }
+  },
+  "container_overview": {
+    "view_all": "Pokaż wszystko",
+    "my_tasks": {
+      "title": "Moje zadania tutaj",
+      "empty": "Brak przypisanych zadań w tym miejscu."
+    },
+    "in_progress": {
+      "title": "W toku",
+      "empty": "Nic nie jest w toku."
+    },
+    "jobs": {
+      "title": "Postęp modułów",
+      "empty": "Brak modułów."
+    },
+    "whats_new": {
+      "title": "Nowości",
+      "new_requests": "Nowe zgłoszenia do przejrzenia",
+      "empty": "Nic się jeszcze nie zmieniło."
+    },
+    "empty": {
+      "title": "Ten projekt jest pusty",
+      "description": "Na początek warto dodać pierwsze zadanie, a następnie zaprosić osoby, które będą nad nim pracować.",
+      "add_task": "Dodaj pierwsze zadanie",
+      "add_team": "Dodaj zespół"
+    }
   }
 }

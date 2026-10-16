@@ -884,5 +884,31 @@
       "empty": "V Personal Space nejsou žádné otevřené úkoly.",
       "more": "+{count} dalších v Personal Space"
     }
+  },
+  "container_overview": {
+    "view_all": "Zobrazit vše",
+    "my_tasks": {
+      "title": "Moje úkoly zde",
+      "empty": "Nemáte zde přiřazené žádné úkoly."
+    },
+    "in_progress": {
+      "title": "Právě probíhá",
+      "empty": "Nic právě neprobíhá."
+    },
+    "jobs": {
+      "title": "Postup modulů",
+      "empty": "Zatím žádné moduly."
+    },
+    "whats_new": {
+      "title": "Co je nového",
+      "new_requests": "Nové žádosti k posouzení",
+      "empty": "Zatím se nic nezměnilo."
+    },
+    "empty": {
+      "title": "Tento projekt je prázdný",
+      "description": "Začněte přidáním prvního úkolu a pak přizvěte lidi, kteří na něm budou pracovat.",
+      "add_task": "Přidat první úkol",
+      "add_team": "Přidat tým"
+    }
   }
 }

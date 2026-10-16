@@ -884,5 +884,31 @@
       "empty": "Không có công việc đang mở trong Personal Space.",
       "more": "+{count} công việc khác trong Personal Space"
     }
+  },
+  "container_overview": {
+    "view_all": "Xem tất cả",
+    "my_tasks": {
+      "title": "Công việc của tôi ở đây",
+      "empty": "Bạn chưa được giao việc nào ở đây."
+    },
+    "in_progress": {
+      "title": "Đang thực hiện",
+      "empty": "Không có việc nào đang thực hiện."
+    },
+    "jobs": {
+      "title": "Tiến độ mô-đun",
+      "empty": "Chưa có mô-đun nào."
+    },
+    "whats_new": {
+      "title": "Có gì mới",
+      "new_requests": "Yêu cầu mới cần xem xét",
+      "empty": "Chưa có thay đổi nào."
+    },
+    "empty": {
+      "title": "Dự án này đang trống",
+      "description": "Hãy bắt đầu bằng cách thêm công việc đầu tiên, sau đó mời những người sẽ thực hiện.",
+      "add_task": "Thêm công việc đầu tiên",
+      "add_team": "Thêm nhóm"
+    }
   }
 }

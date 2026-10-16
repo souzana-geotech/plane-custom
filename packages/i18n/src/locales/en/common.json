@@ -884,5 +884,31 @@
       "empty": "No open tasks in Personal Space.",
       "more": "+{count} more in Personal Space"
     }
+  },
+  "container_overview": {
+    "view_all": "View all",
+    "my_tasks": {
+      "title": "My tasks here",
+      "empty": "Nothing here is assigned to you."
+    },
+    "in_progress": {
+      "title": "In progress now",
+      "empty": "Nothing is in progress."
+    },
+    "jobs": {
+      "title": "Jobs progress",
+      "empty": "No jobs yet."
+    },
+    "whats_new": {
+      "title": "What's new",
+      "new_requests": "New requests to review",
+      "empty": "Nothing has changed yet."
+    },
+    "empty": {
+      "title": "This container is empty",
+      "description": "Start by adding the first task, then bring in the people who'll work on it.",
+      "add_task": "Add the first task",
+      "add_team": "Add the team"
+    }
   }
 }

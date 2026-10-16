@@ -12,6 +12,7 @@ import { EUserPermissionsLevel, EUserPermissions } from "@plane/constants";
 import { useTranslation } from "@plane/i18n";
 import {
   CyclesOutline,
+  DashboardsOutline,
   IntakeOutline,
   ModuleOutline,
   PagesOutline,
@@ -77,6 +78,17 @@ export const ProjectNavigation = observer(function ProjectNavigation(props: TPro
 
   const baseNavigation = useCallback(
     (navWorkspaceSlug: string, navProjectId: string): TNavigationItem[] => [
+      // Geotech3D: what's going on in the container, at a glance.
+      {
+        i18n_key: "common.overview",
+        key: "overview",
+        name: "Overview",
+        href: `/${navWorkspaceSlug}/projects/${navProjectId}/overview`,
+        icon: DashboardsOutline,
+        access: [EUserPermissions.ADMIN, EUserPermissions.MEMBER],
+        shouldRender: true,
+        sortOrder: 0,
+      },
       {
         i18n_key: "sidebar.work_items",
         key: "work_items",
@@ -154,6 +166,7 @@ export const ProjectNavigation = observer(function ProjectNavigation(props: TPro
     };
 
     // sort navigation items by sortOrder
+    // oxlint-disable-next-line unicorn/no-array-sort
     const sortedNavigationItems = navigationItems(workspaceSlug, projectId).sort(
       (a, b) => (a.sortOrder || 0) - (b.sortOrder || 0)
     );
