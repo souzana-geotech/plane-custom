@@ -52,7 +52,7 @@
   },
   "workspace_dashboard": {
     "title": "운영 대시보드",
-    "subtitle": "고객 작업, 업무, 부서, 직원 전반에 대한 관리 가시성",
+    "subtitle": "고객 작업, 업무, 라벨, 직원 전반에 대한 관리 가시성",
     "coverage_note": "이 워크스페이스에 관련 데이터가 없어 산출물, 고객 검토, 장비, 영업은 표시되지 않습니다. 직원 일정 충돌 감지에는 시각 정보가 필요하지만 작업에는 시각 정보가 없습니다.",
     "error": {
       "title": "대시보드를 불러올 수 없습니다",
@@ -66,7 +66,7 @@
     "filters": {
       "project": "프로젝트",
       "job": "작업",
-      "department": "부서",
+      "department": "라벨",
       "employee": "직원",
       "all": "전체",
       "clear": "필터 지우기"
@@ -154,12 +154,12 @@
       "empty": "아직 작업이 없습니다"
     },
     "departments": {
-      "title": "부서 업무량",
-      "description": "부서는 라벨로 표현됩니다",
+      "title": "라벨별 업무량",
+      "description": "라벨별로 묶은 업무",
       "empty": "아직 라벨이 지정된 업무가 없습니다",
-      "no_label": "부서 없음",
+      "no_label": "라벨 없음",
       "columns": {
-        "department": "부서",
+        "department": "라벨",
         "active": "진행 중",
         "overdue": "기한 초과",
         "completed": "완료",

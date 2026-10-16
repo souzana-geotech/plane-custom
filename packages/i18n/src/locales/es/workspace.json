@@ -52,7 +52,7 @@
   },
   "workspace_dashboard": {
     "title": "Panel de operaciones",
-    "subtitle": "Visibilidad de gestión sobre trabajos de clientes, tareas, departamentos y empleados",
+    "subtitle": "Visibilidad de gestión sobre trabajos de clientes, tareas, etiquetas y empleados",
     "coverage_note": "Los entregables, las revisiones de clientes, los equipos y las ventas no se muestran porque este espacio de trabajo no tiene datos sobre ellos. Los conflictos de agenda de los empleados requieren horarios, que las tareas no incluyen.",
     "error": {
       "title": "No se pudo cargar el panel",
@@ -66,7 +66,7 @@
     "filters": {
       "project": "Proyecto",
       "job": "Trabajo",
-      "department": "Departamento",
+      "department": "Etiqueta",
       "employee": "Empleado",
       "all": "Todos",
       "clear": "Borrar filtros"
@@ -154,12 +154,12 @@
       "empty": "Todavía no hay tareas"
     },
     "departments": {
-      "title": "Carga de trabajo por departamento",
-      "description": "Los departamentos se representan con etiquetas",
+      "title": "Carga de trabajo por etiqueta",
+      "description": "Trabajo agrupado por etiqueta",
       "empty": "Todavía no hay trabajo etiquetado",
-      "no_label": "Sin departamento",
+      "no_label": "Sin etiqueta",
       "columns": {
-        "department": "Departamento",
+        "department": "Etiqueta",
         "active": "Activos",
         "overdue": "Vencidos",
         "completed": "Completados",

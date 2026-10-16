@@ -52,7 +52,7 @@
   },
   "workspace_dashboard": {
     "title": "Operasyon panosu",
-    "subtitle": "Müşteri işleri, çalışma, departmanlar ve çalışanlar için yönetim görünürlüğü",
+    "subtitle": "Müşteri işleri, çalışma, etiketler ve çalışanlar için yönetim görünürlüğü",
     "coverage_note": "Teslimatlar, müşteri incelemeleri, ekipman ve satışlar gösterilmiyor çünkü bu çalışma alanında bunlara ait veri yok. Çalışan planlama çakışmaları saat bilgisi gerektirir; görevlerde saat bilgisi bulunmaz.",
     "error": {
       "title": "Pano yüklenemedi",
@@ -66,7 +66,7 @@
     "filters": {
       "project": "Proje",
       "job": "İş",
-      "department": "Departman",
+      "department": "Etiket",
       "employee": "Çalışan",
       "all": "Tümü",
       "clear": "Filtreleri temizle"
@@ -154,12 +154,12 @@
       "empty": "Henüz görev yok"
     },
     "departments": {
-      "title": "Departman iş yükü",
-      "description": "Departmanlar etiketlerle temsil edilir",
+      "title": "Etikete göre iş yükü",
+      "description": "Etikete göre gruplanmış çalışma",
       "empty": "Henüz etiketlenmiş çalışma yok",
-      "no_label": "Departman yok",
+      "no_label": "Etiket yok",
       "columns": {
-        "department": "Departman",
+        "department": "Etiket",
         "active": "Aktif",
         "overdue": "Gecikmiş",
         "completed": "Tamamlanan",

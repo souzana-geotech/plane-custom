@@ -52,7 +52,7 @@
   },
   "workspace_dashboard": {
     "title": "Tableau de bord des opérations",
-    "subtitle": "Visibilité de gestion sur les missions clients, le travail, les services et les employés",
+    "subtitle": "Visibilité de gestion sur les missions clients, le travail, les étiquettes et les employés",
     "coverage_note": "Les livrables, les revues clients, le matériel et les ventes ne sont pas affichés car cet espace de travail ne contient aucune donnée à leur sujet. Les conflits de planning des employés nécessitent des horaires, que les tâches ne portent pas.",
     "error": {
       "title": "Impossible de charger le tableau de bord",
@@ -66,7 +66,7 @@
     "filters": {
       "project": "Projet",
       "job": "Mission",
-      "department": "Service",
+      "department": "Étiquette",
       "employee": "Employé",
       "all": "Tous",
       "clear": "Effacer les filtres"
@@ -154,12 +154,12 @@
       "empty": "Aucune tâche pour le moment"
     },
     "departments": {
-      "title": "Charge de travail par service",
-      "description": "Les services sont représentés par des étiquettes",
+      "title": "Charge de travail par étiquette",
+      "description": "Travail regroupé par étiquette",
       "empty": "Aucun travail étiqueté pour le moment",
-      "no_label": "Sans service",
+      "no_label": "Sans étiquette",
       "columns": {
-        "department": "Service",
+        "department": "Étiquette",
         "active": "Actifs",
         "overdue": "En retard",
         "completed": "Terminés",

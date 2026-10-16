@@ -52,7 +52,7 @@
   },
   "workspace_dashboard": {
     "title": "Dashboard operativa",
-    "subtitle": "Visibilità gestionale su commesse dei clienti, lavoro, reparti e dipendenti",
+    "subtitle": "Visibilità gestionale su commesse dei clienti, lavoro, etichette e dipendenti",
     "coverage_note": "Consegne, revisioni dei clienti, attrezzature e vendite non vengono mostrate perché questo spazio di lavoro non contiene dati al riguardo. I conflitti di pianificazione dei dipendenti richiedono orari, che le attività non includono.",
     "error": {
       "title": "Impossibile caricare la dashboard",
@@ -66,7 +66,7 @@
     "filters": {
       "project": "Progetto",
       "job": "Commessa",
-      "department": "Reparto",
+      "department": "Etichetta",
       "employee": "Dipendente",
       "all": "Tutti",
       "clear": "Cancella filtri"
@@ -154,12 +154,12 @@
       "empty": "Ancora nessuna attività"
     },
     "departments": {
-      "title": "Carico di lavoro per reparto",
-      "description": "I reparti sono rappresentati dalle etichette",
+      "title": "Carico di lavoro per etichetta",
+      "description": "Lavoro raggruppato per etichetta",
       "empty": "Ancora nessun lavoro etichettato",
-      "no_label": "Nessun reparto",
+      "no_label": "Nessuna etichetta",
       "columns": {
-        "department": "Reparto",
+        "department": "Etichetta",
         "active": "Attivi",
         "overdue": "Scaduti",
         "completed": "Completati",

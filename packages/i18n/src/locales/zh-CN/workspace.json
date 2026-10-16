@@ -52,7 +52,7 @@
   },
   "workspace_dashboard": {
     "title": "运营仪表盘",
-    "subtitle": "面向管理层的客户项目、工作、部门与员工全景视图",
+    "subtitle": "面向管理层的客户项目、工作、标签与员工全景视图",
     "coverage_note": "由于此工作区没有相关数据，交付物、客户评审、设备和销售不会显示。检测员工排期冲突需要具体时刻信息，而任务不包含时刻。",
     "error": {
       "title": "无法加载仪表盘",
@@ -66,7 +66,7 @@
     "filters": {
       "project": "项目",
       "job": "客户项目",
-      "department": "部门",
+      "department": "标签",
       "employee": "员工",
       "all": "全部",
       "clear": "清除筛选"
@@ -154,12 +154,12 @@
       "empty": "暂无任务"
     },
     "departments": {
-      "title": "部门工作量",
-      "description": "部门以标签表示",
+      "title": "按标签的工作量",
+      "description": "按标签分组的工作",
       "empty": "暂无带标签的工作",
-      "no_label": "无部门",
+      "no_label": "无标签",
       "columns": {
-        "department": "部门",
+        "department": "标签",
         "active": "进行中",
         "overdue": "逾期",
         "completed": "已完成",

@@ -52,7 +52,7 @@
   },
   "workspace_dashboard": {
     "title": "Dasbor operasi",
-    "subtitle": "Visibilitas manajemen atas pekerjaan klien, tugas, departemen, dan karyawan",
+    "subtitle": "Visibilitas manajemen atas pekerjaan klien, tugas, label, dan karyawan",
     "coverage_note": "Hasil kerja, tinjauan klien, peralatan, dan penjualan tidak ditampilkan karena ruang kerja ini tidak memiliki data untuk itu. Konflik jadwal karyawan memerlukan informasi jam, yang tidak dimiliki item pekerjaan.",
     "error": {
       "title": "Dasbor tidak dapat dimuat",
@@ -66,7 +66,7 @@
     "filters": {
       "project": "Proyek",
       "job": "Pekerjaan",
-      "department": "Departemen",
+      "department": "Label",
       "employee": "Karyawan",
       "all": "Semua",
       "clear": "Hapus filter"
@@ -154,12 +154,12 @@
       "empty": "Belum ada item pekerjaan"
     },
     "departments": {
-      "title": "Beban kerja departemen",
-      "description": "Departemen diwakili oleh label",
+      "title": "Beban kerja per label",
+      "description": "Pekerjaan dikelompokkan menurut label",
       "empty": "Belum ada pekerjaan berlabel",
-      "no_label": "Tanpa departemen",
+      "no_label": "Tanpa label",
       "columns": {
-        "department": "Departemen",
+        "department": "Label",
         "active": "Aktif",
         "overdue": "Terlambat",
         "completed": "Selesai",

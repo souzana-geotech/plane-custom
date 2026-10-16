@@ -52,7 +52,7 @@
   },
   "workspace_dashboard": {
     "title": "Tablou de bord operațional",
-    "subtitle": "Vizibilitate managerială asupra lucrărilor clienților, activității, departamentelor și angajaților",
+    "subtitle": "Vizibilitate managerială asupra lucrărilor clienților, activității, etichetelor și angajaților",
     "coverage_note": "Livrabilele, revizuirile clienților, echipamentele și vânzările nu sunt afișate deoarece acest spațiu de lucru nu conține date despre ele. Conflictele de program ale angajaților necesită ore, pe care elementele de lucru nu le conțin.",
     "error": {
       "title": "Tabloul de bord nu a putut fi încărcat",
@@ -66,7 +66,7 @@
     "filters": {
       "project": "Proiect",
       "job": "Lucrare",
-      "department": "Departament",
+      "department": "Etichetă",
       "employee": "Angajat",
       "all": "Toate",
       "clear": "Șterge filtrele"
@@ -154,12 +154,12 @@
       "empty": "Încă nu există elemente de lucru"
     },
     "departments": {
-      "title": "Volumul de lucru pe departamente",
-      "description": "Departamentele sunt reprezentate prin etichete",
+      "title": "Volumul de lucru pe etichete",
+      "description": "Activitate grupată pe etichete",
       "empty": "Încă nu există activitate etichetată",
-      "no_label": "Fără departament",
+      "no_label": "Fără etichetă",
       "columns": {
-        "department": "Departament",
+        "department": "Etichetă",
         "active": "Active",
         "overdue": "Restante",
         "completed": "Finalizate",

@@ -52,7 +52,7 @@
   },
   "workspace_dashboard": {
     "title": "Painel de operações",
-    "subtitle": "Visibilidade gerencial sobre trabalhos de clientes, tarefas, departamentos e funcionários",
+    "subtitle": "Visibilidade gerencial sobre trabalhos de clientes, tarefas, etiquetas e funcionários",
     "coverage_note": "Entregáveis, revisões de clientes, equipamentos e vendas não são exibidos porque este espaço de trabalho não possui dados sobre eles. Conflitos de agenda dos funcionários exigem horários, que as tarefas não têm.",
     "error": {
       "title": "Não foi possível carregar o painel",
@@ -66,7 +66,7 @@
     "filters": {
       "project": "Projeto",
       "job": "Trabalho",
-      "department": "Departamento",
+      "department": "Etiqueta",
       "employee": "Funcionário",
       "all": "Todos",
       "clear": "Limpar filtros"
@@ -154,12 +154,12 @@
       "empty": "Ainda não há tarefas"
     },
     "departments": {
-      "title": "Carga de trabalho por departamento",
-      "description": "Os departamentos são representados por etiquetas",
+      "title": "Carga de trabalho por etiqueta",
+      "description": "Trabalho agrupado por etiqueta",
       "empty": "Ainda não há trabalho etiquetado",
-      "no_label": "Sem departamento",
+      "no_label": "Sem etiqueta",
       "columns": {
-        "department": "Departamento",
+        "department": "Etiqueta",
         "active": "Ativos",
         "overdue": "Atrasados",
         "completed": "Concluídos",

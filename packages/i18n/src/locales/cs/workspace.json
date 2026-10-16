@@ -52,7 +52,7 @@
   },
   "workspace_dashboard": {
     "title": "Provozní panel",
-    "subtitle": "Manažerský přehled zakázek klientů, práce, oddělení a zaměstnanců",
+    "subtitle": "Manažerský přehled zakázek klientů, práce, štítků a zaměstnanců",
     "coverage_note": "Dodávky, kontroly klientů, vybavení a prodej se nezobrazují, protože tento pracovní prostor o nich nemá žádná data. Zjišťování konfliktů v rozvrhu zaměstnanců vyžaduje časy, které úkoly neobsahují.",
     "error": {
       "title": "Panel se nepodařilo načíst",
@@ -66,7 +66,7 @@
     "filters": {
       "project": "Projekt",
       "job": "Zakázka",
-      "department": "Oddělení",
+      "department": "Štítek",
       "employee": "Zaměstnanec",
       "all": "Vše",
       "clear": "Vymazat filtry"
@@ -154,12 +154,12 @@
       "empty": "Zatím žádné úkoly"
     },
     "departments": {
-      "title": "Vytížení oddělení",
-      "description": "Oddělení jsou reprezentována štítky",
+      "title": "Vytížení podle štítků",
+      "description": "Práce seskupená podle štítků",
       "empty": "Zatím žádná práce se štítkem",
-      "no_label": "Bez oddělení",
+      "no_label": "Bez štítku",
       "columns": {
-        "department": "Oddělení",
+        "department": "Štítek",
         "active": "Aktivní",
         "overdue": "Po termínu",
         "completed": "Dokončené",

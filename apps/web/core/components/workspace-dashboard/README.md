@@ -42,7 +42,7 @@ The endpoints are admin/member only, so the page is gated to those roles.
   4. `on_track` – everything else (jobs without dates cannot be late).
 - **Jobs needing attention (KPI)**: active jobs whose health is not `on_track`.
 - **Employee workload**: counts of open work items per assignee (active, due soon, overdue, blocked). Capacity/estimates are not configured in the workspace, so no utilisation percentage is shown; the bar only compares active counts between employees.
-- **Department workload**: counts per label (active, overdue, completed, blocked). Work without a label is listed as _No department_.
+- **Label workload**: counts per label (active, overdue, completed, blocked). Work without a label is listed as _No label_.
 - **Work pipeline**: work items grouped by the workspace's real workflow states; states with the same name across projects are merged and ordered by state group, then sequence.
 - **Management exceptions**: delayed jobs, overdue tasks, blocked jobs (critical); at-risk jobs, blocked tasks (warning); due this week, unassigned open tasks, open tasks without a due date, jobs without a due date (informational). Only non-zero exceptions are shown; clicking one scrolls to the widget that lists the underlying items.
 

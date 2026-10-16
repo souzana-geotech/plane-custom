@@ -52,7 +52,7 @@
   },
   "workspace_dashboard": {
     "title": "Operations dashboard",
-    "subtitle": "Management visibility across client jobs, work, departments and employees",
+    "subtitle": "Management visibility across client jobs, work, labels and employees",
     "coverage_note": "Deliverables, client reviews, equipment and sales are not shown because this workspace has no data for them. Employee scheduling conflicts need time-of-day scheduling, which tasks do not carry.",
     "error": {
       "title": "Could not load the dashboard",
@@ -66,7 +66,7 @@
     "filters": {
       "project": "Container",
       "job": "Job",
-      "department": "Department",
+      "department": "Label",
       "employee": "Employee",
       "all": "All",
       "clear": "Clear filters"
@@ -154,12 +154,12 @@
       "empty": "No tasks yet"
     },
     "departments": {
-      "title": "Department workload",
-      "description": "Departments are represented by labels",
+      "title": "Label workload",
+      "description": "Work grouped by label",
       "empty": "No labelled work yet",
-      "no_label": "No department",
+      "no_label": "No label",
       "columns": {
-        "department": "Department",
+        "department": "Label",
         "active": "Active",
         "overdue": "Overdue",
         "completed": "Completed",

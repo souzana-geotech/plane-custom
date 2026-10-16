@@ -52,7 +52,7 @@
   },
   "workspace_dashboard": {
     "title": "Betriebs-Dashboard",
-    "subtitle": "Managementübersicht über Kundenaufträge, Arbeit, Abteilungen und Mitarbeitende",
+    "subtitle": "Managementübersicht über Kundenaufträge, Arbeit, Labels und Mitarbeitende",
     "coverage_note": "Lieferobjekte, Kundenprüfungen, Ausrüstung und Vertrieb werden nicht angezeigt, da dieser Arbeitsbereich keine Daten dazu enthält. Terminkonflikte von Mitarbeitenden erfordern Uhrzeiten, die Aufgaben nicht enthalten.",
     "error": {
       "title": "Dashboard konnte nicht geladen werden",
@@ -66,7 +66,7 @@
     "filters": {
       "project": "Projekt",
       "job": "Auftrag",
-      "department": "Abteilung",
+      "department": "Label",
       "employee": "Mitarbeiter",
       "all": "Alle",
       "clear": "Filter zurücksetzen"
@@ -154,12 +154,12 @@
       "empty": "Noch keine Aufgaben"
     },
     "departments": {
-      "title": "Auslastung nach Abteilung",
-      "description": "Abteilungen werden durch Labels abgebildet",
+      "title": "Auslastung nach Label",
+      "description": "Arbeit nach Labels gruppiert",
       "empty": "Noch keine Arbeit mit Label",
-      "no_label": "Keine Abteilung",
+      "no_label": "Kein Label",
       "columns": {
-        "department": "Abteilung",
+        "department": "Label",
         "active": "Aktiv",
         "overdue": "Überfällig",
         "completed": "Abgeschlossen",

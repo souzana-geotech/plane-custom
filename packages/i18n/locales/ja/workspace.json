@@ -52,7 +52,7 @@
   },
   "workspace_dashboard": {
     "title": "オペレーションダッシュボード",
-    "subtitle": "顧客案件、作業、部門、従業員を横断した管理者向けの可視化",
+    "subtitle": "顧客案件、作業、ラベル、従業員を横断した管理者向けの可視化",
     "coverage_note": "成果物、顧客レビュー、機材、営業は、このワークスペースにデータがないため表示されません。従業員のスケジュール競合の検出には時刻情報が必要ですが、タスクには時刻がありません。",
     "error": {
       "title": "ダッシュボードを読み込めませんでした",
@@ -66,7 +66,7 @@
     "filters": {
       "project": "プロジェクト",
       "job": "案件",
-      "department": "部門",
+      "department": "ラベル",
       "employee": "従業員",
       "all": "すべて",
       "clear": "フィルターをクリア"
@@ -154,12 +154,12 @@
       "empty": "タスクはまだありません"
     },
     "departments": {
-      "title": "部門別の作業負荷",
-      "description": "部門はラベルで表されます",
+      "title": "ラベル別の作業負荷",
+      "description": "ラベルごとにまとめた作業",
       "empty": "ラベル付きの作業はまだありません",
-      "no_label": "部門なし",
+      "no_label": "ラベルなし",
       "columns": {
-        "department": "部門",
+        "department": "ラベル",
         "active": "進行中",
         "overdue": "期限超過",
         "completed": "完了",

@@ -52,7 +52,7 @@
   },
   "workspace_dashboard": {
     "title": "Bảng điều khiển vận hành",
-    "subtitle": "Tầm nhìn quản lý về công việc của khách hàng, việc làm, phòng ban và nhân viên",
+    "subtitle": "Tầm nhìn quản lý về công việc của khách hàng, việc làm, nhãn và nhân viên",
     "coverage_note": "Sản phẩm bàn giao, đánh giá của khách hàng, thiết bị và bán hàng không được hiển thị vì không gian làm việc này không có dữ liệu về chúng. Xung đột lịch của nhân viên cần thông tin giờ trong ngày, mà các nhiệm vụ không có.",
     "error": {
       "title": "Không thể tải bảng điều khiển",
@@ -66,7 +66,7 @@
     "filters": {
       "project": "Dự án",
       "job": "Công việc",
-      "department": "Phòng ban",
+      "department": "Nhãn",
       "employee": "Nhân viên",
       "all": "Tất cả",
       "clear": "Xóa bộ lọc"
@@ -154,12 +154,12 @@
       "empty": "Chưa có nhiệm vụ nào"
     },
     "departments": {
-      "title": "Khối lượng công việc theo phòng ban",
-      "description": "Phòng ban được thể hiện bằng nhãn",
+      "title": "Khối lượng công việc theo nhãn",
+      "description": "Công việc được nhóm theo nhãn",
       "empty": "Chưa có công việc được gắn nhãn",
-      "no_label": "Không có phòng ban",
+      "no_label": "Không có nhãn",
       "columns": {
-        "department": "Phòng ban",
+        "department": "Nhãn",
         "active": "Đang mở",
         "overdue": "Quá hạn",
         "completed": "Hoàn thành",
