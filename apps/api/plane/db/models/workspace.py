@@ -9,7 +9,7 @@ from typing import Optional, Any
 # Django imports
 from django.conf import settings
 from django.core.exceptions import ValidationError
-from django.db import models
+from django.db import models, transaction
 
 # Module imports
 from .base import BaseModel
@@ -158,6 +158,23 @@ class Workspace(BaseModel):
         if self.logo:
             return self.logo
         return None
+
+    def save(self, *args: Any, **kwargs: Any):
+        # Geotech3D: a workspace's containers always follow its timezone.
+        update_fields = kwargs.get("update_fields")
+        timezone_is_saved = update_fields is None or "timezone" in update_fields
+        previous_timezone = None
+        if timezone_is_saved and not self._state.adding:
+            previous_timezone = Workspace.objects.filter(pk=self.pk).values_list("timezone", flat=True).first()
+
+        with transaction.atomic():
+            result = super().save(*args, **kwargs)
+            if previous_timezone is not None and previous_timezone != self.timezone:
+                from plane.db.models import Project
+
+                Project.objects.filter(workspace_id=self.pk).update(timezone=self.timezone)
+
+        return result
 
     def delete(self, using: Optional[str] = None, soft: bool = True, *args: Any, **kwargs: Any):
         """
