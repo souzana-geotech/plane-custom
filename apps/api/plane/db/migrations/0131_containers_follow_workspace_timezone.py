@@ -1,12 +1,15 @@
 from django.db import migrations
-from django.db.models import OuterRef, Subquery
+
+from plane.utils.container_timezone import move_containers_to_timezone
 
 
 def align_container_timezones(apps, schema_editor):
     """One-time: move every existing container to its workspace's timezone (Geotech3D)."""
     Project = apps.get_model("db", "Project")
     Workspace = apps.get_model("db", "Workspace")
-    Project.objects.update(timezone=Subquery(Workspace.objects.filter(pk=OuterRef("workspace_id")).values("timezone")[:1]))
+    Cycle = apps.get_model("db", "Cycle")
+    for workspace_id, timezone in Workspace.objects.values_list("id", "timezone"):
+        move_containers_to_timezone(Project.objects.filter(workspace_id=workspace_id), Cycle.objects.all(), timezone)
 
 
 class Migration(migrations.Migration):

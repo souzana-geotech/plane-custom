@@ -170,9 +170,13 @@ class Workspace(BaseModel):
         with transaction.atomic():
             result = super().save(*args, **kwargs)
             if previous_timezone is not None and previous_timezone != self.timezone:
-                from plane.db.models import Project
+                from plane.db.models import Cycle, Project
+                from plane.utils.container_timezone import move_containers_to_timezone
 
-                Project.objects.filter(workspace_id=self.pk).update(timezone=self.timezone)
+                # all_objects: a deleted container or cycle can be restored later.
+                move_containers_to_timezone(
+                    Project.all_objects.filter(workspace_id=self.pk), Cycle.all_objects.all(), self.timezone
+                )
 
         return result
 
