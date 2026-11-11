@@ -4,6 +4,8 @@
  * See the LICENSE file for details.
  */
 
+import { observer } from "mobx-react";
+import { useParams } from "next/navigation";
 import { useTranslation } from "@plane/i18n";
 import { PillButton } from "@makeplane/propel/components/pill";
 import { CloseOutline } from "@makeplane/propel/icons";
@@ -11,7 +13,12 @@ import type { TModuleDisplayFilters, TModuleFilters } from "@plane/types";
 // components
 import { Header, EHeaderVariant } from "@plane/ui";
 import { replaceUnderscoreIfSnakeCase } from "@plane/utils";
-import { AppliedDateFilters, AppliedMembersFilters, AppliedStatusFilters } from "@/components/modules";
+import { AppliedLabelsFilters } from "@/components/issues/issue-layouts/filters/applied-filters/label";
+import { AppliedPriorityFilters } from "@/components/issues/issue-layouts/filters/applied-filters/priority";
+import { AppliedStateFilters } from "@/components/issues/issue-layouts/filters/applied-filters/state";
+import { AppliedDateFilters, AppliedMembersFilters } from "@/components/modules";
+import { useLabel } from "@/hooks/store/use-label";
+import { useProjectState } from "@/hooks/store/use-project-state";
 // helpers
 // types
 
@@ -28,7 +35,7 @@ type Props = {
 const MEMBERS_FILTERS = new Set(["lead", "members"]);
 const DATE_FILTERS = new Set(["start_date", "target_date"]);
 
-export function ModuleAppliedFiltersList(props: Props) {
+export const ModuleAppliedFiltersList = observer(function ModuleAppliedFiltersList(props: Props) {
   const {
     appliedFilters,
     isFavoriteFilterApplied,
@@ -39,16 +46,22 @@ export function ModuleAppliedFiltersList(props: Props) {
     isArchived = false,
   } = props;
   const { t } = useTranslation();
+  const { projectId } = useParams();
+  const { getProjectStates } = useProjectState();
+  const { getProjectLabels } = useLabel();
 
-  if (!appliedFilters && !isFavoriteFilterApplied) return null;
-  if (Object.keys(appliedFilters).length === 0 && !isFavoriteFilterApplied) return null;
+  // a legacy "status" filter saved by an older build is no longer applied, so it is not shown either
+  const visibleFilters = Object.entries(appliedFilters ?? {}).filter(
+    ([key, value]) => key !== "status" && !!value && (!Array.isArray(value) || value.length > 0)
+  );
+  if (visibleFilters.length === 0 && !isFavoriteFilterApplied) return null;
 
   const isEditingAllowed = alwaysAllowEditing;
 
   return (
     <Header variant={EHeaderVariant.TERNARY}>
       <div className="flex flex-wrap gap-2">
-        {Object.entries(appliedFilters).map(([key, value]) => {
+        {visibleFilters.map(([key, value]) => {
           const filterKey = key as keyof TModuleFilters;
 
           if (!value) return;
@@ -61,10 +74,26 @@ export function ModuleAppliedFiltersList(props: Props) {
             >
               <div className="flex flex-wrap items-center gap-1.5">
                 <span className="text-11 text-tertiary">{replaceUnderscoreIfSnakeCase(filterKey)}</span>
-                {filterKey === "status" && (
-                  <AppliedStatusFilters
+                {filterKey === "state" && (
+                  <AppliedStateFilters
                     editable={isEditingAllowed}
-                    handleRemove={(val) => handleRemoveFilter("status", val)}
+                    handleRemove={(val) => handleRemoveFilter("state", val)}
+                    states={getProjectStates(projectId?.toString()) ?? []}
+                    values={value}
+                  />
+                )}
+                {filterKey === "label" && (
+                  <AppliedLabelsFilters
+                    editable={isEditingAllowed}
+                    handleRemove={(val) => handleRemoveFilter("label", val)}
+                    labels={getProjectLabels(projectId?.toString())}
+                    values={value}
+                  />
+                )}
+                {filterKey === "priority" && (
+                  <AppliedPriorityFilters
+                    editable={isEditingAllowed}
+                    handleRemove={(val) => handleRemoveFilter("priority", val)}
                     values={value}
                   />
                 )}
@@ -135,4 +164,4 @@ export function ModuleAppliedFiltersList(props: Props) {
       </div>
     </Header>
   );
-}
+});

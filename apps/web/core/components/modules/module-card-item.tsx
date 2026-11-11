@@ -11,7 +11,7 @@ import Link from "next/link";
 import { useParams, usePathname, useSearchParams } from "next/navigation";
 import { InfoOutline, UserAltOutline, WorkItemsOutline } from "@makeplane/propel/icons";
 // plane package imports
-import { MODULE_STATUS, EUserPermissions, EUserPermissionsLevel, IS_FAVORITE_MENU_OPEN } from "@plane/constants";
+import { EUserPermissions, EUserPermissionsLevel, IS_FAVORITE_MENU_OPEN } from "@plane/constants";
 import { useLocalStorage } from "@plane/hooks";
 import { LinearProgress } from "@makeplane/propel/components/linear-progress";
 import { TOAST_TYPE, setPromiseToast, setToast } from "@plane/propel/toast";
@@ -23,7 +23,11 @@ import { getDate, renderFormattedPayloadDate, generateQueryParams } from "@plane
 import { DateRangeDropdown } from "@/components/dropdowns/date-range";
 import { ButtonAvatars } from "@/components/dropdowns/member/avatar";
 import { ModuleQuickActions } from "@/components/modules";
-import { ModuleStatusDropdown } from "@/components/modules/module-status-dropdown";
+import {
+  ModuleLabelsDropdown,
+  ModulePriorityDropdown,
+  ModuleStateDropdown,
+} from "@/components/modules/module-state-dropdown";
 // hooks
 import { useMember } from "@/hooks/store/use-member";
 import { useModule } from "@/hooks/store/use-module";
@@ -158,8 +162,6 @@ export const ModuleCardItem = observer(function ModuleCardItem(props: Props) {
 
   // const areYearsEqual = startDate.getFullYear() === endDate.getFullYear();
 
-  const moduleStatus = MODULE_STATUS.find((status) => status.value === moduleDetails.status);
-
   const issueCount = moduleDetails
     ? !moduleTotalIssues || moduleTotalIssues === 0
       ? `0 tasks`
@@ -198,13 +200,16 @@ export const ModuleCardItem = observer(function ModuleCardItem(props: Props) {
                 onClick={handleEventPropagation}
                 onKeyDown={(e) => e.stopPropagation()}
               >
-                {moduleStatus && (
-                  <ModuleStatusDropdown
-                    isDisabled={isDisabled}
-                    moduleDetails={moduleDetails}
-                    handleModuleDetailsChange={handleModuleDetailsChange}
-                  />
-                )}
+                <ModulePriorityDropdown
+                  isDisabled={isDisabled}
+                  moduleDetails={moduleDetails}
+                  handleModuleDetailsChange={handleModuleDetailsChange}
+                />
+                <ModuleStateDropdown
+                  isDisabled={isDisabled}
+                  moduleDetails={moduleDetails}
+                  handleModuleDetailsChange={handleModuleDetailsChange}
+                />
                 <button onClick={openModuleOverview}>
                   <InfoOutline className="h-4 w-4 text-placeholder" />
                 </button>
@@ -212,6 +217,18 @@ export const ModuleCardItem = observer(function ModuleCardItem(props: Props) {
             </div>
           </div>
           <div className="flex flex-col gap-3">
+            <div
+              role="presentation"
+              className="flex items-center"
+              onClick={handleEventPropagation}
+              onKeyDown={(e) => e.stopPropagation()}
+            >
+              <ModuleLabelsDropdown
+                isDisabled={isDisabled}
+                moduleDetails={moduleDetails}
+                handleModuleDetailsChange={handleModuleDetailsChange}
+              />
+            </div>
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-1.5 text-secondary">
                 <WorkItemsOutline className="h-4 w-4 text-tertiary" />

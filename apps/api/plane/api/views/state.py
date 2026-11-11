@@ -13,7 +13,7 @@ from drf_spectacular.utils import OpenApiResponse, OpenApiRequest
 # Module imports
 from plane.api.serializers import StateSerializer
 from plane.app.permissions import ProjectEntityPermission
-from plane.db.models import Issue, State
+from plane.db.models import Issue, Module, State
 from .base import BaseAPIView
 from plane.utils.openapi import (
     state_docs,
@@ -242,6 +242,14 @@ class StateDetailAPIEndpoint(BaseAPIView):
         if issue_exist:
             return Response(
                 {"error": "The state is not empty, only empty states can be deleted"},
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+
+        # Geotech3D: Jobs share the container's states, so a state a Job
+        # (archived ones included) still uses cannot be deleted either.
+        if Module.objects.filter(state=state_id).exists():
+            return Response(
+                {"error": "This state is used by a Project / Job. Move those Projects / Jobs to another state before deleting it."},
                 status=status.HTTP_400_BAD_REQUEST,
             )
 

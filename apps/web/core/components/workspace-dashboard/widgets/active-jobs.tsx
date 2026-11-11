@@ -7,11 +7,11 @@
 import { observer } from "mobx-react";
 import Link from "next/link";
 // plane imports
-import { MODULE_STATUS } from "@plane/constants";
 import { useTranslation } from "@plane/i18n";
 import { cn, renderFormattedDate } from "@plane/utils";
 // hooks
 import { useProject } from "@/hooks/store/use-project";
+import { useProjectState } from "@/hooks/store/use-project-state";
 // local imports
 import { useWorkspaceDashboard } from "../data/context";
 import {
@@ -31,6 +31,7 @@ export const ActiveJobsWidget = observer(function ActiveJobsWidget(_props: TWork
   const { t } = useTranslation();
   const { workspaceSlug, isLoading, metrics } = useWorkspaceDashboard();
   const { getProjectIdentifierById } = useProject();
+  const { getStateById } = useProjectState();
   const jobs = metrics.jobs;
 
   return (
@@ -70,7 +71,8 @@ export const ActiveJobsWidget = observer(function ActiveJobsWidget(_props: TWork
           <tbody>
             {jobs.map((job) => {
               const { module } = job;
-              const status = MODULE_STATUS.find((item) => item.value === (module.status ?? "planned"));
+              // Geotech3D: a Job's status is one of its container's states
+              const state = getStateById(module.state_id);
               const dueLabel = renderFormattedDate(module.target_date);
               return (
                 <tr key={module.id} className="hover:bg-layer-transparent-hover">
@@ -127,10 +129,10 @@ export const ActiveJobsWidget = observer(function ActiveJobsWidget(_props: TWork
                     <span className="flex items-center gap-1.5">
                       <span
                         className="size-2 flex-shrink-0 rounded-full"
-                        style={{ backgroundColor: status?.color }}
+                        style={{ backgroundColor: state?.color }}
                         aria-hidden="true"
                       />
-                      <span className="text-13 text-secondary">{status ? t(status.i18n_label) : module.status}</span>
+                      <span className="text-13 text-secondary">{state?.name ?? module.status}</span>
                     </span>
                   </WidgetTableCell>
                   <WidgetTableCell>

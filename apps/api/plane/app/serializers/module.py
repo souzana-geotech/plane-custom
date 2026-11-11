@@ -20,15 +20,27 @@ from plane.db.models import (
     ModuleIssue,
     ModuleLink,
     ModuleUserProperties,
+    Label,
+    State,
 )
+from plane.utils.module_state import validate_module_state
 
 
 class ModuleWriteSerializer(BaseSerializer):
     lead_id = serializers.PrimaryKeyRelatedField(
         source="lead", queryset=User.objects.all(), required=False, allow_null=True
     )
+    state_id = serializers.PrimaryKeyRelatedField(
+        source="state", queryset=State.objects.all(), required=False, allow_null=True
+    )
     member_ids = serializers.ListField(
         child=serializers.PrimaryKeyRelatedField(queryset=User.objects.all()),
+        write_only=True,
+        required=False,
+    )
+    # Geotech3D: labels from the Job's own container's label list
+    label_ids = serializers.ListField(
+        child=serializers.PrimaryKeyRelatedField(queryset=Label.objects.all()),
         write_only=True,
         required=False,
     )
@@ -37,6 +49,7 @@ class ModuleWriteSerializer(BaseSerializer):
         model = Module
         fields = "__all__"
         read_only_fields = [
+            "labels",
             "workspace",
             "project",
             "created_by",
@@ -50,6 +63,7 @@ class ModuleWriteSerializer(BaseSerializer):
     def to_representation(self, instance):
         data = super().to_representation(instance)
         data["member_ids"] = [str(member.id) for member in instance.members.all()]
+        data["label_ids"] = [str(label.id) for label in instance.labels.all()]
         return data
 
     def validate(self, data):
@@ -59,6 +73,13 @@ class ModuleWriteSerializer(BaseSerializer):
             and data.get("start_date", None) > data.get("target_date", None)
         ):
             raise serializers.ValidationError("Start date cannot exceed target date")
+
+        validate_module_state(self, data)
+
+        if data.get("label_ids"):
+            project = self.context.get("project") or getattr(self.instance, "project", None)
+            if project is not None and any(str(label.project_id) != str(project.id) for label in data["label_ids"]):
+                raise serializers.ValidationError({"label_ids": "Labels must belong to this container"})
 
         # Module code: a blank value clears the code (stored as NULL so the
         # per-project unique constraint ignores unset codes).
@@ -82,6 +103,7 @@ class ModuleWriteSerializer(BaseSerializer):
 
     def create(self, validated_data):
         members = validated_data.pop("member_ids", None)
+        labels = validated_data.pop("label_ids", None)
         project = self.context["project"]
 
         module_name = validated_data.get("name")
@@ -91,6 +113,8 @@ class ModuleWriteSerializer(BaseSerializer):
                 raise serializers.ValidationError({"error": "Module with this name already exists"})
 
         module = Module.objects.create(**validated_data, project=project)
+        if labels:
+            module.labels.set(labels)
         if members is not None:
             ModuleMember.objects.bulk_create(
                 [
@@ -112,11 +136,16 @@ class ModuleWriteSerializer(BaseSerializer):
 
     def update(self, instance, validated_data):
         members = validated_data.pop("member_ids", None)
+        labels = validated_data.pop("label_ids", None)
         module_name = validated_data.get("name")
         if module_name:
             # Lookup for the module name in the module table for that project
             if Module.objects.filter(name=module_name, project=instance.project).exclude(id=instance.id).exists():
                 raise serializers.ValidationError({"error": "Module with this name already exists"})
+
+        # only after the checks above, so a refused update changes nothing
+        if labels is not None:
+            instance.labels.set(labels)
 
         if members is not None:
             ModuleMember.objects.filter(module=instance).delete()
@@ -224,6 +253,7 @@ class ModuleLinkSerializer(BaseSerializer):
 
 class ModuleSerializer(DynamicBaseSerializer):
     member_ids = serializers.ListField(child=serializers.UUIDField(), required=False, allow_null=True)
+    label_ids = serializers.ListField(child=serializers.UUIDField(), required=False, allow_null=True)
     is_favorite = serializers.BooleanField(read_only=True)
     total_issues = serializers.IntegerField(read_only=True)
     cancelled_issues = serializers.IntegerField(read_only=True)
@@ -250,8 +280,11 @@ class ModuleSerializer(DynamicBaseSerializer):
             "start_date",
             "target_date",
             "status",
+            "state_id",
+            "priority",
             "lead_id",
             "member_ids",
+            "label_ids",
             "view_props",
             "sort_order",
             "external_source",

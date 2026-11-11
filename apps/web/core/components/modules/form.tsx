@@ -21,7 +21,7 @@ import { getDate, renderFormattedPayloadDate, getTabIndex } from "@plane/utils";
 import { DateRangeDropdown } from "@/components/dropdowns/date-range";
 import { MemberDropdown } from "@/components/dropdowns/member/dropdown";
 import { ProjectDropdown } from "@/components/dropdowns/project/dropdown";
-import { ModuleStatusSelect } from "@/components/modules";
+import { ModuleLabelsSelect, ModulePrioritySelect, ModuleStateSelect } from "@/components/modules";
 // hooks
 import { useProject } from "@/hooks/store/use-project";
 import { useUser } from "@/hooks/store/user/user-user";
@@ -40,7 +40,9 @@ const defaultValues: Partial<IModule> = {
   name: "",
   module_code: "",
   description: "",
-  status: "backlog",
+  state_id: null,
+  priority: "none",
+  label_ids: [],
   lead_id: null,
   member_ids: [],
 };
@@ -66,7 +68,9 @@ export const ModuleForm = observer(function ModuleForm(props: Props) {
       name: data?.name || "",
       module_code: data?.module_code || "",
       description: data?.description || "",
-      status: data?.status || "backlog",
+      state_id: data?.state_id ?? null,
+      priority: data?.priority ?? "none",
+      label_ids: data?.label_ids ?? [],
       lead_id: data?.lead_id || null,
       member_ids: data?.member_ids || [],
     },
@@ -124,6 +128,9 @@ export const ModuleForm = observer(function ModuleForm(props: Props) {
                       if (!Array.isArray(val)) {
                         onChange(val);
                         setActiveProject(val);
+                        // states belong to a container; the new one's default applies
+                        setValue("state_id", null);
+                        setValue("label_ids", []);
                       }
                     }}
                     multiple={false}
@@ -255,8 +262,12 @@ export const ModuleForm = observer(function ModuleForm(props: Props) {
               )}
             />
             <div className="h-7">
-              <ModuleStatusSelect control={control} error={errors.status} tabIndex={getIndex("status")} />
+              <ModuleStateSelect control={control} projectId={selectedProjectId} tabIndex={getIndex("status")} />
             </div>
+            <div className="h-7">
+              <ModulePrioritySelect control={control} tabIndex={getIndex("status")} />
+            </div>
+            <ModuleLabelsSelect control={control} projectId={selectedProjectId} />
             <Controller
               control={control}
               name="lead_id"

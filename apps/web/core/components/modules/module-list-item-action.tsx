@@ -9,7 +9,7 @@ import { observer } from "mobx-react";
 import { useParams } from "next/navigation";
 import { UserAltOutline } from "@makeplane/propel/icons";
 // Plane imports
-import { MODULE_STATUS, EUserPermissions, EUserPermissionsLevel, IS_FAVORITE_MENU_OPEN } from "@plane/constants";
+import { EUserPermissions, EUserPermissionsLevel, IS_FAVORITE_MENU_OPEN } from "@plane/constants";
 import { useLocalStorage } from "@plane/hooks";
 import { useTranslation } from "@plane/i18n";
 import { TOAST_TYPE, setPromiseToast, setToast } from "@plane/propel/toast";
@@ -20,7 +20,11 @@ import { renderFormattedPayloadDate, getDate } from "@plane/utils";
 // components
 import { DateRangeDropdown } from "@/components/dropdowns/date-range";
 import { ModuleQuickActions } from "@/components/modules";
-import { ModuleStatusDropdown } from "@/components/modules/module-status-dropdown";
+import {
+  ModuleLabelsDropdown,
+  ModulePriorityDropdown,
+  ModuleStateDropdown,
+} from "@/components/modules/module-state-dropdown";
 // hooks
 import { useMember } from "@/hooks/store/use-member";
 import { useModule } from "@/hooks/store/use-module";
@@ -48,7 +52,6 @@ export const ModuleListItemAction = observer(function ModuleListItemAction(props
   const { setValue: toggleFavoriteMenu, storedValue } = useLocalStorage<boolean>(IS_FAVORITE_MENU_OPEN, false);
   // derived values
 
-  const moduleStatus = MODULE_STATUS.find((status) => status.value === moduleDetails.status);
   const isEditingAllowed = allowPermissions(
     [EUserPermissions.ADMIN, EUserPermissions.MEMBER],
     EUserPermissionsLevel.PROJECT
@@ -66,6 +69,7 @@ export const ModuleListItemAction = observer(function ModuleListItemAction(props
       () => {
         // open favorites menu if closed
         if (!storedValue) toggleFavoriteMenu(true);
+        return;
       }
     );
 
@@ -116,6 +120,7 @@ export const ModuleListItemAction = observer(function ModuleListItemAction(props
           title: "Success!",
           message: "Project / Job updated successfully.",
         });
+        return;
       })
       .catch((err) => {
         setToast({
@@ -153,13 +158,21 @@ export const ModuleListItemAction = observer(function ModuleListItemAction(props
         hideIcon={{ from: renderIcon ?? true, to: renderIcon }}
       />
 
-      {moduleStatus && (
-        <ModuleStatusDropdown
-          isDisabled={isDisabled}
-          moduleDetails={moduleDetails}
-          handleModuleDetailsChange={handleModuleDetailsChange}
-        />
-      )}
+      <ModuleLabelsDropdown
+        isDisabled={isDisabled}
+        moduleDetails={moduleDetails}
+        handleModuleDetailsChange={handleModuleDetailsChange}
+      />
+      <ModulePriorityDropdown
+        isDisabled={isDisabled}
+        moduleDetails={moduleDetails}
+        handleModuleDetailsChange={handleModuleDetailsChange}
+      />
+      <ModuleStateDropdown
+        isDisabled={isDisabled}
+        moduleDetails={moduleDetails}
+        handleModuleDetailsChange={handleModuleDetailsChange}
+      />
 
       {moduleLeadDetails ? (
         <span className="cursor-default">

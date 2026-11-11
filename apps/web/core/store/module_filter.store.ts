@@ -102,6 +102,16 @@ export class ModuleFilterStore implements IModuleFilterStore {
         if (filtersData) {
           const parsed = JSON.parse(filtersData);
           if (typeof parsed === "object" && parsed !== null) {
+            // Geotech3D: Jobs no longer have a fixed status list, so a "status" filter saved by an
+            // older build can be neither applied nor cleared; drop it instead of leaving it counted.
+            Object.values(parsed as Record<string, Record<string, Record<string, unknown>> | null>).forEach(
+              (byState) => {
+                if (!byState || typeof byState !== "object") return;
+                Object.values(byState).forEach((projectFilters) => {
+                  if (projectFilters && typeof projectFilters === "object") delete projectFilters.status;
+                });
+              }
+            );
             this.filters = parsed;
           }
         }

@@ -10,9 +10,8 @@ import { dropTargetForElements } from "@atlaskit/pragmatic-drag-and-drop/element
 import { extractClosestEdge } from "@atlaskit/pragmatic-drag-and-drop-hitbox/closest-edge";
 import { autoScrollForElements } from "@atlaskit/pragmatic-drag-and-drop-auto-scroll/element";
 import { observer } from "mobx-react";
-import { useTranslation } from "@plane/i18n";
-import { ModuleStatusIcon } from "@plane/propel/icons";
-import type { TModuleStatus } from "@plane/types";
+import { StateGroupIcon } from "@plane/propel/icons";
+import type { IState } from "@plane/types";
 import { cn } from "@plane/utils";
 // local imports
 import { MODULE_KANBAN_CARD_TARGET, MODULE_KANBAN_DRAG_TYPE, ModuleKanbanCard } from "./card";
@@ -20,23 +19,21 @@ import { MODULE_KANBAN_CARD_TARGET, MODULE_KANBAN_DRAG_TYPE, ModuleKanbanCard } 
 export type TModuleKanbanDropTarget = { id: string; edge: "top" | "bottom" };
 
 type Props = {
-  status: TModuleStatus;
-  i18nLabel: string;
+  state: IState;
   moduleIds: string[];
   isDragAllowed: boolean;
   isReorderAllowed: boolean;
-  onMove: (moduleId: string, status: TModuleStatus, target: TModuleKanbanDropTarget | undefined) => void;
+  onMove: (moduleId: string, stateId: string, target: TModuleKanbanDropTarget | undefined) => void;
 };
 
 export const ModuleKanbanColumn = observer(function ModuleKanbanColumn(props: Props) {
-  const { status, i18nLabel, moduleIds, isDragAllowed, isReorderAllowed, onMove } = props;
+  const { state, moduleIds, isDragAllowed, isReorderAllowed, onMove } = props;
+  const stateId = state.id;
   // refs
   const columnRef = useRef<HTMLDivElement | null>(null);
   const listRef = useRef<HTMLDivElement | null>(null);
   // states
   const [isDraggingOver, setIsDraggingOver] = useState(false);
-  // plane hooks
-  const { t } = useTranslation();
 
   useEffect(() => {
     const column = columnRef.current;
@@ -48,8 +45,8 @@ export const ModuleKanbanColumn = observer(function ModuleKanbanColumn(props: Pr
         element: column,
         // outside manual order, a card dropped back on its own column is not a move
         canDrop: ({ source }) =>
-          source.data.type === MODULE_KANBAN_DRAG_TYPE && (isReorderAllowed || source.data.status !== status),
-        getData: () => ({ status }),
+          source.data.type === MODULE_KANBAN_DRAG_TYPE && (isReorderAllowed || source.data.stateId !== stateId),
+        getData: () => ({ stateId }),
         onDragEnter: () => setIsDraggingOver(true),
         onDragLeave: () => setIsDraggingOver(false),
         onDrop: ({ source, location }) => {
@@ -65,12 +62,12 @@ export const ModuleKanbanColumn = observer(function ModuleKanbanColumn(props: Pr
             (edge === "top" || edge === "bottom")
               ? { id: inner.data.id, edge }
               : undefined;
-          onMove(moduleId, status, target);
+          onMove(moduleId, stateId, target);
         },
       }),
       autoScrollForElements({ element: list })
     );
-  }, [status, isReorderAllowed, onMove]);
+  }, [stateId, isReorderAllowed, onMove]);
 
   return (
     <div
@@ -81,8 +78,8 @@ export const ModuleKanbanColumn = observer(function ModuleKanbanColumn(props: Pr
       )}
     >
       <div className="flex flex-shrink-0 items-center gap-2 px-3 py-2.5">
-        <ModuleStatusIcon status={status} />
-        <span className="truncate text-13 font-medium text-primary">{t(i18nLabel)}</span>
+        <StateGroupIcon stateGroup={state.group} color={state.color} />
+        <span className="truncate text-13 font-medium text-primary">{state.name}</span>
         <span className="text-13 text-tertiary">{moduleIds.length}</span>
       </div>
       <div

@@ -92,6 +92,7 @@ class ModuleListCreateAPIEndpoint(BaseAPIView):
             .select_related("workspace")
             .select_related("lead")
             .prefetch_related("members")
+            .prefetch_related("labels")
             .prefetch_related(
                 Prefetch(
                     "link_module",
@@ -311,6 +312,7 @@ class ModuleListLiteAPIEndpoint(BaseAPIView):
             .filter(archived_at__isnull=True)
             .select_related("project", "workspace", "lead")
             .prefetch_related("members")
+            .prefetch_related("labels")
             .order_by(
                 sanitize_order_by(
                     request.GET.get("order_by", "-created_at"),
@@ -343,6 +345,7 @@ class ModuleDetailAPIEndpoint(BaseAPIView):
             .select_related("workspace")
             .select_related("lead")
             .prefetch_related("members")
+            .prefetch_related("labels")
             .prefetch_related(
                 Prefetch(
                     "link_module",
@@ -951,6 +954,7 @@ class ModuleArchiveUnarchiveAPIEndpoint(BaseAPIView):
             .select_related("workspace")
             .select_related("lead")
             .prefetch_related("members")
+            .prefetch_related("labels")
             .prefetch_related(
                 Prefetch(
                     "link_module",

@@ -17,7 +17,7 @@ from rest_framework import status
 from .. import BaseViewSet, BaseAPIView
 from plane.app.serializers import StateSerializer
 from plane.app.permissions import ROLE, allow_permission
-from plane.db.models import State, Issue
+from plane.db.models import State, Issue, Module
 from plane.utils.cache import invalidate_cache
 
 
@@ -126,6 +126,14 @@ class StateViewSet(BaseViewSet):
         if issue_exist:
             return Response(
                 {"error": "The state is not empty, only empty states can be deleted"},
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+
+        # Geotech3D: Jobs share the container's states, so a state a Job
+        # (archived ones included) still uses cannot be deleted either.
+        if Module.objects.filter(state=pk).exists():
+            return Response(
+                {"error": "This state is used by a Project / Job. Move those Projects / Jobs to another state before deleting it."},
                 status=status.HTTP_400_BAD_REQUEST,
             )
 

@@ -42,14 +42,19 @@ export const StateDeleteModal = observer(function StateDeleteModal(props: TState
     await deleteState(workspaceSlug.toString(), data.project_id, data.id)
       .then(() => {
         handleClose();
+        return;
       })
       .catch((err) => {
-        if (err.status === 400)
+        const serverMessage: unknown = err?.data?.error;
+        if (err?.status === 400)
           setToast({
             type: TOAST_TYPE.ERROR,
             title: "Error!",
+            // Geotech3D: Jobs share these states, so the server says whether tasks or Jobs block the delete
             message:
-              "This state contains some tasks within it, please move them to some other state to delete this state.",
+              typeof serverMessage === "string" && serverMessage.includes("Project / Job")
+                ? serverMessage
+                : "This state contains some tasks within it, please move them to some other state to delete this state.",
           });
         else
           setToast({

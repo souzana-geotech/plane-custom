@@ -7,6 +7,7 @@ import json
 
 # Django Imports
 from django.contrib.postgres.aggregates import ArrayAgg
+from django.contrib.postgres.expressions import ArraySubquery
 from django.contrib.postgres.fields import ArrayField
 from django.db.models import (
     Count,
@@ -276,6 +277,15 @@ class ModuleViewSet(BaseViewSet):
                 total_estimate_points=Coalesce(Subquery(total_estimate_point), Value(0, output_field=FloatField()))
             )
             .annotate(
+                # a subquery, not a join, so the label rows do not multiply the
+                # rows the task-count annotations aggregate over
+                label_ids=ArraySubquery(
+                    Module.labels.through.objects.filter(
+                        module_id=OuterRef("pk"), label__deleted_at__isnull=True
+                    ).values("label_id")
+                )
+            )
+            .annotate(
                 member_ids=Coalesce(
                     ArrayAgg(
                         "members__id",
@@ -315,8 +325,11 @@ class ModuleViewSet(BaseViewSet):
                     "start_date",
                     "target_date",
                     "status",
+                    "state_id",
+                    "priority",
                     "lead_id",
                     "member_ids",
+                    "label_ids",
                     "view_props",
                     "sort_order",
                     "external_source",
@@ -370,8 +383,11 @@ class ModuleViewSet(BaseViewSet):
                 "start_date",
                 "target_date",
                 "status",
+                "state_id",
+                "priority",
                 "lead_id",
                 "member_ids",
+                "label_ids",
                 "view_props",
                 "sort_order",
                 "external_source",
@@ -686,8 +702,11 @@ class ModuleViewSet(BaseViewSet):
                 "start_date",
                 "target_date",
                 "status",
+                "state_id",
+                "priority",
                 "lead_id",
                 "member_ids",
+                "label_ids",
                 "view_props",
                 "sort_order",
                 "external_source",

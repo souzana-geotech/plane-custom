@@ -4,8 +4,9 @@
 
 # Django imports
 from django.contrib.postgres.aggregates import ArrayAgg
+from django.contrib.postgres.expressions import ArraySubquery
 from django.contrib.postgres.fields import ArrayField
-from django.db.models import Prefetch, Q, Count, UUIDField, Value
+from django.db.models import Count, OuterRef, Prefetch, Q, UUIDField, Value
 from django.db.models.functions import Coalesce
 
 # Third party modules
@@ -110,6 +111,15 @@ class WorkspaceModulesEndpoint(BaseAPIView):
                         issue_module__deleted_at__isnull=True,
                     ),
                     distinct=True,
+                )
+            )
+            .annotate(
+                # a subquery, not a join, so the label rows do not multiply the
+                # rows the task-count annotations aggregate over
+                label_ids=ArraySubquery(
+                    Module.labels.through.objects.filter(
+                        module_id=OuterRef("pk"), label__deleted_at__isnull=True
+                    ).values("label_id")
                 )
             )
             .annotate(

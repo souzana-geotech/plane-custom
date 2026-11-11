@@ -16,6 +16,7 @@ from plane.db.models import (
     ProjectMember,
     Project,
 )
+from plane.utils.module_state import validate_module_state
 
 
 class ModuleCreateSerializer(BaseSerializer):
@@ -41,6 +42,8 @@ class ModuleCreateSerializer(BaseSerializer):
             "start_date",
             "target_date",
             "status",
+            "state",
+            "priority",
             "lead",
             "members",
             "external_source",
@@ -72,6 +75,10 @@ class ModuleCreateSerializer(BaseSerializer):
             and data.get("start_date", None) > data.get("target_date", None)
         ):
             raise serializers.ValidationError("Start date cannot exceed target date")
+
+        # Geotech3D: same state rules as the web app (container's own states;
+        # a legacy `status` maps to the matching state).
+        validate_module_state(self, data)
 
         if data.get("members", []):
             data["members"] = ProjectMember.objects.filter(

@@ -11,6 +11,7 @@ import type { ICycle, IModule, IProjectView, IWorkspaceView } from "@plane/types
 import type { TContextMenuItem } from "@plane/ui";
 // hooks
 import { useQuickActionsFactory } from "@/components/common/quick-actions-factory";
+import { useProjectState } from "@/hooks/store/use-project-state";
 
 // Types
 interface UseCycleMenuItemsProps {
@@ -94,9 +95,16 @@ export const useModuleMenuItems = (props: UseModuleMenuItemsProps): MenuResult =
   const factory = useQuickActionsFactory();
   const { moduleDetails, isEditingAllowed, ...handlers } = props;
 
+  const { getStateById } = useProjectState();
+
   const isArchived = !!moduleDetails?.archived_at;
+  // Geotech3D: a Job's status is one of its container's states; archivable when that state is in
+  // the Completed or Cancelled group (the legacy status is the fallback while states load)
+  const stateGroup = getStateById(moduleDetails?.state_id)?.group;
   const moduleState = moduleDetails?.status?.toLocaleLowerCase();
-  const isInArchivableGroup = !!moduleState && ["completed", "cancelled"].includes(moduleState);
+  const isInArchivableGroup = stateGroup
+    ? ["completed", "cancelled"].includes(stateGroup)
+    : !!moduleState && ["completed", "cancelled"].includes(moduleState);
 
   // Assemble final menu items - order defined here
   const items = [

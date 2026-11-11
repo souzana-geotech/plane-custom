@@ -4,7 +4,7 @@
  * See the LICENSE file for details.
  */
 
-import type { ILinkDetails } from "../issues";
+import type { ILinkDetails, TIssuePriorities } from "../issues";
 import type { TIssue } from "../issues/issue";
 import type { IIssueFilterOptions } from "../view-props";
 
@@ -91,7 +91,16 @@ export interface IModule {
   view_props: {
     filters: IIssueFilterOptions;
   };
+  /**
+   * Legacy status, derived on the server from the state's group. Read-only in
+   * practice: write `state_id` instead (Geotech3D).
+   */
   status?: TModuleStatus;
+  /** One of the container's task states; the source of truth for a Job's status. */
+  state_id?: string | null;
+  priority?: TIssuePriorities;
+  /** Labels from the container's label list, the same labels its tasks use (Geotech3D). */
+  label_ids?: string[];
   archived_at: string | null;
   start_date: string | null;
   target_date: string | null;

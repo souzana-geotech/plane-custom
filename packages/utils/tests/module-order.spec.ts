@@ -6,11 +6,11 @@
 
 import { describe, expect, it } from "vitest";
 import type { IModule, TModuleOrderByOptions } from "@plane/types";
-import { getModuleSortOrderOnDrop, groupModulesByStatus, orderModules } from "../src/module";
+import { getModuleSortOrderOnDrop, groupModulesByState, orderModules, shouldFilterModule } from "../src/module";
 
 const mod = (id: string, sort_order: number): IModule => ({ id, name: id, sort_order }) as IModule;
 
-const withStatus = (id: string, status?: string): IModule => ({ id, name: id, status }) as IModule;
+const withState = (id: string, state_id?: string): IModule => ({ id, name: id, state_id }) as IModule;
 const ids = (list: IModule[] | undefined) => (list ?? []).map((m) => m.id);
 
 const modules = [mod("c", 300), mod("a", 100), mod("b", 200)];
@@ -26,20 +26,48 @@ describe("orderModules", () => {
   });
 });
 
-describe("groupModulesByStatus", () => {
-  it("puts each module in its status column and keeps the incoming order", () => {
-    const grouped = groupModulesByStatus(
-      [withStatus("b", "planned"), withStatus("x", "completed"), withStatus("a", "planned")],
-      ["backlog", "planned", "completed"]
+describe("groupModulesByState", () => {
+  it("puts each Job in its state column and keeps the incoming order", () => {
+    const grouped = groupModulesByState(
+      [withState("b", "s-todo"), withState("x", "s-done"), withState("a", "s-todo")],
+      ["s-backlog", "s-todo", "s-done"]
     );
-    expect(ids(grouped.planned)).toEqual(["b", "a"]);
-    expect(ids(grouped.completed)).toEqual(["x"]);
-    expect(ids(grouped.backlog)).toEqual([]);
+    expect(ids(grouped["s-todo"])).toEqual(["b", "a"]);
+    expect(ids(grouped["s-done"])).toEqual(["x"]);
+    expect(ids(grouped["s-backlog"])).toEqual([]);
   });
 
-  it("keeps a module with a missing or unknown status in the first column", () => {
-    const grouped = groupModulesByStatus([withStatus("none"), withStatus("odd", "archived")], ["backlog", "planned"]);
-    expect(ids(grouped.backlog)).toEqual(["none", "odd"]);
+  it("keeps a Job with a missing or deleted state in the first column", () => {
+    const grouped = groupModulesByState([withState("none"), withState("odd", "s-gone")], ["s-backlog", "s-todo"]);
+    expect(ids(grouped["s-backlog"])).toEqual(["none", "odd"]);
+  });
+});
+
+describe("Job filters and priority order", () => {
+  const job = (id: string, state_id: string, priority?: string) => ({ id, name: id, state_id, priority }) as IModule;
+
+  it("filters by state id and by priority", () => {
+    expect(shouldFilterModule(job("a", "s1", "high"), {}, { state: ["s1"] })).toBe(true);
+    expect(shouldFilterModule(job("a", "s1", "high"), {}, { state: ["s2"] })).toBe(false);
+    expect(shouldFilterModule(job("a", "s1", "high"), {}, { priority: ["high"] })).toBe(true);
+    expect(shouldFilterModule(job("a", "s1"), {}, { priority: ["none"] })).toBe(true);
+  });
+
+  it("filters by label, matching a Job with any of the chosen labels", () => {
+    const tagged = { ...job("a", "s1"), label_ids: ["l1", "l2"] } as IModule;
+    expect(shouldFilterModule(tagged, {}, { label: ["l2", "l9"] })).toBe(true);
+    expect(shouldFilterModule(tagged, {}, { label: ["l9"] })).toBe(false);
+    expect(shouldFilterModule(job("b", "s1"), {}, { label: ["l1"] })).toBe(false);
+  });
+
+  it("ignores a legacy status filter saved by an older build", () => {
+    expect(shouldFilterModule(job("a", "s1"), {}, { status: ["backlog"] })).toBe(true);
+  });
+
+  it("orders Urgent first, and reversed for -priority", () => {
+    const list = [job("low", "s", "low"), job("none", "s"), job("urgent", "s", "urgent"), job("high", "s", "high")];
+    expect(ids(orderModules(list, "priority"))).toEqual(["urgent", "high", "low", "none"]);
+    expect(ids(orderModules(list, "-priority"))).toEqual(["none", "low", "high", "urgent"]);
   });
 });
 

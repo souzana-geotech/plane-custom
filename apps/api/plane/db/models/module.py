@@ -90,6 +90,31 @@ class Module(ProjectBaseModel):
         default="planned",
         max_length=20,
     )
+    # Geotech3D: a Job uses its container's task States. `state` is the source
+    # of truth; `status` above is derived from the state's group on save so
+    # older readers keep working (see plane.utils.module_state).
+    state = models.ForeignKey(
+        "db.State",
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name="state_modules",
+    )
+    priority = models.CharField(
+        max_length=30,
+        choices=(
+            ("urgent", "Urgent"),
+            ("high", "High"),
+            ("medium", "Medium"),
+            ("low", "Low"),
+            ("none", "None"),
+        ),
+        default="none",
+        verbose_name="Module Priority",
+    )
+    # Geotech3D: a Job is tagged from its container's label list, the same
+    # labels its tasks use (managed on the container's Labels settings page).
+    labels = models.ManyToManyField("db.Label", blank=True, related_name="label_modules")
     lead = models.ForeignKey("db.User", on_delete=models.SET_NULL, related_name="module_leads", null=True)
     members = models.ManyToManyField(
         settings.AUTH_USER_MODEL,
@@ -132,6 +157,26 @@ class Module(ProjectBaseModel):
 
             if smallest_sort_order is not None:
                 self.sort_order = smallest_sort_order - 10000
+
+        from plane.utils.module_state import (
+            default_state_for_project,
+            state_for_status,
+            status_for_state,
+        )
+
+        if self.state_id is None and self.project_id is not None:
+            # A new Job, or a writer that only knows the legacy `status`
+            if self._state.adding and self.status == "planned":
+                self.state = default_state_for_project(self.project_id)
+            else:
+                self.state = state_for_status(self.project_id, self.status) or default_state_for_project(
+                    self.project_id
+                )
+        if self.state_id is not None:
+            self.status = status_for_state(self.state)
+            update_fields = kwargs.get("update_fields")
+            if update_fields is not None and ("state" in update_fields or "state_id" in update_fields):
+                kwargs["update_fields"] = set(update_fields) | {"status"}
 
         super(Module, self).save(*args, **kwargs)
 

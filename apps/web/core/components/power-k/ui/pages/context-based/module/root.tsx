@@ -46,8 +46,8 @@ export const PowerKModuleContextBasedPages = observer(function PowerKModuleConte
         />
       )}
       {/* status menu */}
-      {activePage === "update-module-status" && moduleDetails?.status && (
-        <PowerKModuleStatusMenu handleSelect={handleSelection} value={moduleDetails.status} />
+      {activePage === "update-module-status" && moduleDetails && (
+        <PowerKModuleStatusMenu handleSelect={handleSelection} moduleDetails={moduleDetails} />
       )}
     </>
   );

@@ -4,68 +4,76 @@
  * See the LICENSE file for details.
  */
 
-import React from "react";
-
-// react hook form
-import type { FieldError, Control } from "react-hook-form";
+import type { Control } from "react-hook-form";
 import { Controller } from "react-hook-form";
-import { MODULE_STATUS } from "@plane/constants";
-import { useTranslation } from "@plane/i18n";
-import { ModuleStatusIcon } from "@plane/propel/icons";
-import { StateOutline } from "@makeplane/propel/icons";
 import type { IModule } from "@plane/types";
-// ui
-import { CustomSelect } from "@plane/ui";
-// types
-// constants
+// components
+import { PriorityDropdown } from "@/components/dropdowns/priority";
+import { StateDropdown } from "@/components/dropdowns/state/dropdown";
+import { IssuePropertyLabels } from "@/components/issues/issue-layouts/properties/labels";
 
 type Props = {
   control: Control<IModule, any>;
-  error?: FieldError;
+  projectId: string | undefined;
   tabIndex?: number;
 };
 
-export function ModuleStatusSelect({ control, error, tabIndex }: Props) {
-  const { t } = useTranslation();
+/**
+ * Geotech3D: a Job's state is one of its container's task states. Left empty, the
+ * picker shows the container's default state and the server starts the Job there.
+ */
+export function ModuleStateSelect({ control, projectId, tabIndex }: Props) {
   return (
     <Controller
       control={control}
-      rules={{ required: true }}
-      name="status"
-      render={({ field: { value, onChange } }) => {
-        const selectedValue = MODULE_STATUS.find((s) => s.value === value);
-        return (
-          <CustomSelect
-            value={value}
-            label={
-              <div
-                className={`flex items-center justify-center gap-2 py-0.5 text-11 ${error ? "text-danger-primary" : ""}`}
-              >
-                {value ? (
-                  <ModuleStatusIcon status={value} />
-                ) : (
-                  <StateOutline className={`h-3 w-3 ${error ? "text-danger-primary" : "text-secondary"}`} />
-                )}
-                {(selectedValue && t(selectedValue?.i18n_label)) ?? (
-                  <span className={`${error ? "text-danger-primary" : "text-secondary"}`}>Status</span>
-                )}
-              </div>
-            }
+      name="state_id"
+      render={({ field: { value, onChange } }) => (
+        <StateDropdown
+          projectId={projectId}
+          value={value}
+          onChange={onChange}
+          buttonVariant="border-with-text"
+          tabIndex={tabIndex}
+        />
+      )}
+    />
+  );
+}
+
+export function ModulePrioritySelect({ control, tabIndex }: Omit<Props, "projectId">) {
+  return (
+    <Controller
+      control={control}
+      name="priority"
+      render={({ field: { value, onChange } }) => (
+        <PriorityDropdown
+          value={value ?? "none"}
+          onChange={onChange}
+          buttonVariant="border-with-text"
+          tabIndex={tabIndex}
+        />
+      )}
+    />
+  );
+}
+
+/** Labels from the picked container's label list. */
+export function ModuleLabelsSelect({ control, projectId }: Omit<Props, "tabIndex">) {
+  return (
+    <Controller
+      control={control}
+      name="label_ids"
+      render={({ field: { value, onChange } }) => (
+        <div className="flex h-7 items-center gap-1">
+          <IssuePropertyLabels
+            projectId={projectId ?? null}
+            value={value ?? []}
             onChange={onChange}
-            tabIndex={tabIndex}
-            noChevron
-          >
-            {MODULE_STATUS.map((status) => (
-              <CustomSelect.Option key={status.value} value={status.value}>
-                <div className="flex items-center gap-2">
-                  <ModuleStatusIcon status={status.value} />
-                  {t(status.i18n_label)}
-                </div>
-              </CustomSelect.Option>
-            ))}
-          </CustomSelect>
-        );
-      }}
+            maxRender={3}
+            placeholderText="Labels"
+          />
+        </div>
+      )}
     />
   );
 }

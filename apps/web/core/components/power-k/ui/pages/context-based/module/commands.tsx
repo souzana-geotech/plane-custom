@@ -11,9 +11,9 @@ import { LinkOutline, MembersOutline, StarOutline } from "@makeplane/propel/icon
 // plane imports
 import { EUserPermissionsLevel } from "@plane/constants";
 import { useTranslation } from "@plane/i18n";
-import { ModuleStatusIcon } from "@plane/propel/icons";
+import { StateGroupIcon } from "@plane/propel/icons";
 import { setToast, TOAST_TYPE } from "@plane/propel/toast";
-import type { IModule, TModuleStatus } from "@plane/types";
+import type { IModule } from "@plane/types";
 import { EUserPermissions } from "@plane/types";
 import { copyTextToClipboard } from "@plane/utils";
 // components
@@ -90,6 +90,7 @@ export const usePowerKModuleContextBasedActions = (): TPowerKCommandConfig[] => 
           type: TOAST_TYPE.SUCCESS,
           title: t("power_k.contextual_actions.module.copy_url_toast_success"),
         });
+        return;
       })
       .catch(() => {
         setToast({
@@ -121,14 +122,13 @@ export const usePowerKModuleContextBasedActions = (): TPowerKCommandConfig[] => 
     {
       id: "change_module_status",
       i18n_title: "power_k.contextual_actions.module.change_status",
-      iconNode: <ModuleStatusIcon status="backlog" className="size-3.5 shrink-0" />,
+      iconNode: <StateGroupIcon stateGroup="backlog" className="size-3.5 shrink-0" />,
       group: "contextual",
       contextType: "module",
       type: "change-page",
       page: "update-module-status",
       onSelect: (data) => {
-        const status = data as TModuleStatus;
-        handleUpdateModule({ status });
+        handleUpdateModule({ state_id: data as string });
       },
       shortcut: "s",
       isEnabled: () => isEditingAllowed,

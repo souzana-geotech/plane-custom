@@ -6,16 +6,12 @@
 
 import { sortBy } from "lodash-es";
 // plane imports
-import type {
-  IModule,
-  TModuleDisplayFilters,
-  TModuleFilters,
-  TModuleOrderByOptions,
-  TModuleStatus,
-} from "@plane/types";
+import type { IModule, TModuleDisplayFilters, TModuleFilters, TModuleOrderByOptions } from "@plane/types";
 // local imports
 import { getDate } from "./datetime";
 import { satisfiesDateFilter } from "./filter";
+
+const MODULE_PRIORITY_RANK: Record<string, number> = { urgent: 0, high: 1, medium: 2, low: 3, none: 4 };
 
 const collator = new Intl.Collator("en-US", { numeric: true, sensitivity: "base" });
 
@@ -52,6 +48,11 @@ export const orderModules = (modules: IModule[], orderByKey: TModuleOrderByOptio
   if (orderByKey === "-target_date") orderedModules = sortBy(modules, [(m) => !m.target_date]);
   if (orderByKey === "created_at") orderedModules = sortBy(modules, [(m) => m.created_at]);
   if (orderByKey === "-created_at") orderedModules = sortBy(modules, [(m) => !m.created_at]);
+  if (orderByKey === "priority" || orderByKey === "-priority") {
+    // "priority" puts Urgent first, like the task list; "-priority" reverses it
+    const rank = (m: IModule) => MODULE_PRIORITY_RANK[m.priority ?? "none"] ?? MODULE_PRIORITY_RANK.none;
+    orderedModules = sortBy(modules, [(m) => (orderByKey === "priority" ? rank(m) : -rank(m))]);
+  }
 
   // a "-sort_order" saved by an older build is still manual order, not an empty list
   if (orderByKey.endsWith("sort_order")) orderedModules = sortBy(modules, [(m) => m.sort_order]);
@@ -59,23 +60,22 @@ export const orderModules = (modules: IModule[], orderByKey: TModuleOrderByOptio
 };
 
 /**
- * @description splits modules into one bucket per status, keeping the incoming order inside each bucket.
- * A module with no status, or one the board has no column for, lands in the first column so it never disappears.
+ * @description splits Jobs into one bucket per container state (Geotech3D: Jobs use the container's task
+ * states), keeping the incoming order inside each bucket. A Job with no state, or one whose state the board has
+ * no column for, lands in the first column so it never disappears.
  * @param {IModule[]} modules
- * @param {TModuleStatus[]} statuses column order
- * @returns {Record<TModuleStatus, IModule[]>}
+ * @param {string[]} stateIds column order (the container's states, in States-page order)
+ * @returns {Record<string, IModule[]>}
  */
-export const groupModulesByStatus = (
-  modules: IModule[],
-  statuses: TModuleStatus[]
-): Partial<Record<TModuleStatus, IModule[]>> => {
-  const grouped: Partial<Record<TModuleStatus, IModule[]>> = {};
-  statuses.forEach((status) => {
-    grouped[status] = [];
+export const groupModulesByState = (modules: IModule[], stateIds: string[]): Record<string, IModule[]> => {
+  const grouped: Record<string, IModule[]> = {};
+  stateIds.forEach((stateId) => {
+    grouped[stateId] = [];
   });
-  const fallback = statuses[0];
+  const fallback = stateIds[0];
   modules.forEach((module) => {
-    const bucket = module.status && grouped[module.status] ? grouped[module.status] : fallback && grouped[fallback];
+    const bucket =
+      (module.state_id ? grouped[module.state_id] : undefined) ?? (fallback ? grouped[fallback] : undefined);
     bucket?.push(module);
   });
   return grouped;
@@ -146,8 +146,15 @@ export const shouldFilterModule = (
   let fallsInFilters = true;
   Object.keys(filters).forEach((key) => {
     const filterKey = key as keyof TModuleFilters;
-    if (filterKey === "status" && filters.status && filters.status.length > 0)
-      fallsInFilters = fallsInFilters && filters.status.includes(module.status?.toLowerCase() ?? "");
+    // "status" is no longer applied: Jobs use the container's states (filter by "state")
+    if (filterKey === "state" && filters.state && filters.state.length > 0)
+      fallsInFilters = fallsInFilters && filters.state.includes(`${module.state_id}`);
+    if (filterKey === "label" && filters.label && filters.label.length > 0) {
+      const labelIds = module.label_ids ?? [];
+      fallsInFilters = fallsInFilters && filters.label.some((labelId) => labelIds.includes(labelId));
+    }
+    if (filterKey === "priority" && filters.priority && filters.priority.length > 0)
+      fallsInFilters = fallsInFilters && filters.priority.includes(module.priority ?? "none");
     if (filterKey === "lead" && filters.lead && filters.lead.length > 0)
       fallsInFilters = fallsInFilters && filters.lead.includes(`${module.lead_id}`);
     if (filterKey === "members" && filters.members && filters.members.length > 0) {

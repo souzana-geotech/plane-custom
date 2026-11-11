@@ -15,6 +15,8 @@ export type TModuleOrderByOptions =
   | "-target_date"
   | "created_at"
   | "-created_at"
+  | "priority"
+  | "-priority"
   | "sort_order";
 
 export type TModuleLayoutOptions = "list" | "board" | "kanban" | "gantt";
@@ -29,7 +31,13 @@ export type TModuleFilters = {
   lead?: string[] | null;
   members?: string[] | null;
   start_date?: string[] | null;
+  /** @deprecated Jobs use the container's states; kept so saved filters still parse, no longer applied */
   status?: string[] | null;
+  /** state ids of the container's states (Geotech3D) */
+  state?: string[] | null;
+  priority?: string[] | null;
+  /** label ids from the container's label list (Geotech3D) */
+  label?: string[] | null;
   target_date?: string[] | null;
 };
 

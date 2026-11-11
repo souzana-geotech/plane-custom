@@ -15,15 +15,18 @@ import Link from "next/link";
 import { useParams } from "next/navigation";
 import { CalendarOutline, UserAltOutline, WorkItemsOutline } from "@makeplane/propel/icons";
 import { LinearProgress } from "@makeplane/propel/components/linear-progress";
+import { PriorityIcon } from "@plane/propel/icons";
 import { cn, renderFormattedDate } from "@plane/utils";
 // components
 import { ButtonAvatars } from "@/components/dropdowns/member/avatar";
 import { ModuleQuickActions } from "@/components/modules/quick-actions";
 // hooks
+import { useLabel } from "@/hooks/store/use-label";
 import { useModule } from "@/hooks/store/use-module";
 
 export const MODULE_KANBAN_DRAG_TYPE = "MODULE_KANBAN_CARD";
 export const MODULE_KANBAN_CARD_TARGET = "MODULE_KANBAN_CARD_TARGET";
+const MAX_CARD_LABELS = 3;
 
 type Props = {
   moduleId: string;
@@ -44,9 +47,10 @@ export const ModuleKanbanCard = observer(function ModuleKanbanCard(props: Props)
   const [dropEdge, setDropEdge] = useState<"top" | "bottom" | null>(null);
   // store hooks
   const { getModuleById } = useModule();
+  const { getLabelById } = useLabel();
   // derived values
   const moduleDetails = getModuleById(moduleId);
-  const status = moduleDetails?.status;
+  const stateId = moduleDetails?.state_id;
   const hasModule = !!moduleDetails;
 
   useEffect(() => {
@@ -77,7 +81,7 @@ export const ModuleKanbanCard = observer(function ModuleKanbanCard(props: Props)
       draggable({
         element,
         canDrag: () => isDragAllowed,
-        getInitialData: () => ({ id: moduleId, status, type: MODULE_KANBAN_DRAG_TYPE }),
+        getInitialData: () => ({ id: moduleId, stateId, type: MODULE_KANBAN_DRAG_TYPE }),
         // the browser's own snapshot of a link inside a scrolling board captures the page around it,
         // so hand it a copy of just this card
         onGenerateDragPreview: ({ nativeSetDragImage, location }) => {
@@ -95,7 +99,7 @@ export const ModuleKanbanCard = observer(function ModuleKanbanCard(props: Props)
         onDrop: () => setIsDragging(false),
       })
     );
-  }, [moduleId, status, isDragAllowed, isReorderAllowed, hasModule]);
+  }, [moduleId, stateId, isDragAllowed, isReorderAllowed, hasModule]);
 
   if (!moduleDetails) return null;
 
@@ -108,6 +112,9 @@ export const ModuleKanbanCard = observer(function ModuleKanbanCard(props: Props)
   const completedTasks = moduleDetails.completed_issues;
   const progress = totalTasks > 0 ? (completedTasks / totalTasks) * 100 : 0;
   const title = moduleDetails.module_code ? `${moduleDetails.module_code} | ${moduleDetails.name}` : moduleDetails.name;
+  const labels = (moduleDetails.label_ids ?? [])
+    .map((labelId) => getLabelById(labelId))
+    .filter((label): label is NonNullable<typeof label> => !!label);
   const startDate = renderFormattedDate(moduleDetails.start_date);
   const endDate = renderFormattedDate(moduleDetails.target_date);
 
@@ -132,8 +139,31 @@ export const ModuleKanbanCard = observer(function ModuleKanbanCard(props: Props)
         <span className="line-clamp-2 pr-6 text-13 font-medium break-words text-primary" title={title}>
           {title}
         </span>
+        {labels.length > 0 && (
+          <div className="flex flex-wrap items-center gap-1">
+            {labels.slice(0, MAX_CARD_LABELS).map((label) => (
+              <span
+                key={label.id}
+                className="flex max-w-full items-center gap-1 rounded-full border border-subtle px-1.5 py-0.5 text-11 text-secondary"
+              >
+                <span
+                  className="size-1.5 flex-shrink-0 rounded-full"
+                  style={{ backgroundColor: label.color }}
+                  aria-hidden="true"
+                />
+                <span className="truncate">{label.name}</span>
+              </span>
+            ))}
+            {labels.length > MAX_CARD_LABELS && (
+              <span className="text-11 text-tertiary">+{labels.length - MAX_CARD_LABELS}</span>
+            )}
+          </div>
+        )}
         <div className="flex items-center justify-between gap-2">
           <div className="flex items-center gap-1.5">
+            {moduleDetails.priority && moduleDetails.priority !== "none" && (
+              <PriorityIcon priority={moduleDetails.priority} withContainer size={12} />
+            )}
             <WorkItemsOutline className="size-3.5 flex-shrink-0 text-tertiary" />
             <span className="text-11 text-tertiary">
               {completedTasks}/{totalTasks} tasks

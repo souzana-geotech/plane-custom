@@ -30,7 +30,6 @@ type Props = {
 const defaultValues: Partial<IModule> = {
   name: "",
   description: "",
-  status: "backlog",
   lead_id: null,
   member_ids: [],
 };
@@ -65,6 +64,7 @@ export const CreateUpdateModuleModal = observer(function CreateUpdateModuleModal
           title: "Success!",
           message: "Project / Job created successfully.",
         });
+        return;
       })
       .catch((err) => {
         setToast({
@@ -88,6 +88,7 @@ export const CreateUpdateModuleModal = observer(function CreateUpdateModuleModal
           title: "Success!",
           message: "Project / Job updated successfully.",
         });
+        return;
       })
       .catch((err) => {
         setToast({

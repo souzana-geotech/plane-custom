@@ -6,13 +6,18 @@
 
 import { useState } from "react";
 import { observer } from "mobx-react";
-import type { TModuleStatus } from "@plane/propel/icons";
+import { useParams } from "next/navigation";
 // plane imports
 import { CloseOutline, SearchOutline } from "@makeplane/propel/icons";
 import type { TModuleDisplayFilters, TModuleFilters } from "@plane/types";
 // components
 import { FilterOption } from "@/components/issues/issue-layouts/filters";
-import { FilterLead, FilterMembers, FilterStartDate, FilterStatus, FilterTargetDate } from "@/components/modules";
+import { FilterLabels } from "@/components/issues/issue-layouts/filters/header/filters/labels";
+import { FilterPriority } from "@/components/issues/issue-layouts/filters/header/filters/priority";
+import { FilterState } from "@/components/issues/issue-layouts/filters/header/filters/state";
+import { FilterLead, FilterMembers, FilterStartDate, FilterTargetDate } from "@/components/modules";
+import { useLabel } from "@/hooks/store/use-label";
+import { useProjectState } from "@/hooks/store/use-project-state";
 // hooks
 import { usePlatformOS } from "@/hooks/use-platform-os";
 
@@ -38,6 +43,9 @@ export const ModuleFiltersSelection = observer(function ModuleFiltersSelection(p
   const [filtersSearchQuery, setFiltersSearchQuery] = useState("");
   // store
   const { isMobile } = usePlatformOS();
+  const { projectId } = useParams();
+  const { getProjectStates } = useProjectState();
+  const { getProjectLabels } = useLabel();
 
   return (
     <div className="flex h-full w-full flex-col overflow-hidden">
@@ -50,6 +58,7 @@ export const ModuleFiltersSelection = observer(function ModuleFiltersSelection(p
             placeholder="Search"
             value={filtersSearchQuery}
             onChange={(e) => setFiltersSearchQuery(e.target.value)}
+            // oxlint-disable-next-line jsx-a11y/no-autofocus -- the search box is the menu's first control
             autoFocus={!isMobile}
           />
           {filtersSearchQuery !== "" && (
@@ -74,16 +83,36 @@ export const ModuleFiltersSelection = observer(function ModuleFiltersSelection(p
           </div>
         )}
 
-        {/* status */}
+        {/* state: the container's task states (Geotech3D) */}
         {!isArchived && (
           <div className="py-2">
-            <FilterStatus
-              appliedFilters={(filters.status as TModuleStatus[]) ?? null}
-              handleUpdate={(val) => handleFiltersUpdate("status", val)}
+            <FilterState
+              appliedFilters={filters.state ?? null}
+              handleUpdate={(val) => handleFiltersUpdate("state", val)}
               searchQuery={filtersSearchQuery}
+              states={getProjectStates(projectId?.toString())}
             />
           </div>
         )}
+
+        {/* labels: the container's label list (Geotech3D) */}
+        <div className="py-2">
+          <FilterLabels
+            appliedFilters={filters.label ?? null}
+            handleUpdate={(val) => handleFiltersUpdate("label", val)}
+            labels={getProjectLabels(projectId?.toString())}
+            searchQuery={filtersSearchQuery}
+          />
+        </div>
+
+        {/* priority */}
+        <div className="py-2">
+          <FilterPriority
+            appliedFilters={filters.priority ?? null}
+            handleUpdate={(val) => handleFiltersUpdate("priority", val)}
+            searchQuery={filtersSearchQuery}
+          />
+        </div>
 
         {/* lead */}
         <div className="py-2">

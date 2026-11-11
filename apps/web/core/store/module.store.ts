@@ -435,6 +435,13 @@ export class ModulesStore implements IModuleStore {
         set(this.moduleMap, [moduleId], { ...originalModuleDetails, ...data });
       });
       const response = await this.moduleService.patchModule(workspaceSlug, projectId, moduleId, data);
+      // Geotech3D: the server derives the legacy `status` from the chosen state; take its values
+      if (response && (data.state_id !== undefined || data.status !== undefined)) {
+        runInAction(() => {
+          set(this.moduleMap, [moduleId, "state_id"], response.state_id);
+          set(this.moduleMap, [moduleId, "status"], response.status);
+        });
+      }
       return response;
     } catch (error) {
       console.error("Failed to update module in module store", error);
@@ -459,6 +466,7 @@ export class ModulesStore implements IModuleStore {
         delete this.moduleMap[moduleId];
         if (this.rootStore.favorite.entityMap[moduleId]) this.rootStore.favorite.removeFavoriteFromStore(moduleId);
       });
+      return;
     });
   };
 
@@ -476,15 +484,11 @@ export class ModulesStore implements IModuleStore {
     moduleId: string,
     data: Partial<ILinkDetails>
   ) => {
-    try {
-      const moduleLink = await this.moduleService.createModuleLink(workspaceSlug, projectId, moduleId, data);
-      runInAction(() => {
-        update(this.moduleMap, [moduleId, "link_module"], (moduleLinks = []) => concat(moduleLinks, moduleLink));
-      });
-      return moduleLink;
-    } catch (error) {
-      throw error;
-    }
+    const moduleLink = await this.moduleService.createModuleLink(workspaceSlug, projectId, moduleId, data);
+    runInAction(() => {
+      update(this.moduleMap, [moduleId, "link_module"], (moduleLinks = []) => concat(moduleLinks, moduleLink));
+    });
+    return moduleLink;
   };
 
   /**
@@ -530,17 +534,13 @@ export class ModulesStore implements IModuleStore {
    * @param linkId
    */
   deleteModuleLink = async (workspaceSlug: string, projectId: string, moduleId: string, linkId: string) => {
-    try {
-      const moduleLink = await this.moduleService.deleteModuleLink(workspaceSlug, projectId, moduleId, linkId);
-      runInAction(() => {
-        update(this.moduleMap, [moduleId, "link_module"], (moduleLinks = []) =>
-          moduleLinks.filter((link: ILinkDetails) => link.id !== linkId)
-        );
-      });
-      return moduleLink;
-    } catch (error) {
-      throw error;
-    }
+    const moduleLink = await this.moduleService.deleteModuleLink(workspaceSlug, projectId, moduleId, linkId);
+    runInAction(() => {
+      update(this.moduleMap, [moduleId, "link_module"], (moduleLinks = []) =>
+        moduleLinks.filter((link: ILinkDetails) => link.id !== linkId)
+      );
+    });
+    return moduleLink;
   };
 
   /**
@@ -611,6 +611,7 @@ export class ModulesStore implements IModuleStore {
           set(this.moduleMap, [moduleId, "archived_at"], response.archived_at);
           if (this.rootStore.favorite.entityMap[moduleId]) this.rootStore.favorite.removeFavoriteFromStore(moduleId);
         });
+        return;
       })
       .catch((error) => {
         console.error("Failed to archive module in module store", error);
@@ -633,6 +634,7 @@ export class ModulesStore implements IModuleStore {
         runInAction(() => {
           set(this.moduleMap, [moduleId, "archived_at"], null);
         });
+        return;
       })
       .catch((error) => {
         console.error("Failed to restore module in module store", error);

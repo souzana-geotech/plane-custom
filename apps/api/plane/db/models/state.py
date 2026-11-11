@@ -123,4 +123,15 @@ class State(ProjectBaseModel):
             if last_id is not None:
                 self.sequence = last_id + 15000
 
-        return super().save(*args, **kwargs)
+        result = super().save(*args, **kwargs)
+
+        # Geotech3D: Jobs use this state too; keep their derived legacy
+        # `status` in step with the state's group (e.g. after a group change).
+        from plane.utils.module_state import GROUP_TO_STATUS, status_for_state
+
+        if self.group in GROUP_TO_STATUS:
+            from plane.db.models.module import Module
+
+            status = status_for_state(self)
+            Module.all_objects.filter(state_id=self.id).exclude(status=status).update(status=status)
+        return result

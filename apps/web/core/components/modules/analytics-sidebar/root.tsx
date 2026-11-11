@@ -13,26 +13,31 @@ import {
   ChevronDownOutline,
   ChevronRightOutline,
   InfoOutline,
+  LabelsOutline,
   MembersOutline,
   StartDateOutline,
   UserAltOutline,
   WorkItemsOutline,
 } from "@makeplane/propel/icons";
 import { Disclosure, Transition } from "@headlessui/react";
-import { MODULE_STATUS, EUserPermissions, EUserPermissionsLevel, EEstimateSystem } from "@plane/constants";
+import { EUserPermissions, EUserPermissionsLevel, EEstimateSystem } from "@plane/constants";
 // plane types
 import { useTranslation } from "@plane/i18n";
-import { ModuleStatusIcon } from "@plane/propel/icons";
 import { TOAST_TYPE, setToast } from "@plane/propel/toast";
 import type { ILinkDetails, IModule, ModuleLink } from "@plane/types";
 // plane ui
-import { Loader, CustomSelect, TextArea } from "@plane/ui";
+import { Loader, TextArea } from "@plane/ui";
 // components
 // helpers
 import { getDate, renderFormattedPayloadDate } from "@plane/utils";
 import { DateRangeDropdown } from "@/components/dropdowns/date-range";
 import { MemberDropdown } from "@/components/dropdowns/member/dropdown";
 import { CreateUpdateModuleLinkModal, ModuleAnalyticsProgress, ModuleLinksList } from "@/components/modules";
+import {
+  ModuleLabelsDropdown,
+  ModulePriorityDropdown,
+  ModuleStateDropdown,
+} from "@/components/modules/module-state-dropdown";
 // hooks
 import { useProjectEstimates } from "@/hooks/store/estimates";
 import { useModule } from "@/hooks/store/use-module";
@@ -43,7 +48,6 @@ const defaultValues: Partial<IModule> = {
   member_ids: [],
   start_date: null,
   target_date: null,
-  status: "backlog",
 };
 
 type Props = {
@@ -152,8 +156,6 @@ export const ModuleAnalyticsSidebar = observer(function ModuleAnalyticsSidebar(p
       </Loader>
     );
 
-  const moduleStatus = MODULE_STATUS.find((status) => status.value === moduleDetails.status);
-
   const issueCount =
     moduleDetails.total_issues === 0 ? "0 tasks" : `${moduleDetails.completed_issues}/${moduleDetails.total_issues}`;
 
@@ -195,40 +197,16 @@ export const ModuleAnalyticsSidebar = observer(function ModuleAnalyticsSidebar(p
 
         <div className="flex flex-col gap-3">
           <div className="flex items-center gap-5 pt-2">
-            <Controller
-              control={control}
-              name="status"
-              render={({ field: { value } }) => (
-                <CustomSelect
-                  customButton={
-                    <span
-                      className={`flex h-6 w-20 items-center justify-center rounded-xs text-center text-11 ${
-                        isEditingAllowed && !isArchived ? "cursor-pointer" : "cursor-not-allowed"
-                      }`}
-                      style={{
-                        color: moduleStatus ? moduleStatus.color : "#a3a3a2",
-                        backgroundColor: moduleStatus ? `${moduleStatus.color}20` : "#a3a3a220",
-                      }}
-                    >
-                      {(moduleStatus && t(moduleStatus?.i18n_label)) ?? t("project_modules.status.backlog")}
-                    </span>
-                  }
-                  value={value}
-                  onChange={(updatedStatus: any) => {
-                    submitChanges({ status: updatedStatus });
-                  }}
-                  disabled={!isEditingAllowed || isArchived}
-                >
-                  {MODULE_STATUS.map((status) => (
-                    <CustomSelect.Option key={status.value} value={status.value}>
-                      <div className="flex items-center gap-2">
-                        <ModuleStatusIcon status={status.value} />
-                        {t(status.i18n_label)}
-                      </div>
-                    </CustomSelect.Option>
-                  ))}
-                </CustomSelect>
-              )}
+            <ModuleStateDropdown
+              isDisabled={!isEditingAllowed || !!isArchived}
+              moduleDetails={moduleDetails}
+              handleModuleDetailsChange={submitChanges}
+            />
+            <ModulePriorityDropdown
+              isDisabled={!isEditingAllowed || !!isArchived}
+              moduleDetails={moduleDetails}
+              handleModuleDetailsChange={submitChanges}
+              buttonVariant="border-with-text"
             />
           </div>
           <h4 className="w-full text-18 font-semibold break-words text-primary">
@@ -245,6 +223,20 @@ export const ModuleAnalyticsSidebar = observer(function ModuleAnalyticsSidebar(p
         )}
 
         <div className="flex flex-col gap-5 pt-2.5 pb-6">
+          <div className="flex items-start justify-start gap-1">
+            <div className="flex w-2/5 items-center justify-start gap-2 text-tertiary">
+              <LabelsOutline className="h-4 w-4" />
+              <span className="text-14">{t("common.labels")}</span>
+            </div>
+            <div className="flex w-3/5 flex-wrap items-center gap-1">
+              <ModuleLabelsDropdown
+                isDisabled={!isEditingAllowed || !!isArchived}
+                moduleDetails={moduleDetails}
+                handleModuleDetailsChange={submitChanges}
+                maxRender={10}
+              />
+            </div>
+          </div>
           <div className="flex items-center justify-start gap-1">
             <div className="flex w-2/5 items-center justify-start gap-2 text-tertiary">
               <StartDateOutline className="h-4 w-4" />
