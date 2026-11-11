@@ -82,6 +82,11 @@ export const MODULE_VIEW_LAYOUTS: {
     i18n_title: "project_modules.layout.board",
   },
   {
+    // status columns; reuses the task board's label so no new locale key is needed
+    key: "kanban",
+    i18n_title: "issue.layouts.title.kanban",
+  },
+  {
     key: "gantt",
     i18n_title: "project_modules.layout.timeline",
   },

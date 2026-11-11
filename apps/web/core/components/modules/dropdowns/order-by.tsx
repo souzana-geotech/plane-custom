@@ -49,7 +49,9 @@ export function ModuleOrderByDropdown(props: Props) {
           key={option.key}
           className="flex items-center justify-between gap-2"
           onClick={() => {
-            if (isDescending && !isManual) onChange(`-${option.key}` as TModuleOrderByOptions);
+            // manual order has no direction, so never carry the descending prefix onto it
+            if (isDescending && !isManual && option.key !== "sort_order")
+              onChange(`-${option.key}` as TModuleOrderByOptions);
             else onChange(option.key);
           }}
         >

@@ -17,7 +17,7 @@ export type TModuleOrderByOptions =
   | "-created_at"
   | "sort_order";
 
-export type TModuleLayoutOptions = "list" | "board" | "gantt";
+export type TModuleLayoutOptions = "list" | "board" | "kanban" | "gantt";
 
 export type TModuleDisplayFilters = {
   favorites?: boolean;
