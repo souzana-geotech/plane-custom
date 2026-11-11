@@ -63,6 +63,7 @@ export const ForgotPasswordForm = observer(function ForgotPasswordForm() {
       .sendResetPasswordLink({
         email: formData.email,
       })
+      // oxlint-disable-next-line promise/always-return
       .then(() => {
         setToast({
           type: TOAST_TYPE.SUCCESS,
@@ -107,7 +108,7 @@ export const ForgotPasswordForm = observer(function ForgotPasswordForm() {
                     onChange={onChange}
                     ref={ref}
                     placeholder={t("auth.common.email.placeholder")}
-                    autoComplete="off"
+                    autoComplete="email"
                     disabled={resendTimerCode > 0}
                   />
                 </InputGroup>

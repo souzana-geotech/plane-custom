@@ -104,6 +104,7 @@ export const AuthPasswordForm = observer(function AuthPasswordForm(props: Props)
 
   const isButtonDisabled = useMemo(
     () =>
+      // oxlint-disable-next-line no-unneeded-ternary
       !isSubmitting &&
       !!passwordFormData.password &&
       (mode === EAuthModes.SIGN_UP ? passwordFormData.password === passwordFormData.confirm_password : true)
@@ -182,6 +183,7 @@ export const AuthPasswordForm = observer(function AuthPasswordForm(props: Props)
               value={passwordFormData.email}
               onChange={(e) => handleFormChange("email", e.target.value)}
               placeholder={t("auth.common.email.placeholder")}
+              autoComplete="username"
               disabled
             />
             {passwordFormData.email.length > 0 && (
@@ -212,7 +214,8 @@ export const AuthPasswordForm = observer(function AuthPasswordForm(props: Props)
               placeholder={t("auth.common.password.placeholder")}
               onFocus={() => setIsPasswordInputFocused(true)}
               onBlur={() => setIsPasswordInputFocused(false)}
-              autoComplete="off"
+              autoComplete={mode === EAuthModes.SIGN_IN ? "current-password" : "new-password"}
+              // oxlint-disable-next-line jsx-a11y/no-autofocus
               autoFocus
             />
             <button
@@ -249,7 +252,7 @@ export const AuthPasswordForm = observer(function AuthPasswordForm(props: Props)
                 placeholder={t("auth.common.password.confirm_password.placeholder")}
                 onFocus={() => setIsRetryPasswordInputFocused(true)}
                 onBlur={() => setIsRetryPasswordInputFocused(false)}
-                autoComplete="off"
+                autoComplete="new-password"
               />
               <button
                 type="button"
