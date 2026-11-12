@@ -92,11 +92,13 @@ type TStatusChipProps = {
   size?: "sm" | "md";
   /** Shows a chevron so the chip reads as a control, not a label. */
   interactive?: boolean;
+  /** The task's real state name; without it the chip shows the simplified status word. */
+  label?: string;
   className?: string;
 };
 
 export function StatusChip(props: TStatusChipProps) {
-  const { status, size = "md", interactive = false, className } = props;
+  const { status, size = "md", interactive = false, label, className } = props;
   const { t } = useTranslation();
   const config = VISUAL_STATUS[status];
 
@@ -110,7 +112,7 @@ export function StatusChip(props: TStatusChipProps) {
       )}
     >
       {config.icon}
-      <span>{t(config.i18nKey)}</span>
+      <span className="max-w-[9rem] truncate">{label || t(config.i18nKey)}</span>
       {interactive && <ChevronDownOutline className="size-3 opacity-60" />}
     </span>
   );
@@ -143,6 +145,9 @@ export const StatusMenu = observer(function StatusMenu(props: TStatusMenuProps) 
   const { t } = useTranslation();
   const { changeState, getStateOptions } = useTaskActions(workspaceSlug);
   const states = getStateOptions(item.project_id);
+  // Geotech3D: name the real state (Backlog, Todo, …), not just its group, so two states of
+  // the same group never look alike; the chip's colour and shape still follow the group.
+  const stateName = states.find((state) => state.id === item.state_id)?.name;
 
   if (states.length === 0) return <StatusChip status={status} size={size} className={className} />;
 
@@ -152,6 +157,7 @@ export const StatusMenu = observer(function StatusMenu(props: TStatusMenuProps) 
         <StatusChip
           status={status}
           size={size}
+          label={stateName}
           interactive
           className={cn("cursor-pointer hover:brightness-95", className)}
         />
