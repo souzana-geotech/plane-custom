@@ -40,6 +40,7 @@ interface UseModuleMenuItemsProps {
   handleDelete: () => void;
   handleCopyLink: () => void;
   handleOpenInNewTab: () => void;
+  handleDuplicate: () => void;
 }
 
 interface UseViewMenuItemsProps {
@@ -111,6 +112,7 @@ export const useModuleMenuItems = (props: UseModuleMenuItemsProps): MenuResult =
     factory.createEditMenuItem(handlers.handleEdit, isEditingAllowed && !isArchived),
     factory.createOpenInNewTabMenuItem(handlers.handleOpenInNewTab),
     factory.createCopyLinkMenuItem(handlers.handleCopyLink),
+    factory.createDuplicateMenuItem(handlers.handleDuplicate, isEditingAllowed && !isArchived),
     factory.createArchiveMenuItem(handlers.handleArchive, {
       shouldRender: isEditingAllowed && !isArchived,
       disabled: !isInArchivableGroup,

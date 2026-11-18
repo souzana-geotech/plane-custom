@@ -6,6 +6,7 @@
 
 import {
   ArchiveOutline,
+  CopyOutline,
   DeleteOutline,
   EditOutline,
   LinkOutline,
@@ -58,6 +59,15 @@ export const useQuickActionsFactory = () => {
       description: opts.description,
       disabled: opts.disabled,
       shouldRender: opts.shouldRender,
+    }),
+
+    // Geotech3D: copy a Job into a new one with the same tasks
+    createDuplicateMenuItem: (handler: () => void, shouldRender: boolean = true): TContextMenuItem => ({
+      key: "duplicate",
+      title: t("module.duplicate.menu"),
+      icon: CopyOutline,
+      action: handler,
+      shouldRender,
     }),
 
     createRestoreMenuItem: (handler: () => void, shouldRender: boolean = true): TContextMenuItem => ({

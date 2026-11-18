@@ -47,6 +47,23 @@ export class ModuleService extends APIService {
       });
   }
 
+  /**
+   * Geotech3D: copy a Job into a new one with the same tasks (titles, descriptions,
+   * task tree and order) and nothing that belongs to one run of it.
+   */
+  async duplicateModule(
+    workspaceSlug: string,
+    projectId: string,
+    moduleId: string,
+    data: { name: string; module_code: string; task_state_id: string | null }
+  ): Promise<{ id: string; name: string; task_count: number }> {
+    return this.post(`/api/workspaces/${workspaceSlug}/projects/${projectId}/modules/${moduleId}/duplicate/`, data)
+      .then((response) => response?.data)
+      .catch((error) => {
+        throw error?.response?.data;
+      });
+  }
+
   async getModuleDetails(workspaceSlug: string, projectId: string, moduleId: string): Promise<IModule> {
     return this.get(`/api/workspaces/${workspaceSlug}/projects/${projectId}/modules/${moduleId}/`)
       .then((response) => response?.data)

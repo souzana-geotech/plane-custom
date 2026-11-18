@@ -6,6 +6,20 @@
     "code": {
       "placeholder": "Codice del modulo (ad es. GT3D-001)",
       "max_length": "Il codice del modulo deve contenere meno di 50 caratteri"
+    },
+    "duplicate": {
+      "menu": "Duplica",
+      "title": "Duplica {name}",
+      "description": "Crea un nuovo Modulo con gli stessi elementi di lavoro nello stesso ordine. Vengono copiati solo titoli e descrizioni: nessuna data, assegnatario, etichetta o priorità.",
+      "default_name": "{name} (copia)",
+      "task_state": "Gli elementi di lavoro iniziano in",
+      "submit": "Duplica",
+      "submitting": "Duplicazione in corso",
+      "success_title": "Modulo duplicato",
+      "success_message": "Elementi di lavoro copiati: {count}",
+      "error": "Impossibile duplicare il Modulo. Riprovi.",
+      "name_taken": "In questo progetto esiste già un Modulo con questo nome",
+      "code_taken": "Questo codice è già usato in questo progetto"
     }
   }
 }

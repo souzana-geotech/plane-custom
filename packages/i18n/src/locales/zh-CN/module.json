@@ -6,6 +6,20 @@
     "code": {
       "placeholder": "模块代码（例如 GT3D-001）",
       "max_length": "模块代码必须少于 50 个字符"
+    },
+    "duplicate": {
+      "menu": "复制",
+      "title": "复制 {name}",
+      "description": "创建一个新模块，包含相同的工作项并保持相同顺序。仅复制标题和描述：不复制日期、负责人、标签或优先级。",
+      "default_name": "{name}（副本）",
+      "task_state": "工作项的初始状态",
+      "submit": "复制",
+      "submitting": "正在复制",
+      "success_title": "模块已复制",
+      "success_message": "已复制的工作项：{count}",
+      "error": "无法复制模块，请重试。",
+      "name_taken": "此项目中已存在同名模块",
+      "code_taken": "此代码已在此项目中使用"
     }
   }
 }

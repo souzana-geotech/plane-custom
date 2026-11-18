@@ -173,6 +173,8 @@ from .module.issue import ModuleIssueViewSet
 
 from .module.archive import ModuleArchiveUnarchiveEndpoint
 
+from .module.duplicate import ModuleDuplicateEndpoint
+
 from .api import ApiTokenEndpoint
 
 from .page.base import (

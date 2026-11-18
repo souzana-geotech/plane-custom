@@ -6,6 +6,20 @@
     "code": {
       "placeholder": "模組代碼（例如 GT3D-001）",
       "max_length": "模組代碼必須少於 50 個字元"
+    },
+    "duplicate": {
+      "menu": "複製",
+      "title": "複製 {name}",
+      "description": "建立一個新模組，包含相同的工作項目並保持相同順序。僅複製標題和描述：不複製日期、負責人、標籤或優先順序。",
+      "default_name": "{name}（副本）",
+      "task_state": "工作項目的初始狀態",
+      "submit": "複製",
+      "submitting": "正在複製",
+      "success_title": "模組已複製",
+      "success_message": "已複製的工作項目：{count}",
+      "error": "無法複製模組，請再試一次。",
+      "name_taken": "此專案中已存在同名模組",
+      "code_taken": "此代碼已在此專案中使用"
     }
   }
 }

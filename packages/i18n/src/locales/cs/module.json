@@ -6,6 +6,20 @@
     "code": {
       "placeholder": "Kód modulu (např. GT3D-001)",
       "max_length": "Kód modulu musí mít méně než 50 znaků"
+    },
+    "duplicate": {
+      "menu": "Duplikovat",
+      "title": "Duplikovat {name}",
+      "description": "Vytvoří nový Modul se stejnými pracovními položkami ve stejném pořadí. Kopírují se jen názvy a popisy: žádná data, řešitelé, štítky ani priorita.",
+      "default_name": "{name} (kopie)",
+      "task_state": "Pracovní položky začínají ve stavu",
+      "submit": "Duplikovat",
+      "submitting": "Duplikování",
+      "success_title": "Modul duplikován",
+      "success_message": "Zkopírované pracovní položky: {count}",
+      "error": "Modul se nepodařilo duplikovat. Zkuste to prosím znovu.",
+      "name_taken": "Modul s tímto názvem v tomto projektu již existuje",
+      "code_taken": "Tento kód je v tomto projektu již použit"
     }
   }
 }

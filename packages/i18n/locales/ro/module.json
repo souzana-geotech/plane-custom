@@ -6,6 +6,20 @@
     "code": {
       "placeholder": "Codul modulului (de ex. GT3D-001)",
       "max_length": "Codul modulului trebuie să aibă mai puțin de 50 de caractere"
+    },
+    "duplicate": {
+      "menu": "Duplică",
+      "title": "Duplică {name}",
+      "description": "Creează un nou Modul cu aceleași elemente de lucru în aceeași ordine. Se copiază doar titlurile și descrierile: fără date, responsabili, etichete sau prioritate.",
+      "default_name": "{name} (copie)",
+      "task_state": "Elementele de lucru încep în",
+      "submit": "Duplică",
+      "submitting": "Se duplică",
+      "success_title": "Modul duplicat",
+      "success_message": "Elemente de lucru copiate: {count}",
+      "error": "Modulul nu a putut fi duplicat. Vă rugăm să încercați din nou.",
+      "name_taken": "Un Modul cu acest nume există deja în acest proiect",
+      "code_taken": "Acest cod este deja folosit în acest proiect"
     }
   }
 }

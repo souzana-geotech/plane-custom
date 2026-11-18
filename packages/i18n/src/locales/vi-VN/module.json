@@ -6,6 +6,20 @@
     "code": {
       "placeholder": "Mã mô-đun (ví dụ: GT3D-001)",
       "max_length": "Mã mô-đun phải ít hơn 50 ký tự"
+    },
+    "duplicate": {
+      "menu": "Nhân bản",
+      "title": "Nhân bản {name}",
+      "description": "Tạo Mô-đun mới với cùng các mục công việc theo cùng thứ tự. Chỉ sao chép tiêu đề và mô tả: không sao chép ngày, người được giao, nhãn hay mức ưu tiên.",
+      "default_name": "{name} (Bản sao)",
+      "task_state": "Mục công việc bắt đầu ở",
+      "submit": "Nhân bản",
+      "submitting": "Đang nhân bản",
+      "success_title": "Đã nhân bản Mô-đun",
+      "success_message": "Số mục công việc đã sao chép: {count}",
+      "error": "Không thể nhân bản Mô-đun. Vui lòng thử lại.",
+      "name_taken": "Mô-đun có tên này đã tồn tại trong dự án này",
+      "code_taken": "Mã này đã được dùng trong dự án này"
     }
   }
 }

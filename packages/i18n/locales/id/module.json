@@ -6,6 +6,20 @@
     "code": {
       "placeholder": "Kode modul (mis. GT3D-001)",
       "max_length": "Kode modul harus kurang dari 50 karakter"
+    },
+    "duplicate": {
+      "menu": "Duplikat",
+      "title": "Duplikat {name}",
+      "description": "Membuat Modul baru dengan item kerja yang sama dalam urutan yang sama. Hanya judul dan deskripsi yang disalin: tanpa tanggal, penerima tugas, label, atau prioritas.",
+      "default_name": "{name} (Salinan)",
+      "task_state": "Item kerja dimulai di",
+      "submit": "Duplikat",
+      "submitting": "Menduplikat",
+      "success_title": "Modul diduplikat",
+      "success_message": "Item kerja yang disalin: {count}",
+      "error": "Modul tidak dapat diduplikat. Silakan coba lagi.",
+      "name_taken": "Modul dengan nama ini sudah ada di proyek ini",
+      "code_taken": "Kode ini sudah digunakan di proyek ini"
     }
   }
 }

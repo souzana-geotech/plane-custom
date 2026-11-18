@@ -6,6 +6,20 @@
     "code": {
       "placeholder": "Modül kodu (örn. GT3D-001)",
       "max_length": "Modül kodu 50 karakterden az olmalıdır"
+    },
+    "duplicate": {
+      "menu": "Çoğalt",
+      "title": "{name} öğesini çoğalt",
+      "description": "Aynı iş öğeleriyle, aynı sırada yeni bir Modül oluşturur. Yalnızca başlıklar ve açıklamalar kopyalanır: tarih, atanan kişi, etiket veya öncelik kopyalanmaz.",
+      "default_name": "{name} (Kopya)",
+      "task_state": "İş öğelerinin başlangıç durumu",
+      "submit": "Çoğalt",
+      "submitting": "Çoğaltılıyor",
+      "success_title": "Modül çoğaltıldı",
+      "success_message": "Kopyalanan iş öğeleri: {count}",
+      "error": "Modül çoğaltılamadı. Lütfen tekrar deneyin.",
+      "name_taken": "Bu projede bu ada sahip bir Modül zaten var",
+      "code_taken": "Bu kod bu projede zaten kullanılıyor"
     }
   }
 }

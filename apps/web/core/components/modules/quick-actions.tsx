@@ -17,6 +17,7 @@ import { copyUrlToClipboard, cn } from "@plane/utils";
 // components
 import { useModuleMenuItems } from "@/components/common/quick-actions-helper";
 import { ArchiveModuleModal, CreateUpdateModuleModal, DeleteModuleModal } from "@/components/modules";
+import { DuplicateModuleModal } from "@/components/modules/duplicate-module-modal";
 // hooks
 import { useModule } from "@/hooks/store/use-module";
 import { useUserPermissions } from "@/hooks/store/user";
@@ -38,6 +39,7 @@ export const ModuleQuickActions = observer(function ModuleQuickActions(props: Pr
   const [editModal, setEditModal] = useState(false);
   const [archiveModuleModal, setArchiveModuleModal] = useState(false);
   const [deleteModal, setDeleteModal] = useState(false);
+  const [duplicateModal, setDuplicateModal] = useState(false);
   // store hooks
   const { allowPermissions } = useUserPermissions();
 
@@ -95,6 +97,7 @@ export const ModuleQuickActions = observer(function ModuleQuickActions(props: Pr
     handleDelete: () => setDeleteModal(true),
     handleCopyLink: handleCopyText,
     handleOpenInNewTab,
+    handleDuplicate: () => setDuplicateModal(true),
   });
 
   // Handle both CE (array) and EE (object) return types
@@ -130,6 +133,13 @@ export const ModuleQuickActions = observer(function ModuleQuickActions(props: Pr
             handleClose={() => setArchiveModuleModal(false)}
           />
           <DeleteModuleModal data={moduleDetails} isOpen={deleteModal} onClose={() => setDeleteModal(false)} />
+          <DuplicateModuleModal
+            isOpen={duplicateModal}
+            onClose={() => setDuplicateModal(false)}
+            moduleDetails={moduleDetails}
+            workspaceSlug={workspaceSlug}
+            projectId={projectId}
+          />
           {additionalModals}
         </div>
       )}

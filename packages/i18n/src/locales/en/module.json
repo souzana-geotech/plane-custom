@@ -6,6 +6,20 @@
     "code": {
       "placeholder": "Project / Job code (e.g. GT3D-001)",
       "max_length": "Project / Job code should be less than 50 characters"
+    },
+    "duplicate": {
+      "menu": "Duplicate",
+      "title": "Duplicate {name}",
+      "description": "Makes a new Project / Job with the same tasks in the same order. Only task titles and descriptions are copied: no dates, assignees, labels or priority.",
+      "default_name": "{name} (Copy)",
+      "task_state": "Tasks start in",
+      "submit": "Duplicate",
+      "submitting": "Duplicating",
+      "success_title": "Project / Job duplicated",
+      "success_message": "Tasks copied: {count}",
+      "error": "Project / Job could not be duplicated. Please try again.",
+      "name_taken": "A Project / Job with this name already exists in this container",
+      "code_taken": "This code is already used in this container"
     }
   }
 }

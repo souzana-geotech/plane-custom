@@ -12,6 +12,7 @@ from plane.app.views import (
     ModuleFavoriteViewSet,
     ModuleUserPropertiesEndpoint,
     ModuleArchiveUnarchiveEndpoint,
+    ModuleDuplicateEndpoint,
 )
 
 
@@ -88,6 +89,11 @@ urlpatterns = [
         "workspaces/<str:slug>/projects/<uuid:project_id>/modules/<uuid:module_id>/archive/",
         ModuleArchiveUnarchiveEndpoint.as_view(),
         name="module-archive-unarchive",
+    ),
+    path(
+        "workspaces/<str:slug>/projects/<uuid:project_id>/modules/<uuid:module_id>/duplicate/",
+        ModuleDuplicateEndpoint.as_view(),
+        name="module-duplicate",
     ),
     path(
         "workspaces/<str:slug>/projects/<uuid:project_id>/archived-modules/",
