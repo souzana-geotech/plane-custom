@@ -64,6 +64,10 @@
         "title": "Actualización no actualizada",
         "message": "No se pudo actualizar la actualización"
       }
+    },
+    "whats_new_popup": {
+      "hello": "Hola, {name}",
+      "got_it": "Genial, entendido"
     }
   }
 }

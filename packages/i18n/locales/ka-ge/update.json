@@ -64,6 +64,10 @@
         "title": "Update not updated",
         "message": "The update could not be updated"
       }
+    },
+    "whats_new_popup": {
+      "hello": "გამარჯობა, {name}",
+      "got_it": "კარგი, გასაგებია"
     }
   }
 }

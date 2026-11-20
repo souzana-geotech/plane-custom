@@ -22,6 +22,9 @@ from .admin import (
 )
 
 
+from .whats_new import InstanceWhatsNewEndpoint, InstanceWhatsNewSendEndpoint
+
+
 from .workspace import (
     InstanceWorkSpaceAvailabilityCheckEndpoint,
     InstanceWorkSpaceEndpoint,

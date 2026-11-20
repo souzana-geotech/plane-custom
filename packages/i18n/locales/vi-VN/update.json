@@ -64,6 +64,10 @@
         "title": "Không thể cập nhật cập nhật",
         "message": "Không thể cập nhật cập nhật. Vui lòng thử lại!"
       }
+    },
+    "whats_new_popup": {
+      "hello": "Xin chào {name}",
+      "got_it": "Tuyệt, đã hiểu"
     }
   }
 }

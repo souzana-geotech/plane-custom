@@ -18,6 +18,8 @@ from plane.license.api.views import (
     InstanceAdminUserSessionEndpoint,
     InstanceWorkSpaceAvailabilityCheckEndpoint,
     InstanceWorkSpaceEndpoint,
+    InstanceWhatsNewEndpoint,
+    InstanceWhatsNewSendEndpoint,
 )
 
 urlpatterns = [
@@ -71,4 +73,8 @@ urlpatterns = [
         name="instance-workspace-availability",
     ),
     path("workspaces/", InstanceWorkSpaceEndpoint.as_view(), name="instance-workspace"),
+    # Geotech3D: What's new notes written in god-mode
+    path("whats-new/", InstanceWhatsNewEndpoint.as_view(), name="instance-whats-new"),
+    path("whats-new/<uuid:pk>/", InstanceWhatsNewEndpoint.as_view(), name="instance-whats-new-detail"),
+    path("whats-new/<uuid:pk>/send/", InstanceWhatsNewSendEndpoint.as_view(), name="instance-whats-new-send"),
 ]

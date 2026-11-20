@@ -64,6 +64,10 @@
         "title": "Actualizare năo actualizată",
         "message": "Actualizarea nu a putut fi actualizată."
       }
+    },
+    "whats_new_popup": {
+      "hello": "Bună, {name}",
+      "got_it": "Super, am înțeles"
     }
   }
 }

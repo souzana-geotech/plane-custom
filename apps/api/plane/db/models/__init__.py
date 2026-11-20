@@ -91,4 +91,6 @@ from .device import Device, DeviceSession
 
 from .sticky import Sticky
 
+from .whats_new import WhatsNew, WHATS_NEW_ICONS
+
 from .description import Description, DescriptionVersion

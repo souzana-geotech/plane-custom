@@ -64,6 +64,10 @@
         "title": "Mise à jour non mise à jour",
         "message": "La mise à jour n'a pas pu être mise à jour."
       }
+    },
+    "whats_new_popup": {
+      "hello": "Bonjour {name}",
+      "got_it": "Super, compris"
     }
   }
 }

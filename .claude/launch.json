@@ -21,6 +21,13 @@
       "runtimeArgs": ["/c", ".claude\\dev-web-3020.cmd"],
       "port": 3020,
       "autoPort": false
+    },
+    {
+      "name": "plane-admin",
+      "runtimeExecutable": "cmd.exe",
+      "runtimeArgs": ["/c", ".claude\\dev-admin-3001.cmd"],
+      "port": 3001,
+      "autoPort": false
     }
   ]
 }

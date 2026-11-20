@@ -64,6 +64,10 @@
         "title": "Aktualizáciu sa nepodarilo aktualizovať",
         "message": "Aktualizáciu sa nepodarilo aktualizovať."
       }
+    },
+    "whats_new_popup": {
+      "hello": "Dobrý deň, {name}",
+      "got_it": "Super, rozumiem"
     }
   }
 }

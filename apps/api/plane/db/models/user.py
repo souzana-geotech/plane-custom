@@ -258,6 +258,9 @@ class Profile(TimeAuditModel):
 
     # marketing
     has_marketing_email_consent = models.BooleanField(default=False)
+
+    # Geotech3D: the newest What's new this user has already seen (null = none yet)
+    whats_new_seen_at = models.DateTimeField(null=True, blank=True)
     is_subscribed_to_changelog = models.BooleanField(default=False)
     product_tour = models.JSONField(default=get_default_product_tour)
 

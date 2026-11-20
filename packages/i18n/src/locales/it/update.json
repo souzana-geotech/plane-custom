@@ -64,6 +64,10 @@
         "title": "Aggiornamento non aggiornato",
         "message": "L'aggiornamento non può essere aggiornato."
       }
+    },
+    "whats_new_popup": {
+      "hello": "Salve, {name}",
+      "got_it": "Ottimo, ho capito"
     }
   }
 }

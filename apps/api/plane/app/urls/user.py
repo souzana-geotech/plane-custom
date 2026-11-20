@@ -19,6 +19,8 @@ from plane.app.views import (
     ## End User
     ## Workspaces
     UserWorkSpacesEndpoint,
+    UserWhatsNewEndpoint,
+    UserWhatsNewSeenEndpoint,
 )
 
 urlpatterns = [
@@ -46,6 +48,9 @@ urlpatterns = [
     ),
     # Profile
     path("users/me/profile/", ProfileEndpoint.as_view(), name="accounts"),
+    # Geotech3D: What's new notes this user has not seen yet
+    path("users/me/whats-new/", UserWhatsNewEndpoint.as_view(), name="user-whats-new"),
+    path("users/me/whats-new/seen/", UserWhatsNewSeenEndpoint.as_view(), name="user-whats-new-seen"),
     # End profile
     # Accounts
     path("users/me/accounts/", AccountEndpoint.as_view(), name="accounts"),

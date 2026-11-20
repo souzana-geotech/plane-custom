@@ -64,6 +64,10 @@
         "title": "Aktualizacja nie została zaktualizowana",
         "message": "Nie udało się zaktualizować aktualizacji."
       }
+    },
+    "whats_new_popup": {
+      "hello": "Dzień dobry, {name}",
+      "got_it": "Świetnie, rozumiem"
     }
   }
 }

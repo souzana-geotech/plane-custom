@@ -64,6 +64,10 @@
         "title": "Update tidak berhasil diperbarui",
         "message": "Update tidak berhasil diperbarui."
       }
+    },
+    "whats_new_popup": {
+      "hello": "Halo, {name}",
+      "got_it": "Bagus, mengerti"
     }
   }
 }

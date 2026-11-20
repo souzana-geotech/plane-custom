@@ -4,13 +4,13 @@
  * See the LICENSE file for details.
  */
 
-import { BrainCog } from "lucide-react";
+import { BrainCog, PartyPopper } from "lucide-react";
 // plane imports
 import { ImageOutline, LockOutline, MailOutline, SettingsOutline, WorkspaceOutline } from "@makeplane/propel/icons";
 // types
 import type { TSidebarMenuItem } from "./types";
 
-export type TCoreSidebarMenuKey = "general" | "email" | "workspace" | "authentication" | "ai" | "image";
+export type TCoreSidebarMenuKey = "general" | "email" | "workspace" | "authentication" | "ai" | "image" | "whatsNew";
 
 export const coreSidebarMenuLinks: Record<TCoreSidebarMenuKey, TSidebarMenuItem> = {
   general: {
@@ -48,5 +48,12 @@ export const coreSidebarMenuLinks: Record<TCoreSidebarMenuKey, TSidebarMenuItem>
     name: "Images in Geotech3D",
     description: "Allow third-party image libraries.",
     href: `/image/`,
+  },
+  // Geotech3D: notes everyone sees once, in a popup
+  whatsNew: {
+    Icon: PartyPopper,
+    name: "What's new",
+    description: "Tell everyone what happened with us.",
+    href: `/whats-new/`,
   },
 };

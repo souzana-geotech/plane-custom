@@ -64,6 +64,10 @@
         "title": "Güncelleme güncellenemedi",
         "message": "Güncelleme güncellenemedi. Lütfen tekrar deneyin."
       }
+    },
+    "whats_new_popup": {
+      "hello": "Merhaba {name}",
+      "got_it": "Harika, anladım"
     }
   }
 }

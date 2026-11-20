@@ -64,6 +64,10 @@
         "title": "Update not updated",
         "message": "The update could not be updated"
       }
+    },
+    "whats_new_popup": {
+      "hello": "Hey {name}",
+      "got_it": "Nice, got it"
     }
   }
 }

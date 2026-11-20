@@ -64,6 +64,10 @@
         "title": "更新未更新",
         "message": "更新未更新。"
       }
+    },
+    "whats_new_popup": {
+      "hello": "{name}，您好",
+      "got_it": "好的，知道了"
     }
   }
 }
