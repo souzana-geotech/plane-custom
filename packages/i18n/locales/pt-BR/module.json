@@ -21,5 +21,19 @@
       "name_taken": "Já existe um Módulo com este nome neste projeto",
       "code_taken": "Este código já é usado neste projeto"
     }
+  },
+  "job_documents": {
+    "title": "Documentos",
+    "description": "Os arquivos de que toda a equipe precisa, em um só lugar.",
+    "drop": "Solte arquivos aqui ou clique para enviar",
+    "types_hint": "PDF, TXT ou Word, até {size} MB",
+    "only_types": "Só é possível adicionar documentos PDF, TXT e Word.",
+    "upload_failed": "Não foi possível enviar {name}.",
+    "uploading": "Enviando…",
+    "download": "Baixar",
+    "empty": "Nenhum documento ainda.",
+    "delete_failed": "Não foi possível excluir o documento.",
+    "delete_title": "Excluir documento",
+    "delete_content": "Excluir {name}? Ninguém mais poderá abri-lo por aqui."
   }
 }

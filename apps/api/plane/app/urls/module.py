@@ -13,6 +13,7 @@ from plane.app.views import (
     ModuleUserPropertiesEndpoint,
     ModuleArchiveUnarchiveEndpoint,
     ModuleDuplicateEndpoint,
+    ModuleAttachmentEndpoint,
 )
 
 
@@ -104,5 +105,16 @@ urlpatterns = [
         "workspaces/<str:slug>/projects/<uuid:project_id>/archived-modules/<uuid:pk>/",
         ModuleArchiveUnarchiveEndpoint.as_view(),
         name="module-archive-unarchive",
+    ),
+    # Geotech3D: documents uploaded onto a Job
+    path(
+        "assets/v2/workspaces/<str:slug>/projects/<uuid:project_id>/modules/<uuid:module_id>/attachments/",
+        ModuleAttachmentEndpoint.as_view(),
+        name="module-attachments",
+    ),
+    path(
+        "assets/v2/workspaces/<str:slug>/projects/<uuid:project_id>/modules/<uuid:module_id>/attachments/<uuid:pk>/",
+        ModuleAttachmentEndpoint.as_view(),
+        name="module-attachments",
     ),
 ]

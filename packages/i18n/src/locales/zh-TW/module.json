@@ -21,5 +21,19 @@
       "name_taken": "此專案中已存在同名模組",
       "code_taken": "此代碼已在此專案中使用"
     }
+  },
+  "job_documents": {
+    "title": "文件",
+    "description": "整個團隊需要的檔案，集中在一處。",
+    "drop": "將檔案拖放到此處，或點擊上傳",
+    "types_hint": "PDF、TXT 或 Word，最大 {size} MB",
+    "only_types": "只能新增 PDF、TXT 和 Word 文件。",
+    "upload_failed": "無法上傳 {name}。",
+    "uploading": "正在上傳…",
+    "download": "下載",
+    "empty": "尚無文件。",
+    "delete_failed": "無法刪除此文件。",
+    "delete_title": "刪除文件",
+    "delete_content": "刪除 {name}？刪除後將無法再從這裡開啟。"
   }
 }

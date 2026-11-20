@@ -21,5 +21,19 @@
       "name_taken": "Moduł o tej nazwie już istnieje w tym projekcie",
       "code_taken": "Ten kod jest już używany w tym projekcie"
     }
+  },
+  "job_documents": {
+    "title": "Dokumenty",
+    "description": "Pliki potrzebne całemu zespołowi w jednym miejscu.",
+    "drop": "Upuść pliki tutaj lub kliknij, aby przesłać",
+    "types_hint": "PDF, TXT lub Word, do {size} MB",
+    "only_types": "Można dodawać tylko dokumenty PDF, TXT i Word.",
+    "upload_failed": "Nie udało się przesłać pliku {name}.",
+    "uploading": "Przesyłanie…",
+    "download": "Pobierz",
+    "empty": "Brak dokumentów.",
+    "delete_failed": "Nie udało się usunąć dokumentu.",
+    "delete_title": "Usuń dokument",
+    "delete_content": "Usunąć {name}? Nikt nie będzie mógł go już stąd otworzyć."
   }
 }

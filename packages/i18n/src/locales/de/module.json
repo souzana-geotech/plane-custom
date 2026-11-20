@@ -21,5 +21,19 @@
       "name_taken": "Ein Modul mit diesem Namen existiert in diesem Projekt bereits",
       "code_taken": "Dieser Code wird in diesem Projekt bereits verwendet"
     }
+  },
+  "job_documents": {
+    "title": "Dokumente",
+    "description": "Dateien, die das ganze Team braucht, an einem Ort.",
+    "drop": "Dateien hier ablegen oder zum Hochladen klicken",
+    "types_hint": "PDF, TXT oder Word, bis {size} MB",
+    "only_types": "Nur PDF-, TXT- und Word-Dokumente können hinzugefügt werden.",
+    "upload_failed": "{name} konnte nicht hochgeladen werden.",
+    "uploading": "Wird hochgeladen…",
+    "download": "Herunterladen",
+    "empty": "Noch keine Dokumente.",
+    "delete_failed": "Das Dokument konnte nicht gelöscht werden.",
+    "delete_title": "Dokument löschen",
+    "delete_content": "{name} löschen? Danach kann es hier niemand mehr öffnen."
   }
 }

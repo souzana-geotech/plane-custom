@@ -21,5 +21,19 @@
       "name_taken": "Un Module portant ce nom existe déjà dans ce projet",
       "code_taken": "Ce code est déjà utilisé dans ce projet"
     }
+  },
+  "job_documents": {
+    "title": "Documents",
+    "description": "Les fichiers dont toute l’équipe a besoin, au même endroit.",
+    "drop": "Déposez des fichiers ici ou cliquez pour les importer",
+    "types_hint": "PDF, TXT ou Word, jusqu’à {size} Mo",
+    "only_types": "Seuls les documents PDF, TXT et Word peuvent être ajoutés.",
+    "upload_failed": "{name} n’a pas pu être importé.",
+    "uploading": "Importation…",
+    "download": "Télécharger",
+    "empty": "Aucun document pour l’instant.",
+    "delete_failed": "Le document n’a pas pu être supprimé.",
+    "delete_title": "Supprimer le document",
+    "delete_content": "Supprimer {name} ? Personne ne pourra plus l’ouvrir ici."
   }
 }

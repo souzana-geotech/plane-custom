@@ -33,6 +33,7 @@ import {
   MobileLayoutSelection,
 } from "@/components/issues/issue-layouts/filters";
 import { ModuleQuickActions } from "@/components/modules";
+import { JobDocumentsButton } from "@/components/modules/documents/root";
 import { WorkItemFiltersToggle } from "@/components/work-item-filters/filters-toggle";
 // hooks
 import { useCommandPalette } from "@/hooks/store/use-command-palette";
@@ -235,6 +236,13 @@ export const ModuleIssuesHeader = observer(function ModuleIssuesHeader() {
 
           {canUserCreateIssue ? (
             <>
+              {moduleId && (
+                <JobDocumentsButton
+                  workspaceSlug={workspaceSlug.toString()}
+                  projectId={projectId.toString()}
+                  moduleId={moduleId}
+                />
+              )}
               <Button className="hidden md:block" onClick={() => setAnalyticsModal(true)} variant="secondary" size="lg">
                 <span className="hidden @4xl:flex">Analytics</span>
                 <span className="@4xl:hidden">

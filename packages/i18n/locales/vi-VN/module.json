@@ -21,5 +21,19 @@
       "name_taken": "Mô-đun có tên này đã tồn tại trong dự án này",
       "code_taken": "Mã này đã được dùng trong dự án này"
     }
+  },
+  "job_documents": {
+    "title": "Tài liệu",
+    "description": "Các tệp cả nhóm cần, ở cùng một chỗ.",
+    "drop": "Thả tệp vào đây hoặc nhấp để tải lên",
+    "types_hint": "PDF, TXT hoặc Word, tối đa {size} MB",
+    "only_types": "Chỉ có thể thêm tài liệu PDF, TXT và Word.",
+    "upload_failed": "Không thể tải lên {name}.",
+    "uploading": "Đang tải lên…",
+    "download": "Tải xuống",
+    "empty": "Chưa có tài liệu nào.",
+    "delete_failed": "Không thể xóa tài liệu.",
+    "delete_title": "Xóa tài liệu",
+    "delete_content": "Xóa {name}? Sẽ không ai có thể mở tệp này từ đây nữa."
   }
 }

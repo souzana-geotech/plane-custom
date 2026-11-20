@@ -8,7 +8,12 @@ import { useCallback, useState } from "react";
 import { observer } from "mobx-react";
 import { useParams } from "next/navigation";
 // plane imports
-import { EIssueFilterType, ISSUE_DISPLAY_FILTERS_BY_PAGE } from "@plane/constants";
+import {
+  EIssueFilterType,
+  EUserPermissions,
+  EUserPermissionsLevel,
+  ISSUE_DISPLAY_FILTERS_BY_PAGE,
+} from "@plane/constants";
 import { useTranslation } from "@plane/i18n";
 import {
   BoardOutline,
@@ -23,11 +28,13 @@ import { CustomMenu } from "@plane/ui";
 // components
 import { WorkItemsModal } from "@/components/analytics/work-items/modal";
 import { DisplayFiltersSelection, FiltersDropdown } from "@/components/issues/issue-layouts/filters";
+import { JobDocumentsModal, useJobDocuments } from "@/components/modules/documents/root";
 import { IssueLayoutIcon } from "@/components/issues/issue-layouts/layout-icon";
 // hooks
 import { useIssues } from "@/hooks/store/use-issues";
 import { useModule } from "@/hooks/store/use-module";
 import { useProject } from "@/hooks/store/use-project";
+import { useUserPermissions } from "@/hooks/store/user";
 
 const SUPPORTED_LAYOUTS = [
   { key: EIssueLayoutTypes.LIST, i18n_title: "issue.layouts.list", icon: ListOutline },
@@ -43,6 +50,17 @@ export const ModuleIssuesMobileHeader = observer(function ModuleIssuesMobileHead
   const { workspaceSlug, projectId, moduleId } = useParams();
   // states
   const [analyticsModal, setAnalyticsModal] = useState(false);
+  // Geotech3D: the Job's documents, reachable on phones too (members and admins only)
+  const [documentsModal, setDocumentsModal] = useState(false);
+  const { allowPermissions } = useUserPermissions();
+  const canSeeDocuments =
+    !!moduleId && allowPermissions([EUserPermissions.ADMIN, EUserPermissions.MEMBER], EUserPermissionsLevel.PROJECT);
+  const { data: documents } = useJobDocuments(
+    workspaceSlug?.toString() ?? "",
+    projectId?.toString() ?? "",
+    moduleId?.toString() ?? "",
+    canSeeDocuments && !!workspaceSlug && !!projectId
+  );
   // plane hooks
   const { t } = useTranslation();
   // store hooks
@@ -143,7 +161,27 @@ export const ModuleIssuesMobileHeader = observer(function ModuleIssuesMobileHead
         >
           Analytics
         </button>
+        {canSeeDocuments && (
+          <button
+            onClick={() => setDocumentsModal(true)}
+            className="flex flex-grow items-center justify-center gap-1.5 truncate border-l border-subtle text-13 text-secondary"
+          >
+            {t("job_documents.title")}
+            {!!documents?.length && (
+              <span className="rounded-sm bg-layer-3 px-1.5 text-11 font-medium tabular-nums">{documents.length}</span>
+            )}
+          </button>
+        )}
       </div>
+      {canSeeDocuments && workspaceSlug && projectId && moduleId && (
+        <JobDocumentsModal
+          workspaceSlug={workspaceSlug.toString()}
+          projectId={projectId.toString()}
+          moduleId={moduleId.toString()}
+          isOpen={documentsModal}
+          handleClose={() => setDocumentsModal(false)}
+        />
+      )}
     </div>
   );
 });

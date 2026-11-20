@@ -21,5 +21,19 @@
       "name_taken": "In questo progetto esiste già un Modulo con questo nome",
       "code_taken": "Questo codice è già usato in questo progetto"
     }
+  },
+  "job_documents": {
+    "title": "Documenti",
+    "description": "I file che servono a tutto il team, in un unico posto.",
+    "drop": "Trascini qui i file o faccia clic per caricarli",
+    "types_hint": "PDF, TXT o Word, fino a {size} MB",
+    "only_types": "È possibile aggiungere solo documenti PDF, TXT e Word.",
+    "upload_failed": "Impossibile caricare {name}.",
+    "uploading": "Caricamento…",
+    "download": "Scarica",
+    "empty": "Nessun documento.",
+    "delete_failed": "Impossibile eliminare il documento.",
+    "delete_title": "Elimina documento",
+    "delete_content": "Eliminare {name}? Nessuno potrà più aprirlo da qui."
   }
 }

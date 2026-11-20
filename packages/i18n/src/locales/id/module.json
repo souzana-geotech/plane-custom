@@ -21,5 +21,19 @@
       "name_taken": "Modul dengan nama ini sudah ada di proyek ini",
       "code_taken": "Kode ini sudah digunakan di proyek ini"
     }
+  },
+  "job_documents": {
+    "title": "Dokumen",
+    "description": "File yang dibutuhkan seluruh tim, di satu tempat.",
+    "drop": "Letakkan file di sini atau klik untuk mengunggah",
+    "types_hint": "PDF, TXT, atau Word, hingga {size} MB",
+    "only_types": "Hanya dokumen PDF, TXT, dan Word yang dapat ditambahkan.",
+    "upload_failed": "{name} tidak dapat diunggah.",
+    "uploading": "Mengunggah…",
+    "download": "Unduh",
+    "empty": "Belum ada dokumen.",
+    "delete_failed": "Dokumen tidak dapat dihapus.",
+    "delete_title": "Hapus dokumen",
+    "delete_content": "Hapus {name}? Tidak ada yang dapat membukanya lagi dari sini."
   }
 }

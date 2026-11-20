@@ -21,5 +21,19 @@
       "name_taken": "Modul s týmto názvom už v tomto projekte existuje",
       "code_taken": "Tento kód sa už v tomto projekte používa"
     }
+  },
+  "job_documents": {
+    "title": "Dokumenty",
+    "description": "Súbory, ktoré potrebuje celý tím, na jednom mieste.",
+    "drop": "Presuňte súbory sem alebo kliknite na nahranie",
+    "types_hint": "PDF, TXT alebo Word, do {size} MB",
+    "only_types": "Pridať možno len dokumenty PDF, TXT a Word.",
+    "upload_failed": "Súbor {name} sa nepodarilo nahrať.",
+    "uploading": "Nahráva sa…",
+    "download": "Stiahnuť",
+    "empty": "Zatiaľ žiadne dokumenty.",
+    "delete_failed": "Dokument sa nepodarilo odstrániť.",
+    "delete_title": "Odstrániť dokument",
+    "delete_content": "Odstrániť {name}? Odtiaľto ho už nikto nebude môcť otvoriť."
   }
 }

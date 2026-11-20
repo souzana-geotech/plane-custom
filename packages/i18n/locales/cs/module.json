@@ -21,5 +21,19 @@
       "name_taken": "Modul s tímto názvem v tomto projektu již existuje",
       "code_taken": "Tento kód je v tomto projektu již použit"
     }
+  },
+  "job_documents": {
+    "title": "Dokumenty",
+    "description": "Soubory, které potřebuje celý tým, na jednom místě.",
+    "drop": "Přetáhněte soubory sem nebo klikněte pro nahrání",
+    "types_hint": "PDF, TXT nebo Word, až {size} MB",
+    "only_types": "Lze přidat pouze dokumenty PDF, TXT a Word.",
+    "upload_failed": "Soubor {name} se nepodařilo nahrát.",
+    "uploading": "Nahrávání…",
+    "download": "Stáhnout",
+    "empty": "Zatím žádné dokumenty.",
+    "delete_failed": "Dokument se nepodařilo smazat.",
+    "delete_title": "Smazat dokument",
+    "delete_content": "Smazat {name}? Odsud ho už nikdo nebude moci otevřít."
   }
 }

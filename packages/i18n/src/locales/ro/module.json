@@ -21,5 +21,19 @@
       "name_taken": "Un Modul cu acest nume există deja în acest proiect",
       "code_taken": "Acest cod este deja folosit în acest proiect"
     }
+  },
+  "job_documents": {
+    "title": "Documente",
+    "description": "Fișierele de care are nevoie toată echipa, într-un singur loc.",
+    "drop": "Plasați fișierele aici sau faceți clic pentru a le încărca",
+    "types_hint": "PDF, TXT sau Word, până la {size} MB",
+    "only_types": "Pot fi adăugate doar documente PDF, TXT și Word.",
+    "upload_failed": "{name} nu a putut fi încărcat.",
+    "uploading": "Se încarcă…",
+    "download": "Descărcați",
+    "empty": "Încă nu există documente.",
+    "delete_failed": "Documentul nu a putut fi șters.",
+    "delete_title": "Ștergeți documentul",
+    "delete_content": "Ștergeți {name}? Nimeni nu îl va mai putea deschide de aici."
   }
 }

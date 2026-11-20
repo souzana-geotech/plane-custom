@@ -172,6 +172,7 @@ from .module.base import (
 from .module.issue import ModuleIssueViewSet
 
 from .module.archive import ModuleArchiveUnarchiveEndpoint
+from .module.attachment import ModuleAttachmentEndpoint
 
 from .module.duplicate import ModuleDuplicateEndpoint
 

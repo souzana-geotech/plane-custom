@@ -21,5 +21,19 @@
       "name_taken": "このプロジェクトには同じ名前のモジュールがすでに存在します",
       "code_taken": "このコードはこのプロジェクトですでに使用されています"
     }
+  },
+  "job_documents": {
+    "title": "ドキュメント",
+    "description": "チーム全員が必要なファイルを1か所にまとめます。",
+    "drop": "ここにファイルをドロップするか、クリックしてアップロードします",
+    "types_hint": "PDF、TXT、Word（最大 {size} MB）",
+    "only_types": "追加できるのは PDF、TXT、Word のドキュメントのみです。",
+    "upload_failed": "{name} をアップロードできませんでした。",
+    "uploading": "アップロード中…",
+    "download": "ダウンロード",
+    "empty": "ドキュメントはまだありません。",
+    "delete_failed": "ドキュメントを削除できませんでした。",
+    "delete_title": "ドキュメントを削除",
+    "delete_content": "{name} を削除しますか？ここから開くことはできなくなります。"
   }
 }

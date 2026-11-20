@@ -21,5 +21,19 @@
       "name_taken": "此项目中已存在同名模块",
       "code_taken": "此代码已在此项目中使用"
     }
+  },
+  "job_documents": {
+    "title": "文档",
+    "description": "整个团队需要的文件，集中在一处。",
+    "drop": "将文件拖放到此处，或点击上传",
+    "types_hint": "PDF、TXT 或 Word，最大 {size} MB",
+    "only_types": "只能添加 PDF、TXT 和 Word 文档。",
+    "upload_failed": "无法上传 {name}。",
+    "uploading": "正在上传…",
+    "download": "下载",
+    "empty": "暂无文档。",
+    "delete_failed": "无法删除该文档。",
+    "delete_title": "删除文档",
+    "delete_content": "删除 {name}？删除后将无法再从这里打开。"
   }
 }

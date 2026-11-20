@@ -21,5 +21,19 @@
       "name_taken": "A Project / Job with this name already exists in this container",
       "code_taken": "This code is already used in this container"
     }
+  },
+  "job_documents": {
+    "title": "Documents",
+    "description": "Files the whole team needs, in one place.",
+    "drop": "Drop files here or click to upload",
+    "types_hint": "PDF, TXT or Word, up to {size} MB",
+    "only_types": "Only PDF, TXT and Word documents can be added.",
+    "upload_failed": "{name} could not be uploaded.",
+    "uploading": "Uploading…",
+    "download": "Download",
+    "empty": "No documents yet.",
+    "delete_failed": "The document could not be deleted.",
+    "delete_title": "Delete document",
+    "delete_content": "Delete {name}? Nobody will be able to open it from here anymore."
   }
 }

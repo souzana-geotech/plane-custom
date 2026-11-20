@@ -21,5 +21,19 @@
       "name_taken": "Bu projede bu ada sahip bir Modül zaten var",
       "code_taken": "Bu kod bu projede zaten kullanılıyor"
     }
+  },
+  "job_documents": {
+    "title": "Belgeler",
+    "description": "Tüm ekibin ihtiyaç duyduğu dosyalar tek bir yerde.",
+    "drop": "Dosyaları buraya bırakın veya yüklemek için tıklayın",
+    "types_hint": "PDF, TXT veya Word, en fazla {size} MB",
+    "only_types": "Yalnızca PDF, TXT ve Word belgeleri eklenebilir.",
+    "upload_failed": "{name} yüklenemedi.",
+    "uploading": "Yükleniyor…",
+    "download": "İndir",
+    "empty": "Henüz belge yok.",
+    "delete_failed": "Belge silinemedi.",
+    "delete_title": "Belgeyi sil",
+    "delete_content": "{name} silinsin mi? Artık kimse onu buradan açamayacak."
   }
 }
